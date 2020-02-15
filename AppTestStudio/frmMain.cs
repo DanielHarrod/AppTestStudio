@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,11 @@ namespace AppTestStudio
         public frmMain()
         {
             InitializeComponent();
+        }
+
+        private void toolStripButtonToggleScript_Click(object sender, EventArgs e)
+        {
+            Debug.WriteLine("TEst");
         }
     }
 }

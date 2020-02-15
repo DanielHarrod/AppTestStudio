@@ -79,5 +79,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\AppTestStudioControls\AppTestStudioControls.csproj">
+      <Project>{1f7cc8a4-8227-45eb-bea8-ccc26b3d1f46}</Project>
+      <Name>AppTestStudioControls</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
