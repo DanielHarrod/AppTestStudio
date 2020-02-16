@@ -56,15 +56,15 @@
             this.toolStripLabelScheduler = new System.Windows.Forms.ToolStripLabel();
             this.splitContainerMain = new System.Windows.Forms.SplitContainer();
             this.splitContainerWorkspace = new System.Windows.Forms.SplitContainer();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabMain = new System.Windows.Forms.TabControl();
             this.tabDesign = new System.Windows.Forms.TabPage();
-            this.tabRun = new System.Windows.Forms.TabPage();
-            this.tabSchedule = new System.Windows.Forms.TabPage();
             this.splitContainerDesignSearch = new System.Windows.Forms.SplitContainer();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.splitContainerTreeSupport = new System.Windows.Forms.SplitContainer();
             this.tv = new System.Windows.Forms.TreeView();
+            this.tabRun = new System.Windows.Forms.TabPage();
+            this.tabSchedule = new System.Windows.Forms.TabPage();
+            this.txtLog = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
@@ -291,7 +291,7 @@
             // 
             // splitContainerMain.Panel2
             // 
-            this.splitContainerMain.Panel2.Controls.Add(this.textBox1);
+            this.splitContainerMain.Panel2.Controls.Add(this.txtLog);
             this.splitContainerMain.Size = new System.Drawing.Size(1273, 449);
             this.splitContainerMain.SplitterDistance = 380;
             this.splitContainerMain.TabIndex = 2;
@@ -308,16 +308,6 @@
             this.splitContainerWorkspace.Size = new System.Drawing.Size(1273, 380);
             this.splitContainerWorkspace.SplitterDistance = 424;
             this.splitContainerWorkspace.TabIndex = 0;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(0, 0);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(1273, 65);
-            this.textBox1.TabIndex = 0;
             // 
             // tabMain
             // 
@@ -341,25 +331,6 @@
             this.tabDesign.TabIndex = 0;
             this.tabDesign.Text = "Design";
             this.tabDesign.UseVisualStyleBackColor = true;
-            // 
-            // tabRun
-            // 
-            this.tabRun.Location = new System.Drawing.Point(4, 22);
-            this.tabRun.Name = "tabRun";
-            this.tabRun.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRun.Size = new System.Drawing.Size(416, 354);
-            this.tabRun.TabIndex = 1;
-            this.tabRun.Text = "Run";
-            this.tabRun.UseVisualStyleBackColor = true;
-            // 
-            // tabSchedule
-            // 
-            this.tabSchedule.Location = new System.Drawing.Point(4, 22);
-            this.tabSchedule.Name = "tabSchedule";
-            this.tabSchedule.Size = new System.Drawing.Size(416, 354);
-            this.tabSchedule.TabIndex = 2;
-            this.tabSchedule.Text = "Schedule";
-            this.tabSchedule.UseVisualStyleBackColor = true;
             // 
             // splitContainerDesignSearch
             // 
@@ -401,7 +372,7 @@
             this.splitContainerTreeSupport.Panel1.Controls.Add(this.tv);
             this.splitContainerTreeSupport.Panel2MinSize = 15;
             this.splitContainerTreeSupport.Size = new System.Drawing.Size(410, 319);
-            this.splitContainerTreeSupport.SplitterDistance = 295;
+            this.splitContainerTreeSupport.SplitterDistance = 293;
             this.splitContainerTreeSupport.SplitterWidth = 1;
             this.splitContainerTreeSupport.TabIndex = 0;
             // 
@@ -410,8 +381,37 @@
             this.tv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv.Location = new System.Drawing.Point(0, 0);
             this.tv.Name = "tv";
-            this.tv.Size = new System.Drawing.Size(410, 295);
+            this.tv.Size = new System.Drawing.Size(410, 293);
             this.tv.TabIndex = 0;
+            // 
+            // tabRun
+            // 
+            this.tabRun.Location = new System.Drawing.Point(4, 22);
+            this.tabRun.Name = "tabRun";
+            this.tabRun.Padding = new System.Windows.Forms.Padding(3);
+            this.tabRun.Size = new System.Drawing.Size(416, 354);
+            this.tabRun.TabIndex = 1;
+            this.tabRun.Text = "Run";
+            this.tabRun.UseVisualStyleBackColor = true;
+            // 
+            // tabSchedule
+            // 
+            this.tabSchedule.Location = new System.Drawing.Point(4, 22);
+            this.tabSchedule.Name = "tabSchedule";
+            this.tabSchedule.Size = new System.Drawing.Size(416, 354);
+            this.tabSchedule.TabIndex = 2;
+            this.tabSchedule.Text = "Schedule";
+            this.tabSchedule.UseVisualStyleBackColor = true;
+            // 
+            // txtLog
+            // 
+            this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLog.Location = new System.Drawing.Point(0, 0);
+            this.txtLog.Multiline = true;
+            this.txtLog.Name = "txtLog";
+            this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.txtLog.Size = new System.Drawing.Size(1273, 65);
+            this.txtLog.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -457,7 +457,7 @@
         private AppTestStudioControls.AppTestStudioToolStrip toolStripMain;
         private System.Windows.Forms.SplitContainer splitContainerMain;
         private System.Windows.Forms.SplitContainer splitContainerWorkspace;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem wizardRecommendedToolStripMenuItem;
