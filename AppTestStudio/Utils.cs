@@ -1,8 +1,11 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AppTestStudio
 {
@@ -94,6 +97,124 @@ namespace AppTestStudio
                     Node.SelectedImageIndex = IconNames.VideoGameController();
                     break;
             }
+
+        }
+
+        public static PointF Center(RectangleF r)
+        {
+            PointF Loc = r.Location;
+            Loc.X += r.Width / 2;
+            Loc.Y += r.Height / 2;
+            return Loc;
+        }
+
+        public static int GetWindowHandleByWindowName(String WindowName)
+        {              
+            foreach (Process P in Process.GetProcesses())
+            {
+                if (P.MainWindowTitle.Length > 0)
+                {
+                    if (P.MainWindowTitle == WindowName)
+                    {
+                        return P.MainWindowHandle.ToInt32();
+                    }
+                }
+            }
+            return 0;
+        }
+
+        public static String CalculateDelay(DateTime dt)
+        {
+            if ( dt < DateTime.Now)
+            {
+                return "";
+            }
+
+            TimeSpan ts = dt.Subtract(DateTime.Now);
+
+            long Seconds = ts.TotalSeconds.ToLong();
+
+            long Hours = Seconds / (60 * 60);
+            Seconds = Seconds - (Hours * 60 * 60);
+
+            long Minutes = Seconds / 60;
+            Seconds = Seconds - (Minutes * 60);
+
+            String Result = "";
+
+            if ( Hours > 0 )
+            {
+                Result = Result + String.Format("{0}h ", Hours);
+            }
+
+            if (Minutes > 0)
+            {
+                Result = Result + String.Format("{0}m ", Minutes);
+            }
+
+            if (Seconds > 0)
+            {
+                Result = Result + String.Format("{0}s ", Seconds);
+            }
+
+            return Result;
+        }
+
+        public static Bitmap GetBitmapFromWindowHandle( int WindowHandle)
+        {
+            IntPtr IntPtrWindowHandle = new IntPtr(WindowHandle);
+
+            IntPtr IntPtrDeviceContext = API.GetDC(IntPtrWindowHandle);  //GDI Alloc 1
+            IntPtr IntPtrContext = API.CreateCompatibleDC(IntPtrDeviceContext);  // GDI Alloc 2
+
+            API.RECT WindowRectangle = new API.RECT();
+
+            API.GetWindowRect(IntPtrWindowHandle, out WindowRectangle);
+
+            int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
+            int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
+
+            IntPtr CompatibleBitmap = API.CreateCompatibleBitmap(IntPtrDeviceContext, TargetWindowWidth, TargetWindowHeight);   // GDI Alloc 3
+
+            API.SelectObject(IntPtrContext, CompatibleBitmap);
+
+            API.PrintWindow(IntPtrWindowHandle, IntPtrContext, 2);
+
+            Bitmap bmp = System.Drawing.Image.FromHbitmap(CompatibleBitmap);
+
+            API.DeleteObject(CompatibleBitmap);  // GDI Dealloc 3
+            API.DeleteDC(IntPtrContext); // GDI DeAlloc 2
+            API.ReleaseDC(IntPtrWindowHandle, IntPtrDeviceContext);  //GDI Dealloc 1
+
+            return bmp;
+        }
+
+        public readonly static String ApplicationName = "App Test Studio";
+
+        public static String GetApplicationFolder()
+        {
+            String MyDocuments = System.Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            String DirectoryPath = System.IO.Path.Combine(MyDocuments, ApplicationName);
+            return DirectoryPath;
+        }
+        
+        // Makes sure the text displays white on black or black on white but not white on white.
+        public static DataGridViewCellStyle GetDataGridViewCellStyleFromColor(Color color)
+        {
+            DataGridViewCellStyle Style = new DataGridViewCellStyle();
+            Style.BackColor = color;
+
+            Single brightness = color.GetBrightness();
+            if (brightness > 0.55)
+            {
+                Style.ForeColor = Color.WhiteSmoke;
+            }
+            else
+            {
+                Style.ForeColor = Color.Black;
+            }
+
+            return Style;
 
         }
     }

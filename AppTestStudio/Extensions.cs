@@ -36,6 +36,11 @@ namespace AppTestStudio
             }
         }
 
+        public static long ToLong(this double d)
+        {
+            return (long)d;
+        }
+
         // Compare Colors and return if the colors match
         // Returns Qualifying Points, how many points to return true
         public static Boolean CompareColorWithPoints(this Color aColor, Color bColor, int Points, ref int QualifyingPoints)
@@ -126,6 +131,31 @@ namespace AppTestStudio
                 return false;
             }
             return true;
+        }
+        public static String Right(this String value, int length)
+        {
+            return value.Substring(value.Length - length);
+        }
+
+        public static bool IsNumeric(this String input)
+        {
+            long test;
+            return long.TryParse(input, out test);
+        }
+
+        public static int ToInt(this String input)
+        {
+            int test;
+            int.TryParse(input, out test);
+            return test;
+        }
+
+
+        public static long ToLong(this String input)
+        {
+            long test;
+            long.TryParse(input, out test);
+            return test;
         }
     }
 }

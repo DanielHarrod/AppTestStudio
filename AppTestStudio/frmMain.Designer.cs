@@ -207,6 +207,7 @@
             this.toolStripLoadScript.Name = "toolStripLoadScript";
             this.toolStripLoadScript.Size = new System.Drawing.Size(86, 22);
             this.toolStripLoadScript.Text = "Load Script";
+            this.toolStripLoadScript.Click += new System.EventHandler(this.toolStripLoadScript_Click);
             // 
             // toolStripButtonSaveScript
             // 
@@ -424,6 +425,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "App Test Studio";
+            this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
