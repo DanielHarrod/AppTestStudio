@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml;
 
 namespace AppTestStudio
@@ -222,6 +223,117 @@ namespace AppTestStudio
             }
 
             return Game;
+        }
+
+        public List<String> SaveGame(ThreadManager threadManger, TreeView tv)
+        {
+            List<String> ObjectList = null;
+
+            XmlTextWriter Writer = new XmlTextWriter(FileName, System.Text.Encoding.UTF8);
+            Writer.Formatting = Formatting.Indented;
+
+            Writer.WriteStartDocument();
+
+            Writer.WriteStartElement("AppTestStudio");  // Root.
+
+            // 0 is always workspace node.
+            GameNodeWorkspace WorkspaceNode = tv.Nodes[0] as GameNodeWorkspace;
+
+            String Directory = System.IO.Path.Combine(Path.GetDirectoryName(FileName), "Pictures");
+            if (System.IO.Directory.Exists(Directory))
+            {
+                // do nothing
+            }
+            else
+            {
+                System.IO.Directory.CreateDirectory(Directory);
+            }
+
+            Writer.WriteStartElement("App");
+            Writer.WriteAttributeString("Name", Text);
+            Writer.WriteAttributeString("TargetGameBuild", TargetGameBuild);
+            Writer.WriteAttributeString("PackageName", PackageName);
+            Writer.WriteAttributeString("LaunchInstance", InstanceToLaunch);
+            Writer.WriteAttributeString("LoopDelay", LoopDelay.ToString());
+            //'Writer.WriteAttributeString("FileName", Game.FileName);
+            Writer.WriteAttributeString("Resolution", Resolution);
+            Writer.WriteAttributeString("SaveVideo", SaveVideo.ToString());
+            Writer.WriteAttributeString("VideoFrameLimit", VideoFrameLimit.ToString());
+
+
+            GameNode Events = Nodes[0] as GameNode;
+
+            SaveEvents(Writer, WorkspaceNode, this, Events, Directory);
+            if (Nodes.Count > 1)
+            {
+                // Objects is always 1
+                GameNodeObjects Objects = Nodes[1] as GameNodeObjects;
+                ObjectList = SaveObjects(Writer, WorkspaceNode, this, Objects, Directory);
+            }
+            Writer.WriteEndElement();
+
+            Writer.WriteEndElement();
+
+            Writer.WriteEndDocument();
+            Writer.Close();
+            threadManger.IncrementTestSaved();
+
+            return ObjectList;
+
+        }
+
+        private void SaveEvents(XmlTextWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNode events, string directory)
+        {
+            throw new NotImplementedException();
+        }
+
+        private List<String> SaveObjects(XmlTextWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNodeObjects objects, string directory)
+        {
+            List<String> ObjectList = new List<string>();
+            writer.WriteStartElement("Objects");
+
+            foreach (GameNodeObject O in objects.Nodes)
+            {
+                SaveObject(writer, workspaceNode, gameNodeGame, O, directory, ObjectList);
+            }
+
+            //'/Objects
+            writer.WriteEndElement();
+
+            return ObjectList;
+
+        }
+
+        private void SaveObject(XmlTextWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNodeObject obj, string directory, List<String> objectList)
+        {
+            writer.WriteStartElement("Object");
+
+            writer.WriteAttributeString("Name", obj.GameNodeName);
+            writer.WriteAttributeString("FileName", obj.FileName);
+
+            String FullPath = Path.Combine(Path.GetDirectoryName(FileName), "Pictures", obj.FileName);
+
+            if (System.IO.File.Exists(FullPath))
+            {
+
+                objectList.Add(FullPath);
+            }
+            else
+            {
+                if (obj.Bitmap.IsSomething())
+                {
+                    obj.Bitmap.Save(FullPath);
+                    objectList.Add(FullPath);
+                }
+                else
+                {
+                    Debug.WriteLine("obj.Bitmap is nothing");
+                }
+            }
+
+
+            //'/Object
+            writer.WriteEndElement();
         }
 
         private static void LoadObjects(XmlNode xmlNode, GameNodeObjects objects, string gameName, List<GameNodeAction> actionNodesWithObjects, GameNodeGame game)

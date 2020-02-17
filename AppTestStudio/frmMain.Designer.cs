@@ -352,6 +352,7 @@
             this.toolStripButtonSaveScript.Name = "toolStripButtonSaveScript";
             this.toolStripButtonSaveScript.Size = new System.Drawing.Size(84, 22);
             this.toolStripButtonSaveScript.Text = "Save Script";
+            this.toolStripButtonSaveScript.Click += new System.EventHandler(this.toolStripButtonSaveScript_Click);
             // 
             // toolStripSeparator3
             // 

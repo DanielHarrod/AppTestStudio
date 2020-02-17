@@ -142,5 +142,44 @@ namespace AppTestStudio
             txtLog.SelectionStart = index;
 
         }
+
+        private void toolStripButtonSaveScript_Click(object sender, EventArgs e)
+        {
+            GameNode CurrentNode = tv.SelectedNode as GameNode;
+            while (CurrentNode.GameNodeType != GameNodeType.Game && CurrentNode.GameNodeType != GameNodeType.Games && CurrentNode.GameNodeType != GameNodeType.Workspace)
+            {
+                CurrentNode = CurrentNode.Parent as GameNode;
+            }
+
+            if ( CurrentNode.GameNodeType == GameNodeType.Game )
+            {
+                GameNodeGame GameNode = CurrentNode as GameNodeGame;
+
+                // Make Backup folder if necessary.
+                String Directory = System.IO.Path.Combine(WorkspaceNode.WorkspaceFolder, GameNode.Text, "Backup");
+            if (System.IO.Directory.Exists(Directory)) {
+                    //'do nothing
+            } else {
+                    System.IO.Directory.CreateDirectory(Directory);
+            }
+
+            // Make a Backup file if necessary.
+                if (System.IO.File.Exists(GameNode.FileName))
+                {
+
+                    String NewFileName = System.IO.Path.Combine(Directory, DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss"));
+                    if (System.IO.File.Exists(NewFileName))
+                    {
+                        // do nothing
+                    }
+                    else
+                    {
+                        System.IO.File.Copy(GameNode.FileName, NewFileName);
+                    }
+                }
+
+                GameNode.SaveGame(ThreadManager,tv);
+            }
+        }
     }
 }
