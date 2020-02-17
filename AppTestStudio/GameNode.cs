@@ -21,7 +21,17 @@ namespace AppTestStudio
         //Which panel to show
         public GameNodeType GameNodeType { get; set; }
 
-        public String GameNodeName { get; set; }
+        private String mGameNodeName;
+
+        public String GameNodeName
+        {
+            get { return mGameNodeName; }
+            set { 
+                mGameNodeName = value;
+                Name = value;
+                Text = value;
+            }
+        }
 
         public GameNode(String Name, GameNodeType Type, ActionType ActionType = ActionType.Action )
         {

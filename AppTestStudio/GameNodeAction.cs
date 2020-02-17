@@ -4,10 +4,10 @@ using System.Drawing;
 
 namespace AppTestStudio
 {
-    internal class GameNodeAction : GameNode
+    public class GameNodeAction : GameNode
     {
-        public GameNodeAction(string Name, ActionType ActionType)
-            : base(Name, GameNodeType.Action, ActionType)
+        public GameNodeAction(string name, ActionType actionType)
+            : base(name, GameNodeType.Action, actionType)
         {
             AfterCompletionType = AfterCompletionTypeDefault();
             LogicChoice = "AND";
@@ -27,6 +27,7 @@ namespace AppTestStudio
             ObjectName = "";
             ObjectThreshold = 70;
             DragTargetMode = DragTargetMode.Absolute;
+            ClickList = new List<SingleClick>();
 
         }
 
@@ -198,7 +199,7 @@ namespace AppTestStudio
             return (GameNode)this;
         }
 
-        public Boolean IsActionMatch(Bitmap bmp, ref int QualifyingPoints)
+        public Boolean IsActionMatch(Bitmap bmp, ref int qualifyingPoints)
         {
             Boolean Result = false;
             Boolean FinalResult = false;
@@ -218,7 +219,7 @@ namespace AppTestStudio
                 if (LogicChoice == "AND")
                 {
 
-                    if (singleClick.Color.CompareColorWithPoints(color, Points, ref QualifyingPoints))
+                    if (singleClick.Color.CompareColorWithPoints(color, Points, ref qualifyingPoints))
                     {
                         // First one always OK.
                         if (FinalResult == false)
@@ -234,7 +235,7 @@ namespace AppTestStudio
                 }
                 else
                 {
-                    if (singleClick.Color.CompareColorWithPoints(color, Points, ref QualifyingPoints))
+                    if (singleClick.Color.CompareColorWithPoints(color, Points, ref qualifyingPoints))
                     {
                         Result = true;
                     }

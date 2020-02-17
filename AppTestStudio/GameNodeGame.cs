@@ -13,7 +13,7 @@ using System.Xml;
 
 namespace AppTestStudio
 {
-    class GameNodeGame : GameNode
+    public class GameNodeGame : GameNode
     {
         public GameNodeGame(String name) : base(name, GameNodeType.Game)
         {
@@ -54,11 +54,11 @@ namespace AppTestStudio
             ThreadLog.Enqueue(FormattedLog);
         }
 
-        public void LogStatus(int Item, long Time)
+        public void LogStatus(int item, long time)
         {
             AppTestStudioStatusControlItem StatusControlItem = new AppTestStudioStatusControlItem();
-            StatusControlItem.Index = Item;
-            StatusControlItem.Time = Time;
+            StatusControlItem.Index = item;
+            StatusControlItem.Time = time;
             StatusControlItem.Ticks = DateTime.UtcNow.Ticks;
 
             StatusControl.Enqueue(StatusControlItem);
@@ -135,30 +135,30 @@ namespace AppTestStudio
         public long VideoFrameLimit { get; set; }
         public Boolean SaveVideo { get; set; }
 
-        public static GameNodeGame LoadGameFromFile(String FileName, Boolean LoadBitmaps)
+        public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps)
         {
             GameNodeGame Game = null;
             XmlDocument Document = new XmlDocument();
-            Document.Load(FileName);
+            Document.Load(fileName);
 
             if (Document.DocumentElement.SelectSingleNode("//App").IsSomething())
             {
                 XmlNode ChildNode = Document.DocumentElement.SelectSingleNode("//App");
-                Game = LoadGame(ChildNode, FileName, "", LoadBitmaps);
+                Game = LoadGame(ChildNode, fileName, "", loadBitmaps);
             }
 
             return Game;
         }
 
-        public static GameNodeGame LoadGame(XmlNode ChildNode, String FileName, String OverrideGameName, Boolean LoadBitmaps)
+        public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps)
         {
-            String GameName = ChildNode.Attributes["Name"].Value;
-            if (OverrideGameName.Length > 0)
+            String GameName = childNode.Attributes["Name"].Value;
+            if (overrideGameName.Length > 0)
             {
-                GameName = OverrideGameName;
+                GameName = overrideGameName;
             }
 
-            String TargetGameBuild = ChildNode.Attributes["TargetGameBuild"].Value;
+            String TargetGameBuild = childNode.Attributes["TargetGameBuild"].Value;
 
             String PackageName = "";
             long LoopDelay = 1000;
@@ -167,34 +167,34 @@ namespace AppTestStudio
             long VideoFrameLimit = 2000;
             String LaunchInstance = "";
 
-            if (ChildNode.Attributes.GetNamedItem("PackageName").IsSomething())
+            if (childNode.Attributes.GetNamedItem("PackageName").IsSomething())
             {
-                PackageName = ChildNode.Attributes["PackageName"].Value;
+                PackageName = childNode.Attributes["PackageName"].Value;
             }
 
-            if (ChildNode.Attributes.GetNamedItem("SaveVideo").IsSomething())
+            if (childNode.Attributes.GetNamedItem("SaveVideo").IsSomething())
             {
-                SaveVideo = Convert.ToBoolean(ChildNode.Attributes["SaveVideo"].Value);
+                SaveVideo = Convert.ToBoolean(childNode.Attributes["SaveVideo"].Value);
             }
 
-            if (ChildNode.Attributes.GetNamedItem("LaunchInstance").IsSomething())
+            if (childNode.Attributes.GetNamedItem("LaunchInstance").IsSomething())
             {
-                LaunchInstance = ChildNode.Attributes["LaunchInstance"].Value;
+                LaunchInstance = childNode.Attributes["LaunchInstance"].Value;
             }
 
-            if (ChildNode.Attributes.GetNamedItem("LoopDelay").IsSomething())
+            if (childNode.Attributes.GetNamedItem("LoopDelay").IsSomething())
             {
-                LoopDelay = Convert.ToInt64(ChildNode.Attributes["LoopDelay"].Value);
+                LoopDelay = Convert.ToInt64(childNode.Attributes["LoopDelay"].Value);
             }
 
-            if (ChildNode.Attributes.GetNamedItem("Resolution").IsSomething())
+            if (childNode.Attributes.GetNamedItem("Resolution").IsSomething())
             {
-                Resolution = ChildNode.Attributes["Resolution"].Value;
+                Resolution = childNode.Attributes["Resolution"].Value;
             }
 
-            if (ChildNode.Attributes.GetNamedItem("VideoFrameLimit").IsSomething())
+            if (childNode.Attributes.GetNamedItem("VideoFrameLimit").IsSomething())
             {
-                VideoFrameLimit = Convert.ToInt64(ChildNode.Attributes["VideoFrameLimit"].Value);
+                VideoFrameLimit = Convert.ToInt64(childNode.Attributes["VideoFrameLimit"].Value);
             }
 
             GameNodeGame Game = new GameNodeGame(GameName);
@@ -203,7 +203,7 @@ namespace AppTestStudio
             Game.InstanceToLaunch = LaunchInstance;
             Game.Resolution = Resolution;
             Game.LoopDelay = LoopDelay;
-            Game.FileName = FileName;
+            Game.FileName = fileName;
             Game.SaveVideo = SaveVideo;
             Game.VideoFrameLimit = VideoFrameLimit;
 
@@ -211,14 +211,14 @@ namespace AppTestStudio
             Game.Nodes.Add(Events);
 
             List<GameNodeAction> ActionNodesWithObjects = new List<GameNodeAction>();
-            LoadEvents(ChildNode.FirstChild, Game, Events, ActionNodesWithObjects, LoadBitmaps);
+            LoadEvents(childNode.FirstChild, Game, Events, ActionNodesWithObjects, loadBitmaps);
 
             GameNodeObjects Objects = new GameNodeObjects("Objects");
             Game.Nodes.Add(Objects);
 
-            if (ChildNode.ChildNodes.Count > 1)
+            if (childNode.ChildNodes.Count > 1)
             {
-                LoadObjects(ChildNode.ChildNodes[1], Objects, GameName, ActionNodesWithObjects, Game);
+                LoadObjects(childNode.ChildNodes[1], Objects, GameName, ActionNodesWithObjects, Game);
             }
 
             return Game;
@@ -269,29 +269,29 @@ namespace AppTestStudio
             }
         }
 
-        public static void LoadEvents(XmlNode EventsNode, GameNodeGame GameNode, GameNode TreeEventNode, List<GameNodeAction> lst, Boolean LoadBitmaps)
+        public static void LoadEvents(XmlNode eventsNode, GameNodeGame gameNode, GameNode treeEventNode, List<GameNodeAction> lst, Boolean loadBitmaps)
         {
-            foreach (XmlNode ChildNode in EventsNode.ChildNodes)
+            foreach (XmlNode ChildNode in eventsNode.ChildNodes)
             {
                 switch (ChildNode.Name)
                 {
                     case "Event":
                         GameNodeAction NewEvent = new GameNodeAction("New Node", ActionType.Event);
-                        TreeEventNode.Nodes.Add(NewEvent);
-                        LoadEvent(ChildNode, GameNode, NewEvent, lst, LoadBitmaps);
+                        treeEventNode.Nodes.Add(NewEvent);
+                        LoadEvent(ChildNode, gameNode, NewEvent, lst, loadBitmaps);
                         break;
                     case "Action":
                         GameNodeAction NewAction = new GameNodeAction("New Node", ActionType.Action);
-                        TreeEventNode.Nodes.Add(NewAction);
-                        LoadAction(ChildNode, GameNode, NewAction, lst, LoadBitmaps);
+                        treeEventNode.Nodes.Add(NewAction);
+                        LoadAction(ChildNode, gameNode, NewAction, lst, loadBitmaps);
                         break;
                     case "RNG":
-                        LoadAction(ChildNode, GameNode, TreeEventNode as GameNodeAction, lst, LoadBitmaps);
+                        LoadAction(ChildNode, gameNode, treeEventNode as GameNodeAction, lst, loadBitmaps);
                         break;
                     case "RNG-Container":
                         GameNodeAction NewRNGContainer = new GameNodeAction("New Node", ActionType.RNGContainer);
-                        TreeEventNode.Nodes.Add(NewRNGContainer);
-                        LoadAction(ChildNode, GameNode, NewRNGContainer, lst, LoadBitmaps);
+                        treeEventNode.Nodes.Add(NewRNGContainer);
+                        LoadAction(ChildNode, gameNode, NewRNGContainer, lst, loadBitmaps);
                         break;
                     default:
                         Debug.Assert(false);
@@ -300,25 +300,25 @@ namespace AppTestStudio
             }
         }
 
-        private static void LoadEvent(XmlNode EventNode, GameNodeGame gameNode, GameNodeAction newEvent, List<GameNodeAction> lst, bool loadBitmaps)
+        private static void LoadEvent(XmlNode eventNode, GameNodeGame gameNode, GameNodeAction newEvent, List<GameNodeAction> lst, bool loadBitmaps)
         {
-            String EventName = EventNode.Attributes["Name"].Value;
+            String EventName = eventNode.Attributes["Name"].Value;
             String LogicChoice = "";
-            if (EventNode.Attributes.GetNamedItem("LogicChoice").IsSomething())
+            if (eventNode.Attributes.GetNamedItem("LogicChoice").IsSomething())
             {
-                LogicChoice = EventNode.Attributes["LogicChoice"].Value;
+                LogicChoice = eventNode.Attributes["LogicChoice"].Value;
             }
 
             Boolean UseParentPicture = false;
-            if (EventNode.Attributes.GetNamedItem("UseParentPicture").IsSomething())
+            if (eventNode.Attributes.GetNamedItem("UseParentPicture").IsSomething())
             {
-                UseParentPicture = Convert.ToBoolean(EventNode.Attributes["UseParentPicture"].Value);
+                UseParentPicture = Convert.ToBoolean(eventNode.Attributes["UseParentPicture"].Value);
             }
 
             String AfterComletionType = "";
-            if (EventNode.Attributes.GetNamedItem("AfterCompletionType").IsSomething())
+            if (eventNode.Attributes.GetNamedItem("AfterCompletionType").IsSomething())
             {
-                AfterComletionType = EventNode.Attributes["AfterCompletionType"].Value;
+                AfterComletionType = eventNode.Attributes["AfterCompletionType"].Value;
                 switch (AfterComletionType.ToUpper())
                 {
                     case "HOME":
@@ -334,7 +334,7 @@ namespace AppTestStudio
                         newEvent.AfterCompletionType = AfterCompletionType.Stop;
                         break;
                     default:
-                        Debug.WriteLine("Unexpected GameNodeGame.LoadEvent.AfterCompletionType {0}", EventNode.Attributes["AfterCompletionType"].Value);
+                        Debug.WriteLine("Unexpected GameNodeGame.LoadEvent.AfterCompletionType {0}", eventNode.Attributes["AfterCompletionType"].Value);
                         newEvent.AfterCompletionType = AfterCompletionType.Home;
                         break;
                 }
@@ -348,19 +348,19 @@ namespace AppTestStudio
             newEvent.LogicChoice = LogicChoice;
             newEvent.UseParentPicture = UseParentPicture;
 
-            if (EventNode.Attributes.GetNamedItem("IsLimited").IsSomething())
+            if (eventNode.Attributes.GetNamedItem("IsLimited").IsSomething())
             {
-                newEvent.IsLimited = Convert.ToBoolean(EventNode.Attributes["IsLimited"].Value);
+                newEvent.IsLimited = Convert.ToBoolean(eventNode.Attributes["IsLimited"].Value);
             }
 
-            if (EventNode.Attributes.GetNamedItem("IsWaitFirst").IsSomething())
+            if (eventNode.Attributes.GetNamedItem("IsWaitFirst").IsSomething())
             {
-                newEvent.IsWaitFirst = Convert.ToBoolean(EventNode.Attributes["IsWaitFirst"].Value);
+                newEvent.IsWaitFirst = Convert.ToBoolean(eventNode.Attributes["IsWaitFirst"].Value);
             }
 
-            if (EventNode.Attributes.GetNamedItem("ExecutionLimit").IsSomething())
+            if (eventNode.Attributes.GetNamedItem("ExecutionLimit").IsSomething())
             {
-                String ExecutionLimit = EventNode.Attributes["ExecutionLimit"].Value;
+                String ExecutionLimit = eventNode.Attributes["ExecutionLimit"].Value;
                 if (ExecutionLimit.IsNumeric())
                 {
                     newEvent.ExecutionLimit = ExecutionLimit.ToLong();
@@ -371,9 +371,9 @@ namespace AppTestStudio
                 }
             }
 
-            if (EventNode.Attributes.GetNamedItem("WaitType").IsSomething())
+            if (eventNode.Attributes.GetNamedItem("WaitType").IsSomething())
             {
-                String WaitType = EventNode.Attributes["WaitType"].Value;
+                String WaitType = eventNode.Attributes["WaitType"].Value;
                 switch (WaitType.ToUpper())
                 {
                     case "ITERATION":
@@ -391,15 +391,15 @@ namespace AppTestStudio
                 }
             }
 
-            if (EventNode.Attributes.GetNamedItem("IsColorPoint").IsSomething())
+            if (eventNode.Attributes.GetNamedItem("IsColorPoint").IsSomething())
             {
-                Boolean IsColorPoint = Convert.ToBoolean(EventNode.Attributes["IsColorPoint"].Value);
+                Boolean IsColorPoint = Convert.ToBoolean(eventNode.Attributes["IsColorPoint"].Value);
                 newEvent.IsColorPoint = IsColorPoint;
             }
 
-            if (EventNode.Attributes.GetNamedItem("LimitRepeats").IsSomething())
+            if (eventNode.Attributes.GetNamedItem("LimitRepeats").IsSomething())
             {
-                switch (EventNode.Attributes["LimitRepeats"].Value.ToUpper())
+                switch (eventNode.Attributes["LimitRepeats"].Value.ToUpper())
                 {
                     case "TRUE":
                         newEvent.LimitRepeats = true;
@@ -412,7 +412,7 @@ namespace AppTestStudio
                 }
             }
 
-            foreach (XmlNode childNode in EventNode.ChildNodes)
+            foreach (XmlNode childNode in eventNode.ChildNodes)
             {
                 switch (childNode.Name.ToUpper())
                 {
@@ -542,207 +542,207 @@ namespace AppTestStudio
             }
         }
 
-        private static void LoadAction(XmlNode ActionNode, GameNodeGame GameNode, GameNodeAction TreeActionNode, List<GameNodeAction> lst, Boolean LoadBitmaps)
+        private static void LoadAction(XmlNode actionNode, GameNodeGame gameNode, GameNodeAction treeActionNode, List<GameNodeAction> lst, Boolean loadBitmaps)
         {
             String ActionName = "";
 
-            if (ActionNode.Attributes.GetNamedItem("Name").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("Name").IsSomething())
             {
-                ActionName = ActionNode.Attributes["Name"].Value;
+                ActionName = actionNode.Attributes["Name"].Value;
             }
 
             Boolean UseParentPicture = false;
-            if (ActionNode.Attributes.GetNamedItem("UseParentPicture").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("UseParentPicture").IsSomething())
             {
-                UseParentPicture = Convert.ToBoolean(ActionNode.Attributes["UseParentPicture"].Value);
+                UseParentPicture = Convert.ToBoolean(actionNode.Attributes["UseParentPicture"].Value);
             }
 
-            if (ActionNode.Attributes.GetNamedItem("AfterCompletionType").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("AfterCompletionType").IsSomething())
             {
-                switch (ActionNode.Attributes["AfterCompletionType"].Value)
+                switch (actionNode.Attributes["AfterCompletionType"].Value)
                 {
                     case "Home":
-                        TreeActionNode.AfterCompletionType = AfterCompletionType.Home;
+                        treeActionNode.AfterCompletionType = AfterCompletionType.Home;
                         break;
                     case "Continue":
-                        TreeActionNode.AfterCompletionType = AfterCompletionType.Continue;
+                        treeActionNode.AfterCompletionType = AfterCompletionType.Continue;
                         break;
                     case "Parent":
-                        TreeActionNode.AfterCompletionType = AfterCompletionType.Parent;
+                        treeActionNode.AfterCompletionType = AfterCompletionType.Parent;
                         break;
                     case "Stop":
-                        TreeActionNode.AfterCompletionType = AfterCompletionType.Stop;
+                        treeActionNode.AfterCompletionType = AfterCompletionType.Stop;
                         break;
                     default:
-                        Debug.WriteLine("Unexpected GameNodeGame.LoadAction.AfterCompletionType {0}", ActionNode.Attributes["AfterCompletionType"].Value);
+                        Debug.WriteLine("Unexpected GameNodeGame.LoadAction.AfterCompletionType {0}", actionNode.Attributes["AfterCompletionType"].Value);
                         break;
                 }
             }
             else
             {
-                TreeActionNode.AfterCompletionType = AfterCompletionType.Continue;
+                treeActionNode.AfterCompletionType = AfterCompletionType.Continue;
             }
 
-            if (ActionNode.Attributes.GetNamedItem("IsRelativeStart").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("IsRelativeStart").IsSomething())
             {
-                Boolean IsRelativeStart = Convert.ToBoolean(ActionNode.Attributes["IsRelativeStart"].Value);
-                TreeActionNode.IsRelativeStart = IsRelativeStart;
+                Boolean IsRelativeStart = Convert.ToBoolean(actionNode.Attributes["IsRelativeStart"].Value);
+                treeActionNode.IsRelativeStart = IsRelativeStart;
             }
 
-            if (ActionNode.Attributes.GetNamedItem("DragTargetMode").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("DragTargetMode").IsSomething())
             {
-                String DragTargetMode = ActionNode.Attributes["DragTargetMode"].Value;
+                String DragTargetMode = actionNode.Attributes["DragTargetMode"].Value;
                 switch (DragTargetMode)
                 {
                     case "Absolute":
-                        TreeActionNode.DragTargetMode = AppTestStudio.DragTargetMode.Absolute;
+                        treeActionNode.DragTargetMode = AppTestStudio.DragTargetMode.Absolute;
                         break;
                     case "Relative":
-                        TreeActionNode.DragTargetMode = AppTestStudio.DragTargetMode.Relative;
+                        treeActionNode.DragTargetMode = AppTestStudio.DragTargetMode.Relative;
                         break;
                     default:
-                        Debug.WriteLine("Unexpected GameNodeGame.LoadAction.DragTargetMode {0}", ActionNode.Attributes["DragTargetMode"].Value);
+                        Debug.WriteLine("Unexpected GameNodeGame.LoadAction.DragTargetMode {0}", actionNode.Attributes["DragTargetMode"].Value);
                         break;
                 }
             }
 
-            if (ActionNode.Attributes.GetNamedItem("RelativeXOffset").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("RelativeXOffset").IsSomething())
             {
-                long RelativeXOffset = Convert.ToInt64(ActionNode.Attributes["RelativeXOffset"].Value);
-                TreeActionNode.RelativeXOffset = RelativeXOffset;
+                long RelativeXOffset = Convert.ToInt64(actionNode.Attributes["RelativeXOffset"].Value);
+                treeActionNode.RelativeXOffset = RelativeXOffset;
             }
 
-            if (ActionNode.Attributes.GetNamedItem("RelativeYOffset").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("RelativeYOffset").IsSomething())
             {
-                long RelativeYOffset = Convert.ToInt64(ActionNode.Attributes["RelativeYOffset"].Value);
-                TreeActionNode.RelativeYOffset = RelativeYOffset;
+                long RelativeYOffset = Convert.ToInt64(actionNode.Attributes["RelativeYOffset"].Value);
+                treeActionNode.RelativeYOffset = RelativeYOffset;
             }
 
-            if (ActionNode.Attributes.GetNamedItem("Mode").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("Mode").IsSomething())
             {
-                switch (ActionNode.Attributes["Mode"].Value)
+                switch (actionNode.Attributes["Mode"].Value)
                 {
                     case "RangeClick":
-                        TreeActionNode.Mode = Mode.RangeClick;
+                        treeActionNode.Mode = Mode.RangeClick;
                         break;
                     case "ClickDragRelease":
-                        TreeActionNode.Mode = Mode.ClickDragRelease;
+                        treeActionNode.Mode = Mode.ClickDragRelease;
                         break;
                     default:
-                        Debug.WriteLine("Unexpected GameNodeGame.LoadAction.Mode {0}", ActionNode.Attributes["Mode"].Value);
-                        TreeActionNode.Mode = Mode.RangeClick;
+                        Debug.WriteLine("Unexpected GameNodeGame.LoadAction.Mode {0}", actionNode.Attributes["Mode"].Value);
+                        treeActionNode.Mode = Mode.RangeClick;
                         break;
                 }
             }
 
-            if (ActionNode.Attributes.GetNamedItem("IsLimited").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("IsLimited").IsSomething())
             {
-                TreeActionNode.IsLimited = Convert.ToBoolean(ActionNode.Attributes["IsLimited"].Value);
+                treeActionNode.IsLimited = Convert.ToBoolean(actionNode.Attributes["IsLimited"].Value);
             }
 
-            if (ActionNode.Attributes.GetNamedItem("IsWaitFirst").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("IsWaitFirst").IsSomething())
             {
-                TreeActionNode.IsWaitFirst = Convert.ToBoolean(ActionNode.Attributes["IsWaitFirst"].Value);
+                treeActionNode.IsWaitFirst = Convert.ToBoolean(actionNode.Attributes["IsWaitFirst"].Value);
             }
 
-            if (ActionNode.Attributes.GetNamedItem("ExecutionLimit").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("ExecutionLimit").IsSomething())
             {
-                String ExecutionLimit = ActionNode.Attributes["ExecutionLimit"].Value;
+                String ExecutionLimit = actionNode.Attributes["ExecutionLimit"].Value;
                 if (ExecutionLimit.IsNumeric())
                 {
-                    TreeActionNode.ExecutionLimit = Convert.ToInt64(ExecutionLimit);
+                    treeActionNode.ExecutionLimit = Convert.ToInt64(ExecutionLimit);
                 }
                 else
                 {
-                    TreeActionNode.ExecutionLimit = 1;
+                    treeActionNode.ExecutionLimit = 1;
                 }
             }
 
-            if (ActionNode.Attributes.GetNamedItem("WaitType").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("WaitType").IsSomething())
             {
-                switch (ActionNode.Attributes["WaitType"].Value)
+                switch (actionNode.Attributes["WaitType"].Value)
                 {
                     case "Iteration":
-                        TreeActionNode.WaitType = WaitType.Iteration;
+                        treeActionNode.WaitType = WaitType.Iteration;
                         break;
                     case "Time":
-                        TreeActionNode.WaitType = WaitType.Time;
+                        treeActionNode.WaitType = WaitType.Time;
                         break;
                     case "Session":
-                        TreeActionNode.WaitType = WaitType.Session;
+                        treeActionNode.WaitType = WaitType.Session;
                         break;
                     default:
-                        Debug.WriteLine("Unexpected GameNodeGame.LoadAction.WaitType {0}", ActionNode.Attributes["WaitType"].Value);
-                        TreeActionNode.WaitType = WaitType.Iteration;
+                        Debug.WriteLine("Unexpected GameNodeGame.LoadAction.WaitType {0}", actionNode.Attributes["WaitType"].Value);
+                        treeActionNode.WaitType = WaitType.Iteration;
                         break;
                 }
             }
 
-            if (ActionNode.Attributes.GetNamedItem("LimitRepeats").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("LimitRepeats").IsSomething())
             {
-                switch (ActionNode.Attributes["LimitRepeats"].Value.ToUpper())
+                switch (actionNode.Attributes["LimitRepeats"].Value.ToUpper())
                 {
                     case "TRUE":
-                        TreeActionNode.LimitRepeats = true;
+                        treeActionNode.LimitRepeats = true;
                         break;
                     case "FALSE":
-                        TreeActionNode.LimitRepeats = false;
+                        treeActionNode.LimitRepeats = false;
                         break;
 
                     default:
-                        Debug.WriteLine("Unexpected GameNodeGame.LoadAction.LimitRepeats {0}", ActionNode.Attributes["LimitRepeats"].Value);
-                        TreeActionNode.LimitRepeats = false;
+                        Debug.WriteLine("Unexpected GameNodeGame.LoadAction.LimitRepeats {0}", actionNode.Attributes["LimitRepeats"].Value);
+                        treeActionNode.LimitRepeats = false;
                         break;
                 }
             }
 
             Boolean AutoBalanceAttribue = false;
-            if (ActionNode.Attributes.GetNamedItem("AutoBalance").IsSomething())
+            if (actionNode.Attributes.GetNamedItem("AutoBalance").IsSomething())
             {
-                AutoBalanceAttribue = Convert.ToBoolean(ActionNode.Attributes["AutoBalance"].Value);
+                AutoBalanceAttribue = Convert.ToBoolean(actionNode.Attributes["AutoBalance"].Value);
             }
-            TreeActionNode.AutoBalance = AutoBalanceAttribue;
+            treeActionNode.AutoBalance = AutoBalanceAttribue;
 
 
-            TreeActionNode.GameNodeName = ActionName;
+            treeActionNode.GameNodeName = ActionName;
 
-            TreeActionNode.UseParentPicture = UseParentPicture;
+            treeActionNode.UseParentPicture = UseParentPicture;
 
-            foreach (XmlNode ActionNodeChildNode in ActionNode.ChildNodes)
+            foreach (XmlNode ActionNodeChildNode in actionNode.ChildNodes)
             {
                 switch (ActionNodeChildNode.Name.ToUpper())
                 {
                     case "LimitDelay":
-                        TreeActionNode.LimitDelayMS = Convert.ToInt32(ActionNodeChildNode.Attributes["MilliSeconds"].Value);
-                        TreeActionNode.LimitDelayS = Convert.ToInt32(ActionNodeChildNode.Attributes["Seconds"].Value);
-                        TreeActionNode.LimitDelayM = Convert.ToInt32(ActionNodeChildNode.Attributes["Minutes"].Value);
-                        TreeActionNode.LimitDelayH = Convert.ToInt32(ActionNodeChildNode.Attributes["Hours"].Value);
+                        treeActionNode.LimitDelayMS = Convert.ToInt32(ActionNodeChildNode.Attributes["MilliSeconds"].Value);
+                        treeActionNode.LimitDelayS = Convert.ToInt32(ActionNodeChildNode.Attributes["Seconds"].Value);
+                        treeActionNode.LimitDelayM = Convert.ToInt32(ActionNodeChildNode.Attributes["Minutes"].Value);
+                        treeActionNode.LimitDelayH = Convert.ToInt32(ActionNodeChildNode.Attributes["Hours"].Value);
                         break;
                     case "Delay":
-                        TreeActionNode.DelayMS = Convert.ToInt32(ActionNodeChildNode.Attributes["MilliSeconds"].Value);
-                        TreeActionNode.DelayS = Convert.ToInt32(ActionNodeChildNode.Attributes["Seconds"].Value);
-                        TreeActionNode.DelayM = Convert.ToInt32(ActionNodeChildNode.Attributes["Minutes"].Value);
-                        TreeActionNode.DelayH = Convert.ToInt32(ActionNodeChildNode.Attributes["Hours"].Value);
+                        treeActionNode.DelayMS = Convert.ToInt32(ActionNodeChildNode.Attributes["MilliSeconds"].Value);
+                        treeActionNode.DelayS = Convert.ToInt32(ActionNodeChildNode.Attributes["Seconds"].Value);
+                        treeActionNode.DelayM = Convert.ToInt32(ActionNodeChildNode.Attributes["Minutes"].Value);
+                        treeActionNode.DelayH = Convert.ToInt32(ActionNodeChildNode.Attributes["Hours"].Value);
                         break;
                     case "Rectangle":
                         int Rectanglex = ActionNodeChildNode.Attributes["X"].Value.ToInt();
                         int Rectangley = ActionNodeChildNode.Attributes["Y"].Value.ToInt();
                         int RectangleHeight = ActionNodeChildNode.Attributes["Height"].Value.ToInt();
                         int RectangleWidth = ActionNodeChildNode.Attributes["Width"].Value.ToInt();
-                        TreeActionNode.Rectangle = new Rectangle(Rectanglex, Rectangley, RectangleWidth, RectangleHeight);
+                        treeActionNode.Rectangle = new Rectangle(Rectanglex, Rectangley, RectangleWidth, RectangleHeight);
                         break;
                     case "Picture":
                         String ActionNodeFileName = ActionNodeChildNode.Attributes["FileName"].Value;
 
-                        String ActionNodeFullPath = Path.Combine(Path.GetDirectoryName(GameNode.FileName), "Pictures", ActionNodeFileName);
+                        String ActionNodeFullPath = Path.Combine(Path.GetDirectoryName(gameNode.FileName), "Pictures", ActionNodeFileName);
 
                         if (System.IO.File.Exists(ActionNodeFullPath))
                         {
-                            if (LoadBitmaps)
+                            if (loadBitmaps)
                             {
-                                TreeActionNode.Bitmap = Bitmap.FromFile(ActionNodeFullPath) as Bitmap;
+                                treeActionNode.Bitmap = Bitmap.FromFile(ActionNodeFullPath) as Bitmap;
                             }
-                            TreeActionNode.FileName = ActionNodeFileName;
+                            treeActionNode.FileName = ActionNodeFileName;
                         }
                         else
                         {
@@ -751,22 +751,22 @@ namespace AppTestStudio
 
                         if (ActionNodeChildNode.Attributes.GetNamedItem("ResolutionHeight").IsSomething())
                         {
-                            TreeActionNode.ResolutionHeight = ActionNodeChildNode.Attributes["ResolutionHeight"].Value.ToInt();
+                            treeActionNode.ResolutionHeight = ActionNodeChildNode.Attributes["ResolutionHeight"].Value.ToInt();
                         }
                         if (ActionNodeChildNode.Attributes.GetNamedItem("ResolutionWidth").IsSomething())
                         {
-                            TreeActionNode.ResolutionWidth = ActionNodeChildNode.Attributes["ResolutionWidth"].Value.ToInt();
+                            treeActionNode.ResolutionWidth = ActionNodeChildNode.Attributes["ResolutionWidth"].Value.ToInt();
                         }
                         break;
                     case "RNG":
                         GameNodeAction rngAction = new GameNodeAction("", ActionType.RNG);
                         rngAction.Percentage = ActionNodeChildNode.Attributes["Percentage"].Value.ToInt();
-                        TreeActionNode.Nodes.Add(rngAction);
+                        treeActionNode.Nodes.Add(rngAction);
 
-                        LoadEvents(ActionNodeChildNode.FirstChild, GameNode, rngAction, lst, LoadBitmaps);
+                        LoadEvents(ActionNodeChildNode.FirstChild, gameNode, rngAction, lst, loadBitmaps);
                         break;
                     case "Events":
-                        LoadEvents(ActionNodeChildNode, GameNode, TreeActionNode, lst, LoadBitmaps);
+                        LoadEvents(ActionNodeChildNode, gameNode, treeActionNode, lst, loadBitmaps);
                         break;
                     default:
                         break;

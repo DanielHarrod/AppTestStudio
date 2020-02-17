@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppTestStudio
 {
-    class SingleClick : ICloneable
+    public class SingleClick : ICloneable
     {
 
         public Color Color { get; set; }

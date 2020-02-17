@@ -14,9 +14,36 @@ namespace AppTestStudio
 {
     public partial class frmMain : Form
     {
+        public ThreadManager ThreadManager { get; set; }
+        private GameNodeWorkspace WorkspaceNode { get; set; }
+        private GameNode LastNode { get; set; }
+        public StringBuilder sb { get; set; }
         public frmMain()
         {
             InitializeComponent();
+            ThreadManager = new ThreadManager();
+            sb = new StringBuilder();
+        }
+        private void frmMain_Load(object sender, EventArgs e)
+        {
+            ThreadManager.Load();
+            InitializeToolbars();
+
+
+            WorkspaceNode = new GameNodeWorkspace("Apps");
+            WorkspaceNode.WorkspaceFolder = Utils.GetApplicationFolder();
+            tv.Nodes.Add(WorkspaceNode);
+        }
+
+        private void InitializeToolbars()
+        {
+
+            toolStripButtonStartEmmulator.Enabled = false;
+            toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
+        toolStripButtonStartEmmulatorLaunchAppRunScript.Enabled = false;
+
+        toolStripButtonRunScript.Enabled = false;
+        toolStripButtonSaveScript.Enabled = false;
         }
 
         private void toolStripButtonToggleScript_Click(object sender, EventArgs e)
@@ -26,29 +53,31 @@ namespace AppTestStudio
 
         private void toolStripLoadScript_Click(object sender, EventArgs e)
         {
-            if ( tv.Nodes[0].Nodes.Count > 0)
+            if (tv.Nodes.Count > 0)
             {
-                frmLoadCheck LoadCheck = new frmLoadCheck();
-                LoadCheck.StartPosition = FormStartPosition.CenterParent;
-                LoadCheck.ShowDialog();
-
-                switch (LoadCheck.Result)
+                if (tv.Nodes[0].Nodes.Count > 0)
                 {
-                    case frmLoadCheck.LoadCheckResult.Save:
-                        SaveCurrentProject();
-                        break;
-                    case frmLoadCheck.LoadCheckResult.DontSave:
-                        break;
-                    case frmLoadCheck.LoadCheckResult.Cancel:
-                        return;
-                    case frmLoadCheck.LoadCheckResult.DefaultValue:
-                        return;
-                    default:
-                        Debug.Assert(false);  //should not be here.
-                        break;
+                    frmLoadCheck LoadCheck = new frmLoadCheck();
+                    LoadCheck.StartPosition = FormStartPosition.CenterParent;
+                    LoadCheck.ShowDialog();
+
+                    switch (LoadCheck.Result)
+                    {
+                        case frmLoadCheck.LoadCheckResult.Save:
+                            SaveCurrentProject();
+                            break;
+                        case frmLoadCheck.LoadCheckResult.DontSave:
+                            break;
+                        case frmLoadCheck.LoadCheckResult.Cancel:
+                            return;
+                        case frmLoadCheck.LoadCheckResult.DefaultValue:
+                            return;
+                        default:
+                            Debug.Assert(false);  //should not be here.
+                            break;
+                    }
                 }
             }
-
             OpenFileDialog openDLG = new OpenFileDialog();
             openDLG.InitialDirectory = Utils.GetApplicationFolder();
             openDLG.Filter = "App Test Studio files|Default.xml";
@@ -70,7 +99,25 @@ namespace AppTestStudio
 
         private void LoadGameToTree(GameNodeGame game)
         {
-            //Interlocked.Increment()
+            ThreadManager.IncrementTestLoaded();
+            GameNode gt = WorkspaceNode;
+
+            gt.Nodes.Clear();
+
+            gt.Nodes.Add(game);
+
+            game.EnsureVisible();
+            game.ExpandAll();
+            LastNode = game;
+            tv.SelectedNode = game;
+            tv_AfterSelect(null, new TreeViewEventArgs(game));
+            tabTree.SelectedIndex = 0;
+
+            Log("Loaded Script: " + game.GameNodeName);
+
+
+
+
         }
 
         private void SaveCurrentProject()
@@ -78,9 +125,22 @@ namespace AppTestStudio
             throw new NotImplementedException();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
+        private void tv_AfterSelect(object sender, TreeViewEventArgs e)
         {
-          // Color Bob = ColorTranslator.FromHtml("#002255ff");
+
+        }
+
+        public void Log(String s)
+        {
+            int index = txtLog.SelectionStart;
+            sb.Insert(0, s + System.Environment.NewLine);
+            if (sb.Length > 10000)
+            {
+                sb.Remove(9700, 300);
+            }
+            txtLog.Text = sb.ToString();
+            txtLog.SelectionStart = index;
+
         }
     }
 }
