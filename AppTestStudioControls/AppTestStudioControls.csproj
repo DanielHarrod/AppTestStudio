@@ -39,6 +39,12 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppTestStudioStatusControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AppTestStudioStatusControl.Designer.cs">
+      <DependentUpon>AppTestStudioStatusControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="AppTestStudioStatusControlItem.cs" />
     <Compile Include="AppTestStudioToolStrip.cs">
       <SubType>Component</SubType>
@@ -46,7 +52,15 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AppTestStudioStatusControl.resx">
+      <DependentUpon>AppTestStudioStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

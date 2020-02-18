@@ -272,7 +272,7 @@ namespace AppTestStudio
                 Ordinate(ref Ordinal, lst, game.Nodes[0] as GameNode);
             }
                                  
-            AtsStatusControl1.Items = lst;
+           // AtsStatusControl1.Items = lst;
 
         }
 

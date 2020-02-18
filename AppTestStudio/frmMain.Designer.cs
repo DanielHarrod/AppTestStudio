@@ -51,7 +51,10 @@
             this.splitContainerTreeSupport = new System.Windows.Forms.SplitContainer();
             this.tv = new System.Windows.Forms.TreeView();
             this.tabRun = new System.Windows.Forms.TabPage();
+            this.lstThreads = new System.Windows.Forms.ListBox();
             this.tabSchedule = new System.Windows.Forms.TabPage();
+            this.PanelThread = new System.Windows.Forms.Panel();
+            this.splitContainerThread = new System.Windows.Forms.SplitContainer();
             this.txtLog = new System.Windows.Forms.TextBox();
             this.toolStripMain = new AppTestStudioControls.AppTestStudioToolStrip();
             this.toolStripLoadScript = new System.Windows.Forms.ToolStripButton();
@@ -65,7 +68,7 @@
             this.toolStripButtonToggleScript = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelScheduler = new System.Windows.Forms.ToolStripLabel();
-            this.lstThreads = new System.Windows.Forms.ListBox();
+            this.appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -73,6 +76,7 @@
             this.splitContainerMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerWorkspace)).BeginInit();
             this.splitContainerWorkspace.Panel1.SuspendLayout();
+            this.splitContainerWorkspace.Panel2.SuspendLayout();
             this.splitContainerWorkspace.SuspendLayout();
             this.tabTree.SuspendLayout();
             this.tabDesign.SuspendLayout();
@@ -84,6 +88,10 @@
             this.splitContainerTreeSupport.Panel1.SuspendLayout();
             this.splitContainerTreeSupport.SuspendLayout();
             this.tabRun.SuspendLayout();
+            this.PanelThread.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).BeginInit();
+            this.splitContainerThread.Panel2.SuspendLayout();
+            this.splitContainerThread.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -196,8 +204,8 @@
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.txtLog);
-            this.splitContainerMain.Size = new System.Drawing.Size(1273, 449);
-            this.splitContainerMain.SplitterDistance = 380;
+            this.splitContainerMain.Size = new System.Drawing.Size(1273, 712);
+            this.splitContainerMain.SplitterDistance = 602;
             this.splitContainerMain.TabIndex = 2;
             // 
             // splitContainerWorkspace
@@ -209,8 +217,12 @@
             // splitContainerWorkspace.Panel1
             // 
             this.splitContainerWorkspace.Panel1.Controls.Add(this.tabTree);
-            this.splitContainerWorkspace.Size = new System.Drawing.Size(1273, 380);
-            this.splitContainerWorkspace.SplitterDistance = 424;
+            // 
+            // splitContainerWorkspace.Panel2
+            // 
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelThread);
+            this.splitContainerWorkspace.Size = new System.Drawing.Size(1273, 602);
+            this.splitContainerWorkspace.SplitterDistance = 227;
             this.splitContainerWorkspace.TabIndex = 0;
             // 
             // tabTree
@@ -222,7 +234,7 @@
             this.tabTree.Location = new System.Drawing.Point(0, 0);
             this.tabTree.Name = "tabTree";
             this.tabTree.SelectedIndex = 0;
-            this.tabTree.Size = new System.Drawing.Size(424, 380);
+            this.tabTree.Size = new System.Drawing.Size(227, 602);
             this.tabTree.TabIndex = 0;
             // 
             // tabDesign
@@ -231,7 +243,7 @@
             this.tabDesign.Location = new System.Drawing.Point(4, 22);
             this.tabDesign.Name = "tabDesign";
             this.tabDesign.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDesign.Size = new System.Drawing.Size(416, 354);
+            this.tabDesign.Size = new System.Drawing.Size(219, 576);
             this.tabDesign.TabIndex = 0;
             this.tabDesign.Text = "Design";
             this.tabDesign.UseVisualStyleBackColor = true;
@@ -251,7 +263,7 @@
             // splitContainerDesignSearch.Panel2
             // 
             this.splitContainerDesignSearch.Panel2.Controls.Add(this.splitContainerTreeSupport);
-            this.splitContainerDesignSearch.Size = new System.Drawing.Size(410, 348);
+            this.splitContainerDesignSearch.Size = new System.Drawing.Size(213, 570);
             this.splitContainerDesignSearch.SplitterDistance = 25;
             this.splitContainerDesignSearch.TabIndex = 0;
             // 
@@ -260,7 +272,7 @@
             this.txtSearch.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtSearch.Location = new System.Drawing.Point(0, 0);
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(410, 20);
+            this.txtSearch.Size = new System.Drawing.Size(213, 20);
             this.txtSearch.TabIndex = 0;
             // 
             // splitContainerTreeSupport
@@ -275,8 +287,8 @@
             // 
             this.splitContainerTreeSupport.Panel1.Controls.Add(this.tv);
             this.splitContainerTreeSupport.Panel2MinSize = 15;
-            this.splitContainerTreeSupport.Size = new System.Drawing.Size(410, 319);
-            this.splitContainerTreeSupport.SplitterDistance = 293;
+            this.splitContainerTreeSupport.Size = new System.Drawing.Size(213, 541);
+            this.splitContainerTreeSupport.SplitterDistance = 515;
             this.splitContainerTreeSupport.SplitterWidth = 1;
             this.splitContainerTreeSupport.TabIndex = 0;
             // 
@@ -285,7 +297,7 @@
             this.tv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv.Location = new System.Drawing.Point(0, 0);
             this.tv.Name = "tv";
-            this.tv.Size = new System.Drawing.Size(410, 293);
+            this.tv.Size = new System.Drawing.Size(213, 515);
             this.tv.TabIndex = 0;
             this.tv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_AfterSelect);
             // 
@@ -295,19 +307,51 @@
             this.tabRun.Location = new System.Drawing.Point(4, 22);
             this.tabRun.Name = "tabRun";
             this.tabRun.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRun.Size = new System.Drawing.Size(416, 354);
+            this.tabRun.Size = new System.Drawing.Size(219, 576);
             this.tabRun.TabIndex = 1;
             this.tabRun.Text = "Run";
             this.tabRun.UseVisualStyleBackColor = true;
+            // 
+            // lstThreads
+            // 
+            this.lstThreads.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstThreads.FormattingEnabled = true;
+            this.lstThreads.Location = new System.Drawing.Point(3, 3);
+            this.lstThreads.Name = "lstThreads";
+            this.lstThreads.Size = new System.Drawing.Size(213, 570);
+            this.lstThreads.TabIndex = 0;
             // 
             // tabSchedule
             // 
             this.tabSchedule.Location = new System.Drawing.Point(4, 22);
             this.tabSchedule.Name = "tabSchedule";
-            this.tabSchedule.Size = new System.Drawing.Size(416, 354);
+            this.tabSchedule.Size = new System.Drawing.Size(219, 576);
             this.tabSchedule.TabIndex = 2;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
+            // 
+            // PanelThread
+            // 
+            this.PanelThread.Controls.Add(this.splitContainerThread);
+            this.PanelThread.Location = new System.Drawing.Point(41, 74);
+            this.PanelThread.Name = "PanelThread";
+            this.PanelThread.Size = new System.Drawing.Size(701, 383);
+            this.PanelThread.TabIndex = 0;
+            // 
+            // splitContainerThread
+            // 
+            this.splitContainerThread.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerThread.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainerThread.IsSplitterFixed = true;
+            this.splitContainerThread.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerThread.Name = "splitContainerThread";
+            this.splitContainerThread.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerThread.Panel2
+            // 
+            this.splitContainerThread.Panel2.Controls.Add(this.appTestStudioStatusControl1);
+            this.splitContainerThread.Size = new System.Drawing.Size(701, 383);
+            this.splitContainerThread.TabIndex = 0;
             // 
             // txtLog
             // 
@@ -316,7 +360,7 @@
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(1273, 65);
+            this.txtLog.Size = new System.Drawing.Size(1273, 106);
             this.txtLog.TabIndex = 0;
             // 
             // toolStripMain
@@ -422,20 +466,21 @@
             this.toolStripLabelScheduler.Size = new System.Drawing.Size(100, 22);
             this.toolStripLabelScheduler.Text = "Scheduler Paused";
             // 
-            // lstThreads
+            // appTestStudioStatusControl1
             // 
-            this.lstThreads.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstThreads.FormattingEnabled = true;
-            this.lstThreads.Location = new System.Drawing.Point(3, 3);
-            this.lstThreads.Name = "lstThreads";
-            this.lstThreads.Size = new System.Drawing.Size(410, 348);
-            this.lstThreads.TabIndex = 0;
+            this.appTestStudioStatusControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.appTestStudioStatusControl1.Items = null;
+            this.appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
+            this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
+            this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
+            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(701, 329);
+            this.appTestStudioStatusControl1.TabIndex = 0;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1273, 498);
+            this.ClientSize = new System.Drawing.Size(1273, 761);
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.toolStripMain);
             this.Controls.Add(this.menuStrip1);
@@ -451,6 +496,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
             this.splitContainerWorkspace.Panel1.ResumeLayout(false);
+            this.splitContainerWorkspace.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerWorkspace)).EndInit();
             this.splitContainerWorkspace.ResumeLayout(false);
             this.tabTree.ResumeLayout(false);
@@ -464,6 +510,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreeSupport)).EndInit();
             this.splitContainerTreeSupport.ResumeLayout(false);
             this.tabRun.ResumeLayout(false);
+            this.PanelThread.ResumeLayout(false);
+            this.splitContainerThread.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).EndInit();
+            this.splitContainerThread.ResumeLayout(false);
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
             this.ResumeLayout(false);
@@ -510,5 +560,8 @@
         private System.Windows.Forms.SplitContainer splitContainerTreeSupport;
         private System.Windows.Forms.TreeView tv;
         private System.Windows.Forms.ListBox lstThreads;
+        private System.Windows.Forms.Panel PanelThread;
+        private System.Windows.Forms.SplitContainer splitContainerThread;
+        private AppTestStudioControls.AppTestStudioStatusControl appTestStudioStatusControl1;
     }
 }
