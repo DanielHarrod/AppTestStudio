@@ -217,5 +217,45 @@ namespace AppTestStudio
             return Style;
 
         }
+
+
+        public static void LaunchInstance(string packageName, string targetWindow, string instanceToLaunch, string resolution)
+        {
+            ProcessStartInfo info = new ProcessStartInfo();
+            NoxRegistry Registry = new NoxRegistry();
+
+
+            info.FileName = Registry.ExePath;  //' "C:\Program Files (x86)\Nox\bin\nox.exe"
+            info.WorkingDirectory = Registry.WorkingDirectory; //'"C:\Program Files (x86)\Nox\"
+
+            String Arguments = "";
+
+        if (packageName.Trim().Length > 0 )
+            {
+                Arguments = " -package:" + packageName.Trim();
+        }
+
+            Arguments = Arguments + " -title:ATS" + instanceToLaunch + "Window";
+
+
+            if (instanceToLaunch.Trim().Length > 0) { 
+            if (instanceToLaunch.Trim().IsNumeric())
+                {
+                    if (Arguments.Length > 0)
+                    {
+                        Arguments = Arguments + " ";
+                }
+                    Arguments = Arguments + " -clone:Nox_" + instanceToLaunch.Trim();
+            }
+            }
+
+            Arguments = Arguments + " -resolution:" + resolution;
+
+            //'-clone:Nox_1
+            info.Arguments = Arguments;
+            Process.Start(info);  
+        }
+
+        
     }
 }

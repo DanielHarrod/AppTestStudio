@@ -65,6 +65,7 @@
             this.toolStripButtonToggleScript = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelScheduler = new System.Windows.Forms.ToolStripLabel();
+            this.lstThreads = new System.Windows.Forms.ListBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -82,6 +83,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreeSupport)).BeginInit();
             this.splitContainerTreeSupport.Panel1.SuspendLayout();
             this.splitContainerTreeSupport.SuspendLayout();
+            this.tabRun.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -289,6 +291,7 @@
             // 
             // tabRun
             // 
+            this.tabRun.Controls.Add(this.lstThreads);
             this.tabRun.Location = new System.Drawing.Point(4, 22);
             this.tabRun.Name = "tabRun";
             this.tabRun.Padding = new System.Windows.Forms.Padding(3);
@@ -374,6 +377,7 @@
             this.toolStripButtonStartEmmulatorLaunchAppRunScript.Name = "toolStripButtonStartEmmulatorLaunchAppRunScript";
             this.toolStripButtonStartEmmulatorLaunchAppRunScript.Size = new System.Drawing.Size(259, 22);
             this.toolStripButtonStartEmmulatorLaunchAppRunScript.Text = "Start Emmulator + Launch App + Run Script";
+            this.toolStripButtonStartEmmulatorLaunchAppRunScript.Click += new System.EventHandler(this.toolStripButtonStartEmmulatorLaunchAppRunScript_Click);
             // 
             // toolStripButtonStartEmmulatorLaunchApp
             // 
@@ -382,6 +386,7 @@
             this.toolStripButtonStartEmmulatorLaunchApp.Name = "toolStripButtonStartEmmulatorLaunchApp";
             this.toolStripButtonStartEmmulatorLaunchApp.Size = new System.Drawing.Size(191, 22);
             this.toolStripButtonStartEmmulatorLaunchApp.Text = "Start Emmulator + Launch App";
+            this.toolStripButtonStartEmmulatorLaunchApp.Click += new System.EventHandler(this.toolStripButtonStartEmmulatorLaunchApp_Click);
             // 
             // toolStripButtonStartEmmulator
             // 
@@ -390,6 +395,7 @@
             this.toolStripButtonStartEmmulator.Name = "toolStripButtonStartEmmulator";
             this.toolStripButtonStartEmmulator.Size = new System.Drawing.Size(113, 22);
             this.toolStripButtonStartEmmulator.Text = "Start Emmulator";
+            this.toolStripButtonStartEmmulator.Click += new System.EventHandler(this.toolStripButtonStartEmmulator_Click);
             // 
             // toolStripSeparator4
             // 
@@ -415,6 +421,15 @@
             this.toolStripLabelScheduler.Name = "toolStripLabelScheduler";
             this.toolStripLabelScheduler.Size = new System.Drawing.Size(100, 22);
             this.toolStripLabelScheduler.Text = "Scheduler Paused";
+            // 
+            // lstThreads
+            // 
+            this.lstThreads.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.lstThreads.FormattingEnabled = true;
+            this.lstThreads.Location = new System.Drawing.Point(3, 3);
+            this.lstThreads.Name = "lstThreads";
+            this.lstThreads.Size = new System.Drawing.Size(410, 348);
+            this.lstThreads.TabIndex = 0;
             // 
             // frmMain
             // 
@@ -448,6 +463,7 @@
             this.splitContainerTreeSupport.Panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreeSupport)).EndInit();
             this.splitContainerTreeSupport.ResumeLayout(false);
+            this.tabRun.ResumeLayout(false);
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
             this.ResumeLayout(false);
@@ -493,5 +509,6 @@
         private System.Windows.Forms.TextBox txtSearch;
         private System.Windows.Forms.SplitContainer splitContainerTreeSupport;
         private System.Windows.Forms.TreeView tv;
+        private System.Windows.Forms.ListBox lstThreads;
     }
 }

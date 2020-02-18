@@ -16,7 +16,7 @@ namespace AppTestStudio
         public long NodeID { get; set; }
 
         // Runtime Tracking
-        public long StatusNodeID { get; set; }
+        public int StatusNodeID { get; set; }
 
         //Which panel to show
         public GameNodeType GameNodeType { get; set; }
@@ -33,6 +33,8 @@ namespace AppTestStudio
             }
         }
 
+        public long GameLoops { get; set; }
+
         public GameNode(String Name, GameNodeType Type, ActionType ActionType = ActionType.Action )
         {
             GameNodeName = Name;
@@ -45,5 +47,15 @@ namespace AppTestStudio
             NextNodeID++;
         }
 
+        internal GameNodeGame GetGameNode()
+        {
+            GameNode Node = this;
+            while (Node is GameNodeGame == false )
+            {
+                Node = Node.Parent as GameNode;
+            }
+
+            return Node as GameNodeGame;
+        }
     }
 }

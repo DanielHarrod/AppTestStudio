@@ -99,8 +99,8 @@ namespace AppTestStudio
         public String Channel { get; set; }
         public long ObjectThreshold { get; set; }
         public Boolean IsRelativeStart { get; set; }
-        public long RelativeXOffset { get; set; }
-        public long RelativeYOffset { get; set; }
+        public int RelativeXOffset { get; set; }
+        public int RelativeYOffset { get; set; }
         public DragTargetMode DragTargetMode { get; set; }
 
         private Bitmap mBitmap;

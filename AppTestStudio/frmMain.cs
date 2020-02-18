@@ -40,10 +40,10 @@ namespace AppTestStudio
 
             toolStripButtonStartEmmulator.Enabled = false;
             toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
-        toolStripButtonStartEmmulatorLaunchAppRunScript.Enabled = false;
+            toolStripButtonStartEmmulatorLaunchAppRunScript.Enabled = false;
 
-        toolStripButtonRunScript.Enabled = false;
-        toolStripButtonSaveScript.Enabled = false;
+            toolStripButtonRunScript.Enabled = false;
+            toolStripButtonSaveScript.Enabled = false;
         }
 
         private void toolStripButtonToggleScript_Click(object sender, EventArgs e)
@@ -85,12 +85,12 @@ namespace AppTestStudio
             openDLG.Multiselect = false;
 
             DialogResult Result = openDLG.ShowDialog();
-            if ( Result == DialogResult.OK)
+            if (Result == DialogResult.OK)
             {
                 String FileName = openDLG.FileName;
                 GameNodeGame Game = GameNodeGame.LoadGameFromFile(FileName, true);
 
-                if ( Game.IsSomething())
+                if (Game.IsSomething())
                 {
                     LoadGameToTree(Game);
                 }
@@ -151,19 +151,22 @@ namespace AppTestStudio
                 CurrentNode = CurrentNode.Parent as GameNode;
             }
 
-            if ( CurrentNode.GameNodeType == GameNodeType.Game )
+            if (CurrentNode.GameNodeType == GameNodeType.Game)
             {
                 GameNodeGame GameNode = CurrentNode as GameNodeGame;
 
                 // Make Backup folder if necessary.
                 String Directory = System.IO.Path.Combine(WorkspaceNode.WorkspaceFolder, GameNode.Text, "Backup");
-            if (System.IO.Directory.Exists(Directory)) {
+                if (System.IO.Directory.Exists(Directory))
+                {
                     //'do nothing
-            } else {
+                }
+                else
+                {
                     System.IO.Directory.CreateDirectory(Directory);
-            }
+                }
 
-            // Make a Backup file if necessary.
+                // Make a Backup file if necessary.
                 if (System.IO.File.Exists(GameNode.FileName))
                 {
 
@@ -178,8 +181,161 @@ namespace AppTestStudio
                     }
                 }
 
-                GameNode.SaveGame(ThreadManager,tv);
+                GameNode.SaveGame(ThreadManager, tv);
             }
+        }
+
+        private void toolStripButtonStartEmmulator_Click(object sender, EventArgs e)
+        {
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNodeGame GameNode = Node.GetGameNode();
+
+            if (GameNode.IsSomething())
+            {
+
+                Utils.LaunchInstance("", "", GameNode.InstanceToLaunch, GameNode.Resolution);
+                Log("Launching Instance " + GameNode.InstanceToLaunch.Trim());
+                ThreadManager.IncrementInstanceLaunched();
+            }
+        }
+
+        private void toolStripButtonStartEmmulatorLaunchApp_Click(object sender, EventArgs e)
+        {
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNodeGame GameNode = Node.GetGameNode();
+
+            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution);
+        }
+
+        private void toolStripButtonStartEmmulatorLaunchAppRunScript_Click(object sender, EventArgs e)
+        {
+            LaunchAndLoadInstance();
+        }
+
+        private void LaunchAndLoadInstance()
+        {
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNodeGame GameNode = Node.GetGameNode();
+
+            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution);
+
+            LoadInstance(GameNode);
+        }
+
+        private void LoadInstance(GameNodeGame gameNode)
+        {
+            Log("Starting Instance " + gameNode.GameNodeName);
+
+            foreach (GameNodeGame RunningThreadGames in ThreadManager.Games)
+            {
+                if (RunningThreadGames.ThreadandWindowName == gameNode.ThreadandWindowName)
+                {
+                    ThreadManager.RemoveGame(RunningThreadGames);
+                    RunningThreadGames.Thread.Abort();
+                    Log("Stopping existing Instance" + RunningThreadGames.GameNodeName);
+                    break;
+
+                }
+            }
+
+            GameNodeGame GameCopy = gameNode.CloneMe();
+
+            RunThread RT = new RunThread(GameCopy);
+            RT.ThreadManager = ThreadManager;
+
+            Thread t = new Thread(new ThreadStart(RT.Run));
+            GameCopy.Thread = t;
+            ThreadManager.Games.Add(GameCopy);
+
+            RefreshThreadList();
+
+            RefreshStatusList();
+
+            t.Start();
+            SetThreadPauseState(false);
+
+            ThreadManager.IncrementInstanceLoaded();
+
+            tabTree.SelectTab(1);
+            lstThreads.SelectedIndex = lstThreads.Items.Count - 1;
+        }
+
+        private void RefreshStatusList()
+        {
+            int Ordinal = 0;
+            List<String> lst = new List<string>();
+            foreach (GameNodeGame game in ThreadManager.Games)
+            {
+                lst.Add(game.Name);
+                game.StatusNodeID = Ordinal;
+                Ordinal++;
+                Ordinate(ref Ordinal, lst, game.Nodes[0] as GameNode);
+            }
+                                 
+            AtsStatusControl1.Items = lst;
+
+        }
+
+        private void Ordinate(ref int ID, List<string> lst, GameNode gameNode)
+        {
+            if (gameNode.GameNodeType == GameNodeType.Action)
+            {
+                GameNodeAction n2 = gameNode as GameNodeAction;
+                if (n2.ActionType == ActionType.Action)
+                {
+                    gameNode.StatusNodeID = ID;
+                    ID = ID + 1;
+
+                    lst.Add(gameNode.Text);
+                }
+            }
+
+            foreach (GameNode CurrentNode in gameNode.Nodes)
+            {
+                Ordinate(ref ID, lst, CurrentNode);
+
+            }
+        }
+
+        private void RefreshThreadList()
+        {
+            lstThreads.Items.Clear();
+            foreach (GameNodeGame Game in ThreadManager.Games)
+            {
+                lstThreads.Items.Add(Game.ThreadandWindowName);
+                toolStripButtonToggleScript.Enabled = true;
+
+            }
+        }
+
+        private void SetThreadPauseState(Boolean isPaused)
+        {
+            foreach (GameNodeGame Game in ThreadManager.Games)
+            {
+                Game.IsPaused = isPaused;
+                if (isPaused)
+                {
+                    Log("Un-Pausing Thread " + Game.ThreadandWindowName);
+                }
+                else
+                {
+                    Log("Pausing Thread " + Game.ThreadandWindowName);
+                }
+            }
+
+
+        if (isPaused)
+            {
+                toolStripButtonToggleScript.Text = "Un-Pause Scripts";
+                toolStripButtonToggleScript.Image = AppTestStudio.Properties.Resources.StartWithoutDebug_16x_24;
+            
+        }
+            else
+            {
+                toolStripButtonToggleScript.Text = "Pause Script";
+                toolStripButtonToggleScript.Image = AppTestStudio.Properties.Resources.Pause_64x_64;
+          }
+
         }
     }
 }

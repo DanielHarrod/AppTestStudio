@@ -38,6 +38,7 @@ namespace AppTestStudio
 
         public ConcurrentQueue<MinimalBitmapNode> MinimalBitmapClones { get; set; }
 
+        public OpenCvSharp.VideoWriter Video { get; set; }
         public void Log(String s)
         {
             String Log = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss.");
@@ -132,7 +133,6 @@ namespace AppTestStudio
         public GameNodeAction AbsoluteLastNode { get; set; }
 
         public long ScreenShotsTaken { get; set; }
-        public long GameLoops { get; set; }
         public long VideoFrameLimit { get; set; }
         public Boolean SaveVideo { get; set; }
 
@@ -720,13 +720,13 @@ namespace AppTestStudio
 
             if (actionNode.Attributes.GetNamedItem("RelativeXOffset").IsSomething())
             {
-                long RelativeXOffset = Convert.ToInt64(actionNode.Attributes["RelativeXOffset"].Value);
+                int RelativeXOffset = Convert.ToInt32(actionNode.Attributes["RelativeXOffset"].Value);
                 treeActionNode.RelativeXOffset = RelativeXOffset;
             }
 
             if (actionNode.Attributes.GetNamedItem("RelativeYOffset").IsSomething())
             {
-                long RelativeYOffset = Convert.ToInt64(actionNode.Attributes["RelativeYOffset"].Value);
+                int RelativeYOffset = Convert.ToInt32(actionNode.Attributes["RelativeYOffset"].Value);
                 treeActionNode.RelativeYOffset = RelativeYOffset;
             }
 

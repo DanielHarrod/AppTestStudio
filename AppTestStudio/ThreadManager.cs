@@ -93,10 +93,15 @@ namespace AppTestStudio
 		
 		private long mWaitLength;
 
-		private long WaitLength
+		public long WaitLength
 		{
 			get { return mWaitLength; }
 			set { mWaitLength = value; }
+		}
+
+		public long AddWaitLength(long value)
+		{
+			return Interlocked.Add(ref mWaitLength, value);
 		}
 
 		public long IncrementWaitLength()
