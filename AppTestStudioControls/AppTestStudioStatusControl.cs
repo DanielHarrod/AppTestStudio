@@ -18,7 +18,17 @@ namespace AppTestStudioControls
             InitializeComponent();
         }
 
-        public long ShowPercent { get; set; }
+        private long mShowPercent;
+
+        public long ShowPercent
+        {
+            get { return mShowPercent; }
+            set { 
+                mShowPercent = value;
+                Invalidate();
+            }
+        }
+
         public List<String> Items { get; set; }
 
         [Browsable(false)]
@@ -173,9 +183,6 @@ namespace AppTestStudioControls
 
             e.Graphics.DrawLine(LightGrayPen, FirstHashPositionX, HashTop, FirstHashPositionX, HashBottom);
             e.Graphics.DrawLine(LightGrayPenShadow, FirstHashPositionXShadow, HashShadowTop, FirstHashPositionXShadow, HashShadowBottom);
-
-            long MaxEntries = 25;
-            long MinEntries = 13;
 
             //'Me.ShowPercent 
             long HashWorkArea = Width - FirstHashPositionX;

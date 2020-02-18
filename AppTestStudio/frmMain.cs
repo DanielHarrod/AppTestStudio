@@ -337,5 +337,10 @@ namespace AppTestStudio
           }
 
         }
+
+        private void splitContainerSeconds_SplitterMoving(object sender, SplitterCancelEventArgs e)
+        {
+            appTestStudioStatusControl1.ShowPercent = e.SplitX;
+        }
     }
 }
