@@ -97,6 +97,19 @@
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.label21 = new System.Windows.Forms.Label();
+            this.PanelWorkspace = new System.Windows.Forms.Panel();
+            this.label4 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.lblEmmulatorInstalled = new System.Windows.Forms.Label();
+            this.lblEmmulatorInstancesFound = new System.Windows.Forms.Label();
+            this.lblHowToFixEmmulatorInstalled = new System.Windows.Forms.LinkLabel();
+            this.lblHowToFixEmmulatorInstancesFound = new System.Windows.Forms.LinkLabel();
+            this.PanelEvents = new System.Windows.Forms.Panel();
+            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
+            this.lblEventsPanelTargetWindow = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -130,6 +143,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerSeconds)).BeginInit();
             this.splitContainerSeconds.SuspendLayout();
             this.toolStripMain.SuspendLayout();
+            this.PanelWorkspace.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.PanelEvents.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -257,6 +273,8 @@
             // 
             // splitContainerWorkspace.Panel2
             // 
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelThread);
             this.splitContainerWorkspace.Size = new System.Drawing.Size(1273, 602);
             this.splitContainerWorkspace.SplitterDistance = 227;
@@ -370,7 +388,7 @@
             // PanelThread
             // 
             this.PanelThread.Controls.Add(this.splitContainerThread);
-            this.PanelThread.Location = new System.Drawing.Point(28, 38);
+            this.PanelThread.Location = new System.Drawing.Point(186, 463);
             this.PanelThread.Name = "PanelThread";
             this.PanelThread.Size = new System.Drawing.Size(856, 531);
             this.PanelThread.TabIndex = 0;
@@ -391,7 +409,7 @@
             // 
             this.splitContainerThread.Panel2.Controls.Add(this.appTestStudioStatusControl1);
             this.splitContainerThread.Size = new System.Drawing.Size(856, 531);
-            this.splitContainerThread.SplitterDistance = 145;
+            this.splitContainerThread.SplitterDistance = 105;
             this.splitContainerThread.TabIndex = 0;
             // 
             // splitContainer1
@@ -507,7 +525,7 @@
             this.appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
             this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
             this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
-            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(856, 382);
+            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(856, 422);
             this.appTestStudioStatusControl1.TabIndex = 0;
             // 
             // txtLog
@@ -812,6 +830,136 @@
             this.label21.TabIndex = 2;
             this.label21.Text = "Home:";
             // 
+            // PanelWorkspace
+            // 
+            this.PanelWorkspace.Controls.Add(this.groupBox3);
+            this.PanelWorkspace.Controls.Add(this.label4);
+            this.PanelWorkspace.Location = new System.Drawing.Point(228, 410);
+            this.PanelWorkspace.Name = "PanelWorkspace";
+            this.PanelWorkspace.Size = new System.Drawing.Size(869, 537);
+            this.PanelWorkspace.TabIndex = 1;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(4, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 18);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Workspace";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblHowToFixEmmulatorInstancesFound);
+            this.groupBox3.Controls.Add(this.lblHowToFixEmmulatorInstalled);
+            this.groupBox3.Controls.Add(this.lblEmmulatorInstancesFound);
+            this.groupBox3.Controls.Add(this.lblEmmulatorInstalled);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Location = new System.Drawing.Point(7, 25);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(372, 100);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Check List";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Emmulator Installed";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 43);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(138, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Emmulator Instances Found";
+            // 
+            // lblEmmulatorInstalled
+            // 
+            this.lblEmmulatorInstalled.AutoSize = true;
+            this.lblEmmulatorInstalled.Location = new System.Drawing.Point(150, 20);
+            this.lblEmmulatorInstalled.Name = "lblEmmulatorInstalled";
+            this.lblEmmulatorInstalled.Size = new System.Drawing.Size(105, 13);
+            this.lblEmmulatorInstalled.TabIndex = 2;
+            this.lblEmmulatorInstalled.Text = "lblEmmulatorInstalled";
+            // 
+            // lblEmmulatorInstancesFound
+            // 
+            this.lblEmmulatorInstancesFound.AutoSize = true;
+            this.lblEmmulatorInstancesFound.Location = new System.Drawing.Point(153, 43);
+            this.lblEmmulatorInstancesFound.Name = "lblEmmulatorInstancesFound";
+            this.lblEmmulatorInstancesFound.Size = new System.Drawing.Size(142, 13);
+            this.lblEmmulatorInstancesFound.TabIndex = 3;
+            this.lblEmmulatorInstancesFound.Text = "lblEmmulatorInstancesFound";
+            // 
+            // lblHowToFixEmmulatorInstalled
+            // 
+            this.lblHowToFixEmmulatorInstalled.AutoSize = true;
+            this.lblHowToFixEmmulatorInstalled.Location = new System.Drawing.Point(211, 20);
+            this.lblHowToFixEmmulatorInstalled.Name = "lblHowToFixEmmulatorInstalled";
+            this.lblHowToFixEmmulatorInstalled.Size = new System.Drawing.Size(61, 13);
+            this.lblHowToFixEmmulatorInstalled.TabIndex = 4;
+            this.lblHowToFixEmmulatorInstalled.TabStop = true;
+            this.lblHowToFixEmmulatorInstalled.Text = "How To Fix";
+            this.lblHowToFixEmmulatorInstalled.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblHowToFixEmmulatorInstalled_LinkClicked);
+            // 
+            // lblHowToFixEmmulatorInstancesFound
+            // 
+            this.lblHowToFixEmmulatorInstancesFound.AutoSize = true;
+            this.lblHowToFixEmmulatorInstancesFound.Location = new System.Drawing.Point(212, 43);
+            this.lblHowToFixEmmulatorInstancesFound.Name = "lblHowToFixEmmulatorInstancesFound";
+            this.lblHowToFixEmmulatorInstancesFound.Size = new System.Drawing.Size(61, 13);
+            this.lblHowToFixEmmulatorInstancesFound.TabIndex = 5;
+            this.lblHowToFixEmmulatorInstancesFound.TabStop = true;
+            this.lblHowToFixEmmulatorInstancesFound.Text = "How To Fix";
+            this.lblHowToFixEmmulatorInstancesFound.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.lblHowToFixEmmulatorInstancesFound_LinkClicked);
+            // 
+            // PanelEvents
+            // 
+            this.PanelEvents.Controls.Add(this.lblEventsPanelTargetWindow);
+            this.PanelEvents.Controls.Add(this.label11);
+            this.PanelEvents.Controls.Add(this.label10);
+            this.PanelEvents.Location = new System.Drawing.Point(19, 22);
+            this.PanelEvents.Name = "PanelEvents";
+            this.PanelEvents.Size = new System.Drawing.Size(511, 203);
+            this.PanelEvents.TabIndex = 2;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 5);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(53, 18);
+            this.label10.TabIndex = 1;
+            this.label10.Text = "Events";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(6, 27);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(80, 13);
+            this.label11.TabIndex = 2;
+            this.label11.Text = "Target Window";
+            // 
+            // lblEventsPanelTargetWindow
+            // 
+            this.lblEventsPanelTargetWindow.AutoSize = true;
+            this.lblEventsPanelTargetWindow.Location = new System.Drawing.Point(93, 26);
+            this.lblEventsPanelTargetWindow.Name = "lblEventsPanelTargetWindow";
+            this.lblEventsPanelTargetWindow.Size = new System.Drawing.Size(147, 13);
+            this.lblEventsPanelTargetWindow.TabIndex = 3;
+            this.lblEventsPanelTargetWindow.Text = "lblEventsPanelTargetWindow";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -863,6 +1011,12 @@
             this.splitContainerSeconds.ResumeLayout(false);
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
+            this.PanelWorkspace.ResumeLayout(false);
+            this.PanelWorkspace.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.PanelEvents.ResumeLayout(false);
+            this.PanelEvents.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -938,5 +1092,18 @@
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Panel PanelWorkspace;
+        private System.Windows.Forms.GroupBox groupBox3;
+        private System.Windows.Forms.LinkLabel lblHowToFixEmmulatorInstancesFound;
+        private System.Windows.Forms.LinkLabel lblHowToFixEmmulatorInstalled;
+        private System.Windows.Forms.Label lblEmmulatorInstancesFound;
+        private System.Windows.Forms.Label lblEmmulatorInstalled;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Panel PanelEvents;
+        private System.Windows.Forms.Label lblEventsPanelTargetWindow;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label10;
     }
 }

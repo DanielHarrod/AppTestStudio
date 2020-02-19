@@ -342,5 +342,15 @@ namespace AppTestStudio
         {
             appTestStudioStatusControl1.ShowPercent = e.SplitX;
         }
+
+        private void lblHowToFixEmmulatorInstalled_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.appteststudio.com/#FixEmmulatorInstalled");
+        }
+
+        private void lblHowToFixEmmulatorInstancesFound_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.appteststudio.com/#FixEmmulatorInstances");
+        }
     }
 }
