@@ -256,6 +256,19 @@ namespace AppTestStudio
             Process.Start(info);  
         }
 
-        
+        public static int HiLoWord(short lo, short hi)
+        {
+            int hi2 = hi << 16;
+            hi2 = hi2 | lo;
+     
+            return hi2;
+        }
+
+        public static IntPtr HiLoWordIntptr(short lo, short hi)
+        {
+            return new IntPtr(HiLoWord(lo, hi));
+        }
+
+
     }
 }

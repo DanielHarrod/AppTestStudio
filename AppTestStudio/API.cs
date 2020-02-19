@@ -48,12 +48,16 @@ namespace AppTestStudio
         public static extern bool DeleteObject([In] IntPtr hObject);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, int Msg, IntPtr wParam, StringBuilder lParam);
+        public static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, IntPtr lParam);
+        
         [DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
         public static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
 
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
+
+        [DllImport("user32.dll")]
+        public static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
 
     }
 }

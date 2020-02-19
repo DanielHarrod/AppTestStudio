@@ -399,8 +399,8 @@ namespace AppTestStudio
                     switch (node.Mode)
                     {
                         case Mode.RangeClick:
-                            int RandomX = RandomNumber(0, node.Rectangle.Width);
-                            int RandomY = RandomNumber(0, node.Rectangle.Height);
+                            short RandomX = RandomNumber(0, node.Rectangle.Width);
+                            short RandomY = RandomNumber(0, node.Rectangle.Height);
 
                             Boolean Failed = false;
 
@@ -449,21 +449,18 @@ namespace AppTestStudio
                             }
                             else
                             {
-
-                                int xTarget = xPos + RandomX;
-                                int yTarget = yPos + RandomY;
-
+                                short xTarget = (short)(xPos + RandomX);
+                                short yTarget = (short)(yPos + RandomY);
 
                                 Game.Log(node.Name + " Click(" + xTarget + "," + yTarget + ")");
                                 ClickOnWindow(WindowHandle, xTarget, yTarget);
                                 ThreadManager.IncrementClickCount();
-
                             }
 
                             break;
                         case Mode.ClickDragRelease:
-                            long ex = xPos + node.Rectangle.Width;
-                            long ey = yPos + node.Rectangle.Height;
+                            int ex = xPos + node.Rectangle.Width;
+                            int ey = yPos + node.Rectangle.Height;
                             Failed = false;
 
                             if (node.IsRelativeStart)
@@ -795,21 +792,75 @@ namespace AppTestStudio
             return AfterCompletionType.Continue;
         }
 
-        private void ClickDragRelease(int windowHandle, int xPos, int yPos, long ex, long ey)
+        private void ClickOnWindow(int windowHandle, short xTarget, short yTarget)
         {
-            throw new NotImplementedException();
+            int WM_SETCURSOR = 0x20;
+            int HTCLIENT = 0x1;
+
+            int WM_MOUSEMOVE = 0x200;
+            uint WM_LBUTTONDOWN = 0x201;
+            uint WM_LBUTTONUP = 0x202;
+            //' PostMessage(WindowHandle, WM_MOUSEMOVE, 0, getHiLoWord(X, Y))
+            //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(1, WM_MOUSEMOVE))
+            //'Thread.Sleep(25)
+
+            //'SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(1, WM_LBUTTONDOWN))
+
+            //'sendmessage(hwnd, WM_SETCURSOR, WM_MOUSEMOVE, MakeLParam(1, WM_MOUSEMOVE))
+
+            API.PostMessage(new IntPtr(WindowHandle), WM_LBUTTONDOWN, (int)WM_LBUTTONDOWN, Utils.HiLoWord(xTarget, yTarget));
+        //'Thread.Sleep(25)
+        API.PostMessage(new IntPtr(WindowHandle), WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
+
         }
 
-        private void ClickOnWindow(int windowHandle, int xTarget, int yTarget)
+        private void ClickDragRelease(int windowHandle, int startX, int startY, int endX, int endY)
         {
-            throw new NotImplementedException();
+            int WM_PARENTNOTIFY = 0x210;
+            uint WM_MOUSEMOVE = 0x200;
+            uint WM_LBUTTONDOWN = 0x201;
+            int WM_LBUTTONUP = 0x202;
+            int MK_LBUTTON = 0x1;
+
+            short CurrentX = (short)startX;
+            short CurrentY = (short)startY;
+
+            int MaxSteps = Math.Abs(endX - startX);
+
+        if (Math.Abs(endY - startY) > MaxSteps)
+            {
+                MaxSteps = Math.Abs(endY - startY);
+        }
+
+            Double XIncrement = (endX - startX) / MaxSteps;
+            Double YIncrement = (endY - startY) / MaxSteps;
+
+            //'Send Mouse Down
+            API.PostMessage( new IntPtr(WindowHandle), WM_LBUTTONDOWN, MK_LBUTTON, Utils.HiLoWord( CurrentX,  CurrentY));
+            Thread.Sleep(10);
+
+            //'Send draging
+            for (int i = 0; i < MaxSteps; i++)
+            {
+                API.PostMessage(new IntPtr(WindowHandle), WM_MOUSEMOVE, MK_LBUTTON, Utils.HiLoWord( CurrentX,  CurrentY));
+                Thread.Sleep(1);
+
+                CurrentX = (short) ( CurrentX + XIncrement);
+                CurrentY = (short)(CurrentY + YIncrement);
+            }
+
+        Thread.Sleep(10);
+
+            //' Send mouse Up
+            API.SendMessage(new IntPtr(WindowHandle), WM_LBUTTONUP, 0, Utils.HiLoWordIntptr(CurrentX, CurrentY));
+
         }
 
 
-        private int RandomNumber(int min, int max)
+        private short RandomNumber(int min, int max)
         {
             System.Random Generator = new System.Random();
-            return Generator.Next(min, max);
+            return (short) Generator.Next(min, max);
         }
 
         private AfterCompletionType CheckLimit(GameNodeAction node)
