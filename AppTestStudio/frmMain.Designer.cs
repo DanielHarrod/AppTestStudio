@@ -110,6 +110,19 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblEventsPanelTargetWindow = new System.Windows.Forms.Label();
+            this.PanelObjectScreenshot = new System.Windows.Forms.Panel();
+            this.Label53 = new System.Windows.Forms.Label();
+            this.cmdMakeObject = new System.Windows.Forms.Button();
+            this.panelObjectScreenshotColor = new System.Windows.Forms.Panel();
+            this.lblObjectScreenshotColorXY = new System.Windows.Forms.Label();
+            this.lblObjectScreenshotRHSXY = new System.Windows.Forms.Label();
+            this.PictureObjectScreenshotZoomBox = new System.Windows.Forms.PictureBox();
+            this.txtObjectScreenshotName = new System.Windows.Forms.TextBox();
+            this.Label45 = new System.Windows.Forms.Label();
+            this.cmdObjectScreenshotsTakeAScreenshot = new System.Windows.Forms.Button();
+            this.Panel4 = new System.Windows.Forms.Panel();
+            this.PictureBox3 = new System.Windows.Forms.PictureBox();
+            this.Label44 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -146,6 +159,11 @@
             this.PanelWorkspace.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.PanelEvents.SuspendLayout();
+            this.PanelObjectScreenshot.SuspendLayout();
+            this.panelObjectScreenshotColor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshotZoomBox)).BeginInit();
+            this.Panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -273,6 +291,7 @@
             // 
             // splitContainerWorkspace.Panel2
             // 
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObjectScreenshot);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelThread);
@@ -927,7 +946,7 @@
             this.PanelEvents.Controls.Add(this.lblEventsPanelTargetWindow);
             this.PanelEvents.Controls.Add(this.label11);
             this.PanelEvents.Controls.Add(this.label10);
-            this.PanelEvents.Location = new System.Drawing.Point(19, 22);
+            this.PanelEvents.Location = new System.Drawing.Point(258, 392);
             this.PanelEvents.Name = "PanelEvents";
             this.PanelEvents.Size = new System.Drawing.Size(511, 203);
             this.PanelEvents.TabIndex = 2;
@@ -959,6 +978,138 @@
             this.lblEventsPanelTargetWindow.Size = new System.Drawing.Size(147, 13);
             this.lblEventsPanelTargetWindow.TabIndex = 3;
             this.lblEventsPanelTargetWindow.Text = "lblEventsPanelTargetWindow";
+            // 
+            // PanelObjectScreenshot
+            // 
+            this.PanelObjectScreenshot.Controls.Add(this.Label53);
+            this.PanelObjectScreenshot.Controls.Add(this.cmdMakeObject);
+            this.PanelObjectScreenshot.Controls.Add(this.panelObjectScreenshotColor);
+            this.PanelObjectScreenshot.Controls.Add(this.PictureObjectScreenshotZoomBox);
+            this.PanelObjectScreenshot.Controls.Add(this.txtObjectScreenshotName);
+            this.PanelObjectScreenshot.Controls.Add(this.Label45);
+            this.PanelObjectScreenshot.Controls.Add(this.cmdObjectScreenshotsTakeAScreenshot);
+            this.PanelObjectScreenshot.Controls.Add(this.Panel4);
+            this.PanelObjectScreenshot.Controls.Add(this.Label44);
+            this.PanelObjectScreenshot.Location = new System.Drawing.Point(203, 111);
+            this.PanelObjectScreenshot.Name = "PanelObjectScreenshot";
+            this.PanelObjectScreenshot.Size = new System.Drawing.Size(636, 381);
+            this.PanelObjectScreenshot.TabIndex = 12;
+            // 
+            // Label53
+            // 
+            this.Label53.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.Label53.Location = new System.Drawing.Point(383, 236);
+            this.Label53.Name = "Label53";
+            this.Label53.Size = new System.Drawing.Size(247, 135);
+            this.Label53.TabIndex = 15;
+            this.Label53.Text = "To create an object. \r\n1.) Draw a box around the image\r\n2.) Name the Object\r\n3.) " +
+    "Click the Make Object Button";
+            // 
+            // cmdMakeObject
+            // 
+            this.cmdMakeObject.Location = new System.Drawing.Point(278, 17);
+            this.cmdMakeObject.Name = "cmdMakeObject";
+            this.cmdMakeObject.Size = new System.Drawing.Size(94, 23);
+            this.cmdMakeObject.TabIndex = 14;
+            this.cmdMakeObject.Text = "Make Object";
+            this.cmdMakeObject.UseVisualStyleBackColor = true;
+            // 
+            // panelObjectScreenshotColor
+            // 
+            this.panelObjectScreenshotColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.panelObjectScreenshotColor.Controls.Add(this.lblObjectScreenshotColorXY);
+            this.panelObjectScreenshotColor.Controls.Add(this.lblObjectScreenshotRHSXY);
+            this.panelObjectScreenshotColor.Location = new System.Drawing.Point(472, 170);
+            this.panelObjectScreenshotColor.Name = "panelObjectScreenshotColor";
+            this.panelObjectScreenshotColor.Size = new System.Drawing.Size(158, 42);
+            this.panelObjectScreenshotColor.TabIndex = 13;
+            // 
+            // lblObjectScreenshotColorXY
+            // 
+            this.lblObjectScreenshotColorXY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblObjectScreenshotColorXY.AutoSize = true;
+            this.lblObjectScreenshotColorXY.Location = new System.Drawing.Point(2, 20);
+            this.lblObjectScreenshotColorXY.Name = "lblObjectScreenshotColorXY";
+            this.lblObjectScreenshotColorXY.Size = new System.Drawing.Size(61, 13);
+            this.lblObjectScreenshotColorXY.TabIndex = 2;
+            this.lblObjectScreenshotColorXY.Text = "[lblColorXY]";
+            // 
+            // lblObjectScreenshotRHSXY
+            // 
+            this.lblObjectScreenshotRHSXY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblObjectScreenshotRHSXY.AutoSize = true;
+            this.lblObjectScreenshotRHSXY.Location = new System.Drawing.Point(3, 7);
+            this.lblObjectScreenshotRHSXY.Name = "lblObjectScreenshotRHSXY";
+            this.lblObjectScreenshotRHSXY.Size = new System.Drawing.Size(60, 13);
+            this.lblObjectScreenshotRHSXY.TabIndex = 3;
+            this.lblObjectScreenshotRHSXY.Text = "[lblRHSXY]";
+            // 
+            // PictureObjectScreenshotZoomBox
+            // 
+            this.PictureObjectScreenshotZoomBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PictureObjectScreenshotZoomBox.Image = ((System.Drawing.Image)(resources.GetObject("PictureObjectScreenshotZoomBox.Image")));
+            this.PictureObjectScreenshotZoomBox.Location = new System.Drawing.Point(470, 4);
+            this.PictureObjectScreenshotZoomBox.Name = "PictureObjectScreenshotZoomBox";
+            this.PictureObjectScreenshotZoomBox.Size = new System.Drawing.Size(160, 160);
+            this.PictureObjectScreenshotZoomBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureObjectScreenshotZoomBox.TabIndex = 12;
+            this.PictureObjectScreenshotZoomBox.TabStop = false;
+            // 
+            // txtObjectScreenshotName
+            // 
+            this.txtObjectScreenshotName.Location = new System.Drawing.Point(57, 46);
+            this.txtObjectScreenshotName.Name = "txtObjectScreenshotName";
+            this.txtObjectScreenshotName.Size = new System.Drawing.Size(315, 20);
+            this.txtObjectScreenshotName.TabIndex = 11;
+            // 
+            // Label45
+            // 
+            this.Label45.AutoSize = true;
+            this.Label45.Location = new System.Drawing.Point(16, 50);
+            this.Label45.Name = "Label45";
+            this.Label45.Size = new System.Drawing.Size(38, 13);
+            this.Label45.TabIndex = 10;
+            this.Label45.Text = "Name:";
+            // 
+            // cmdObjectScreenshotsTakeAScreenshot
+            // 
+            this.cmdObjectScreenshotsTakeAScreenshot.Location = new System.Drawing.Point(15, 18);
+            this.cmdObjectScreenshotsTakeAScreenshot.Name = "cmdObjectScreenshotsTakeAScreenshot";
+            this.cmdObjectScreenshotsTakeAScreenshot.Size = new System.Drawing.Size(128, 23);
+            this.cmdObjectScreenshotsTakeAScreenshot.TabIndex = 9;
+            this.cmdObjectScreenshotsTakeAScreenshot.Text = "Take a Screenshot";
+            this.cmdObjectScreenshotsTakeAScreenshot.UseVisualStyleBackColor = true;
+            // 
+            // Panel4
+            // 
+            this.Panel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Panel4.AutoScroll = true;
+            this.Panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Panel4.Controls.Add(this.PictureBox3);
+            this.Panel4.Location = new System.Drawing.Point(15, 75);
+            this.Panel4.Name = "Panel4";
+            this.Panel4.Size = new System.Drawing.Size(357, 293);
+            this.Panel4.TabIndex = 8;
+            // 
+            // PictureBox3
+            // 
+            this.PictureBox3.Location = new System.Drawing.Point(8, 8);
+            this.PictureBox3.Name = "PictureBox3";
+            this.PictureBox3.Size = new System.Drawing.Size(286, 263);
+            this.PictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureBox3.TabIndex = 16;
+            this.PictureBox3.TabStop = false;
+            // 
+            // Label44
+            // 
+            this.Label44.AutoSize = true;
+            this.Label44.Location = new System.Drawing.Point(15, 4);
+            this.Label44.Name = "Label44";
+            this.Label44.Size = new System.Drawing.Size(85, 13);
+            this.Label44.TabIndex = 0;
+            this.Label44.Text = "Add New Object";
             // 
             // frmMain
             // 
@@ -1017,6 +1168,14 @@
             this.groupBox3.PerformLayout();
             this.PanelEvents.ResumeLayout(false);
             this.PanelEvents.PerformLayout();
+            this.PanelObjectScreenshot.ResumeLayout(false);
+            this.PanelObjectScreenshot.PerformLayout();
+            this.panelObjectScreenshotColor.ResumeLayout(false);
+            this.panelObjectScreenshotColor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshotZoomBox)).EndInit();
+            this.Panel4.ResumeLayout(false);
+            this.Panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1105,5 +1264,18 @@
         private System.Windows.Forms.Label lblEventsPanelTargetWindow;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label10;
+        internal System.Windows.Forms.Panel PanelObjectScreenshot;
+        internal System.Windows.Forms.Label Label53;
+        internal System.Windows.Forms.Button cmdMakeObject;
+        internal System.Windows.Forms.Panel panelObjectScreenshotColor;
+        internal System.Windows.Forms.Label lblObjectScreenshotColorXY;
+        internal System.Windows.Forms.Label lblObjectScreenshotRHSXY;
+        internal System.Windows.Forms.PictureBox PictureObjectScreenshotZoomBox;
+        internal System.Windows.Forms.TextBox txtObjectScreenshotName;
+        internal System.Windows.Forms.Label Label45;
+        internal System.Windows.Forms.Button cmdObjectScreenshotsTakeAScreenshot;
+        internal System.Windows.Forms.Panel Panel4;
+        internal System.Windows.Forms.PictureBox PictureBox3;
+        internal System.Windows.Forms.Label Label44;
     }
 }
