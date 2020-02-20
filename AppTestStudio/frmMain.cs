@@ -49,7 +49,7 @@ namespace AppTestStudio
         // Log buffer
         // Logging is stored here and updated on a textbox on a timer.  
         private StringBuilder sb = new StringBuilder();
-        
+
         private Bitmap UndoScreenshot;
 
         private int PictureBox1X;
@@ -558,7 +558,7 @@ namespace AppTestStudio
                 if (searchText.Length == 0)
                 {
                     gameNode.BackColor = Color.White;
-            }
+                }
                 else
                 {
                     if (gameNode.Name.ToUpper().Contains(searchText.ToUpper()))
@@ -568,7 +568,7 @@ namespace AppTestStudio
                     else
                     {
                         gameNode.BackColor = Color.White;
-                  }
+                    }
                 }
                 FilterChildNodes(searchText, gameNode);
 
@@ -584,8 +584,8 @@ namespace AppTestStudio
         private void tv_MouseUp(object sender, MouseEventArgs e)
         {
             Debug.WriteLine("tv_MouseUp");
-        //' Show menu only if Right Mouse button is clicked
-        if (e.Button == MouseButtons.Right)
+            //' Show menu only if Right Mouse button is clicked
+            if (e.Button == MouseButtons.Right)
             {
 
                 //' Point where mouse is clicked
@@ -676,6 +676,110 @@ namespace AppTestStudio
                         break;
                 }
             }
+        }
+
+        private void tv_DragOver(object sender, DragEventArgs e)
+        {
+            Debug.WriteLine("tv_DragOver");
+
+            GameNodeAction Action = e.Data.GetData("AppTestStudio.GameNodeAction") as GameNodeAction;
+
+            //' Point where mouse is clicked
+            Point p = tv.PointToClient(new Point(e.X, e.Y));
+            e.Effect = DragDropEffects.None;
+            //' Go to the node that the user clicked
+            GameNode node = tv.GetNodeAt(p) as GameNode;
+            if (node.IsSomething())
+            {
+                GameNodeAction OGNTAction = node as GameNodeAction;
+                switch (node.GameNodeType)
+                {
+                    case GameNodeType.Workspace:
+                        break;
+                    case GameNodeType.Games:
+                        break;
+                    case GameNodeType.Game:
+                        break;
+                    case GameNodeType.Events:
+                        Debug.WriteLine("Need to test if this should be node or Action");
+                        switch (OGNTAction.ActionType)
+                        {
+                            case ActionType.Action:
+                                e.Effect = DragDropEffects.None;
+                                break;
+                            case ActionType.Event:
+                                e.Effect = DragDropEffects.Move;
+                                break;
+                            case ActionType.RNG:
+                                e.Effect = DragDropEffects.Move;
+                                break;
+                            case ActionType.RNGContainer:
+                                e.Effect = DragDropEffects.Move;
+                                break;
+                            default:
+                                e.Effect = DragDropEffects.None;
+                                break;
+                        }
+                        break;
+                    case GameNodeType.Event:
+                        e.Effect = DragDropEffects.Move;
+                        break;
+                    case GameNodeType.Action:
+ 
+                        switch (OGNTAction.ActionType)
+                        {
+                            case ActionType.Action:
+                                e.Effect = DragDropEffects.None;
+                                break;
+                            case ActionType.Event:
+                                e.Effect = DragDropEffects.Move;
+                                break;
+                            case ActionType.RNG:
+                                e.Effect = DragDropEffects.Move;
+                                break;
+                            case ActionType.RNGContainer:
+                                e.Effect = DragDropEffects.Move;
+                                break;
+                            default:
+                                e.Effect = DragDropEffects.None;
+                                break;
+                        }
+                        break;
+                    case GameNodeType.Objects:
+                        break;
+                    case GameNodeType.ObjectScreenshot:
+                        break;
+                    case GameNodeType.Object:
+                        break;
+                    default:
+                        break;
+                }
+
+
+
+                if (e.Effect == DragDropEffects.Move)
+                {
+                    if ((e.KeyState & 8) == 8)
+                    {
+                        e.Effect = DragDropEffects.Copy;
+                    }
+                }
+                Debug.WriteLine(node.GameNodeType);    
+            }
+            if (node.IsSomething())
+            {
+                if (node.PrevVisibleNode.IsSomething())
+                {
+                    node.PrevVisibleNode.BackColor = Color.White;
+                }
+
+                if (node.NextVisibleNode.IsSomething())
+                {
+                    node.NextVisibleNode.BackColor = Color.White;
+                }
+                node.BackColor = SystemColors.MenuHighlight;
+            }
+
         }
     }
 }
