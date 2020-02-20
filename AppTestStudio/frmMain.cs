@@ -725,7 +725,7 @@ namespace AppTestStudio
                         e.Effect = DragDropEffects.Move;
                         break;
                     case GameNodeType.Action:
- 
+
                         switch (OGNTAction.ActionType)
                         {
                             case ActionType.Action:
@@ -764,7 +764,7 @@ namespace AppTestStudio
                         e.Effect = DragDropEffects.Copy;
                     }
                 }
-                Debug.WriteLine(node.GameNodeType);    
+                Debug.WriteLine(node.GameNodeType);
             }
             if (node.IsSomething())
             {
@@ -779,6 +779,132 @@ namespace AppTestStudio
                 }
                 node.BackColor = SystemColors.MenuHighlight;
             }
+
+        }
+
+        private void tv_DragDrop(object sender, DragEventArgs e)
+        {
+            GameNodeAction Action = e.Data.GetData("AppTestStudio.OctoGameNodeAction") as GameNodeAction;
+            //' Point where mouse is clicked
+            Point p = tv.PointToClient(new Point(e.X, e.Y));
+
+            //' Go to the node that the user clicked
+            GameNode node = tv.GetNodeAt(p) as GameNode;
+
+            if (Action == node)
+            {
+                return;
+            }
+
+            GameNode Target = Action;
+            GameNode Parent = node;
+
+            //' check to see if action is the parent of the target(Node)
+
+            while (Parent is GameNodeEvents == false)
+            {
+                if (Target.Equals(Parent))
+                {
+                    Log("Cannot set a Child Node using a Node from the Parent");
+                    return;
+                }
+                Parent = Parent.Parent as GameNode;
+            }
+
+            if (e.Effect == DragDropEffects.Copy)
+            {
+                //'do nothing
+            }
+            else
+            {
+                //' Remove from current location
+                Action.Remove();
+            }
+
+            Boolean Handled = false;
+
+            if (node is GameNodeAction)
+            {
+                GameNodeAction TargetAction = node as GameNodeAction;
+                switch (TargetAction.ActionType)
+                {
+                    case ActionType.RNGContainer:
+                        if (TargetAction.AutoBalance)
+                        {
+                            GameNodeAction GameNodeAction = AddRNGNode(TargetAction);
+                            GameNodeAction.Nodes.Insert(0, Action);
+                            Action.EnsureVisible();
+                            tv.SelectedNode = Action;
+
+                            Action.BackColor = Color.White;
+                            GameNodeAction.BackColor = Color.White;
+                            Handled = true;
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+
+            if (Handled == false)
+            {
+                if (e.Effect == DragDropEffects.Copy)
+                {
+                    GameNodeAction NewNode = Action.CloneMe();
+                    node.Nodes.Insert(0, NewNode);
+                    NewNode.EnsureVisible();
+                    tv.SelectedNode = NewNode;
+                }
+                else
+                {
+                    node.Nodes.Insert(0, Action);
+                    Action.EnsureVisible();
+                    tv.SelectedNode = Action;
+                }
+            }
+
+            //' clear the entire stack
+            ResetBackground(tv.Nodes[0] as GameNode);
+
+
+        }
+
+        private void ResetBackground(GameNode node)
+        {
+            node.BackColor = Color.White;
+            foreach (GameNode node1 in node.Nodes)
+            {
+                ResetBackground(node1)
+            }
+        }
+
+        private GameNodeAction AddRNGNode(GameNodeAction targetAction)
+        {
+            int Count = targetAction.Nodes.Count;
+
+            int EachResult = 100 / (Count + 1);
+
+            int WhatsLeft = 100;
+
+            for (int i = 0; i < Count; i++)
+            {
+
+                GameNodeAction ChildAction = targetAction.Nodes[i] as GameNodeAction;
+
+                ChildAction.Percentage = EachResult;
+
+                WhatsLeft = WhatsLeft - EachResult;
+        }
+
+
+            GameNodeAction GameNodeAction = new GameNodeAction("", ActionType.RNG);
+            GameNodeAction.Percentage = WhatsLeft;
+
+            targetAction.Nodes.Add(GameNodeAction);
+            tv.SelectedNode = GameNodeAction;
+            ThreadManager.IncrementNewRNGContainer();
+            return GameNodeAction;
+
 
         }
     }
