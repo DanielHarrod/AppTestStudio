@@ -14,16 +14,40 @@ namespace AppTestStudio
 {
     public partial class frmMain : Form
     {
+        private enum PanelMode
+        {
+            Workspace,
+            Games,
+            Game,
+            AddNewGame,
+            Events,
+            Actions,
+            PanelColorEvent,
+            Thread,
+            TestAllEvents,
+            Schedule,
+            Objects,
+            ObjectScreenshot,
+            Object
+        }
+
+
         public ThreadManager ThreadManager { get; set; }
         private GameNodeWorkspace WorkspaceNode { get; set; }
         private GameNode LastNode { get; set; }
         public StringBuilder sb { get; set; }
+
+        private Rectangle PictureObjectScreenshotRectanble { get; set; }
+
+        private Boolean IsPictureObjectScreenshotMouseDown { get; set; }
         public frmMain()
         {
             InitializeComponent();
             ThreadManager = new ThreadManager();
             sb = new StringBuilder();
+            PictureObjectScreenshotRectanble = new Rectangle();
         }
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             ThreadManager.Load();
@@ -271,8 +295,8 @@ namespace AppTestStudio
                 Ordinal++;
                 Ordinate(ref Ordinal, lst, game.Nodes[0] as GameNode);
             }
-                                 
-           // AtsStatusControl1.Items = lst;
+
+            // AtsStatusControl1.Items = lst;
 
         }
 
@@ -324,17 +348,17 @@ namespace AppTestStudio
             }
 
 
-        if (isPaused)
+            if (isPaused)
             {
                 toolStripButtonToggleScript.Text = "Un-Pause Scripts";
                 toolStripButtonToggleScript.Image = AppTestStudio.Properties.Resources.StartWithoutDebug_16x_24;
-            
-        }
+
+            }
             else
             {
                 toolStripButtonToggleScript.Text = "Pause Script";
                 toolStripButtonToggleScript.Image = AppTestStudio.Properties.Resources.Pause_64x_64;
-          }
+            }
 
         }
 
@@ -351,6 +375,83 @@ namespace AppTestStudio
         private void lblHowToFixEmmulatorInstancesFound_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.appteststudio.com/#FixEmmulatorInstances");
+        }
+
+        private void cmdObjectScreenshotsTakeAScreenshot_Click(object sender, EventArgs e)
+        {
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNodeGame GameNode = Node.GetGameNode();
+            String TargetWindow = GameNode.TargetWindow;
+
+            int MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
+
+            Debug.Print("cmdObjectScreenshotsTakeAScreenshot_Click TW=" + TargetWindow + " MWH= " + MainWindowHandle);
+
+            if (MainWindowHandle > 0)
+            {
+                Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+
+                PictureBox3.Image = bmp;
+            }
+
+
+        }
+
+        private GameNodeObjects GetObjectsNode()
+        {
+            return tv.Nodes[0].Nodes[0].Nodes[1] as GameNodeObjects;
+        }
+
+        private String FindNextObjectNameIncrement(String txt)
+        {
+            long Increment = 1;
+            GameNodeObjects ObjectsNode = GetObjectsNode();
+        Restart:
+            foreach (GameNodeObject obj in ObjectsNode.Nodes)
+            {
+                Increment = Increment + 1;
+                goto Restart;
+            }
+            return txt + Increment.ToString();
+        }
+
+        private void cmdMakeObject_Click(object sender, EventArgs e)
+        {
+            GameNodeObjects ObjectsNode = GetObjectsNode();
+
+            foreach (GameNodeObject obj in ObjectsNode.Nodes)
+            {
+                if (obj.GameNodeName.ToUpper() == txtObjectScreenshotName.Text.Trim().ToUpper())
+                {
+                    txtObjectScreenshotName.Text = FindNextObjectNameIncrement(txtObjectScreenshotName.Text);
+                    break;
+                }
+            }
+
+            if (PictureObjectScreenshotRectanble.Width <= 0 || PictureObjectScreenshotRectanble.Height <= 0)
+            {
+                return;
+            }
+            Bitmap CropImage = new Bitmap(PictureObjectScreenshotRectanble.Width, PictureObjectScreenshotRectanble.Height);
+            using (Graphics grp = Graphics.FromImage(CropImage))
+            {
+                grp.DrawImage(PictureBox3.Image, new Rectangle(0, 0, PictureObjectScreenshotRectanble.Width, PictureObjectScreenshotRectanble.Height), PictureObjectScreenshotRectanble, GraphicsUnit.Pixel);
+                //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
+
+                grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                grp.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                grp.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+
+                GameNodeObject o = new GameNodeObject(txtObjectScreenshotName.Text.Trim());
+                o.Bitmap = CropImage;
+
+                GetObjectsNode().Nodes.Add(o)
+
+                SetPanel(PanelMode.Object);
+                tv.SelectedNode = o;
+            }
+
+
         }
     }
 }
