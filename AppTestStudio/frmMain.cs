@@ -544,5 +544,35 @@ namespace AppTestStudio
             }
 
         }
+
+        private void txtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            String SearchText = txtFilter.Text;
+            FilterChildNodes(SearchText, tv.Nodes[0] as GameNode);
+        }
+
+        private void FilterChildNodes(string searchText, GameNode Game)
+        {
+            foreach (GameNode gameNode in Game.Nodes)
+            {
+                if (searchText.Length == 0)
+                {
+                    gameNode.BackColor = Color.White
+            }
+                else
+                {
+                    if (gameNode.Name.ToUpper().Contains(searchText.ToUpper()))
+                    {
+                        gameNode.BackColor = Color.LightGreen;
+                    }
+                    else
+                    {
+                        gameNode.BackColor = Color.White;
+                  }
+                }
+                FilterChildNodes(searchText, gameNode);
+
+            }
+        }
     }
 }

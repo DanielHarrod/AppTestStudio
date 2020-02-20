@@ -58,7 +58,7 @@
             this.tabTree = new System.Windows.Forms.TabControl();
             this.tabDesign = new System.Windows.Forms.TabPage();
             this.splitContainerDesignSearch = new System.Windows.Forms.SplitContainer();
-            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.txtFilter = new System.Windows.Forms.TextBox();
             this.splitContainerTreeSupport = new System.Windows.Forms.SplitContainer();
             this.tv = new System.Windows.Forms.TreeView();
             this.tabRun = new System.Windows.Forms.TabPage();
@@ -604,7 +604,7 @@
             // 
             // splitContainerDesignSearch.Panel1
             // 
-            this.splitContainerDesignSearch.Panel1.Controls.Add(this.txtSearch);
+            this.splitContainerDesignSearch.Panel1.Controls.Add(this.txtFilter);
             // 
             // splitContainerDesignSearch.Panel2
             // 
@@ -613,13 +613,14 @@
             this.splitContainerDesignSearch.SplitterDistance = 25;
             this.splitContainerDesignSearch.TabIndex = 0;
             // 
-            // txtSearch
+            // txtFilter
             // 
-            this.txtSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtSearch.Location = new System.Drawing.Point(0, 0);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(232, 20);
-            this.txtSearch.TabIndex = 0;
+            this.txtFilter.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtFilter.Location = new System.Drawing.Point(0, 0);
+            this.txtFilter.Name = "txtFilter";
+            this.txtFilter.Size = new System.Drawing.Size(232, 20);
+            this.txtFilter.TabIndex = 0;
+            this.txtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
             // splitContainerTreeSupport
             // 
@@ -3797,7 +3798,7 @@
         private System.Windows.Forms.TabPage tabRun;
         private System.Windows.Forms.TabPage tabSchedule;
         private System.Windows.Forms.SplitContainer splitContainerDesignSearch;
-        private System.Windows.Forms.TextBox txtSearch;
+        private System.Windows.Forms.TextBox txtFilter;
         private System.Windows.Forms.SplitContainer splitContainerTreeSupport;
         private System.Windows.Forms.TreeView tv;
         private System.Windows.Forms.ListBox lstThreads;
