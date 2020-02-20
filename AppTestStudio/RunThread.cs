@@ -26,7 +26,7 @@ namespace AppTestStudio
 
         private static Object GetBitMapLock;
 
-        static RunThread()
+            static RunThread()
         {
             GetBitMapLock = new Object();
         }

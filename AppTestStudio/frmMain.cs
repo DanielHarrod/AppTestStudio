@@ -35,11 +35,28 @@ namespace AppTestStudio
         public ThreadManager ThreadManager { get; set; }
         private GameNodeWorkspace WorkspaceNode { get; set; }
         private GameNode LastNode { get; set; }
-        public StringBuilder sb { get; set; }
+        private Boolean IsPictureObjectScreenshotMouseDown = false;
+        private Rectangle PictureObjectScreenshotRectanble = new Rectangle();
 
-        private Rectangle PictureObjectScreenshotRectanble { get; set; }
 
-        private Boolean IsPictureObjectScreenshotMouseDown { get; set; }
+        private Boolean IsPanelLoading = false;
+        private Boolean IsLoadingSchedule = false;
+
+        private GameNodeAction PanelLoadNode;
+
+        private int NoxInstances = -1;
+
+        // Log buffer
+        // Logging is stored here and updated on a textbox on a timer.  
+        private StringBuilder sb = new StringBuilder();
+        
+        private Bitmap UndoScreenshot;
+
+        private int PictureBox1X;
+        private int PictureBox1Y;
+        private Color PictureBox1Color;
+        private Boolean PictureBox1MouseDown = false;
+
         public frmMain()
         {
             InitializeComponent();
@@ -469,7 +486,7 @@ namespace AppTestStudio
             PanelObject.Visible = false;
 
 
-                switch (PanelMode)
+            switch (PanelMode)
             {
                 case PanelMode.Workspace:
                     PanelWorkspace.Visible = true;
@@ -519,7 +536,13 @@ namespace AppTestStudio
 
         private void LoadGamePanel()
         {
-            throw new NotImplementedException();
+            GameNode GameNode = tv.SelectedNode as GameNode;
+
+            if (GameNode.IsSomething())
+            {
+                lblGamePanelGameName.Text = GameNode.Text;
+            }
+
         }
     }
 }
