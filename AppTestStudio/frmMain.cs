@@ -445,13 +445,81 @@ namespace AppTestStudio
                 GameNodeObject o = new GameNodeObject(txtObjectScreenshotName.Text.Trim());
                 o.Bitmap = CropImage;
 
-                GetObjectsNode().Nodes.Add(o)
+                GetObjectsNode().Nodes.Add(o);
 
                 SetPanel(PanelMode.Object);
                 tv.SelectedNode = o;
             }
+        }
+
+        private void SetPanel(PanelMode PanelMode)
+        {
+            PanelWorkspace.Visible = false;
+            PanelGames.Visible = false;
+            PanelGame.Visible = false;
+            PanelAddNewGames.Visible = false;
+            PanelActions.Visible = false;
+            PanelEvents.Visible = false;
+            PanelColorEvent.Visible = false;
+            PanelThread.Visible = false;
+            PanelTestAllEvents.Visible = false;
+            PanelSchedule.Visible = false;
+            PanelObjects.Visible = false;
+            PanelObjectScreenshot.Visible = false;
+            PanelObject.Visible = false;
 
 
+                switch (PanelMode)
+            {
+                case PanelMode.Workspace:
+                    PanelWorkspace.Visible = true;
+                    break;
+                case PanelMode.Games:
+                    PanelGames.Visible = true;
+                    break;
+                case PanelMode.Game:
+                    PanelGame.Visible = true;
+                    LoadGamePanel();
+                    break;
+                case PanelMode.AddNewGame:
+                    PanelAddNewGames.Visible = true;
+                    break;
+                case PanelMode.Events:
+                    PanelEvents.Visible = true;
+                    break;
+                case PanelMode.Actions:
+                    PanelActions.Visible = true;
+                    break;
+                case PanelMode.PanelColorEvent:
+                    PanelColorEvent.Visible = true;
+                    break;
+                case PanelMode.Thread:
+                    PanelThread.Visible = true;
+                    break;
+                case PanelMode.TestAllEvents:
+                    PanelTestAllEvents.Visible = true;
+                    break;
+                case PanelMode.Schedule:
+                    PanelSchedule.Visible = true;
+                    break;
+                case PanelMode.Objects:
+                    PanelObjects.Visible = true;
+                    break;
+                case PanelMode.ObjectScreenshot:
+                    PanelObjectScreenshot.Visible = true;
+                    break;
+                case PanelMode.Object:
+                    PanelObject.Visible = true;
+                    break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+        }
+
+        private void LoadGamePanel()
+        {
+            throw new NotImplementedException();
         }
     }
 }
