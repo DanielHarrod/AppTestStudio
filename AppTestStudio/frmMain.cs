@@ -659,5 +659,23 @@ namespace AppTestStudio
             }
 
         }
+
+        private void tv_ItemDrag(object sender, ItemDragEventArgs e)
+        {
+            Debug.WriteLine("tv_ItemDrag");
+            if (e.Item is GameNodeAction)
+            {
+                GameNodeAction Action = e.Item as GameNodeAction;
+                switch (Action.ActionType)
+                {
+                    case ActionType.RNG:
+                        // no rng dropping
+                        break;
+                    default:
+                        DoDragDrop(e.Item, DragDropEffects.Move | DragDropEffects.Copy);
+                        break;
+                }
+            }
+        }
     }
 }
