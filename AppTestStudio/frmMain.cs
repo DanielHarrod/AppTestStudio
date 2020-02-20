@@ -557,7 +557,7 @@ namespace AppTestStudio
             {
                 if (searchText.Length == 0)
                 {
-                    gameNode.BackColor = Color.White
+                    gameNode.BackColor = Color.White;
             }
                 else
                 {
@@ -573,6 +573,91 @@ namespace AppTestStudio
                 FilterChildNodes(searchText, gameNode);
 
             }
+        }
+
+        private void tv_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
+        {
+            Debug.WriteLine("tv_NodeMouseClick");
+            LastNode = e.Node as GameNode;
+        }
+
+        private void tv_MouseUp(object sender, MouseEventArgs e)
+        {
+            Debug.WriteLine("tv_MouseUp");
+        //' Show menu only if Right Mouse button is clicked
+        if (e.Button == MouseButtons.Right)
+            {
+
+                //' Point where mouse is clicked
+                Point p = new Point(e.X, e.Y);
+
+                //' Go to the node that the user clicked
+                GameNode node = tv.GetNodeAt(p) as GameNode;
+
+                if (node.IsSomething())
+                {
+
+                    //' select the node that was right clicked on.
+                    tv.SelectedNode = node;
+                    LastNode = node;
+                    mnuAddAction.Visible = true;
+
+                    mnuAddRNG.Visible = true;
+                    Debug.Print("tv_MouseUp " + node.GameNodeType.ToString());
+
+                    switch (node.GameNodeType)
+                    {
+                        case GameNodeType.Workspace:
+                            break;
+                        case GameNodeType.Games:
+                            mnuPopupGames.Show(tv, p);
+                            break;
+                        case GameNodeType.Game:
+                            mnuPopupGame.Show(tv, p);
+                            break;
+                        case GameNodeType.Events:
+                            mnuTestAllEvents.Visible = true;
+                            mnuAddAction.Visible = false;
+                            mnuEvents.Show(tv, p);
+                            break;
+                        case GameNodeType.Event:
+                            mnuTestAllEvents.Visible = false;
+                            mnuEvents.Show(tv, p);
+                            break;
+                        case GameNodeType.Action:
+                            mnuTestAllEvents.Visible = false;
+                            GameNodeAction Action = node as GameNodeAction;
+                            switch (Action.ActionType)
+                            {
+                                case ActionType.Action:
+                                    break;
+                                case ActionType.Event:
+                                    break;
+                                case ActionType.RNG:
+                                    break;
+                                case ActionType.RNGContainer:
+                                    mnuAddRNG.Visible = false;
+                                    break;
+                                default:
+                                    break;
+                            }
+                            break;
+                        case GameNodeType.Objects:
+                            mnuObjects.Show(tv, p);
+                            break;
+                        case GameNodeType.ObjectScreenshot:
+                            // do nothing
+                            break;
+                        case GameNodeType.Object:
+                            // do nothing
+                            break;
+                        default:
+                            Debug.Assert(false);
+                            break;
+                    }
+                }
+            }
+
         }
     }
 }

@@ -28,18 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle67 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle68 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -323,6 +324,24 @@
             this.label41 = new System.Windows.Forms.Label();
             this.PanelGames = new System.Windows.Forms.Panel();
             this.label43 = new System.Windows.Forms.Label();
+            this.mnuPopupGames = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuGamesAddNewGame = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuGamesLoadApp = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuEvents = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuAddEvent = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAddAction = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuAddRNG = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAddRNGNode = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuTestAllEvents = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuThreadList = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuThreadExit = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuPopupGame = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuLoadInstance = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuLaunchAndLoad = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuObjects = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuAddObject = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -427,6 +446,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).BeginInit();
             this.PanelActions.SuspendLayout();
             this.PanelGames.SuspendLayout();
+            this.mnuPopupGames.SuspendLayout();
+            this.mnuEvents.SuspendLayout();
+            this.mnuThreadList.SuspendLayout();
+            this.mnuPopupGame.SuspendLayout();
+            this.mnuObjects.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -647,6 +671,8 @@
             this.tv.Size = new System.Drawing.Size(232, 515);
             this.tv.TabIndex = 0;
             this.tv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_AfterSelect);
+            this.tv.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.tv_NodeMouseClick);
+            this.tv.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tv_MouseUp);
             // 
             // tabRun
             // 
@@ -3136,27 +3162,27 @@
             this.dgvTestAllReference.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle67.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle67.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle67.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle67.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle67.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle67.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle67.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle67;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceColor,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle68.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle68.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle68.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle68.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle68.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle68.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle68.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle68;
             this.dgvTestAllReference.Location = new System.Drawing.Point(5, 25);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -3200,14 +3226,14 @@
             this.dgvTest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle69.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle69.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle69.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle69.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle69.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle69.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle69;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTest,
@@ -3215,14 +3241,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle70.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle70.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle70.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle70.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle70.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle70.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle70;
             this.dgvTest.Location = new System.Drawing.Point(5, 24);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -3464,8 +3490,8 @@
             // 
             // colMon
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colMon.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colMon.DefaultCellStyle = dataGridViewCellStyle71;
             this.colMon.HeaderText = "Mon";
             this.colMon.MaxInputLength = 1;
             this.colMon.MinimumWidth = 37;
@@ -3475,8 +3501,8 @@
             // 
             // colTue
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colTue.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colTue.DefaultCellStyle = dataGridViewCellStyle72;
             this.colTue.HeaderText = "Tue";
             this.colTue.MaxInputLength = 1;
             this.colTue.MinimumWidth = 37;
@@ -3486,8 +3512,8 @@
             // 
             // colWed
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colWed.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colWed.DefaultCellStyle = dataGridViewCellStyle73;
             this.colWed.HeaderText = "Wed";
             this.colWed.MaxInputLength = 1;
             this.colWed.MinimumWidth = 37;
@@ -3497,8 +3523,8 @@
             // 
             // colThu
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colThu.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colThu.DefaultCellStyle = dataGridViewCellStyle74;
             this.colThu.HeaderText = "Thu";
             this.colThu.MaxInputLength = 1;
             this.colThu.MinimumWidth = 37;
@@ -3508,8 +3534,8 @@
             // 
             // colFri
             // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colFri.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colFri.DefaultCellStyle = dataGridViewCellStyle75;
             this.colFri.HeaderText = "Fri";
             this.colFri.MaxInputLength = 1;
             this.colFri.MinimumWidth = 37;
@@ -3519,8 +3545,8 @@
             // 
             // colSat
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSat.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSat.DefaultCellStyle = dataGridViewCellStyle76;
             this.colSat.HeaderText = "Sat";
             this.colSat.MaxInputLength = 1;
             this.colSat.MinimumWidth = 37;
@@ -3530,8 +3556,8 @@
             // 
             // colSun
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSun.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSun.DefaultCellStyle = dataGridViewCellStyle77;
             this.colSun.HeaderText = "Sun";
             this.colSun.MaxInputLength = 1;
             this.colSun.MinimumWidth = 37;
@@ -3599,6 +3625,126 @@
             this.label43.Size = new System.Drawing.Size(98, 18);
             this.label43.TabIndex = 1;
             this.label43.Text = "Panel Games";
+            // 
+            // mnuPopupGames
+            // 
+            this.mnuPopupGames.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuGamesAddNewGame,
+            this.mnuGamesLoadApp});
+            this.mnuPopupGames.Name = "mnuPopupGames";
+            this.mnuPopupGames.Size = new System.Drawing.Size(158, 48);
+            // 
+            // mnuGamesAddNewGame
+            // 
+            this.mnuGamesAddNewGame.Name = "mnuGamesAddNewGame";
+            this.mnuGamesAddNewGame.Size = new System.Drawing.Size(157, 22);
+            this.mnuGamesAddNewGame.Text = "Add New Game";
+            // 
+            // mnuGamesLoadApp
+            // 
+            this.mnuGamesLoadApp.Name = "mnuGamesLoadApp";
+            this.mnuGamesLoadApp.Size = new System.Drawing.Size(157, 22);
+            this.mnuGamesLoadApp.Text = "Load App";
+            // 
+            // mnuEvents
+            // 
+            this.mnuEvents.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAddEvent,
+            this.mnuAddAction,
+            this.toolStripSeparator6,
+            this.mnuAddRNG,
+            this.mnuAddRNGNode,
+            this.toolStripSeparator7,
+            this.mnuTestAllEvents});
+            this.mnuEvents.Name = "mnuEvents";
+            this.mnuEvents.Size = new System.Drawing.Size(227, 126);
+            // 
+            // mnuAddEvent
+            // 
+            this.mnuAddEvent.Name = "mnuAddEvent";
+            this.mnuAddEvent.Size = new System.Drawing.Size(226, 22);
+            this.mnuAddEvent.Text = "Add Event";
+            // 
+            // mnuAddAction
+            // 
+            this.mnuAddAction.Name = "mnuAddAction";
+            this.mnuAddAction.Size = new System.Drawing.Size(226, 22);
+            this.mnuAddAction.Text = "Add Action";
+            // 
+            // toolStripSeparator6
+            // 
+            this.toolStripSeparator6.Name = "toolStripSeparator6";
+            this.toolStripSeparator6.Size = new System.Drawing.Size(223, 6);
+            // 
+            // mnuAddRNG
+            // 
+            this.mnuAddRNG.Name = "mnuAddRNG";
+            this.mnuAddRNG.Size = new System.Drawing.Size(226, 22);
+            this.mnuAddRNG.Text = "Add Random Number (RNG)";
+            // 
+            // mnuAddRNGNode
+            // 
+            this.mnuAddRNGNode.Name = "mnuAddRNGNode";
+            this.mnuAddRNGNode.Size = new System.Drawing.Size(226, 22);
+            this.mnuAddRNGNode.Text = "Add RNG Node";
+            // 
+            // toolStripSeparator7
+            // 
+            this.toolStripSeparator7.Name = "toolStripSeparator7";
+            this.toolStripSeparator7.Size = new System.Drawing.Size(223, 6);
+            // 
+            // mnuTestAllEvents
+            // 
+            this.mnuTestAllEvents.Name = "mnuTestAllEvents";
+            this.mnuTestAllEvents.Size = new System.Drawing.Size(226, 22);
+            this.mnuTestAllEvents.Text = "Test All Events";
+            // 
+            // mnuThreadList
+            // 
+            this.mnuThreadList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuThreadExit});
+            this.mnuThreadList.Name = "mnuThreadList";
+            this.mnuThreadList.Size = new System.Drawing.Size(139, 26);
+            // 
+            // mnuThreadExit
+            // 
+            this.mnuThreadExit.Name = "mnuThreadExit";
+            this.mnuThreadExit.Size = new System.Drawing.Size(180, 22);
+            this.mnuThreadExit.Text = "Stop Thread";
+            // 
+            // mnuPopupGame
+            // 
+            this.mnuPopupGame.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuLoadInstance,
+            this.mnuLaunchAndLoad});
+            this.mnuPopupGame.Name = "mnuPopupGame";
+            this.mnuPopupGame.Size = new System.Drawing.Size(289, 48);
+            // 
+            // mnuLoadInstance
+            // 
+            this.mnuLoadInstance.Name = "mnuLoadInstance";
+            this.mnuLoadInstance.Size = new System.Drawing.Size(288, 22);
+            this.mnuLoadInstance.Text = "Run Script";
+            // 
+            // mnuLaunchAndLoad
+            // 
+            this.mnuLaunchAndLoad.Name = "mnuLaunchAndLoad";
+            this.mnuLaunchAndLoad.Size = new System.Drawing.Size(288, 22);
+            this.mnuLaunchAndLoad.Text = "Start Emmulator + Run App + Run Script";
+            // 
+            // mnuObjects
+            // 
+            this.mnuObjects.AccessibleName = "NOT USING";
+            this.mnuObjects.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnuAddObject});
+            this.mnuObjects.Name = "mnuObjects";
+            this.mnuObjects.Size = new System.Drawing.Size(181, 48);
+            // 
+            // mnuAddObject
+            // 
+            this.mnuAddObject.Name = "mnuAddObject";
+            this.mnuAddObject.Size = new System.Drawing.Size(180, 22);
+            this.mnuAddObject.Text = "Add Screenshot";
             // 
             // frmMain
             // 
@@ -3758,6 +3904,11 @@
             this.PanelActions.PerformLayout();
             this.PanelGames.ResumeLayout(false);
             this.PanelGames.PerformLayout();
+            this.mnuPopupGames.ResumeLayout(false);
+            this.mnuEvents.ResumeLayout(false);
+            this.mnuThreadList.ResumeLayout(false);
+            this.mnuPopupGame.ResumeLayout(false);
+            this.mnuObjects.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4048,5 +4199,23 @@
         internal System.Windows.Forms.Label label43;
         internal System.Windows.Forms.Panel PanelActions;
         internal System.Windows.Forms.Label label41;
+        internal System.Windows.Forms.ContextMenuStrip mnuPopupGames;
+        internal System.Windows.Forms.ToolStripMenuItem mnuGamesAddNewGame;
+        internal System.Windows.Forms.ToolStripMenuItem mnuGamesLoadApp;
+        internal System.Windows.Forms.ContextMenuStrip mnuEvents;
+        internal System.Windows.Forms.ToolStripMenuItem mnuAddEvent;
+        internal System.Windows.Forms.ToolStripMenuItem mnuAddAction;
+        internal System.Windows.Forms.ToolStripSeparator toolStripSeparator6;
+        internal System.Windows.Forms.ToolStripMenuItem mnuAddRNG;
+        internal System.Windows.Forms.ToolStripMenuItem mnuAddRNGNode;
+        internal System.Windows.Forms.ToolStripSeparator toolStripSeparator7;
+        internal System.Windows.Forms.ToolStripMenuItem mnuTestAllEvents;
+        internal System.Windows.Forms.ContextMenuStrip mnuThreadList;
+        internal System.Windows.Forms.ToolStripMenuItem mnuThreadExit;
+        internal System.Windows.Forms.ContextMenuStrip mnuPopupGame;
+        internal System.Windows.Forms.ToolStripMenuItem mnuLoadInstance;
+        internal System.Windows.Forms.ToolStripMenuItem mnuLaunchAndLoad;
+        internal System.Windows.Forms.ContextMenuStrip mnuObjects;
+        internal System.Windows.Forms.ToolStripMenuItem mnuAddObject;
     }
 }
