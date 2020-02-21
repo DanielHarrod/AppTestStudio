@@ -1083,5 +1083,114 @@ namespace AppTestStudio
             return true;
 
         }
+
+        private void PictureObjectScreenshot_MouseUp(object sender, MouseEventArgs e)
+        {
+            IsPictureObjectScreenshotMouseDown = false;
+
+        }
+
+        private void PictureObjectScreenshot_Paint(object sender, PaintEventArgs e)
+        {
+            if (PictureObjectScreenshotRectanble.Width > 0 && PictureObjectScreenshotRectanble.Height > 0 ) {
+                using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
+                {
+                    e.Graphics.FillRectangle(br, PictureObjectScreenshotRectanble);
+                }
+
+                using (Pen p = new Pen(Color.Blue, 1))
+                {
+                    e.Graphics.DrawRectangle(p, PictureObjectScreenshotRectanble);
+                }
+                    
+            }
+
+        }
+
+        private void txtObjectScreenshotName_TextChanged(object sender, EventArgs e)
+        {
+            cmdMakeObject.Enabled = IsCreateScreenshotReadyToCreate();
+        }
+
+        private void txtPackageName_TextChanged(object sender, EventArgs e)
+        {
+            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+            if (Game.IsSomething())
+            {
+                Game.PackageName = txtPackageName.Text.Trim();
+            }
+        }
+
+        private void txtGamePanelLaunchInstance_TextChanged(object sender, EventArgs e)
+        {
+            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+            if (Game.IsSomething())
+            {
+                Game.InstanceToLaunch = txtGamePanelLaunchInstance.Text.Trim();
+            }
+        }
+
+        private void cboGameInstances_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtGamePanelLaunchInstance.Text = cboGameInstances.Text;
+        }
+
+        private void txtGamePanelLoopDelay_TextChanged(object sender, EventArgs e)
+        {
+            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+        if (Game.IsSomething())
+            {
+                if (txtGamePanelLoopDelay.Text.Trim().IsNumeric())
+                {
+                    Game.LoopDelay = Convert.ToInt64( txtGamePanelLoopDelay.Text.Trim());
+                }
+            }
+
+        }
+
+        private void cboResolution_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+            if (Game.IsSomething())
+            {
+                if (cboResolution.Text.Length > 0)
+                {
+                    Game.Resolution = cboResolution.Text;
+                }
+            }
+        }
+
+        private void cmdStartEmmulator_Click(object sender, EventArgs e)
+        {
+            Utils.LaunchInstance("", "", txtGamePanelLaunchInstance.Text, cboResolution.Text);
+        }
+
+        private void cmdRunScript_Click(object sender, EventArgs e)
+        {
+            LoadInstance(tv.SelectedNode as GameNodeGame);
+        }
+
+        private void cmdStartEmmulatorAndPackage_Click(object sender, EventArgs e)
+        {
+            Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text);
+        }
+
+        private void cmdStartEmmulatorPackageAndRunScript_Click(object sender, EventArgs e)
+        {
+            Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text);
+            LoadInstance(tv.SelectedNode as GameNodeGame);
+        }
+
+        private void chkSaveVideo_CheckedChanged(object sender, EventArgs e)
+        {
+            GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+            GameNode.SaveVideo = chkSaveVideo.Checked;
+        }
+
+        private void NumericVideoFrameLimit_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+            GameNode.VideoFrameLimit = (long) NumericVideoFrameLimit.Value;
+        }
     }
 }
