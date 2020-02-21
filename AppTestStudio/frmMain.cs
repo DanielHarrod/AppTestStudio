@@ -408,7 +408,7 @@ namespace AppTestStudio
             {
                 Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
 
-                PictureBox3.Image = bmp;
+                PictureObjectScreenshot.Image = bmp;
             }
 
 
@@ -452,7 +452,7 @@ namespace AppTestStudio
             Bitmap CropImage = new Bitmap(PictureObjectScreenshotRectanble.Width, PictureObjectScreenshotRectanble.Height);
             using (Graphics grp = Graphics.FromImage(CropImage))
             {
-                grp.DrawImage(PictureBox3.Image, new Rectangle(0, 0, PictureObjectScreenshotRectanble.Width, PictureObjectScreenshotRectanble.Height), PictureObjectScreenshotRectanble, GraphicsUnit.Pixel);
+                grp.DrawImage(PictureObjectScreenshot.Image, new Rectangle(0, 0, PictureObjectScreenshotRectanble.Width, PictureObjectScreenshotRectanble.Height), PictureObjectScreenshotRectanble, GraphicsUnit.Pixel);
                 //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
 
                 grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
@@ -874,7 +874,7 @@ namespace AppTestStudio
             node.BackColor = Color.White;
             foreach (GameNode node1 in node.Nodes)
             {
-                ResetBackground(node1)
+                ResetBackground(node1);
             }
         }
 
@@ -905,6 +905,182 @@ namespace AppTestStudio
             ThreadManager.IncrementNewRNGContainer();
             return GameNodeAction;
 
+
+        }
+
+        private void PictureObjectScreenshot_MouseDown(object sender, MouseEventArgs e)
+        {
+            IsPictureObjectScreenshotMouseDown = true;
+            PictureObjectScreenshotRectanble = new Rectangle();
+            PictureObjectScreenshotRectanble.X = e.X;
+            PictureObjectScreenshotRectanble.Y = e.Y;
+
+        }
+
+        private void PictureObjectScreenshot_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void PictureObjectScreenshot_MouseMove(object sender, MouseEventArgs e)
+        {
+            Label label = new Label();  // not sure this is necessary
+            int x = 1;
+            int y = 0;
+            Color color = new Color();
+            ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, label, ref x,ref y,ref color, IsPictureObjectScreenshotMouseDown, PictureObjectScreenshotRectanble);
+            cmdMakeObject.Enabled = IsCreateScreenshotReadyToCreate();
+
+        }
+
+        private void ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, Label lblWarning, ref int PB1x, ref int PB1Y,ref Color PB1Color, bool pb1MouseDown, Rectangle PB1R)
+        {
+            if (pb.Image.IsSomething())
+            {
+                Bitmap MyBitmap = pb.Image as Bitmap;
+                if (e.X >= MyBitmap.Width)
+                {
+                    return;
+                }
+                if (e.Y >= MyBitmap.Height - 1)
+                {
+                    return;
+                }
+
+                if (e.X <= -1)
+                {
+                    return;
+                }
+
+                if (e.Y <= -1)
+                {
+                    return;
+                }
+
+                Color Color = MyBitmap.GetPixel(e.X, e.Y);
+
+                //' Debug.Print(Color.ToString())
+
+                PSC.BackColor = Color;
+
+                Single brightness = Color.GetBrightness();
+                if (brightness < 0.55)
+                {
+                    lblColor.ForeColor = Color.WhiteSmoke;
+                    lblXY.ForeColor = Color.WhiteSmoke;
+                }
+                else
+                {
+                    lblColor.ForeColor = Color.Black;
+                    lblXY.ForeColor = Color.Black;
+                }
+
+                lblColor.Text = Color.ToRGBString();
+                lblXY.Text = " X=" + e.X + " Y= " + e.Y;
+
+                //' for click code.
+                PB1x = e.X;
+                PB1Y = e.Y;
+                PB1Color = Color;
+
+                int TargetX = e.X;
+                int TargetY = e.Y;
+
+                //'center x 
+                if (TargetX > 20)
+                {
+                    TargetX = TargetX - 20;
+                }
+
+                //'center y
+                if (TargetY > 20)
+                {
+                    TargetY = TargetY - 20;
+                }
+
+
+                if ((Color.R == 255 && Color.G == 255 && Color.B == 255) || (Color.R == 0 && Color.G == 0 && Color.B == 0)) {
+                    lblWarning.Visible = true;
+                } else
+                {
+                    lblWarning.Visible = false;
+                }
+
+                Rectangle CropRect = new Rectangle(TargetX, TargetY, 40, 40);
+                Bitmap CropImage = new Bitmap(CropRect.Width, CropRect.Height);
+
+                using (Graphics grp = Graphics.FromImage(CropImage))
+                {
+                    grp.DrawImage(MyBitmap, new Rectangle(0, 0, CropRect.Width, CropRect.Height), CropRect, GraphicsUnit.Pixel);
+                    //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
+
+                    grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    grp.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                    grp.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+
+                    using (Pen Pen = new Pen(Color.Black, 2))
+                    {
+
+                        //'draw top on 40,40
+                        grp.DrawLine(Pen, 20, 0, 20, 18);
+
+                        //'draw bottom
+                        grp.DrawLine(Pen, 20, 22, 20, 40);
+                    }
+
+                pb2.Image.Dispose();
+
+                pb2.Image = CropImage;
+                pb2.Refresh();
+                //'CropImage.Save("C:\Incoming\abc.jpg")
+            }
+
+                if (pb1MouseDown)
+                {
+                    //'if (e.X > PictureBox1Rectangle.X ) {
+                    //'    PictureBox1Rectangle.Width = e.X - PictureBox1Rectangle.X
+                    //'}
+
+                    //'if (e.Y > PictureBox1Rectangle.Y ) {
+                    //'    PictureBox1Rectangle.Height = e.Y - PictureBox1Rectangle.Y
+                    //'}
+
+                    //' if (e.X > PictureBox1Rectangle.X ) {
+                    PB1R.Width = e.X - PB1R.X;
+                    //' }
+
+                    //'  if (e.Y > PictureBox1Rectangle.Y ) {
+                    PB1R.Height = e.Y - PB1R.Y;
+                    //' }
+                    pb.Refresh();
+                }
+
+            }
+            
+
+        }
+
+        private bool IsCreateScreenshotReadyToCreate()
+        {
+            if (txtObjectScreenshotName.Text.Trim().Length > 0)
+            {
+                //' Do nothing
+            }
+            else
+            {
+                return false;
+            }
+
+            if (PictureObjectScreenshotRectanble.IsEmpty)
+            {
+                return false;
+            }
+
+            if (PictureObjectScreenshotRectanble.Width <= 0 || PictureObjectScreenshotRectanble.Height <= 0 ) {
+                return false;
+            }
+
+            return true;
 
         }
     }
