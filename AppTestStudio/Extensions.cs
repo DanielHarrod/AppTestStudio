@@ -162,5 +162,15 @@ namespace AppTestStudio
         {
             return String.Format("R={0}, G={1}, B={2}", aColor.R, aColor.G, aColor.B);
         }
+
+        public static String ToX(this Boolean obj)
+        {
+            if (obj)
+            {
+                return "X";
+            }
+            return "";
+        }
+
     }
 }

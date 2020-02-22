@@ -4,11 +4,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Serialization;
 
 namespace AppTestStudio
 {
@@ -56,6 +58,8 @@ namespace AppTestStudio
         private int PictureBox1Y;
         private Color PictureBox1Color;
         private Boolean PictureBox1MouseDown = false;
+
+        private Schedule Schedule = new Schedule();
 
         public frmMain()
         {
@@ -1191,6 +1195,107 @@ namespace AppTestStudio
         {
             GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
             GameNode.VideoFrameLimit = (long) NumericVideoFrameLimit.Value;
+        }
+
+        private void chkEnableSchedule_CheckedChanged(object sender, EventArgs e)
+        {
+            timerScheduler.Enabled = chkEnableSchedule.Checked;
+            Schedule.IsEnabled = chkEnableSchedule.Checked;
+            if (IsLoadingSchedule)
+            {
+
+            }
+            else
+            {
+                SaveSchedule();
+            }
+
+            if (chkEnableSchedule.Checked)
+            {
+                toolSchedulerRunning.Text = "Scheduler Running";
+                toolSchedulerRunning.BackColor = Color.LightGreen;
+            }
+            else {
+                toolSchedulerRunning.Text = "Scheduler Paused";
+                toolSchedulerRunning.BackColor = SystemColors.ButtonFace;
+        }
+        }
+
+        private void SaveSchedule()
+        {
+            String FileName = GetScheduleFileName();
+
+            TextWriter TR = new StreamWriter(FileName);
+            XmlSerializer Serializer = new XmlSerializer(Schedule.GetType());
+
+            Serializer.Serialize(TR, Schedule);
+            TR.Close();
+
+        }
+
+        private string GetScheduleFileName()
+        {
+            return WorkspaceNode.WorkspaceFolder + @"\Schedule.config";
+        }
+
+        private void cmdAddSchedule_Click(object sender, EventArgs e)
+        {
+            frmScheduler frm = new frmScheduler(null);
+            frm.IsAdding = true;
+
+            frm.ShowDialog();
+
+        if (frm.IsSaving)
+            {
+                if (frm.IsAdding)
+                {
+                    ScheduleItem si = frm.getItem();
+                    Schedule.ScheduleList.Add(si);
+                    SaveSchedule();
+                    ReloadScheduleView();
+                }
+            }
+
+        }
+
+        private void ReloadScheduleView()
+        {
+            dgSchedule.Rows.Clear();
+            foreach (ScheduleItem item in Schedule.ScheduleList)
+            {
+
+                String ItemName = item.Name;
+                String WindowName = item.WindowName;
+                String InstanceNumber = item.InstanceNumber.ToString();
+                String StartsAt = item.StartsAt.ToString("hh:mm tt");
+                String Monday = item.Monday.ToX();
+                String Tuesday = item.Tuesday.ToX();
+                String Wednesday = item.Wednesday.ToX();
+                String Thursday = item.Thursday.ToX();
+                String Friday = item.Friday.ToX();
+                String Saturday = item.Saturday.ToX();
+                String Sunday = item.Sunday.ToX();
+                String Repeats = "";
+
+                if (item.Repeats)
+                {
+                    Repeats = "Yes Every " + item.RepeatsEvery + " minutes, " + item.StopsAfter + " times.";
+                }
+                else
+                {
+                    Repeats = "No";
+                }
+
+                String[] k = {
+                    ItemName,
+                WindowName,
+                InstanceNumber,
+                StartsAt, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, Repeats};
+                dgSchedule.Rows.Add(k);
+            item.CurrentRun = DateTime.MinValue;
+        }
+
+
         }
     }
 }
