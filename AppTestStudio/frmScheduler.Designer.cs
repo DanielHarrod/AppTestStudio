@@ -81,6 +81,7 @@
             this.cmdDelete.TabIndex = 26;
             this.cmdDelete.Text = "Delete";
             this.cmdDelete.UseVisualStyleBackColor = true;
+            this.cmdDelete.Click += new System.EventHandler(this.cmdDelete_Click);
             // 
             // cmdSave
             // 
@@ -90,6 +91,7 @@
             this.cmdSave.TabIndex = 27;
             this.cmdSave.Text = "Save";
             this.cmdSave.UseVisualStyleBackColor = true;
+            this.cmdSave.Click += new System.EventHandler(this.cmdSave_Click);
             // 
             // Label7
             // 
@@ -370,6 +372,7 @@
             this.cmdCancel.TabIndex = 28;
             this.cmdCancel.Text = "Cancel";
             this.cmdCancel.UseVisualStyleBackColor = true;
+            this.cmdCancel.Click += new System.EventHandler(this.cmdCancel_Click);
             // 
             // GroupBox3
             // 

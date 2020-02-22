@@ -67,5 +67,24 @@ namespace AppTestStudio
             return si;
 
         }
+
+        private void cmdDelete_Click(object sender, EventArgs e)
+        {
+            IsSaving = false;
+            IsDeleting = true;
+            Hide();
+        }
+
+        private void cmdCancel_Click(object sender, EventArgs e)
+        {
+            IsSaving = false;
+            Hide();
+        }
+
+        private void cmdSave_Click(object sender, EventArgs e)
+        {
+            IsSaving = true;
+            Hide();
+        }
     }
 }
