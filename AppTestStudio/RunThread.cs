@@ -15,7 +15,7 @@ namespace AppTestStudio
     public class RunThread
     {
         public GameNodeGame Game { get; set; }
-        public int WindowHandle { get; set; }
+        public IntPtr WindowHandle { get; set; }
 
         public bool ThreadIsShuttingDown { get; set; }
 
@@ -44,21 +44,17 @@ namespace AppTestStudio
             lock (GetBitMapLock)
             {
 
-                //', Release what you Get, and Delete what you Create. 
-                IntPtr IntPtrWindowHandle = new IntPtr(WindowHandle);
-
-                IntPtr hdcSrc = API.GetWindowDC(IntPtrWindowHandle);
+                IntPtr hdcSrc = API.GetWindowDC(WindowHandle);
                 if (hdcSrc.ToInt32() == 0)
                 {
                     Game.Log("GetWindowDC = 0 " + WindowHandle);
                     Game.Log("Refetching Window for " + Game.TargetWindow);
                     WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow);
-                    IntPtrWindowHandle = new IntPtr(WindowHandle);
 
                 }
                 API.RECT WindowRectangle = new API.RECT();
 
-                API.GetWindowRect(IntPtrWindowHandle, out WindowRectangle);
+                API.GetWindowRect(WindowHandle, out WindowRectangle);
 
                 int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
                 int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
@@ -76,11 +72,11 @@ namespace AppTestStudio
 
                 //'modAPI.BitBlt(hdcDest, 0, 0, TargetWindowWidth, TargetWindowHeight, hdcSrc, 0, 0, &HCC0020)
 
-                API.PrintWindow(IntPtrWindowHandle, hdcDest, 2);
+                API.PrintWindow(WindowHandle, hdcDest, 2);
 
                 API.SelectObject(hdcDest, hOld);
                 API.DeleteDC(hdcDest);
-                API.ReleaseDC(IntPtrWindowHandle, hdcSrc);
+                API.ReleaseDC(WindowHandle, hdcSrc);
 
                 Bitmap bmp = Image.FromHbitmap(hBitmap);
                 API.DeleteObject(hBitmap);
@@ -325,7 +321,7 @@ namespace AppTestStudio
 
         }
 
-        private void StopThreadCloseWindow(int windowHandle)
+        private void StopThreadCloseWindow(IntPtr windowHandle)
         {
             Game.Log("Closing Emmulator");
 
@@ -453,7 +449,7 @@ namespace AppTestStudio
                                 short yTarget = (short)(yPos + RandomY);
 
                                 Game.Log(node.Name + " Click(" + xTarget + "," + yTarget + ")");
-                                ClickOnWindow(WindowHandle, xTarget, yTarget);
+                                Utils.ClickOnWindow(WindowHandle, xTarget, yTarget);
                                 ThreadManager.IncrementClickCount();
                             }
 
@@ -478,15 +474,15 @@ namespace AppTestStudio
                                     Failed = true;
                                 }
 
-                                ex = xPos - (node.Rectangle.Width / 2) + RandomNumber(0, node.Rectangle.Width);
-                                ey = yPos - (node.Rectangle.Height / 2) + RandomNumber(0, node.Rectangle.Height);
+                                ex = xPos - (node.Rectangle.Width / 2) + Utils.RandomNumber(0, node.Rectangle.Width);
+                                ey = yPos - (node.Rectangle.Height / 2) + Utils.RandomNumber(0, node.Rectangle.Height);
 
                                 GameNode Parent = node.Parent as GameNode;
                                 if (Parent is GameNodeAction)
                                 {
                                     GameNodeAction ParentNode = Parent as GameNodeAction;
-                                    xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2) + RandomNumber(0, node.Rectangle.Width);
-                                    yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2) + RandomNumber(0, node.Rectangle.Height);
+                                    xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2) + Utils.RandomNumber(0, node.Rectangle.Width);
+                                    yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2) + Utils.RandomNumber(0, node.Rectangle.Height);
                                 }
 
                                 if (xPos < 0)
@@ -518,7 +514,7 @@ namespace AppTestStudio
                             else
                             {
                                 Game.Log("Swipe from ( x=" + xPos + ",y = " + yPos + " to x=" + ex + ",y=" + ey + ")");
-                                ClickDragRelease(WindowHandle, xPos, yPos, ex, ey);
+                                Utils.ClickDragRelease(WindowHandle, xPos, yPos, ex, ey);
                                 ThreadManager.IncrementClickDragRelease();
                                 //'if (UseThreadBitmap ) {
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)
@@ -725,7 +721,7 @@ namespace AppTestStudio
                     {
                         int Increment = 100 / node.Nodes.Count;
 
-                        int RNG = RandomNumber(1, 100);
+                        int RNG = Utils.RandomNumber(1, 100);
 
                         int TargetIndex = (int)Math.Ceiling((double)RNG / Increment) - 1;
 
@@ -882,7 +878,7 @@ namespace AppTestStudio
         public void Run()
         {
             WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow);
-            while (WindowHandle == 0)
+            while (WindowHandle.ToInt32() == 0)
             {
                 while (Game.IsPaused)
                 {

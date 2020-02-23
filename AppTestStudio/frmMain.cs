@@ -1519,8 +1519,8 @@ namespace AppTestStudio
                         {
                             if (rdoModeRangeClick.Checked)
                             {
-                                int x = ActionNode.Rectangle.Left;
-                                int y = ActionNode.Rectangle.Top;
+                                short x = (short)ActionNode.Rectangle.Left;
+                                short y = (short)ActionNode.Rectangle.Top;
                                 Utils.ClickOnWindow(MainWindowHandle, x, y);
                                 Log("Click attempt: x=" + x + ",Y = " + y);
                                 ThreadManager.IncrementSingleTestClick();
@@ -1539,7 +1539,7 @@ namespace AppTestStudio
                     case "Event":
                         if (rdoColorPoint.Checked)
                         {
-                            frmTest frm2 = new frmTest(game, Node, this, MainWindowHandle);
+                            frmTest frm2 = new frmTest(game, ActionNode, this, MainWindowHandle);
                             frm2.StartPosition = FormStartPosition.CenterParent;
 
                             ThreadManager.IncrementSingleEventTest();
