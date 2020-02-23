@@ -404,11 +404,11 @@ namespace AppTestStudio
             GameNodeGame GameNode = Node.GetGameNode();
             String TargetWindow = GameNode.TargetWindow;
 
-            int MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
+            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
 
             Debug.Print("cmdObjectScreenshotsTakeAScreenshot_Click TW=" + TargetWindow + " MWH= " + MainWindowHandle);
 
-            if (MainWindowHandle > 0)
+            if (MainWindowHandle.ToInt32() > 0)
             {
                 Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
 
@@ -1432,8 +1432,161 @@ namespace AppTestStudio
                 {
                     GameNode.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
                 }
+                PictureBox1.Refresh();
+            }
+        }
 
-                PictureBox1.Refresh();1
+        // Removes a tree node and sets focus to parent tree node.
+        private void cmdDelete_Click(object sender, EventArgs e)
+        {
+            GameNode p = PanelLoadNode.Parent as GameNode;
+            PanelLoadNode.Remove();
+            tv.SelectedNode = p;
+
+        }
+
+        private void cmdTest_Click(object sender, EventArgs e)
+        {
+            RunSingleTest();
+        }
+
+        private void RunSingleTest()
+        {
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNode GameNode = Node.GetGameNode();
+            GameNodeAction ActionNode = Node as GameNodeAction;
+
+            if (GameNode.IsSomething())
+            {
+                //' do nothing
+            }
+            else
+            {
+                Log("Unable to find Node During test");
+                return;
+            }
+
+            if (ActionNode.IsRelativeStart && (ActionNode.Rectangle.Width <= 0 || ActionNode.Rectangle.Height <= 0))
+            {
+                Log("Please Draw a rectangle on the workspace.");
+                return;
+
+
+            }
+
+            GameNodeGame game = GameNode as GameNodeGame;
+
+            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(game.TargetWindow);
+
+
+            //For Each P As Process In Process.GetProcesses()
+            //    if (P.MainWindowTitle.Length() > 0)
+            //    {
+            //    String TargetWindow = game.TargetWindow
+            if (MainWindowHandle.ToInt32() > 0)
+            {
+                ThreadManager.IncrementSingleTestRun();
+
+                switch (lblMode.Text)
+                {
+                    case "Action":
+                        Boolean IsObjectSearchParent = false;
+
+                        // should check for null instead of this, due to Language conversion.
+                        GameNode Parent = Node.Parent as GameNode;
+
+                        if (Parent is GameNodeAction)
+                        {
+                            GameNodeAction ActionNodeParent = Parent as GameNodeAction;
+
+                            if (ActionNodeParent.IsColorPoint == false)
+                            {
+                                IsObjectSearchParent = true;
+                            }
+                        }
+
+                        if (IsObjectSearchParent && ActionNode.IsRelativeStart)
+                        {
+
+                            frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, Parent as GameNodeAction);
+                            frm2.StartPosition = FormStartPosition.CenterParent;
+
+                            ThreadManager.IncrementSingleEventTest();
+
+                            frm2.ShowDialog(this);
+                        }
+                        else
+                        {
+                            if (rdoModeRangeClick.Checked)
+                            {
+                                int x = ActionNode.Rectangle.Left;
+                                int y = ActionNode.Rectangle.Top;
+                                Utils.ClickOnWindow(MainWindowHandle, x, y);
+                                Log("Click attempt: x=" + x + ",Y = " + y);
+                                ThreadManager.IncrementSingleTestClick();
+                            }
+                            else
+                            {
+                                int x = ActionNode.Rectangle.Left;
+                                int y = ActionNode.Rectangle.Top;
+                                Utils.ClickDragRelease(MainWindowHandle, x, y, x + ActionNode.Rectangle.Width, y + ActionNode.Rectangle.Height);
+                                Log("ClickDragRelease( x=" + x + ",Y = " + y + ", ex=" + (x + ActionNode.Rectangle.Width) + ",ey=" + (y + ActionNode.Rectangle.Height) + ")");
+                                ThreadManager.IncrementSingleTestClickDragRelease();
+
+                            }
+                        }
+                        break;
+                    case "Event":
+                        if (rdoColorPoint.Checked)
+                        {
+                            frmTest frm2 = new frmTest(game, Node, this, MainWindowHandle);
+                            frm2.StartPosition = FormStartPosition.CenterParent;
+
+                            ThreadManager.IncrementSingleEventTest();
+
+                            frm2.ShowDialog(this);
+                        }
+                        else
+                        {
+                            if (PictureBoxEventObjectSelection.Image.IsSomething())
+                            {
+                                if (cboChannel.SelectedIndex == 0)
+                                {
+                                    Log("Please select choose a Color Channel to test with.");
+                                    //FlashLabel(lblColorChannel);
+                                    Debug.Assert(false);// need to preset REd Channel if one's not selected
+                                }
+                                else
+                                {
+                                    frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, null);
+                                    frm2.StartPosition = FormStartPosition.CenterParent;
+                                    ThreadManager.IncrementSingleEventTest();
+
+                                    frm2.ShowDialog(this);
+                                }
+
+                            }
+                            else
+                            {
+                                Log("Please select An Object to test with from the list in the Object group before testing.");
+                                // FlashLabel(lblSearchObject)
+                                Debug.Assert(false);// need to preset REd Channel if one's not selected
+                            }
+                        }
+
+                        break;
+
+                    default:
+                        Debug.Assert(false);
+                        break;
+                }
+
+                return;
+
+            }
+            else
+            {
+                Log("Unable to find window with title: " + game.TargetWindow);
             }
 
         }

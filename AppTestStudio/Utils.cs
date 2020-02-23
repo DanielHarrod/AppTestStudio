@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace AppTestStudio
 {
@@ -108,7 +109,78 @@ namespace AppTestStudio
             return Loc;
         }
 
-        public static int GetWindowHandleByWindowName(String WindowName)
+        public static void ClickDragRelease(IntPtr windowHandle, int startX, int startY, int endX, int endY)
+        {
+            int WM_PARENTNOTIFY = 0x210;
+            uint WM_MOUSEMOVE = 0x200;
+            uint WM_LBUTTONDOWN = 0x201;
+            int WM_LBUTTONUP = 0x202;
+            int MK_LBUTTON = 0x1;
+
+            short CurrentX = (short)startX;
+            short CurrentY = (short)startY;
+
+            int MaxSteps = Math.Abs(endX - startX);
+
+            if (Math.Abs(endY - startY) > MaxSteps)
+            {
+                MaxSteps = Math.Abs(endY - startY);
+            }
+
+            Double XIncrement = (endX - startX) / MaxSteps;
+            Double YIncrement = (endY - startY) / MaxSteps;
+
+            //'Send Mouse Down
+            API.PostMessage(windowHandle, WM_LBUTTONDOWN, MK_LBUTTON, Utils.HiLoWord(CurrentX, CurrentY));
+            Thread.Sleep(10);
+
+            //'Send draging
+            for (int i = 0; i < MaxSteps; i++)
+            {
+                API.PostMessage(windowHandle, WM_MOUSEMOVE, MK_LBUTTON, Utils.HiLoWord(CurrentX, CurrentY));
+                Thread.Sleep(1);
+
+                CurrentX = (short)(CurrentX + XIncrement);
+                CurrentY = (short)(CurrentY + YIncrement);
+            }
+
+            Thread.Sleep(10);
+
+            //' Send mouse Up
+            API.SendMessage(windowHandle, WM_LBUTTONUP, 0, Utils.HiLoWordIntptr(CurrentX, CurrentY));
+        }
+
+
+        public static void ClickOnWindow(IntPtr windowHandle, short xTarget, short yTarget)
+        {
+            int WM_SETCURSOR = 0x20;
+            int HTCLIENT = 0x1;
+
+            int WM_MOUSEMOVE = 0x200;
+            uint WM_LBUTTONDOWN = 0x201;
+            uint WM_LBUTTONUP = 0x202;
+            //' PostMessage(WindowHandle, WM_MOUSEMOVE, 0, getHiLoWord(X, Y))
+            //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(1, WM_MOUSEMOVE))
+            //'Thread.Sleep(25)
+
+            //'SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(1, WM_LBUTTONDOWN))
+
+            //'sendmessage(hwnd, WM_SETCURSOR, WM_MOUSEMOVE, MakeLParam(1, WM_MOUSEMOVE))
+
+            API.PostMessage(windowHandle, WM_LBUTTONDOWN, (int)WM_LBUTTONDOWN, Utils.HiLoWord(xTarget, yTarget));
+            //'Thread.Sleep(25)
+            API.PostMessage(windowHandle, WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
+
+        }
+
+        static System.Random Generator = new System.Random();
+
+        public static short RandomNumber(int min, int max)
+        {        
+            return (short)Generator.Next(min, max);
+        }
+
+        public static IntPtr GetWindowHandleByWindowName(String WindowName)
         {              
             foreach (Process P in Process.GetProcesses())
             {
@@ -116,11 +188,11 @@ namespace AppTestStudio
                 {
                     if (P.MainWindowTitle == WindowName)
                     {
-                        return P.MainWindowHandle.ToInt32();
+                        return P.MainWindowHandle;
                     }
                 }
             }
-            return 0;
+            return new IntPtr(0);
         }
 
         public static String CalculateDelay(DateTime dt)
@@ -160,16 +232,14 @@ namespace AppTestStudio
             return Result;
         }
 
-        public static Bitmap GetBitmapFromWindowHandle( int WindowHandle)
+        public static Bitmap GetBitmapFromWindowHandle( IntPtr WindowHandle)
         {
-            IntPtr IntPtrWindowHandle = new IntPtr(WindowHandle);
-
-            IntPtr IntPtrDeviceContext = API.GetDC(IntPtrWindowHandle);  //GDI Alloc 1
+            IntPtr IntPtrDeviceContext = API.GetDC(WindowHandle);  //GDI Alloc 1
             IntPtr IntPtrContext = API.CreateCompatibleDC(IntPtrDeviceContext);  // GDI Alloc 2
 
             API.RECT WindowRectangle = new API.RECT();
 
-            API.GetWindowRect(IntPtrWindowHandle, out WindowRectangle);
+            API.GetWindowRect(WindowHandle, out WindowRectangle);
 
             int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
             int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
@@ -178,13 +248,13 @@ namespace AppTestStudio
 
             API.SelectObject(IntPtrContext, CompatibleBitmap);
 
-            API.PrintWindow(IntPtrWindowHandle, IntPtrContext, 2);
+            API.PrintWindow(WindowHandle, IntPtrContext, 2);
 
             Bitmap bmp = System.Drawing.Image.FromHbitmap(CompatibleBitmap);
 
             API.DeleteObject(CompatibleBitmap);  // GDI Dealloc 3
             API.DeleteDC(IntPtrContext); // GDI DeAlloc 2
-            API.ReleaseDC(IntPtrWindowHandle, IntPtrDeviceContext);  //GDI Dealloc 1
+            API.ReleaseDC(WindowHandle, IntPtrDeviceContext);  //GDI Dealloc 1
 
             return bmp;
         }
