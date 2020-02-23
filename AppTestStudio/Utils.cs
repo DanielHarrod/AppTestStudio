@@ -83,11 +83,11 @@ namespace AppTestStudio
                     break;
                 case GameNodeType.Objects:
                     Node.ImageIndex = IconNames.EditMulitpleObjects();
-                Node.SelectedImageIndex = IconNames.EditMulitpleObjects();
+                    Node.SelectedImageIndex = IconNames.EditMulitpleObjects();
                     break;
                 case GameNodeType.ObjectScreenshot:
                     Node.ImageIndex = IconNames.RectangularScreenshot();
-                Node.SelectedImageIndex = IconNames.RectangularScreenshot();
+                    Node.SelectedImageIndex = IconNames.RectangularScreenshot();
                     break;
                 case GameNodeType.Object:
                     Node.ImageIndex = IconNames.RectangularSelection();
@@ -176,12 +176,12 @@ namespace AppTestStudio
         static System.Random Generator = new System.Random();
 
         public static short RandomNumber(int min, int max)
-        {        
+        {
             return (short)Generator.Next(min, max);
         }
 
         public static IntPtr GetWindowHandleByWindowName(String WindowName)
-        {              
+        {
             foreach (Process P in Process.GetProcesses())
             {
                 if (P.MainWindowTitle.Length > 0)
@@ -197,7 +197,7 @@ namespace AppTestStudio
 
         public static String CalculateDelay(DateTime dt)
         {
-            if ( dt < DateTime.Now)
+            if (dt < DateTime.Now)
             {
                 return "";
             }
@@ -214,7 +214,7 @@ namespace AppTestStudio
 
             String Result = "";
 
-            if ( Hours > 0 )
+            if (Hours > 0)
             {
                 Result = Result + String.Format("{0}h ", Hours);
             }
@@ -232,7 +232,7 @@ namespace AppTestStudio
             return Result;
         }
 
-        public static Bitmap GetBitmapFromWindowHandle( IntPtr WindowHandle)
+        public static Bitmap GetBitmapFromWindowHandle(IntPtr WindowHandle)
         {
             IntPtr IntPtrDeviceContext = API.GetDC(WindowHandle);  //GDI Alloc 1
             IntPtr IntPtrContext = API.CreateCompatibleDC(IntPtrDeviceContext);  // GDI Alloc 2
@@ -267,7 +267,7 @@ namespace AppTestStudio
             String DirectoryPath = System.IO.Path.Combine(MyDocuments, ApplicationName);
             return DirectoryPath;
         }
-        
+
         // Makes sure the text displays white on black or black on white but not white on white.
         public static DataGridViewCellStyle GetDataGridViewCellStyleFromColor(Color color)
         {
@@ -300,37 +300,38 @@ namespace AppTestStudio
 
             String Arguments = "";
 
-        if (packageName.Trim().Length > 0 )
+            if (packageName.Trim().Length > 0)
             {
                 Arguments = " -package:" + packageName.Trim();
-        }
+            }
 
             Arguments = Arguments + " -title:ATS" + instanceToLaunch + "Window";
 
 
-            if (instanceToLaunch.Trim().Length > 0) { 
-            if (instanceToLaunch.Trim().IsNumeric())
+            if (instanceToLaunch.Trim().Length > 0)
+            {
+                if (instanceToLaunch.Trim().IsNumeric())
                 {
                     if (Arguments.Length > 0)
                     {
                         Arguments = Arguments + " ";
-                }
+                    }
                     Arguments = Arguments + " -clone:Nox_" + instanceToLaunch.Trim();
-            }
+                }
             }
 
             Arguments = Arguments + " -resolution:" + resolution;
 
             //'-clone:Nox_1
             info.Arguments = Arguments;
-            Process.Start(info);  
+            Process.Start(info);
         }
 
         public static int HiLoWord(short lo, short hi)
         {
             int hi2 = hi << 16;
             hi2 = hi2 | lo;
-     
+
             return hi2;
         }
 
@@ -339,6 +340,42 @@ namespace AppTestStudio
             return new IntPtr(HiLoWord(lo, hi));
         }
 
+        public static String CalculateDelay(int hour, int minute, int second, int ms)
+        {
+            String Time = "";
+ 
+                if (hour > 0)
+                {
+                    Time = hour + "h ";
+                }
+        
 
+
+                if (minute > 0)
+                {
+                    Time = Time + minute + "m ";
+                }
+      
+
+
+                if (second > 0)
+                {
+                    Time = Time + second + "s ";
+                }
+         
+
+  
+                if (ms > 0)
+                {
+                    Time = Time + ms + "ms";
+                }
+         
+
+            if (Time.Length == 0)
+            {
+                return "0 ms";
+            }
+            return Time;
+        }
     }
 }

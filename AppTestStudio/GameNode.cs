@@ -57,5 +57,20 @@ namespace AppTestStudio
 
             return Node as GameNodeGame;
         }
+
+        internal GameNodeObjects GetObjectsNode()
+        {
+            GameNode GameNode = GetGameNode();
+            foreach (GameNode node in GameNode.Nodes)
+            {
+                if ( node is GameNodeObjects)
+                {
+                    return node as GameNodeObjects;
+                }
+
+            }
+        return null;
+
+        }
     }
 }

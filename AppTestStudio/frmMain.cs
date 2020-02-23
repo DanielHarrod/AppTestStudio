@@ -172,7 +172,522 @@ namespace AppTestStudio
 
         private void tv_AfterSelect(object sender, TreeViewEventArgs e)
         {
+            Debug.WriteLine("tv_AfterSelect");
 
+            if (e.IsNothing())
+            {
+                e = new TreeViewEventArgs(tv.SelectedNode);
+            }
+
+            GameNode GameNode = e.Node as GameNode;
+
+
+            PanelLoadNode = null;
+
+            mnuAddRNGNode.Enabled = false;
+
+            toolStripButtonRunScript.Enabled = false;
+            toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
+            toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
+            toolStripButtonStartEmmulator.Enabled = false;
+
+
+            toolStripButtonSaveScript.Enabled = false;
+
+            if (GameNode.IsNothing())
+            {
+                return;
+            }
+            Console.WriteLine(GameNode.GameNodeType);
+
+            switch (GameNode.GameNodeType)
+            {
+                case GameNodeType.Workspace:
+                    SetPanel(PanelMode.Workspace);
+                    break;
+                case GameNodeType.Games:
+                    SetPanel(PanelMode.Games);
+                    break;
+                case GameNodeType.Game:
+                    SetPanel(PanelMode.Game);
+                    LoadGamePanel(GameNode as GameNodeGame);
+
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                    toolStripButtonStartEmmulator.Enabled = true;
+
+                    toolStripButtonRunScript.Enabled = true;
+                    toolStripButtonSaveScript.Enabled = true;
+                    break;
+                case GameNodeType.Events:
+                    SetPanel(PanelMode.Events);
+
+                    toolStripButtonSaveScript.Enabled = true;
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                    toolStripButtonStartEmmulator.Enabled = true;
+
+                    toolStripButtonRunScript.Enabled = true;
+                    break;
+                case GameNodeType.Event:
+                    SetPanel(PanelMode.PanelColorEvent);
+                    LoadPanelSingleColorAtSingleLocation(e.Node as GameNodeAction);
+
+                    toolStripButtonSaveScript.Enabled = true;
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                    toolStripButtonStartEmmulator.Enabled = true;
+
+                    toolStripButtonRunScript.Enabled = true;
+                    break;
+                case GameNodeType.Action:
+                    toolStripButtonSaveScript.Enabled = true;
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                    toolStripButtonStartEmmulator.Enabled = true;
+
+                    toolStripButtonRunScript.Enabled = true;
+
+                    SetPanel(PanelMode.PanelColorEvent);
+                    LoadPanelSingleColorAtSingleLocation(e.Node as GameNodeAction);
+
+                    GameNodeAction Action = e.Node as GameNodeAction;
+
+                    switch (Action.ActionType)
+                    {
+                        case AppTestStudio.ActionType.RNGContainer:
+                            mnuAddRNGNode.Enabled = true;
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case GameNodeType.Objects:
+                    SetPanel(PanelMode.Objects);
+                    break;
+                case GameNodeType.ObjectScreenshot:
+                    break;
+                case GameNodeType.Object:
+                    SetPanel(PanelMode.Object);
+                    LoadObject(e.Node as GameNodeObject);
+                    break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+        }
+
+        private void LoadGamePanel(GameNodeGame gameNode)
+        {
+            txtGamePanelVersion.Text = gameNode.TargetGameBuild;
+            txtPackageName.Text = gameNode.PackageName;
+
+            txtGamePanelLaunchInstance.Text = gameNode.InstanceToLaunch;
+            txtGamePanelLaunchInstance.Enabled = true;
+
+
+            txtGamePanelLoopDelay.Text = gameNode.LoopDelay.ToString();
+            cboResolution.Text = gameNode.Resolution;
+            chkSaveVideo.Checked = gameNode.SaveVideo;
+            NumericVideoFrameLimit.Value = gameNode.VideoFrameLimit;
+
+        }
+
+        private void LoadObject(GameNodeObject node)
+        {
+            txtObjectName.Text = node.Name;
+            PictureBoxObject.Image = node.Bitmap;
+        }
+
+        private void LoadPanelSingleColorAtSingleLocation(GameNodeAction GameNode)
+        {
+            IsPanelLoading = true;
+            PanelLoadNode = GameNode;
+            if (tv.SelectedNode is GameNodeEvents)
+            {
+                chkUseParentScreenshot.Visible = false;
+                //'cmdHelpUseParentScreenshot.Visible = false
+            }
+
+            switch (GameNode.ActionType)
+            {
+                case AppTestStudio.ActionType.Action:
+                    lblMode.Text = "Action";
+                    break;
+                case AppTestStudio.ActionType.Event:
+                    lblMode.Text = "Event";
+                    break;
+                case AppTestStudio.ActionType.RNG:
+                    lblMode.Text = "Random Generator Success";
+                    break;
+                case AppTestStudio.ActionType.RNGContainer:
+                    lblMode.Text = "Random Number Generator (RNG)";
+                    break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+
+            dgv.Rows.Clear();
+
+            dgv.Visible = false;
+            grpAndOr.Visible = false;
+
+            PictureBox2.Visible = false;
+            PanelSelectedColor.Visible = false;
+
+            cmdAddSingleColorAtSingleLocationTakeASceenshot.Visible = false;
+            //'cmdHelpTakeAScreenshot.Visible = false
+
+            chkUseParentScreenshot.Visible = false;
+            //'cmdHelpUseParentScreenshot.Visible = false
+
+            lblRHSColor.Visible = false;
+            lblRHSXY.Visible = false;
+            chkAutoBalance.Visible = false;
+
+
+            //'if (PanelLoadNode.Nodes.Count = 0 ) {
+            //'    cmdDelete.Enabled = true
+            //'} else {
+            //'   cmdDelete.Enabled = false
+            //'}
+
+            cboPoints.Text = GameNode.Points.ToString();
+
+            cboDelayMS.Text = GameNode.DelayMS.ToString();
+            cboDelayS.Text = GameNode.DelayS.ToString();
+            cboDelayH.Text = GameNode.DelayH.ToString();
+            cboDelayM.Text = GameNode.DelayM.ToString();
+
+            if (GameNode.IsColorPoint)
+            {
+                rdoColorPoint.Checked = true;
+            }
+            else
+            {
+                rdoObjectSearch.Checked = true;
+            }
+
+            switch (GameNode.AfterCompletionType)
+            {
+                case AppTestStudio.AfterCompletionType.Continue:
+                    rdoAfterCompletionContinue.Checked = true;
+                    break;
+                case AppTestStudio.AfterCompletionType.Home:
+                    rdoAfterCompletionHome.Checked = true;
+                    break;
+                case AppTestStudio.AfterCompletionType.Parent:
+                    rdoAfterCompletionParent.Checked = true;
+                    break;
+                case AppTestStudio.AfterCompletionType.Stop:
+                    rdoAfterCompletionStop.Checked = true;
+                    break;
+                case AppTestStudio.AfterCompletionType.ContinueProcess:
+                    rdoAfterCompletionParent.Checked = true;
+                    break;
+                default:
+                    rdoAfterCompletionParent.Checked = true;
+                    break;
+            }
+
+            chkUseParentScreenshot.Checked = GameNode.UseParentPicture;
+            txtEventName.Text = GameNode.Text;
+
+
+            cmdUndoScreenshot.Visible = false;
+            if (UndoScreenshot.IsSomething())
+            {
+                //'UndoScreenshot.Dispose()
+                UndoScreenshot = null;
+            }
+
+            chkUseLimit.Checked = GameNode.IsLimited;
+            chkWaitFirst.Checked = GameNode.IsWaitFirst;
+            numIterations.Value = GameNode.ExecutionLimit;
+            chkLimitRepeats.Checked = GameNode.LimitRepeats;
+
+            switch (GameNode.DragTargetMode)
+            {
+                case AppTestStudio.DragTargetMode.Relative:
+                    rdoRelativeTarget.Checked = true;
+                    break;
+                case AppTestStudio.DragTargetMode.Absolute:
+                    rdoAbsoluteTarget.Checked = true;
+                    break;
+                default:
+                    rdoAbsoluteTarget.Checked = true;
+                    break;
+            }
+
+            switch (GameNode.WaitType)
+            {
+                case AppTestStudio.WaitType.Iteration:
+                    cboWaitType.Text = "Iteration";
+                    break;
+                case AppTestStudio.WaitType.Time:
+                    cboWaitType.Text = "Time";
+                    break;
+                case AppTestStudio.WaitType.Session:
+                    cboWaitType.Text = "Once Per Session";
+                    break;
+                default:
+                    cboWaitType.Text = "Iteration";
+                    break;
+            }
+            lnkLimitTime.Text = Utils.CalculateDelay(GameNode.LimitDelayH, GameNode.LimitDelayM, GameNode.LimitDelayS, GameNode.LimitDelayMS);
+
+            if (GameNode.Mode == Mode.RangeClick)
+            {
+                rdoModeRangeClick.Checked = true;
+            }
+            else
+            {
+                rdoModeClickDragRelease.Checked = true;
+            }
+
+            chkRelativePosition.Checked = GameNode.IsRelativeStart;
+
+            switch (GameNode.ActionType)
+            {
+                case AppTestStudio.ActionType.Action:
+                    grpEventMode.Visible = false;
+                    grpMode.Visible = true;
+                    grpObject.Visible = false;
+                    //'cmdHelpAddAction.Visible = true
+
+                    //' cmdHelpAddAction.Visible = true
+                    PictureBox2.Visible = true;
+                    PanelSelectedColor.Visible = true;
+
+                    cmdAddSingleColorAtSingleLocationTakeASceenshot.Visible = true;
+                    //'cmdHelpTakeAScreenshot.Visible = true
+
+                    //'                if (TypeOf (GameNode.Parent) Is OctoGameNodeEvents ) {
+                    //'               chkUseParentScreenshot.Visible = false
+                    //'              } else {
+                    chkUseParentScreenshot.Visible = true;
+                    //'cmdHelpUseParentScreenshot.Visible = true
+                    //'             }
+                    lblRHSColor.Visible = true;
+                    lblRHSXY.Visible = true;
+                    break;
+                case AppTestStudio.ActionType.Event:
+                    rdoColorPoint.Checked = GameNode.IsColorPoint;
+                    grpMode.Visible = false;
+                    grpEventMode.Visible = true;
+                    //'cmdHelpAddAction.Visible = false
+
+                    //' cmdHelpAddAction.Visible = false
+                    dgv.Visible = true;
+
+                    PictureBox2.Visible = true;
+                    PanelSelectedColor.Visible = true;
+
+                    cmdAddSingleColorAtSingleLocationTakeASceenshot.Visible = true;
+                    //'cmdHelpTakeAScreenshot.Visible = true
+
+                    //'                if (TypeOf (GameNode.Parent) Is OctoGameNodeEvents ) {
+                    //'               chkUseParentScreenshot.Visible = false
+                    //'              } else {
+                    chkUseParentScreenshot.Visible = true;
+                    //'cmdHelpUseParentScreenshot.Visible = true
+                    //'             }
+                    lblRHSColor.Visible = true;
+                    lblRHSXY.Visible = true;
+
+                    //'load existing
+                    PictureBox1.Image = GameNode.Bitmap;
+                    if (GameNode.LogicChoice.ToUpper() == "OR")
+                    {
+                        rdoOR.Checked = true;
+                    }
+                    else
+                    {
+                        rdoAnd.Checked = true;
+                    }
+
+                    foreach (SingleClick Click in GameNode.ClickList)
+                    {
+                        int RowIndex = dgv.Rows.Add();
+                        dgv.Rows[RowIndex].Cells["dgvColor"].Value = Click.Color.ToRGBString();
+                        dgv.Rows[RowIndex].Cells["dgvX"].Value = Click.X;
+                        dgv.Rows[RowIndex].Cells["dgvY"].Value = Click.Y;
+                        dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
+                        dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scan";
+
+                        DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Click.Color);
+
+                        dgv.Rows[RowIndex].Cells["dgvColor"].Style = Style;
+                    }
+
+                    lblRHSColor.Text = "";
+                    lblRHSXY.Text = "";
+
+                    HideShowObjectvsAndOR();
+
+                    //'do nothing
+                    LoadObjectNodeSection();
+                    break;
+                case AppTestStudio.ActionType.RNG:
+                    grpEventMode.Visible = false;
+                    break;
+                case AppTestStudio.ActionType.RNGContainer:
+                    grpEventMode.Visible = false;
+                    grpMode.Visible = false;
+                    //' cmdHelpAddAction.Visible = false
+
+                    chkAutoBalance.Checked = GameNode.AutoBalance;
+                    //'chkAutoBalance.Visible = true
+                    chkAutoBalance.Visible = true;
+
+                    break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+
+
+
+            PictureBox1.Image = GameNode.Bitmap;
+            PictureBox1.Refresh();
+
+            InitalizeOffsets();
+
+            lblResolution.Text = GameNode.ResolutionWidth + "x" + GameNode.ResolutionHeight;
+            IsPanelLoading = false;
+
+        }
+
+        private void InitalizeOffsets()
+        {
+            GameNodeAction CurrentNode = tv.SelectedNode as GameNodeAction;
+
+            //'check for parent 
+
+            GameNodeAction CurrentParent;
+
+        if (CurrentNode.Parent is GameNodeAction ) {
+                CurrentParent = CurrentNode.Parent as GameNodeAction;
+        } else
+            {
+                grpObjectAction.Visible = false;
+            return;
+        }
+
+            while (CurrentParent is GameNodeAction)
+            {
+                if (CurrentParent.IsColorPoint == false)
+                {
+                    grpObjectAction.Visible = true;
+            }
+                else
+                {
+                    grpObjectAction.Visible = false;
+                    return;
+                }
+            }
+
+            NumericYOffset.Minimum = -PictureBox1.Height;
+            NumericYOffset.Maximum = PictureBox1.Height;
+
+            NumericXOffset.Maximum = PictureBox1.Width;
+            NumericXOffset.Minimum = -PictureBox1.Width;
+            NumericXOffset.Value = CurrentNode.RelativeXOffset;
+            NumericYOffset.Value = CurrentNode.RelativeYOffset;
+
+            lblXOffsetRange.Text = "-" + PictureBox1.Width + " to " + PictureBox1.Width;
+            lblYOffsetRange.Text = "-" + PictureBox1.Height + " to " + PictureBox1.Height;
+
+        }
+
+        private void LoadObjectNodeSection()
+        {
+            LoadEventObjectList();
+            GameNodeAction EventNode = tv.SelectedNode as GameNodeAction;
+            LoadObjectSelectionImage();
+            if (EventNode.ObjectName == "")
+            {
+                cboObject.SelectedIndex = 0;
+            }
+            else
+            {
+                cboObject.Text = EventNode.ObjectName;
+            }
+
+            switch (EventNode.Channel.ToUpper())
+            {
+                case "RED":
+                    cboChannel.Text = "Red Channel";
+                    break;
+                case "GREEN":
+                    cboChannel.Text = "Green Channel";
+                    break;
+                case "BLUE":
+                    cboChannel.Text = "Blue Channel";
+                    break;
+                default:
+                    cboChannel.Text = "Red Channel";
+                    EventNode.Channel = "Red";
+                    break;
+            }
+
+
+            NumericObjectThreshold.Value = EventNode.ObjectThreshold;
+
+        }
+
+        private void LoadObjectSelectionImage()
+        {
+            GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+        if (ActionNode.IsColorPoint)
+            {
+                //'do nothing
+            }
+            else
+            {
+                if (ActionNode.ObjectName.Trim() == "")
+                {
+                    //'do nothing
+                }
+                else
+                {
+                    GameNode Node = tv.SelectedNode as GameNode;
+                    GameNode GameNode = Node.GetGameNode();
+                    GameNodeObjects ObjectsNode = GameNode.GetObjectsNode();
+                    //'For Each Screenshot As OctoGameNodeObjectScreenshot In ObjectsNode.Nodes
+
+                    foreach (GameNodeObject gameNodeObject in ObjectsNode.Nodes)
+                    {
+                        if (gameNodeObject.GameNodeName.Trim() == ActionNode.ObjectName.Trim())
+                        {
+                            PictureBoxEventObjectSelection.Image = gameNodeObject.Bitmap;
+                        ActionNode.ObjectSearchBitmap = gameNodeObject.Bitmap;
+                        return;
+                        }
+                    }
+
+                }
+            }
+            PictureBoxEventObjectSelection.Image = null;
+            ActionNode.ObjectSearchBitmap = null;
+        }
+
+        private void LoadEventObjectList()
+        {
+            cboObject.Items.Clear();
+            cboObject.Items.Add("Choose a Object");
+
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNodeObjects ObjectsNode = Node.GetObjectsNode();
+
+            if (ObjectsNode.IsSomething())
+            {
+                foreach (GameNodeObject ATSObject in ObjectsNode.Nodes)
+                {
+                    cboObject.Items.Add(ATSObject.GameNodeName);
+                }
+            }
         }
 
         public void Log(String s)
