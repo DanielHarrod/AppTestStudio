@@ -124,7 +124,7 @@ namespace AppTestStudio
 
 		private long mScreenShots;
 
-		private long ScreenShots
+		public long ScreenShots
 		{
 			get { return mScreenShots; }
 			set { mScreenShots = value; }
@@ -150,7 +150,7 @@ namespace AppTestStudio
 
 		private long mGoHome;
 
-		private long GoHome
+		public long GoHome
 		{
 			get { return mGoHome; }
 			set { mGoHome = value; }
@@ -176,7 +176,7 @@ namespace AppTestStudio
 
 		private long mGoContinue;
 
-		private long GoContinue
+		public long GoContinue
 		{
 			get { return mGoContinue; }
 			set { mGoContinue = value; }
@@ -189,7 +189,7 @@ namespace AppTestStudio
 
 		private long mGoChild;
 
-		private long GoChild
+		public long GoChild
 		{
 			get { return mGoChild; }
 			set { mGoChild = value; }
@@ -201,8 +201,7 @@ namespace AppTestStudio
 		}
 
 		private long mRNG;
-
-		private long RNG
+		public long RNG
 		{
 			get { return mRNG; }
 			set { mRNG = value; }
@@ -215,7 +214,7 @@ namespace AppTestStudio
 
 		private long mAppLaunches;
 
-		private long AppLaunches
+		public long AppLaunches
 		{
 			get { return mAppLaunches; }
 			set { mAppLaunches = value; }

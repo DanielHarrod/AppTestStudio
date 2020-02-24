@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppTestStudioControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -74,10 +75,160 @@ namespace AppTestStudio
             ThreadManager.Load();
             InitializeToolbars();
 
+            //'overlap
+            grpObject.Top = grpAndOr.Top;
+
+            FirstFormost();
+            InitializedInstances();
+
+            Timer1.Enabled = true;
+            //'Debug.Assert(false, "Fix")
+
+            ThreadManager.IncrementAppLaunches();
+
+            //'Default the first Panel to system
+            SetPanel(PanelMode.Workspace);
+
+            PanelWorkspace.Dock = DockStyle.Fill;
+            PanelGames.Dock = DockStyle.Fill;
+            PanelGame.Dock = DockStyle.Fill;
+            PanelAddNewGames.Dock = DockStyle.Fill;
+            PanelEvents.Dock = DockStyle.Fill;
+            PanelActions.Dock = DockStyle.Fill;
+            PanelColorEvent.Dock = DockStyle.Fill;
+            PanelColorEvent.Location = new Point(0, 0);
+            PanelThread.Dock = DockStyle.Fill;
+            PanelTestAllEvents.Dock = DockStyle.Fill;
+            PanelSchedule.Dock = DockStyle.Fill;
+            PanelObjects.Dock = DockStyle.Fill;
+            PanelObjectScreenshot.Dock = DockStyle.Fill;
+            PanelObject.Dock = DockStyle.Fill;
 
             WorkspaceNode = new GameNodeWorkspace("Apps");
             WorkspaceNode.WorkspaceFolder = Utils.GetApplicationFolder();
             tv.Nodes.Add(WorkspaceNode);
+
+            LoadSchedule();
+            ReloadScheduleView();
+
+            //'GamesTreeNode = New OctoGameNode("Apps", OctoGameNodeType.Games)
+            //'WorkspaceNode.Nodes.Add(GamesTreeNode)
+
+            //'   AddNewGameToTree("Holy Day City")
+
+            //'LoadDefaultProject()
+
+            tv.ExpandAll();
+
+            LoadRanges();
+
+        }
+
+        private void LoadSchedule()
+        {
+            String FileName = GetScheduleFileName();
+
+            if (System.IO.File.Exists(FileName))
+            {
+
+                XmlSerializer Serializer = new XmlSerializer(Schedule.GetType());
+                TextReader TRead = new StreamReader(FileName);
+                Schedule = Serializer.Deserialize(TRead) as Schedule;
+                TRead.Close();
+
+                chkEnableSchedule.Checked = Schedule.IsEnabled;
+                chkEnableSchedule_CheckedChanged(null, null);
+            }
+            else
+            {
+                Schedule = new Schedule();
+            }
+        }
+
+        private void LoadRanges()
+        {
+            for (int i = 0; i < 255; i++)
+            {
+                cboPoints.Items.Add(i);
+            }
+        }
+
+        private void InitializedInstances()
+        {
+            NoxRegistry Registry = new NoxRegistry();
+
+            for (int i = 0; i < NoxInstances; i++)
+            {
+                cboGameInstances.Items.Add(i);
+            }
+        }
+
+        private void FirstFormost()
+        {
+            NoxRegistry NoxRegistry = new NoxRegistry();
+            //' Make App Test Studio Working Folder
+            String DirectoryPath = Utils.GetApplicationFolder();
+
+            if (System.IO.Directory.Exists(DirectoryPath) == false)
+            {
+                System.IO.Directory.CreateDirectory(DirectoryPath);
+            }
+
+            String ExportPath = DirectoryPath + @"\Exports\";
+            if (System.IO.Directory.Exists(ExportPath) == false)
+            {
+                System.IO.Directory.CreateDirectory(ExportPath);
+            }
+
+            //'Count Nox instances
+            String TargetPath = NoxRegistry.BigNoxVMSFolder;
+            if (System.IO.Directory.Exists(TargetPath))
+            {
+                String[] Directories = System.IO.Directory.GetDirectories(TargetPath);
+
+                int DirectoryCount = 0;
+
+                foreach (String Folder in Directories)
+                {
+                    if (Folder.Contains("nox-prev"))
+                    {
+                        //'donothing
+                    }
+                    else
+                    {
+                        DirectoryCount = DirectoryCount + 1;
+                    }
+                }
+
+                NoxInstances = DirectoryCount;
+                lblEmmulatorInstancesFound.Text = NoxInstances.ToString();
+                lblEmmulatorInstancesFound.ForeColor = Color.Green;
+                lblHowToFixEmmulatorInstancesFound.LinkColor = Color.DarkGray;
+            }
+            else
+            {
+                lblEmmulatorInstancesFound.Text = "0";
+                lblEmmulatorInstancesFound.ForeColor = Color.Red;
+            }
+
+            //'info.FileName = "C:\Program Files (x86)\Nox\bin\nox.exe"
+            //'Check for Nox Emmulator
+            //'TargetPath = X86Folder & "\Nox\bin\nox.exe"
+            TargetPath = NoxRegistry.ExePath;
+
+            if (System.IO.File.Exists(TargetPath))
+            {
+                lblEmmulatorInstalled.Text = "Yes";
+                lblEmmulatorInstalled.ForeColor = Color.Green;
+                lblHowToFixEmmulatorInstalled.LinkColor = Color.DarkGray;
+
+            }
+            else
+            {
+                lblEmmulatorInstalled.Text = "No";
+                lblEmmulatorInstalled.ForeColor = Color.Red;
+            }
+
         }
 
         private void InitializeToolbars()
@@ -109,7 +260,7 @@ namespace AppTestStudio
                     switch (LoadCheck.Result)
                     {
                         case frmLoadCheck.LoadCheckResult.Save:
-                            SaveCurrentProject();
+                            toolStripButtonSaveScript_Click(null,null);
                             break;
                         case frmLoadCheck.LoadCheckResult.DontSave:
                             break;
@@ -163,11 +314,6 @@ namespace AppTestStudio
 
 
 
-        }
-
-        private void SaveCurrentProject()
-        {
-            throw new NotImplementedException();
         }
 
         private void tv_AfterSelect(object sender, TreeViewEventArgs e)
@@ -567,25 +713,25 @@ namespace AppTestStudio
 
             GameNodeAction CurrentParent;
 
-        if (CurrentNode.Parent is GameNodeAction ) {
+            if (CurrentNode.Parent is GameNodeAction)
+            {
                 CurrentParent = CurrentNode.Parent as GameNodeAction;
-        } else
+            }
+            else
             {
                 grpObjectAction.Visible = false;
-            return;
-        }
-
-            while (CurrentParent is GameNodeAction)
-            {
-                if (CurrentParent.IsColorPoint == false)
-                {
-                    grpObjectAction.Visible = true;
+                return;
             }
-                else
-                {
-                    grpObjectAction.Visible = false;
-                    return;
-                }
+
+            if (CurrentParent.IsColorPoint == false)
+            {
+                grpObjectAction.Visible = true;
+                return;
+            }
+            else
+            {
+                grpObjectAction.Visible = false;
+                return;
             }
 
             NumericYOffset.Minimum = -PictureBox1.Height;
@@ -640,7 +786,7 @@ namespace AppTestStudio
         private void LoadObjectSelectionImage()
         {
             GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-        if (ActionNode.IsColorPoint)
+            if (ActionNode.IsColorPoint)
             {
                 //'do nothing
             }
@@ -662,8 +808,8 @@ namespace AppTestStudio
                         if (gameNodeObject.GameNodeName.Trim() == ActionNode.ObjectName.Trim())
                         {
                             PictureBoxEventObjectSelection.Image = gameNodeObject.Bitmap;
-                        ActionNode.ObjectSearchBitmap = gameNodeObject.Bitmap;
-                        return;
+                            ActionNode.ObjectSearchBitmap = gameNodeObject.Bitmap;
+                            return;
                         }
                     }
 
@@ -2103,6 +2249,395 @@ namespace AppTestStudio
             {
                 Log("Unable to find window with title: " + game.TargetWindow);
             }
+
+        }
+
+        private void Timer1_Tick(object sender, EventArgs e)
+        {
+            foreach (GameNodeGame Game in ThreadManager.Games)
+            {
+                if (Game.ThreadLog.Count() > 0)
+                {
+                    String s = "";
+
+                    if (Game.ThreadLog.TryDequeue(out s))
+                    {
+                        Log(s);
+                    }
+                }
+            }
+
+
+
+            if (ThreadManager.IsDirty)
+            {
+                RefreshThreadList();
+                ThreadManager.IsDirty = false;
+            }
+
+            //'wow not good.
+            int lstthreadsSelectedIndex = lstThreads.SelectedIndex;
+            if (lstthreadsSelectedIndex == -1)
+            {
+                if (lstThreads.Items.Count > 0)
+                {
+                    lstThreads.SelectedIndex = 0;
+                }
+            }
+
+            Boolean NeedRedraw = false;
+
+            foreach (GameNodeGame game in ThreadManager.Games)
+            {
+
+
+
+                if (game.IsSomething())
+                {
+
+                    int OriginalCount = game.StatusControl.Count;
+                    while (game.StatusControl.Count > 0)
+                    {
+
+
+                        AppTestStudioStatusControlItem sci = null;
+                        if (game.StatusControl.TryDequeue(out sci))
+                        {
+                            appTestStudioStatusControl1.Queue.Add(sci);
+                        }
+                    }
+
+                    if (OriginalCount > 0)
+                    {
+                        NeedRedraw = true;
+                    }
+
+                    if (game.MinimalBitmapClones.Count > 0)
+                    {
+                        //'walk the tree to find a bitmpa
+
+                        MinimalBitmapNode mbmc = null;
+                        if (game.MinimalBitmapClones.TryDequeue(out mbmc))
+                        {
+                            TreeNode[] tns = tv.Nodes.Find(mbmc.NodeName, true);
+
+                            if (tns.Length == 1)
+                            {
+                                GameNodeAction ActionNode = tns[0] as GameNodeAction;
+
+                                if (mbmc.ResolutionHeight == ActionNode.ResolutionHeight)
+                                {
+                                    if (mbmc.ResolutionWidth == ActionNode.ResolutionWidth)
+                                    {
+                                        ActionNode.Bitmap = mbmc.Bitmap.Clone() as Bitmap;
+                                        Log("Synching Screenshot: " + ActionNode.Name);
+                                        BitmapChildren(ActionNode, ActionNode.Bitmap);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                Log("Attempted to sync screenshots but two nodes have the same name: " + mbmc.NodeName);
+                            }
+                            mbmc.Bitmap.Dispose();
+                            mbmc.Bitmap = null;
+                        }
+                    }
+                }
+            }
+
+            //'if (mPaintCount > 0 and ) {
+            //'    cmdGraph.Text = "Time Left " & mPaintCount
+            //'    //'DANIEL type 1
+            //'    Dim OLDBMP As Bitmap = pb.Image
+            //'    Dim xbmp As New Bitmap(pb.Width, pb.Height)
+            //'    Using gr As Graphics = Graphics.FromImage(xbmp)
+            //'        //'Dim hdc As Integer = gr.GetHdc
+            //'        //'Try
+            //'        StatusControl1.UserControl1_Paint(gr, pb.Height, pb.Width)
+            //'        //' Catch ex As Exception
+            //'        //' Debug.WriteLine(ex.Message)
+            //'        //'Finally
+            //'        //'gr.ReleaseHdc(hdc)
+            //'        //' End Try
+            //'        Dim hdc As Integer = gr.GetHdc
+            //'        gr.ReleaseHdc(hdc)
+
+
+            //'        pb.Image = xbmp
+            //'        if (OLDBMP Is Nothing = false ) {
+            //'            OLDBMP.Dispose()
+            //'        }
+            //'    End Using
+            //'    mPaintCount = mPaintCount - 1
+            //'} else {
+            //'    cmdGraph.Text = "Press to refresh"
+            //'}
+
+            //'//'DANIEL type 1
+            //'Dim OLDBMP As Bitmap = pb.Image
+            //'Dim xbmp As New Bitmap(pb.Width, pb.Height)
+            //'Using gr As Graphics = Graphics.FromImage(xbmp)
+            //'    //'Dim hdc As Integer = gr.GetHdc
+            //'    //'Try
+            //'    StatusControl1.UserControl1_Paint(gr, pb.Height, pb.Width)
+            //'    //' Catch ex As Exception
+            //'    //' Debug.WriteLine(ex.Message)
+            //'    //'Finally
+            //'    //'gr.ReleaseHdc(hdc)
+            //'    //' End Try
+            //'    Dim hdc As Integer = gr.GetHdc
+            //'    gr.ReleaseHdc(hdc)
+
+
+            //'    pb.Image = xbmp
+            //'    if (OLDBMP Is Nothing = false ) {
+            //'        OLDBMP.Dispose()
+            //'    }
+            //'End Using
+
+            //'DANIEL Type 2
+            //'if (pb.Image Is Nothing ) {
+            //'    pb.Image = New Bitmap(pb.Width, pb.Height)
+            //'}
+            appTestStudioStatusControl1.Invalidate();
+            //'pb.Invalidate()
+
+
+            //'type 3
+            //'Dim bmp3 As Bitmap = New Bitmap(pb.Width, pb.Height)
+            //'Using g As Graphics = Graphics.FromImage(bmp3)
+            //'    Dim hdc As Integer = g.GetHdc()
+            //'    Try
+            //'        StatusControl1.UserControl1_Paint(g, pb.Height, pb.Width)
+            //'    Catch ex As Exception
+            //'        Debug.WriteLine(ex.Message)
+            //'    Finally
+            //'        g.ReleaseHdc(hdc)
+            //'    End Try
+            //'End Using
+
+            //'if (pb.Image Is Nothing = false ) {
+            //'    pb.Image.Dispose()
+            //'}
+
+            //'pb.Image = bmp3
+            //'pb.Invalidate()
+
+
+            //' Me.DoubleBuffered = true
+
+            //'if (lstThreads.SelectedIndex >= 0 ) {
+            //'    //' if (ThreadManager.Games.Count() >= lstThreads.SelectedIndex ) {
+
+            //'    //' ThreadManager.Games can become 0 in a thread.
+            //'    Dim Game As OctoGameNodeGame = Nothing
+            //'        Try
+            //'            Game = ThreadManager.Games(lstThreads.SelectedIndex)
+            //'        Catch ex As Exception
+            //'            Debug.WriteLine("Timer1.Tick " & ex.Message)
+            //'        End Try
+
+            //'        if (Game.IsSomething() ) {
+            //'            Dim OriginalCount As Long = Game.StatusControl.Count
+            //'            While Game.StatusControl.Count > 0
+            //'                Dim sci As StatusControlItem = Nothing
+            //'                if (Game.StatusControl.TryDequeue(sci) ) {
+            //'                    StatusControl1.Queue.Add(sci)
+
+            //'                }
+            //'            End While
+
+            //'            if (OriginalCount > 0 ) {
+            //'                StatusControl1.Invalidate()
+            //'            }
+            //'        }
+            //'    //' }
+            //'}
+
+            if (ThreadManager.LoadThreadManager.IsSomething())
+            {
+
+
+                lblClickCount.Text = String.Format("{0:n0}", ThreadManager.ClickCount);
+                lblClickCountTotal.Text = String.Format("{0:n0}", ThreadManager.ClickCount + ThreadManager.LoadThreadManager.ClickCount);
+
+
+                lblWaiting.Text = String.Format("{0:n0} s", ThreadManager.WaitLength / 1000);
+                TimeSpan t = TimeSpan.FromSeconds((ThreadManager.WaitLength + ThreadManager.LoadThreadManager.WaitLength) / 1000);
+
+                String Time = "";
+                if (t.Days > 0)
+                {
+                    Time = Time + t.Days.ToString().PadLeft(2, '0') + "d ";
+                }
+
+                Time = Time + t.Hours.ToString().PadLeft(2, '0') + "h ";
+                Time = Time + t.Minutes.ToString().PadLeft(2, '0') + "m ";
+                Time = Time + t.Seconds.ToString().PadLeft(2, '0') + "s ";
+
+
+                lblWaitingTotal.Text = Time;
+
+                lblScreenshots.Text = String.Format("{0:n0}", ThreadManager.ScreenShots);
+                lblScreenshotsTotal.Text = String.Format("{0:n0}", ThreadManager.ScreenShots + ThreadManager.LoadThreadManager.ScreenShots);
+
+                lblContinue.Text = String.Format("{0:n0}", ThreadManager.GoContinue);
+                lblContinueTotal.Text = String.Format("{0:n0}", ThreadManager.GoContinue + ThreadManager.LoadThreadManager.GoContinue);
+
+                lblChild.Text = String.Format("{0:n0}", ThreadManager.GoChild);
+                lblChildTotal.Text = String.Format("{0:n0}", ThreadManager.GoChild + ThreadManager.LoadThreadManager.GoChild);
+
+                lblHome.Text = String.Format("{0:n0}", ThreadManager.GoHome);
+                lblHomeTotal.Text = String.Format("{0:n0}", ThreadManager.GoHome + ThreadManager.LoadThreadManager.GoHome);
+
+
+            }
+            //'            if (Game.ThreadLastNodeAction.IsSomething ) {
+            //'                lblLastNodeAction.Text = Game.ThreadLastNodeAction.Text
+            //'            }
+
+            //'            if (Game.ThreadLastNodeEvent.IsSomething ) {
+            //'                lblLastNodeEvent.Text = Game.ThreadLastNodeEvent.Text
+            //'            }
+
+            //'            lblGameLoops.Text = Game.GameLoops
+            //'            lblScreenshots.Text = Game.ScreenShotsTaken
+
+            //'            if (Game.AbsoluteLastNode.IsSomething ) {
+
+            //'                lblLastNode.Text = Game.AbsoluteLastNode.Text
+            //'                lblStartTime.Text = Game.StartTime.ToString()
+
+            //'                Dim Seconds As Long = DateDiff(DateInterval.Second, Game.StartTime, Now)
+
+            //'                lblRunDuration.Text = Seconds & " Seconds "
+
+            //'                //' RT.Game.AbsoluteLastNode.BackColor = Color.LightGray
+
+            //'                if (TimerList.Contains(Game.AbsoluteLastNode) ) {
+            //'                    TimerList.Remove(Game.AbsoluteLastNode)
+            //'                }
+
+            //'                if (TimerList.Count > 5 ) {
+            //'                    TimerList(4).BackColor = Nothing
+            //'                    TimerList.RemoveAt(4)
+            //'                }
+
+            //'                TimerList.Insert(0, Game.AbsoluteLastNode)
+
+            //'                Dim R As Integer = 180
+            //'                Dim G As Integer = 180
+            //'                Dim B As Integer = 180
+
+            //'                For Each node In TimerList
+            //'                    node.BackColor = Color.FromArgb(R, G, B)
+            //'                    R = R + 15
+            //'                    G = G + 15
+            //'                    B = B + 15
+            //'                Next
+            //'            }
+            //'        }
+            //'    }
+            //'}
+
+
+            foreach (GameNodeGame game in ThreadManager.Games)
+            {
+
+                if (game.IsSomething())
+                {
+                    if (game.SaveVideo)
+                    {
+                        if (game.VideoFrameLimit > 0)
+                        {
+                            if (game.Video.IsSomething() == false)
+                            {
+                                if (game.BitmapClones.Count > 0)
+                                {
+                                    Bitmap bmp = game.BitmapClones.First();
+                                    StartNewVideo(game, bmp);
+                                    bmp = null;
+                                    //'don//'t dispose re-reading it later.
+                                }
+                            }
+
+                            if (game.Video.IsSomething())
+                            {
+                                while (game.BitmapClones.Count > 0)
+                                {
+
+
+                                    Bitmap bmp = null;
+                                    if (game.BitmapClones.TryDequeue(out bmp))
+                                    {
+                                        if (game.VideoWidth != bmp.Width || game.VideoHeight != bmp.Height)
+                                        {
+                                            game.Video.Release();
+                                            game.Video = null;
+                                            StartNewVideo(game, bmp);
+                                        }
+                                        OpenCvSharp.Mat mat = OpenCvSharp.Extensions.BitmapConverter.ToMat(bmp);
+                                        game.Video.Write(mat);
+                                        game.VideoFrameLimit = game.VideoFrameLimit - 1;
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+                            while (game.BitmapClones.Count > 0)
+                            {
+                                Bitmap bmp = null;
+                                game.BitmapClones.TryDequeue(out bmp);
+                                bmp.Dispose();
+                                bmp = null;
+
+                            }
+
+                        }
+                    }
+                }
+            }
+
+        }
+
+        private void StartNewVideo(GameNodeGame game, Bitmap bmp)
+        {
+            String MyDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            String Directory = System.IO.Path.Combine(MyDocuments, Utils.ApplicationName, game.GameNodeName, "Video");
+            if (System.IO.Directory.Exists(Directory))
+            {
+                //'do nothing
+            }
+            else
+            {
+                System.IO.Directory.CreateDirectory(Directory);
+            }
+
+            String Filename = Directory + @"\" + game.GameNodeName + DateTime.Now.ToString("ATS - yyyy - MM - dd - HH - mm - ss") + ".avi";
+            //            Game.Video = new OpenCvSharp.VideoWriter(Filename, OpenCvSharp.FourCC.DIVX, 1, new OpenCvSharp.Size(bmp.Width, bmp.Height), true);
+            game.Video = new OpenCvSharp.VideoWriter(Filename, -1, 1, new OpenCvSharp.Size(bmp.Width, bmp.Height), true);
+            game.VideoHeight = bmp.Height;
+            game.VideoWidth = bmp.Width;
+
+        }
+
+        private void BitmapChildren(GameNodeAction node, Bitmap bmp)
+        {
+            foreach (GameNodeAction child in node.Nodes)
+            {
+                if (child.GameNodeType == GameNodeType.Action)
+                {
+                    if (child.UseParentPicture)
+                    {
+                        Log("Linking Child: " + child.Name);
+                        child.Bitmap = bmp.Clone() as Bitmap;
+                        BitmapChildren(child, bmp);
+                    }
+                }
+            }
+
 
         }
     }

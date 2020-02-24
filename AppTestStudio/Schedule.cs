@@ -19,6 +19,10 @@ namespace AppTestStudio
             return Utils.GetApplicationFolder() + @"\Schedule.xml";
         }
 
+        public Schedule()
+        {
+            ScheduleList = new List<ScheduleItem>();
+        }
 
         public void Load()
         {
