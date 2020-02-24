@@ -824,26 +824,26 @@ namespace AppTestStudio
             {
                 switch (ActionNodeChildNode.Name.ToUpper())
                 {
-                    case "LimitDelay":
+                    case "LIMITDELAY":
                         treeActionNode.LimitDelayMS = Convert.ToInt32(ActionNodeChildNode.Attributes["MilliSeconds"].Value);
                         treeActionNode.LimitDelayS = Convert.ToInt32(ActionNodeChildNode.Attributes["Seconds"].Value);
                         treeActionNode.LimitDelayM = Convert.ToInt32(ActionNodeChildNode.Attributes["Minutes"].Value);
                         treeActionNode.LimitDelayH = Convert.ToInt32(ActionNodeChildNode.Attributes["Hours"].Value);
                         break;
-                    case "Delay":
+                    case "DELAY":
                         treeActionNode.DelayMS = Convert.ToInt32(ActionNodeChildNode.Attributes["MilliSeconds"].Value);
                         treeActionNode.DelayS = Convert.ToInt32(ActionNodeChildNode.Attributes["Seconds"].Value);
                         treeActionNode.DelayM = Convert.ToInt32(ActionNodeChildNode.Attributes["Minutes"].Value);
                         treeActionNode.DelayH = Convert.ToInt32(ActionNodeChildNode.Attributes["Hours"].Value);
                         break;
-                    case "Rectangle":
+                    case "RECTANGLE":
                         int Rectanglex = ActionNodeChildNode.Attributes["X"].Value.ToInt();
                         int Rectangley = ActionNodeChildNode.Attributes["Y"].Value.ToInt();
                         int RectangleHeight = ActionNodeChildNode.Attributes["Height"].Value.ToInt();
                         int RectangleWidth = ActionNodeChildNode.Attributes["Width"].Value.ToInt();
                         treeActionNode.Rectangle = new Rectangle(Rectanglex, Rectangley, RectangleWidth, RectangleHeight);
                         break;
-                    case "Picture":
+                    case "PICTURE":
                         String ActionNodeFileName = ActionNodeChildNode.Attributes["FileName"].Value;
 
                         String ActionNodeFullPath = Path.Combine(Path.GetDirectoryName(gameNode.FileName), "Pictures", ActionNodeFileName);
@@ -877,7 +877,7 @@ namespace AppTestStudio
 
                         LoadEvents(ActionNodeChildNode.FirstChild, gameNode, rngAction, lst, loadBitmaps);
                         break;
-                    case "Events":
+                    case "EVENTS":
                         LoadEvents(ActionNodeChildNode, gameNode, treeActionNode, lst, loadBitmaps);
                         break;
                     default:

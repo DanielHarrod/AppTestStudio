@@ -9,13 +9,14 @@ namespace AppTestStudio
         public GameNodeAction(string name, ActionType actionType)
             : base(name, GameNodeType.Action, actionType)
         {
+
             AfterCompletionType = AfterCompletionTypeDefault();
             LogicChoice = "AND";
 
-            DelayMS = 0;
+            DelayMS = DefaultDelayMS();
             DelayS = DefaultDelayS();
-            DelayM = 0;
-            DelayH = 0;
+            DelayM = DefaultDelayM();
+            DelayH = DefaultDelayH();
             LimitDelayMS = 0;
             LimitDelayS = 0;
             LimitDelayM = 0;
@@ -31,7 +32,7 @@ namespace AppTestStudio
 
         }
 
-        private int DefaultDelayS()
+        public int DefaultDelayS()
         {
             switch (ActionType)
             {
@@ -46,6 +47,21 @@ namespace AppTestStudio
                 default:
                     return 0;
             }
+        }
+
+        public int DefaultDelayMS()
+        {
+            return 0;
+        }
+
+        public int DefaultDelayM()
+        {
+            return 0;
+        }
+
+        public int DefaultDelayH()
+        {
+            return 0;
         }
 
         public List<SingleClick> ClickList { get; set; }

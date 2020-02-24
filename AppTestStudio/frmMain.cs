@@ -260,7 +260,7 @@ namespace AppTestStudio
                     switch (LoadCheck.Result)
                     {
                         case frmLoadCheck.LoadCheckResult.Save:
-                            toolStripButtonSaveScript_Click(null,null);
+                            toolStripButtonSaveScript_Click(null, null);
                             break;
                         case frmLoadCheck.LoadCheckResult.DontSave:
                             break;
@@ -2638,6 +2638,208 @@ namespace AppTestStudio
                 }
             }
 
+
+        }
+
+        private void PictureBox1_Click(object sender, EventArgs e)
+        {
+            switch (lblMode.Text)
+            {
+                case "Event":
+                    if (rdoColorPoint.Checked)
+                    {
+                        DataGridViewRow Row = dgv.Rows[0].Clone() as DataGridViewRow;
+
+                        int RowIndex = dgv.Rows.Add();
+                        dgv.Rows[RowIndex].Cells["dgvColor"].Value = PictureBox1Color.ToRGBString();
+                        dgv.Rows[RowIndex].Cells["dgvX"].Value = PictureBox1X;
+                        dgv.Rows[RowIndex].Cells["dgvY"].Value = PictureBox1Y;
+                        dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
+
+                        DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(PictureBox1Color);
+
+                        dgv.Rows[RowIndex].Cells["dgvColor"].Style = Style;
+
+                        PictureBox1.Refresh();
+
+                        ArchaicSave();
+
+                    }
+                    break;
+                case "Action":
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void ArchaicSave()
+        {
+            AfterCompletionType ChosenAfterCompletionType = AfterCompletionType.Continue;
+
+            if (rdoAfterCompletionContinue.Checked)
+            {
+                ChosenAfterCompletionType = AfterCompletionType.Continue;
+            }
+
+            if (rdoAfterCompletionHome.Checked)
+            {
+                ChosenAfterCompletionType = AfterCompletionType.Home;
+            }
+
+            if (rdoAfterCompletionParent.Checked)
+            {
+                ChosenAfterCompletionType = AfterCompletionType.Parent;
+            }
+
+            if (rdoAfterCompletionStop.Checked)
+            {
+                ChosenAfterCompletionType = AfterCompletionType.Stop;
+            }
+
+            GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
+
+            if (cboDelayMS.Text.IsNumeric())
+            {
+                Picturable.DelayMS = cboDelayMS.Text.ToInt();
+            }
+            else
+            {
+                Picturable.DelayMS = Picturable.DefaultDelayMS();
+            }
+
+            if (cboDelayS.Text.IsNumeric())
+            {
+                Picturable.DelayS = cboDelayS.Text.ToInt();
+            }
+            else
+            {
+                Picturable.DelayS = Picturable.DefaultDelayS();
+            }
+
+            if (cboDelayM.Text.IsNumeric())
+            {
+                Picturable.DelayM = cboDelayM.Text.ToInt();
+            }
+            else
+            {
+                Picturable.DelayM = Picturable.DefaultDelayM();
+            }
+
+            if (cboDelayH.Text.IsNumeric())
+            {
+                Picturable.DelayH = cboDelayH.Text.ToInt();
+            }
+            else
+            {
+                Picturable.DelayH = Picturable.DefaultDelayH();
+            }
+
+            Picturable.Points = cboPoints.Text.ToInt();
+
+            Picturable.UseParentPicture = chkUseParentScreenshot.Checked;
+
+            if (PictureBox1.Image.IsSomething())
+            {
+                Picturable.Bitmap = PictureBox1.Image as Bitmap;
+                Picturable.ResolutionWidth = PictureBox1.Image.Width;
+                Picturable.ResolutionHeight = PictureBox1.Image.Height;
+            }
+
+            Picturable.AfterCompletionType = ChosenAfterCompletionType;
+
+            Picturable.IsLimited = chkUseLimit.Checked;
+            Picturable.ExecutionLimit = Convert.ToInt32(numIterations.Value);
+            Picturable.IsWaitFirst = chkWaitFirst.Checked;
+            Picturable.LimitRepeats = chkLimitRepeats.Checked;
+            switch (cboWaitType.Text)
+            {
+                case "Iteration":
+                    Picturable.WaitType = WaitType.Iteration;
+                    break;
+                case "Once Per Session":
+                    Picturable.WaitType = WaitType.Session;
+                    break;
+                case "Time":
+                    Picturable.WaitType = WaitType.Time;
+                    break;
+                default:
+                    break;
+            }
+
+
+            if (lblMode.Text == "Event")
+            {
+                GameNodeAction EventNode = PanelLoadNode;
+                if (EventNode.IsNothing())
+                {
+                    Log("Unable to identify selected node.");
+                    return;
+                }
+
+                EventNode.GameNodeName = txtEventName.Text;
+
+                //'      Color.
+                EventNode.ClickList.Clear();
+
+                foreach (DataGridViewRow row in dgv.Rows)
+                {
+                    if (row.IsNewRow == false)
+                    {
+                        SingleClick SingleClick = new SingleClick();
+
+                        SingleClick.Color = SingleClick.Color.FromRGBString(row.Cells["dgvColor"].Value.ToString());
+
+                        SingleClick.X = row.Cells["dgvX"].Value.ToString().ToInt();
+                        SingleClick.Y = row.Cells["dgvY"].Value.ToString().ToInt();
+                        EventNode.ClickList.Add(SingleClick);
+
+                        if (rdoAnd.Checked)
+                        {
+                            EventNode.LogicChoice = "AND";
+                        }
+                        else
+                        {
+                            EventNode.LogicChoice = "OR";
+                        }
+                    }
+                }
+                //' LoadPanelSingleColorAtSingleLocation(PanelLoadNode)
+                //'tv.SelectedNode = EventNode
+            }
+            else
+            {
+                GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
+                //'Action
+                if (ActionNode.IsNothing())
+                {
+                    Log("Unable to identify selected node.");
+                    return;
+                }
+
+                if (rdoModeRangeClick.Checked)
+                {
+                    ActionNode.Mode = Mode.RangeClick;
+                }
+                else
+                {
+                    ActionNode.Mode = Mode.ClickDragRelease;
+                }
+                ActionNode.GameNodeName = txtEventName.Text;
+
+                if (cboDelayMS.Text.IsNumeric())
+                {
+                    ActionNode.DelayMS = cboDelayMS.Text.ToInt();
+                }
+                else
+                {
+                    ActionNode.DelayMS = ActionNode.DefaultDelayMS();
+                }
+
+                //' LoadPanelSingleColorAtSingleLocation(PanelLoadNode)
+                //'tv.SelectedNode = ActionNode
+            }
 
         }
     }
