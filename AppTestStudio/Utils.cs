@@ -275,7 +275,15 @@ namespace AppTestStudio
             Style.BackColor = color;
 
             Single brightness = color.GetBrightness();
-            if (brightness > 0.55)
+            if ( brightness == 1)
+            {
+                Style.ForeColor = Color.WhiteSmoke;
+            }
+            else if ( brightness > 0.80)
+            {
+                Style.ForeColor = Color.Black;
+            }
+            else if (brightness > 0.55)
             {
                 Style.ForeColor = Color.WhiteSmoke;
             }
@@ -343,33 +351,33 @@ namespace AppTestStudio
         public static String CalculateDelay(int hour, int minute, int second, int ms)
         {
             String Time = "";
- 
-                if (hour > 0)
-                {
-                    Time = hour + "h ";
-                }
-        
+
+            if (hour > 0)
+            {
+                Time = hour + "h ";
+            }
 
 
-                if (minute > 0)
-                {
-                    Time = Time + minute + "m ";
-                }
-      
+
+            if (minute > 0)
+            {
+                Time = Time + minute + "m ";
+            }
 
 
-                if (second > 0)
-                {
-                    Time = Time + second + "s ";
-                }
-         
 
-  
-                if (ms > 0)
-                {
-                    Time = Time + ms + "ms";
-                }
-         
+            if (second > 0)
+            {
+                Time = Time + second + "s ";
+            }
+
+
+
+            if (ms > 0)
+            {
+                Time = Time + ms + "ms";
+            }
+
 
             if (Time.Length == 0)
             {
@@ -377,5 +385,51 @@ namespace AppTestStudio
             }
             return Time;
         }
+
+        internal static void DrawMask(PictureBox pictureBox1, Rectangle pictureBox1Rectangle, PaintEventArgs e)
+        {
+            if (pictureBox1.Image.IsSomething())
+            {
+                if (pictureBox1Rectangle.Width > 0 && pictureBox1Rectangle.Height > 0)
+                {
+                    using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
+                    {
+                        Rectangle Top = new Rectangle();
+                        Top.X = 0;
+                        Top.Y = 0;
+                        Top.Height = pictureBox1Rectangle.Y;
+                        Top.Width = pictureBox1.Image.Width;
+                        e.Graphics.FillRectangle(br, Top);
+
+                        Rectangle Bottom = new Rectangle();
+                        Bottom.X = 0;
+                        Bottom.Y = pictureBox1Rectangle.Y + pictureBox1Rectangle.Height;
+                        Bottom.Height = pictureBox1.Image.Height - Bottom.Y;
+                        Bottom.Width = pictureBox1.Image.Width;
+                        e.Graphics.FillRectangle(br, Bottom);
+
+                        Rectangle Left = new Rectangle();
+                        Left.Y = pictureBox1Rectangle.Y;
+                        Left.X = 0;
+                        Left.Height = pictureBox1Rectangle.Height;
+                        Left.Width = pictureBox1Rectangle.X;
+                        e.Graphics.FillRectangle(br, Left);
+
+                        Rectangle Right = new Rectangle();
+                        Right.Y = pictureBox1Rectangle.Y;
+                        Right.X = pictureBox1Rectangle.X + pictureBox1Rectangle.Width;
+                        Right.Height = pictureBox1Rectangle.Height;
+                        Right.Width = pictureBox1.Image.Width - Right.X;
+                        e.Graphics.FillRectangle(br, Right);
+                    }
+
+                    using (Pen p = new Pen(Color.Blue, 1))
+                    {
+                        e.Graphics.DrawRectangle(p, pictureBox1Rectangle);
+                    }
+                }
+            }
+        }
     }
+
 }

@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.IO;
 using System.Linq;
 using System.Text;
@@ -723,15 +724,18 @@ namespace AppTestStudio
                 return;
             }
 
-            if (CurrentParent.IsColorPoint == false)
+            if (CurrentParent is GameNodeAction)
             {
-                grpObjectAction.Visible = true;
-                return;
-            }
-            else
-            {
-                grpObjectAction.Visible = false;
-                return;
+                if (CurrentParent.IsColorPoint == false)
+                {
+                    grpObjectAction.Visible = true;
+                    return;
+                }
+                else
+                {
+                    grpObjectAction.Visible = false;
+                    return;
+                }
             }
 
             NumericYOffset.Minimum = -PictureBox1.Height;
@@ -744,13 +748,18 @@ namespace AppTestStudio
 
             lblXOffsetRange.Text = "-" + PictureBox1.Width + " to " + PictureBox1.Width;
             lblYOffsetRange.Text = "-" + PictureBox1.Height + " to " + PictureBox1.Height;
-
         }
 
         private void LoadObjectNodeSection()
         {
-            LoadEventObjectList();
             GameNodeAction EventNode = tv.SelectedNode as GameNodeAction;
+
+            if (EventNode.IsColorPoint)
+            {
+                return;
+            }
+            LoadEventObjectList();
+
             LoadObjectSelectionImage();
             if (EventNode.ObjectName == "")
             {
@@ -1575,6 +1584,7 @@ namespace AppTestStudio
 
         private void PictureObjectScreenshot_MouseDown(object sender, MouseEventArgs e)
         {
+            Debug.WriteLine("PictureObjectScreenshot_MouseDown");
             IsPictureObjectScreenshotMouseDown = true;
             PictureObjectScreenshotRectanble = new Rectangle();
             PictureObjectScreenshotRectanble.X = e.X;
@@ -1582,23 +1592,20 @@ namespace AppTestStudio
 
         }
 
-        private void PictureObjectScreenshot_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void PictureObjectScreenshot_MouseMove(object sender, MouseEventArgs e)
         {
+            Debug.WriteLine("PictureObjectScreenshot_MouseMove");
             Label label = new Label();  // not sure this is necessary
             int x = 1;
             int y = 0;
             Color color = new Color();
-            ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, label, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown, PictureObjectScreenshotRectanble);
+            ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, label, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown,ref PictureObjectScreenshotRectanble);
             cmdMakeObject.Enabled = IsCreateScreenshotReadyToCreate();
 
         }
 
-        private void ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, Label lblWarning, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown, Rectangle PB1R)
+        // Zoom and Crop/Mask
+        private void ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, Label lblWarning, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown,ref Rectangle PB1R)
         {
             if (pb.Image.IsSomething())
             {
@@ -1969,7 +1976,7 @@ namespace AppTestStudio
             LoadParentScreenshotIfNecessary();
             if (IsPanelLoading == false)
             {
-                cmdSaveSingleColorLocation.PerformClick();
+                ArchaicSave();
             }
         }
 
@@ -2002,7 +2009,7 @@ namespace AppTestStudio
             {
                 lblResolution.Text = UndoScreenshot.Width + "x" + UndoScreenshot.Height;
                 PictureBox1.Image = UndoScreenshot;
-                cmdSaveSingleColorLocation.PerformClick();
+                ArchaicSave();
                 cmdUndoScreenshot.Visible = false;
 
                 if (dgv.Rows.Count > 1)
@@ -2041,7 +2048,7 @@ namespace AppTestStudio
             PictureBox1.Refresh();
             if (IsPanelLoading)
             {
-                cmdSaveSingleColorLocation.PerformClick();
+                ArchaicSave();
             }
         }
 
@@ -2050,7 +2057,7 @@ namespace AppTestStudio
             PictureBox1.Refresh();
             if (IsPanelLoading)
             {
-                cmdSaveSingleColorLocation.PerformClick();
+                ArchaicSave();
             }
         }
 
@@ -2840,6 +2847,310 @@ namespace AppTestStudio
                 //' LoadPanelSingleColorAtSingleLocation(PanelLoadNode)
                 //'tv.SelectedNode = ActionNode
             }
+
+        }
+
+        private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
+        {
+            GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+            switch (lblMode.Text)
+            {
+                case "Action":
+                    PictureBox1MouseDown = true;
+                    Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
+                    break;
+                case "Event":
+                    if (rdoColorPoint.Checked)
+                    {
+                        // do nothing
+                    }
+                    else
+                    {
+                        PictureBox1MouseDown = true;
+                        Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
+        {
+            GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+            Rectangle Rectangle = Node.Rectangle;
+            ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, lblRHSWarning, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Rectangle);
+        }
+
+        private void PictureBox1_MouseUp(object sender, MouseEventArgs e)
+        {
+            switch (lblMode.Text)
+            {
+                case "Action":
+                    PictureBox1MouseDown = false;
+                    break;
+                case "Event":
+                    if (rdoColorPoint.Checked)
+                    {
+                        // do nothing
+                    }
+                    else
+                    {
+                        PictureBox1MouseDown = false;
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void PictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+            switch (lblMode.Text)
+            {
+                case "Action":
+                    if (rdoModeRangeClick.Checked)
+                    {
+
+                        if (Node.Rectangle.Width > 0 && Node.Rectangle.Height > 0)
+                        {
+                            //'draw box.
+                            using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
+                            {
+                                e.Graphics.FillRectangle(br, Node.Rectangle);
+                            }
+
+                            using (Pen p = new Pen(Color.Blue, 1))
+                            {
+                                e.Graphics.DrawRectangle(p, Node.Rectangle);
+                            }
+                        }
+                        else
+                        {
+                            if (Node.IsRelativeStart)
+                            {
+                                using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
+                                {
+                                    e.Graphics.FillRectangle(br, Node.Rectangle);
+                                }
+
+                                //'draw outline on box.
+                                using (Pen p = new Pen(Color.Blue, 1))
+                                {
+                                    e.Graphics.DrawRectangle(p, Node.Rectangle);
+                                }
+                            }
+                            else
+                            {
+                                using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
+                                {
+                                    linePen.StartCap = LineCap.RoundAnchor;
+                                    linePen.EndCap = LineCap.ArrowAnchor;
+                                    linePen.DashStyle = DashStyle.Dot;
+                                    e.Graphics.DrawLine(linePen, Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
+                                }
+                            }
+                        }
+                    }
+                    break;
+                case "Event":
+
+                    if (rdoColorPoint.Checked)
+                    {
+                        int i = 1;
+                        foreach (DataGridViewRow row in dgv.Rows)
+                        {
+                            if (row.IsNewRow)
+                            {
+                                // do nothing
+                            }
+                            else
+                            {
+                                Color c = Color.Empty;
+                                c = c.FromRGBString(row.Cells["dgvColor"].Value.ToString());
+                                int x = row.Cells["dgvX"].Value.ToString().ToInt();
+                                int y = row.Cells["dgvY"].Value.ToString().ToInt();
+                                using (SolidBrush br = new SolidBrush(c))
+                                {
+                                    using (Font f = new Font("Arial", 16, FontStyle.Bold))
+                                    {
+                                        SizeF fSize = e.Graphics.MeasureString(i.ToString(), f);
+
+                                        Single brightness = br.Color.GetBrightness();
+                                        if (brightness < 0.55)
+                                        {
+                                            using (SolidBrush white = new SolidBrush(Color.WhiteSmoke))
+                                            {
+                                                e.Graphics.FillRectangle(white, x, y, fSize.Width, fSize.Height);
+                                                using (Pen BlackPen = new Pen(Color.Black, 1))
+                                                {
+                                                    e.Graphics.DrawRectangle(BlackPen, x, y, fSize.Width, fSize.Height);
+                                                }
+                                            }
+                                        }
+                                        else
+                                        {
+                                            using (SolidBrush black = new SolidBrush(Color.Black))
+                                            {
+                                                using (Pen WhitePen = new Pen(Color.White, 1))
+                                                {
+                                                    e.Graphics.FillRectangle(black, x, y, fSize.Width, fSize.Height);
+                                                    e.Graphics.DrawRectangle(WhitePen, x, y, fSize.Width, fSize.Height);
+                                                }
+                                            }
+                                        }
+                                        e.Graphics.DrawString(i.ToString(), f, br, x, y);
+                                    }
+                                    i++;
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        if (Node.Rectangle.IsEmpty)
+                        {
+                            Node.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
+                        }
+                        Utils.DrawMask(PictureBox1, Node.Rectangle, e);
+
+                        UpdateMaskSize();
+                    }
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void UpdateMaskSize()
+        {
+            GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+            lblMaskSize.Text = Node.Rectangle.ToString();
+        }
+
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex < 0)
+                {
+
+                    return;
+                }
+
+                if (e.ColumnIndex == dgv.Columns["dgvRemove"].Index)
+                {
+
+
+                    dgv.Rows.Remove(dgv.Rows[e.RowIndex]);
+
+                    if (IsPanelLoading == false)
+                    {
+                        ArchaicSave();
+                    }
+
+                    PictureBox1.Refresh();
+                    return;
+                }
+
+                if (e.ColumnIndex == dgv.Columns["dgvScan"].Index)
+                {
+                    int X = dgv.Rows[e.RowIndex].Cells[dgv.Columns["dgvX"].Index].Value.ToString().ToInt();
+                    int Y = dgv.Rows[e.RowIndex].Cells[dgv.Columns["dgvY"].Index].Value.ToString().ToInt();
+                    Color CurrentColor = Color.Empty;
+                    CurrentColor = CurrentColor.FromRGBString(dgv.Rows[e.RowIndex].Cells[dgv.Columns["dgvColor"].Index].Value.ToString());
+
+                    Color TargetColor = GetColorAtTargetWindowXY(X, Y);
+
+                    if (TargetColor != CurrentColor)
+                    {
+                        //'Count how many rows already have this xycolor combination
+
+                        int XYColorCount = 0;
+
+                        foreach (DataGridViewRow row in dgv.Rows)
+                        {
+                            if (row.IsNewRow == false)
+                            {
+                                Boolean ColorMatches = row.Cells["dgvColor"].Value.ToString() == TargetColor.ToRGBString();
+                                Boolean XMatches = row.Cells["dgvX"].Value.ToString().ToInt() == X;
+                                Boolean YMatches = row.Cells["dgvY"].Value.ToString().ToInt() == Y;
+                                if (ColorMatches && XMatches && YMatches)
+                                {
+                                    XYColorCount = XYColorCount + 1;
+                                }
+                            }
+                        }
+
+                        if (XYColorCount == 0)
+                        {
+                            //' add new row.
+                            int RowIndex = dgv.Rows.Add();
+                            dgv.Rows[RowIndex].Cells["dgvColor"].Value = TargetColor.ToRGBString();
+                            dgv.Rows[RowIndex].Cells["dgvX"].Value = X;
+                            dgv.Rows[RowIndex].Cells["dgvY"].Value = Y;
+                            dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
+                            dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scan";
+
+                            DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
+
+                            dgv.Rows[RowIndex].Cells["dgvColor"].Style = Style;
+                            if (IsPanelLoading == false)
+                            {
+                                ArchaicSave();
+                            }
+
+                        }
+                    }
+
+                    PictureBox1.Refresh();
+                }
+
+            }
+            catch (System.InvalidOperationException ex)
+            {
+                Log("Can't remove on the Insert row");
+            }
+            catch (Exception ex)
+            {
+                Log(ex.ToString());
+            }
+        }
+
+        private Color GetColorAtTargetWindowXY(int x, int y)
+        {
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNodeGame GameNode = Node.GetGameNode();
+
+            String MainWindowTitle = GameNode.TargetWindow;
+
+            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(MainWindowTitle);
+
+            if (MainWindowHandle.ToInt32() > 0)
+            {
+                Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+                Color Color = bmp.GetPixel(x, y);
+                return Color;
+
+            }
+
+            return Color.Empty;
+        }
+
+        private void cmdAddObject2_Click(object sender, EventArgs e)
+        {
+            //' Change the Panel to Object Screenshot
+            SetPanel(PanelMode.ObjectScreenshot);
+
+            //' Hide the Make object buttone because the name is not long enough
+            cmdMakeObject.Enabled = false;
+
+        //' Reset the Rectangle in case it//'s already being used.
+            PictureObjectScreenshotRectanble = new Rectangle();
+
+            //' Set the current image.
+            PictureObjectScreenshot.Image = PictureBox1.Image;
 
         }
     }

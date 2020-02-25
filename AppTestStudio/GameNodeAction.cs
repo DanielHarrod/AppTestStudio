@@ -9,7 +9,7 @@ namespace AppTestStudio
         public GameNodeAction(string name, ActionType actionType)
             : base(name, GameNodeType.Action, actionType)
         {
-
+            this.ActionType = actionType;
             AfterCompletionType = AfterCompletionTypeDefault();
             LogicChoice = "AND";
 
@@ -29,6 +29,7 @@ namespace AppTestStudio
             ObjectThreshold = 70;
             DragTargetMode = DragTargetMode.Absolute;
             ClickList = new List<SingleClick>();
+            
 
         }
 
@@ -68,7 +69,7 @@ namespace AppTestStudio
         public String LogicChoice { get; set; }
         public Boolean IsColorPoint { get; set; }
         public ActionType ActionType { get; set; }
-        public Rectangle Rectangle { get; set; }
+        public Rectangle Rectangle;
         public Boolean UseParentPicture { get; set; }
         public Bitmap ObjectSearchBitmap { get; set; }
         public int ResolutionWidth { get; set; }

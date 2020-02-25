@@ -385,14 +385,14 @@ namespace AppTestStudio
         {
             foreach (XmlNode ChildNode in eventsNode.ChildNodes)
             {
-                switch (ChildNode.Name)
+                switch (ChildNode.Name.ToUpper())
                 {
-                    case "Event":
+                    case "EVENT":
                         GameNodeAction NewEvent = new GameNodeAction("New Node", ActionType.Event);
                         treeEventNode.Nodes.Add(NewEvent);
                         LoadEvent(ChildNode, gameNode, NewEvent, lst, loadBitmaps);
                         break;
-                    case "Action":
+                    case "ACTION":
                         GameNodeAction NewAction = new GameNodeAction("New Node", ActionType.Action);
                         treeEventNode.Nodes.Add(NewAction);
                         LoadAction(ChildNode, gameNode, NewAction, lst, loadBitmaps);
@@ -400,7 +400,7 @@ namespace AppTestStudio
                     case "RNG":
                         LoadAction(ChildNode, gameNode, treeEventNode as GameNodeAction, lst, loadBitmaps);
                         break;
-                    case "RNG-Container":
+                    case "RNG-CONTAINER":
                         GameNodeAction NewRNGContainer = new GameNodeAction("New Node", ActionType.RNGContainer);
                         treeEventNode.Nodes.Add(NewRNGContainer);
                         LoadAction(ChildNode, gameNode, NewRNGContainer, lst, loadBitmaps);

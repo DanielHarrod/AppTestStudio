@@ -175,7 +175,7 @@ namespace AppTestStudio
         public static Color FromRGBString( this Color aColor, String s)
         {
             s = s.Replace("R=", "").Replace("G=", "").Replace("B=", "");
-            String[] Keys = { " %1 " };
+            String[] Keys = { ", " };
             String[] Results = s.Split(Keys,StringSplitOptions.RemoveEmptyEntries);
 
             return Color.FromArgb(Convert.ToInt32(Results[0]), Convert.ToInt32(Results[1]), Convert.ToInt32(Results[2]));
