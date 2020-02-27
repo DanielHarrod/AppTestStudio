@@ -3180,5 +3180,22 @@ namespace AppTestStudio
                     break;
             }
         }
+
+        private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
+        {
+           Visible = false;
+            Timer1.Enabled = false;
+            foreach (GameNodeGame Game in ThreadManager.Games)
+            {
+                Game.Thread.Abort();
+                Thread.Sleep(200);
+            }
+            
+            ThreadManager.Save();
+
+            Application.Exit();
+
+        }
+
     }
 }
