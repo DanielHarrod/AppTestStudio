@@ -181,5 +181,10 @@ namespace AppTestStudio
             return Color.FromArgb(Convert.ToInt32(Results[0]), Convert.ToInt32(Results[1]), Convert.ToInt32(Results[2]));
         }
 
+
+        public static String ToHex(this Color aColor)
+        {
+            return String.Format("#{0:X2}{1:X2}{2:X2}{3:X2}", aColor.A, aColor.R, aColor.G, aColor.B);
+        }
     }
 }

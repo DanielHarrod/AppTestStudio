@@ -227,6 +227,8 @@ namespace AppTestStudio
 
         public List<String> SaveGame(ThreadManager threadManger, TreeView tv)
         {
+            Boolean UseMinimalSavingMethods = false;
+            List<String> PictureListExtract = new List<string>();
             List<String> ObjectList = null;
 
             XmlTextWriter Writer = new XmlTextWriter(FileName, System.Text.Encoding.UTF8);
@@ -263,7 +265,7 @@ namespace AppTestStudio
 
             GameNode Events = Nodes[0] as GameNode;
 
-            SaveEvents(Writer, WorkspaceNode, this, Events, Directory);
+            SaveEvents(Writer, WorkspaceNode, this, Events, Directory,UseMinimalSavingMethods, PictureListExtract);
             if (Nodes.Count > 1)
             {
                 // Objects is always 1
@@ -282,9 +284,317 @@ namespace AppTestStudio
 
         }
 
-        private void SaveEvents(XmlTextWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNode events, string directory)
+        private void SaveEvents(XmlTextWriter Writer, GameNodeWorkspace Workspace, GameNodeGame Game, GameNode ActionOrEvent, string Directory, Boolean UseMinimalSavingMethods, List<String> PictureListExtract)
         {
-            throw new NotImplementedException();
+            Writer.WriteStartElement("Events");
+
+            foreach (GameNodeAction Activites in ActionOrEvent.Nodes)
+            {
+                switch (Activites.ActionType)
+                {
+                    case ActionType.Action:
+                        Writer.WriteStartElement("Action");
+                        Writer.WriteAttributeString("Name", Activites.Name);
+
+                        //' Writer.WriteAttributeString("ActionType", Activites.ActionType)
+                        Writer.WriteAttributeString("UseParentPicture", Activites.UseParentPicture.ToString());
+                        Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
+                        Writer.WriteAttributeString("Mode", Activites.Mode.ToString());
+
+                        Writer.WriteAttributeString("IsRelativeStart", Activites.IsRelativeStart.ToString());
+                        Writer.WriteAttributeString("RelativeXOffset", Activites.RelativeXOffset.ToString());
+                        Writer.WriteAttributeString("RelativeYOffset", Activites.RelativeYOffset.ToString());
+
+                        switch (Activites.DragTargetMode)
+                        {
+                            case AppTestStudio.DragTargetMode.Relative:
+                                Writer.WriteAttributeString("DragTargetMode", "Relative");
+                                break;
+                            case AppTestStudio.DragTargetMode.Absolute:
+                                Writer.WriteAttributeString("DragTargetMode", "Absolute");
+                                break;
+                            default:
+                                break;
+                        }
+
+                        Writer.WriteStartElement("Delay");
+                        Writer.WriteAttributeString("MilliSeconds", Activites.DelayMS.ToString());
+                        Writer.WriteAttributeString("Seconds", Activites.DelayS.ToString());
+                        Writer.WriteAttributeString("Minutes", Activites.DelayM.ToString());
+                        Writer.WriteAttributeString("Hours", Activites.DelayH.ToString());
+                        //'Delay
+                        Writer.WriteEndElement();
+
+                        Writer.WriteStartElement("LimitDelay");
+                        Writer.WriteAttributeString("MilliSeconds", Activites.LimitDelayMS.ToString());
+                        Writer.WriteAttributeString("Seconds", Activites.LimitDelayS.ToString());
+                        Writer.WriteAttributeString("Minutes", Activites.LimitDelayM.ToString());
+                        Writer.WriteAttributeString("Hours", Activites.LimitDelayH.ToString());
+
+
+                        //'/LimitDelay
+                        Writer.WriteEndElement();
+
+                        if (Activites.Rectangle.IsEmpty == false)
+                        {
+                            Writer.WriteStartElement("Rectangle");
+                            Writer.WriteAttributeString("X", Activites.Rectangle.X.ToString());
+                            Writer.WriteAttributeString("Y", Activites.Rectangle.Y.ToString());
+                            Writer.WriteAttributeString("Height", Activites.Rectangle.Height.ToString());
+                            Writer.WriteAttributeString("Width", Activites.Rectangle.Width.ToString());
+
+                            //'rectanble
+                            Writer.WriteEndElement();
+                        }
+
+                        if (Activites.Nodes.Count > 0)
+                        {
+                            //'Writer.WriteStartElement("Events")
+
+                            SaveEvents(Writer, Workspace, Game, Activites, Directory,UseMinimalSavingMethods,PictureListExtract);
+
+                            //' events
+                            //'Writer.WriteEndElement()
+                        }
+                        Writer.WriteStartElement("Picture");
+                        Writer.WriteAttributeString("ResolutionWidth", Activites.ResolutionWidth.ToString());
+                        Writer.WriteAttributeString("ResolutionHeight", Activites.ResolutionHeight.ToString());
+
+                        if (UseMinimalSavingMethods)
+                        {
+                            Writer.WriteAttributeString("FileName", "");
+                        }
+                        else
+                        {
+                            Writer.WriteAttributeString("FileName", Activites.FileName);
+                        }
+
+                        if (Activites.FileName.IsNothing())
+                        {
+                            //' do nothing
+                        }
+                        else
+                        {
+                            String ActionNodeFullPath = Path.Combine(Path.GetDirectoryName(Game.FileName), "Pictures", Activites.FileName);
+
+                            PictureListExtract.Add(ActionNodeFullPath);
+                            if (System.IO.File.Exists(ActionNodeFullPath))
+                            {
+                                //'do nothing
+                            }
+                            else
+                            {
+                                Activites.Bitmap.Save(ActionNodeFullPath);
+                            }
+                        }
+
+                        //'Picture
+                        Writer.WriteEndElement();
+
+                        //'Action
+                        Writer.WriteEndElement();
+                        break;
+                    case ActionType.Event:
+                        Writer.WriteStartElement("Event");
+                        Writer.WriteAttributeString("Name", Activites.Name);
+
+                        Writer.WriteAttributeString("LogicChoice", Activites.LogicChoice);
+                        Writer.WriteAttributeString("UseParentPicture", Activites.UseParentPicture.ToString());
+                        //'Writer.WriteAttributeString("DelayMS", Activites.DelayMS)
+                        Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
+
+                        Writer.WriteAttributeString("IsLimited", Activites.IsLimited.ToString());
+                        Writer.WriteAttributeString("IsWaitFirst", Activites.IsWaitFirst.ToString());
+                        Writer.WriteAttributeString("ExecutionLimit", Activites.ExecutionLimit.ToString());
+                        Writer.WriteAttributeString("LimitRepeats", Activites.LimitRepeats.ToString());
+
+                        switch (Activites.WaitType)
+                        {
+                            case AppTestStudio.WaitType.Iteration:
+                                Writer.WriteAttributeString("WaitType", "Iteration");
+                                break;
+                            case AppTestStudio.WaitType.Time:
+                                Writer.WriteAttributeString("WaitType", "Time");
+                                break;
+                            case AppTestStudio.WaitType.Session:
+                                Writer.WriteAttributeString("WaitType", "Session");
+                                break;
+                            default:
+                                Writer.WriteAttributeString("WaitType", "Iteration");
+                                break;
+                        }
+
+                        Writer.WriteAttributeString("IsColorPoint", Activites.IsColorPoint.ToString());
+
+
+                        Writer.WriteStartElement("Delay");
+                        Writer.WriteAttributeString("MilliSeconds", Activites.DelayMS.ToString());
+                        Writer.WriteAttributeString("Seconds", Activites.DelayS.ToString());
+                        Writer.WriteAttributeString("Minutes", Activites.DelayM.ToString());
+                        Writer.WriteAttributeString("Hours", Activites.DelayH.ToString());
+
+                        //'Delay
+                        Writer.WriteEndElement();
+
+                        Writer.WriteStartElement("LimitDelay");
+                        Writer.WriteAttributeString("MilliSeconds", Activites.LimitDelayMS.ToString());
+                        Writer.WriteAttributeString("Seconds", Activites.LimitDelayS.ToString());
+                        Writer.WriteAttributeString("Minutes", Activites.LimitDelayM.ToString());
+                        Writer.WriteAttributeString("Hours", Activites.LimitDelayH.ToString());
+
+                        //'/LimitDelay
+                        Writer.WriteEndElement();
+
+                        Writer.WriteStartElement("ClickList");
+                        Writer.WriteAttributeString("Points", Activites.Points.ToString());
+
+                        foreach (SingleClick Click in Activites.ClickList)
+                        {
+                            Writer.WriteStartElement("Click");
+                            Writer.WriteAttributeString("X", Click.X.ToString());
+                            Writer.WriteAttributeString("Y", Click.Y.ToString());
+                            Writer.WriteAttributeString("Color", Click.Color.ToHex());
+
+                            //'Click
+                            Writer.WriteEndElement();
+                        }
+
+
+                        //'ClickList
+                        Writer.WriteEndElement();
+
+                        //'Picture
+                        Writer.WriteStartElement("Picture");
+
+                        if (UseMinimalSavingMethods)
+                        {
+                            Writer.WriteAttributeString("FileName", "");
+                        }
+                        else
+                        {
+                            Writer.WriteAttributeString("FileName", Activites.FileName);
+                        }
+
+                        Writer.WriteAttributeString("ResolutionWidth", Activites.ResolutionWidth.ToString());
+                        Writer.WriteAttributeString("ResolutionHeight", Activites.ResolutionHeight.ToString());
+                        if (Activites.FileName.IsNothing())
+                        {
+                            //' do nothing
+                        }
+                        else
+                        {
+                            String FullPath = Path.Combine(Path.GetDirectoryName(Game.FileName), "Pictures", Activites.FileName);
+
+                            if (System.IO.File.Exists(FullPath))
+                            {
+                                //'do nothing
+                                PictureListExtract.Add(FullPath);
+                            }
+                            else
+                            {
+                                if (Activites.Bitmap.IsSomething())
+                                {
+                                    Activites.Bitmap.Save(FullPath);
+                                    PictureListExtract.Add(FullPath);
+                                }
+                                else
+                                {
+                                    Debug.WriteLine("Activites.Bitmap is nothing");
+                                }
+                            }
+                        }
+
+                        //'/picture
+                        Writer.WriteEndElement();
+
+                        if (Activites.IsColorPoint == false)
+                        {
+
+
+                            //'ObjectSearch
+                            Writer.WriteStartElement("ObjectSearch");
+                            Writer.WriteAttributeString("ObjectName", Activites.ObjectName);
+                            Writer.WriteAttributeString("Channel", Activites.Channel);
+                            Writer.WriteAttributeString("Threshold", Activites.ObjectThreshold.ToString());
+
+                            if (Activites.Rectangle.IsEmpty == false)
+                            {
+                                Writer.WriteStartElement("Rectangle");
+                                Writer.WriteAttributeString("X", Activites.Rectangle.X.ToString());
+                                Writer.WriteAttributeString("Y", Activites.Rectangle.Y.ToString());
+                                Writer.WriteAttributeString("Height", Activites.Rectangle.Height.ToString());
+                                Writer.WriteAttributeString("Width", Activites.Rectangle.Width.ToString());
+
+                                //'rectanble
+                                Writer.WriteEndElement();
+                            }
+
+                            Writer.WriteEndElement();
+                            //'/ObjectSearch
+
+                        }
+
+                        if (Activites.Nodes.Count > 0)
+                        {
+                            //'Writer.WriteStartElement("Events")
+
+                            SaveEvents(Writer, Workspace, Game, Activites, Directory,UseMinimalSavingMethods,PictureListExtract);
+
+                            //' events
+                            //'Writer.WriteEndElement()
+                        }
+
+                        //' EventNode.BitMap.Save(Workspace.WorkspaceFolder & "\" & EventNode.BitMap)
+
+
+                        //'Event
+                        Writer.WriteEndElement();
+                        break;
+                    case ActionType.RNG:
+                        break;
+                    case ActionType.RNGContainer:
+                        Writer.WriteStartElement("RNG-Container");
+                        Writer.WriteAttributeString("AutoBalance", Activites.AutoBalance.ToString());
+                        Writer.WriteAttributeString("Name", Activites.Name.ToString());
+
+                        //' Writer.WriteAttributeString("ActionType", Activites.ActionType)
+                        Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
+
+                        Writer.WriteStartElement("Delay");
+                        Writer.WriteAttributeString("MilliSeconds", Activites.DelayMS.ToString());
+                        Writer.WriteAttributeString("Seconds", Activites.DelayS.ToString());
+                        Writer.WriteAttributeString("Minutes", Activites.DelayM.ToString());
+                        Writer.WriteAttributeString("Hours", Activites.DelayH.ToString());
+                        //'Delay
+                        Writer.WriteEndElement();
+
+                        Writer.WriteStartElement("LimitDelay");
+                        Writer.WriteAttributeString("MilliSeconds", Activites.LimitDelayMS.ToString());
+                        Writer.WriteAttributeString("Seconds", Activites.LimitDelayS.ToString());
+                        Writer.WriteAttributeString("Minutes", Activites.LimitDelayM.ToString());
+                        Writer.WriteAttributeString("Hours", Activites.LimitDelayH.ToString());
+
+                        //'/LimitDelay
+                        Writer.WriteEndElement();
+
+                        foreach (GameNodeAction RNGNode in Activites.Nodes)
+                        {
+                            Writer.WriteStartElement("RNG");
+                            Writer.WriteAttributeString("Percentage", RNGNode.Percentage.ToString());
+                            SaveEvents(Writer, Workspace, Game, RNGNode, Directory,UseMinimalSavingMethods,PictureListExtract);
+                            Writer.WriteEndElement();
+                        }
+
+
+                        Writer.WriteEndElement();
+                        break;
+                    default:
+                        break;
+                }
+            }
+            //'Events
+            Writer.WriteEndElement();
+
         }
 
         private List<String> SaveObjects(XmlTextWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNodeObjects objects, string directory)
@@ -381,7 +691,7 @@ namespace AppTestStudio
             }
         }
 
-        public static void LoadEvents(XmlNode eventsNode, GameNodeGame gameNode, GameNode treeEventNode, List<GameNodeAction> lst, Boolean loadBitmaps)
+        private static void LoadEvents(XmlNode eventsNode, GameNodeGame gameNode, GameNode treeEventNode, List<GameNodeAction> lst, Boolean loadBitmaps)
         {
             foreach (XmlNode ChildNode in eventsNode.ChildNodes)
             {
@@ -654,6 +964,7 @@ namespace AppTestStudio
             }
         }
 
+
         private static void LoadAction(XmlNode actionNode, GameNodeGame gameNode, GameNodeAction treeActionNode, List<GameNodeAction> lst, Boolean loadBitmaps)
         {
             String ActionName = "";
@@ -886,6 +1197,7 @@ namespace AppTestStudio
 
             }
         }
+
 
     }
 }

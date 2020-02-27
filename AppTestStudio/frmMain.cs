@@ -1315,6 +1315,7 @@ namespace AppTestStudio
                                 default:
                                     break;
                             }
+                            mnuEvents.Show(tv, p);
                             break;
                         case GameNodeType.Objects:
                             mnuObjects.Show(tv, p);
@@ -1762,7 +1763,6 @@ namespace AppTestStudio
         private void PictureObjectScreenshot_MouseUp(object sender, MouseEventArgs e)
         {
             IsPictureObjectScreenshotMouseDown = false;
-
         }
 
         private void PictureObjectScreenshot_Paint(object sender, PaintEventArgs e)
@@ -1778,9 +1778,7 @@ namespace AppTestStudio
                 {
                     e.Graphics.DrawRectangle(p, PictureObjectScreenshotRectanble);
                 }
-
             }
-
         }
 
         private void txtObjectScreenshotName_TextChanged(object sender, EventArgs e)
@@ -3152,6 +3150,40 @@ namespace AppTestStudio
             //' Set the current image.
             PictureObjectScreenshot.Image = PictureBox1.Image;
 
+        }
+
+        private void toolStripButtonRunScript_Click(object sender, EventArgs e)
+        {
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNodeGame GameNode = Node.GetGameNode();
+
+            LoadInstance(GameNode);
+        }
+
+        private void tabTree_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Debug.WriteLine("Event tabTree_SelectedIndexChanged");
+
+            switch (tabTree.SelectedIndex)
+            {
+                case 0:
+                    tv_AfterSelect(null, null);
+                    break;
+                case 1:
+                    SetPanel(PanelMode.Thread);
+                    if (lstThreads.Items.Count > 0)
+                    {
+                        lstThreads.SelectedIndex = 0;
+                    }
+                    break;
+                case 2:
+                    SetPanel(PanelMode.Schedule);
+                    
+                break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
         }
     }
 }
