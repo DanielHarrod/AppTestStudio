@@ -393,17 +393,20 @@ namespace AppTestStudioControls
                     e.Graphics.DrawLine(RowLineColor, 1, HeaderHeight + (i * Scale), Width, HeaderHeight + (i * Scale));
                 }
 
-                List<int> ShortItems = new List<int>(Items.Count);
+                List<int> ShortItems = new List<int>(new int[Items.Count]);
                 for (int i = 0; i < ShortItems.Count; i++)
                 {
                     ShortItems[i] = -1;
                 }
 
-                foreach (AppTestStudioStatusControlItem item in Queue)
+                if (ShortItems.Count > 0)
                 {
-                    if (ShortItems[item.Index] == -1)
+                    foreach (AppTestStudioStatusControlItem item in Queue)
                     {
-                        ShortItems[item.Index] = 1;
+                        if (ShortItems[item.Index] == -1)
+                        {
+                            ShortItems[item.Index] = 1;
+                        }
                     }
                 }
 
@@ -418,7 +421,7 @@ namespace AppTestStudioControls
                     }
                 }
 
-                List<int> ActiveItems = new List<int>(SIcount);
+                List<int> ActiveItems = new List<int>( new int[SIcount]);
 
 
                 int ActiveItemCount = 0;

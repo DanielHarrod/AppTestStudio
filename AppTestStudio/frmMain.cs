@@ -987,7 +987,7 @@ namespace AppTestStudio
                 Ordinate(ref Ordinal, lst, game.Nodes[0] as GameNode);
             }
 
-            // AtsStatusControl1.Items = lst;
+            appTestStudioStatusControl1.Items = lst;
 
         }
 
@@ -2294,17 +2294,12 @@ namespace AppTestStudio
 
             foreach (GameNodeGame game in ThreadManager.Games)
             {
-
-
-
                 if (game.IsSomething())
                 {
 
                     int OriginalCount = game.StatusControl.Count;
                     while (game.StatusControl.Count > 0)
-                    {
-
-
+                    {                        
                         AppTestStudioStatusControlItem sci = null;
                         if (game.StatusControl.TryDequeue(out sci))
                         {
