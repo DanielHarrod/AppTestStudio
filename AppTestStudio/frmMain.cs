@@ -1600,13 +1600,13 @@ namespace AppTestStudio
             int x = 1;
             int y = 0;
             Color color = new Color();
-            ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, label, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown,ref PictureObjectScreenshotRectanble);
+            ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, label, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown, ref PictureObjectScreenshotRectanble);
             cmdMakeObject.Enabled = IsCreateScreenshotReadyToCreate();
 
         }
 
         // Zoom and Crop/Mask
-        private void ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, Label lblWarning, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown,ref Rectangle PB1R)
+        private void ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, Label lblWarning, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown, ref Rectangle PB1R)
         {
             if (pb.Image.IsSomething())
             {
@@ -2299,7 +2299,7 @@ namespace AppTestStudio
 
                     int OriginalCount = game.StatusControl.Count;
                     while (game.StatusControl.Count > 0)
-                    {                        
+                    {
                         AppTestStudioStatusControlItem sci = null;
                         if (game.StatusControl.TryDequeue(out sci))
                         {
@@ -3139,7 +3139,7 @@ namespace AppTestStudio
             //' Hide the Make object buttone because the name is not long enough
             cmdMakeObject.Enabled = false;
 
-        //' Reset the Rectangle in case it//'s already being used.
+            //' Reset the Rectangle in case it//'s already being used.
             PictureObjectScreenshotRectanble = new Rectangle();
 
             //' Set the current image.
@@ -3173,8 +3173,8 @@ namespace AppTestStudio
                     break;
                 case 2:
                     SetPanel(PanelMode.Schedule);
-                    
-                break;
+
+                    break;
                 default:
                     Debug.Assert(false);
                     break;
@@ -3183,19 +3183,67 @@ namespace AppTestStudio
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-           Visible = false;
+            Visible = false;
             Timer1.Enabled = false;
             foreach (GameNodeGame Game in ThreadManager.Games)
             {
                 Game.Thread.Abort();
                 Thread.Sleep(200);
             }
-            
+
             ThreadManager.Save();
 
             Application.Exit();
 
         }
 
+        private void cmdAddSingleColorAtSingleLocationTakeASceenshot_Click(object sender, EventArgs e)
+        {
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNodeGame GameNode = Node.GetGameNode();
+
+            String TargetWindow = GameNode.TargetWindow;
+
+            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
+
+            Debug.Print("cmdAddSingleColorAtSingleLocationTakeASceenshot_Click TW=" + TargetWindow + " MWH= " + MainWindowHandle);
+
+            if (MainWindowHandle.ToInt32() > 0)
+            {
+                Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+                lblResolution.Text = bmp.Width + "x" + bmp.Height;
+
+                if (PictureBox1.Image.IsSomething())
+                {
+                    UndoScreenshot = PictureBox1.Image as Bitmap;
+                    cmdUndoScreenshot.Visible = true;
+                }
+                PictureBox1.Image = bmp;
+
+                if (dgv.Rows.Count > 1)
+                {
+                    if (lblMode.Text == "Event")
+                    {
+                        DialogResult Result = MessageBox.Show("Screenshot taken, do you want to re-sample the colors?", "Resample Colors?", MessageBoxButtons.YesNo);
+
+                        if (Result == DialogResult.Yes)
+                        {
+                            ResampleColors();
+                        }
+                    }
+                }
+
+                if (IsPanelLoading == false)
+                {
+                    ArchaicSave();
+
+                }
+            }
+            else
+            {
+                Log("Unable to locate window: " + TargetWindow);
+            }
+
+        }
     }
 }
