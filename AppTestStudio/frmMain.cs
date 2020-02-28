@@ -3245,5 +3245,37 @@ namespace AppTestStudio
             }
 
         }
+
+        private void rdoAfterCompletionContinue_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }           
+        }
+
+        private void rdoAfterCompletionHome_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+        }
+
+        private void rdoAfterCompletionParent_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+        }
+
+        private void rdoAfterCompletionStop_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+        }
     }
 }
