@@ -3251,7 +3251,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 ArchaicSave();
-            }           
+            }
         }
 
         private void rdoAfterCompletionHome_CheckedChanged(object sender, EventArgs e)
@@ -3276,6 +3276,95 @@ namespace AppTestStudio
             {
                 ArchaicSave();
             }
+        }
+
+        private void cboDelayMS_TextChanged(object sender, EventArgs e)
+        {
+            if (cboDelayMS.Text.Trim().Length > 0)
+            {
+                if (cboDelayMS.Text.IsNumeric())
+                {
+                    // do nothing
+                }
+                else
+                {
+                    Log("Delay 1/1000 sec must be numberic 0-999.");
+                }
+            }
+            lblDelayCalc.Text = Utils.CalculateDelay(cboDelayH.Text.ToInt(), cboDelayM.Text.ToInt(), cboDelayS.Text.ToInt(), cboDelayMS.Text.ToInt());
+
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+
+        }
+
+        private void cboDelayS_TextChanged(object sender, EventArgs e)
+        {
+            if (cboDelayS.Text.Trim().Length > 0)
+            {
+                if (cboDelayS.Text.IsNumeric())
+                {
+
+                }
+                else
+                {
+                    Log("Delay Seconds must be numeric 0 - 59");
+                }
+            }
+
+            lblDelayCalc.Text = Utils.CalculateDelay(cboDelayH.Text.ToInt(), cboDelayM.Text.ToInt(), cboDelayS.Text.ToInt(), cboDelayMS.Text.ToInt());
+
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+
+        }
+
+        private void cboDelayM_TextChanged(object sender, EventArgs e)
+        {
+            if (cboDelayM.Text.Trim().Length > 0)
+            {
+                if (cboDelayM.Text.IsNumeric())
+                {
+                    // do nothing
+                }
+                else
+                {
+                    Log("Delay Minutes must be numeric 0 - 59");
+                }
+            }
+
+            lblDelayCalc.Text = Utils.CalculateDelay(cboDelayH.Text.ToInt(), cboDelayM.Text.ToInt(), cboDelayS.Text.ToInt(), cboDelayMS.Text.ToInt());
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+
+        }
+
+        private void cboDelayH_TextChanged(object sender, EventArgs e)
+        {
+            if (cboDelayH.Text.Trim().Length > 0)
+            {
+                if (cboDelayH.Text.IsNumeric())
+                {
+                    // do nothing
+                }
+                else
+                {
+                    Log("Delay Hours must be numeric");
+                }
+            }
+
+            lblDelayCalc.Text = Utils.CalculateDelay(cboDelayH.Text.ToInt(), cboDelayM.Text.ToInt(), cboDelayS.Text.ToInt(), cboDelayMS.Text.ToInt());
+        if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+
         }
     }
 }
