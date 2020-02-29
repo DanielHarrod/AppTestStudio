@@ -3666,5 +3666,85 @@ namespace AppTestStudio
                 ReloadScheduleView();
             }
         }
+
+        //This could use some work, 
+        // Attempts to determine the next event and displays the time.
+        // Also launches a new thread if it's time to run.
+        private void timerScheduler_Tick(object sender, EventArgs e)
+        {
+            DateTime LowestNextRun = DateTime.MinValue;
+
+            foreach (ScheduleItem si in Schedule.ScheduleList)
+            {
+
+                if (si.IsEnabled)
+                {
+                    DateTime StartsTodayAt = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy ") + si.StartsAt.ToString("HH:mm"));
+    
+                if (si.CurrentRun == DateTime.MinValue)
+                    {
+                        if (StartsTodayAt.Hour == DateTime.Now.Hour && StartsTodayAt.Minute == DateTime.Now.Minute ) {
+                            LaunchScheduledGame(si);
+                        }
+                    }
+                    else
+                    {
+                        if (si.NextRun.Day == DateTime.Now.Day && si.NextRun.Hour == DateTime.Now.Hour && si.NextRun.Minute == DateTime.Now.Minute ) 
+                        {
+                            LaunchScheduledGame(si);
+                        }
+
+                    }
+
+                    DateTime CalcNextRun = si.CalculateNextRun();
+    
+                //' Is First Run
+                    if (LowestNextRun == DateTime.MinValue)
+                    {
+                        LowestNextRun = CalcNextRun;
+                }
+                    else
+                    {
+
+                        if (LowestNextRun > CalcNextRun)
+                        {
+                            LowestNextRun = CalcNextRun;
+                        }
+
+                    }
+                }
+
+            }
+        if (LowestNextRun == DateTime.MaxValue || LowestNextRun == DateTime.MinValue ) {
+                toolSchedulerRunning.Text = "Scheduler running, but no Schedules enabled.";
+        } else
+            {
+                toolSchedulerRunning.Text = "Next Scheduled Event: " + LowestNextRun.ToString("MM/dd/yyyy hh:mm tt") + " in " + Utils.CalculateDelay(LowestNextRun);
+        }
+
+        }
+
+        private void LaunchScheduledGame(ScheduleItem si)
+        {
+            si.CurrentRun = DateTime.Now;
+            si.CalculateAndSetNextRun();
+
+        if (System.IO.File.Exists(si.AppPath))
+            {
+                GameNodeGame Game = GameNodeGame.LoadGameFromFile(si.AppPath, false);
+
+            if (Game.IsSomething())
+                {
+                    Game.InstanceToLaunch = si.InstanceNumber.ToString();
+                    Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution);
+                    LoadInstance(Game);
+            }
+            }
+            else
+            {
+                Log("File not found: " + si.AppPath);
+          }
+
+        }
     }
 }

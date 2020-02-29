@@ -32,7 +32,15 @@ namespace AppTestStudio
         public Boolean Repeats { get; set; }
         public int RepeatsEvery { get; set; }
         public int StopsAfter { get; set; }
-        public Boolean IsEnabled { get; set; }
+
+        private Boolean mIsEnabld;
+
+        public Boolean IsEnabled
+        {
+            get { return mIsEnabld; }
+            set { mIsEnabld = value; }
+        }
+
 
 
         // Runtime Property
@@ -48,7 +56,7 @@ namespace AppTestStudio
 
         public DateTime CalculateNextRun()
         {
-            if (IsEnabled = false)
+            if (IsEnabled == false)
             {
                 return DateTime.MaxValue;
              }
