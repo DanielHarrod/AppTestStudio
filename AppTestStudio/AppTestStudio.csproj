@@ -165,6 +165,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\DragTargetMode.png" />
     <Content Include="Resources\Pause_64x_64.bmp" />
     <Content Include="Resources\StartWithoutDebug_16x_24.bmp" />
   </ItemGroup>
