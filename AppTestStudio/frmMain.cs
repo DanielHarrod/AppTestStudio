@@ -3496,7 +3496,7 @@ namespace AppTestStudio
 
         private void chkRelativePosition_CheckedChanged(object sender, EventArgs e)
         {
-            iBf(IsPanelLoading == false)
+            if(IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.IsRelativeStart = chkRelativePosition.Checked;
@@ -3527,14 +3527,14 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-            if (rdoRelativeTarget.Checked)
+                if (rdoRelativeTarget.Checked)
                 {
                     ActionNode.DragTargetMode = DragTargetMode.Relative;
-            }
+                }
                 else
                 {
                     ActionNode.DragTargetMode = DragTargetMode.Absolute;
-              }
+                }
             }
 
         }
@@ -3547,13 +3547,73 @@ namespace AppTestStudio
                 if (rdoAbsoluteTarget.Checked)
                 {
                     ActionNode.DragTargetMode = DragTargetMode.Absolute;
-            }
+                }
                 else
                 {
                     ActionNode.DragTargetMode = DragTargetMode.Relative;
-              }
+                }
             }
 
+        }
+
+        private void cboObject_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                String TargetSearch = cboObject.Text;
+                if (TargetSearch == "Choose a Object")
+                {
+                    PictureBoxEventObjectSelection.Image = null;
+                    ActionNode.ObjectName = "";
+                    return;
+                }
+
+                //'Save cboObject
+                ActionNode.ObjectName = cboObject.Text;
+
+                LoadObjectSelectionImage();
+            }
+        }
+
+        private void cboChannel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+
+                switch (cboChannel.Text)
+                {
+                    case "Red Channel":
+                        ActionNode.Channel = "Red";
+                        break;
+                    case "Green Channel":
+                        ActionNode.Channel = "Green";
+                        break;
+                    case "Blue Channel":
+                        ActionNode.Channel = "Blue";
+                        break;
+                    default:
+                        ActionNode.Channel = "Red";
+                        break;
+                }
+            }
+        }
+
+        private void NumericObjectThreshold_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.ObjectThreshold = (long)NumericObjectThreshold.Value;
+            }
+        }
+
+        private void cmdMaxMask_Click(object sender, EventArgs e)
+        {
+            GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+            ActionNode.Rectangle = new Rectangle(0, 0, PictureBox1.Image.Width, PictureBox1.Image.Height);
+            PictureBox1.Invalidate();
         }
     }
 }
