@@ -165,8 +165,12 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\StartEmmulator.bmp" />
+    <Content Include="Resources\UploadFile_16x_24.bmp" />
     <None Include="Resources\DragTargetMode.png" />
+    <Content Include="Resources\ImportCatalogPart_16x_24.bmp" />
     <Content Include="Resources\Pause_64x_64.bmp" />
+    <Content Include="Resources\Save_16x_24.bmp" />
     <Content Include="Resources\StartWithoutDebug_16x_24.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

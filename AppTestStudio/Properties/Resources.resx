@@ -121,10 +121,22 @@
   <data name="DragTargetMode" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\DragTargetMode.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="ImportCatalogPart_16x_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\ImportCatalogPart_16x_24.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Pause_64x_64" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Pause_64x_64.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Save_16x_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Save_16x_24.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="StartEmmulator" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\StartEmmulator.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="StartWithoutDebug_16x_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\StartWithoutDebug_16x_24.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="UploadFile_16x_24" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\UploadFile_16x_24.bmp;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

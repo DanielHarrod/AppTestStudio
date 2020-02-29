@@ -73,6 +73,16 @@ namespace AppTestStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap ImportCatalogPart_16x_24 {
+            get {
+                object obj = ResourceManager.GetObject("ImportCatalogPart_16x_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Pause_64x_64 {
             get {
                 object obj = ResourceManager.GetObject("Pause_64x_64", resourceCulture);
@@ -83,9 +93,39 @@ namespace AppTestStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Save_16x_24 {
+            get {
+                object obj = ResourceManager.GetObject("Save_16x_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap StartEmmulator {
+            get {
+                object obj = ResourceManager.GetObject("StartEmmulator", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap StartWithoutDebug_16x_24 {
             get {
                 object obj = ResourceManager.GetObject("StartWithoutDebug_16x_24", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap UploadFile_16x_24 {
+            get {
+                object obj = ResourceManager.GetObject("UploadFile_16x_24", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

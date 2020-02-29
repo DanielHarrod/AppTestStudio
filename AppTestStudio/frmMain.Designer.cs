@@ -29,17 +29,17 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -115,6 +115,17 @@
             this.PanelSelectedColor = new System.Windows.Forms.Panel();
             this.lblRHSColor = new System.Windows.Forms.Label();
             this.lblRHSXY = new System.Windows.Forms.Label();
+            this.grpObject = new System.Windows.Forms.GroupBox();
+            this.NumericObjectThreshold = new System.Windows.Forms.NumericUpDown();
+            this.Label52 = new System.Windows.Forms.Label();
+            this.cmdMaxMask = new System.Windows.Forms.Button();
+            this.lblMaskSize = new System.Windows.Forms.Label();
+            this.Label51 = new System.Windows.Forms.Label();
+            this.Label50 = new System.Windows.Forms.Label();
+            this.cboChannel = new System.Windows.Forms.ComboBox();
+            this.cboObject = new System.Windows.Forms.ComboBox();
+            this.lblColorChannel = new System.Windows.Forms.Label();
+            this.lblSearchObject = new System.Windows.Forms.Label();
             this.grpAndOr = new System.Windows.Forms.GroupBox();
             this.cmdHelpWorkspaceEventLogic = new System.Windows.Forms.Button();
             this.label31 = new System.Windows.Forms.Label();
@@ -140,17 +151,6 @@
             this.Label49 = new System.Windows.Forms.Label();
             this.lblYOffsetRange = new System.Windows.Forms.Label();
             this.chkRelativePosition = new System.Windows.Forms.CheckBox();
-            this.grpObject = new System.Windows.Forms.GroupBox();
-            this.NumericObjectThreshold = new System.Windows.Forms.NumericUpDown();
-            this.Label52 = new System.Windows.Forms.Label();
-            this.cmdMaxMask = new System.Windows.Forms.Button();
-            this.lblMaskSize = new System.Windows.Forms.Label();
-            this.Label51 = new System.Windows.Forms.Label();
-            this.Label50 = new System.Windows.Forms.Label();
-            this.cboChannel = new System.Windows.Forms.ComboBox();
-            this.cboObject = new System.Windows.Forms.ComboBox();
-            this.lblColorChannel = new System.Windows.Forms.Label();
-            this.lblSearchObject = new System.Windows.Forms.Label();
             this.PanelThread = new System.Windows.Forms.Panel();
             this.splitContainerThread = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -330,8 +330,8 @@
             this.toolSchedulerRunning = new System.Windows.Forms.ToolStripLabel();
             this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.PictureBox2 = new System.Windows.Forms.PictureBox();
-            this.PictureBox4 = new System.Windows.Forms.PictureBox();
             this.PictureBoxEventObjectSelection = new System.Windows.Forms.PictureBox();
+            this.PictureBox4 = new System.Windows.Forms.PictureBox();
             this.PictureObjectScreenshotZoomBox = new System.Windows.Forms.PictureBox();
             this.PictureObjectScreenshot = new System.Windows.Forms.PictureBox();
             this.PictureBoxObject = new System.Windows.Forms.PictureBox();
@@ -340,7 +340,6 @@
             this.toolStripLoadScript = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSaveScript = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRunScript = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonStartEmmulatorLaunchAppRunScript = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonStartEmmulatorLaunchApp = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonStartEmmulator = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonToggleScript = new System.Windows.Forms.ToolStripButton();
@@ -373,6 +372,8 @@
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.PanelSelectedColor.SuspendLayout();
+            this.grpObject.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).BeginInit();
             this.grpAndOr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.grpObjectAction.SuspendLayout();
@@ -381,8 +382,6 @@
             this.GroupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericXOffset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericYOffset)).BeginInit();
-            this.grpObject.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).BeginInit();
             this.PanelThread.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).BeginInit();
             this.splitContainerThread.Panel1.SuspendLayout();
@@ -446,8 +445,8 @@
             this.toolStripMain.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEventObjectSelection)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshotZoomBox)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshot)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).BeginInit();
@@ -1477,6 +1476,123 @@
             this.lblRHSXY.TabIndex = 3;
             this.lblRHSXY.Text = "[lblRHSXY]";
             // 
+            // grpObject
+            // 
+            this.grpObject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpObject.Controls.Add(this.NumericObjectThreshold);
+            this.grpObject.Controls.Add(this.Label52);
+            this.grpObject.Controls.Add(this.cmdMaxMask);
+            this.grpObject.Controls.Add(this.lblMaskSize);
+            this.grpObject.Controls.Add(this.Label51);
+            this.grpObject.Controls.Add(this.Label50);
+            this.grpObject.Controls.Add(this.cboChannel);
+            this.grpObject.Controls.Add(this.PictureBoxEventObjectSelection);
+            this.grpObject.Controls.Add(this.cboObject);
+            this.grpObject.Controls.Add(this.lblColorChannel);
+            this.grpObject.Controls.Add(this.lblSearchObject);
+            this.grpObject.Location = new System.Drawing.Point(721, 353);
+            this.grpObject.Name = "grpObject";
+            this.grpObject.Size = new System.Drawing.Size(319, 235);
+            this.grpObject.TabIndex = 29;
+            this.grpObject.TabStop = false;
+            this.grpObject.Text = "Object";
+            // 
+            // NumericObjectThreshold
+            // 
+            this.NumericObjectThreshold.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumericObjectThreshold.Location = new System.Drawing.Point(88, 70);
+            this.NumericObjectThreshold.Name = "NumericObjectThreshold";
+            this.NumericObjectThreshold.Size = new System.Drawing.Size(94, 30);
+            this.NumericObjectThreshold.TabIndex = 10;
+            this.NumericObjectThreshold.ValueChanged += new System.EventHandler(this.NumericObjectThreshold_ValueChanged);
+            // 
+            // Label52
+            // 
+            this.Label52.AutoSize = true;
+            this.Label52.Location = new System.Drawing.Point(7, 78);
+            this.Label52.Name = "Label52";
+            this.Label52.Size = new System.Drawing.Size(54, 13);
+            this.Label52.TabIndex = 9;
+            this.Label52.Text = "Threshold";
+            // 
+            // cmdMaxMask
+            // 
+            this.cmdMaxMask.Location = new System.Drawing.Point(88, 120);
+            this.cmdMaxMask.Name = "cmdMaxMask";
+            this.cmdMaxMask.Size = new System.Drawing.Size(139, 23);
+            this.cmdMaxMask.TabIndex = 8;
+            this.cmdMaxMask.Text = "Set Mask to Max";
+            this.cmdMaxMask.UseVisualStyleBackColor = true;
+            this.cmdMaxMask.Click += new System.EventHandler(this.cmdMaxMask_Click);
+            // 
+            // lblMaskSize
+            // 
+            this.lblMaskSize.AutoSize = true;
+            this.lblMaskSize.Location = new System.Drawing.Point(85, 101);
+            this.lblMaskSize.Name = "lblMaskSize";
+            this.lblMaskSize.Size = new System.Drawing.Size(63, 13);
+            this.lblMaskSize.TabIndex = 7;
+            this.lblMaskSize.Text = "lblMaskSize";
+            // 
+            // Label51
+            // 
+            this.Label51.AutoSize = true;
+            this.Label51.Location = new System.Drawing.Point(7, 105);
+            this.Label51.Name = "Label51";
+            this.Label51.Size = new System.Drawing.Size(56, 13);
+            this.Label51.TabIndex = 6;
+            this.Label51.Text = "Mask Size";
+            // 
+            // Label50
+            // 
+            this.Label50.AutoSize = true;
+            this.Label50.Location = new System.Drawing.Point(10, 149);
+            this.Label50.Name = "Label50";
+            this.Label50.Size = new System.Drawing.Size(38, 13);
+            this.Label50.TabIndex = 5;
+            this.Label50.Text = "Object";
+            // 
+            // cboChannel
+            // 
+            this.cboChannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboChannel.FormattingEnabled = true;
+            this.cboChannel.Items.AddRange(new object[] {
+            "Choose a Channel",
+            "Red Channel",
+            "Green Channel",
+            "Blue Channel"});
+            this.cboChannel.Location = new System.Drawing.Point(88, 48);
+            this.cboChannel.Name = "cboChannel";
+            this.cboChannel.Size = new System.Drawing.Size(139, 21);
+            this.cboChannel.TabIndex = 3;
+            this.cboChannel.SelectedIndexChanged += new System.EventHandler(this.cboChannel_SelectedIndexChanged);
+            // 
+            // cboObject
+            // 
+            this.cboObject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboObject.FormattingEnabled = true;
+            this.cboObject.Location = new System.Drawing.Point(88, 20);
+            this.cboObject.Name = "cboObject";
+            this.cboObject.Size = new System.Drawing.Size(139, 21);
+            this.cboObject.TabIndex = 0;
+            this.cboObject.SelectedIndexChanged += new System.EventHandler(this.cboObject_SelectedIndexChanged);
+            // 
+            // lblColorChannel
+            // 
+            this.lblColorChannel.Location = new System.Drawing.Point(7, 48);
+            this.lblColorChannel.Name = "lblColorChannel";
+            this.lblColorChannel.Size = new System.Drawing.Size(125, 21);
+            this.lblColorChannel.TabIndex = 4;
+            this.lblColorChannel.Text = "Color Channel";
+            // 
+            // lblSearchObject
+            // 
+            this.lblSearchObject.Location = new System.Drawing.Point(7, 20);
+            this.lblSearchObject.Name = "lblSearchObject";
+            this.lblSearchObject.Size = new System.Drawing.Size(125, 21);
+            this.lblSearchObject.TabIndex = 2;
+            this.lblSearchObject.Text = "Search Object";
+            // 
             // grpAndOr
             // 
             this.grpAndOr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1740,123 +1856,6 @@
             this.chkRelativePosition.Text = "Use Object Position to Click/Drag";
             this.chkRelativePosition.UseVisualStyleBackColor = true;
             this.chkRelativePosition.CheckedChanged += new System.EventHandler(this.chkRelativePosition_CheckedChanged);
-            // 
-            // grpObject
-            // 
-            this.grpObject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpObject.Controls.Add(this.NumericObjectThreshold);
-            this.grpObject.Controls.Add(this.Label52);
-            this.grpObject.Controls.Add(this.cmdMaxMask);
-            this.grpObject.Controls.Add(this.lblMaskSize);
-            this.grpObject.Controls.Add(this.Label51);
-            this.grpObject.Controls.Add(this.Label50);
-            this.grpObject.Controls.Add(this.cboChannel);
-            this.grpObject.Controls.Add(this.PictureBoxEventObjectSelection);
-            this.grpObject.Controls.Add(this.cboObject);
-            this.grpObject.Controls.Add(this.lblColorChannel);
-            this.grpObject.Controls.Add(this.lblSearchObject);
-            this.grpObject.Location = new System.Drawing.Point(721, 353);
-            this.grpObject.Name = "grpObject";
-            this.grpObject.Size = new System.Drawing.Size(319, 235);
-            this.grpObject.TabIndex = 29;
-            this.grpObject.TabStop = false;
-            this.grpObject.Text = "Object";
-            // 
-            // NumericObjectThreshold
-            // 
-            this.NumericObjectThreshold.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumericObjectThreshold.Location = new System.Drawing.Point(88, 70);
-            this.NumericObjectThreshold.Name = "NumericObjectThreshold";
-            this.NumericObjectThreshold.Size = new System.Drawing.Size(94, 30);
-            this.NumericObjectThreshold.TabIndex = 10;
-            this.NumericObjectThreshold.ValueChanged += new System.EventHandler(this.NumericObjectThreshold_ValueChanged);
-            // 
-            // Label52
-            // 
-            this.Label52.AutoSize = true;
-            this.Label52.Location = new System.Drawing.Point(7, 78);
-            this.Label52.Name = "Label52";
-            this.Label52.Size = new System.Drawing.Size(54, 13);
-            this.Label52.TabIndex = 9;
-            this.Label52.Text = "Threshold";
-            // 
-            // cmdMaxMask
-            // 
-            this.cmdMaxMask.Location = new System.Drawing.Point(88, 120);
-            this.cmdMaxMask.Name = "cmdMaxMask";
-            this.cmdMaxMask.Size = new System.Drawing.Size(139, 23);
-            this.cmdMaxMask.TabIndex = 8;
-            this.cmdMaxMask.Text = "Set Mask to Max";
-            this.cmdMaxMask.UseVisualStyleBackColor = true;
-            this.cmdMaxMask.Click += new System.EventHandler(this.cmdMaxMask_Click);
-            // 
-            // lblMaskSize
-            // 
-            this.lblMaskSize.AutoSize = true;
-            this.lblMaskSize.Location = new System.Drawing.Point(85, 101);
-            this.lblMaskSize.Name = "lblMaskSize";
-            this.lblMaskSize.Size = new System.Drawing.Size(63, 13);
-            this.lblMaskSize.TabIndex = 7;
-            this.lblMaskSize.Text = "lblMaskSize";
-            // 
-            // Label51
-            // 
-            this.Label51.AutoSize = true;
-            this.Label51.Location = new System.Drawing.Point(7, 105);
-            this.Label51.Name = "Label51";
-            this.Label51.Size = new System.Drawing.Size(56, 13);
-            this.Label51.TabIndex = 6;
-            this.Label51.Text = "Mask Size";
-            // 
-            // Label50
-            // 
-            this.Label50.AutoSize = true;
-            this.Label50.Location = new System.Drawing.Point(10, 149);
-            this.Label50.Name = "Label50";
-            this.Label50.Size = new System.Drawing.Size(38, 13);
-            this.Label50.TabIndex = 5;
-            this.Label50.Text = "Object";
-            // 
-            // cboChannel
-            // 
-            this.cboChannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboChannel.FormattingEnabled = true;
-            this.cboChannel.Items.AddRange(new object[] {
-            "Choose a Channel",
-            "Red Channel",
-            "Green Channel",
-            "Blue Channel"});
-            this.cboChannel.Location = new System.Drawing.Point(88, 48);
-            this.cboChannel.Name = "cboChannel";
-            this.cboChannel.Size = new System.Drawing.Size(139, 21);
-            this.cboChannel.TabIndex = 3;
-            this.cboChannel.SelectedIndexChanged += new System.EventHandler(this.cboChannel_SelectedIndexChanged);
-            // 
-            // cboObject
-            // 
-            this.cboObject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboObject.FormattingEnabled = true;
-            this.cboObject.Location = new System.Drawing.Point(88, 20);
-            this.cboObject.Name = "cboObject";
-            this.cboObject.Size = new System.Drawing.Size(139, 21);
-            this.cboObject.TabIndex = 0;
-            this.cboObject.SelectedIndexChanged += new System.EventHandler(this.cboObject_SelectedIndexChanged);
-            // 
-            // lblColorChannel
-            // 
-            this.lblColorChannel.Location = new System.Drawing.Point(7, 48);
-            this.lblColorChannel.Name = "lblColorChannel";
-            this.lblColorChannel.Size = new System.Drawing.Size(125, 21);
-            this.lblColorChannel.TabIndex = 4;
-            this.lblColorChannel.Text = "Color Channel";
-            // 
-            // lblSearchObject
-            // 
-            this.lblSearchObject.Location = new System.Drawing.Point(7, 20);
-            this.lblSearchObject.Name = "lblSearchObject";
-            this.lblSearchObject.Size = new System.Drawing.Size(125, 21);
-            this.lblSearchObject.TabIndex = 2;
-            this.lblSearchObject.Text = "Search Object";
             // 
             // PanelThread
             // 
@@ -2302,8 +2301,8 @@
             // 
             // colMon
             // 
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colMon.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colMon.DefaultCellStyle = dataGridViewCellStyle12;
             this.colMon.HeaderText = "Mon";
             this.colMon.MaxInputLength = 1;
             this.colMon.MinimumWidth = 37;
@@ -2313,8 +2312,8 @@
             // 
             // colTue
             // 
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colTue.DefaultCellStyle = dataGridViewCellStyle46;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colTue.DefaultCellStyle = dataGridViewCellStyle13;
             this.colTue.HeaderText = "Tue";
             this.colTue.MaxInputLength = 1;
             this.colTue.MinimumWidth = 37;
@@ -2324,8 +2323,8 @@
             // 
             // colWed
             // 
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colWed.DefaultCellStyle = dataGridViewCellStyle47;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colWed.DefaultCellStyle = dataGridViewCellStyle14;
             this.colWed.HeaderText = "Wed";
             this.colWed.MaxInputLength = 1;
             this.colWed.MinimumWidth = 37;
@@ -2335,8 +2334,8 @@
             // 
             // colThu
             // 
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colThu.DefaultCellStyle = dataGridViewCellStyle48;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colThu.DefaultCellStyle = dataGridViewCellStyle15;
             this.colThu.HeaderText = "Thu";
             this.colThu.MaxInputLength = 1;
             this.colThu.MinimumWidth = 37;
@@ -2346,8 +2345,8 @@
             // 
             // colFri
             // 
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colFri.DefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colFri.DefaultCellStyle = dataGridViewCellStyle16;
             this.colFri.HeaderText = "Fri";
             this.colFri.MaxInputLength = 1;
             this.colFri.MinimumWidth = 37;
@@ -2357,8 +2356,8 @@
             // 
             // colSat
             // 
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSat.DefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSat.DefaultCellStyle = dataGridViewCellStyle17;
             this.colSat.HeaderText = "Sat";
             this.colSat.MaxInputLength = 1;
             this.colSat.MinimumWidth = 37;
@@ -2368,8 +2367,8 @@
             // 
             // colSun
             // 
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSun.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSun.DefaultCellStyle = dataGridViewCellStyle18;
             this.colSun.HeaderText = "Sun";
             this.colSun.MaxInputLength = 1;
             this.colSun.MinimumWidth = 37;
@@ -2840,27 +2839,27 @@
             this.dgvTestAllReference.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle52.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle52.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceColor,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle53.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle53.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle53.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgvTestAllReference.Location = new System.Drawing.Point(5, 25);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -2904,14 +2903,14 @@
             this.dgvTest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle54.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle54.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle54.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle54.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle54.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle54.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTest,
@@ -2919,14 +2918,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle55.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle55.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle55.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle22.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle22;
             this.dgvTest.Location = new System.Drawing.Point(5, 24);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -3631,7 +3630,6 @@
             this.toolStripButtonSaveScript,
             this.toolStripSeparator3,
             this.toolStripButtonRunScript,
-            this.toolStripButtonStartEmmulatorLaunchAppRunScript,
             this.toolStripButtonStartEmmulatorLaunchApp,
             this.toolStripButtonStartEmmulator,
             this.toolStripSeparator4,
@@ -3690,6 +3688,15 @@
             this.PictureBox2.TabIndex = 0;
             this.PictureBox2.TabStop = false;
             // 
+            // PictureBoxEventObjectSelection
+            // 
+            this.PictureBoxEventObjectSelection.Location = new System.Drawing.Point(88, 149);
+            this.PictureBoxEventObjectSelection.Name = "PictureBoxEventObjectSelection";
+            this.PictureBoxEventObjectSelection.Size = new System.Drawing.Size(100, 50);
+            this.PictureBoxEventObjectSelection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureBoxEventObjectSelection.TabIndex = 1;
+            this.PictureBoxEventObjectSelection.TabStop = false;
+            // 
             // PictureBox4
             // 
             this.PictureBox4.Image = global::AppTestStudio.Properties.Resources.DragTargetMode;
@@ -3700,15 +3707,6 @@
             this.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBox4.TabIndex = 2;
             this.PictureBox4.TabStop = false;
-            // 
-            // PictureBoxEventObjectSelection
-            // 
-            this.PictureBoxEventObjectSelection.Location = new System.Drawing.Point(88, 149);
-            this.PictureBoxEventObjectSelection.Name = "PictureBoxEventObjectSelection";
-            this.PictureBoxEventObjectSelection.Size = new System.Drawing.Size(100, 50);
-            this.PictureBoxEventObjectSelection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureBoxEventObjectSelection.TabIndex = 1;
-            this.PictureBoxEventObjectSelection.TabStop = false;
             // 
             // PictureObjectScreenshotZoomBox
             // 
@@ -3763,7 +3761,7 @@
             // 
             // toolStripLoadScript
             // 
-            this.toolStripLoadScript.Image = ((System.Drawing.Image)(resources.GetObject("toolStripLoadScript.Image")));
+            this.toolStripLoadScript.Image = global::AppTestStudio.Properties.Resources.UploadFile_16x_24;
             this.toolStripLoadScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripLoadScript.Name = "toolStripLoadScript";
             this.toolStripLoadScript.Size = new System.Drawing.Size(86, 22);
@@ -3772,7 +3770,7 @@
             // 
             // toolStripButtonSaveScript
             // 
-            this.toolStripButtonSaveScript.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonSaveScript.Image")));
+            this.toolStripButtonSaveScript.Image = global::AppTestStudio.Properties.Resources.Save_16x_24;
             this.toolStripButtonSaveScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSaveScript.Name = "toolStripButtonSaveScript";
             this.toolStripButtonSaveScript.Size = new System.Drawing.Size(84, 22);
@@ -3781,25 +3779,16 @@
             // 
             // toolStripButtonRunScript
             // 
-            this.toolStripButtonRunScript.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonRunScript.Image")));
+            this.toolStripButtonRunScript.Image = global::AppTestStudio.Properties.Resources.UploadFile_16x_24;
             this.toolStripButtonRunScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRunScript.Name = "toolStripButtonRunScript";
             this.toolStripButtonRunScript.Size = new System.Drawing.Size(81, 22);
             this.toolStripButtonRunScript.Text = "Run Script";
             this.toolStripButtonRunScript.Click += new System.EventHandler(this.toolStripButtonRunScript_Click);
             // 
-            // toolStripButtonStartEmmulatorLaunchAppRunScript
-            // 
-            this.toolStripButtonStartEmmulatorLaunchAppRunScript.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStartEmmulatorLaunchAppRunScript.Image")));
-            this.toolStripButtonStartEmmulatorLaunchAppRunScript.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonStartEmmulatorLaunchAppRunScript.Name = "toolStripButtonStartEmmulatorLaunchAppRunScript";
-            this.toolStripButtonStartEmmulatorLaunchAppRunScript.Size = new System.Drawing.Size(259, 22);
-            this.toolStripButtonStartEmmulatorLaunchAppRunScript.Text = "Start Emmulator + Launch App + Run Script";
-            this.toolStripButtonStartEmmulatorLaunchAppRunScript.Click += new System.EventHandler(this.toolStripButtonStartEmmulatorLaunchAppRunScript_Click);
-            // 
             // toolStripButtonStartEmmulatorLaunchApp
             // 
-            this.toolStripButtonStartEmmulatorLaunchApp.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStartEmmulatorLaunchApp.Image")));
+            this.toolStripButtonStartEmmulatorLaunchApp.Image = global::AppTestStudio.Properties.Resources.ImportCatalogPart_16x_24;
             this.toolStripButtonStartEmmulatorLaunchApp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonStartEmmulatorLaunchApp.Name = "toolStripButtonStartEmmulatorLaunchApp";
             this.toolStripButtonStartEmmulatorLaunchApp.Size = new System.Drawing.Size(191, 22);
@@ -3808,7 +3797,7 @@
             // 
             // toolStripButtonStartEmmulator
             // 
-            this.toolStripButtonStartEmmulator.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonStartEmmulator.Image")));
+            this.toolStripButtonStartEmmulator.Image = global::AppTestStudio.Properties.Resources.StartEmmulator;
             this.toolStripButtonStartEmmulator.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonStartEmmulator.Name = "toolStripButtonStartEmmulator";
             this.toolStripButtonStartEmmulator.Size = new System.Drawing.Size(113, 22);
@@ -3817,7 +3806,8 @@
             // 
             // toolStripButtonToggleScript
             // 
-            this.toolStripButtonToggleScript.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonToggleScript.Image")));
+            this.toolStripButtonToggleScript.Enabled = false;
+            this.toolStripButtonToggleScript.Image = global::AppTestStudio.Properties.Resources.Pause_64x_64;
             this.toolStripButtonToggleScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonToggleScript.Name = "toolStripButtonToggleScript";
             this.toolStripButtonToggleScript.Size = new System.Drawing.Size(91, 22);
@@ -3878,6 +3868,9 @@
             this.groupBox6.PerformLayout();
             this.PanelSelectedColor.ResumeLayout(false);
             this.PanelSelectedColor.PerformLayout();
+            this.grpObject.ResumeLayout(false);
+            this.grpObject.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).EndInit();
             this.grpAndOr.ResumeLayout(false);
             this.grpAndOr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
@@ -3890,9 +3883,6 @@
             this.GroupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericXOffset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericYOffset)).EndInit();
-            this.grpObject.ResumeLayout(false);
-            this.grpObject.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).EndInit();
             this.PanelThread.ResumeLayout(false);
             this.splitContainerThread.Panel1.ResumeLayout(false);
             this.splitContainerThread.Panel2.ResumeLayout(false);
@@ -3981,8 +3971,8 @@
             this.toolStripMain.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEventObjectSelection)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshotZoomBox)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshot)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).EndInit();
@@ -4016,7 +4006,6 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonSaveScript;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator3;
         private System.Windows.Forms.ToolStripButton toolStripButtonRunScript;
-        private System.Windows.Forms.ToolStripButton toolStripButtonStartEmmulatorLaunchAppRunScript;
         private System.Windows.Forms.ToolStripButton toolStripButtonStartEmmulatorLaunchApp;
         private System.Windows.Forms.ToolStripButton toolStripButtonStartEmmulator;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;

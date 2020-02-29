@@ -241,15 +241,28 @@ namespace AppTestStudio
 
             toolStripButtonStartEmmulator.Enabled = false;
             toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
-            toolStripButtonStartEmmulatorLaunchAppRunScript.Enabled = false;
 
             toolStripButtonRunScript.Enabled = false;
             toolStripButtonSaveScript.Enabled = false;
         }
 
+        const String PauseScript = "Pause Script";
+        const String UnPauseScript = "Un-Pause Scripts";
         private void toolStripButtonToggleScript_Click(object sender, EventArgs e)
         {
-            Debug.WriteLine("TEst");
+            Boolean IsPaused = false;
+
+        if (toolStripButtonToggleScript.Text == PauseScript)
+            {
+                IsPaused = true;
+        }
+            else
+            {
+                IsPaused = false;
+          }
+
+            SetThreadPauseState(IsPaused);
+
         }
 
         private void toolStripLoadScript_Click(object sender, EventArgs e)
@@ -925,11 +938,7 @@ namespace AppTestStudio
 
             Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution);
         }
-
-        private void toolStripButtonStartEmmulatorLaunchAppRunScript_Click(object sender, EventArgs e)
-        {
-            LaunchAndLoadInstance();
-        }
+        
 
         private void LaunchAndLoadInstance()
         {
@@ -1045,7 +1054,7 @@ namespace AppTestStudio
 
             if (isPaused)
             {
-                toolStripButtonToggleScript.Text = "Un-Pause Scripts";
+                toolStripButtonToggleScript.Text = UnPauseScript;
                 toolStripButtonToggleScript.Image = AppTestStudio.Properties.Resources.StartWithoutDebug_16x_24;
 
             }
