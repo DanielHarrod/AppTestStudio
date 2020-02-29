@@ -252,14 +252,14 @@ namespace AppTestStudio
         {
             Boolean IsPaused = false;
 
-        if (toolStripButtonToggleScript.Text == PauseScript)
+            if (toolStripButtonToggleScript.Text == PauseScript)
             {
                 IsPaused = true;
-        }
+            }
             else
             {
                 IsPaused = false;
-          }
+            }
 
             SetThreadPauseState(IsPaused);
 
@@ -938,7 +938,7 @@ namespace AppTestStudio
 
             Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution);
         }
-        
+
 
         private void LaunchAndLoadInstance()
         {
@@ -3509,7 +3509,7 @@ namespace AppTestStudio
 
         private void chkRelativePosition_CheckedChanged(object sender, EventArgs e)
         {
-            if(IsPanelLoading == false)
+            if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.IsRelativeStart = chkRelativePosition.Checked;
@@ -3627,6 +3627,44 @@ namespace AppTestStudio
             GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
             ActionNode.Rectangle = new Rectangle(0, 0, PictureBox1.Image.Width, PictureBox1.Image.Height);
             PictureBox1.Invalidate();
+        }
+
+        private void dgSchedule_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataGridView senderGrid = sender as DataGridView;
+
+            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            {
+                ScheduleItem Item = Schedule.ScheduleList[e.RowIndex];
+
+                frmScheduler frm = new frmScheduler(Item);
+                frm.IsAdding = false;
+
+                frm.ShowDialog();
+
+                if (frm.IsSaving)
+                {
+                    if (frm.IsAdding)
+                    {
+                        ScheduleItem si = frm.getItem();
+                        Schedule.ScheduleList.Add(si);
+                    }
+                    else
+                    {
+                        frm.getItem();
+                    }
+                    SaveSchedule();
+                }
+                else
+                {
+                    if (frm.IsDeleting)
+                    {
+                        Schedule.ScheduleList.Remove(Item);
+                    }
+                    SaveSchedule();
+                }
+                ReloadScheduleView();
+            }
         }
     }
 }
