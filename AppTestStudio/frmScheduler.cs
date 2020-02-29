@@ -21,9 +21,10 @@ namespace AppTestStudio
         public Boolean IsAdding { get; set; }
         public Boolean IsSaving { get; set; }
         public Boolean IsDeleting { get; set; }
-        public frmScheduler(ScheduleItem Item)
+        public frmScheduler(ScheduleItem item)
         {
             InitializeComponent();
+            Item = item;
         }
 
         private void cboPickApp_Click(object sender, EventArgs e)
@@ -89,6 +90,38 @@ namespace AppTestStudio
         {
             IsSaving = true;
             Hide();
+        }
+
+        private void frmScheduler_Load(object sender, EventArgs e)
+        {
+            if (Item.IsSomething())
+            {
+                txtApp.Text = Item.AppPath;
+
+
+            nudInstanceNumber.Value = Item.InstanceNumber;
+                chkMonday.Checked = Item.Monday;
+                chkTuesday.Checked = Item.Tuesday;
+                chkWednesday.Checked = Item.Wednesday;
+                chkThursday.Checked = Item.Thursday;
+                chkFriday.Checked = Item.Friday;
+                chkSaturday.Checked = Item.Saturday;
+                chkSunday.Checked = Item.Sunday;
+
+                txtName.Text = Item.Name;
+                chkRepeat.Checked = Item.Repeats;
+                nudRepeatEvery.Value = Item.RepeatsEvery;
+                dtStartsAt.Value = Item.StartsAt;
+                nudStopAfter.Value = Item.StopsAfter;
+                txtWindowName.Text = Item.WindowName;
+                chkEnabled.Checked = Item.IsEnabled;
+            }
+            else
+            {
+                cmdDelete.Enabled = false;
+              dtStartsAt.Value = DateTime.Now.AddMinutes(30);
+          }
+
         }
     }
 }
