@@ -3360,9 +3360,112 @@ namespace AppTestStudio
             }
 
             lblDelayCalc.Text = Utils.CalculateDelay(cboDelayH.Text.ToInt(), cboDelayM.Text.ToInt(), cboDelayS.Text.ToInt(), cboDelayMS.Text.ToInt());
-        if (IsPanelLoading == false)
+            if (IsPanelLoading == false)
             {
                 ArchaicSave();
+            }
+        }
+
+        private void chkUseLimit_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                Node.IsLimited = chkUseLimit.Checked;
+            }
+        }
+
+        private void cboWaitType_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+
+            switch (cboWaitType.Text)
+            {
+                case "Iteration":
+                    lblLimitTimeLabel.Visible = false;
+                    lnkLimitTime.Visible = false;
+                    lblLimitIterationsLabel.Visible = true;
+                    numIterations.Visible = true;
+                    chkLimitRepeats.Visible = true;
+                    chkWaitFirst.Visible = true;
+                    break;
+                case "Time":
+                    lblLimitTimeLabel.Visible = true;
+                    lnkLimitTime.Visible = true;
+                    lblLimitIterationsLabel.Visible = false;
+                    numIterations.Visible = false;
+                    chkLimitRepeats.Visible = true;
+                    chkWaitFirst.Visible = true;
+                    break;
+                case "Once Per Session":
+                    lblLimitTimeLabel.Visible = false;
+                    lnkLimitTime.Visible = false;
+                    lblLimitIterationsLabel.Visible = false;
+                    numIterations.Visible = false;
+                    chkLimitRepeats.Visible = false;
+                    chkWaitFirst.Visible = false;
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void chkWaitFirst_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                Node.IsWaitFirst = chkWaitFirst.Checked;
+            }
+
+        }
+
+        private void numIterations_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                Node.ExecutionLimit = (long)numIterations.Value;
+            }
+
+        }
+
+        private void chkLimitRepeats_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                Node.LimitRepeats = chkLimitRepeats.Checked;
+            }
+
+        }
+
+        private void lnkLimitTime_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
+            frmTimeCapture frm = new frmTimeCapture();
+            frm.DelayH = Picturable.LimitDelayH;
+            frm.DelayM = Picturable.LimitDelayM;
+            frm.DelayS = Picturable.LimitDelayS;
+            frm.DelayMS = Picturable.LimitDelayMS;
+
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog(this);
+
+            if (frm.IsSaved)
+            {
+
+                Picturable.LimitDelayH = frm.DelayH;
+                Picturable.LimitDelayM = frm.DelayM;
+                Picturable.LimitDelayS = frm.DelayS;
+                Picturable.LimitDelayMS = frm.DelayMS;
+
+                lnkLimitTime.Text = Utils.CalculateDelay(frm.DelayH, frm.DelayM, frm.DelayS, frm.DelayMS);
+
             }
 
         }
