@@ -3034,8 +3034,6 @@ namespace AppTestStudio
 
                 if (e.ColumnIndex == dgv.Columns["dgvRemove"].Index)
                 {
-
-
                     dgv.Rows.Remove(dgv.Rows[e.RowIndex]);
 
                     if (IsPanelLoading == false)
@@ -3466,6 +3464,94 @@ namespace AppTestStudio
 
                 lnkLimitTime.Text = Utils.CalculateDelay(frm.DelayH, frm.DelayM, frm.DelayS, frm.DelayMS);
 
+            }
+
+        }
+
+        private void rdoAnd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+
+        }
+
+        private void rdoOR_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+
+        }
+
+        private void cboPoints_TextChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+        }
+
+        private void chkRelativePosition_CheckedChanged(object sender, EventArgs e)
+        {
+            iBf(IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.IsRelativeStart = chkRelativePosition.Checked;
+                PictureBox1.Invalidate();
+            }
+        }
+
+        private void NumericXOffset_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.RelativeXOffset = (int)NumericXOffset.Value;
+            }
+        }
+
+        private void NumericYOffset_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.RelativeYOffset = (int)NumericYOffset.Value;
+            }
+        }
+
+        private void rdoRelativeTarget_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+            if (rdoRelativeTarget.Checked)
+                {
+                    ActionNode.DragTargetMode = DragTargetMode.Relative;
+            }
+                else
+                {
+                    ActionNode.DragTargetMode = DragTargetMode.Absolute;
+              }
+            }
+
+        }
+
+        private void rdoAbsoluteTarget_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                if (rdoAbsoluteTarget.Checked)
+                {
+                    ActionNode.DragTargetMode = DragTargetMode.Absolute;
+            }
+                else
+                {
+                    ActionNode.DragTargetMode = DragTargetMode.Relative;
+              }
             }
 
         }
