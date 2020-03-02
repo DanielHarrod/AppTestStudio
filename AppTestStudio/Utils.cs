@@ -47,12 +47,12 @@ namespace AppTestStudio
                                 switch (ActionNode.Mode)
                                 {
                                     case Mode.RangeClick:
-                                        Node.ImageIndex = IconNames.DependencyArrow();
-                                        Node.SelectedImageIndex = IconNames.DependencyArrow();
-                                        break;
-                                    case Mode.ClickDragRelease:
                                         Node.ImageIndex = IconNames.ButtonClick();
                                         Node.SelectedImageIndex = IconNames.ButtonClick();
+                                        break;
+                                    case Mode.ClickDragRelease:
+                                        Node.ImageIndex = IconNames.DependencyArrow();
+                                        Node.SelectedImageIndex = IconNames.DependencyArrow();
                                         break;
                                     default:
                                         break;

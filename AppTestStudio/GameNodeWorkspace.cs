@@ -15,7 +15,7 @@ namespace AppTestStudio
         public GameNodeWorkspace(String name)
             :base(name,GameNodeType.Workspace)
         {
-
+            Utils.SetIcons(this);
         }
         public String SaveFileName { get; set; }
         public String WorkspaceFolder { get; set; }

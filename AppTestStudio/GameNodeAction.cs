@@ -33,7 +33,9 @@ namespace AppTestStudio
             ObjectThreshold = 70;
             DragTargetMode = DragTargetMode.Absolute;
             ClickList = new List<SingleClick>();
-            
+
+            Channel = "";
+            Utils.SetIcons(this);
 
         }
 
@@ -71,7 +73,18 @@ namespace AppTestStudio
 
         public List<SingleClick> ClickList { get; set; }
         public String LogicChoice { get; set; }
-        public Boolean IsColorPoint { get; set; }
+
+        private Boolean mIsColorPoint;
+
+        public Boolean IsColorPoint
+        {
+            get { return mIsColorPoint; }
+            set { 
+                mIsColorPoint = value;
+                Utils.SetIcons(this);
+            }
+        }
+
         public ActionType ActionType { get; set; }
         public Rectangle Rectangle;
         public Boolean UseParentPicture { get; set; }

@@ -45,8 +45,6 @@ namespace AppTestStudio
             this.Name = Name;
             this.Text = Name;
             GameNodeType = Type;
-            Utils.SetIcons(this);
-
             NodeID = NextNodeID;
             NextNodeID++;
         }

@@ -2054,27 +2054,9 @@ namespace AppTestStudio
             }
         }
 
-        private void rdoModeRangeClick_Click(object sender, EventArgs e)
-        {
-            PictureBox1.Refresh();
-            if (IsPanelLoading)
-            {
-                ArchaicSave();
-            }
-        }
-
-        private void rdoModeClickDragRelease_Click(object sender, EventArgs e)
-        {
-            PictureBox1.Refresh();
-            if (IsPanelLoading)
-            {
-                ArchaicSave();
-            }
-        }
-
         private void rdoColorPoint_CheckedChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading)
+            if (IsPanelLoading==false)
             {
                 HideShowObjectvsAndOR();
                 GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
@@ -2082,6 +2064,7 @@ namespace AppTestStudio
 
                 PictureBox1.Refresh();
             }
+            
         }
 
         private void HideShowObjectvsAndOR()
@@ -2853,7 +2836,6 @@ namespace AppTestStudio
                 //' LoadPanelSingleColorAtSingleLocation(PanelLoadNode)
                 //'tv.SelectedNode = ActionNode
             }
-
         }
 
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -3591,7 +3573,7 @@ namespace AppTestStudio
 
         private void cboChannel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading)
+            if (IsPanelLoading==false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
 
@@ -3745,6 +3727,26 @@ namespace AppTestStudio
                 Log("File not found: " + si.AppPath);
           }
 
+        }
+
+        private void rdoModeRangeClick_CheckedChanged(object sender, EventArgs e)
+        {
+            PictureBox1.Refresh();
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+            Utils.SetIcons(PanelLoadNode);
+        }
+
+        private void rdoModeClickDragRelease_CheckedChanged(object sender, EventArgs e)
+        {
+            PictureBox1.Refresh();
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+            Utils.SetIcons(PanelLoadNode);
         }
     }
 }

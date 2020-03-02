@@ -14,7 +14,7 @@ namespace AppTestStudio
     {
         public GameNodeEvents(String name) : base(name, GameNodeType.Events)
         {
-
+            Utils.SetIcons(this);
         }
 
         public GameNodeEvents CloneMe()

@@ -1129,8 +1129,7 @@ namespace AppTestStudio
                 AutoBalanceAttribue = Convert.ToBoolean(actionNode.Attributes["AutoBalance"].Value);
             }
             treeActionNode.AutoBalance = AutoBalanceAttribue;
-
-
+            
             treeActionNode.GameNodeName = ActionName;
 
             treeActionNode.UseParentPicture = UseParentPicture;
@@ -1200,6 +1199,7 @@ namespace AppTestStudio
                 }
 
             }
+            Utils.SetIcons(gameNode);
         }
 
 

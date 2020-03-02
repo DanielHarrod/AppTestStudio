@@ -14,7 +14,7 @@ namespace AppTestStudio
     {
         public GameNodeObjects(String name) : base(name, GameNodeType.Objects)
         {
-
+            Utils.SetIcons(this);
         }
         
         public GameNodeObjects CloneMe()

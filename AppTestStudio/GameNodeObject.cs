@@ -16,7 +16,7 @@ namespace AppTestStudio
     {
         public GameNodeObject(String name) : base(name, GameNodeType.Object)
         {
-
+            Utils.SetIcons(this);
         }
 
         private Bitmap mbitMap;
