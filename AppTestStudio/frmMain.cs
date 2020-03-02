@@ -3837,7 +3837,7 @@ namespace AppTestStudio
             SetPanel(PanelMode.TestAllEvents);
 
         //'walk to Event//'s node
-            GameNode Node = tv.SelectedNode as GameNodeAction;
+            GameNode Node = tv.SelectedNode as GameNode;
             GameNodeGame GameNode = Node.GetGameNode();
             GameNodeEvents EventsNode = GameNode.GetEventsNode();
 
