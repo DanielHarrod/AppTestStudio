@@ -3821,5 +3821,10 @@ namespace AppTestStudio
             LoadPanelSingleColorAtSingleLocation(GameNodeAction);
             ThreadManager.IncrementNewRNGContainer();
         }
+
+        private void mnuAddRNGNode_Click(object sender, EventArgs e)
+        {
+            AddRNGNode(tv.SelectedNode as GameNodeAction);
+        }
     }
 }
