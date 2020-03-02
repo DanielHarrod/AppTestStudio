@@ -3905,5 +3905,21 @@ namespace AppTestStudio
                 CheckEvents(n);
             }
         }
+
+        private void mnuAddObject_Click(object sender, EventArgs e)
+        {
+            //' Change the Panel to Object Screenshot
+            SetPanel(PanelMode.ObjectScreenshot);
+
+            //' Hide the Make object buttone because the name is not long enough
+            cmdMakeObject.Enabled = false;
+
+        //' Reset the Rectangle in case it//'s already being used.
+            PictureObjectScreenshotRectanble = new Rectangle();
+
+            //' Take a screenshot
+            cmdObjectScreenshotsTakeAScreenshot_Click(null, null); ;
+
+        }
     }
 }
