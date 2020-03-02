@@ -2056,7 +2056,7 @@ namespace AppTestStudio
 
         private void rdoColorPoint_CheckedChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading==false)
+            if (IsPanelLoading == false)
             {
                 HideShowObjectvsAndOR();
                 GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
@@ -2064,7 +2064,7 @@ namespace AppTestStudio
 
                 PictureBox1.Refresh();
             }
-            
+
         }
 
         private void HideShowObjectvsAndOR()
@@ -3573,7 +3573,7 @@ namespace AppTestStudio
 
         private void cboChannel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading==false)
+            if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
 
@@ -3662,16 +3662,17 @@ namespace AppTestStudio
                 if (si.IsEnabled)
                 {
                     DateTime StartsTodayAt = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy ") + si.StartsAt.ToString("HH:mm"));
-    
-                if (si.CurrentRun == DateTime.MinValue)
+
+                    if (si.CurrentRun == DateTime.MinValue)
                     {
-                        if (StartsTodayAt.Hour == DateTime.Now.Hour && StartsTodayAt.Minute == DateTime.Now.Minute ) {
+                        if (StartsTodayAt.Hour == DateTime.Now.Hour && StartsTodayAt.Minute == DateTime.Now.Minute)
+                        {
                             LaunchScheduledGame(si);
                         }
                     }
                     else
                     {
-                        if (si.NextRun.Day == DateTime.Now.Day && si.NextRun.Hour == DateTime.Now.Hour && si.NextRun.Minute == DateTime.Now.Minute ) 
+                        if (si.NextRun.Day == DateTime.Now.Day && si.NextRun.Hour == DateTime.Now.Hour && si.NextRun.Minute == DateTime.Now.Minute)
                         {
                             LaunchScheduledGame(si);
                         }
@@ -3679,12 +3680,12 @@ namespace AppTestStudio
                     }
 
                     DateTime CalcNextRun = si.CalculateNextRun();
-    
-                //' Is First Run
+
+                    //' Is First Run
                     if (LowestNextRun == DateTime.MinValue)
                     {
                         LowestNextRun = CalcNextRun;
-                }
+                    }
                     else
                     {
 
@@ -3697,12 +3698,14 @@ namespace AppTestStudio
                 }
 
             }
-        if (LowestNextRun == DateTime.MaxValue || LowestNextRun == DateTime.MinValue ) {
+            if (LowestNextRun == DateTime.MaxValue || LowestNextRun == DateTime.MinValue)
+            {
                 toolSchedulerRunning.Text = "Scheduler running, but no Schedules enabled.";
-        } else
+            }
+            else
             {
                 toolSchedulerRunning.Text = "Next Scheduled Event: " + LowestNextRun.ToString("MM/dd/yyyy hh:mm tt") + " in " + Utils.CalculateDelay(LowestNextRun);
-        }
+            }
 
         }
 
@@ -3711,21 +3714,21 @@ namespace AppTestStudio
             si.CurrentRun = DateTime.Now;
             si.CalculateAndSetNextRun();
 
-        if (System.IO.File.Exists(si.AppPath))
+            if (System.IO.File.Exists(si.AppPath))
             {
                 GameNodeGame Game = GameNodeGame.LoadGameFromFile(si.AppPath, false);
 
-            if (Game.IsSomething())
+                if (Game.IsSomething())
                 {
                     Game.InstanceToLaunch = si.InstanceNumber.ToString();
                     Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution);
                     LoadInstance(Game);
-            }
+                }
             }
             else
             {
                 Log("File not found: " + si.AppPath);
-          }
+            }
 
         }
 
@@ -3747,6 +3750,51 @@ namespace AppTestStudio
                 ArchaicSave();
             }
             Utils.SetIcons(PanelLoadNode);
+        }
+
+        private void mnuAddEvent_Click(object sender, EventArgs e)
+        {
+            AddNewEvent();
+        }
+
+        private void AddNewEvent()
+        {
+            GameNodeAction Event = new GameNodeAction("New Event", ActionType.Event);
+            tv.SelectedNode.Nodes.Add(Event);
+            tv.SelectedNode = Event;
+            SetPanel(PanelMode.PanelColorEvent);
+            LoadPanelSingleColorAtSingleLocation(Event);
+            LoadParentScreenshotIfNecessary();
+            ArchaicSave();
+            ThreadManager.IncrementNewEventAdded();
+        }
+
+        private void mnuAddAction_Click(object sender, EventArgs e)
+        {
+            AddAction();
+        }
+
+        private void AddAction()
+        {
+            GameNodeAction OriginalNode = tv.SelectedNode as GameNodeAction;
+            GameNodeAction GameNodeAction = new GameNodeAction("Click " + tv.SelectedNode.Text, ActionType.Action);
+            OriginalNode.Nodes.Add(GameNodeAction);
+            tv.SelectedNode = GameNodeAction;
+
+            SetPanel(PanelMode.PanelColorEvent);
+
+            if (OriginalNode.IsColorPoint == false)
+            {
+                GameNodeAction.IsRelativeStart = true;
+            }
+
+            LoadPanelSingleColorAtSingleLocation(GameNodeAction);
+            LoadParentScreenshotIfNecessary();
+
+            InitalizeOffsets();
+
+            ThreadManager.IncrementNewActionAdded();
+            ArchaicSave();
         }
     }
 }
