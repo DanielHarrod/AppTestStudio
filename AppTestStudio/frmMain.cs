@@ -3921,5 +3921,127 @@ namespace AppTestStudio
             cmdObjectScreenshotsTakeAScreenshot_Click(null, null); ;
 
         }
+
+        private void tvTestAllEvents_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            Debug.WriteLine("tvTestAllEvents_AfterSelect");
+
+            GameNode GameNode = e.Node as GameNode;
+
+            GameNodeAction Node = null;
+
+            switch (GameNode.GameNodeType )
+            {
+                case GameNodeType.Action:
+                    if (Node.ActionType == ActionType.Event)
+                    {
+                        //' do nothing :)
+                    }
+                    else
+                    {
+                        Log("Please choose an event note");
+                        return;
+                        }
+                    break;
+                default:
+                    Log("Please choose an event note");
+                return;
+                    break;
+            }
+
+
+            Boolean Result = false;
+            Boolean FinalResult = false;
+
+            dgvTestAllReference.Rows.Clear();
+            dgvTest.Rows.Clear();
+
+            foreach (SingleClick Item in Node.ClickList)
+            {
+
+
+                int Rowindex = dgvTestAllReference.Rows.Add();
+                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceColor"].Value = Item.Color.ToRGBString();
+                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceX"].Value = Item.X;
+                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceY"].Value = Item.Y;
+
+                DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Item.Color);
+
+                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceColor"].Style = Style;
+
+                Rowindex = dgvTest.Rows.Add();
+
+                //With dgvTest.Rows[Rowindex];
+                DataGridViewRow Row = dgvTest.Rows[Rowindex];
+                Color TargetColor;
+                if (PictureTestAllReference.Height >= Item.Y && PictureTestAllReference.Width >= Item.X && PictureTestAllTest.Image.Height >= Item.Y && PictureTestAllTest.Image.Width >= Item.X ) {
+                    Bitmap bmp = PictureTestAllTest.Image as Bitmap;
+                    TargetColor = bmp.GetPixel(Item.X, Item.Y);
+    } else {
+                    TargetColor = Color.Black;
+                    Style.ForeColor = Color.White;
+                }
+
+                Row.Cells["dgvColorTest"].Value = TargetColor.ToRGBString();
+
+                Row.Cells["dgvColorTest"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
+
+                Row.Cells["dgvXTest"].Value = Item.X;
+                Row.Cells["dgvYTest"].Value = Item.Y;
+
+                int QualifyingPoints = 0;
+
+                if (Node.LogicChoice == "AND" ) {
+                    if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints) ) {
+                        if (FinalResult == false ) {
+                            Result = true;
+                        }
+                    } else {
+                        Result = false; 
+                        FinalResult = true;
+                    }
+                } else {
+                    if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints) ) {
+                        Result = true;
+                    }
+                }
+
+                if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints) ) {
+                    Row.Cells["dgvPassFail"].Value = "Test Passed";
+                    Style = new DataGridViewCellStyle();
+                    Style.BackColor = Color.Green;
+                    Row.Cells["dgvPassFail"].Style = Style;
+
+                } else {
+                    Row.Cells["dgvPassFail"].Value = "Test Failed";
+                    Style = new DataGridViewCellStyle();
+                    Style.BackColor = Color.Red;
+                    Row.Cells["dgvPassFail"].Style = Style;
+                }
+
+                int r = Math.Abs(TargetColor.R - Item.Color.R);
+                int g = Math.Abs(TargetColor.G - Item.Color.G);
+                int b = Math.Abs(TargetColor.B - Item.Color.B);
+
+                int Largest = 0;
+                if (r > Largest ) {
+                    Largest = r;
+                }
+                if (g > Largest ) {
+                    Largest = g;
+                }
+                if (b > Largest ) {
+                    Largest = b;
+                }
+
+                Row.Cells["dvgRange"].Value = Largest;
+
+            }
+
+            PictureTestAllReference.Image = Node.Bitmap;
+            lblReferenceWindowResolution.Text = Node.Bitmap.Width + " x " + Node.Bitmap.Height;
+
+
+        }
     }
 }
