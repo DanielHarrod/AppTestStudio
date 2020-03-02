@@ -3826,5 +3826,84 @@ namespace AppTestStudio
         {
             AddRNGNode(tv.SelectedNode as GameNodeAction);
         }
+
+        private void mnuTestAllEvents_Click(object sender, EventArgs e)
+        {
+            TestAllEvents();
+        }
+
+        private void TestAllEvents()
+        {
+            SetPanel(PanelMode.TestAllEvents);
+
+        //'walk to Event//'s node
+            GameNode Node = tv.SelectedNode as GameNodeAction;
+            GameNodeGame GameNode = Node.GetGameNode();
+            GameNodeEvents EventsNode = GameNode.GetEventsNode();
+
+            tvTestAllEvents.Nodes.Clear();
+            tvTestAllEvents.Nodes.Add(EventsNode.CloneMe());
+            tvTestAllEvents.ExpandAll();
+
+            String TargetWindow = GameNode.TargetWindow;
+            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
+
+        if (MainWindowHandle.ToInt32() > 0)
+            {
+                PictureTestAllTest.Image = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+        }
+            else
+            {
+                Log("Unable to locate window: " + TargetWindow);
+                SetPanel(PanelMode.Events);
+                return;
+          }
+
+            lblTestWindowResolution.Text = PictureTestAllTest.Image.Width + " x " + PictureTestAllTest.Image.Height;
+
+            foreach (GameNodeEvents nodeEvents in tvTestAllEvents.Nodes)
+            {
+                foreach (GameNodeAction action in nodeEvents.Nodes)
+                {
+                    CheckEvents(action);
+                }
+
+            }
+        }
+
+        private void CheckEvents(GameNodeAction Node)
+        {
+            if (Node.ActionType == ActionType.Event)
+            {
+                Bitmap Bmp = PictureTestAllTest.Image as Bitmap;
+                int QualifyingEvents = 0;
+                if (Node.IsActionMatch(Bmp, ref QualifyingEvents))
+                {
+                    //'6 = no
+                    //'7 = yes
+                    Node.ImageIndex = 7;
+                    Node.SelectedImageIndex = 7;
+                    Node.BackColor = Color.LightGreen;
+            }
+                else
+                {
+                    Node.ImageIndex = 6;
+                    Node.SelectedImageIndex = 6;
+
+                    Node.GameNodeName = Node.Name + " - Points(" + QualifyingEvents + ")";
+  
+                if (QualifyingEvents < 10)
+                    {
+                        Node.BackColor = Color.LightYellow;
+                }
+
+
+                }
+            }
+            foreach (GameNodeAction n in Node.Nodes)
+            {
+                CheckEvents(n);
+            }
+        }
     }
 }

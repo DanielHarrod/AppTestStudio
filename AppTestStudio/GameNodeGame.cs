@@ -1202,6 +1202,17 @@ namespace AppTestStudio
             Utils.SetIcons(gameNode);
         }
 
-
+        internal GameNodeEvents GetEventsNode()
+        {
+            GameNode GameNode = GetGameNode();
+            foreach (GameNode node in GameNode.Nodes)
+            {
+                if (node is GameNodeEvents)
+                {
+                    return node as GameNodeEvents;
+                }
+            }
+            return null;
+        }
     }
 }
