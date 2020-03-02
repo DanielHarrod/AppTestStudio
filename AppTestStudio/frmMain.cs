@@ -3796,5 +3796,30 @@ namespace AppTestStudio
             ThreadManager.IncrementNewActionAdded();
             ArchaicSave();
         }
+
+        private void mnuAddRNG_Click(object sender, EventArgs e)
+        {
+            AddRNGContainer();
+        }
+
+        private void AddRNGContainer()
+        {
+            GameNodeAction RNGContainer = new GameNodeAction("New RNG", ActionType.RNGContainer);
+            RNGContainer.AutoBalance = true;
+            tv.SelectedNode.Nodes.Add(RNGContainer);
+            tv.SelectedNode = RNGContainer;
+
+            //'  SetPanel(PanelMode.PanelColorEvent)
+            //' LoadPanelSingleColorAtSingleLocation(RNGContainer)
+
+            GameNodeAction GameNodeAction = new GameNodeAction("", ActionType.RNG);
+            GameNodeAction.Percentage = 100;
+            RNGContainer.Nodes.Add(GameNodeAction);
+            tv.SelectedNode = GameNodeAction;
+
+            SetPanel(PanelMode.PanelColorEvent);
+            LoadPanelSingleColorAtSingleLocation(GameNodeAction);
+            ThreadManager.IncrementNewRNGContainer();
+        }
     }
 }
