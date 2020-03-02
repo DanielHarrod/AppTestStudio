@@ -1300,7 +1300,7 @@ namespace AppTestStudio
                             mnuPopupGames.Show(tv, p);
                             break;
                         case GameNodeType.Game:
-                            mnuPopupGame.Show(tv, p);
+                            //mnuPopupGame.Show(tv, p);
                             break;
                         case GameNodeType.Events:
                             mnuTestAllEvents.Visible = true;
