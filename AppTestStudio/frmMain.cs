@@ -4043,5 +4043,40 @@ namespace AppTestStudio
 
 
         }
+
+        private void tvTestAllEvents_MouseUp(object sender, MouseEventArgs e)
+        {
+            Debug.WriteLine("tvTestAllEvents_MouseUp");
+        //' Show menu only if Right Mouse button is clicked
+        if (e.Button == MouseButtons.Right)
+            {
+
+                //' Point where mouse is clicked
+                Point p = new Point(e.X, e.Y);
+
+                //' Go to the node that the user clicked
+                GameNode node = tvTestAllEvents.GetNodeAt(p) as GameNode;
+
+                String Name = node.Name;
+
+            if (Name.Contains(" - Points("))
+                {
+                    String[] SplitKey = { " - Points(" };
+                    String[] Keys = Name.Split(SplitKey, StringSplitOptions.None);
+
+                if (Keys.Length > 0)
+                    {
+                        txtFilter.Text = Keys[0];
+                        txtSearch_KeyUp(null, null);
+                }
+                }
+                else
+                {
+                    txtFilter.Text = node.Name;
+                  txtSearch_KeyUp(null, null);
+              }
+            }
+
+        }
     }
 }
