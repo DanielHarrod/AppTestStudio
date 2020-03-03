@@ -4569,7 +4569,56 @@ namespace AppTestStudio
             {
                 ArchaicSave();
             }
+        }
 
+        private void lstThreads_MouseDown(object sender, MouseEventArgs e)
+        {
+            Debug.WriteLine("Event lstThreads_MouseDown");
+
+            lstThreads.SelectedIndex = lstThreads.IndexFromPoint(e.X, e.Y);
+
+            if (e.Button == MouseButtons.Right)
+            {
+                //'mnuThreadName.Text = lstThreads.SelectedItem.ToString 
+                //'mnuThreadName.Enabled = false
+                mnuThreadList.Show(MousePosition);
+                //';ContextMenuStrip1.Show(MousePosition)
+            }
+        }
+
+        private void mnuThreadExit_Click(object sender, EventArgs e)
+        {
+            String git = lstThreads.SelectedItem.ToString();
+            String[] KeysIn = { " - " };
+            String[] Keys = git.Split(KeysIn, StringSplitOptions.None);
+
+            if (Keys.Length == 0)
+            {
+                Debug.WriteLine("Not sure this is possible");
+                Debug.Assert(false);
+                return;
+            }
+            String Token = Keys[Keys.Length - 1];
+            Token = Token.Replace("ATS", "").Replace("Window", "");
+
+            GameNodeGame GameFound = null;
+            foreach (GameNodeGame Game in ThreadManager.Games)
+            {
+                if (Game.InstanceToLaunch == Token)
+                {
+                    GameFound = Game;
+                    Game.Thread.Abort();
+
+                    break; // exit for
+                }
+            }
+
+            if (GameFound.IsSomething())
+            {
+                ThreadManager.RemoveGame(GameFound);
+                lstThreads.Items.Remove(git);
+                Log("Stopping Thread -" + git);
+            }
         }
     }
 }
