@@ -229,18 +229,12 @@ namespace AppTestStudio
             return Game;
         }
 
-        public List<String> SaveGame(ThreadManager threadManger, TreeView tv)
+        public List<String> SaveGame(XmlWriter Writer, ThreadManager threadManger, TreeView tv, Boolean UseMinimalSavingMethods)
         {
-            Boolean UseMinimalSavingMethods = false;
             List<String> PictureListExtract = new List<string>();
             List<String> ObjectList = null;
 
-            XmlTextWriter Writer = new XmlTextWriter(FileName, System.Text.Encoding.UTF8);
-            Writer.Formatting = Formatting.Indented;
 
-            Writer.WriteStartDocument();
-
-            Writer.WriteStartElement("AppTestStudio");  // Root.
 
             // 0 is always workspace node.
             GameNodeWorkspace WorkspaceNode = tv.Nodes[0] as GameNodeWorkspace;
@@ -278,17 +272,13 @@ namespace AppTestStudio
             }
             Writer.WriteEndElement();
 
-            Writer.WriteEndElement();
-
-            Writer.WriteEndDocument();
-            Writer.Close();
             threadManger.IncrementTestSaved();
 
             return ObjectList;
 
         }
 
-        private void SaveEvents(XmlTextWriter Writer, GameNodeWorkspace Workspace, GameNodeGame Game, GameNode ActionOrEvent, string Directory, Boolean UseMinimalSavingMethods, List<String> PictureListExtract)
+        private void SaveEvents(XmlWriter Writer, GameNodeWorkspace Workspace, GameNodeGame Game, GameNode ActionOrEvent, string Directory, Boolean UseMinimalSavingMethods, List<String> PictureListExtract)
         {
             Writer.WriteStartElement("Events");
 
@@ -601,7 +591,7 @@ namespace AppTestStudio
 
         }
 
-        private List<String> SaveObjects(XmlTextWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNodeObjects objects, string directory)
+        private List<String> SaveObjects(XmlWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNodeObjects objects, string directory)
         {
             List<String> ObjectList = new List<string>();
             writer.WriteStartElement("Objects");
@@ -618,7 +608,7 @@ namespace AppTestStudio
 
         }
 
-        private void SaveObject(XmlTextWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNodeObject obj, string directory, List<String> objectList)
+        private void SaveObject(XmlWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNodeObject obj, string directory, List<String> objectList)
         {
             writer.WriteStartElement("Object");
 

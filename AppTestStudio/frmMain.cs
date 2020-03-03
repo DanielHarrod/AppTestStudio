@@ -915,7 +915,17 @@ namespace AppTestStudio
                     }
                 }
 
-                GameNode.SaveGame(ThreadManager, tv);
+                XmlTextWriter Writer = new XmlTextWriter(GameNode.FileName, System.Text.Encoding.UTF8);
+                Writer.Formatting = Formatting.Indented;
+
+                Writer.WriteStartDocument();
+
+                Writer.WriteStartElement("AppTestStudio");  // Root.
+
+                GameNode.SaveGame(Writer, ThreadManager, tv, false);
+                Writer.WriteEndElement();
+                Writer.WriteEndDocument();
+                Writer.Close();
             }
         }
 
@@ -4254,7 +4264,7 @@ namespace AppTestStudio
             {
                 return;
             }
-                       
+
             String XMLATS = "";
             using (ZipArchive Archive = ZipFile.OpenRead(openFileDialog1.FileName))
             {
@@ -4308,7 +4318,7 @@ namespace AppTestStudio
                     }
                     return;
                 }
-                
+
                 Boolean IsValid = false;
                 String NewGameName = LoadGameFromString(XMLATS, ref IsValid);
 
@@ -4391,7 +4401,17 @@ namespace AppTestStudio
 
                     Game.GameNodeName = NewGameName;
 
-                    Game.SaveGame(ThreadManager, tv);
+                    XmlTextWriter Writer = new XmlTextWriter(Game.FileName, System.Text.Encoding.UTF8);
+                    Writer.Formatting = Formatting.Indented;
+
+                    Writer.WriteStartDocument();
+
+                    Writer.WriteStartElement("AppTestStudio");  // Root.
+
+                    Game.SaveGame(Writer, ThreadManager, tv, false);
+                    Writer.WriteEndElement();
+                    Writer.WriteEndDocument();
+                    Writer.Close();
 
                     LoadGameToTree(Game);
                 }
@@ -4433,6 +4453,111 @@ namespace AppTestStudio
             Close();
             Thread.Sleep(1000);
             Application.Exit();
+        }
+
+        private void fullExportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Export(false);
+        }
+
+        private void minimalExportToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Export(true);
+        }
+
+        private void Export(bool Minimal)
+        {
+            saveFileDialog1.InitialDirectory = Utils.GetApplicationFolder() + @"\Exports\";
+            GameNodeGame Game = WorkspaceNode.FirstNode as GameNodeGame;
+
+            saveFileDialog1.FileName = Game.Text + "-" + DateTime.Now.ToString("yyyy-MM-dd-HH-mm");
+            DialogResult DR = saveFileDialog1.ShowDialog();
+            if (DR != DialogResult.OK)
+            {
+                return;
+            }
+
+            //'walk up to game node
+
+            //'seek Game Node
+            GameNode CurrentNode = tv.SelectedNode as GameNode;
+            CurrentNode = CurrentNode.GetGameNode();
+
+            if (CurrentNode.GameNodeType == GameNodeType.Game)
+            {
+
+                GameNodeGame GameNode = CurrentNode as GameNodeGame;
+
+                if (System.IO.File.Exists(saveFileDialog1.FileName))
+                {
+                    DialogResult msgboxresult = MessageBox.Show(saveFileDialog1.FileName + " already exists overwrite?", "Overwrite?", MessageBoxButtons.YesNoCancel);
+                    if (msgboxresult == DialogResult.Yes)
+                    {
+                        //'do nothing
+                    }
+                    else
+                    {
+                        return;
+                    }
+                }
+
+                XmlWriter Writer = null;
+                StringBuilder Builder = new StringBuilder();
+
+                XmlWriterSettings Settings = new XmlWriterSettings();
+                Settings.Indent = true;
+                Writer = XmlWriter.Create(Builder, Settings);
+                //'Writer.Formatting = Formatting.Indented
+
+                Writer.WriteStartDocument();
+
+                Writer.WriteStartElement("AppTestStudio"); //' Root.
+
+                List<String> ObjectListExtract = GameNode.SaveGame(Writer, ThreadManager, tv, Minimal);
+
+                Writer.WriteEndElement();
+                Writer.WriteEndDocument();
+                Writer.Close();
+
+                using (FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.OpenOrCreate))
+                {
+                    using (ZipArchive za = new ZipArchive(fs, ZipArchiveMode.Update))
+                    {
+                        ZipArchiveEntry zae = za.CreateEntry("Default.xml");
+                        using (StreamWriter w = new StreamWriter(zae.Open()))
+                        {
+                            w.Write(Builder.ToString());
+                        }
+
+                        // Only save object pictures when in minimal mode.
+                        foreach (String FullFileName in ObjectListExtract)
+                        {
+                            String FileName = System.IO.Path.GetFileName(FullFileName);
+                            zae = za.CreateEntryFromFile(FullFileName, @"Objects\" + FileName);
+                        }
+
+                        if (Minimal)
+                        {
+                            //'do nothing
+                        }
+                        else
+                        {
+                            foreach (String FullFileName in ObjectListExtract)
+                            {
+                                String FileName = System.IO.Path.GetFileName(FullFileName);
+                                zae = za.CreateEntryFromFile(FullFileName, @"Pictures\" + FileName);
+                            }
+
+                        }
+
+                        //'zae = za.CreateEntry("a\Test.txt")
+                        //'Using w As New StreamWriter(zae.Open())
+                        //'    w.WriteLine("TEst")
+                        //'End Using
+                    }
+                }
+                ThreadManager.IncrementTestSaved();
+            }
         }
     }
 }
