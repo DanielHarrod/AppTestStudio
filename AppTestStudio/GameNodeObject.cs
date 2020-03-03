@@ -23,7 +23,10 @@ namespace AppTestStudio
 
         public Bitmap Bitmap
         {
-            get { return mbitMap; }
+            get { 
+
+                return mbitMap; 
+            }
             set { 
                 mbitMap = value;
                 FileName = String.Format("{0}{0}.bmp", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-"), Environment.TickCount & int.MaxValue);

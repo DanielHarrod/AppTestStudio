@@ -229,12 +229,9 @@ namespace AppTestStudio
             return Game;
         }
 
-        public List<String> SaveGame(XmlWriter Writer, ThreadManager threadManger, TreeView tv, Boolean UseMinimalSavingMethods)
+        public ExportGameResults SaveGame(XmlWriter Writer, ThreadManager threadManger, TreeView tv, Boolean UseMinimalSavingMethods)
         {
-            List<String> PictureListExtract = new List<string>();
-            List<String> ObjectList = null;
-
-
+            ExportGameResults Results = new ExportGameResults();
 
             // 0 is always workspace node.
             GameNodeWorkspace WorkspaceNode = tv.Nodes[0] as GameNodeWorkspace;
@@ -263,18 +260,18 @@ namespace AppTestStudio
 
             GameNode Events = Nodes[0] as GameNode;
 
-            SaveEvents(Writer, WorkspaceNode, this, Events, Directory,UseMinimalSavingMethods, PictureListExtract);
+            SaveEvents(Writer, WorkspaceNode, this, Events, Directory,UseMinimalSavingMethods, Results.PictureListExtract);
             if (Nodes.Count > 1)
             {
                 // Objects is always 1
                 GameNodeObjects Objects = Nodes[1] as GameNodeObjects;
-                ObjectList = SaveObjects(Writer, WorkspaceNode, this, Objects, Directory);
+                Results.ObjectListExtract = SaveObjects(Writer, WorkspaceNode, this, Objects, Directory);
             }
             Writer.WriteEndElement();
 
             threadManger.IncrementTestSaved();
 
-            return ObjectList;
+            return Results;
 
         }
 
@@ -662,7 +659,9 @@ namespace AppTestStudio
                             if (System.IO.File.Exists(FullPathP))
                             {
                                 Node.ObjectSearchBitmap = Bitmap.FromFile(FullPathP) as Bitmap;
+                                //Node.FileName = Path.GetFileName(FullPathP);
                             }
+                            Node.FileName = Path.GetFileName(FullPathP);
                         }
                     }
                 }

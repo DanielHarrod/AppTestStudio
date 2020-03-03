@@ -68,6 +68,7 @@
     <Compile Include="API.cs" />
     <Compile Include="ColorPoint.cs" />
     <Compile Include="Enums.cs" />
+    <Compile Include="ExportGameResults.cs" />
     <Compile Include="Extensions.cs" />
     <Compile Include="frmAddNewGame.cs">
       <SubType>Form</SubType>

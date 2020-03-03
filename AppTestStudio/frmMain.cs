@@ -4399,7 +4399,7 @@ namespace AppTestStudio
                     XmlDocument doc = new XmlDocument();
                     doc.LoadXml(XMLATS);
 
-                    GameNodeGame Game = GameNodeGame.LoadGame(doc.DocumentElement.SelectSingleNode("//App"), "Placeholder", NewGameName, true);
+                    GameNodeGame Game = GameNodeGame.LoadGame(doc.DocumentElement.SelectSingleNode("//App"), TargetFolder + @"\Default.xml", NewGameName, true);
                     Game.FileName = Utils.GetApplicationFolder() + @"\" + NewGameName + @"\Default.xml";
 
                     Game.GameNodeName = NewGameName;
@@ -4516,7 +4516,7 @@ namespace AppTestStudio
 
                 Writer.WriteStartElement("AppTestStudio"); //' Root.
 
-                List<String> ObjectListExtract = GameNode.SaveGame(Writer, ThreadManager, tv, Minimal);
+                ExportGameResults Results = GameNode.SaveGame(Writer, ThreadManager, tv, Minimal);
 
                 Writer.WriteEndElement();
                 Writer.WriteEndDocument();
@@ -4533,7 +4533,7 @@ namespace AppTestStudio
                         }
 
                         // Only save object pictures when in minimal mode.
-                        foreach (String FullFileName in ObjectListExtract)
+                        foreach (String FullFileName in Results.ObjectListExtract)
                         {
                             String FileName = System.IO.Path.GetFileName(FullFileName);
                             zae = za.CreateEntryFromFile(FullFileName, @"Objects\" + FileName);
@@ -4545,7 +4545,7 @@ namespace AppTestStudio
                         }
                         else
                         {
-                            foreach (String FullFileName in ObjectListExtract)
+                            foreach (String FullFileName in Results.PictureListExtract)
                             {
                                 String FileName = System.IO.Path.GetFileName(FullFileName);
                                 zae = za.CreateEntryFromFile(FullFileName, @"Pictures\" + FileName);
