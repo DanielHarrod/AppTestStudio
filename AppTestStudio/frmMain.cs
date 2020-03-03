@@ -303,13 +303,23 @@ namespace AppTestStudio
             DialogResult Result = openDLG.ShowDialog();
             if (Result == DialogResult.OK)
             {
-                String FileName = openDLG.FileName;
-                GameNodeGame Game = GameNodeGame.LoadGameFromFile(FileName, true);
-
-                if (Game.IsSomething())
+                try
                 {
-                    LoadGameToTree(Game);
+                    String FileName = openDLG.FileName;
+                    GameNodeGame Game = GameNodeGame.LoadGameFromFile(FileName, true);
+
+                    if (Game.IsSomething())
+                    {
+                        LoadGameToTree(Game);
+                    }
                 }
+                catch (Exception Ex)
+                {
+                    Log(Ex.Message);
+                    Debug.WriteLine(Ex.Message);
+                    Debug.Assert(false);
+                }
+
             }
         }
 
@@ -4483,8 +4493,8 @@ namespace AppTestStudio
             //'walk up to game node
 
             //'seek Game Node
-            GameNode CurrentNode = tv.SelectedNode as GameNode;
-            CurrentNode = CurrentNode.GetGameNode();
+            GameNode CurrentNode = tv.Nodes[0].Nodes[0] as GameNode;
+            //CurrentNode = CurrentNode.GetGameNode();
 
             if (CurrentNode.GameNodeType == GameNodeType.Game)
             {
@@ -4509,6 +4519,7 @@ namespace AppTestStudio
 
                 XmlWriterSettings Settings = new XmlWriterSettings();
                 Settings.Indent = true;
+                Settings.Encoding = System.Text.Encoding.UTF8;
                 Writer = XmlWriter.Create(Builder, Settings);
                 //'Writer.Formatting = Formatting.Indented
 
@@ -4522,9 +4533,11 @@ namespace AppTestStudio
                 Writer.WriteEndDocument();
                 Writer.Close();
 
+                Builder = Builder.Replace(@"encoding=""utf-16""?>", @"encoding = ""utf-8""?>");  // to-do why does it write unicode headers, when I set encoding to UTF8?
+
                 using (FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.OpenOrCreate))
                 {
-                    using (ZipArchive za = new ZipArchive(fs, ZipArchiveMode.Update))
+                    using (ZipArchive za = new ZipArchive(fs, ZipArchiveMode.Update,false,Encoding.UTF8))
                     {
                         ZipArchiveEntry zae = za.CreateEntry("Default.xml");
                         using (StreamWriter w = new StreamWriter(zae.Open()))
@@ -4559,6 +4572,8 @@ namespace AppTestStudio
                         //'End Using
                     }
                 }
+
+                Log("File Created: " + saveFileDialog1.FileName);
                 ThreadManager.IncrementTestSaved();
             }
         }

@@ -142,6 +142,7 @@ namespace AppTestStudio
 
         public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps)
         {
+
             GameNodeGame Game = null;
             XmlDocument Document = new XmlDocument();
             Document.Load(fileName);
