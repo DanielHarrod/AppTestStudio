@@ -121,8 +121,8 @@ namespace AppTestStudio
             int WM_LBUTTONUP = 0x202;
             int MK_LBUTTON = 0x1;
 
-            short CurrentX = (short)startX;
-            short CurrentY = (short)startY;
+            float CurrentX = (short)startX;
+            float CurrentY = (short)startY;
 
             int MaxSteps = Math.Abs(endX - startX);
 
@@ -131,27 +131,28 @@ namespace AppTestStudio
                 MaxSteps = Math.Abs(endY - startY);
             }
 
-            Double XIncrement = (endX - startX) / MaxSteps;
-            Double YIncrement = (endY - startY) / MaxSteps;
+            float XIncrement = (float)(endX - startX) / MaxSteps;
+            float YIncrement = (float)(endY - startY) / MaxSteps;
 
             //'Send Mouse Down
-            API.PostMessage(windowHandle, WM_LBUTTONDOWN, MK_LBUTTON, Utils.HiLoWord(CurrentX, CurrentY));
+            API.PostMessage(windowHandle, WM_LBUTTONDOWN, MK_LBUTTON, Utils.HiLoWord((short)CurrentX, (short)CurrentY));
             Thread.Sleep(10);
+
 
             //'Send draging
             for (int i = 0; i < MaxSteps; i++)
             {
-                API.PostMessage(windowHandle, WM_MOUSEMOVE, MK_LBUTTON, Utils.HiLoWord(CurrentX, CurrentY));
+                API.PostMessage(windowHandle, WM_MOUSEMOVE, MK_LBUTTON, Utils.HiLoWord((short)CurrentX, (short)CurrentY));
                 Thread.Sleep(1);
 
-                CurrentX = (short)(CurrentX + XIncrement);
-                CurrentY = (short)(CurrentY + YIncrement);
+                CurrentX = CurrentX + XIncrement;
+                CurrentY = CurrentY + YIncrement;
             }
 
             Thread.Sleep(10);
 
             //' Send mouse Up
-            API.SendMessage(windowHandle, WM_LBUTTONUP, 0, Utils.HiLoWordIntptr(CurrentX, CurrentY));
+            API.SendMessage(windowHandle, WM_LBUTTONUP, 0, Utils.HiLoWordIntptr((short)CurrentX, (short)CurrentY));
         }
 
 
