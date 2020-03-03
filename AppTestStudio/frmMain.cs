@@ -4427,5 +4427,12 @@ namespace AppTestStudio
             }
             return Result;
         }
+
+        private void exitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Close();
+            Thread.Sleep(1000);
+            Application.Exit();
+        }
     }
 }
