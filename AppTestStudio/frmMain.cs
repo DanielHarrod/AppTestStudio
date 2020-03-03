@@ -1631,7 +1631,7 @@ namespace AppTestStudio
         }
 
         // Zoom and Crop/Mask
-        private void ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, Label lblWarning, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown, ref Rectangle PB1R)
+        private void ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, Label lblWarning, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown, ref Rectangle rect)
         {
             if (pb.Image.IsSomething())
             {
@@ -1746,11 +1746,11 @@ namespace AppTestStudio
                     //'}
 
                     //' if (e.X > PictureBox1Rectangle.X ) {
-                    PB1R.Width = e.X - PB1R.X;
+                    rect.Width = e.X - rect.X;
                     //' }
 
                     //'  if (e.Y > PictureBox1Rectangle.Y ) {
-                    PB1R.Height = e.Y - PB1R.Y;
+                    rect.Height = e.Y - rect.Y;
                     //' }
                     pb.Refresh();
                 }
@@ -2852,6 +2852,7 @@ namespace AppTestStudio
 
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
+            Debug.WriteLine("PictureBox1_MouseDown");
             GameNodeAction Node = tv.SelectedNode as GameNodeAction;
             switch (lblMode.Text)
             {
@@ -2878,8 +2879,7 @@ namespace AppTestStudio
         private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-            Rectangle Rectangle = Node.Rectangle;
-            ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, lblRHSWarning, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Rectangle);
+            ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, lblRHSWarning, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown,ref Node.Rectangle);
         }
 
         private void PictureBox1_MouseUp(object sender, MouseEventArgs e)
