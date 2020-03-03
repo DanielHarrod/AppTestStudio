@@ -66,7 +66,7 @@ namespace AppTestStudio
             if (Parent.IsSomething())
             {
                 RunTest(Parent, UseCurrentWindow);
-                LoadData(Parent);
+                LoadData(Parent,Parent.Rectangle);
                 Search(Parent, ref CenterX, ref CenterY, ref IsPassed);
 
                 if (IsPassed)
@@ -146,7 +146,7 @@ namespace AppTestStudio
             else
             {
                 RunTest(Node, UseCurrentWindow);
-                LoadData(Node);
+                LoadData(Node,Node.Rectangle);
                 Search(Node, ref CenterX, ref CenterY, ref IsPassed);
             }
 
@@ -253,18 +253,18 @@ namespace AppTestStudio
 
         }
 
-        private void LoadData(GameNodeAction parent)
+        private void LoadData(GameNodeAction parent, Rectangle Mask)
         {
-            if (Node.Rectangle.Width <= 0 || Node.Rectangle.Height <= 0)
+            if (Mask.Width <= 0 || Mask.Height <= 0)
             {
                 Debug.Assert(false);
                 return;
             }
-            Bitmap CropImage = new Bitmap(Node.Rectangle.Width, Node.Rectangle.Height);
+            Bitmap CropImage = new Bitmap(Mask.Width, Mask.Height);
 
             using (Graphics grp = Graphics.FromImage(CropImage))
             {
-                grp.DrawImage(PictureBoxSearchArea.Image, new Rectangle(0, 0, Node.Rectangle.Width, Node.Rectangle.Height), Node.Rectangle, GraphicsUnit.Pixel);
+                grp.DrawImage(PictureBoxSearchArea.Image, new Rectangle(0, 0, Mask.Width, Mask.Height), Node.Rectangle, GraphicsUnit.Pixel);
                 //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
 
                 grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
