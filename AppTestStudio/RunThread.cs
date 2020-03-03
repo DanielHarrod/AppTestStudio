@@ -233,7 +233,7 @@ namespace AppTestStudio
             Cv2.MinMaxLoc(res, out p, out DetectedPoint);
 
             Mat.Indexer<Single> indexer = res.GetGenericIndexer<Single>();
-            var j = indexer[DetectedPoint.Y, DetectedPoint.X];
+            float j = indexer[DetectedPoint.Y, DetectedPoint.X];
 
             long ObjectThreshold = node.ObjectThreshold;
             if (ObjectThreshold == 0)
@@ -244,7 +244,8 @@ namespace AppTestStudio
             centerX = DetectedPoint.X + (node.ObjectSearchBitmap.Width / 2);
             centerY = DetectedPoint.Y + (node.ObjectSearchBitmap.Height / 2);
 
-            if (j >= ObjectThreshold / 100)
+
+            if (j >= ((float)ObjectThreshold / 100))
             {
                 Game.Log("Closest match " + (j * 100).ToString("F1") + " - x = " + centerX + "  y =" + centerY);
                 //'TB.AddReturnTrue()

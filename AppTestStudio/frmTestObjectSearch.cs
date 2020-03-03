@@ -311,7 +311,7 @@ namespace AppTestStudio
 
             PictureBoxSearchArea.Image = bmp;
 
-            PictureBoxObject.Image = Node.ObjectSearchBitmap;
+            PictureBoxObject.Image = node.ObjectSearchBitmap;
 
             bmp = null;
 
