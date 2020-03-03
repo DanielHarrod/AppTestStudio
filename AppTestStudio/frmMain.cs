@@ -2879,7 +2879,7 @@ namespace AppTestStudio
         private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-            ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, lblRHSWarning, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown,ref Node.Rectangle);
+            ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, lblRHSWarning, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.Rectangle);
         }
 
         private void PictureBox1_MouseUp(object sender, MouseEventArgs e)
@@ -2926,31 +2926,33 @@ namespace AppTestStudio
                                 e.Graphics.DrawRectangle(p, Node.Rectangle);
                             }
                         }
+                    }
+                    else
+                    {
+                        if (Node.IsRelativeStart)
+                        {
+                            using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
+                            {
+                                e.Graphics.FillRectangle(br, Node.Rectangle);
+                            }
+
+                            //'draw outline on box.
+                            using (Pen p = new Pen(Color.Blue, 1))
+                            {
+                                e.Graphics.DrawRectangle(p, Node.Rectangle);
+                            }
+                        }
                         else
                         {
-                            if (Node.IsRelativeStart)
+                            using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
                             {
-                                using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
-                                {
-                                    e.Graphics.FillRectangle(br, Node.Rectangle);
-                                }
+                                linePen.StartCap = LineCap.RoundAnchor;
+                                linePen.EndCap = LineCap.ArrowAnchor;
+                                linePen.DashStyle = DashStyle.Dot;
+                                Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
+                                e.Graphics.DrawLine(linePen, Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
+                            }
 
-                                //'draw outline on box.
-                                using (Pen p = new Pen(Color.Blue, 1))
-                                {
-                                    e.Graphics.DrawRectangle(p, Node.Rectangle);
-                                }
-                            }
-                            else
-                            {
-                                using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
-                                {
-                                    linePen.StartCap = LineCap.RoundAnchor;
-                                    linePen.EndCap = LineCap.ArrowAnchor;
-                                    linePen.DashStyle = DashStyle.Dot;
-                                    e.Graphics.DrawLine(linePen, Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
-                                }
-                            }
                         }
                     }
                     break;
@@ -4563,11 +4565,11 @@ namespace AppTestStudio
 
         private void txtEventName_TextChanged(object sender, EventArgs e)
         {
-            if ( IsPanelLoading == false)
+            if (IsPanelLoading == false)
             {
                 ArchaicSave();
             }
-            
+
         }
     }
 }
