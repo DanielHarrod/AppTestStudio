@@ -3836,7 +3836,7 @@ namespace AppTestStudio
         {
             SetPanel(PanelMode.TestAllEvents);
 
-        //'walk to Event//'s node
+            //'walk to Event//'s node
             GameNode Node = tv.SelectedNode as GameNode;
             GameNodeGame GameNode = Node.GetGameNode();
             GameNodeEvents EventsNode = GameNode.GetEventsNode();
@@ -3848,16 +3848,16 @@ namespace AppTestStudio
             String TargetWindow = GameNode.TargetWindow;
             IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
 
-        if (MainWindowHandle.ToInt32() > 0)
+            if (MainWindowHandle.ToInt32() > 0)
             {
                 PictureTestAllTest.Image = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
-        }
+            }
             else
             {
                 Log("Unable to locate window: " + TargetWindow);
                 SetPanel(PanelMode.Events);
                 return;
-          }
+            }
 
             lblTestWindowResolution.Text = PictureTestAllTest.Image.Width + " x " + PictureTestAllTest.Image.Height;
 
@@ -3884,18 +3884,18 @@ namespace AppTestStudio
                     Node.ImageIndex = 7;
                     Node.SelectedImageIndex = 7;
                     Node.BackColor = Color.LightGreen;
-            }
+                }
                 else
                 {
                     Node.ImageIndex = 6;
                     Node.SelectedImageIndex = 6;
 
                     Node.GameNodeName = Node.Name + " - Points(" + QualifyingEvents + ")";
-  
-                if (QualifyingEvents < 10)
+
+                    if (QualifyingEvents < 10)
                     {
                         Node.BackColor = Color.LightYellow;
-                }
+                    }
 
 
                 }
@@ -3914,7 +3914,7 @@ namespace AppTestStudio
             //' Hide the Make object buttone because the name is not long enough
             cmdMakeObject.Enabled = false;
 
-        //' Reset the Rectangle in case it//'s already being used.
+            //' Reset the Rectangle in case it//'s already being used.
             PictureObjectScreenshotRectanble = new Rectangle();
 
             //' Take a screenshot
@@ -3930,7 +3930,7 @@ namespace AppTestStudio
 
             GameNodeAction Node = null;
 
-            switch (GameNode.GameNodeType )
+            switch (GameNode.GameNodeType)
             {
                 case GameNodeType.Action:
                     if (Node.ActionType == ActionType.Event)
@@ -3941,11 +3941,11 @@ namespace AppTestStudio
                     {
                         Log("Please choose an event note");
                         return;
-                        }
+                    }
                     break;
                 default:
                     Log("Please choose an event note");
-                return;
+                    return;
                     break;
             }
 
@@ -3974,10 +3974,13 @@ namespace AppTestStudio
                 //With dgvTest.Rows[Rowindex];
                 DataGridViewRow Row = dgvTest.Rows[Rowindex];
                 Color TargetColor;
-                if (PictureTestAllReference.Height >= Item.Y && PictureTestAllReference.Width >= Item.X && PictureTestAllTest.Image.Height >= Item.Y && PictureTestAllTest.Image.Width >= Item.X ) {
+                if (PictureTestAllReference.Height >= Item.Y && PictureTestAllReference.Width >= Item.X && PictureTestAllTest.Image.Height >= Item.Y && PictureTestAllTest.Image.Width >= Item.X)
+                {
                     Bitmap bmp = PictureTestAllTest.Image as Bitmap;
                     TargetColor = bmp.GetPixel(Item.X, Item.Y);
-    } else {
+                }
+                else
+                {
                     TargetColor = Color.Black;
                     Style.ForeColor = Color.White;
                 }
@@ -3991,28 +3994,39 @@ namespace AppTestStudio
 
                 int QualifyingPoints = 0;
 
-                if (Node.LogicChoice == "AND" ) {
-                    if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints) ) {
-                        if (FinalResult == false ) {
+                if (Node.LogicChoice == "AND")
+                {
+                    if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
+                    {
+                        if (FinalResult == false)
+                        {
                             Result = true;
                         }
-                    } else {
-                        Result = false; 
+                    }
+                    else
+                    {
+                        Result = false;
                         FinalResult = true;
                     }
-                } else {
-                    if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints) ) {
+                }
+                else
+                {
+                    if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
+                    {
                         Result = true;
                     }
                 }
 
-                if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints) ) {
+                if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
+                {
                     Row.Cells["dgvPassFail"].Value = "Test Passed";
                     Style = new DataGridViewCellStyle();
                     Style.BackColor = Color.Green;
                     Row.Cells["dgvPassFail"].Style = Style;
 
-                } else {
+                }
+                else
+                {
                     Row.Cells["dgvPassFail"].Value = "Test Failed";
                     Style = new DataGridViewCellStyle();
                     Style.BackColor = Color.Red;
@@ -4024,13 +4038,16 @@ namespace AppTestStudio
                 int b = Math.Abs(TargetColor.B - Item.Color.B);
 
                 int Largest = 0;
-                if (r > Largest ) {
+                if (r > Largest)
+                {
                     Largest = r;
                 }
-                if (g > Largest ) {
+                if (g > Largest)
+                {
                     Largest = g;
                 }
-                if (b > Largest ) {
+                if (b > Largest)
+                {
                     Largest = b;
                 }
 
@@ -4047,8 +4064,8 @@ namespace AppTestStudio
         private void tvTestAllEvents_MouseUp(object sender, MouseEventArgs e)
         {
             Debug.WriteLine("tvTestAllEvents_MouseUp");
-        //' Show menu only if Right Mouse button is clicked
-        if (e.Button == MouseButtons.Right)
+            //' Show menu only if Right Mouse button is clicked
+            if (e.Button == MouseButtons.Right)
             {
 
                 //' Point where mouse is clicked
@@ -4059,23 +4076,112 @@ namespace AppTestStudio
 
                 String Name = node.Name;
 
-            if (Name.Contains(" - Points("))
+                if (Name.Contains(" - Points("))
                 {
                     String[] SplitKey = { " - Points(" };
                     String[] Keys = Name.Split(SplitKey, StringSplitOptions.None);
 
-                if (Keys.Length > 0)
+                    if (Keys.Length > 0)
                     {
                         txtFilter.Text = Keys[0];
                         txtSearch_KeyUp(null, null);
-                }
+                    }
                 }
                 else
                 {
                     txtFilter.Text = node.Name;
-                  txtSearch_KeyUp(null, null);
-              }
+                    txtSearch_KeyUp(null, null);
+                }
             }
+
+        }
+
+        private void wizardRecommendedToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tv.Nodes[0].Nodes.Count > 0)
+            {
+                frmLoadCheck frmLC = new frmLoadCheck();
+                frmLC.StartPosition = FormStartPosition.CenterParent;
+                frmLC.ShowDialog();
+
+                switch (frmLC.Result)
+                {
+                    case AppTestStudio.frmLoadCheck.LoadCheckResult.Save:
+                        toolStripButtonSaveScript_Click(null, null);
+                        break;
+                    case AppTestStudio.frmLoadCheck.LoadCheckResult.DontSave:
+                        // do nothing
+                        break;
+                    case AppTestStudio.frmLoadCheck.LoadCheckResult.Cancel:
+                        // quit
+                        return;
+                    case AppTestStudio.frmLoadCheck.LoadCheckResult.DefaultValue:
+                        // quit
+                        return;
+                    default:
+                        break;
+                }
+
+            }
+            AddNewGameWizard();
+
+        }
+
+        private void AddNewGameWizard()
+        {
+            frmAddNewGameWizard frm = new frmAddNewGameWizard();
+            frm.StartPosition = FormStartPosition.CenterParent;
+            frm.ShowDialog();
+
+            if (frm.IsReadyToCreate)
+            {
+                String ApplicationName = frm.lblSafeName.Text;
+
+                String ApplicationFolder = Utils.GetApplicationFolder();
+                String ProjectFolder = System.IO.Path.Combine(ApplicationFolder, ApplicationName);
+
+                String TargetFileName = System.IO.Path.Combine(ProjectFolder, "Default.xml");
+                DialogResult Result = DialogResult.Yes;
+                if (System.IO.Directory.Exists(ProjectFolder))
+                {
+                    Result = MessageBox.Show("Project Folder already exists with that name: " + ApplicationName + " Do you want to overwrite?", "Overwrite?", MessageBoxButtons.YesNoCancel);
+                }
+
+                if (Result == DialogResult.Cancel || Result == DialogResult.No)
+                {
+                    return;
+                }
+
+                //'assumed already saved, lets clear the other apps.
+                tv.Nodes[0].Nodes.Clear();
+
+                GameNodeGame Game = AddNewGameToTree(ApplicationName, TargetFileName);
+                txtPackageName.Text = frm.lblAppID.Text;
+
+                toolStripButtonSaveScript_Click(null, null);
+                ThreadManager.IncrementNewAppAdded();
+            }
+
+        }
+
+        private GameNodeGame AddNewGameToTree(string applicationName, string targetFileName)
+        {
+            GameNodeGame NewGame = new GameNodeGame(applicationName);
+
+            WorkspaceNode.Nodes.Add(NewGame);
+            NewGame.FileName = targetFileName;
+
+            tv.SelectedNode = NewGame;
+
+            GameNodeEvents Events = new GameNodeEvents("Events");
+            NewGame.Nodes.Add(Events);
+
+            GameNodeObjects GameNodeObjects = new GameNodeObjects("Objects");
+            NewGame.Nodes.Add(GameNodeObjects);
+
+            return NewGame;
+            //'Dim Actions As GameNode = New GameNode("Actions", GameNodeType.Actions)
+            //'NewGame.Nodes.Add(Actions)
 
         }
     }

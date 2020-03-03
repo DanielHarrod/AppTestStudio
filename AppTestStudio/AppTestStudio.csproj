@@ -47,6 +47,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -62,6 +63,12 @@
     <Compile Include="ColorPoint.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="frmAddNewGameWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAddNewGameWizard.Designer.cs">
+      <DependentUpon>frmAddNewGameWizard.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLoadCheck.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +122,9 @@
     <Compile Include="SingleClick.cs" />
     <Compile Include="ThreadManager.cs" />
     <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="frmAddNewGameWizard.resx">
+      <DependentUpon>frmAddNewGameWizard.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLoadCheck.resx">
       <DependentUpon>frmLoadCheck.cs</DependentUpon>
     </EmbeddedResource>
