@@ -200,15 +200,15 @@ namespace AppTestStudio
             Mat ObjectTarget = null;
             switch (node.Channel.ToUpper())
             {
-                case "Red":
+                case "RED":
                     SearchTarget = Red;
                     ObjectTarget = RedTarget;
                     break;
-                case "Green":
+                case "GREEN":
                     SearchTarget = Green;
                     ObjectTarget = GreenTarget;
                     break;
-                case "Blue":
+                case "BLUE":
                     SearchTarget = Blue;
                     ObjectTarget = BlueTarget;
                     break;
