@@ -4559,5 +4559,14 @@ namespace AppTestStudio
                 ThreadManager.IncrementTestSaved();
             }
         }
+
+        private void txtEventName_TextChanged(object sender, EventArgs e)
+        {
+            if ( IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+            
+        }
     }
 }
