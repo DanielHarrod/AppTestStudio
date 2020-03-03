@@ -4184,5 +4184,60 @@ namespace AppTestStudio
             //'NewGame.Nodes.Add(Actions)
 
         }
+
+        private void manualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (tv.Nodes[0].Nodes.Count > 0)
+            {
+                frmLoadCheck frmLC = new frmLoadCheck();
+                frmLC.StartPosition = FormStartPosition.CenterParent;
+                frmLC.ShowDialog();
+
+                switch (frmLC.Result)
+                {
+                    case AppTestStudio.frmLoadCheck.LoadCheckResult.Save:
+                        toolStripButtonSaveScript_Click(null, null);
+                        break;
+                    case AppTestStudio.frmLoadCheck.LoadCheckResult.DontSave:
+                        // do nothing
+                        break;
+                    case AppTestStudio.frmLoadCheck.LoadCheckResult.Cancel:
+                        // quit
+                        return;
+                    case AppTestStudio.frmLoadCheck.LoadCheckResult.DefaultValue:
+                        //quit
+                        return;
+                    default:
+                        //quit
+                        return;
+                }
+    
+            }
+            AddNewGame();
+        }
+
+        private void AddNewGame()
+        {
+            frmAddNewGame frm = new frmAddNewGame();
+
+            DialogResult Result = frm.ShowDialog();
+
+        if (frm.IsValid)
+            {
+
+                //'assumed already saved, lets clear the other apps.
+                tv.Nodes[0].Nodes.Clear();
+
+String GameName = frm.txtName.Text.Trim();
+                String TargetFileName = frm.TargetFileName;
+                GameNodeGame Game = AddNewGameToTree(GameName, TargetFileName);
+
+                Game.FileName = frm.TargetFileName;
+
+                toolStripButtonSaveScript_Click(null, null); ;
+                ThreadManager.IncrementNewAppAdded();
+        }
+
+        }
     }
 }
