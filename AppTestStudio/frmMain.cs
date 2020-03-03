@@ -1484,7 +1484,7 @@ namespace AppTestStudio
 
         private void tv_DragDrop(object sender, DragEventArgs e)
         {
-            GameNodeAction Action = e.Data.GetData("AppTestStudio.OctoGameNodeAction") as GameNodeAction;
+            GameNodeAction Action = e.Data.GetData("AppTestStudio.GameNodeAction") as GameNodeAction;
             //' Point where mouse is clicked
             Point p = tv.PointToClient(new Point(e.X, e.Y));
 
