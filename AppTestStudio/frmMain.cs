@@ -3945,6 +3945,7 @@ namespace AppTestStudio
             switch (GameNode.GameNodeType)
             {
                 case GameNodeType.Action:
+                    Node = GameNode as GameNodeAction;
                     if (Node.ActionType == ActionType.Event)
                     {
                         //' do nothing :)
