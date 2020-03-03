@@ -98,6 +98,7 @@
             this.Button1.TabIndex = 53;
             this.Button1.Text = "Re-Test From Reference";
             this.Button1.UseVisualStyleBackColor = true;
+            this.Button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // GroupBox4
             // 
@@ -285,9 +286,9 @@
             this.lblResult.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lblResult.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblResult.Location = new System.Drawing.Point(18, 17);
+            this.lblResult.Location = new System.Drawing.Point(18, 9);
             this.lblResult.Name = "lblResult";
-            this.lblResult.Size = new System.Drawing.Size(1013, 15);
+            this.lblResult.Size = new System.Drawing.Size(1013, 23);
             this.lblResult.TabIndex = 46;
             // 
             // TabControl2
@@ -337,6 +338,7 @@
             this.PictureBoxSearchArea.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PictureBoxSearchArea.TabIndex = 0;
             this.PictureBoxSearchArea.TabStop = false;
+            this.PictureBoxSearchArea.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxSearchArea_Paint);
             // 
             // TabPage4
             // 
@@ -465,6 +467,7 @@
             this.Controls.Add(this.cmdUpdateScreenshot);
             this.Name = "frmTestObjectSearch";
             this.Text = "frmTestObjectSearch";
+            this.Load += new System.EventHandler(this.frmTestObjectSearch_Load);
             this.GroupBox4.ResumeLayout(false);
             this.GroupBox4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).EndInit();

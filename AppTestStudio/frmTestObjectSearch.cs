@@ -67,7 +67,7 @@ namespace AppTestStudio
             {
                 RunTest(Parent, UseCurrentWindow);
                 LoadData(Parent);
-                Search(Parent, ref CenterX,ref CenterY,ref IsPassed);
+                Search(Parent, ref CenterX, ref CenterY, ref IsPassed);
 
                 if (IsPassed)
                 {
@@ -147,28 +147,25 @@ namespace AppTestStudio
             {
                 RunTest(Node, UseCurrentWindow);
                 LoadData(Node);
-                Search(Node,ref CenterX,ref CenterY,ref IsPassed);
+                Search(Node, ref CenterX, ref CenterY, ref IsPassed);
             }
-
 
             Watch.Stop();
             Debug.WriteLine(Watch.ElapsedMilliseconds);
             lblHideAndSeek.Text = Watch.ElapsedMilliseconds + "ms";
-
-
         }
 
-        private void Search(GameNodeAction node,ref int centerX,ref int centerY,ref bool passedTest)
+        private void Search(GameNodeAction node, ref int centerX, ref int centerY, ref bool passedTest)
         {
-            Double Percent = (double) NumericUpDown1.Value / 100;
+            Double Percent = (double)NumericUpDown1.Value / 100;
             int Rows = Red.Rows - RedTarget.Rows + 1;
             int Cols = Red.Cols - RedTarget.Cols + 1;
 
-        if (Rows < 1)
+            if (Rows < 1)
             {
                 frm.Log(Node.Name + " search item height " + RedTarget.Rows + "px is larger than the height of the mask of " + Red.Rows + "px, Please increase the mask size so the search image can be searched.");
                 return;
-        }
+            }
 
             if (Cols < 1)
             {
@@ -180,7 +177,7 @@ namespace AppTestStudio
             //'Cv2.CvtColor(m1, m2, ColorConversionCodes.)
 
             Mat SearchTarget = null;
-            Mat ObjectTarget = null; 
+            Mat ObjectTarget = null;
 
             switch (cboChannel.Text)
             {
@@ -194,7 +191,7 @@ namespace AppTestStudio
                     break;
                 case "Blue Channel":
                     SearchTarget = Blue;
-                ObjectTarget = BlueTarget;
+                    ObjectTarget = BlueTarget;
                     break;
                 default:
                     Debug.Assert(false);
@@ -205,7 +202,7 @@ namespace AppTestStudio
             Cv2.MatchTemplate(SearchTarget, ObjectTarget, res, TemplateMatchModes.CCoeffNormed);
 
             OpenCvSharp.Point p = new OpenCvSharp.Point();
-        DetectedPoint = new OpenCvSharp.Point();
+            DetectedPoint = new OpenCvSharp.Point();
             Cv2.MinMaxLoc(res, out p, out DetectedPoint);
 
             //'Dim mv As Double
@@ -226,29 +223,32 @@ namespace AppTestStudio
             Debug.WriteLine(DetectedPoint);
             Debug.WriteLine(j);
 
-        //'Dim Min As Double
-        //'Dim Max As Double
-        //'res.MinMaxIdx(Min, Max)
+            //'Dim Min As Double
+            //'Dim Max As Double
+            //'res.MinMaxIdx(Min, Max)
 
-        //'//'~220
-        //'For r As Integer = Node.Rectangle.Y To Node.Rectangle.Y + Node.Rectangle.Height
-        //'    For c As Integer = Node.Rectangle.X To Node.Rectangle.X + Node.Rectangle.Width 
-        //'        Dim j = indexer(r, c)
-        //'        if (j > Percent ) {
-        //'            Debug.WriteLine("Row=" & r & " col=" & c & " value = " & j)
-        //'        }
-        //'    Next
-        //'Next
+            //'//'~220
+            //'For r As Integer = Node.Rectangle.Y To Node.Rectangle.Y + Node.Rectangle.Height
+            //'    For c As Integer = Node.Rectangle.X To Node.Rectangle.X + Node.Rectangle.Width 
+            //'        Dim j = indexer(r, c)
+            //'        if (j > Percent ) {
+            //'            Debug.WriteLine("Row=" & r & " col=" & c & " value = " & j)
+            //'        }
+            //'    Next
+            //'Next
 
 
-        if (j >= (float) NumericUpDown1.Value / 100 ) {
+            if (j >= (float)NumericUpDown1.Value / 100)
+            {
                 lblResult.Text = "Test Passed";
                 lblResult.BackColor = Color.Green;
                 passedTest = true;
-        } else {
+            }
+            else
+            {
                 lblResult.Text = "Test Failed";
                 lblResult.BackColor = Color.Red;
-}
+            }
             PictureBoxSearchArea.Invalidate();
 
         }
@@ -314,6 +314,148 @@ namespace AppTestStudio
             PictureBoxObject.Image = Node.ObjectSearchBitmap;
 
             bmp = null;
+
+        }
+
+        private void frmTestObjectSearch_Load(object sender, EventArgs e)
+        {
+            lblDetectedThreashold.Text = "";
+            lblPoint.Text = "";
+            if (Parent.IsSomething())
+            {
+                NumericUpDown1.Value = Parent.ObjectThreshold;
+                switch (Parent.Channel.ToUpper())
+                {
+                    case "RED":
+                        cboChannel.Text = "Red Channel";
+                        break;
+                    case "GREEN":
+                        cboChannel.Text = "Green Channel";
+                        break;
+                    case "BLUE":
+                        cboChannel.Text = "Blue Channel";
+                        break;
+                    default:
+                        break;
+                }
+
+                cmdSetAcceptanceThreshold.Enabled = false;
+                cmdChannel.Enabled = false;
+            }
+            else
+            {
+                NumericUpDown1.Value = Node.ObjectThreshold;
+                switch (Node.Channel.ToUpper())
+                {
+                    case "RED":
+                        cboChannel.Text = "Red Channel";
+                        break;
+                    case "GREEN":
+                        cboChannel.Text = "Green Channel";
+                        break;
+                    case "BLUE":
+                        cboChannel.Text = "Blue Channel";
+                        break;
+                    default:
+                        break;
+                }
+            }
+            RunFullTest();
+
+        }
+
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            RunFullTest(false);
+        }
+
+        private void PictureBoxSearchArea_Paint(object sender, PaintEventArgs e)
+        {
+            //'Draw the box on the search
+            Rectangle Rectangle = new Rectangle();
+
+            if (Parent.IsSomething())
+            {
+                Utils.DrawMask(PictureBoxSearchArea, Parent.Rectangle, e);
+                Rectangle.X = DetectedPoint.X + Parent.Rectangle.X;
+                Rectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y;
+            }
+            else
+            {
+
+                Utils.DrawMask(PictureBoxSearchArea, Node.Rectangle, e);
+                Rectangle.X = DetectedPoint.X + Node.Rectangle.X;
+                Rectangle.Y = DetectedPoint.Y + Node.Rectangle.Y;
+            }
+
+
+            Rectangle.Width = PictureBoxObject.Image.Width;
+            Rectangle.Height = PictureBoxObject.Image.Height;
+            using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 255, 201, 14)))
+            {
+                e.Graphics.FillRectangle(br, Rectangle);
+            }
+
+            using (Pen p = new Pen(Color.FromArgb(255, 201, 14), 1))
+            {
+                e.Graphics.DrawRectangle(p, Rectangle);
+            }
+        
+        return;
+
+//New StartRectangle Rectangle
+
+//        if (Parent.IsSomething)
+//            {
+//                if (Node.RelativeXOffset <> 0 Or Node.RelativeYOffset <> 0 ) {
+//                    StartRectangle = New Rectangle
+    
+
+//                StartRectangle.X = DetectedPoint.X + Parent.Rectangle.X + Node.RelativeXOffset
+//                    StartRectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y + Node.RelativeYOffset
+    
+
+//                StartRectangle.Width = PictureBoxObject.Image.Width
+//                    StartRectangle.Height = PictureBoxObject.Image.Height
+//                    //'Using br As New SolidBrush(Color.FromArgb(128, 0, 255, 0))
+//                    //'    e.Graphics.FillRectangle(br, Rectangle)
+//                    //'End Using
+//                    Using p As New Pen(Color.FromArgb(0, 255, 0), 1)
+//                        e.Graphics.DrawRectangle(p, StartRectangle)
+//                    End Using
+    
+//            } else
+//                {
+
+//                    StartRectangle.X = DetectedPoint.X + Parent.Rectangle.X
+//                StartRectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y
+//                StartRectangle.Width = PictureBoxObject.Image.Width
+//                StartRectangle.Height = PictureBoxObject.Image.Height
+
+//            }
+
+//                if (Node.Mode = Mode.ClickDragRelease)
+//                {
+//                    Using p As New Pen(Color.FromArgb(255, 0, 0), 1)
+//                        e.Graphics.DrawRectangle(p, Node.Rectangle)
+//                    End Using
+    
+
+//Long StartX = StartRectangle.X + (StartRectangle.Width / 2)
+//    Long StartY = StartRectangle.Y + (StartRectangle.Height / 2)
+//    Long EndX = Node.Rectangle.X + (Node.Rectangle.Width / 2)
+//    Long EndY = Node.Rectangle.Y + (Node.Rectangle.Height / 2)
+    
+//                Using linePen As New Pen(Color.FromArgb(128, 0, 0, 255), 8)
+//                        linePen.StartCap = LineCap.RoundAnchor
+//                        linePen.EndCap = LineCap.ArrowAnchor
+//                        linePen.DashStyle = DashStyle.Dot
+//                        e.Graphics.DrawLine(linePen, StartX, StartY, EndX, EndY)
+//                    End Using
+    
+//            }
+//            }
+
 
         }
     }
