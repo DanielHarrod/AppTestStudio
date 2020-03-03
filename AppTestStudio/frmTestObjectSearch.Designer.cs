@@ -144,6 +144,7 @@
             this.cboChannel.Name = "cboChannel";
             this.cboChannel.Size = new System.Drawing.Size(204, 21);
             this.cboChannel.TabIndex = 4;
+            this.cboChannel.SelectedIndexChanged += new System.EventHandler(this.cboChannel_SelectedIndexChanged);
             // 
             // cmdChannel
             // 
@@ -153,6 +154,7 @@
             this.cmdChannel.TabIndex = 19;
             this.cmdChannel.Text = "Use this Channel";
             this.cmdChannel.UseVisualStyleBackColor = true;
+            this.cmdChannel.Click += new System.EventHandler(this.cmdChannel_Click);
             // 
             // GroupBox2
             // 
@@ -188,6 +190,7 @@
             this.cmdSetAcceptanceThreshold.TabIndex = 19;
             this.cmdSetAcceptanceThreshold.Text = "Use this Threshold";
             this.cmdSetAcceptanceThreshold.UseVisualStyleBackColor = true;
+            this.cmdSetAcceptanceThreshold.Click += new System.EventHandler(this.cmdSetAcceptanceThreshold_Click);
             // 
             // Label5
             // 

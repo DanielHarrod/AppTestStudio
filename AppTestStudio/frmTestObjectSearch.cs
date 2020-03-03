@@ -458,5 +458,20 @@ namespace AppTestStudio
 
 
         }
+
+        private void cmdSetAcceptanceThreshold_Click(object sender, EventArgs e)
+        {
+            frm.NumericObjectThreshold.Value = NumericUpDown1.Value;
+        }
+
+        private void cboChannel_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmdChannel_Click(object sender, EventArgs e)
+        {
+            frm.cboChannel.Text = cboChannel.Text;
+        }
     }
 }
