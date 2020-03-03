@@ -47,6 +47,12 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -74,6 +80,12 @@
     </Compile>
     <Compile Include="frmAddNewGameWizard.Designer.cs">
       <DependentUpon>frmAddNewGameWizard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImportProjectName.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImportProjectName.Designer.cs">
+      <DependentUpon>frmImportProjectName.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLoadCheck.cs">
       <SubType>Form</SubType>
@@ -133,6 +145,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAddNewGameWizard.resx">
       <DependentUpon>frmAddNewGameWizard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImportProjectName.resx">
+      <DependentUpon>frmImportProjectName.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLoadCheck.resx">
       <DependentUpon>frmLoadCheck.cs</DependentUpon>

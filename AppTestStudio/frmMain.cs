@@ -11,11 +11,13 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml;
 using System.Xml.Serialization;
 
 namespace AppTestStudio
@@ -4211,7 +4213,7 @@ namespace AppTestStudio
                         //quit
                         return;
                 }
-    
+
             }
             AddNewGame();
         }
@@ -4222,13 +4224,13 @@ namespace AppTestStudio
 
             DialogResult Result = frm.ShowDialog();
 
-        if (frm.IsValid)
+            if (frm.IsValid)
             {
 
                 //'assumed already saved, lets clear the other apps.
                 tv.Nodes[0].Nodes.Clear();
 
-String GameName = frm.txtName.Text.Trim();
+                String GameName = frm.txtName.Text.Trim();
                 String TargetFileName = frm.TargetFileName;
                 GameNodeGame Game = AddNewGameToTree(GameName, TargetFileName);
 
@@ -4236,8 +4238,194 @@ String GameName = frm.txtName.Text.Trim();
 
                 toolStripButtonSaveScript_Click(null, null); ;
                 ThreadManager.IncrementNewAppAdded();
+            }
+
         }
 
+        private void importToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1.FileName = "";
+            DialogResult DR = openFileDialog1.ShowDialog();
+            if (DR == DialogResult.OK)
+            {
+                //'do nothing
+            }
+            else
+            {
+                return;
+            }
+                       
+            String XMLATS = "";
+            using (ZipArchive Archive = ZipFile.OpenRead(openFileDialog1.FileName))
+            {
+                int ATSXML = 0;
+                int Pictures = 0;
+                foreach (ZipArchiveEntry Entry in Archive.Entries)
+                {
+                    if (Entry.FullName.EndsWith("Default.xml"))
+                    {
+                        ATSXML = ATSXML + 1;
+
+                        StreamReader SR = new StreamReader(Entry.Open());
+                        XMLATS = SR.ReadToEnd();
+
+                        continue;
+                    }
+
+                    if (Entry.FullName.StartsWith(@"Pictures\"))
+                    {
+                        if (Entry.FullName.EndsWith(".bmp"))
+                        {
+                            Pictures = Pictures + 1;
+                            continue;
+                        }
+                    }
+
+                    if (Entry.FullName.StartsWith(@"Objects\"))
+                    {
+                        if (Entry.FullName.EndsWith(".bmp"))
+                        {
+                            Pictures = Pictures + 1;
+                            continue;
+                        }
+                    }
+                    Log("Unknown Entry: " + Entry.FullName);
+                }
+
+                if (ATSXML == 1)
+                {
+                    //'do nothing
+                }
+                else
+                {
+                    if (ATSXML == 0)
+                    {
+                        Log("Not Enough Default.xml files");
+                    }
+                    else
+                    {
+                        Log("Too Many Default.xml files");
+                    }
+                    return;
+                }
+                
+                Boolean IsValid = false;
+                String NewGameName = LoadGameFromString(XMLATS, ref IsValid);
+
+                if (IsValid)
+                {
+                    String DirectoryPath = Utils.GetApplicationFolder();
+
+                    String TargetFolder = DirectoryPath + @"\" + NewGameName;
+
+                    if (System.IO.Directory.Exists(TargetFolder) == false)
+                    {
+                        System.IO.Directory.CreateDirectory(TargetFolder);
+                    }
+
+                    String PictureFolder = TargetFolder + @"\Pictures";
+
+                    if (System.IO.Directory.Exists(PictureFolder) == false)
+                    {
+                        System.IO.Directory.CreateDirectory(PictureFolder);
+                    }
+
+
+                    foreach (ZipArchiveEntry Entry in Archive.Entries)
+                    {
+
+
+                        if (Entry.FullName.EndsWith("Default.xml"))
+                        {
+                            //'need pictures extracted first.
+                            continue;
+                        }
+
+                        if (Entry.FullName.StartsWith(@"Pictures\"))
+                        {
+                            if (Entry.FullName.EndsWith(".bmp"))
+                            {
+
+                                String TargetFile = TargetFolder + @"\" + Entry.FullName;
+                                try
+                                {
+                                    Entry.ExtractToFile(TargetFile, true);
+                                    Log("Extracting " + TargetFile);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Debug.Write(ex.Message);
+                                    Debug.Assert(false);
+                                }
+                            }
+                        }
+
+                        if (Entry.FullName.StartsWith(@"Objects\"))
+                        {
+                            if (Entry.FullName.EndsWith(".bmp"))
+                            {
+
+                                String RemoveObjects = Entry.FullName.Substring(7, Entry.FullName.Length - 7);
+                                String EntryName = "Pictures" + RemoveObjects;
+
+                                String TargetFile = TargetFolder + @"\" + EntryName;
+                                try
+                                {
+                                    Entry.ExtractToFile(TargetFile, true);
+                                    Log("Extracting " + TargetFile);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Debug.Write(ex.Message);
+                                    Debug.Assert(false);
+                                }
+                            }
+                        }
+                    }
+
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(XMLATS);
+
+                    GameNodeGame Game = GameNodeGame.LoadGame(doc.DocumentElement.SelectSingleNode("//App"), "Placeholder", NewGameName, true);
+                    Game.FileName = Utils.GetApplicationFolder() + @"\" + NewGameName + @"\Default.xml";
+
+                    Game.GameNodeName = NewGameName;
+
+                    Game.SaveGame(ThreadManager, tv);
+
+                    LoadGameToTree(Game);
+                }
+
+            }//end using
+
+        }
+
+        private string LoadGameFromString(string s, ref bool isValid)
+        {
+            String Result = "";
+            isValid = false;
+
+
+            GameNodeGame Game = null;
+            XmlDocument doc = new XmlDocument();
+            doc.LoadXml(s);
+            frmImportProjectName frm = null;
+            String GameName = "";
+            if (doc.DocumentElement.SelectSingleNode("//App").IsSomething())
+            {
+                GameName = doc.DocumentElement.SelectSingleNode("//App").Attributes["Name"].Value;
+
+                frm = new frmImportProjectName();
+                frm.txtProjectName.Text = GameName;
+                frm.ShowDialog();
+            }
+
+            if (frm.IsImporting && GameName.Length > 0)
+            {
+                isValid = true;
+                Result = frm.txtProjectName.Text.Trim();
+            }
+            return Result;
         }
     }
 }
