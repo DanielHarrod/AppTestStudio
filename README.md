@@ -1,5 +1,7 @@
 # AppTestStudio
 
+AppTestStudio is a automated development environment, it contains a builder, tester, and can simultaneously run multiple scripts at the same time.  You can also build, test and run multiple scripts at the same time.
+
 Install [NoxPlayer](https://www.bignox.com/)
 Install the app of your choice on the Nox player.
 Install AppTestStudio
