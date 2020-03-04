@@ -2649,9 +2649,12 @@ namespace AppTestStudio
                 {
                     if (child.UseParentPicture)
                     {
-                        Log("Linking Child: " + child.Name);
-                        child.Bitmap = bmp.Clone() as Bitmap;
-                        BitmapChildren(child, bmp);
+                        if (child.ActionType == ActionType.Action )
+                        {
+                            Log("Linking Child: " + child.Name);
+                            child.Bitmap = bmp.Clone() as Bitmap;
+                            BitmapChildren(child, bmp);
+                        }
                     }
                 }
             }
@@ -4304,14 +4307,14 @@ namespace AppTestStudio
                         }
                     }
 
-                    if (Entry.FullName.StartsWith(@"Objects\"))
-                    {
-                        if (Entry.FullName.EndsWith(".bmp"))
-                        {
-                            Pictures = Pictures + 1;
-                            continue;
-                        }
-                    }
+                    //if (Entry.FullName.StartsWith(@"Objects\"))
+                    //{
+                    //    if (Entry.FullName.EndsWith(".bmp"))
+                    //    {
+                    //        Pictures = Pictures + 1;
+                    //        continue;
+                    //    }
+                    //}
                     Log("Unknown Entry: " + Entry.FullName);
                 }
 
@@ -4383,27 +4386,27 @@ namespace AppTestStudio
                             }
                         }
 
-                        if (Entry.FullName.StartsWith(@"Objects\"))
-                        {
-                            if (Entry.FullName.EndsWith(".bmp"))
-                            {
+                        //if (Entry.FullName.StartsWith(@"Objects\"))
+                        //{
+                        //    if (Entry.FullName.EndsWith(".bmp"))
+                        //    {
 
-                                String RemoveObjects = Entry.FullName.Substring(7, Entry.FullName.Length - 7);
-                                String EntryName = "Pictures" + RemoveObjects;
+                        //        String RemoveObjects = Entry.FullName.Substring(7, Entry.FullName.Length - 7);
+                        //        String EntryName = "Pictures" + RemoveObjects;
 
-                                String TargetFile = TargetFolder + @"\" + EntryName;
-                                try
-                                {
-                                    Entry.ExtractToFile(TargetFile, true);
-                                    Log("Extracting " + TargetFile);
-                                }
-                                catch (Exception ex)
-                                {
-                                    Debug.Write(ex.Message);
-                                    Debug.Assert(false);
-                                }
-                            }
-                        }
+                        //        String TargetFile = TargetFolder + @"\" + EntryName;
+                        //        try
+                        //        {
+                        //            Entry.ExtractToFile(TargetFile, true);
+                        //            Log("Extracting " + TargetFile);
+                        //        }
+                        //        catch (Exception ex)
+                        //        {
+                        //            Debug.Write(ex.Message);
+                        //            Debug.Assert(false);
+                        //        }
+                        //    }
+                        //}
                     }
 
                     XmlDocument doc = new XmlDocument();
@@ -4549,7 +4552,7 @@ namespace AppTestStudio
                         foreach (String FullFileName in Results.ObjectListExtract)
                         {
                             String FileName = System.IO.Path.GetFileName(FullFileName);
-                            zae = za.CreateEntryFromFile(FullFileName, @"Objects\" + FileName);
+                            zae = za.CreateEntryFromFile(FullFileName, @"Pictures\" + FileName);
                         }
 
                         if (Minimal)
