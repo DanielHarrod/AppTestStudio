@@ -17,11 +17,20 @@ namespace AppTestStudio
         public String BigNoxVMSFolder { get; set; }
 
         public String WorkingDirectory { get; set; }
+
+        public Boolean IsNoxInstalled { get; set; }
         public NoxRegistry()
         {
+            IsNoxInstalled = false;
             ExePath = "";
             WorkingDirectory = "";
-            String ReadValue = Registry.GetValue(@"HKEY_CLASSES_ROOT\Nox\shell\open\command", null, "").ToString();
+            Object NoxCommand = Registry.GetValue(@"HKEY_CLASSES_ROOT\Nox\shell\open\command", null, "");
+            String ReadValue = "";
+            if (NoxCommand.IsSomething() )
+            {
+                IsNoxInstalled = true;
+                ReadValue = NoxCommand.ToString();
+            }                
 
             if (ReadValue.Length > 0)
             {
