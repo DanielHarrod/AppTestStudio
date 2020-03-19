@@ -33,13 +33,15 @@ w
 
 ### 3.) Start the emmulator
 
-***Always launch the Emmulator from AppTestStudio***
+***Always launch the Emmulator from AppTestStudio***  AppTestStudio launches the emmulator with a specific  WindowName, and resolution for consistency and automation.
 
 1.) The Package Name is used to launch the application when the emmulator starts.  If the Package Name is configured, pressing the "Start Emmulator + Launch App"(3) will launch the instance of nox player specified in the instance to launch(2).  Package Name is recommended but not required, if you don't want or have the Package Name, Press the "Start Emmulator"(4) button instead.  Then run the application from the emmulator manually.  When scheduling a script to run at a later time, the application the Package name is required so that the script can be run, and the applicaion can be loaded.
 
 2.) Instance to launch is the instance number you want to target during testing, launching and running scripts.  This is required, usres with a single instance will always choose instance 0.  Multiple apps/accounts can be configured on different instances.  For example, you could run 5 instances with the same account, and automate 5 different apps/games on each instance.  Or you could run a differnet account on each instance, and run 5 separate instances of the same app/game.
 
 3.)  The Start Emmulator + Launch App button will run the Android Emmulator and 
+
+4.) Start Emmulator button will launch the instance to launch(2) of the android emmulator with a set window name,and initial resolution for consistency.
 
 ![Image](zStartEmmulator.png)
 
