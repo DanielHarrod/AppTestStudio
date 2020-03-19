@@ -6,11 +6,12 @@ AppTestStudio is a automated development environment, it contains a builder, tes
 Interactively: Design, Test, Schedule and Play multiple clients at the same time.
 ![Image](zATSAutomate.png)
 
+Getting Started
+1. Install [NoxPlayer](https://www.bignox.com/)
+2. Install the app of your choice on the Nox player.
+3. Install AppTestStudio
 
-Install [NoxPlayer](https://www.bignox.com/)
-Install the app of your choice on the Nox player.
-Install AppTestStudio
-
+To start a new project
 In AppTestStudio go to File->New->Wizard, search for your app, locate the app( so that AppID, and AppName populate) -> Click Create Project.
 
 Click on Start Emmulator + Launch App ( This will run the emmulator in a set Resolution, and run the app )
