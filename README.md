@@ -3,6 +3,10 @@
 AppTestStudio is a automated development environment, it contains a builder, tester, and can simultaneously run multiple scripts automating multiple apps.  
 ![Image](zATSCircles.png)
 
+Interactively: Design, Test, Schedule and Play multiple clients at the same time.
+![Image](zATSAutomate.png)
+
+
 Install [NoxPlayer](https://www.bignox.com/)
 Install the app of your choice on the Nox player.
 Install AppTestStudio
