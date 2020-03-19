@@ -1,7 +1,7 @@
 # AppTestStudio
 
 AppTestStudio is a automated development environment, it contains a builder, tester, and can simultaneously run multiple scripts automating multiple apps.  
-![Image](https://github.com/DanielHarrod/AppTestStudio/tree/master/content/Image.png)
+![Image](https://github.com/DanielHarrod/AppTestStudio/tree/master/content/ATSCircles.png)
 
 Install [NoxPlayer](https://www.bignox.com/)
 Install the app of your choice on the Nox player.
