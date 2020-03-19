@@ -26,6 +26,10 @@ Interactively: Design, Test, Schedule and Play multiple clients at the same time
 
 4.) Click Create Project
 ![Image](zAppWizard.png)
+
+### 3.) Start the emmulator
+
+![Image](zStartEmmulator.png)
 , search for your app, locate the app( so that AppID, a
 nd AppName populate) -> Click Create Project.
 
