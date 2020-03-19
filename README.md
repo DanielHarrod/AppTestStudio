@@ -29,6 +29,8 @@ Interactively: Design, Test, Schedule and Play multiple clients at the same time
 
 ### 3.) Start the emmulator
 
+1.) The Package Name is used to launch the application when the emmulator starts.  Pressing the "Start Emmulator + Launch App" will launch the instance of nox player 
+
 ![Image](zStartEmmulator.png)
 , search for your app, locate the app( so that AppID, a
 nd AppName populate) -> Click Create Project.
