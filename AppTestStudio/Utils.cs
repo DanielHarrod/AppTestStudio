@@ -294,7 +294,7 @@ namespace AppTestStudio
             }
             else
             {
-                Style.ForeColor = Color.Black;
+                Style.ForeColor = Color.White;
             }
 
             return Style;
