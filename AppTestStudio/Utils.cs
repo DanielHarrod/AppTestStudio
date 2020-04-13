@@ -280,11 +280,7 @@ namespace AppTestStudio
             Style.BackColor = color;
 
             Single brightness = color.GetBrightness();
-            if ( brightness == 1)
-            {
-                Style.ForeColor = Color.WhiteSmoke;
-            }
-            else if ( brightness > 0.80)
+            if ( brightness > 0.80)
             {
                 Style.ForeColor = Color.Black;
             }
