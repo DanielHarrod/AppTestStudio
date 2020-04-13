@@ -73,11 +73,40 @@ Frame Limit: A basic limit to prevent running out of disk space, the script can 
 
 3-A grid view shows the color, and X,Y coordinates of the color.  Since the logic is AND, when the script is run when all 4 colors at the 4 locations are true, then child events and actions will be run.
 
+(opinion) There are other pixel,coordinate locations that may be better, for example: selecting pixels on the skip text may be ideal so that anytime skip is presented it would be clicked.
+
 ![Image](zEvent.png)
 
 #### 4.3 Now create an Action
+Right click on the 'Zeus' Event, then left click 'Add Action'.
+
+The name will automatically have 'Click ' prepended to the parent name.
 ![Image](zAddAction.png)
+
+#### 4.4 Build the Action
+Incidate where to click, click and drag a blue box around the area that needs to be clicked.  AppTestStudio will randomly click at a single location inside the box when the application is run or when the application is tested.
 ![Image](zAction.png)
+
+#### 4.4 When the Action note still selected, click 'Test'
+App Test Studio will click inside the box inside the emmulator, which will advance app to the next screen.
+![Image](zTest.png)
+
+### 5 Continue building 
+
+Continue building more actions and events until the build is complete.
+
+#### 5.1 Using Logical grouping
+Use an Event inside another Event.
+
+1.) Organize events inside other events for clarity.
+
+2.) Organize events inside other events for logic/priority.
+
+![Image](zGroups.png)
+
+
+
+
 
 
 
