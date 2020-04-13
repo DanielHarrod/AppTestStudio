@@ -22,13 +22,15 @@ Interactively: Design, Test, Schedule and Play multiple clients at the same time
 ![Image](zWizard.png)
 
 ### 2.) Use the wizard to quickly configure a project in seconds.
-1.) Search for app/game
+1.) Enter Seach text for app or game.
 
-2.) Click the game.
-w
-3.) Game ID and Name will autopopulate.
+2.) Click on the Search button to search for the app.
 
-4.) Click Create Project
+3.) Click on the app.
+
+4.) Game ID and Name will autopopulate.
+
+5.) Click Create Project
 ![Image](zAppWizard.png)
 
 ### 3.) Start the emmulator
