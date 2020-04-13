@@ -30,6 +30,8 @@ namespace AppTestStudio
             TargetGameBuild = "";
             LoopDelay = 1000;
             Resolution = "1024x768";
+            InstanceToLaunch = "0";
+            VideoFrameLimit = 2000;
 
             IsPaused = false;
 
