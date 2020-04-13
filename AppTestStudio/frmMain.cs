@@ -1211,6 +1211,7 @@ namespace AppTestStudio
                     PanelAddNewGames.Visible = true;
                     break;
                 case PanelMode.Events:
+                    LoadPanelEvents();
                     PanelEvents.Visible = true;
                     break;
                 case PanelMode.Actions:
@@ -1241,6 +1242,14 @@ namespace AppTestStudio
                     Debug.Assert(false);
                     break;
             }
+        }
+
+        private void LoadPanelEvents()
+        {
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNode Parent = Node.Parent as GameNode ;
+            GameNodeGame Game = Parent as GameNodeGame;
+            lblEventsPanelTargetWindow.Text = Game.TargetWindow;
         }
 
         private void LoadGamePanel()
