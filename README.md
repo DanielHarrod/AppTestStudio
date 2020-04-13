@@ -7,9 +7,9 @@ Interactively: Design, Test, Schedule and Play multiple clients at the same time
 ![Image](zATSAutomate.png)
 
 ## Getting Started
-1. Install [NoxPlayer](https://www.bignox.com/)
+1. Install [NoxPlayer](https://www.bignox.com/) 
 
-1.1 - Launch NoxPlayer client go to Gear on the top menu(Settings)->Interface Settings-> Make sure fixed Window size is checked.
+   1.1 - Launch NoxPlayer client go to Gear on the top menu(Settings)->Interface Settings-> Make sure fixed Window size is checked.
 
 2. Install the app of your choice on the Nox player.
 
@@ -39,7 +39,7 @@ w
 
 2.) Instance to launch is the instance number you want to target during testing, launching and running scripts.  This is required, usres with a single instance will always choose instance 0.  Multiple apps/accounts can be configured on different instances.  For example, you could run 5 instances with the same account, and automate 5 different apps/games on each instance.  Or you could run a differnet account on each instance, and run 5 separate instances of the same app/game.
 
-3.)  The Start Emmulator + Launch App button will run the Android Emmulator and 
+3.)  The Start Emmulator + Launch App button will run the Android Emmulator and launch the application on the emmulator.
 
 4.) Start Emmulator button will launch the instance to launch(2) of the android emmulator with a set window name,and initial resolution for consistency.
 
