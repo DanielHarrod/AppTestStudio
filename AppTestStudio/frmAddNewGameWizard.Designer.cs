@@ -272,7 +272,7 @@
             this.ClientSize = new System.Drawing.Size(929, 642);
             this.Controls.Add(this.SplitContainer1);
             this.Name = "frmAddNewGameWizard";
-            this.Text = "frmAddNewGameWizard";
+            this.Text = "Add New Game Wizard";
             this.GroupBox2.ResumeLayout(false);
             this.GroupBox2.PerformLayout();
             this.GroupBox1.ResumeLayout(false);
