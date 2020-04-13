@@ -104,13 +104,39 @@ Use an Event inside another Event.
 
 ![Image](zGroups.png)
 
+#### 5.2 Control what after an event occurs.
+What needs to occur after a Event Node is true or after an Action node is completed. 
+
+By default Event nodes are set to After Completion: Continue
+
+By default Action nodes are set to After Completion: Back to Home
+
+Continue - Chosing continue will continue execution of any child nodes (nodes lower in the tree) followed by any sibling nodes (nodes on the same level).  This is used when chains of need to be run in a specific order, especially useful when unique events cannot be identified.  
+
+Back to Home - Goes back to the Beginning (Home Events) and starts over from the top.
+
+Back to Parent - Goes back to the Parent Level.  Back to parent is used when you don't want any sibling nodes(Nodes on the same level) to be run.  This can be useful as a break condition such as the app not being ready for the sibling processes.
+
+Stop - Stop will stop the thread when running the script, and App Test Studio will attempt to close the emmulator.  This is useful when you run out of turns for a given application, run out of life, money, or reach an point where large amounts of waiting are necessary.
+
+Delay - How long to wait after the Event is true or Action is complete before moving to the next child or sibiling.  The script can run 20-40 times per second, often times the app needs to redraw the screen or move to the next activity.  Waiting ensures that
+By default Event nodes are set to Delay: 0
+By default Action nodes are set to Delay: 1s
+
+Delay for example can be useful to wait for an activity to complete, or wait for 30 seconds after clicking a 'watch ads' button.  
+
+Limit - Limit is used to add superior control over how many times a process can be run.
+
+Wait type: Iteration and Iterations #.  Iterations # is how many times the Action or Event needs to be capable of completing before it is actually done.  If you want AppTestStudio to click the button every 10th time it's able. Set Limit (checked), Wait Type(Iteration), Iterations(10), Repeats(checked).  
+
+Wait type: Time.  How long to wait between activities.  For example you only want an event to be tested every 120 seconds: Set Limit(checked), Wait Type(Time), Time(2 minutes) and Repeats(checked).  Another example you want an event to be tested only once after 45 seconds into execution: Set Limit(Checked),Wait Type(Time), Time(45 seconds) and Repeats(unchecked).
+
+Wait type: once per session:  You want this activity to run only one time.
+
+Repeats will reset the iteration count if limit has already compelted, so it will occur again.
+
+![Image](zAfter.png)
 
 
-
-
-
-
-
-
-
+Coming soon, needs an update.
 [AppTestStudio Projects](https://github.com/DanielHarrod/AppTestStudio-Projects/)
