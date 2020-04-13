@@ -10,8 +10,14 @@ Interactively: Design, Test, Schedule and Play multiple clients at the same time
 1. Install [NoxPlayer](https://www.bignox.com/) 
 
    1.1 - Launch NoxPlayer client go to Gear on the top menu(Settings)->Interface Settings-> Make sure fixed Window size is checked.
+   
+   ![Image](zSettings.png)
+   ![Image](zFixedWindowSize.png)
 
 2. Install the app of your choice on the Nox player.
+
+   ![Image](zTools.png)
+   ![Image](zPlayStore.png)
 
 3. Install AppTestStudio
 
@@ -55,21 +61,27 @@ Frame Limit: A basic limit to prevent running out of disk space, the script can 
 
 ### 4.) Design your script
 
-On the Events Node in AppTestStudio Tree, right Click and Choose "Add Event", this will take a screenshot.
-
-Now click on the colors that are unique to this screen, that won't be on other screens.  Add points(number of pixels to consider OK) if the colors vary such as an animation.
-
-Now that the Event is created, Rigth Click and add either more events or add an Action, Now draw a box where you want AppTestStudio to click randomly.
-
-You can click the test Button to test clicks or Test.
-
-When you have a list of events, click Run Script, this will launch a background thread and run the script.  
-
--=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=--=-=-=-=-
+#### 4.1 On the Events Node in AppTestStudio Tree, right Click and Choose "Add Event", this will take a screenshot.
+![Image](zAddEvent.png)
 
 
-Conversion to C# is almost over, there could be some leftovers here or there typically the implicity to explict casting conversion.
+#### 4.2 A new Event is created - at screenshot is automatically taken of the current emmulator window.
 
-With Minutes of training could save you hours or days.
+1-Give the Event a name
+
+2-Left click on a few unique colors on the screenshot, in this example, I chose a white color inside the 'u' in Zeus, a black color in the 'e' in Zeus, and a Blue color near the word Zeus, and a blue color inside the blue label after the name Zeus.
+
+3-A grid view shows the color, and X,Y coordinates of the color.  Since the logic is AND, when the script is run when all 4 colors at the 4 locations are true, then child events and actions will be run.
+
+![Image](zEvent.png)
+
+#### 4.3 Now create an Action
+![Image](zAddAction.png)
+![Image](zAction.png)
+
+
+
+
+
 
 [AppTestStudio Projects](https://github.com/DanielHarrod/AppTestStudio-Projects/)
