@@ -81,6 +81,7 @@ Frame Limit: A basic limit to prevent running out of disk space, the script can 
 Right click on the 'Zeus' Event, then left click 'Add Action'.
 
 The name will automatically have 'Click ' prepended to the parent name.
+
 ![Image](zAddAction.png)
 
 #### 4.4 Build the Action
@@ -104,7 +105,7 @@ Use an Event inside another Event.
 
 ![Image](zGroups.png)
 
-#### 5.2 Control what after an event occurs.
+#### 5.2 Control what happens after an Event or Action occurs.
 What needs to occur after a Event Node is true or after an Action node is completed. 
 
 By default Event nodes are set to After Completion: Continue
