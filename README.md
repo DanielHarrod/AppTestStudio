@@ -45,6 +45,8 @@ w
 
 ![Image](zStartEmmulator.png)
 
+### 4.) Design your script
+
 On the Events Node in AppTestStudio Tree, right Click and Choose "Add Event", this will take a screenshot.
 
 Now click on the colors that are unique to this screen, that won't be on other screens.  Add points(number of pixels to consider OK) if the colors vary such as an animation.
