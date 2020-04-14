@@ -811,14 +811,19 @@ namespace AppTestStudio
                     cboChannel.Text = "Blue Channel";
                     break;
                 default:
-                    cboChannel.Text = "Red Channel";
-                    EventNode.Channel = "Red";
+                    SetChannelDefaults(EventNode);
                     break;
             }
 
 
             NumericObjectThreshold.Value = EventNode.ObjectThreshold;
 
+        }
+
+        private void SetChannelDefaults(GameNodeAction EventNode)
+        {
+            cboChannel.Text = "Red Channel";
+            EventNode.Channel = "Red";
         }
 
         private void LoadObjectSelectionImage()
@@ -1410,8 +1415,7 @@ namespace AppTestStudio
             GameNode node = tv.GetNodeAt(p) as GameNode;
             if (node.IsSomething())
             {
-                GameNodeAction OGNTAction = node as GameNodeAction;
-                switch (node.GameNodeType)
+                  switch (node.GameNodeType)
                 {
                     case GameNodeType.Workspace:
                         break;
@@ -1420,48 +1424,66 @@ namespace AppTestStudio
                     case GameNodeType.Game:
                         break;
                     case GameNodeType.Events:
-                        Debug.WriteLine("Need to test if this should be node or Action");
-                        switch (OGNTAction.ActionType)
+
+                        if (node is GameNodeEvents)
                         {
-                            case ActionType.Action:
-                                e.Effect = DragDropEffects.None;
-                                break;
-                            case ActionType.Event:
-                                e.Effect = DragDropEffects.Move;
-                                break;
-                            case ActionType.RNG:
-                                e.Effect = DragDropEffects.Move;
-                                break;
-                            case ActionType.RNGContainer:
-                                e.Effect = DragDropEffects.Move;
-                                break;
-                            default:
-                                e.Effect = DragDropEffects.None;
-                                break;
+                            e.Effect = DragDropEffects.Move;
+                            break;
+                        }
+                        else
+                        {
+                            GameNodeAction ActionNode = node as GameNodeAction;
+
+                            switch (ActionNode.ActionType)
+                            {
+                                case ActionType.Action:
+                                    e.Effect = DragDropEffects.None;
+                                    break;
+                                case ActionType.Event:
+                                    e.Effect = DragDropEffects.Move;
+                                    break;
+                                case ActionType.RNG:
+                                    e.Effect = DragDropEffects.Move;
+                                    break;
+                                case ActionType.RNGContainer:
+                                    e.Effect = DragDropEffects.Move;
+                                    break;
+                                default:
+                                    e.Effect = DragDropEffects.None;
+                                    break;
+                            }
                         }
                         break;
                     case GameNodeType.Event:
                         e.Effect = DragDropEffects.Move;
                         break;
                     case GameNodeType.Action:
-
-                        switch (OGNTAction.ActionType)
+                        if (node is GameNodeEvents)
                         {
-                            case ActionType.Action:
-                                e.Effect = DragDropEffects.None;
-                                break;
-                            case ActionType.Event:
-                                e.Effect = DragDropEffects.Move;
-                                break;
-                            case ActionType.RNG:
-                                e.Effect = DragDropEffects.Move;
-                                break;
-                            case ActionType.RNGContainer:
-                                e.Effect = DragDropEffects.Move;
-                                break;
-                            default:
-                                e.Effect = DragDropEffects.None;
-                                break;
+                            e.Effect = DragDropEffects.Move;
+                            break;
+                        }
+                        else
+                        {
+                            GameNodeAction ActionNode2 = node as GameNodeAction;
+                            switch (ActionNode2.ActionType)
+                            {
+                                case ActionType.Action:
+                                    e.Effect = DragDropEffects.None;
+                                    break;
+                                case ActionType.Event:
+                                    e.Effect = DragDropEffects.Move;
+                                    break;
+                                case ActionType.RNG:
+                                    e.Effect = DragDropEffects.Move;
+                                    break;
+                                case ActionType.RNGContainer:
+                                    e.Effect = DragDropEffects.Move;
+                                    break;
+                                default:
+                                    e.Effect = DragDropEffects.None;
+                                    break;
+                            }
                         }
                         break;
                     case GameNodeType.Objects:
@@ -2126,6 +2148,8 @@ namespace AppTestStudio
                     GameNode.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
                 }
                 PictureBox1.Refresh();
+
+                LoadObjectNodeSection();
             }
         }
 
@@ -2263,7 +2287,7 @@ namespace AppTestStudio
                             {
                                 Log("Please select An Object to test with from the list in the Object group before testing.");
                                 // FlashLabel(lblSearchObject)
-                                Debug.Assert(false);// need to preset REd Channel if one's not selected
+                               // Debug.Assert(false);// need to preset REd Channel if one's not selected
                             }
                         }
 
