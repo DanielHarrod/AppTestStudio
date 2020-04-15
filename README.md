@@ -1,6 +1,6 @@
 # AppTestStudio
 
-AppTestStudio is a automated development environment, it contains a builder, tester, and can simultaneously run multiple scripts that can automate multiple android apps.  
+AppTestStudio is a automated development environment, it contains a builder, tester, and can simultaneously run multiple scripts that can simultaneously automate multiple android apps.  
 ![Image](zATSCircles.png)
 
 Interactively: Design, Test, Schedule and Play multiple clients at the same time.
