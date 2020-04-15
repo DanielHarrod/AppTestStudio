@@ -102,241 +102,8 @@ namespace AppTestStudio
             }
         }
 
-
-        private Boolean IsTrue(Bitmap bmp, GameNodeAction node, ref int centerX, ref int centerY)
-        {
-            if (node.IsColorPoint)
-            {
-                return IsColorPointTrue(bmp, node);
-            }
-            else
-            {
-                return IsImageSearchTrue(bmp, node, ref centerX, ref centerY);
-
-            }
-        }
-
-        private bool IsImageSearchTrue(Bitmap bmp, GameNodeAction node, ref int centerX, ref int centerY)
-        {
-            if (node.Rectangle.Width <= 0 || node.Rectangle.Height <= 0)
-            {
-                //'Debug.Assert(False)
-                //'TB.AddReturnFalse()
-                return false;
-            }
-
-            //' False if no object to search
-            if (node.ObjectName == "")
-            {
-                //' TB.AddReturnFalse()
-                return false;
-            }
-
-            if (node.Channel == "")
-            {
-                //' TB.AddReturnFalse()
-                return false;
-            }
-
-            if (node.ObjectSearchBitmap.IsNothing())
-            {
-                Game.Log(node.GameNodeName + " configuration is invalid Search Object Not Configured.");
-                //' TB.AddReturnFalse()
-                return false;
-            }
-
-            Bitmap CropImage = new Bitmap(node.Rectangle.Width, node.Rectangle.Height);
-
-            using (Graphics grp = Graphics.FromImage(CropImage))
-            {
-                grp.DrawImage(bmp, new Rectangle(0, 0, node.Rectangle.Width, node.Rectangle.Height), node.Rectangle, GraphicsUnit.Pixel);
-                //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
-
-                grp.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                grp.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                grp.CompositingQuality = CompositingQuality.HighQuality;
-
-            }
-
-            Mat m1 = OpenCvSharp.Extensions.BitmapConverter.ToMat(CropImage);
-
-            //'213 ms
-            //'Dim Red As Mat = m1.ExtractChannel(2)
-            Mat[] BGR = m1.Split();
-
-            Mat Blue = BGR[0];
-            Mat Green = BGR[1];
-            Mat Red = BGR[2];
-
-            Mat m2 = OpenCvSharp.Extensions.BitmapConverter.ToMat(node.ObjectSearchBitmap);
-            BGR = m2.Split();
-            Mat BlueTarget = BGR[0];
-            Mat GreenTarget = BGR[1];
-            Mat RedTarget = BGR[2];
-
-            double Percent = 0;
-            if (node.ObjectThreshold == 0)
-            {
-                Percent = 99;
-            }
-            else
-            {
-                Percent = node.ObjectThreshold / 100;
-            }
-
-            int Rows = Red.Rows - RedTarget.Rows + 1;
-            int Cols = Red.Cols - RedTarget.Cols + 1;
-
-            if (Rows < 1)
-            {
-                Game.Log(node.Name + " search item height " + RedTarget.Rows + "px is larger than the height of the mask of " + Red.Rows + "px, Please increase the mask size so the search image can be searched.");
-                return false;
-            }
-
-            if (Cols < 1)
-            {
-                Game.Log(node.Name + " search item width is " + RedTarget.Cols + "px is larger than the width of the mask of " + Red.Cols + "px, Please increase the mask size so the search image can be searched.");
-                return false;
-            }
-
-            Mat res = new Mat(Rows, Cols, MatType.CV_8U);
-            //'Cv2.CvtColor(m1, m2, ColorConversionCodes.)
-
-            Mat SearchTarget = null;
-            Mat ObjectTarget = null;
-            switch (node.Channel.ToUpper())
-            {
-                case "RED":
-                    SearchTarget = Red;
-                    ObjectTarget = RedTarget;
-                    break;
-                case "GREEN":
-                    SearchTarget = Green;
-                    ObjectTarget = GreenTarget;
-                    break;
-                case "BLUE":
-                    SearchTarget = Blue;
-                    ObjectTarget = BlueTarget;
-                    break;
-                default:
-                    Game.Log(node.Name + " missing Channel using Red");
-                    SearchTarget = Red;
-                    ObjectTarget = RedTarget;
-                    break;
-            }
-            try
-            {
-                Cv2.MatchTemplate(SearchTarget, ObjectTarget, res, TemplateMatchModes.CCoeffNormed);
-            }
-            catch (Exception)
-            {
-                Game.Log("Search Failure, possible resolution mismatch");
-                return false;
-            }
-
-            OpenCvSharp.Point p = new OpenCvSharp.Point();
-            OpenCvSharp.Point DetectedPoint = new OpenCvSharp.Point();
-            Cv2.MinMaxLoc(res, out p, out DetectedPoint);
-
-            Mat.Indexer<Single> indexer = res.GetGenericIndexer<Single>();
-            float j = indexer[DetectedPoint.Y, DetectedPoint.X];
-
-            long ObjectThreshold = node.ObjectThreshold;
-            if (ObjectThreshold == 0)
-            {
-                ObjectThreshold = 100;
-            }
-
-            centerX = DetectedPoint.X + (node.ObjectSearchBitmap.Width / 2);
-            centerY = DetectedPoint.Y + (node.ObjectSearchBitmap.Height / 2);
-
-
-            if (j >= ((float)ObjectThreshold / 100))
-            {
-                Game.Log("Closest match " + (j * 100).ToString("F1") + " - x = " + centerX + "  y =" + centerY);
-                //'TB.AddReturnTrue()
-
-                if (node.FileName.IsNothing())
-                {
-                    SentBitmapToProject(bmp, node);
-                }
-                return true;
-            }
-            else
-            {
-                //'TB.AddReturnFalse()
-                return false;
-            }
-        }
-
-        private bool IsColorPointTrue(Bitmap bmp, GameNodeAction node)
-        {
-            //' no colors to click = pass.
-            if (node.ClickList.Count == 0)
-            {
-                //'TB.AddReturnTrue()
-                return true;
-            }
-
-            // if a click is out of X or Y range then fail
-            foreach (SingleClick click in node.ClickList)
-            {
-                if (bmp.Width <= click.X)
-                {
-                    return false;
-                }
-
-                if (bmp.Height <= click.Y)
-                {
-                    return false;
-                }
-
-                Color Color = bmp.GetPixel(click.X, click.Y);
-                switch (node.LogicChoice.ToUpper())
-                {
-                    case "AND":
-                        int OffsetAND = 0;
-                        if (click.Color.CompareColorWithPoints(Color, node.Points, ref OffsetAND))
-                        {
-                            //'TB.AddColorTest(click.Color, Color, Node.Points, Node.LogicChoice, True)
-                        }
-                        else
-                        {
-                            //'TB.AddColorTest(click.Color, Color, Node.Points, Node.LogicChoice, False)
-                            //'TB.AddReturnFalse()
-                            return false;
-                        }
-                        break;
-                    case "OR":
-                        int OffsetOR = 0;
-                        if (click.Color.CompareColorWithPoints(Color, node.Points, ref OffsetOR))
-                        {
-                            //'TB.AddColorTest(click.Color, Color, Node.Points, Node.LogicChoice, True)
-                            //'TB.AddReturnTrue()
-                            return true;
-                        }
-                        else
-                        {
-
-                            //'TB.AddColorTest(click.Color, Color, Node.Points, Node.LogicChoice, False)
-                        }
-                        break;
-                    default:
-                        Debug.Assert(false);
-                        break;
-                }
-            }
-            // found no true's with the OR logic
-            if (node.LogicChoice == "OR")
-            {
-                //' TB.AddReturnFalse()
-                return false;
-            }
-
-            return true;
-
-        }
-
+   
+ 
         private void StopThreadCloseWindow(IntPtr windowHandle)
         {
             Game.Log("Closing Emmulator");
@@ -620,7 +387,8 @@ namespace AppTestStudio
                         Game.Log(node.Name + " Taking Screenshot");
                     }
 
-                    if (IsTrue(bmp, node, ref centerX, ref centerY))
+                    int Offset = 0;
+                    if (node.IsTrue(bmp, Game, ref centerX, ref centerY, ref Offset))
                     {
                         if (node.IsLimited)
                         {
@@ -637,7 +405,7 @@ namespace AppTestStudio
 
                         if (node.FileName.IsNothing())
                         {
-                            SentBitmapToProject(bmp, node);
+                            node.SendBitmapToProject(bmp, Game);
                         }
 
                         node.ThreadMatchCount++;
@@ -798,16 +566,7 @@ namespace AppTestStudio
             return AfterCompletionType.Continue;
         }
 
-        private void SentBitmapToProject(Bitmap bmp, GameNodeAction node)
-        {
-            MinimalBitmapNode mbn = new MinimalBitmapNode();
-            mbn.NodeName = node.Name;
-            mbn.ResolutionWidth = node.ResolutionWidth;
-            mbn.ResolutionHeight = node.ResolutionHeight;
-            mbn.Bitmap = bmp.Clone() as Bitmap;
-            node.FileName = "";
-            Game.MinimalBitmapClones.Enqueue(mbn);
-        }
+
 
 
 
