@@ -92,7 +92,15 @@ namespace AppTestStudio
         public int ResolutionWidth { get; set; }
         public int ResolutionHeight { get; set; }
         public String ObjectName { get; set; }
-        public String FileName { get; set; }
+
+        private String mFileName;
+
+        public String FileName
+        {
+            get { return mFileName; }
+            set { mFileName = value; }
+        }
+
         public AfterCompletionType AfterCompletionType { get; set; }
 
         public int DelayMS { get; set; }
@@ -144,7 +152,7 @@ namespace AppTestStudio
             set
             {
                 mBitmap = value;
-                FileName = String.Format("{0}{0}.bmp", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-"), Environment.TickCount & int.MaxValue);
+                FileName = String.Format("{0}{1}.bmp", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-"), Environment.TickCount & int.MaxValue);
             }
         }
 

@@ -678,7 +678,7 @@ namespace AppTestStudio
                                 Node.ObjectSearchBitmap = Bitmap.FromFile(FullPathP) as Bitmap;
                                 //Node.FileName = Path.GetFileName(FullPathP);
                             }
-                            Node.FileName = Path.GetFileName(FullPathP);
+                            // Don't set Object Search filename to object search filename, --Node.FileName = Path.GetFileName(FullPathP);
                         }
                     }
                 }
@@ -735,6 +735,11 @@ namespace AppTestStudio
         private static void LoadEvent(XmlNode eventNode, GameNodeGame gameNode, GameNodeAction newEvent, List<GameNodeAction> lst, bool loadBitmaps)
         {
             String EventName = eventNode.Attributes["Name"].Value;
+
+            if (EventName == "White X")
+            {
+                int i = 1;
+            }
             String LogicChoice = "";
             if (eventNode.Attributes.GetNamedItem("LogicChoice").IsSomething())
             {
@@ -889,17 +894,24 @@ namespace AppTestStudio
 
                         String PictureFullPath = Path.Combine(Path.GetDirectoryName(gameNode.FileName), "Pictures", PictureFileName);
 
-                        if (System.IO.File.Exists(PictureFullPath))
+                        if (PictureFileName == "")
                         {
-                            if (loadBitmaps)
-                            {
-                                newEvent.Bitmap = Bitmap.FromFile(PictureFullPath) as Bitmap;
-                            }
-                            newEvent.FileName = PictureFileName;
+                            // do nothing
                         }
                         else
                         {
-                            Debug.WriteLine("filenot found:" + PictureFullPath);
+                            if (System.IO.File.Exists(PictureFullPath))
+                            {
+                                if (loadBitmaps)
+                                {
+                                    newEvent.Bitmap = Bitmap.FromFile(PictureFullPath) as Bitmap;
+                                }
+                                newEvent.FileName = PictureFileName;
+                            }
+                            else
+                            {
+                                Debug.WriteLine("filenot found:" + PictureFullPath);
+                            }
                         }
 
                         if (childNode.Attributes.GetNamedItem("ResolutionHeight").IsSomething())
@@ -936,13 +948,13 @@ namespace AppTestStudio
                             String Channel = childNode.Attributes["Channel"].Value;
                             switch (Channel.ToUpper())
                             {
-                                case "Red":
+                                case "RED":
                                     newEvent.Channel = "Red";
                                     break;
-                                case "Green":
+                                case "GREEN":
                                     newEvent.Channel = "Green";
                                     break;
-                                case "Blue":
+                                case "BLUE":
                                     newEvent.Channel = "Blue";
                                     break;
 
@@ -983,6 +995,9 @@ namespace AppTestStudio
             {
                 ActionName = actionNode.Attributes["Name"].Value;
             }
+
+
+            
 
             Boolean UseParentPicture = false;
             if (actionNode.Attributes.GetNamedItem("UseParentPicture").IsSomething())

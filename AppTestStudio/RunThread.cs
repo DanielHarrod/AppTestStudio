@@ -255,6 +255,11 @@ namespace AppTestStudio
             {
                 Game.Log("Closest match " + (j * 100).ToString("F1") + " - x = " + centerX + "  y =" + centerY);
                 //'TB.AddReturnTrue()
+
+                if (node.FileName.IsNothing())
+                {
+                    SentBitmapToProject(bmp, node);
+                }
                 return true;
             }
             else
@@ -632,13 +637,7 @@ namespace AppTestStudio
 
                         if (node.FileName.IsNothing())
                         {
-                            MinimalBitmapNode mbn = new MinimalBitmapNode();
-                            mbn.NodeName = node.Name;
-                            mbn.ResolutionWidth = node.ResolutionWidth;
-                            mbn.ResolutionHeight = node.ResolutionHeight;
-                            mbn.Bitmap = bmp.Clone() as Bitmap;
-                            node.FileName = "";
-                            Game.MinimalBitmapClones.Enqueue(mbn);
+                            SentBitmapToProject(bmp, node);
                         }
 
                         node.ThreadMatchCount++;
@@ -799,9 +798,19 @@ namespace AppTestStudio
             return AfterCompletionType.Continue;
         }
 
-    
+        private void SentBitmapToProject(Bitmap bmp, GameNodeAction node)
+        {
+            MinimalBitmapNode mbn = new MinimalBitmapNode();
+            mbn.NodeName = node.Name;
+            mbn.ResolutionWidth = node.ResolutionWidth;
+            mbn.ResolutionHeight = node.ResolutionHeight;
+            mbn.Bitmap = bmp.Clone() as Bitmap;
+            node.FileName = "";
+            Game.MinimalBitmapClones.Enqueue(mbn);
+        }
 
-  
+
+
         private AfterCompletionType CheckLimit(GameNodeAction node)
         {
             if (node.IsLimited)
