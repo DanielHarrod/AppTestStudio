@@ -388,7 +388,8 @@ namespace AppTestStudio
                     }
 
                     int Offset = 0;
-                    if (node.IsTrue(bmp, Game, ref centerX, ref centerY, ref Offset))
+                    float DetectedThreashold = 0;
+                    if (node.IsTrue(bmp, Game, ref centerX, ref centerY, ref Offset, ref DetectedThreashold))
                     {
                         if (node.IsLimited)
                         {

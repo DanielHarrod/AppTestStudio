@@ -244,57 +244,58 @@ namespace AppTestStudio
             return (GameNode)this;
         }
 
-        public Boolean IsActionMatch(Bitmap bmp, ref int qualifyingPoints)
-        {
-            Boolean Result = false;
-            Boolean FinalResult = false;
+        // Removing use IsTrue
+        //public Boolean IsActionMatch(Bitmap bmp, ref int qualifyingPoints)
+        //{
+        //    Boolean Result = false;
+        //    Boolean FinalResult = false;
 
-            foreach (SingleClick singleClick in ClickList)
-            {
-                Color color = Color.Empty;
-                if (bmp.Height >= singleClick.Y)
-                {
-                    if (bmp.Width >= singleClick.X)
-                    {
-                        color = bmp.GetPixel(singleClick.X, singleClick.Y);
-                    }
-                }
+        //    foreach (SingleClick singleClick in ClickList)
+        //    {
+        //        Color color = Color.Empty;
+        //        if (bmp.Height >= singleClick.Y)
+        //        {
+        //            if (bmp.Width >= singleClick.X)
+        //            {
+        //                color = bmp.GetPixel(singleClick.X, singleClick.Y);
+        //            }
+        //        }
 
 
-                if (LogicChoice == "AND")
-                {
+        //        if (LogicChoice == "AND")
+        //        {
 
-                    if (singleClick.Color.CompareColorWithPoints(color, Points, ref qualifyingPoints))
-                    {
-                        // First one always OK.
-                        if (FinalResult == false)
-                        {
-                            Result = true;
-                        }
-                    }
-                    else
-                    {
-                        Result = false;
-                        FinalResult = true;
-                    }
-                }
-                else
-                {
-                    if (singleClick.Color.CompareColorWithPoints(color, Points, ref qualifyingPoints))
-                    {
-                        Result = true;
-                    }
-                }
+        //            if (singleClick.Color.CompareColorWithPoints(color, Points, ref qualifyingPoints))
+        //            {
+        //                // First one always OK.
+        //                if (FinalResult == false)
+        //                {
+        //                    Result = true;
+        //                }
+        //            }
+        //            else
+        //            {
+        //                Result = false;
+        //                FinalResult = true;
+        //            }
+        //        }
+        //        else
+        //        {
+        //            if (singleClick.Color.CompareColorWithPoints(color, Points, ref qualifyingPoints))
+        //            {
+        //                Result = true;
+        //            }
+        //        }
 
-                if (ClickList.Count == 0)
-                {
-                    Result = true;
-                }
-            }
-            return Result;
-        }
+        //        if (ClickList.Count == 0)
+        //        {
+        //            Result = true;
+        //        }
+        //    }
+        //    return Result;
+        //}
 
-        internal bool IsTrue(Bitmap bmp, GameNodeGame game, ref int centerX, ref int centerY, ref int offset)
+        internal bool IsTrue(Bitmap bmp, GameNodeGame game, ref int centerX, ref int centerY, ref int offset, ref float detectedThreashold)
         {
             if (IsColorPoint)
             {
@@ -302,7 +303,7 @@ namespace AppTestStudio
             }
             else
             {
-                return IsImageSearchTrue(bmp, game, ref centerX, ref centerY);
+                return IsImageSearchTrue(bmp, game, ref centerX, ref centerY, ref detectedThreashold);
             }
         }
 
@@ -373,7 +374,7 @@ namespace AppTestStudio
 
         }
 
-        private bool IsImageSearchTrue(Bitmap bmp, GameNodeGame game, ref int centerX, ref int centerY)
+        private bool IsImageSearchTrue(Bitmap bmp, GameNodeGame game, ref int centerX, ref int centerY, ref float detectedThreashold)
         {
             if (Rectangle.Width <= 0 || Rectangle.Height <= 0)
             {
@@ -496,7 +497,7 @@ namespace AppTestStudio
             Cv2.MinMaxLoc(res, out p, out DetectedPoint);
 
             Mat.Indexer<Single> indexer = res.GetGenericIndexer<Single>();
-            float j = indexer[DetectedPoint.Y, DetectedPoint.X];
+            detectedThreashold = indexer[DetectedPoint.Y, DetectedPoint.X];
 
             long iObjectThreshold = ObjectThreshold;
             if (iObjectThreshold == 0)
@@ -508,9 +509,9 @@ namespace AppTestStudio
             centerY = DetectedPoint.Y + (ObjectSearchBitmap.Height / 2);
 
 
-            if (j >= ((float)iObjectThreshold / 100))
+            if (detectedThreashold >= ((float)iObjectThreshold / 100))
             {
-                game.Log("Closest match " + (j * 100).ToString("F1") + " - x = " + centerX + "  y =" + centerY);
+                game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + " - x = " + centerX + "  y =" + centerY);
                 //'TB.AddReturnTrue()
 
                 if (FileName.IsNothing())

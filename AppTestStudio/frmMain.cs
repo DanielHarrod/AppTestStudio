@@ -3921,6 +3921,7 @@ namespace AppTestStudio
 
             lblTestWindowResolution.Text = PictureTestAllTest.Image.Width + " x " + PictureTestAllTest.Image.Height;
 
+            
             foreach (GameNodeEvents nodeEvents in tvTestAllEvents.Nodes)
             {
                 foreach (GameNodeAction action in nodeEvents.Nodes)
@@ -3937,26 +3938,51 @@ namespace AppTestStudio
             {
                 Bitmap Bmp = PictureTestAllTest.Image as Bitmap;
                 int QualifyingEvents = 0;
-                if (Node.IsActionMatch(Bmp, ref QualifyingEvents))
+                int CenterX = 0;
+                int CenterY = 0;
+                float DetectedThreashold = 0;
+
+                GameNode AppNode = tv.SelectedNode as GameNode;
+                GameNodeGame GameNode = AppNode.GetGameNode();
+
+                if (Node.IsTrue(Bmp, GameNode, ref CenterX, ref CenterY, ref QualifyingEvents, ref DetectedThreashold))
                 {
                     //'6 = no
                     //'7 = yes
                     Node.ImageIndex = 7;
                     Node.SelectedImageIndex = 7;
                     Node.BackColor = Color.LightGreen;
+
+                    if (Node.IsColorPoint)
+                    {
+                        // do nothing
+                    }
+                    else
+                    {
+                        int intDetectedThreashold = (int)(DetectedThreashold * 100) ;
+                        Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
+                    }
                 }
                 else
                 {
+                    Node.Bitmap = Bmp;
                     Node.ImageIndex = 6;
                     Node.SelectedImageIndex = 6;
 
-                    Node.GameNodeName = Node.Name + " - Points(" + QualifyingEvents + ")";
-
-                    if (QualifyingEvents < 10)
+                    if (Node.IsColorPoint)
                     {
-                        Node.BackColor = Color.LightYellow;
-                    }
+                        Node.GameNodeName = Node.Name + " - Points(" + QualifyingEvents + ")";
 
+                        if (QualifyingEvents < 10)
+                        {
+                            Node.BackColor = Color.LightYellow;
+                        }
+                    }
+                    else
+                    {
+                        int intDetectedThreashold = (int)(DetectedThreashold * 100);
+                        Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
+                    }
 
                 }
             }
