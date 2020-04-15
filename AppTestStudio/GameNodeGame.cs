@@ -91,7 +91,20 @@ namespace AppTestStudio
 
         public String TargetGameBuild { get; set; }
         public String PackageName { get; set; }
-        public String InstanceToLaunch { get; set; }
+
+        private String mInstanceToLaunch;
+        public String InstanceToLaunch
+        {
+            get { return mInstanceToLaunch; }
+            set {
+                if (value == "")
+                {
+                    value = "0";
+                }
+                mInstanceToLaunch = value; 
+            }
+        }
+
 
         public GameNodeEvents Events
         {
@@ -208,6 +221,7 @@ namespace AppTestStudio
             GameNodeGame Game = new GameNodeGame(GameName);
             Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
+
             Game.InstanceToLaunch = LaunchInstance;
             Game.Resolution = Resolution;
             Game.LoopDelay = LoopDelay;
