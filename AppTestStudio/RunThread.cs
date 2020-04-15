@@ -72,6 +72,12 @@ namespace AppTestStudio
 
                 IntPtr hBitmap = API.CreateCompatibleBitmap(hdcSrc, TargetWindowWidth, TargetWindowHeight);
 
+                if (hBitmap.ToInt32() == 0)
+                {
+                    API.DeleteDC(hdcDest);
+                    return null;
+                }
+
                 IntPtr hOld = API.SelectObject(hdcDest, hBitmap);
 
                 //'modAPI.BitBlt(hdcDest, 0, 0, TargetWindowWidth, TargetWindowHeight, hdcSrc, 0, 0, &HCC0020)
