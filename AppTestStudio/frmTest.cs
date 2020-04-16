@@ -20,7 +20,7 @@ namespace AppTestStudio
         IntPtr MainWindowHandle;
         GameNodeAction Action;
         GameNodeGame Game;
-        public frmTest( GameNodeGame game, GameNodeAction action, frmMain frm, IntPtr MainWindowHandle)
+        public frmTest(GameNodeGame game, GameNodeAction action, frmMain frm, IntPtr MainWindowHandle)
         {
             InitializeComponent();
             Game = game;
@@ -75,38 +75,40 @@ namespace AppTestStudio
                 }
 
 
-            int RowIndex = dgv.Rows.Add();
-            int X = Convert.ToInt32( row.Cells["dgvX"].Value);
-            int y = Convert.ToInt32(row.Cells["dgvY"].Value);
+                int RowIndex = dgv.Rows.Add();
+                int X = Convert.ToInt32(row.Cells["dgvX"].Value);
+                int y = Convert.ToInt32(row.Cells["dgvY"].Value);
                 Color Targetcolor = Color.Red;
                 Targetcolor = Targetcolor.FromRGBString(row.Cells["dgvColor"].Value.ToString());
                 dgv.Rows[RowIndex].Cells["dgvColor"].Value = Targetcolor.ToRGBString();
-            dgv.Rows[RowIndex].Cells["dgvX"].Value = X;
+                dgv.Rows[RowIndex].Cells["dgvX"].Value = X;
                 dgv.Rows[RowIndex].Cells["dgvY"].Value = y;
 
                 DataGridViewCellStyle Style = new DataGridViewCellStyle();
                 Style.BackColor = Style.BackColor.FromRGBString(row.Cells["dgvColor"].Value.ToString());
-Single brightness = Targetcolor.GetBrightness();
-            if (brightness < 0.55)
-            {
+                Single brightness = Targetcolor.GetBrightness();
+                if (brightness < 0.55)
+                {
                     Style.ForeColor = Color.WhiteSmoke;
-            }
-            else
-            {
+                }
+                else
+                {
                     Style.ForeColor = Color.Black;
-            }
+                }
 
                 dgv.Rows[RowIndex].Cells["dgvColor"].Style = Style;
 
                 RowIndex = dgvTest.Rows.Add();
 
-            DataGridViewRow dgvTestRow = dgvTest.Rows[RowIndex];
+                DataGridViewRow dgvTestRow = dgvTest.Rows[RowIndex];
 
                 Color TestColor;
-                if (bmp.Height >= y && bmp.Width >= X ) {
+                if (bmp.Height >= y && bmp.Width >= X)
+                {
                     TestColor = bmp.GetPixel(X, y);
-                } else
-            {
+                }
+                else
+                {
                     TestColor = Color.Black;
                     Style.ForeColor = Color.White;
                 }
@@ -121,38 +123,38 @@ Single brightness = Targetcolor.GetBrightness();
                 int notused = 0;
 
                 if (frm.rdoAnd.Checked)
-            {
-                if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused))
                 {
-                    if (FinalResult == false)
+                    if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused))
                     {
+                        if (FinalResult == false)
+                        {
                             Result = true; ;
                         }
-                }
-                else
-                {
+                    }
+                    else
+                    {
                         Result = false;
                         FinalResult = true;
                     }
-            }
-            else
-            {
-                if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(),ref notused))
+                }
+                else
                 {
+                    if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused))
+                    {
                         Result = true;
                     }
-            }
+                }
 
-            if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused))
-            {
+                if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused))
+                {
                     dgvTestRow.Cells["dgvPassFail"].Value = "Test Passed";
                     Style = new DataGridViewCellStyle();
                     Style.BackColor = Color.Green;
                     dgvTestRow.Cells["dgvPassFail"].Style = Style;
 
                 }
-            else
-            {
+                else
+                {
                     dgvTestRow.Cells["dgvPassFail"].Value = "Test Failed";
                     Style = new DataGridViewCellStyle();
                     Style.BackColor = Color.Red;
@@ -160,34 +162,34 @@ Single brightness = Targetcolor.GetBrightness();
                 }
 
                 long r = Math.Abs(Convert.ToInt32(Targetcolor.R) - Convert.ToInt32(TestColor.R));
-long g = Math.Abs(Convert.ToInt32(Targetcolor.G) - Convert.ToInt32(TestColor.G));
-long b = Math.Abs(Convert.ToInt32(Targetcolor.B) - Convert.ToInt32(TestColor.B));
+                long g = Math.Abs(Convert.ToInt32(Targetcolor.G) - Convert.ToInt32(TestColor.G));
+                long b = Math.Abs(Convert.ToInt32(Targetcolor.B) - Convert.ToInt32(TestColor.B));
 
-long Largest = 0;
+                long Largest = 0;
                 if (r > Largest)
-            {
+                {
                     Largest = r;
                 }
-            if (g > Largest)
-            {
+                if (g > Largest)
+                {
                     Largest = g;
                 }
-            if (b > Largest)
-            {
+                if (b > Largest)
+                {
                     Largest = b;
                 }
 
                 dgvTestRow.Cells["dvgRange"].Value = Largest;
-        }
+            }
 
-        if (frm.rdoAnd.Checked)
+            if (frm.rdoAnd.Checked)
             {
                 lblLogic.Text = "Logic: AND";
-        }
+            }
             else
             {
                 lblLogic.Text = "Logic: OR";
-          }
+            }
 
             if (dgvTest.Rows.Count == 1)
             {
@@ -204,7 +206,7 @@ long Largest = 0;
             {
                 txtResult.Text = "Failed";
                 txtResult.BackColor = Color.Red;
-          }
+            }
 
         }
 

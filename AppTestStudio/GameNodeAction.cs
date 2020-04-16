@@ -311,11 +311,11 @@ namespace AppTestStudio
         //    return Result;
         //}
 
-        internal bool IsTrue(Bitmap bmp, GameNodeGame game, ref int centerX, ref int centerY, ref int offset, ref float detectedThreashold)
+        internal bool IsTrue(Bitmap bmp, GameNodeGame game, ref int centerX, ref int centerY, ref int detectedOffset, ref float detectedThreashold)
         {
             if (IsColorPoint)
             {
-                return IsColorPointTrue(bmp, ref offset);
+                return IsColorPointTrue(bmp, ref detectedOffset);
             }
             else
             {
@@ -323,6 +323,12 @@ namespace AppTestStudio
             }
         }
 
+        /// <summary>
+        /// Compares the clicklist agains the bitmap.
+        /// </summary>
+        /// <param name="bmp"></param>
+        /// <param name="offset">Returns the number of points on the first failure.</param>
+        /// <returns>True if thie logic passes</returns>
         private bool IsColorPointTrue(Bitmap bmp, ref int offset)
         {
             //' no colors to click = pass.
