@@ -692,6 +692,7 @@ namespace AppTestStudio
                         dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
                         dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scan";
 
+                        // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                         DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Click.Color);
 
                         dgv.Rows[RowIndex].Cells["dgvColor"].Style = Style;
@@ -1252,7 +1253,7 @@ namespace AppTestStudio
         private void LoadPanelEvents()
         {
             GameNode Node = tv.SelectedNode as GameNode;
-            GameNode Parent = Node.Parent as GameNode ;
+            GameNode Parent = Node.Parent as GameNode;
             GameNodeGame Game = Parent as GameNodeGame;
             lblEventsPanelTargetWindow.Text = Game.TargetWindow;
         }
@@ -1415,7 +1416,7 @@ namespace AppTestStudio
             GameNode node = tv.GetNodeAt(p) as GameNode;
             if (node.IsSomething())
             {
-                  switch (node.GameNodeType)
+                switch (node.GameNodeType)
                 {
                     case GameNodeType.Workspace:
                         break;
@@ -2101,6 +2102,8 @@ namespace AppTestStudio
                 Color Color = bmp.GetPixel(x, y);
 
                 dgv.Rows[i].Cells["dgvColor"].Value = Color.ToRGBString();
+
+                // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                 DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Color);
 
                 dgv.Rows[i].Cells["dgvColor"].Style = Style;
@@ -2281,13 +2284,12 @@ namespace AppTestStudio
 
                                     frm2.ShowDialog(this);
                                 }
-
                             }
                             else
                             {
                                 Log("Please select An Object to test with from the list in the Object group before testing.");
                                 // FlashLabel(lblSearchObject)
-                               // Debug.Assert(false);// need to preset REd Channel if one's not selected
+                                // Debug.Assert(false);// need to preset REd Channel if one's not selected
                             }
                         }
 
@@ -2322,8 +2324,6 @@ namespace AppTestStudio
                     }
                 }
             }
-
-
 
             if (ThreadManager.IsDirty)
             {
@@ -2682,7 +2682,7 @@ namespace AppTestStudio
                 {
                     if (child.UseParentPicture)
                     {
-                        if (child.ActionType == ActionType.Action )
+                        if (child.ActionType == ActionType.Action)
                         {
                             Log("Linking Child: " + child.Name);
                             child.Bitmap = bmp.Clone() as Bitmap;
@@ -2710,6 +2710,7 @@ namespace AppTestStudio
                         dgv.Rows[RowIndex].Cells["dgvY"].Value = PictureBox1Y;
                         dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
 
+                        // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                         DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(PictureBox1Color);
 
                         dgv.Rows[RowIndex].Cells["dgvColor"].Style = Style;
@@ -3139,6 +3140,7 @@ namespace AppTestStudio
                             dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
                             dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scan";
 
+                            // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                             DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
 
                             dgv.Rows[RowIndex].Cells["dgvColor"].Style = Style;
@@ -3921,7 +3923,7 @@ namespace AppTestStudio
 
             lblTestWindowResolution.Text = PictureTestAllTest.Image.Width + " x " + PictureTestAllTest.Image.Height;
 
-            
+
             foreach (GameNodeEvents nodeEvents in tvTestAllEvents.Nodes)
             {
                 foreach (GameNodeAction action in nodeEvents.Nodes)
@@ -3959,7 +3961,7 @@ namespace AppTestStudio
                     }
                     else
                     {
-                        int intDetectedThreashold = (int)(DetectedThreashold * 100) ;
+                        int intDetectedThreashold = (int)(DetectedThreashold * 100);
                         Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
                     }
                 }
@@ -4008,6 +4010,14 @@ namespace AppTestStudio
 
         }
 
+        private void ShowHideTestAllEventsGridsAndLabels(Boolean SetVisible)
+        {
+            dgvTestAllReference.Visible = SetVisible;
+            dgvTest.Visible = SetVisible;
+            lblTestAllEventsTestWindowColors.Visible = SetVisible;
+            lblTestAllEventsReference.Visible = SetVisible;
+        }
+
         private void tvTestAllEvents_AfterSelect(object sender, TreeViewEventArgs e)
         {
             Debug.WriteLine("tvTestAllEvents_AfterSelect");
@@ -4016,6 +4026,7 @@ namespace AppTestStudio
 
             GameNodeAction Node = null;
 
+            // Make sure that we don't test all actions otherwise it will click/drag everywhere
             switch (GameNode.GameNodeType)
             {
                 case GameNodeType.Action:
@@ -4036,8 +4047,23 @@ namespace AppTestStudio
                     break;
             }
 
+            // show hide grids depending on node type
+            if (Node.IsColorPoint)
+            {
+                ShowHideTestAllEventsGridsAndLabels(true);
+            }
+            else
+            {
+                // Object Search
+                ShowHideTestAllEventsGridsAndLabels(false);
+            }
 
+
+            // Result is the calculation of true with OR or AND Logic
+            // It does not short circuit on first true for OR or first false for AND.
             Boolean Result = false;
+
+            // Final result 
             Boolean FinalResult = false;
 
             dgvTestAllReference.Rows.Clear();
@@ -4045,13 +4071,12 @@ namespace AppTestStudio
 
             foreach (SingleClick Item in Node.ClickList)
             {
-
-
                 int Rowindex = dgvTestAllReference.Rows.Add();
                 dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceColor"].Value = Item.Color.ToRGBString();
                 dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceX"].Value = Item.X;
                 dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceY"].Value = Item.Y;
 
+                // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                 DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Item.Color);
 
                 dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceColor"].Style = Style;
@@ -4074,11 +4099,13 @@ namespace AppTestStudio
 
                 Row.Cells["dgvColorTest"].Value = TargetColor.ToRGBString();
 
+                // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                 Row.Cells["dgvColorTest"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
 
                 Row.Cells["dgvXTest"].Value = Item.X;
                 Row.Cells["dgvYTest"].Value = Item.Y;
 
+                // How far of was the test from the target color.
                 int QualifyingPoints = 0;
 
                 if (Node.LogicChoice == "AND")

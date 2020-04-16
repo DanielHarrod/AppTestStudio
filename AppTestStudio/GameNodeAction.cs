@@ -69,16 +69,31 @@ namespace AppTestStudio
             return 0;
         }
 
+        /// <summary>
+        /// Default Delay Hours
+        /// </summary>
+        /// <returns></returns>
         public int DefaultDelayH()
         {
             return 0;
         }
 
         public List<SingleClick> ClickList { get; set; }
+
+
+        /// <summary>
+        /// LogicChoice - Used to determine the logic choice when a screenshot is taken and the clickList is evaluated
+        /// When And: All color/point combinations must match for a true result.
+        /// When Or : At least one color/point combination must match for a true result.
+        /// </summary>
         public String LogicChoice { get; set; }
 
-        private Boolean mIsColorPoint;
 
+        private Boolean mIsColorPoint;
+        /// <summary>
+        /// When True : Used on Event Node types ColorPoint is system will search a list of colors and points for a match
+        /// When False: Object Search is used.
+        /// </summary>
         public Boolean IsColorPoint
         {
             get { return mIsColorPoint; }
@@ -89,6 +104,7 @@ namespace AppTestStudio
         }
 
         public ActionType ActionType { get; set; }
+
         public Rectangle Rectangle;
         public Boolean UseParentPicture { get; set; }
         public Bitmap ObjectSearchBitmap { get; set; }

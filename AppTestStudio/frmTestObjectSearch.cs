@@ -94,8 +94,6 @@ namespace AppTestStudio
 
                             if (Node.IsRelativeStart)
                             {
-
-
                                 GameNode Parent = Node.Parent as GameNode;
                                 if (Parent is GameNodeAction)
                                 {
@@ -129,7 +127,7 @@ namespace AppTestStudio
 
                             if (Failed)
                             {
-
+                                // do nothing
                             }
                             else
                             {

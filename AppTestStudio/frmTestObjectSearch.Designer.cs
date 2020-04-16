@@ -469,7 +469,7 @@
             this.Controls.Add(this.TabControl2);
             this.Controls.Add(this.cmdUpdateScreenshot);
             this.Name = "frmTestObjectSearch";
-            this.Text = "frmTestObjectSearch";
+            this.Text = "Test Object Search";
             this.Load += new System.EventHandler(this.frmTestObjectSearch_Load);
             this.GroupBox4.ResumeLayout(false);
             this.GroupBox4.PerformLayout();
