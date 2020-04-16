@@ -407,9 +407,16 @@ namespace AppTestStudioControls
                 {
                     foreach (AppTestStudioStatusControlItem item in Queue)
                     {
-                        if (ShortItems[item.Index] == -1)
+                        if (item.Index <= ShortItems.Count())
                         {
-                            ShortItems[item.Index] = 1;
+                            if (ShortItems[item.Index] == -1)
+                            {
+                                ShortItems[item.Index] = 1;
+                            }
+                        }
+                        else
+                        {
+                            Debug.WriteLine("Short Items>Itemindex");
                         }
                     }
                 }

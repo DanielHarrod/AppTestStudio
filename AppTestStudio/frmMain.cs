@@ -4664,6 +4664,11 @@ namespace AppTestStudio
 
                 Log("File Created: " + saveFileDialog1.FileName);
                 ThreadManager.IncrementTestSaved();
+
+                String Argument = "/select, \"" + saveFileDialog1.FileName + "\"";
+                
+                System.Diagnostics.Process.Start("explorer.exe", Argument);
+
             }
         }
 
