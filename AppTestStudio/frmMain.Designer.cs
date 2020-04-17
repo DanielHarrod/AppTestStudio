@@ -30,6 +30,10 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -37,10 +41,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -118,18 +118,6 @@
             this.lblRHSColor = new System.Windows.Forms.Label();
             this.lblRHSXY = new System.Windows.Forms.Label();
             this.PictureBox2 = new System.Windows.Forms.PictureBox();
-            this.grpObject = new System.Windows.Forms.GroupBox();
-            this.NumericObjectThreshold = new System.Windows.Forms.NumericUpDown();
-            this.Label52 = new System.Windows.Forms.Label();
-            this.cmdMaxMask = new System.Windows.Forms.Button();
-            this.lblMaskSize = new System.Windows.Forms.Label();
-            this.Label51 = new System.Windows.Forms.Label();
-            this.Label50 = new System.Windows.Forms.Label();
-            this.cboChannel = new System.Windows.Forms.ComboBox();
-            this.PictureBoxEventObjectSelection = new System.Windows.Forms.PictureBox();
-            this.cboObject = new System.Windows.Forms.ComboBox();
-            this.lblColorChannel = new System.Windows.Forms.Label();
-            this.lblSearchObject = new System.Windows.Forms.Label();
             this.grpAndOr = new System.Windows.Forms.GroupBox();
             this.label31 = new System.Windows.Forms.Label();
             this.cboPoints = new System.Windows.Forms.ComboBox();
@@ -155,6 +143,46 @@
             this.Label49 = new System.Windows.Forms.Label();
             this.lblYOffsetRange = new System.Windows.Forms.Label();
             this.chkRelativePosition = new System.Windows.Forms.CheckBox();
+            this.grpObject = new System.Windows.Forms.GroupBox();
+            this.NumericObjectThreshold = new System.Windows.Forms.NumericUpDown();
+            this.Label52 = new System.Windows.Forms.Label();
+            this.cmdMaxMask = new System.Windows.Forms.Button();
+            this.lblMaskSize = new System.Windows.Forms.Label();
+            this.Label51 = new System.Windows.Forms.Label();
+            this.Label50 = new System.Windows.Forms.Label();
+            this.cboChannel = new System.Windows.Forms.ComboBox();
+            this.PictureBoxEventObjectSelection = new System.Windows.Forms.PictureBox();
+            this.cboObject = new System.Windows.Forms.ComboBox();
+            this.lblColorChannel = new System.Windows.Forms.Label();
+            this.lblSearchObject = new System.Windows.Forms.Label();
+            this.PanelTestAllEvents = new System.Windows.Forms.Panel();
+            this.SplitContainer6 = new System.Windows.Forms.SplitContainer();
+            this.SplitContainer7 = new System.Windows.Forms.SplitContainer();
+            this.label35 = new System.Windows.Forms.Label();
+            this.tvTestAllEvents = new System.Windows.Forms.TreeView();
+            this.SplitContainer8 = new System.Windows.Forms.SplitContainer();
+            this.SplitContainer9 = new System.Windows.Forms.SplitContainer();
+            this.lblReferenceWindowResolution = new System.Windows.Forms.Label();
+            this.Panel1 = new System.Windows.Forms.Panel();
+            this.PictureTestAllReference = new System.Windows.Forms.PictureBox();
+            this.lblReference = new System.Windows.Forms.Label();
+            this.lblTestWindowResolution = new System.Windows.Forms.Label();
+            this.Panel2 = new System.Windows.Forms.Panel();
+            this.PictureTestAllTest = new System.Windows.Forms.PictureBox();
+            this.lblTestWindow = new System.Windows.Forms.Label();
+            this.SplitContainer10 = new System.Windows.Forms.SplitContainer();
+            this.lblTestAllEventsReference = new System.Windows.Forms.Label();
+            this.dgvTestAllReference = new System.Windows.Forms.DataGridView();
+            this.dgvTestAllReferenceColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTestAllReferenceX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTestAllReferenceY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblTestAllEventsTestWindowColors = new System.Windows.Forms.Label();
+            this.dgvTest = new System.Windows.Forms.DataGridView();
+            this.dgvColorTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvXTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvYTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPassFail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dvgRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelThread = new System.Windows.Forms.Panel();
             this.splitContainerThread = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -185,6 +213,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.splitContainerSeconds = new System.Windows.Forms.SplitContainer();
+            this.appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
             this.PanelSchedule = new System.Windows.Forms.Panel();
             this.Button5 = new System.Windows.Forms.Button();
             this.chkEnableSchedule = new System.Windows.Forms.CheckBox();
@@ -232,34 +261,6 @@
             this.label39 = new System.Windows.Forms.Label();
             this.txtAddNewGame = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
-            this.PanelTestAllEvents = new System.Windows.Forms.Panel();
-            this.SplitContainer6 = new System.Windows.Forms.SplitContainer();
-            this.SplitContainer7 = new System.Windows.Forms.SplitContainer();
-            this.label35 = new System.Windows.Forms.Label();
-            this.tvTestAllEvents = new System.Windows.Forms.TreeView();
-            this.SplitContainer8 = new System.Windows.Forms.SplitContainer();
-            this.SplitContainer9 = new System.Windows.Forms.SplitContainer();
-            this.lblReferenceWindowResolution = new System.Windows.Forms.Label();
-            this.Panel1 = new System.Windows.Forms.Panel();
-            this.PictureTestAllReference = new System.Windows.Forms.PictureBox();
-            this.lblReference = new System.Windows.Forms.Label();
-            this.lblTestWindowResolution = new System.Windows.Forms.Label();
-            this.Panel2 = new System.Windows.Forms.Panel();
-            this.PictureTestAllTest = new System.Windows.Forms.PictureBox();
-            this.lblTestWindow = new System.Windows.Forms.Label();
-            this.SplitContainer10 = new System.Windows.Forms.SplitContainer();
-            this.lblTestAllEventsReference = new System.Windows.Forms.Label();
-            this.dgvTestAllReference = new System.Windows.Forms.DataGridView();
-            this.dgvTestAllReferenceColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTestAllReferenceX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTestAllReferenceY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblTestAllEventsTestWindowColors = new System.Windows.Forms.Label();
-            this.dgvTest = new System.Windows.Forms.DataGridView();
-            this.dgvColorTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvXTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvYTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPassFail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dvgRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelObjects = new System.Windows.Forms.Panel();
             this.label34 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -333,7 +334,6 @@
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
             this.toolStripMain = new AppTestStudioControls.AppTestStudioToolStrip();
             this.toolStripLoadScript = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSaveScript = new System.Windows.Forms.ToolStripButton();
@@ -376,9 +376,6 @@
             this.groupBox6.SuspendLayout();
             this.PanelSelectedColor.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
-            this.grpObject.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEventObjectSelection)).BeginInit();
             this.grpAndOr.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
             this.grpObjectAction.SuspendLayout();
@@ -388,32 +385,9 @@
             this.GroupBox10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericXOffset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericYOffset)).BeginInit();
-            this.PanelThread.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).BeginInit();
-            this.splitContainerThread.Panel1.SuspendLayout();
-            this.splitContainerThread.Panel2.SuspendLayout();
-            this.splitContainerThread.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSeconds)).BeginInit();
-            this.splitContainerSeconds.SuspendLayout();
-            this.PanelSchedule.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).BeginInit();
-            this.PanelGames.SuspendLayout();
-            this.PanelActions.SuspendLayout();
-            this.PanelObjectScreenshot.SuspendLayout();
-            this.panelObjectScreenshotColor.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshotZoomBox)).BeginInit();
-            this.Panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshot)).BeginInit();
-            this.PanelObject.SuspendLayout();
-            this.Panel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).BeginInit();
-            this.PanelAddNewGames.SuspendLayout();
+            this.grpObject.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEventObjectSelection)).BeginInit();
             this.PanelTestAllEvents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer6)).BeginInit();
             this.SplitContainer6.Panel1.SuspendLayout();
@@ -441,6 +415,32 @@
             this.SplitContainer10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestAllReference)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
+            this.PanelThread.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).BeginInit();
+            this.splitContainerThread.Panel1.SuspendLayout();
+            this.splitContainerThread.Panel2.SuspendLayout();
+            this.splitContainerThread.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSeconds)).BeginInit();
+            this.splitContainerSeconds.SuspendLayout();
+            this.PanelSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).BeginInit();
+            this.PanelGames.SuspendLayout();
+            this.PanelActions.SuspendLayout();
+            this.PanelObjectScreenshot.SuspendLayout();
+            this.panelObjectScreenshotColor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshotZoomBox)).BeginInit();
+            this.Panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshot)).BeginInit();
+            this.PanelObject.SuspendLayout();
+            this.Panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).BeginInit();
+            this.PanelAddNewGames.SuspendLayout();
             this.PanelObjects.SuspendLayout();
             this.PanelEvents.SuspendLayout();
             this.PanelWorkspace.SuspendLayout();
@@ -773,7 +773,7 @@
             this.PanelColorEvent.Controls.Add(this.grpAndOr);
             this.PanelColorEvent.Controls.Add(this.grpObjectAction);
             this.PanelColorEvent.Controls.Add(this.grpObject);
-            this.PanelColorEvent.Location = new System.Drawing.Point(32, 25);
+            this.PanelColorEvent.Location = new System.Drawing.Point(632, 125);
             this.PanelColorEvent.Name = "PanelColorEvent";
             this.PanelColorEvent.Size = new System.Drawing.Size(1048, 636);
             this.PanelColorEvent.TabIndex = 14;
@@ -1542,132 +1542,6 @@
             this.PictureBox2.TabIndex = 0;
             this.PictureBox2.TabStop = false;
             // 
-            // grpObject
-            // 
-            this.grpObject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.grpObject.Controls.Add(this.NumericObjectThreshold);
-            this.grpObject.Controls.Add(this.Label52);
-            this.grpObject.Controls.Add(this.cmdMaxMask);
-            this.grpObject.Controls.Add(this.lblMaskSize);
-            this.grpObject.Controls.Add(this.Label51);
-            this.grpObject.Controls.Add(this.Label50);
-            this.grpObject.Controls.Add(this.cboChannel);
-            this.grpObject.Controls.Add(this.PictureBoxEventObjectSelection);
-            this.grpObject.Controls.Add(this.cboObject);
-            this.grpObject.Controls.Add(this.lblColorChannel);
-            this.grpObject.Controls.Add(this.lblSearchObject);
-            this.grpObject.Location = new System.Drawing.Point(721, 353);
-            this.grpObject.Name = "grpObject";
-            this.grpObject.Size = new System.Drawing.Size(319, 235);
-            this.grpObject.TabIndex = 29;
-            this.grpObject.TabStop = false;
-            this.grpObject.Text = "Object";
-            // 
-            // NumericObjectThreshold
-            // 
-            this.NumericObjectThreshold.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumericObjectThreshold.Location = new System.Drawing.Point(88, 70);
-            this.NumericObjectThreshold.Name = "NumericObjectThreshold";
-            this.NumericObjectThreshold.Size = new System.Drawing.Size(94, 30);
-            this.NumericObjectThreshold.TabIndex = 10;
-            this.NumericObjectThreshold.ValueChanged += new System.EventHandler(this.NumericObjectThreshold_ValueChanged);
-            // 
-            // Label52
-            // 
-            this.Label52.AutoSize = true;
-            this.Label52.Location = new System.Drawing.Point(7, 78);
-            this.Label52.Name = "Label52";
-            this.Label52.Size = new System.Drawing.Size(54, 13);
-            this.Label52.TabIndex = 9;
-            this.Label52.Text = "Threshold";
-            // 
-            // cmdMaxMask
-            // 
-            this.cmdMaxMask.Location = new System.Drawing.Point(88, 120);
-            this.cmdMaxMask.Name = "cmdMaxMask";
-            this.cmdMaxMask.Size = new System.Drawing.Size(139, 23);
-            this.cmdMaxMask.TabIndex = 8;
-            this.cmdMaxMask.Text = "Set Mask to Max";
-            this.cmdMaxMask.UseVisualStyleBackColor = true;
-            this.cmdMaxMask.Click += new System.EventHandler(this.cmdMaxMask_Click);
-            // 
-            // lblMaskSize
-            // 
-            this.lblMaskSize.AutoSize = true;
-            this.lblMaskSize.Location = new System.Drawing.Point(85, 101);
-            this.lblMaskSize.Name = "lblMaskSize";
-            this.lblMaskSize.Size = new System.Drawing.Size(63, 13);
-            this.lblMaskSize.TabIndex = 7;
-            this.lblMaskSize.Text = "lblMaskSize";
-            // 
-            // Label51
-            // 
-            this.Label51.AutoSize = true;
-            this.Label51.Location = new System.Drawing.Point(7, 105);
-            this.Label51.Name = "Label51";
-            this.Label51.Size = new System.Drawing.Size(56, 13);
-            this.Label51.TabIndex = 6;
-            this.Label51.Text = "Mask Size";
-            // 
-            // Label50
-            // 
-            this.Label50.AutoSize = true;
-            this.Label50.Location = new System.Drawing.Point(10, 149);
-            this.Label50.Name = "Label50";
-            this.Label50.Size = new System.Drawing.Size(38, 13);
-            this.Label50.TabIndex = 5;
-            this.Label50.Text = "Object";
-            // 
-            // cboChannel
-            // 
-            this.cboChannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboChannel.FormattingEnabled = true;
-            this.cboChannel.Items.AddRange(new object[] {
-            "Choose a Channel",
-            "Red Channel",
-            "Green Channel",
-            "Blue Channel"});
-            this.cboChannel.Location = new System.Drawing.Point(88, 48);
-            this.cboChannel.Name = "cboChannel";
-            this.cboChannel.Size = new System.Drawing.Size(139, 21);
-            this.cboChannel.TabIndex = 3;
-            this.cboChannel.SelectedIndexChanged += new System.EventHandler(this.cboChannel_SelectedIndexChanged);
-            // 
-            // PictureBoxEventObjectSelection
-            // 
-            this.PictureBoxEventObjectSelection.Location = new System.Drawing.Point(88, 149);
-            this.PictureBoxEventObjectSelection.Name = "PictureBoxEventObjectSelection";
-            this.PictureBoxEventObjectSelection.Size = new System.Drawing.Size(100, 50);
-            this.PictureBoxEventObjectSelection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureBoxEventObjectSelection.TabIndex = 1;
-            this.PictureBoxEventObjectSelection.TabStop = false;
-            // 
-            // cboObject
-            // 
-            this.cboObject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboObject.FormattingEnabled = true;
-            this.cboObject.Location = new System.Drawing.Point(88, 20);
-            this.cboObject.Name = "cboObject";
-            this.cboObject.Size = new System.Drawing.Size(139, 21);
-            this.cboObject.TabIndex = 0;
-            this.cboObject.SelectedIndexChanged += new System.EventHandler(this.cboObject_SelectedIndexChanged);
-            // 
-            // lblColorChannel
-            // 
-            this.lblColorChannel.Location = new System.Drawing.Point(7, 48);
-            this.lblColorChannel.Name = "lblColorChannel";
-            this.lblColorChannel.Size = new System.Drawing.Size(125, 21);
-            this.lblColorChannel.TabIndex = 4;
-            this.lblColorChannel.Text = "Color Channel";
-            // 
-            // lblSearchObject
-            // 
-            this.lblSearchObject.Location = new System.Drawing.Point(7, 20);
-            this.lblSearchObject.Name = "lblSearchObject";
-            this.lblSearchObject.Size = new System.Drawing.Size(125, 21);
-            this.lblSearchObject.TabIndex = 2;
-            this.lblSearchObject.Text = "Search Object";
-            // 
             // grpAndOr
             // 
             this.grpAndOr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -1930,6 +1804,476 @@
             this.chkRelativePosition.Text = "Use Object Position to Click/Drag";
             this.chkRelativePosition.UseVisualStyleBackColor = true;
             this.chkRelativePosition.CheckedChanged += new System.EventHandler(this.chkRelativePosition_CheckedChanged);
+            // 
+            // grpObject
+            // 
+            this.grpObject.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpObject.Controls.Add(this.NumericObjectThreshold);
+            this.grpObject.Controls.Add(this.Label52);
+            this.grpObject.Controls.Add(this.cmdMaxMask);
+            this.grpObject.Controls.Add(this.lblMaskSize);
+            this.grpObject.Controls.Add(this.Label51);
+            this.grpObject.Controls.Add(this.Label50);
+            this.grpObject.Controls.Add(this.cboChannel);
+            this.grpObject.Controls.Add(this.PictureBoxEventObjectSelection);
+            this.grpObject.Controls.Add(this.cboObject);
+            this.grpObject.Controls.Add(this.lblColorChannel);
+            this.grpObject.Controls.Add(this.lblSearchObject);
+            this.grpObject.Location = new System.Drawing.Point(721, 353);
+            this.grpObject.Name = "grpObject";
+            this.grpObject.Size = new System.Drawing.Size(319, 235);
+            this.grpObject.TabIndex = 29;
+            this.grpObject.TabStop = false;
+            this.grpObject.Text = "Object";
+            // 
+            // NumericObjectThreshold
+            // 
+            this.NumericObjectThreshold.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumericObjectThreshold.Location = new System.Drawing.Point(88, 70);
+            this.NumericObjectThreshold.Name = "NumericObjectThreshold";
+            this.NumericObjectThreshold.Size = new System.Drawing.Size(94, 30);
+            this.NumericObjectThreshold.TabIndex = 10;
+            this.NumericObjectThreshold.ValueChanged += new System.EventHandler(this.NumericObjectThreshold_ValueChanged);
+            // 
+            // Label52
+            // 
+            this.Label52.AutoSize = true;
+            this.Label52.Location = new System.Drawing.Point(7, 78);
+            this.Label52.Name = "Label52";
+            this.Label52.Size = new System.Drawing.Size(54, 13);
+            this.Label52.TabIndex = 9;
+            this.Label52.Text = "Threshold";
+            // 
+            // cmdMaxMask
+            // 
+            this.cmdMaxMask.Location = new System.Drawing.Point(88, 120);
+            this.cmdMaxMask.Name = "cmdMaxMask";
+            this.cmdMaxMask.Size = new System.Drawing.Size(139, 23);
+            this.cmdMaxMask.TabIndex = 8;
+            this.cmdMaxMask.Text = "Set Mask to Max";
+            this.cmdMaxMask.UseVisualStyleBackColor = true;
+            this.cmdMaxMask.Click += new System.EventHandler(this.cmdMaxMask_Click);
+            // 
+            // lblMaskSize
+            // 
+            this.lblMaskSize.AutoSize = true;
+            this.lblMaskSize.Location = new System.Drawing.Point(85, 101);
+            this.lblMaskSize.Name = "lblMaskSize";
+            this.lblMaskSize.Size = new System.Drawing.Size(63, 13);
+            this.lblMaskSize.TabIndex = 7;
+            this.lblMaskSize.Text = "lblMaskSize";
+            // 
+            // Label51
+            // 
+            this.Label51.AutoSize = true;
+            this.Label51.Location = new System.Drawing.Point(7, 105);
+            this.Label51.Name = "Label51";
+            this.Label51.Size = new System.Drawing.Size(56, 13);
+            this.Label51.TabIndex = 6;
+            this.Label51.Text = "Mask Size";
+            // 
+            // Label50
+            // 
+            this.Label50.AutoSize = true;
+            this.Label50.Location = new System.Drawing.Point(10, 149);
+            this.Label50.Name = "Label50";
+            this.Label50.Size = new System.Drawing.Size(38, 13);
+            this.Label50.TabIndex = 5;
+            this.Label50.Text = "Object";
+            // 
+            // cboChannel
+            // 
+            this.cboChannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboChannel.FormattingEnabled = true;
+            this.cboChannel.Items.AddRange(new object[] {
+            "Choose a Channel",
+            "Red Channel",
+            "Green Channel",
+            "Blue Channel"});
+            this.cboChannel.Location = new System.Drawing.Point(88, 48);
+            this.cboChannel.Name = "cboChannel";
+            this.cboChannel.Size = new System.Drawing.Size(139, 21);
+            this.cboChannel.TabIndex = 3;
+            this.cboChannel.SelectedIndexChanged += new System.EventHandler(this.cboChannel_SelectedIndexChanged);
+            // 
+            // PictureBoxEventObjectSelection
+            // 
+            this.PictureBoxEventObjectSelection.Location = new System.Drawing.Point(88, 149);
+            this.PictureBoxEventObjectSelection.Name = "PictureBoxEventObjectSelection";
+            this.PictureBoxEventObjectSelection.Size = new System.Drawing.Size(100, 50);
+            this.PictureBoxEventObjectSelection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureBoxEventObjectSelection.TabIndex = 1;
+            this.PictureBoxEventObjectSelection.TabStop = false;
+            // 
+            // cboObject
+            // 
+            this.cboObject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboObject.FormattingEnabled = true;
+            this.cboObject.Location = new System.Drawing.Point(88, 20);
+            this.cboObject.Name = "cboObject";
+            this.cboObject.Size = new System.Drawing.Size(139, 21);
+            this.cboObject.TabIndex = 0;
+            this.cboObject.SelectedIndexChanged += new System.EventHandler(this.cboObject_SelectedIndexChanged);
+            // 
+            // lblColorChannel
+            // 
+            this.lblColorChannel.Location = new System.Drawing.Point(7, 48);
+            this.lblColorChannel.Name = "lblColorChannel";
+            this.lblColorChannel.Size = new System.Drawing.Size(125, 21);
+            this.lblColorChannel.TabIndex = 4;
+            this.lblColorChannel.Text = "Color Channel";
+            // 
+            // lblSearchObject
+            // 
+            this.lblSearchObject.Location = new System.Drawing.Point(7, 20);
+            this.lblSearchObject.Name = "lblSearchObject";
+            this.lblSearchObject.Size = new System.Drawing.Size(125, 21);
+            this.lblSearchObject.TabIndex = 2;
+            this.lblSearchObject.Text = "Search Object";
+            // 
+            // PanelTestAllEvents
+            // 
+            this.PanelTestAllEvents.Controls.Add(this.SplitContainer6);
+            this.PanelTestAllEvents.Location = new System.Drawing.Point(463, 220);
+            this.PanelTestAllEvents.Name = "PanelTestAllEvents";
+            this.PanelTestAllEvents.Size = new System.Drawing.Size(1048, 512);
+            this.PanelTestAllEvents.TabIndex = 16;
+            // 
+            // SplitContainer6
+            // 
+            this.SplitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContainer6.Location = new System.Drawing.Point(0, 0);
+            this.SplitContainer6.Name = "SplitContainer6";
+            // 
+            // SplitContainer6.Panel1
+            // 
+            this.SplitContainer6.Panel1.Controls.Add(this.SplitContainer7);
+            // 
+            // SplitContainer6.Panel2
+            // 
+            this.SplitContainer6.Panel2.Controls.Add(this.SplitContainer8);
+            this.SplitContainer6.Size = new System.Drawing.Size(1048, 512);
+            this.SplitContainer6.SplitterDistance = 185;
+            this.SplitContainer6.TabIndex = 2;
+            // 
+            // SplitContainer7
+            // 
+            this.SplitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContainer7.Location = new System.Drawing.Point(0, 0);
+            this.SplitContainer7.Name = "SplitContainer7";
+            this.SplitContainer7.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // SplitContainer7.Panel1
+            // 
+            this.SplitContainer7.Panel1.Controls.Add(this.label35);
+            // 
+            // SplitContainer7.Panel2
+            // 
+            this.SplitContainer7.Panel2.Controls.Add(this.tvTestAllEvents);
+            this.SplitContainer7.Size = new System.Drawing.Size(185, 512);
+            this.SplitContainer7.SplitterDistance = 25;
+            this.SplitContainer7.TabIndex = 0;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label35.Location = new System.Drawing.Point(1, 1);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(105, 18);
+            this.label35.TabIndex = 0;
+            this.label35.Text = "Test All Events";
+            // 
+            // tvTestAllEvents
+            // 
+            this.tvTestAllEvents.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tvTestAllEvents.Location = new System.Drawing.Point(0, 0);
+            this.tvTestAllEvents.Name = "tvTestAllEvents";
+            this.tvTestAllEvents.Size = new System.Drawing.Size(185, 483);
+            this.tvTestAllEvents.TabIndex = 1;
+            this.tvTestAllEvents.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvTestAllEvents_AfterSelect);
+            this.tvTestAllEvents.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tvTestAllEvents_MouseUp);
+            // 
+            // SplitContainer8
+            // 
+            this.SplitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContainer8.Location = new System.Drawing.Point(0, 0);
+            this.SplitContainer8.Name = "SplitContainer8";
+            // 
+            // SplitContainer8.Panel1
+            // 
+            this.SplitContainer8.Panel1.Controls.Add(this.SplitContainer9);
+            // 
+            // SplitContainer8.Panel2
+            // 
+            this.SplitContainer8.Panel2.Controls.Add(this.SplitContainer10);
+            this.SplitContainer8.Size = new System.Drawing.Size(859, 512);
+            this.SplitContainer8.SplitterDistance = 395;
+            this.SplitContainer8.TabIndex = 0;
+            // 
+            // SplitContainer9
+            // 
+            this.SplitContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContainer9.Location = new System.Drawing.Point(0, 0);
+            this.SplitContainer9.Name = "SplitContainer9";
+            this.SplitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // SplitContainer9.Panel1
+            // 
+            this.SplitContainer9.Panel1.Controls.Add(this.lblReferenceWindowResolution);
+            this.SplitContainer9.Panel1.Controls.Add(this.Panel1);
+            this.SplitContainer9.Panel1.Controls.Add(this.lblReference);
+            // 
+            // SplitContainer9.Panel2
+            // 
+            this.SplitContainer9.Panel2.Controls.Add(this.lblTestWindowResolution);
+            this.SplitContainer9.Panel2.Controls.Add(this.Panel2);
+            this.SplitContainer9.Panel2.Controls.Add(this.lblTestWindow);
+            this.SplitContainer9.Size = new System.Drawing.Size(395, 512);
+            this.SplitContainer9.SplitterDistance = 190;
+            this.SplitContainer9.TabIndex = 0;
+            // 
+            // lblReferenceWindowResolution
+            // 
+            this.lblReferenceWindowResolution.AutoSize = true;
+            this.lblReferenceWindowResolution.Location = new System.Drawing.Point(308, 5);
+            this.lblReferenceWindowResolution.Name = "lblReferenceWindowResolution";
+            this.lblReferenceWindowResolution.Size = new System.Drawing.Size(156, 13);
+            this.lblReferenceWindowResolution.TabIndex = 3;
+            this.lblReferenceWindowResolution.Text = "lblReferenceWindowResolution";
+            // 
+            // Panel1
+            // 
+            this.Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Panel1.AutoScroll = true;
+            this.Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Panel1.Controls.Add(this.PictureTestAllReference);
+            this.Panel1.Location = new System.Drawing.Point(4, 27);
+            this.Panel1.Name = "Panel1";
+            this.Panel1.Size = new System.Drawing.Size(388, 156);
+            this.Panel1.TabIndex = 2;
+            // 
+            // PictureTestAllReference
+            // 
+            this.PictureTestAllReference.Location = new System.Drawing.Point(3, 3);
+            this.PictureTestAllReference.Name = "PictureTestAllReference";
+            this.PictureTestAllReference.Size = new System.Drawing.Size(100, 50);
+            this.PictureTestAllReference.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureTestAllReference.TabIndex = 1;
+            this.PictureTestAllReference.TabStop = false;
+            // 
+            // lblReference
+            // 
+            this.lblReference.AutoSize = true;
+            this.lblReference.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblReference.Location = new System.Drawing.Point(0, 0);
+            this.lblReference.Name = "lblReference";
+            this.lblReference.Size = new System.Drawing.Size(98, 24);
+            this.lblReference.TabIndex = 1;
+            this.lblReference.Text = "Reference";
+            // 
+            // lblTestWindowResolution
+            // 
+            this.lblTestWindowResolution.AutoSize = true;
+            this.lblTestWindowResolution.Location = new System.Drawing.Point(317, 7);
+            this.lblTestWindowResolution.Name = "lblTestWindowResolution";
+            this.lblTestWindowResolution.Size = new System.Drawing.Size(127, 13);
+            this.lblTestWindowResolution.TabIndex = 3;
+            this.lblTestWindowResolution.Text = "lblTestWindowResolution";
+            // 
+            // Panel2
+            // 
+            this.Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.Panel2.AutoScroll = true;
+            this.Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.Panel2.Controls.Add(this.PictureTestAllTest);
+            this.Panel2.Location = new System.Drawing.Point(4, 27);
+            this.Panel2.Name = "Panel2";
+            this.Panel2.Size = new System.Drawing.Size(388, 288);
+            this.Panel2.TabIndex = 3;
+            // 
+            // PictureTestAllTest
+            // 
+            this.PictureTestAllTest.Location = new System.Drawing.Point(3, 3);
+            this.PictureTestAllTest.Name = "PictureTestAllTest";
+            this.PictureTestAllTest.Size = new System.Drawing.Size(100, 50);
+            this.PictureTestAllTest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureTestAllTest.TabIndex = 1;
+            this.PictureTestAllTest.TabStop = false;
+            // 
+            // lblTestWindow
+            // 
+            this.lblTestWindow.AutoSize = true;
+            this.lblTestWindow.Dock = System.Windows.Forms.DockStyle.Left;
+            this.lblTestWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestWindow.Location = new System.Drawing.Point(0, 0);
+            this.lblTestWindow.Name = "lblTestWindow";
+            this.lblTestWindow.Size = new System.Drawing.Size(120, 24);
+            this.lblTestWindow.TabIndex = 2;
+            this.lblTestWindow.Text = "Test Window";
+            // 
+            // SplitContainer10
+            // 
+            this.SplitContainer10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContainer10.Location = new System.Drawing.Point(0, 0);
+            this.SplitContainer10.Name = "SplitContainer10";
+            this.SplitContainer10.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // SplitContainer10.Panel1
+            // 
+            this.SplitContainer10.Panel1.Controls.Add(this.lblTestAllEventsReference);
+            this.SplitContainer10.Panel1.Controls.Add(this.dgvTestAllReference);
+            // 
+            // SplitContainer10.Panel2
+            // 
+            this.SplitContainer10.Panel2.Controls.Add(this.lblTestAllEventsTestWindowColors);
+            this.SplitContainer10.Panel2.Controls.Add(this.dgvTest);
+            this.SplitContainer10.Size = new System.Drawing.Size(460, 512);
+            this.SplitContainer10.SplitterDistance = 189;
+            this.SplitContainer10.TabIndex = 0;
+            // 
+            // lblTestAllEventsReference
+            // 
+            this.lblTestAllEventsReference.AutoSize = true;
+            this.lblTestAllEventsReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestAllEventsReference.Location = new System.Drawing.Point(1, 2);
+            this.lblTestAllEventsReference.Name = "lblTestAllEventsReference";
+            this.lblTestAllEventsReference.Size = new System.Drawing.Size(98, 24);
+            this.lblTestAllEventsReference.TabIndex = 12;
+            this.lblTestAllEventsReference.Text = "Reference";
+            // 
+            // dgvTestAllReference
+            // 
+            this.dgvTestAllReference.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvTestAllReferenceColor,
+            this.dgvTestAllReferenceX,
+            this.dgvTestAllReferenceY});
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvTestAllReference.Location = new System.Drawing.Point(5, 25);
+            this.dgvTestAllReference.Name = "dgvTestAllReference";
+            this.dgvTestAllReference.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvTestAllReference.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTestAllReference.Size = new System.Drawing.Size(450, 161);
+            this.dgvTestAllReference.TabIndex = 11;
+            // 
+            // dgvTestAllReferenceColor
+            // 
+            this.dgvTestAllReferenceColor.DataPropertyName = "dgvColor";
+            this.dgvTestAllReferenceColor.HeaderText = "Color";
+            this.dgvTestAllReferenceColor.MinimumWidth = 20;
+            this.dgvTestAllReferenceColor.Name = "dgvTestAllReferenceColor";
+            this.dgvTestAllReferenceColor.Width = 162;
+            // 
+            // dgvTestAllReferenceX
+            // 
+            this.dgvTestAllReferenceX.HeaderText = "X";
+            this.dgvTestAllReferenceX.Name = "dgvTestAllReferenceX";
+            this.dgvTestAllReferenceX.Width = 30;
+            // 
+            // dgvTestAllReferenceY
+            // 
+            this.dgvTestAllReferenceY.DataPropertyName = "dgvTestAllReferenceY";
+            this.dgvTestAllReferenceY.HeaderText = "Y";
+            this.dgvTestAllReferenceY.Name = "dgvTestAllReferenceY";
+            this.dgvTestAllReferenceY.Width = 30;
+            // 
+            // lblTestAllEventsTestWindowColors
+            // 
+            this.lblTestAllEventsTestWindowColors.AutoSize = true;
+            this.lblTestAllEventsTestWindowColors.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestAllEventsTestWindowColors.Location = new System.Drawing.Point(1, 0);
+            this.lblTestAllEventsTestWindowColors.Name = "lblTestAllEventsTestWindowColors";
+            this.lblTestAllEventsTestWindowColors.Size = new System.Drawing.Size(179, 24);
+            this.lblTestAllEventsTestWindowColors.TabIndex = 13;
+            this.lblTestAllEventsTestWindowColors.Text = "Test Window Colors";
+            // 
+            // dgvTest
+            // 
+            this.dgvTest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvColorTest,
+            this.dgvXTest,
+            this.dgvYTest,
+            this.dgvPassFail,
+            this.dvgRange});
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvTest.Location = new System.Drawing.Point(5, 24);
+            this.dgvTest.Name = "dgvTest";
+            this.dgvTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgvTest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTest.Size = new System.Drawing.Size(450, 278);
+            this.dgvTest.TabIndex = 12;
+            // 
+            // dgvColorTest
+            // 
+            this.dgvColorTest.HeaderText = "Color";
+            this.dgvColorTest.MinimumWidth = 20;
+            this.dgvColorTest.Name = "dgvColorTest";
+            this.dgvColorTest.Width = 162;
+            // 
+            // dgvXTest
+            // 
+            this.dgvXTest.HeaderText = "X";
+            this.dgvXTest.Name = "dgvXTest";
+            this.dgvXTest.Width = 30;
+            // 
+            // dgvYTest
+            // 
+            this.dgvYTest.HeaderText = "Y";
+            this.dgvYTest.Name = "dgvYTest";
+            this.dgvYTest.Width = 30;
+            // 
+            // dgvPassFail
+            // 
+            this.dgvPassFail.HeaderText = "Pass/Fail";
+            this.dgvPassFail.Name = "dgvPassFail";
+            // 
+            // dvgRange
+            // 
+            this.dvgRange.HeaderText = "+-Points";
+            this.dvgRange.Name = "dvgRange";
             // 
             // PanelThread
             // 
@@ -2252,6 +2596,16 @@
             this.splitContainerSeconds.SplitterDistance = 69;
             this.splitContainerSeconds.TabIndex = 0;
             this.splitContainerSeconds.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainerSeconds_SplitterMoving);
+            // 
+            // appTestStudioStatusControl1
+            // 
+            this.appTestStudioStatusControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.appTestStudioStatusControl1.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("appTestStudioStatusControl1.Items")));
+            this.appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
+            this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
+            this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
+            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(856, 422);
+            this.appTestStudioStatusControl1.TabIndex = 0;
             // 
             // PanelSchedule
             // 
@@ -2736,350 +3090,6 @@
             this.label38.TabIndex = 0;
             this.label38.Text = "Add New Game";
             // 
-            // PanelTestAllEvents
-            // 
-            this.PanelTestAllEvents.Controls.Add(this.SplitContainer6);
-            this.PanelTestAllEvents.Location = new System.Drawing.Point(463, 220);
-            this.PanelTestAllEvents.Name = "PanelTestAllEvents";
-            this.PanelTestAllEvents.Size = new System.Drawing.Size(1048, 512);
-            this.PanelTestAllEvents.TabIndex = 16;
-            // 
-            // SplitContainer6
-            // 
-            this.SplitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainer6.Location = new System.Drawing.Point(0, 0);
-            this.SplitContainer6.Name = "SplitContainer6";
-            // 
-            // SplitContainer6.Panel1
-            // 
-            this.SplitContainer6.Panel1.Controls.Add(this.SplitContainer7);
-            // 
-            // SplitContainer6.Panel2
-            // 
-            this.SplitContainer6.Panel2.Controls.Add(this.SplitContainer8);
-            this.SplitContainer6.Size = new System.Drawing.Size(1048, 512);
-            this.SplitContainer6.SplitterDistance = 185;
-            this.SplitContainer6.TabIndex = 2;
-            // 
-            // SplitContainer7
-            // 
-            this.SplitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainer7.Location = new System.Drawing.Point(0, 0);
-            this.SplitContainer7.Name = "SplitContainer7";
-            this.SplitContainer7.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // SplitContainer7.Panel1
-            // 
-            this.SplitContainer7.Panel1.Controls.Add(this.label35);
-            // 
-            // SplitContainer7.Panel2
-            // 
-            this.SplitContainer7.Panel2.Controls.Add(this.tvTestAllEvents);
-            this.SplitContainer7.Size = new System.Drawing.Size(185, 512);
-            this.SplitContainer7.SplitterDistance = 25;
-            this.SplitContainer7.TabIndex = 0;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.Location = new System.Drawing.Point(1, 1);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(105, 18);
-            this.label35.TabIndex = 0;
-            this.label35.Text = "Test All Events";
-            // 
-            // tvTestAllEvents
-            // 
-            this.tvTestAllEvents.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tvTestAllEvents.Location = new System.Drawing.Point(0, 0);
-            this.tvTestAllEvents.Name = "tvTestAllEvents";
-            this.tvTestAllEvents.Size = new System.Drawing.Size(185, 483);
-            this.tvTestAllEvents.TabIndex = 1;
-            this.tvTestAllEvents.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvTestAllEvents_AfterSelect);
-            this.tvTestAllEvents.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tvTestAllEvents_MouseUp);
-            // 
-            // SplitContainer8
-            // 
-            this.SplitContainer8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainer8.Location = new System.Drawing.Point(0, 0);
-            this.SplitContainer8.Name = "SplitContainer8";
-            // 
-            // SplitContainer8.Panel1
-            // 
-            this.SplitContainer8.Panel1.Controls.Add(this.SplitContainer9);
-            // 
-            // SplitContainer8.Panel2
-            // 
-            this.SplitContainer8.Panel2.Controls.Add(this.SplitContainer10);
-            this.SplitContainer8.Size = new System.Drawing.Size(859, 512);
-            this.SplitContainer8.SplitterDistance = 395;
-            this.SplitContainer8.TabIndex = 0;
-            // 
-            // SplitContainer9
-            // 
-            this.SplitContainer9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainer9.Location = new System.Drawing.Point(0, 0);
-            this.SplitContainer9.Name = "SplitContainer9";
-            this.SplitContainer9.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // SplitContainer9.Panel1
-            // 
-            this.SplitContainer9.Panel1.Controls.Add(this.lblReferenceWindowResolution);
-            this.SplitContainer9.Panel1.Controls.Add(this.Panel1);
-            this.SplitContainer9.Panel1.Controls.Add(this.lblReference);
-            // 
-            // SplitContainer9.Panel2
-            // 
-            this.SplitContainer9.Panel2.Controls.Add(this.lblTestWindowResolution);
-            this.SplitContainer9.Panel2.Controls.Add(this.Panel2);
-            this.SplitContainer9.Panel2.Controls.Add(this.lblTestWindow);
-            this.SplitContainer9.Size = new System.Drawing.Size(395, 512);
-            this.SplitContainer9.SplitterDistance = 190;
-            this.SplitContainer9.TabIndex = 0;
-            // 
-            // lblReferenceWindowResolution
-            // 
-            this.lblReferenceWindowResolution.AutoSize = true;
-            this.lblReferenceWindowResolution.Location = new System.Drawing.Point(308, 5);
-            this.lblReferenceWindowResolution.Name = "lblReferenceWindowResolution";
-            this.lblReferenceWindowResolution.Size = new System.Drawing.Size(156, 13);
-            this.lblReferenceWindowResolution.TabIndex = 3;
-            this.lblReferenceWindowResolution.Text = "lblReferenceWindowResolution";
-            // 
-            // Panel1
-            // 
-            this.Panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Panel1.AutoScroll = true;
-            this.Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Panel1.Controls.Add(this.PictureTestAllReference);
-            this.Panel1.Location = new System.Drawing.Point(4, 27);
-            this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(388, 156);
-            this.Panel1.TabIndex = 2;
-            // 
-            // PictureTestAllReference
-            // 
-            this.PictureTestAllReference.Location = new System.Drawing.Point(3, 3);
-            this.PictureTestAllReference.Name = "PictureTestAllReference";
-            this.PictureTestAllReference.Size = new System.Drawing.Size(100, 50);
-            this.PictureTestAllReference.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureTestAllReference.TabIndex = 1;
-            this.PictureTestAllReference.TabStop = false;
-            // 
-            // lblReference
-            // 
-            this.lblReference.AutoSize = true;
-            this.lblReference.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblReference.Location = new System.Drawing.Point(0, 0);
-            this.lblReference.Name = "lblReference";
-            this.lblReference.Size = new System.Drawing.Size(98, 24);
-            this.lblReference.TabIndex = 1;
-            this.lblReference.Text = "Reference";
-            // 
-            // lblTestWindowResolution
-            // 
-            this.lblTestWindowResolution.AutoSize = true;
-            this.lblTestWindowResolution.Location = new System.Drawing.Point(317, 7);
-            this.lblTestWindowResolution.Name = "lblTestWindowResolution";
-            this.lblTestWindowResolution.Size = new System.Drawing.Size(127, 13);
-            this.lblTestWindowResolution.TabIndex = 3;
-            this.lblTestWindowResolution.Text = "lblTestWindowResolution";
-            // 
-            // Panel2
-            // 
-            this.Panel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.Panel2.AutoScroll = true;
-            this.Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.Panel2.Controls.Add(this.PictureTestAllTest);
-            this.Panel2.Location = new System.Drawing.Point(4, 27);
-            this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(388, 288);
-            this.Panel2.TabIndex = 3;
-            // 
-            // PictureTestAllTest
-            // 
-            this.PictureTestAllTest.Location = new System.Drawing.Point(3, 3);
-            this.PictureTestAllTest.Name = "PictureTestAllTest";
-            this.PictureTestAllTest.Size = new System.Drawing.Size(100, 50);
-            this.PictureTestAllTest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureTestAllTest.TabIndex = 1;
-            this.PictureTestAllTest.TabStop = false;
-            // 
-            // lblTestWindow
-            // 
-            this.lblTestWindow.AutoSize = true;
-            this.lblTestWindow.Dock = System.Windows.Forms.DockStyle.Left;
-            this.lblTestWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestWindow.Location = new System.Drawing.Point(0, 0);
-            this.lblTestWindow.Name = "lblTestWindow";
-            this.lblTestWindow.Size = new System.Drawing.Size(120, 24);
-            this.lblTestWindow.TabIndex = 2;
-            this.lblTestWindow.Text = "Test Window";
-            // 
-            // SplitContainer10
-            // 
-            this.SplitContainer10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainer10.Location = new System.Drawing.Point(0, 0);
-            this.SplitContainer10.Name = "SplitContainer10";
-            this.SplitContainer10.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // SplitContainer10.Panel1
-            // 
-            this.SplitContainer10.Panel1.Controls.Add(this.lblTestAllEventsReference);
-            this.SplitContainer10.Panel1.Controls.Add(this.dgvTestAllReference);
-            // 
-            // SplitContainer10.Panel2
-            // 
-            this.SplitContainer10.Panel2.Controls.Add(this.lblTestAllEventsTestWindowColors);
-            this.SplitContainer10.Panel2.Controls.Add(this.dgvTest);
-            this.SplitContainer10.Size = new System.Drawing.Size(460, 512);
-            this.SplitContainer10.SplitterDistance = 189;
-            this.SplitContainer10.TabIndex = 0;
-            // 
-            // lblTestAllEventsReference
-            // 
-            this.lblTestAllEventsReference.AutoSize = true;
-            this.lblTestAllEventsReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestAllEventsReference.Location = new System.Drawing.Point(1, 2);
-            this.lblTestAllEventsReference.Name = "lblTestAllEventsReference";
-            this.lblTestAllEventsReference.Size = new System.Drawing.Size(98, 24);
-            this.lblTestAllEventsReference.TabIndex = 12;
-            this.lblTestAllEventsReference.Text = "Reference";
-            // 
-            // dgvTestAllReference
-            // 
-            this.dgvTestAllReference.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvTestAllReferenceColor,
-            this.dgvTestAllReferenceX,
-            this.dgvTestAllReferenceY});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvTestAllReference.Location = new System.Drawing.Point(5, 25);
-            this.dgvTestAllReference.Name = "dgvTestAllReference";
-            this.dgvTestAllReference.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvTestAllReference.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTestAllReference.Size = new System.Drawing.Size(450, 161);
-            this.dgvTestAllReference.TabIndex = 11;
-            // 
-            // dgvTestAllReferenceColor
-            // 
-            this.dgvTestAllReferenceColor.DataPropertyName = "dgvColor";
-            this.dgvTestAllReferenceColor.HeaderText = "Color";
-            this.dgvTestAllReferenceColor.MinimumWidth = 20;
-            this.dgvTestAllReferenceColor.Name = "dgvTestAllReferenceColor";
-            this.dgvTestAllReferenceColor.Width = 162;
-            // 
-            // dgvTestAllReferenceX
-            // 
-            this.dgvTestAllReferenceX.HeaderText = "X";
-            this.dgvTestAllReferenceX.Name = "dgvTestAllReferenceX";
-            this.dgvTestAllReferenceX.Width = 30;
-            // 
-            // dgvTestAllReferenceY
-            // 
-            this.dgvTestAllReferenceY.DataPropertyName = "dgvTestAllReferenceY";
-            this.dgvTestAllReferenceY.HeaderText = "Y";
-            this.dgvTestAllReferenceY.Name = "dgvTestAllReferenceY";
-            this.dgvTestAllReferenceY.Width = 30;
-            // 
-            // lblTestAllEventsTestWindowColors
-            // 
-            this.lblTestAllEventsTestWindowColors.AutoSize = true;
-            this.lblTestAllEventsTestWindowColors.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestAllEventsTestWindowColors.Location = new System.Drawing.Point(1, 0);
-            this.lblTestAllEventsTestWindowColors.Name = "lblTestAllEventsTestWindowColors";
-            this.lblTestAllEventsTestWindowColors.Size = new System.Drawing.Size(179, 24);
-            this.lblTestAllEventsTestWindowColors.TabIndex = 13;
-            this.lblTestAllEventsTestWindowColors.Text = "Test Window Colors";
-            // 
-            // dgvTest
-            // 
-            this.dgvTest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvColorTest,
-            this.dgvXTest,
-            this.dgvYTest,
-            this.dgvPassFail,
-            this.dvgRange});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvTest.Location = new System.Drawing.Point(5, 24);
-            this.dgvTest.Name = "dgvTest";
-            this.dgvTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgvTest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTest.Size = new System.Drawing.Size(450, 278);
-            this.dgvTest.TabIndex = 12;
-            // 
-            // dgvColorTest
-            // 
-            this.dgvColorTest.HeaderText = "Color";
-            this.dgvColorTest.MinimumWidth = 20;
-            this.dgvColorTest.Name = "dgvColorTest";
-            this.dgvColorTest.Width = 162;
-            // 
-            // dgvXTest
-            // 
-            this.dgvXTest.HeaderText = "X";
-            this.dgvXTest.Name = "dgvXTest";
-            this.dgvXTest.Width = 30;
-            // 
-            // dgvYTest
-            // 
-            this.dgvYTest.HeaderText = "Y";
-            this.dgvYTest.Name = "dgvYTest";
-            this.dgvYTest.Width = 30;
-            // 
-            // dgvPassFail
-            // 
-            this.dgvPassFail.HeaderText = "Pass/Fail";
-            this.dgvPassFail.Name = "dgvPassFail";
-            // 
-            // dvgRange
-            // 
-            this.dvgRange.HeaderText = "+-Points";
-            this.dvgRange.Name = "dvgRange";
-            // 
             // PanelObjects
             // 
             this.PanelObjects.Controls.Add(this.label34);
@@ -3270,7 +3280,7 @@
             this.PanelGame.Controls.Add(this.lblGamePanelGameName);
             this.PanelGame.Controls.Add(this.label18);
             this.PanelGame.Controls.Add(this.label22);
-            this.PanelGame.Location = new System.Drawing.Point(869, 25);
+            this.PanelGame.Location = new System.Drawing.Point(127, 63);
             this.PanelGame.Name = "PanelGame";
             this.PanelGame.Size = new System.Drawing.Size(786, 405);
             this.PanelGame.TabIndex = 13;
@@ -3758,16 +3768,6 @@
             // 
             this.saveFileDialog1.DefaultExt = "zip";
             // 
-            // appTestStudioStatusControl1
-            // 
-            this.appTestStudioStatusControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.appTestStudioStatusControl1.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("appTestStudioStatusControl1.Items")));
-            this.appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
-            this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
-            this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
-            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(856, 422);
-            this.appTestStudioStatusControl1.TabIndex = 0;
-            // 
             // toolStripMain
             // 
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -3919,10 +3919,6 @@
             this.PanelSelectedColor.ResumeLayout(false);
             this.PanelSelectedColor.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
-            this.grpObject.ResumeLayout(false);
-            this.grpObject.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEventObjectSelection)).EndInit();
             this.grpAndOr.ResumeLayout(false);
             this.grpAndOr.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
@@ -3936,6 +3932,44 @@
             this.GroupBox10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericXOffset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericYOffset)).EndInit();
+            this.grpObject.ResumeLayout(false);
+            this.grpObject.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEventObjectSelection)).EndInit();
+            this.PanelTestAllEvents.ResumeLayout(false);
+            this.SplitContainer6.Panel1.ResumeLayout(false);
+            this.SplitContainer6.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer6)).EndInit();
+            this.SplitContainer6.ResumeLayout(false);
+            this.SplitContainer7.Panel1.ResumeLayout(false);
+            this.SplitContainer7.Panel1.PerformLayout();
+            this.SplitContainer7.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer7)).EndInit();
+            this.SplitContainer7.ResumeLayout(false);
+            this.SplitContainer8.Panel1.ResumeLayout(false);
+            this.SplitContainer8.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer8)).EndInit();
+            this.SplitContainer8.ResumeLayout(false);
+            this.SplitContainer9.Panel1.ResumeLayout(false);
+            this.SplitContainer9.Panel1.PerformLayout();
+            this.SplitContainer9.Panel2.ResumeLayout(false);
+            this.SplitContainer9.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer9)).EndInit();
+            this.SplitContainer9.ResumeLayout(false);
+            this.Panel1.ResumeLayout(false);
+            this.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllReference)).EndInit();
+            this.Panel2.ResumeLayout(false);
+            this.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllTest)).EndInit();
+            this.SplitContainer10.Panel1.ResumeLayout(false);
+            this.SplitContainer10.Panel1.PerformLayout();
+            this.SplitContainer10.Panel2.ResumeLayout(false);
+            this.SplitContainer10.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer10)).EndInit();
+            this.SplitContainer10.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTestAllReference)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).EndInit();
             this.PanelThread.ResumeLayout(false);
             this.splitContainerThread.Panel1.ResumeLayout(false);
             this.splitContainerThread.Panel2.ResumeLayout(false);
@@ -3973,40 +4007,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).EndInit();
             this.PanelAddNewGames.ResumeLayout(false);
             this.PanelAddNewGames.PerformLayout();
-            this.PanelTestAllEvents.ResumeLayout(false);
-            this.SplitContainer6.Panel1.ResumeLayout(false);
-            this.SplitContainer6.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer6)).EndInit();
-            this.SplitContainer6.ResumeLayout(false);
-            this.SplitContainer7.Panel1.ResumeLayout(false);
-            this.SplitContainer7.Panel1.PerformLayout();
-            this.SplitContainer7.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer7)).EndInit();
-            this.SplitContainer7.ResumeLayout(false);
-            this.SplitContainer8.Panel1.ResumeLayout(false);
-            this.SplitContainer8.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer8)).EndInit();
-            this.SplitContainer8.ResumeLayout(false);
-            this.SplitContainer9.Panel1.ResumeLayout(false);
-            this.SplitContainer9.Panel1.PerformLayout();
-            this.SplitContainer9.Panel2.ResumeLayout(false);
-            this.SplitContainer9.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer9)).EndInit();
-            this.SplitContainer9.ResumeLayout(false);
-            this.Panel1.ResumeLayout(false);
-            this.Panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllReference)).EndInit();
-            this.Panel2.ResumeLayout(false);
-            this.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllTest)).EndInit();
-            this.SplitContainer10.Panel1.ResumeLayout(false);
-            this.SplitContainer10.Panel1.PerformLayout();
-            this.SplitContainer10.Panel2.ResumeLayout(false);
-            this.SplitContainer10.Panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer10)).EndInit();
-            this.SplitContainer10.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTestAllReference)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).EndInit();
             this.PanelObjects.ResumeLayout(false);
             this.PanelObjects.PerformLayout();
             this.PanelEvents.ResumeLayout(false);

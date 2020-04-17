@@ -168,6 +168,11 @@ namespace AppTestStudio
             {
                 cboGameInstances.Items.Add(i);
             }
+
+            if (cboGameInstances.Items.Count > 0 )
+            {
+                cboGameInstances.SelectedIndex = 0;
+            }
         }
 
         private void FirstFormost()
@@ -341,9 +346,21 @@ namespace AppTestStudio
 
             Log("Loaded Script: " + game.GameNodeName);
 
-
-
-
+            // if the instance to launch that's saved matches the instances loaded use the files settings
+            // otherwise set the launch instance to instance 0.
+            if (game.InstanceToLaunch.Trim().Length > 0)
+            {
+                int instance = game.InstanceToLaunch.Trim().ToInt();
+                if (cboGameInstances.Items.Count-1 >= instance)
+                {
+                    cboGameInstances.SelectedIndex = instance;
+                }
+                else
+                {
+                    cboGameInstances.SelectedIndex = 0;
+                    game.InstanceToLaunch = "0";
+                }
+            }
         }
 
         private void tv_AfterSelect(object sender, TreeViewEventArgs e)
@@ -461,11 +478,11 @@ namespace AppTestStudio
             txtGamePanelLaunchInstance.Text = gameNode.InstanceToLaunch;
             txtGamePanelLaunchInstance.Enabled = true;
 
-
             txtGamePanelLoopDelay.Text = gameNode.LoopDelay.ToString();
             cboResolution.Text = gameNode.Resolution;
             chkSaveVideo.Checked = gameNode.SaveVideo;
             NumericVideoFrameLimit.Value = gameNode.VideoFrameLimit;
+
 
         }
 
