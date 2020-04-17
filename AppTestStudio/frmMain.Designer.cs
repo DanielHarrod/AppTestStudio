@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -278,18 +278,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.PanelGame = new System.Windows.Forms.Panel();
-            this.TextBox2 = new System.Windows.Forms.TextBox();
             this.grpVideo = new System.Windows.Forms.GroupBox();
             this.lblFrameLimit = new System.Windows.Forms.Label();
             this.NumericVideoFrameLimit = new System.Windows.Forms.NumericUpDown();
             this.chkSaveVideo = new System.Windows.Forms.CheckBox();
-            this.cmdHelpStartEmmulatorLaunchAppRunScript = new System.Windows.Forms.Button();
-            this.cmdHelpStartEmmulatorLaunchApp = new System.Windows.Forms.Button();
-            this.cmdHelpRunScript = new System.Windows.Forms.Button();
-            this.cmdHelpStartEmmulator = new System.Windows.Forms.Button();
-            this.cmdHelpInitialResolution = new System.Windows.Forms.Button();
-            this.cmdHelpLoopDelay = new System.Windows.Forms.Button();
-            this.cmdHelpInstanceToLaunch = new System.Windows.Forms.Button();
             this.cmdRunScript = new System.Windows.Forms.Button();
             this.cmdStartEmmulatorPackageAndRunScript = new System.Windows.Forms.Button();
             this.cmdStartEmmulatorAndPackage = new System.Windows.Forms.Button();
@@ -297,7 +289,6 @@
             this.Label26 = new System.Windows.Forms.Label();
             this.cboGameInstances = new System.Windows.Forms.ComboBox();
             this.cboResolution = new System.Windows.Forms.ComboBox();
-            this.cmdHelpPackageName = new System.Windows.Forms.Button();
             this.Label33 = new System.Windows.Forms.Label();
             this.txtGamePanelLoopDelay = new System.Windows.Forms.TextBox();
             this.Label30 = new System.Windows.Forms.Label();
@@ -587,6 +578,7 @@
             // 
             // splitContainerWorkspace.Panel2
             // 
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelColorEvent);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelTestAllEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelThread);
@@ -599,7 +591,6 @@
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObjects);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
-            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Size = new System.Drawing.Size(1382, 658);
             this.splitContainerWorkspace.SplitterDistance = 246;
             this.splitContainerWorkspace.TabIndex = 0;
@@ -2152,27 +2143,27 @@
             this.dgvTestAllReference.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceColor,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgvTestAllReference.Location = new System.Drawing.Point(5, 25);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -2216,14 +2207,14 @@
             this.dgvTest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTest,
@@ -2231,14 +2222,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvTest.Location = new System.Drawing.Point(5, 24);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -2720,8 +2711,8 @@
             // 
             // colMon
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colMon.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colMon.DefaultCellStyle = dataGridViewCellStyle16;
             this.colMon.HeaderText = "Mon";
             this.colMon.MaxInputLength = 1;
             this.colMon.MinimumWidth = 37;
@@ -2731,8 +2722,8 @@
             // 
             // colTue
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colTue.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colTue.DefaultCellStyle = dataGridViewCellStyle17;
             this.colTue.HeaderText = "Tue";
             this.colTue.MaxInputLength = 1;
             this.colTue.MinimumWidth = 37;
@@ -2742,8 +2733,8 @@
             // 
             // colWed
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colWed.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colWed.DefaultCellStyle = dataGridViewCellStyle18;
             this.colWed.HeaderText = "Wed";
             this.colWed.MaxInputLength = 1;
             this.colWed.MinimumWidth = 37;
@@ -2753,8 +2744,8 @@
             // 
             // colThu
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colThu.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colThu.DefaultCellStyle = dataGridViewCellStyle19;
             this.colThu.HeaderText = "Thu";
             this.colThu.MaxInputLength = 1;
             this.colThu.MinimumWidth = 37;
@@ -2764,8 +2755,8 @@
             // 
             // colFri
             // 
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colFri.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colFri.DefaultCellStyle = dataGridViewCellStyle20;
             this.colFri.HeaderText = "Fri";
             this.colFri.MaxInputLength = 1;
             this.colFri.MinimumWidth = 37;
@@ -2775,8 +2766,8 @@
             // 
             // colSat
             // 
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSat.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSat.DefaultCellStyle = dataGridViewCellStyle21;
             this.colSat.HeaderText = "Sat";
             this.colSat.MaxInputLength = 1;
             this.colSat.MinimumWidth = 37;
@@ -2786,8 +2777,8 @@
             // 
             // colSun
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSun.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSun.DefaultCellStyle = dataGridViewCellStyle22;
             this.colSun.HeaderText = "Sun";
             this.colSun.MaxInputLength = 1;
             this.colSun.MinimumWidth = 37;
@@ -3250,15 +3241,7 @@
             // 
             // PanelGame
             // 
-            this.PanelGame.Controls.Add(this.TextBox2);
             this.PanelGame.Controls.Add(this.grpVideo);
-            this.PanelGame.Controls.Add(this.cmdHelpStartEmmulatorLaunchAppRunScript);
-            this.PanelGame.Controls.Add(this.cmdHelpStartEmmulatorLaunchApp);
-            this.PanelGame.Controls.Add(this.cmdHelpRunScript);
-            this.PanelGame.Controls.Add(this.cmdHelpStartEmmulator);
-            this.PanelGame.Controls.Add(this.cmdHelpInitialResolution);
-            this.PanelGame.Controls.Add(this.cmdHelpLoopDelay);
-            this.PanelGame.Controls.Add(this.cmdHelpInstanceToLaunch);
             this.PanelGame.Controls.Add(this.cmdRunScript);
             this.PanelGame.Controls.Add(this.cmdStartEmmulatorPackageAndRunScript);
             this.PanelGame.Controls.Add(this.cmdStartEmmulatorAndPackage);
@@ -3266,7 +3249,6 @@
             this.PanelGame.Controls.Add(this.Label26);
             this.PanelGame.Controls.Add(this.cboGameInstances);
             this.PanelGame.Controls.Add(this.cboResolution);
-            this.PanelGame.Controls.Add(this.cmdHelpPackageName);
             this.PanelGame.Controls.Add(this.Label33);
             this.PanelGame.Controls.Add(this.txtGamePanelLoopDelay);
             this.PanelGame.Controls.Add(this.Label30);
@@ -3280,18 +3262,10 @@
             this.PanelGame.Controls.Add(this.lblGamePanelGameName);
             this.PanelGame.Controls.Add(this.label18);
             this.PanelGame.Controls.Add(this.label22);
-            this.PanelGame.Location = new System.Drawing.Point(127, 63);
+            this.PanelGame.Location = new System.Drawing.Point(895, 29);
             this.PanelGame.Name = "PanelGame";
             this.PanelGame.Size = new System.Drawing.Size(786, 405);
             this.PanelGame.TabIndex = 13;
-            // 
-            // TextBox2
-            // 
-            this.TextBox2.Location = new System.Drawing.Point(470, 151);
-            this.TextBox2.Multiline = true;
-            this.TextBox2.Name = "TextBox2";
-            this.TextBox2.Size = new System.Drawing.Size(285, 148);
-            this.TextBox2.TabIndex = 33;
             // 
             // grpVideo
             // 
@@ -3338,76 +3312,6 @@
             this.chkSaveVideo.Text = "Save Video";
             this.chkSaveVideo.UseVisualStyleBackColor = true;
             this.chkSaveVideo.CheckedChanged += new System.EventHandler(this.chkSaveVideo_CheckedChanged);
-            // 
-            // cmdHelpStartEmmulatorLaunchAppRunScript
-            // 
-            this.cmdHelpStartEmmulatorLaunchAppRunScript.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdHelpStartEmmulatorLaunchAppRunScript.ImageIndex = 8;
-            this.cmdHelpStartEmmulatorLaunchAppRunScript.Location = new System.Drawing.Point(417, 238);
-            this.cmdHelpStartEmmulatorLaunchAppRunScript.Name = "cmdHelpStartEmmulatorLaunchAppRunScript";
-            this.cmdHelpStartEmmulatorLaunchAppRunScript.Size = new System.Drawing.Size(27, 23);
-            this.cmdHelpStartEmmulatorLaunchAppRunScript.TabIndex = 29;
-            this.cmdHelpStartEmmulatorLaunchAppRunScript.UseVisualStyleBackColor = true;
-            // 
-            // cmdHelpStartEmmulatorLaunchApp
-            // 
-            this.cmdHelpStartEmmulatorLaunchApp.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdHelpStartEmmulatorLaunchApp.ImageIndex = 8;
-            this.cmdHelpStartEmmulatorLaunchApp.Location = new System.Drawing.Point(417, 209);
-            this.cmdHelpStartEmmulatorLaunchApp.Name = "cmdHelpStartEmmulatorLaunchApp";
-            this.cmdHelpStartEmmulatorLaunchApp.Size = new System.Drawing.Size(27, 23);
-            this.cmdHelpStartEmmulatorLaunchApp.TabIndex = 28;
-            this.cmdHelpStartEmmulatorLaunchApp.UseVisualStyleBackColor = true;
-            // 
-            // cmdHelpRunScript
-            // 
-            this.cmdHelpRunScript.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdHelpRunScript.ImageIndex = 8;
-            this.cmdHelpRunScript.Location = new System.Drawing.Point(417, 180);
-            this.cmdHelpRunScript.Name = "cmdHelpRunScript";
-            this.cmdHelpRunScript.Size = new System.Drawing.Size(27, 23);
-            this.cmdHelpRunScript.TabIndex = 27;
-            this.cmdHelpRunScript.UseVisualStyleBackColor = true;
-            // 
-            // cmdHelpStartEmmulator
-            // 
-            this.cmdHelpStartEmmulator.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdHelpStartEmmulator.ImageIndex = 8;
-            this.cmdHelpStartEmmulator.Location = new System.Drawing.Point(417, 151);
-            this.cmdHelpStartEmmulator.Name = "cmdHelpStartEmmulator";
-            this.cmdHelpStartEmmulator.Size = new System.Drawing.Size(27, 23);
-            this.cmdHelpStartEmmulator.TabIndex = 26;
-            this.cmdHelpStartEmmulator.UseVisualStyleBackColor = true;
-            // 
-            // cmdHelpInitialResolution
-            // 
-            this.cmdHelpInitialResolution.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdHelpInitialResolution.ImageIndex = 8;
-            this.cmdHelpInitialResolution.Location = new System.Drawing.Point(417, 123);
-            this.cmdHelpInitialResolution.Name = "cmdHelpInitialResolution";
-            this.cmdHelpInitialResolution.Size = new System.Drawing.Size(27, 23);
-            this.cmdHelpInitialResolution.TabIndex = 25;
-            this.cmdHelpInitialResolution.UseVisualStyleBackColor = true;
-            // 
-            // cmdHelpLoopDelay
-            // 
-            this.cmdHelpLoopDelay.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdHelpLoopDelay.ImageIndex = 8;
-            this.cmdHelpLoopDelay.Location = new System.Drawing.Point(348, 95);
-            this.cmdHelpLoopDelay.Name = "cmdHelpLoopDelay";
-            this.cmdHelpLoopDelay.Size = new System.Drawing.Size(27, 23);
-            this.cmdHelpLoopDelay.TabIndex = 24;
-            this.cmdHelpLoopDelay.UseVisualStyleBackColor = true;
-            // 
-            // cmdHelpInstanceToLaunch
-            // 
-            this.cmdHelpInstanceToLaunch.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdHelpInstanceToLaunch.ImageIndex = 8;
-            this.cmdHelpInstanceToLaunch.Location = new System.Drawing.Point(417, 70);
-            this.cmdHelpInstanceToLaunch.Name = "cmdHelpInstanceToLaunch";
-            this.cmdHelpInstanceToLaunch.Size = new System.Drawing.Size(27, 23);
-            this.cmdHelpInstanceToLaunch.TabIndex = 23;
-            this.cmdHelpInstanceToLaunch.UseVisualStyleBackColor = true;
             // 
             // cmdRunScript
             // 
@@ -3482,16 +3386,6 @@
             this.cboResolution.Size = new System.Drawing.Size(264, 21);
             this.cboResolution.TabIndex = 18;
             this.cboResolution.SelectedIndexChanged += new System.EventHandler(this.cboResolution_SelectedIndexChanged);
-            // 
-            // cmdHelpPackageName
-            // 
-            this.cmdHelpPackageName.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdHelpPackageName.ImageIndex = 8;
-            this.cmdHelpPackageName.Location = new System.Drawing.Point(629, 44);
-            this.cmdHelpPackageName.Name = "cmdHelpPackageName";
-            this.cmdHelpPackageName.Size = new System.Drawing.Size(27, 23);
-            this.cmdHelpPackageName.TabIndex = 17;
-            this.cmdHelpPackageName.UseVisualStyleBackColor = true;
             // 
             // Label33
             // 
@@ -4217,18 +4111,10 @@
         internal System.Windows.Forms.DataGridViewButtonColumn dgvScan;
         internal System.Windows.Forms.DataGridViewButtonColumn dgvRemove;
         internal System.Windows.Forms.Panel PanelGame;
-        internal System.Windows.Forms.TextBox TextBox2;
         internal System.Windows.Forms.GroupBox grpVideo;
         internal System.Windows.Forms.Label lblFrameLimit;
         internal System.Windows.Forms.NumericUpDown NumericVideoFrameLimit;
         internal System.Windows.Forms.CheckBox chkSaveVideo;
-        internal System.Windows.Forms.Button cmdHelpStartEmmulatorLaunchAppRunScript;
-        internal System.Windows.Forms.Button cmdHelpStartEmmulatorLaunchApp;
-        internal System.Windows.Forms.Button cmdHelpRunScript;
-        internal System.Windows.Forms.Button cmdHelpStartEmmulator;
-        internal System.Windows.Forms.Button cmdHelpInitialResolution;
-        internal System.Windows.Forms.Button cmdHelpLoopDelay;
-        internal System.Windows.Forms.Button cmdHelpInstanceToLaunch;
         internal System.Windows.Forms.Button cmdRunScript;
         internal System.Windows.Forms.Button cmdStartEmmulatorPackageAndRunScript;
         internal System.Windows.Forms.Button cmdStartEmmulatorAndPackage;
@@ -4236,7 +4122,6 @@
         internal System.Windows.Forms.Label Label26;
         internal System.Windows.Forms.ComboBox cboGameInstances;
         internal System.Windows.Forms.ComboBox cboResolution;
-        internal System.Windows.Forms.Button cmdHelpPackageName;
         internal System.Windows.Forms.Label Label33;
         internal System.Windows.Forms.TextBox txtGamePanelLoopDelay;
         internal System.Windows.Forms.Label Label30;
