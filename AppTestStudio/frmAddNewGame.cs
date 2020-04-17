@@ -20,14 +20,6 @@ namespace AppTestStudio
             InitializeComponent();
         }
 
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            frmAddNewGameWizard f = new frmAddNewGameWizard();
-            f.StartPosition = FormStartPosition.CenterParent;
-            f.ShowDialog();
-            Close();
-        }
-
         private void txtName_TextChanged(object sender, EventArgs e)
         {
             cmdSave.Enabled = true;

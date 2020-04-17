@@ -13,7 +13,6 @@ namespace AppTestStudio
 {
     public partial class frmAddNewGameWizard : Form
     {
-
         public List<string> HistoryStack { get; set; }
         public int HistoryStackIndex { get; set; }
 
@@ -39,7 +38,7 @@ namespace AppTestStudio
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
-            if ( e.KeyCode == Keys.Enter )
+            if (e.KeyCode == Keys.Enter)
             {
                 cmdSearch_Click(null, null);
             }
@@ -51,7 +50,6 @@ namespace AppTestStudio
             {
                 webBrowser1.Navigate("https://play.google.com/store/search?q=" + System.Web.HttpUtility.UrlEncode(txtSearch.Text.Trim()) + "&c=apps");
             }
-
         }
 
         private void tmrWaitForBrowserInitialization_Tick(object sender, EventArgs e)
@@ -71,34 +69,31 @@ namespace AppTestStudio
                             AppName = AppName.Replace(c, '-');
                         }
 
-                    AppName = AppName.Trim();
+                        AppName = AppName.Trim();
 
                         lblSafeName.Text = AppName;
-    
-                }
+                    }
                 }
             }
-
         }
 
         private void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
             Debug.WriteLine("WebBrowser1_Navigated");
             cmdCreateProject.Enabled = false;
-        if (e.Url.Query.Contains("?id="))
+            if (e.Url.Query.Contains("?id="))
             {
                 lblAppID.Text = e.Url.Query.Replace("?id=", "");
                 Timer1.Enabled = true;
-        }
+            }
             else
             {
                 Timer1.Enabled = false;
                 lblAppID.Text = "";
                 lblAppName.Text = "";
                 lblSafeName.Text = "";
-          }
+            }
             Debug.WriteLine(e.Url.Query.Replace("?id=", ""));
-
         }
 
         private void cmdForward_Click(object sender, EventArgs e)
@@ -111,7 +106,7 @@ namespace AppTestStudio
 
         private void cmdBack_Click(object sender, EventArgs e)
         {
-            if (webBrowser1.CanGoBack )
+            if (webBrowser1.CanGoBack)
             {
                 webBrowser1.GoBack();
             }
@@ -120,6 +115,14 @@ namespace AppTestStudio
         private void cmdHome_Click(object sender, EventArgs e)
         {
             webBrowser1.Navigate("https://play.google.com/store/apps");
+        }
+
+        private void frmAddNewGameWizard_Load(object sender, EventArgs e)
+        {
+            txtSearch.Focus();
+            lblAppID.Text = "";
+            lblAppName.Text = "";
+            lblSafeName.Text = "";
         }
     }
 }

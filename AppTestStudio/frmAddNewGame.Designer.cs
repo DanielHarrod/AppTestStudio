@@ -34,7 +34,6 @@
             this.cmdCancel = new System.Windows.Forms.Button();
             this.Label1 = new System.Windows.Forms.Label();
             this.lblNameIsInvalid = new System.Windows.Forms.Label();
-            this.Button1 = new System.Windows.Forms.Button();
             this.GroupBox1 = new System.Windows.Forms.GroupBox();
             this.GroupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -95,16 +94,6 @@
             this.lblNameIsInvalid.TabIndex = 6;
             this.lblNameIsInvalid.Text = "Name has invalid characters ";
             // 
-            // Button1
-            // 
-            this.Button1.Location = new System.Drawing.Point(17, 140);
-            this.Button1.Name = "Button1";
-            this.Button1.Size = new System.Drawing.Size(92, 23);
-            this.Button1.TabIndex = 31;
-            this.Button1.Text = "Use Wizard";
-            this.Button1.UseVisualStyleBackColor = true;
-            this.Button1.Click += new System.EventHandler(this.Button1_Click);
-            // 
             // GroupBox1
             // 
             this.GroupBox1.Controls.Add(this.txtName);
@@ -123,9 +112,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(930, 176);
+            this.ClientSize = new System.Drawing.Size(930, 146);
             this.Controls.Add(this.Label2);
-            this.Controls.Add(this.Button1);
             this.Controls.Add(this.GroupBox1);
             this.Name = "frmAddNewGame";
             this.Text = "frmAddNewGame";
@@ -144,7 +132,6 @@
         internal System.Windows.Forms.Button cmdCancel;
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.Label lblNameIsInvalid;
-        internal System.Windows.Forms.Button Button1;
         internal System.Windows.Forms.GroupBox GroupBox1;
     }
 }

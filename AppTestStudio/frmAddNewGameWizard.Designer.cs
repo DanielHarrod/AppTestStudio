@@ -49,6 +49,7 @@
             this.Label1 = new System.Windows.Forms.Label();
             this.SplitContainer1 = new System.Windows.Forms.SplitContainer();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.label6 = new System.Windows.Forms.Label();
             this.GroupBox2.SuspendLayout();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer1)).BeginInit();
@@ -85,21 +86,22 @@
             // 
             // GroupBox2
             // 
+            this.GroupBox2.Controls.Add(this.label6);
             this.GroupBox2.Controls.Add(this.cmdSearch);
             this.GroupBox2.Controls.Add(this.txtSearch);
             this.GroupBox2.Controls.Add(this.cmdHome);
             this.GroupBox2.Controls.Add(this.cmdBack);
             this.GroupBox2.Controls.Add(this.cmdForward);
-            this.GroupBox2.Location = new System.Drawing.Point(12, 108);
+            this.GroupBox2.Location = new System.Drawing.Point(12, 100);
             this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Size = new System.Drawing.Size(876, 49);
+            this.GroupBox2.Size = new System.Drawing.Size(876, 57);
             this.GroupBox2.TabIndex = 5;
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "Browser Navigator Controls";
             // 
             // cmdSearch
             // 
-            this.cmdSearch.Location = new System.Drawing.Point(591, 20);
+            this.cmdSearch.Location = new System.Drawing.Point(561, 29);
             this.cmdSearch.Name = "cmdSearch";
             this.cmdSearch.Size = new System.Drawing.Size(75, 23);
             this.cmdSearch.TabIndex = 5;
@@ -109,7 +111,7 @@
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(299, 20);
+            this.txtSearch.Location = new System.Drawing.Point(270, 31);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(285, 20);
             this.txtSearch.TabIndex = 4;
@@ -265,6 +267,15 @@
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(267, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(224, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Enter Search information to search for an app.";
+            // 
             // frmAddNewGameWizard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -273,6 +284,7 @@
             this.Controls.Add(this.SplitContainer1);
             this.Name = "frmAddNewGameWizard";
             this.Text = "Add New Game Wizard";
+            this.Load += new System.EventHandler(this.frmAddNewGameWizard_Load);
             this.GroupBox2.ResumeLayout(false);
             this.GroupBox2.PerformLayout();
             this.GroupBox1.ResumeLayout(false);
@@ -308,5 +320,6 @@
         internal System.Windows.Forms.Label Label1;
         internal System.Windows.Forms.SplitContainer SplitContainer1;
         private System.Windows.Forms.WebBrowser webBrowser1;
+        private System.Windows.Forms.Label label6;
     }
 }
