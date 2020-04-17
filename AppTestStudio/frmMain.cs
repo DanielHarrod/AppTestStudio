@@ -4271,17 +4271,33 @@ namespace AppTestStudio
                 String ApplicationFolder = Utils.GetApplicationFolder();
                 String ProjectFolder = System.IO.Path.Combine(ApplicationFolder, ApplicationName);
 
-                String TargetFileName = System.IO.Path.Combine(ProjectFolder, "Default.xml");
-                DialogResult Result = DialogResult.Yes;
                 if (System.IO.Directory.Exists(ProjectFolder))
                 {
-                    Result = MessageBox.Show("Project Folder already exists with that name: " + ApplicationName + " Do you want to overwrite?", "Overwrite?", MessageBoxButtons.YesNoCancel);
+                    DialogResult Result = DialogResult.Yes;
+                    int FolderIncrement = 1;
+                    String NewApplicationName = System.IO.Path.Combine(ApplicationFolder, ApplicationName + FolderIncrement.ToString()); 
+                    while (System.IO.Directory.Exists(NewApplicationName))
+                    {
+                        FolderIncrement++;
+                        NewApplicationName = System.IO.Path.Combine(ApplicationFolder, ApplicationName + FolderIncrement.ToString());
+                    }
+
+                    Result = MessageBox.Show("Project Folder already exists with that name: " + ApplicationName + " Do you want to use " + ApplicationName + FolderIncrement.ToString() + " instead?", "Rename?", MessageBoxButtons.YesNoCancel);
+
+                    if (Result == DialogResult.Yes )
+                    {
+                        ProjectFolder = System.IO.Path.Combine(ApplicationFolder, ApplicationName + FolderIncrement.ToString());
+                        ApplicationName = ApplicationName + FolderIncrement.ToString();
+                    }
+
+                    if (Result == DialogResult.Cancel || Result == DialogResult.No)
+                    {
+                        return;
+                    }
                 }
 
-                if (Result == DialogResult.Cancel || Result == DialogResult.No)
-                {
-                    return;
-                }
+                String TargetFileName = System.IO.Path.Combine(ProjectFolder, "Default.xml");
+
 
                 //'assumed already saved, lets clear the other apps.
                 tv.Nodes[0].Nodes.Clear();
