@@ -4763,5 +4763,10 @@ namespace AppTestStudio
                 Log("Stopping Thread -" + git);
             }
         }
+
+        private void cmdPatron_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.patreon.com/AppTestStudio?fan_landing=true");        
+        }
     }
 }
