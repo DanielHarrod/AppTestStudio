@@ -358,6 +358,7 @@ namespace AppTestStudio
                 else
                 {
                     cboGameInstances.SelectedIndex = 0;
+                    txtGamePanelLaunchInstance.Text = "0";
                     game.InstanceToLaunch = "0";
                 }
             }
