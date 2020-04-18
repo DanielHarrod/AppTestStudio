@@ -688,7 +688,6 @@ namespace AppTestStudio
                     Game.Log("Unable to locate window during startup met timeout limit");
                     Game.Log("Exiting thread");
                 }
-
             }
 
             foreach (GameNodeAction node in Game.Events.Nodes)
