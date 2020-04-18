@@ -1,23 +1,23 @@
 # AppTestStudio
 
 AppTestStudio is a automated development environment, it contains a builder, tester, and can simultaneously run multiple scripts that can simultaneously automate multiple android apps.  
-![Image](zATSCircles.png)
+![Image](https://appteststudio.b-cdn.net/ATSCircles.png)
 
 Interactively: Design, Test, Schedule and Play multiple clients at the same time.
-![Image](zATSAutomate.png)
+![Image](https://appteststudio.b-cdn.net/ATSAutomate.png)
 
 ## Getting Started
 1. Install [NoxPlayer](https://www.bignox.com/) 
 
    1.1 - Launch NoxPlayer client go to Gear on the top menu(Settings)->Interface Settings-> Make sure fixed Window size is checked.
    
-   ![Image](zSettings.png)
-   ![Image](zFixedWindowSize.png)
+   ![Image](https://appteststudio.b-cdn.net/Settings.png)
+   ![Image](https://appteststudio.b-cdn.net/FixedWindowSize.png)
 
 2. Install the app of your choice on the Nox player.
 
-   ![Image](zTools.png)
-   ![Image](zPlayStore.png)
+   ![Image](https://appteststudio.b-cdn.net/Tools.png)
+   ![Image](https://appteststudio.b-cdn.net/PlayStore.png)
 
 3. Install AppTestStudio
 
@@ -25,7 +25,7 @@ Interactively: Design, Test, Schedule and Play multiple clients at the same time
 
 ### 1.) In AppTestStudio go to File->New->Wizard
 
-![Image](zWizard.png)
+![Image](https://appteststudio.b-cdn.net/Wizard.png)
 
 ### 2.) Use the wizard to quickly configure a project in seconds.
 1.) Enter Seach text for app or game.
@@ -37,7 +37,7 @@ Interactively: Design, Test, Schedule and Play multiple clients at the same time
 4.) Game ID and Name will autopopulate.
 
 5.) Click Create Project
-![Image](zAppWizard.png)
+![Image](https://appteststudio.b-cdn.net/AppWizard.png)
 
 ### 3.) Start the emmulator
 
@@ -57,12 +57,12 @@ Video:  A video can be saved that takes a screenshot of the screen at each activ
 
 Frame Limit: A basic limit to prevent running out of disk space, the script can take 100's to 1000's of screenshots when running.  
 
-![Image](zStartEmmulator.png)
+![Image](https://appteststudio.b-cdn.net/StartEmmulator.png)
 
 ### 4.) Design your script
 
 #### 4.1 On the Events Node in AppTestStudio Tree, right Click and Choose "Add Event", this will take a screenshot.
-![Image](zAddEvent.png)
+![Image](https://appteststudio.b-cdn.net/AddEvent.png)
 
 
 #### 4.2 A new Event is created - at screenshot is automatically taken of the current emmulator window.
@@ -75,22 +75,22 @@ Frame Limit: A basic limit to prevent running out of disk space, the script can 
 
 (opinion) There are other pixel,coordinate locations that may be better, for example: selecting pixels on the skip text may be ideal so that anytime skip is presented it would be clicked.
 
-![Image](zEvent.png)
+![Image](https://appteststudio.b-cdn.net/Event.png)
 
 #### 4.3 Now create an Action
 Right click on the 'Zeus' Event, then left click 'Add Action'.
 
 The name will automatically have 'Click ' prepended to the parent name.
 
-![Image](zAddAction.png)
+![Image](https://appteststudio.b-cdn.net/AddAction.png)
 
 #### 4.4 Build the Action
 Incidate where to click, click and drag a blue box around the area that needs to be clicked.  AppTestStudio will randomly click at a single location inside the box when the application is run or when the application is tested.
-![Image](zAction.png)
+![Image](https://appteststudio.b-cdn.net/Action.png)
 
 #### 4.4 When the Action note still selected, click 'Test'
 App Test Studio will click inside the box inside the emmulator, which will advance app to the next screen.
-![Image](zTest.png)
+![Image](https://appteststudio.b-cdn.net/Test.png)
 
 ### 5 Continue building 
 
@@ -103,7 +103,7 @@ Use an Event inside another Event.
 
 2.) Organize events inside other events for logic/priority.
 
-![Image](zGroups.png)
+![Image](https://appteststudio.b-cdn.net/Groups.png)
 
 #### 5.2 Control what happens after an Event or Action occurs.
 What needs to occur after a Event Node is true or after an Action node is completed. 
@@ -138,7 +138,7 @@ Wait type: once per session:  You want this activity to run only one time.
 
 Repeats will reset the iteration count if limit has already compelted, so it will occur again.
 
-![Image](zAfter.png)
+![Image](https://appteststudio.b-cdn.net/After.png)
 
 
 Coming soon, needs an update.
