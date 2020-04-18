@@ -247,11 +247,13 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\AddActionP.png" />
     <Content Include="Resources\AddEvent.png" />
     <Content Include="Resources\AddRNGContainerP.png" />
     <Content Include="Resources\AddRNGP.png" />
     <Content Include="Resources\Patron.png" />
     <Content Include="Resources\StartEmmulator.bmp" />
+    <Content Include="Resources\Test.png" />
     <Content Include="Resources\TestALLP.png" />
     <Content Include="Resources\UploadFile_16x_24.bmp" />
     <None Include="Resources\DragTargetMode.png" />
