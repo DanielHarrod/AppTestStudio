@@ -251,6 +251,7 @@ namespace AppTestStudio
 
             toolStripButtonRunScript.Enabled = false;
             toolStripButtonSaveScript.Enabled = false;
+            toolStripLabelCurrentConfiguredInstance.Text = "";
         }
 
         const String PauseScript = "Pause Script";
@@ -1886,6 +1887,7 @@ namespace AppTestStudio
             if (Game.IsSomething())
             {
                 Game.InstanceToLaunch = txtGamePanelLaunchInstance.Text.Trim();
+                toolStripLabelCurrentConfiguredInstance.Text = "Current Instance " + Game.InstanceToLaunch;
             }
         }
 
