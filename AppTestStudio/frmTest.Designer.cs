@@ -432,7 +432,7 @@
             this.Controls.Add(this.SplitContainer2);
             this.Controls.Add(this.cmdClose);
             this.Name = "frmTest";
-            this.Text = "frmTest";
+            this.Text = "Single Test";
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTest)).EndInit();
             this.PanelTest.ResumeLayout(false);
             this.PanelTest.PerformLayout();
