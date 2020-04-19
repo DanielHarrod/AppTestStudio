@@ -4850,5 +4850,53 @@ namespace AppTestStudio
                 Log("toolTest_Click:" + ex.Message);
             }            
         }
+
+        private void toolAddAction_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddAction();
+            }
+            catch (Exception ex)
+            {
+                Log("toolAddAction_Click:" + ex.Message);
+            }
+        }
+
+        private void toolAddEvent_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddNewEvent();
+            }
+            catch (Exception ex)
+            {
+                Log("toolAddEvent_Click:" + ex.Message);
+            }
+        }
+
+        private void toolAddRNG_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddRNGContainer();
+            }
+            catch (Exception ex)
+            {
+                Log("toolAddRNG_Click:" + ex.Message);
+            }
+        }
+
+        private void toolAddRNGNode_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                AddRNGNode(tv.SelectedNode as GameNodeAction);
+            }
+            catch (Exception ex)
+            {
+                Log("toolAddRNGNode_Click:" + ex.Message);
+            }
+        }
     }
 }
