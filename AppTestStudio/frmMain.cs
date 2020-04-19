@@ -398,12 +398,15 @@ namespace AppTestStudio
 
             // Do we have any thing to test?
             GameNodeGame GameNodeGameNode = Node.GetGameNodeGame();
-            GameNodeEvents Events = GameNodeGameNode.GetEventsNode();
-            if (Events.IsSomething())
+            if (GameNodeGameNode.IsSomething())
             {
-                if (Events.Nodes.Count > 0)
+                GameNodeEvents Events = GameNodeGameNode.GetEventsNode();
+                if (Events.IsSomething())
                 {
-                    toolTestAll.Enabled = true;
+                    if (Events.Nodes.Count > 0)
+                    {
+                        toolTestAll.Enabled = true;
+                    }
                 }
             }
 
