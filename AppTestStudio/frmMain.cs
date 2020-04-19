@@ -252,6 +252,7 @@ namespace AppTestStudio
             toolStripButtonRunScript.Enabled = false;
             toolStripButtonSaveScript.Enabled = false;
             toolStripLabelCurrentConfiguredInstance.Text = "";
+            DisableSecondToolbarButtons();
         }
 
         const String PauseScript = "Pause Script";
@@ -374,8 +375,7 @@ namespace AppTestStudio
                 e = new TreeViewEventArgs(tv.SelectedNode);
             }
 
-            GameNode GameNode = e.Node as GameNode;
-
+            GameNode Node = e.Node as GameNode;
 
             PanelLoadNode = null;
 
@@ -386,16 +386,28 @@ namespace AppTestStudio
             toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
             toolStripButtonStartEmmulator.Enabled = false;
 
-
             toolStripButtonSaveScript.Enabled = false;
 
-            if (GameNode.IsNothing())
+            DisableSecondToolbarButtons();
+
+            if (Node.IsNothing())
             {
                 return;
             }
-            Console.WriteLine(GameNode.GameNodeType);
+            Console.WriteLine(Node.GameNodeType);
 
-            switch (GameNode.GameNodeType)
+            // Do we have any thing to test?
+            GameNodeGame GameNodeGameNode = Node.GetGameNodeGame();
+            GameNodeEvents Events = GameNodeGameNode.GetEventsNode();
+            if (Events.IsSomething())
+            {
+                if (Events.Nodes.Count > 0)
+                {
+                    toolTestAll.Enabled = true;
+                }
+            }
+
+            switch (Node.GameNodeType)
             {
                 case GameNodeType.Workspace:
                     SetPanel(PanelMode.Workspace);
@@ -405,7 +417,7 @@ namespace AppTestStudio
                     break;
                 case GameNodeType.Game:
                     SetPanel(PanelMode.Game);
-                    LoadGamePanel(GameNode as GameNodeGame);
+                    LoadGamePanel(Node as GameNodeGame);
 
                     toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
                     toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
@@ -423,6 +435,12 @@ namespace AppTestStudio
                     toolStripButtonStartEmmulator.Enabled = true;
 
                     toolStripButtonRunScript.Enabled = true;
+
+                    //second toolbar
+                    toolAddRNG.Enabled = true;
+                    toolAddEvent.Enabled = true;
+                    toolAddAction.Enabled = true;
+
                     break;
                 case GameNodeType.Event:
                     SetPanel(PanelMode.PanelColorEvent);
@@ -452,6 +470,31 @@ namespace AppTestStudio
                     {
                         case AppTestStudio.ActionType.RNGContainer:
                             mnuAddRNGNode.Enabled = true;
+
+                            //second toolbar
+                            toolAddRNGNode.Enabled = true;
+                            break;
+                        case ActionType.RNG:
+                            //second toolbar
+                            toolAddRNG.Enabled = true;
+                            toolAddEvent.Enabled = true;
+                            toolAddAction.Enabled = true;
+                            break;
+                        case ActionType.Event:
+
+                            //second toolbar
+                            toolAddRNG.Enabled = true;
+                            toolAddEvent.Enabled = true;
+                            toolAddAction.Enabled = true;
+                            toolTest.Enabled = true;
+                            break;
+                        case ActionType.Action:
+
+                            //second toolbar
+                            toolAddRNG.Enabled = true;
+                            toolAddEvent.Enabled = true;
+                            toolAddAction.Enabled = true;
+                            toolTest.Enabled = true;
                             break;
                         default:
                             break;
@@ -470,6 +513,17 @@ namespace AppTestStudio
                     Debug.Assert(false);
                     break;
             }
+        }
+
+        private void DisableSecondToolbarButtons()
+        {
+            //Second Toolbar
+            toolAddEvent.Enabled = false;
+            toolAddAction.Enabled = false;
+            toolAddRNG.Enabled = false;
+            toolAddRNGNode.Enabled = false;
+            toolTest.Enabled = false;
+            toolTestAll.Enabled = false;
         }
 
         private void LoadGamePanel(GameNodeGame gameNode)
@@ -862,7 +916,7 @@ namespace AppTestStudio
                 else
                 {
                     GameNode Node = tv.SelectedNode as GameNode;
-                    GameNode GameNode = Node.GetGameNode();
+                    GameNode GameNode = Node.GetGameNodeGame();
                     GameNodeObjects ObjectsNode = GameNode.GetObjectsNode();
                     //'For Each Screenshot As OctoGameNodeObjectScreenshot In ObjectsNode.Nodes
 
@@ -967,7 +1021,7 @@ namespace AppTestStudio
         private void toolStripButtonStartEmmulator_Click(object sender, EventArgs e)
         {
             GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNode();
+            GameNodeGame GameNode = Node.GetGameNodeGame();
 
             if (GameNode.IsSomething())
             {
@@ -981,7 +1035,7 @@ namespace AppTestStudio
         private void toolStripButtonStartEmmulatorLaunchApp_Click(object sender, EventArgs e)
         {
             GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNode();
+            GameNodeGame GameNode = Node.GetGameNodeGame();
 
             Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution);
         }
@@ -990,7 +1044,7 @@ namespace AppTestStudio
         private void LaunchAndLoadInstance()
         {
             GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNode();
+            GameNodeGame GameNode = Node.GetGameNodeGame();
 
             Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution);
 
@@ -1131,7 +1185,7 @@ namespace AppTestStudio
         private void cmdObjectScreenshotsTakeAScreenshot_Click(object sender, EventArgs e)
         {
             GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNode();
+            GameNodeGame GameNode = Node.GetGameNodeGame();
             String TargetWindow = GameNode.TargetWindow;
 
             IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
@@ -1272,8 +1326,7 @@ namespace AppTestStudio
         private void LoadPanelEvents()
         {
             GameNode Node = tv.SelectedNode as GameNode;
-            GameNode Parent = Node.Parent as GameNode;
-            GameNodeGame Game = Parent as GameNodeGame;
+            GameNodeGame Game = Node.GetGameNodeGame();
             lblEventsPanelTargetWindow.Text = Game.TargetWindow;
         }
 
@@ -2193,7 +2246,7 @@ namespace AppTestStudio
         private void RunSingleTest()
         {
             GameNode Node = tv.SelectedNode as GameNode;
-            GameNode GameNode = Node.GetGameNode();
+            GameNode GameNode = Node.GetGameNodeGame();
             GameNodeAction ActionNode = Node as GameNodeAction;
 
             if (GameNode.IsSomething())
@@ -3189,7 +3242,7 @@ namespace AppTestStudio
         private Color GetColorAtTargetWindowXY(int x, int y)
         {
             GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNode();
+            GameNodeGame GameNode = Node.GetGameNodeGame();
 
             String MainWindowTitle = GameNode.TargetWindow;
 
@@ -3225,7 +3278,7 @@ namespace AppTestStudio
         private void toolStripButtonRunScript_Click(object sender, EventArgs e)
         {
             GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNode();
+            GameNodeGame GameNode = Node.GetGameNodeGame();
 
             LoadInstance(GameNode);
         }
@@ -3275,7 +3328,7 @@ namespace AppTestStudio
         private void cmdAddSingleColorAtSingleLocationTakeASceenshot_Click(object sender, EventArgs e)
         {
             GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNode();
+            GameNodeGame GameNode = Node.GetGameNodeGame();
 
             String TargetWindow = GameNode.TargetWindow;
 
@@ -3920,7 +3973,7 @@ namespace AppTestStudio
 
             //'walk to Event//'s node
             GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNode();
+            GameNodeGame GameNode = Node.GetGameNodeGame();
             GameNodeEvents EventsNode = GameNode.GetEventsNode();
 
             tvTestAllEvents.Nodes.Clear();
@@ -3965,7 +4018,7 @@ namespace AppTestStudio
                 float DetectedThreashold = 0;
 
                 GameNode AppNode = tv.SelectedNode as GameNode;
-                GameNodeGame GameNode = AppNode.GetGameNode();
+                GameNodeGame GameNode = AppNode.GetGameNodeGame();
 
                 if (Node.IsTrue(Bmp, GameNode, ref CenterX, ref CenterY, ref QualifyingEvents, ref DetectedThreashold))
                 {
@@ -4769,6 +4822,11 @@ namespace AppTestStudio
         private void cmdPatron_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.patreon.com/AppTestStudio?fan_landing=true");        
+        }
+
+        private void toolTestAll_Click(object sender, EventArgs e)
+        {
+            TestAllEvents();
         }
     }
 }

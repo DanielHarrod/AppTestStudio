@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -49,20 +50,55 @@ namespace AppTestStudio
             NextNodeID++;
         }
 
-        internal GameNodeGame GetGameNode()
+        internal GameNodeGame GetGameNodeGame()
         {
-            GameNode Node = this;
-            while (Node is GameNodeGame == false )
+            switch (this.GameNodeType)
             {
-                Node = Node.Parent as GameNode;
+                case GameNodeType.Workspace:
+                    // check before
+                    if (Nodes.Count > 0)
+                    {
+                        return Nodes[0] as GameNodeGame ;
+                    }
+                    break;
+                case GameNodeType.Games:
+                    // not used.
+                    Debug.Assert(false);
+                    break;
+                case GameNodeType.Game:
+                    // check equals
+                    return this as GameNodeGame;
+                    break;
+                //case GameNodeType.Events:
+                //    break;
+                //case GameNodeType.Event:
+                //    break;
+                //case GameNodeType.Action:
+                //    break;
+                //case GameNodeType.Objects:
+                //    break;
+                //case GameNodeType.ObjectScreenshot:
+                //    break;
+                //case GameNodeType.Object:
+                //    break;
+                default:
+                    // Walk up the parents until it's found.
+                    GameNode Node = this;
+                    while (Node is GameNodeGame == false)
+                    {
+                        Node = Node.Parent as GameNode;
+                    }
+
+                    return Node as GameNodeGame;
+                    break;
             }
 
-            return Node as GameNodeGame;
+            return null;
         }
 
         internal GameNodeObjects GetObjectsNode()
         {
-            GameNode GameNode = GetGameNode();
+            GameNode GameNode = GetGameNodeGame();
             foreach (GameNode node in GameNode.Nodes)
             {
                 if ( node is GameNodeObjects)
@@ -74,5 +110,7 @@ namespace AppTestStudio
         return null;
 
         }
+
+
     }
 }
