@@ -4829,7 +4829,26 @@ namespace AppTestStudio
 
         private void toolTestAll_Click(object sender, EventArgs e)
         {
-            TestAllEvents();
+            try
+            {
+                TestAllEvents();
+            }
+            catch (Exception ex)
+            {
+                Log("toolTestAll_Click:" + ex.Message);
+            }
+        }
+
+        private void toolTest_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RunSingleTest();
+            }
+            catch (Exception ex)
+            {
+                Log("toolTest_Click:" + ex.Message);
+            }            
         }
     }
 }
