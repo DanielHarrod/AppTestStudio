@@ -105,6 +105,59 @@ namespace AppTestStudio
 
         }
 
+        public static void DrawColorPoints(PaintEventArgs e, DataGridView dgv, String cellColorName, String xName, String yName)
+        {
+            int i = 1;
+            foreach (DataGridViewRow row in dgv.Rows)
+            {
+                if (row.IsNewRow)
+                {
+                    // do nothing
+                }
+                else
+                {
+                    Color c = Color.Empty;
+                    c = c.FromRGBString(row.Cells[cellColorName].Value.ToString());
+                    int x = row.Cells[xName].Value.ToString().ToInt();
+                    int y = row.Cells[yName].Value.ToString().ToInt();
+                    using (SolidBrush br = new SolidBrush(c))
+                    {
+                        using (Font f = new Font("Arial", 16, FontStyle.Bold))
+                        {
+                            SizeF fSize = e.Graphics.MeasureString(i.ToString(), f);
+
+                            Single brightness = br.Color.GetBrightness();
+                            if (brightness < 0.55)
+                            {
+                                using (SolidBrush white = new SolidBrush(Color.WhiteSmoke))
+                                {
+                                    e.Graphics.FillRectangle(white, x, y, fSize.Width, fSize.Height);
+                                    using (Pen BlackPen = new Pen(Color.Black, 1))
+                                    {
+                                        e.Graphics.DrawRectangle(BlackPen, x, y, fSize.Width, fSize.Height);
+                                    }
+                                }
+                            }
+                            else
+                            {
+                                using (SolidBrush black = new SolidBrush(Color.Black))
+                                {
+                                    using (Pen WhitePen = new Pen(Color.White, 1))
+                                    {
+                                        e.Graphics.FillRectangle(black, x, y, fSize.Width, fSize.Height);
+                                        e.Graphics.DrawRectangle(WhitePen, x, y, fSize.Width, fSize.Height);
+                                    }
+                                }
+                            }
+                            e.Graphics.DrawString(i.ToString(), f, br, x, y);
+                        }
+                        i++;
+                    }
+                }
+            }
+        }
+
+
         public static PointF Center(RectangleF r)
         {
             PointF Loc = r.Location;

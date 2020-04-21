@@ -102,6 +102,7 @@
             this.PictureBoxTest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PictureBoxTest.TabIndex = 0;
             this.PictureBoxTest.TabStop = false;
+            this.PictureBoxTest.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBoxTest_Paint);
             // 
             // PanelTest
             // 
@@ -151,6 +152,7 @@
             this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
             this.PictureBox1.TabIndex = 0;
             this.PictureBox1.TabStop = false;
+            this.PictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBox1_Paint);
             // 
             // PanelScreenshot
             // 

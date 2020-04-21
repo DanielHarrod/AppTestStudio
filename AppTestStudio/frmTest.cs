@@ -214,5 +214,15 @@ namespace AppTestStudio
         {
             Hide();
         }
+
+        private void PictureBox1_Paint(object sender, PaintEventArgs e)
+        {
+            Utils.DrawColorPoints(e, dgv, "dgvColor", "dgvX", "dgvY");
+        }
+
+        private void PictureBoxTest_Paint(object sender, PaintEventArgs e)
+        {
+            Utils.DrawColorPoints(e, dgvTest, "dgvColorTest", "dgvXTest", "dgvYTest");
+        }
     }
 }
