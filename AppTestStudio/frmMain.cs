@@ -3950,8 +3950,10 @@ namespace AppTestStudio
                 return;
             }
 
-            lblTestWindowResolution.Text = PictureTestAllTest.Image.Width + " x " + PictureTestAllTest.Image.Height;
-
+            if (PictureTestAllTest.Image.IsSomething())
+            {
+                lblTestWindowResolution.Text = PictureTestAllTest.Image.Width + " x " + PictureTestAllTest.Image.Height;
+            }
 
             foreach (GameNodeEvents nodeEvents in tvTestAllEvents.Nodes)
             {
@@ -3996,7 +3998,7 @@ namespace AppTestStudio
                 }
                 else
                 {
-                    Node.Bitmap = Bmp;
+                    //Node.Bitmap = Bmp;
                     Node.ImageIndex = 6;
                     Node.SelectedImageIndex = 6;
 
@@ -4850,6 +4852,16 @@ namespace AppTestStudio
             {
                 Log("toolAddRNGNode_Click:" + ex.Message);
             }
+        }
+
+        private void PictureTestAllReference_Paint(object sender, PaintEventArgs e)
+        {
+            Utils.DrawColorPoints(e, dgvTestAllReference, "dgvTestAllReferenceColor", "dgvTestAllReferenceX", "dgvTestAllReferenceY");
+        }
+
+        private void PictureTestAllTest_Paint(object sender, PaintEventArgs e)
+        {
+            Utils.DrawColorPoints(e, dgvTest, "dgvColorTest", "dgvXTest", "dgvYTest");
         }
     }
 }
