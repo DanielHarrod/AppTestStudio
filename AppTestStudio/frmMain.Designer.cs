@@ -199,8 +199,16 @@
             this.SplitContainer10 = new System.Windows.Forms.SplitContainer();
             this.lblTestAllEventsReference = new System.Windows.Forms.Label();
             this.dgvTestAllReference = new System.Windows.Forms.DataGridView();
+            this.dgvTestAllReferenceColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTestAllReferenceX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvTestAllReferenceY = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTestAllEventsTestWindowColors = new System.Windows.Forms.Label();
             this.dgvTest = new System.Windows.Forms.DataGridView();
+            this.dgvColorTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvXTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvYTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPassFail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dvgRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PanelThread = new System.Windows.Forms.Panel();
             this.splitContainerThread = new System.Windows.Forms.SplitContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -341,14 +349,6 @@
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
             this.toolAddRNG = new System.Windows.Forms.ToolStripButton();
             this.toolAddRNGNode = new System.Windows.Forms.ToolStripButton();
-            this.dgvTestAllReferenceColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTestAllReferenceX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvTestAllReferenceY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColorTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvXTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvYTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPassFail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dvgRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -2477,6 +2477,28 @@
             this.dgvTestAllReference.Size = new System.Drawing.Size(450, 161);
             this.dgvTestAllReference.TabIndex = 11;
             // 
+            // dgvTestAllReferenceColor
+            // 
+            this.dgvTestAllReferenceColor.DataPropertyName = "dgvTestAllReferenceColor";
+            this.dgvTestAllReferenceColor.HeaderText = "Color";
+            this.dgvTestAllReferenceColor.MinimumWidth = 20;
+            this.dgvTestAllReferenceColor.Name = "dgvTestAllReferenceColor";
+            this.dgvTestAllReferenceColor.Width = 162;
+            // 
+            // dgvTestAllReferenceX
+            // 
+            this.dgvTestAllReferenceX.DataPropertyName = "dgvTestAllReferenceX";
+            this.dgvTestAllReferenceX.HeaderText = "X";
+            this.dgvTestAllReferenceX.Name = "dgvTestAllReferenceX";
+            this.dgvTestAllReferenceX.Width = 30;
+            // 
+            // dgvTestAllReferenceY
+            // 
+            this.dgvTestAllReferenceY.DataPropertyName = "dgvTestAllReferenceY";
+            this.dgvTestAllReferenceY.HeaderText = "Y";
+            this.dgvTestAllReferenceY.Name = "dgvTestAllReferenceY";
+            this.dgvTestAllReferenceY.Width = 30;
+            // 
             // lblTestAllEventsTestWindowColors
             // 
             this.lblTestAllEventsTestWindowColors.AutoSize = true;
@@ -2521,6 +2543,38 @@
             this.dgvTest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTest.Size = new System.Drawing.Size(450, 278);
             this.dgvTest.TabIndex = 12;
+            // 
+            // dgvColorTest
+            // 
+            this.dgvColorTest.DataPropertyName = "dgvColorTest";
+            this.dgvColorTest.HeaderText = "Color";
+            this.dgvColorTest.MinimumWidth = 20;
+            this.dgvColorTest.Name = "dgvColorTest";
+            this.dgvColorTest.Width = 162;
+            // 
+            // dgvXTest
+            // 
+            this.dgvXTest.DataPropertyName = "dgvXTest";
+            this.dgvXTest.HeaderText = "X";
+            this.dgvXTest.Name = "dgvXTest";
+            this.dgvXTest.Width = 30;
+            // 
+            // dgvYTest
+            // 
+            this.dgvYTest.DataPropertyName = "dgvYTest";
+            this.dgvYTest.HeaderText = "Y";
+            this.dgvYTest.Name = "dgvYTest";
+            this.dgvYTest.Width = 30;
+            // 
+            // dgvPassFail
+            // 
+            this.dgvPassFail.HeaderText = "Pass/Fail";
+            this.dgvPassFail.Name = "dgvPassFail";
+            // 
+            // dvgRange
+            // 
+            this.dvgRange.HeaderText = "+-Points";
+            this.dvgRange.Name = "dvgRange";
             // 
             // PanelThread
             // 
@@ -3846,60 +3900,6 @@
             this.toolAddRNGNode.Text = "Add RNG Node";
             this.toolAddRNGNode.Click += new System.EventHandler(this.toolAddRNGNode_Click);
             // 
-            // dgvTestAllReferenceColor
-            // 
-            this.dgvTestAllReferenceColor.DataPropertyName = "dgvTestAllReferenceColor";
-            this.dgvTestAllReferenceColor.HeaderText = "Color";
-            this.dgvTestAllReferenceColor.MinimumWidth = 20;
-            this.dgvTestAllReferenceColor.Name = "dgvTestAllReferenceColor";
-            this.dgvTestAllReferenceColor.Width = 162;
-            // 
-            // dgvTestAllReferenceX
-            // 
-            this.dgvTestAllReferenceX.DataPropertyName = "dgvTestAllReferenceX";
-            this.dgvTestAllReferenceX.HeaderText = "X";
-            this.dgvTestAllReferenceX.Name = "dgvTestAllReferenceX";
-            this.dgvTestAllReferenceX.Width = 30;
-            // 
-            // dgvTestAllReferenceY
-            // 
-            this.dgvTestAllReferenceY.DataPropertyName = "dgvTestAllReferenceY";
-            this.dgvTestAllReferenceY.HeaderText = "Y";
-            this.dgvTestAllReferenceY.Name = "dgvTestAllReferenceY";
-            this.dgvTestAllReferenceY.Width = 30;
-            // 
-            // dgvColorTest
-            // 
-            this.dgvColorTest.DataPropertyName = "dgvColorTest";
-            this.dgvColorTest.HeaderText = "Color";
-            this.dgvColorTest.MinimumWidth = 20;
-            this.dgvColorTest.Name = "dgvColorTest";
-            this.dgvColorTest.Width = 162;
-            // 
-            // dgvXTest
-            // 
-            this.dgvXTest.DataPropertyName = "dgvXTest";
-            this.dgvXTest.HeaderText = "X";
-            this.dgvXTest.Name = "dgvXTest";
-            this.dgvXTest.Width = 30;
-            // 
-            // dgvYTest
-            // 
-            this.dgvYTest.DataPropertyName = "dgvYTest";
-            this.dgvYTest.HeaderText = "Y";
-            this.dgvYTest.Name = "dgvYTest";
-            this.dgvYTest.Width = 30;
-            // 
-            // dgvPassFail
-            // 
-            this.dgvPassFail.HeaderText = "Pass/Fail";
-            this.dgvPassFail.Name = "dgvPassFail";
-            // 
-            // dvgRange
-            // 
-            this.dvgRange.HeaderText = "+-Points";
-            this.dvgRange.Name = "dvgRange";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3912,6 +3912,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
             this.Text = "App Test Studio";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
             this.menuStrip1.ResumeLayout(false);

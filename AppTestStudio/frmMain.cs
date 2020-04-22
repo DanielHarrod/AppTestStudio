@@ -3267,18 +3267,7 @@ namespace AppTestStudio
 
         private void frmMain_FormClosed(object sender, FormClosedEventArgs e)
         {
-            Visible = false;
-            Timer1.Enabled = false;
-            foreach (GameNodeGame Game in ThreadManager.Games)
-            {
-                Game.Thread.Abort();
-                Thread.Sleep(200);
-            }
 
-            ThreadManager.Save();
-            Thread.Sleep(200);
-
-            Application.Exit();
 
         }
 
@@ -4863,6 +4852,18 @@ namespace AppTestStudio
         private void PictureTestAllTest_Paint(object sender, PaintEventArgs e)
         {
             Utils.DrawColorPoints(e, dgvTest, "dgvColorTest", "dgvXTest", "dgvYTest");
+        }
+
+        private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            ThreadManager.Save();
+            Visible = false;
+            Timer1.Enabled = false;
+            foreach (GameNodeGame Game in ThreadManager.Games)
+            {
+                Game.Thread.Abort();
+            }
+            Thread.Sleep(100);
         }
     }
 }
