@@ -4856,7 +4856,7 @@ namespace AppTestStudio
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            ThreadManager.Save();
+            
             Visible = false;
             Timer1.Enabled = false;
             foreach (GameNodeGame Game in ThreadManager.Games)
@@ -4864,6 +4864,9 @@ namespace AppTestStudio
                 Game.Thread.Abort();
             }
             Thread.Sleep(100);
+
+            // threads must be turned off off during saving.
+            ThreadManager.Save();
         }
     }
 }

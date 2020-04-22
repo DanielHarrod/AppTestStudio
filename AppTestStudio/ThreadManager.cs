@@ -4,23 +4,19 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using System.Xml.Serialization;
 
 namespace AppTestStudio
 {
     public class ThreadManager
     {
-        public ThreadManager(ThreadManager threadMan)
-        {
-            Games = new List<GameNodeGame>();
-            LoadThreadManager = threadMan;
-            RemoveGameLock = new object();
-        }
 
         public ThreadManager()
         {
@@ -52,24 +48,33 @@ namespace AppTestStudio
 
         public void Load()
         {
-            String ThreadManagerFileName = GetFileName();
+			try
+			{
+			   String ThreadManagerFileName = GetFileName();
 
-            if (System.IO.File.Exists(ThreadManagerFileName))
-            {
-                ThreadManager XMLThreadManger = new ThreadManager();
-                XmlSerializer Serializer = new XmlSerializer(XMLThreadManger.GetType());
-                TextReader TRead = new StreamReader(ThreadManagerFileName);
-                XMLThreadManger = Serializer.Deserialize(TRead) as ThreadManager;
+				if (System.IO.File.Exists(ThreadManagerFileName))
+				{
+					ThreadManager XMLThreadManger = new ThreadManager();
+					XmlSerializer Serializer = new XmlSerializer(XMLThreadManger.GetType());
+					TextReader TRead = new StreamReader(ThreadManagerFileName);
+					XMLThreadManger = Serializer.Deserialize(TRead) as ThreadManager;
 
-                this.LoadThreadManager = XMLThreadManger;
+					this.LoadThreadManager = XMLThreadManger;
 
-                TRead.Close();
-            }
-            else
-            {
+					TRead.Close();
+				}
+				else
+				{
 
-                LoadThreadManager = new ThreadManager();
-            }
+					LoadThreadManager = new ThreadManager();
+				}
+			}
+			catch (Exception ex)
+			{
+
+				Debug.WriteLine("threadManager.Load:" + ex.Message);
+			}
+ 
         }
 
         public void Save()
@@ -78,10 +83,16 @@ namespace AppTestStudio
 
             StreamWriter SR = new StreamWriter(FileName);
             XmlSerializer Serializer = new XmlSerializer(this.GetType());
-			if (this.GoContinue == 0)
-			{ 
-				int i = 3;
-			}
+
+			ClickCount += LoadThreadManager.ClickCount;
+			WaitLength += LoadThreadManager.WaitLength;
+			ScreenShots += LoadThreadManager.ScreenShots;
+			GoHome += LoadThreadManager.GoHome;
+			GoContinue += LoadThreadManager.GoContinue;
+			GoChild += LoadThreadManager.GoChild;
+			RNG += LoadThreadManager.RNG;
+			AppLaunches += LoadThreadManager.AppLaunches;			
+
             Serializer.Serialize(SR, this);
             SR.Close();
 			SR.Dispose();
