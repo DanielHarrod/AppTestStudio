@@ -78,7 +78,10 @@ namespace AppTestStudio
 
             StreamWriter SR = new StreamWriter(FileName);
             XmlSerializer Serializer = new XmlSerializer(this.GetType());
-
+			if (this.GoContinue == 0)
+			{ 
+				int i = 3;
+			}
             Serializer.Serialize(SR, this);
             SR.Close();
 			SR.Dispose();
