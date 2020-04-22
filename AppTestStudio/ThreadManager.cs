@@ -81,6 +81,7 @@ namespace AppTestStudio
 
             Serializer.Serialize(SR, this);
             SR.Close();
+			SR.Dispose();
         }
 		
 		private long mClickCount;

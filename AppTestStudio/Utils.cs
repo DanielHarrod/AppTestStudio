@@ -44,19 +44,7 @@ namespace AppTestStudio
                         switch (ActionNode.ActionType)
                         {
                             case ActionType.Action:
-                                switch (ActionNode.Mode)
-                                {
-                                    case Mode.RangeClick:
-                                        Node.ImageIndex = IconNames.ButtonClick();
-                                        Node.SelectedImageIndex = IconNames.ButtonClick();
-                                        break;
-                                    case Mode.ClickDragRelease:
-                                        Node.ImageIndex = IconNames.DependencyArrow();
-                                        Node.SelectedImageIndex = IconNames.DependencyArrow();
-                                        break;
-                                    default:
-                                        break;
-                                }
+                                SetIconsActionTypeAction(ActionNode);
                                 break;
                             case ActionType.Event:
                                 if (ActionNode.IsColorPoint)
@@ -103,6 +91,23 @@ namespace AppTestStudio
                     break;
             }
 
+        }
+
+        public static void SetIconsActionTypeAction(GameNodeAction Action)
+        {
+            switch (Action.Mode)
+            {
+                case Mode.RangeClick:
+                    Action.ImageIndex = IconNames.ButtonClick();
+                    Action.SelectedImageIndex = IconNames.ButtonClick();
+                    break;
+                case Mode.ClickDragRelease:
+                    Action.ImageIndex = IconNames.DependencyArrow();
+                    Action.SelectedImageIndex = IconNames.DependencyArrow();
+                    break;
+                default:
+                    break;
+            }
         }
 
         public static void DrawColorPoints(PaintEventArgs e, DataGridView dgv, String cellColorName, String xName, String yName)

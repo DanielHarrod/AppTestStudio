@@ -148,7 +148,20 @@ namespace AppTestStudio
         public WaitType WaitType { get; set; }
         public Boolean IsWaitFirst { get; set; }
         public long ExecutionLimit { get; set; }
-        public Mode Mode { get; set; }
+
+        private Mode mMode;
+        public Mode Mode {
+            get { return mMode; }
+            set { 
+                mMode = value; 
+
+                if (ActionType == ActionType.Action )
+                {
+                    Utils.SetIconsActionTypeAction(this);
+                }
+            } 
+        }
+        
         public int Points { get; set; }
 
         public int ThreadMatchCount { get; set; }

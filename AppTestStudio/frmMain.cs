@@ -3276,6 +3276,7 @@ namespace AppTestStudio
             }
 
             ThreadManager.Save();
+            Thread.Sleep(200);
 
             Application.Exit();
 
