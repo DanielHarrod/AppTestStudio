@@ -1415,16 +1415,16 @@ namespace AppTestStudio
                             //mnuPopupGame.Show(tv, p);
                             break;
                         case GameNodeType.Events:
-                            mnuTestAllEvents.Visible = true;
+                            mnuTestAllEvents.Enabled = true;
                             mnuAddAction.Visible = false;
                             mnuEvents.Show(tv, p);
                             break;
                         case GameNodeType.Event:
-                            mnuTestAllEvents.Visible = false;
+                            mnuTestAllEvents.Enabled = false;
                             mnuEvents.Show(tv, p);
                             break;
                         case GameNodeType.Action:
-                            mnuTestAllEvents.Visible = false;
+                            mnuTestAllEvents.Enabled = false;
                             GameNodeAction Action = node as GameNodeAction;
                             switch (Action.ActionType)
                             {
@@ -2235,10 +2235,14 @@ namespace AppTestStudio
         // Removes a tree node and sets focus to parent tree node.
         private void cmdDelete_Click(object sender, EventArgs e)
         {
+            DeleteSelectedTreeNode();
+        }
+
+        private void DeleteSelectedTreeNode()
+        {
             GameNode p = PanelLoadNode.Parent as GameNode;
             PanelLoadNode.Remove();
             tv.SelectedNode = p;
-
         }
 
         private void cmdTest_Click(object sender, EventArgs e)
@@ -4855,8 +4859,7 @@ namespace AppTestStudio
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            
+        {            
             Visible = false;
             Timer1.Enabled = false;
             foreach (GameNodeGame Game in ThreadManager.Games)
@@ -4867,6 +4870,62 @@ namespace AppTestStudio
 
             // threads must be turned off off during saving.
             ThreadManager.Save();
+        }
+
+        private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DeleteSelectedTreeNode();
+        }
+
+        private void upToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreeNode PLN = PanelLoadNode;
+            TreeNode parent = PLN.Parent;
+            TreeView view = PLN.TreeView;
+            if (parent != null)
+            {
+                int index = parent.Nodes.IndexOf(PLN);
+                if (index > 0)
+                {
+                    parent.Nodes.Remove(PLN);
+                    parent.Nodes.Insert(index - 1, PLN);
+                    PanelLoadNode.TreeView.SelectedNode = PLN;
+                }
+            }
+            else if (PLN.TreeView.Nodes.Contains(PLN)) //root node
+            {
+                int index = view.Nodes.IndexOf(PLN);
+                if (index > 0)
+                {
+                    view.Nodes.RemoveAt(index);
+                    view.Nodes.Insert(index - 1, PLN);
+                }
+            }
+        }
+
+        private void downToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            TreeNode PLN = PanelLoadNode;
+            TreeNode parent = PLN.Parent;
+            TreeView view = PLN.TreeView;
+            if (parent != null)
+            {
+                int index = parent.Nodes.IndexOf(PLN);
+                if (index < parent.Nodes.Count - 1)
+                {
+                    parent.Nodes.RemoveAt(index);
+                    parent.Nodes.Insert(index + 1, PLN);
+                }
+            }
+            else if (view != null && view.Nodes.Contains(PLN)) //root node
+            {
+                int index = view.Nodes.IndexOf(PLN);
+                if (index < view.Nodes.Count - 1)
+                {
+                    view.Nodes.RemoveAt(index);
+                    view.Nodes.Insert(index + 1, PLN);
+                }
+            }
         }
     }
 }
