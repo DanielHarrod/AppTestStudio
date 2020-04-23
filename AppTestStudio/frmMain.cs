@@ -129,6 +129,9 @@ namespace AppTestStudio
 
             LoadRanges();
 
+            // Initialize
+            appTestStudioStatusControl1.ShowPercent = 120;
+
         }
 
         private void LoadSchedule()
