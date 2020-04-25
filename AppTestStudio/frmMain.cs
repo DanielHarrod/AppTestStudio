@@ -254,6 +254,7 @@ namespace AppTestStudio
 
             toolStripButtonRunScript.Enabled = false;
             toolStripButtonSaveScript.Enabled = false;
+            toolStripButtonRunStartLaunch.Enabled = false;
             toolStripLabelCurrentConfiguredInstance.Text = "";
             DisableSecondToolbarButtons();
         }
@@ -385,6 +386,7 @@ namespace AppTestStudio
             mnuAddRNGNode.Enabled = false;
 
             toolStripButtonRunScript.Enabled = false;
+            toolStripButtonRunStartLaunch.Enabled = false;
             toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
             toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
             toolStripButtonStartEmmulator.Enabled = false;
@@ -430,6 +432,7 @@ namespace AppTestStudio
                     toolStripButtonStartEmmulator.Enabled = true;
 
                     toolStripButtonRunScript.Enabled = true;
+                    toolStripButtonRunStartLaunch.Enabled = true;
                     toolStripButtonSaveScript.Enabled = true;
                     break;
                 case GameNodeType.Events:
@@ -437,10 +440,10 @@ namespace AppTestStudio
 
                     toolStripButtonSaveScript.Enabled = true;
                     toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
-                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
                     toolStripButtonStartEmmulator.Enabled = true;
 
                     toolStripButtonRunScript.Enabled = true;
+                    toolStripButtonRunStartLaunch.Enabled = true;
 
                     //second toolbar
                     toolAddRNG.Enabled = true;
@@ -454,18 +457,18 @@ namespace AppTestStudio
 
                     toolStripButtonSaveScript.Enabled = true;
                     toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
-                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
                     toolStripButtonStartEmmulator.Enabled = true;
 
                     toolStripButtonRunScript.Enabled = true;
+                    toolStripButtonRunStartLaunch.Enabled = true;
                     break;
                 case GameNodeType.Action:
                     toolStripButtonSaveScript.Enabled = true;
                     toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
-                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
                     toolStripButtonStartEmmulator.Enabled = true;
 
                     toolStripButtonRunScript.Enabled = true;
+                    toolStripButtonRunStartLaunch.Enabled = true;
 
                     SetPanel(PanelMode.PanelColorEvent);
                     LoadPanelSingleColorAtSingleLocation(e.Node as GameNodeAction);
@@ -4880,6 +4883,11 @@ namespace AppTestStudio
             DeleteSelectedTreeNode();
         }
 
+        /// <summary>
+        /// MOves the node up one sibling
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void upToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TreeNode PLN = PanelLoadNode;
@@ -4906,6 +4914,11 @@ namespace AppTestStudio
             }
         }
 
+        /// <summary>
+        /// Moves the node down one sibling
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void downToolStripMenuItem_Click(object sender, EventArgs e)
         {
             TreeNode PLN = PanelLoadNode;
@@ -4929,6 +4942,19 @@ namespace AppTestStudio
                     view.Nodes.Insert(index + 1, PLN);
                 }
             }
+        }
+
+        private void toolStripButtonRunStartLaunch_Click(object sender, EventArgs e)
+        {
+            // Get Game Node
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNodeGame GameNode = Node.GetGameNodeGame();
+
+            // Start Thread
+            LoadInstance(GameNode);
+
+            // Load Emmulator and App
+            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution);
         }
     }
 }
