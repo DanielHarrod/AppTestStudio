@@ -390,6 +390,8 @@ namespace AppTestStudio
             toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
             toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
             toolStripButtonStartEmmulator.Enabled = false;
+            
+            moveToolStripMenuItem.Enabled = false;
 
             toolStripButtonSaveScript.Enabled = false;
 
@@ -461,8 +463,11 @@ namespace AppTestStudio
 
                     toolStripButtonRunScript.Enabled = true;
                     toolStripButtonRunStartLaunch.Enabled = true;
+
+                    moveToolStripMenuItem.Enabled = true;
                     break;
                 case GameNodeType.Action:
+                        moveToolStripMenuItem.Enabled = true;
                     toolStripButtonSaveScript.Enabled = true;
                     toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
                     toolStripButtonStartEmmulator.Enabled = true;
