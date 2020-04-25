@@ -30,17 +30,17 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -113,7 +113,7 @@
             this.lblLimitTimeLabel = new System.Windows.Forms.Label();
             this.lblLimitIterationsLabel = new System.Windows.Forms.Label();
             this.chkWaitFirst = new System.Windows.Forms.CheckBox();
-            this.Label42 = new System.Windows.Forms.Label();
+            this.lblLimitWaitType = new System.Windows.Forms.Label();
             this.cboWaitType = new System.Windows.Forms.ComboBox();
             this.chkUseLimit = new System.Windows.Forms.CheckBox();
             this.chkAutoBalance = new System.Windows.Forms.CheckBox();
@@ -238,7 +238,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.splitContainerSeconds = new System.Windows.Forms.SplitContainer();
-            this.appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
             this.PanelSchedule = new System.Windows.Forms.Panel();
             this.Button5 = new System.Windows.Forms.Button();
             this.chkEnableSchedule = new System.Windows.Forms.CheckBox();
@@ -332,6 +331,17 @@
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.appTestStudioToolStrip1 = new AppTestStudioControls.AppTestStudioToolStrip();
+            this.toolAddEvent = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolAddAction = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolTest = new System.Windows.Forms.ToolStripButton();
+            this.toolTestAll = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolAddRNG = new System.Windows.Forms.ToolStripButton();
+            this.toolAddRNGNode = new System.Windows.Forms.ToolStripButton();
+            this.appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
             this.toolStripMain = new AppTestStudioControls.AppTestStudioToolStrip();
             this.toolStripLoadScript = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSaveScript = new System.Windows.Forms.ToolStripButton();
@@ -346,16 +356,6 @@
             this.toolSchedulerRunning = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelCurrentConfiguredInstance = new System.Windows.Forms.ToolStripLabel();
-            this.appTestStudioToolStrip1 = new AppTestStudioControls.AppTestStudioToolStrip();
-            this.toolAddEvent = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolAddAction = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolTest = new System.Windows.Forms.ToolStripButton();
-            this.toolTestAll = new System.Windows.Forms.ToolStripButton();
-            this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolAddRNG = new System.Windows.Forms.ToolStripButton();
-            this.toolAddRNGNode = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -465,8 +465,8 @@
             this.mnuThreadList.SuspendLayout();
             this.mnuPopupGame.SuspendLayout();
             this.mnuObjects.SuspendLayout();
-            this.toolStripMain.SuspendLayout();
             this.appTestStudioToolStrip1.SuspendLayout();
+            this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -602,8 +602,8 @@
             // 
             // splitContainerWorkspace.Panel2
             // 
-            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelColorEvent);
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelTestAllEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelThread);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelSchedule);
@@ -1224,7 +1224,7 @@
             // 
             this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.groupBox4.Controls.Add(this.GroupBox7);
-            this.groupBox4.Controls.Add(this.Label42);
+            this.groupBox4.Controls.Add(this.lblLimitWaitType);
             this.groupBox4.Controls.Add(this.cboWaitType);
             this.groupBox4.Controls.Add(this.chkUseLimit);
             this.groupBox4.Location = new System.Drawing.Point(883, 210);
@@ -1307,14 +1307,14 @@
             this.chkWaitFirst.UseVisualStyleBackColor = true;
             this.chkWaitFirst.CheckedChanged += new System.EventHandler(this.chkWaitFirst_CheckedChanged);
             // 
-            // Label42
+            // lblLimitWaitType
             // 
-            this.Label42.AutoSize = true;
-            this.Label42.Location = new System.Drawing.Point(4, 19);
-            this.Label42.Name = "Label42";
-            this.Label42.Size = new System.Drawing.Size(56, 13);
-            this.Label42.TabIndex = 29;
-            this.Label42.Text = "Wait Type";
+            this.lblLimitWaitType.AutoSize = true;
+            this.lblLimitWaitType.Location = new System.Drawing.Point(4, 19);
+            this.lblLimitWaitType.Name = "lblLimitWaitType";
+            this.lblLimitWaitType.Size = new System.Drawing.Size(56, 13);
+            this.lblLimitWaitType.TabIndex = 29;
+            this.lblLimitWaitType.Text = "Wait Type";
             // 
             // cboWaitType
             // 
@@ -2444,27 +2444,27 @@
             this.dgvTestAllReference.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceColor,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTestAllReference.Location = new System.Drawing.Point(5, 25);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -2509,14 +2509,14 @@
             this.dgvTest.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTest,
@@ -2524,14 +2524,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTest.Location = new System.Drawing.Point(5, 24);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -2893,16 +2893,6 @@
             this.splitContainerSeconds.TabIndex = 0;
             this.splitContainerSeconds.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainerSeconds_SplitterMoving);
             // 
-            // appTestStudioStatusControl1
-            // 
-            this.appTestStudioStatusControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.appTestStudioStatusControl1.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("appTestStudioStatusControl1.Items")));
-            this.appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
-            this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
-            this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
-            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(856, 422);
-            this.appTestStudioStatusControl1.TabIndex = 0;
-            // 
             // PanelSchedule
             // 
             this.PanelSchedule.Controls.Add(this.Button5);
@@ -3016,8 +3006,8 @@
             // 
             // colMon
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colMon.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colMon.DefaultCellStyle = dataGridViewCellStyle5;
             this.colMon.HeaderText = "Mon";
             this.colMon.MaxInputLength = 1;
             this.colMon.MinimumWidth = 37;
@@ -3027,8 +3017,8 @@
             // 
             // colTue
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colTue.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colTue.DefaultCellStyle = dataGridViewCellStyle6;
             this.colTue.HeaderText = "Tue";
             this.colTue.MaxInputLength = 1;
             this.colTue.MinimumWidth = 37;
@@ -3038,8 +3028,8 @@
             // 
             // colWed
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colWed.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colWed.DefaultCellStyle = dataGridViewCellStyle7;
             this.colWed.HeaderText = "Wed";
             this.colWed.MaxInputLength = 1;
             this.colWed.MinimumWidth = 37;
@@ -3049,8 +3039,8 @@
             // 
             // colThu
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colThu.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colThu.DefaultCellStyle = dataGridViewCellStyle8;
             this.colThu.HeaderText = "Thu";
             this.colThu.MaxInputLength = 1;
             this.colThu.MinimumWidth = 37;
@@ -3060,8 +3050,8 @@
             // 
             // colFri
             // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colFri.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colFri.DefaultCellStyle = dataGridViewCellStyle9;
             this.colFri.HeaderText = "Fri";
             this.colFri.MaxInputLength = 1;
             this.colFri.MinimumWidth = 37;
@@ -3071,8 +3061,8 @@
             // 
             // colSat
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSat.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSat.DefaultCellStyle = dataGridViewCellStyle10;
             this.colSat.HeaderText = "Sat";
             this.colSat.MaxInputLength = 1;
             this.colSat.MinimumWidth = 37;
@@ -3082,8 +3072,8 @@
             // 
             // colSun
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSun.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSun.DefaultCellStyle = dataGridViewCellStyle11;
             this.colSun.HeaderText = "Sun";
             this.colSun.MaxInputLength = 1;
             this.colSun.MinimumWidth = 37;
@@ -3760,6 +3750,103 @@
             // 
             this.saveFileDialog1.DefaultExt = "zip";
             // 
+            // appTestStudioToolStrip1
+            // 
+            this.appTestStudioToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolAddEvent,
+            this.toolStripSeparator9,
+            this.toolAddAction,
+            this.toolStripSeparator10,
+            this.toolTest,
+            this.toolTestAll,
+            this.toolStripSeparator11,
+            this.toolAddRNG,
+            this.toolAddRNGNode});
+            this.appTestStudioToolStrip1.Location = new System.Drawing.Point(0, 49);
+            this.appTestStudioToolStrip1.Name = "appTestStudioToolStrip1";
+            this.appTestStudioToolStrip1.Size = new System.Drawing.Size(1382, 25);
+            this.appTestStudioToolStrip1.TabIndex = 5;
+            this.appTestStudioToolStrip1.Text = "appTestStudioToolStrip1";
+            // 
+            // toolAddEvent
+            // 
+            this.toolAddEvent.Image = global::AppTestStudio.Properties.Resources.AddEvent;
+            this.toolAddEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAddEvent.Name = "toolAddEvent";
+            this.toolAddEvent.Size = new System.Drawing.Size(81, 22);
+            this.toolAddEvent.Text = "Add Event";
+            this.toolAddEvent.Click += new System.EventHandler(this.toolAddEvent_Click);
+            // 
+            // toolStripSeparator9
+            // 
+            this.toolStripSeparator9.Name = "toolStripSeparator9";
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolAddAction
+            // 
+            this.toolAddAction.Image = global::AppTestStudio.Properties.Resources.AddActionP;
+            this.toolAddAction.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAddAction.Name = "toolAddAction";
+            this.toolAddAction.Size = new System.Drawing.Size(87, 22);
+            this.toolAddAction.Text = "Add Action";
+            this.toolAddAction.Click += new System.EventHandler(this.toolAddAction_Click);
+            // 
+            // toolStripSeparator10
+            // 
+            this.toolStripSeparator10.Name = "toolStripSeparator10";
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolTest
+            // 
+            this.toolTest.Image = global::AppTestStudio.Properties.Resources.Test;
+            this.toolTest.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolTest.Name = "toolTest";
+            this.toolTest.Size = new System.Drawing.Size(47, 22);
+            this.toolTest.Text = "Test";
+            this.toolTest.Click += new System.EventHandler(this.toolTest_Click);
+            // 
+            // toolTestAll
+            // 
+            this.toolTestAll.Image = global::AppTestStudio.Properties.Resources.TestALLP;
+            this.toolTestAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolTestAll.Name = "toolTestAll";
+            this.toolTestAll.Size = new System.Drawing.Size(64, 22);
+            this.toolTestAll.Text = "Test All";
+            this.toolTestAll.Click += new System.EventHandler(this.toolTestAll_Click);
+            // 
+            // toolStripSeparator11
+            // 
+            this.toolStripSeparator11.Name = "toolStripSeparator11";
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
+            // 
+            // toolAddRNG
+            // 
+            this.toolAddRNG.Image = global::AppTestStudio.Properties.Resources.AddRNGContainerP;
+            this.toolAddRNG.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAddRNG.Name = "toolAddRNG";
+            this.toolAddRNG.Size = new System.Drawing.Size(76, 22);
+            this.toolAddRNG.Text = "Add RNG";
+            this.toolAddRNG.Click += new System.EventHandler(this.toolAddRNG_Click);
+            // 
+            // toolAddRNGNode
+            // 
+            this.toolAddRNGNode.Image = global::AppTestStudio.Properties.Resources.AddRNGP;
+            this.toolAddRNGNode.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAddRNGNode.Name = "toolAddRNGNode";
+            this.toolAddRNGNode.Size = new System.Drawing.Size(108, 22);
+            this.toolAddRNGNode.Text = "Add RNG Node";
+            this.toolAddRNGNode.Click += new System.EventHandler(this.toolAddRNGNode_Click);
+            // 
+            // appTestStudioStatusControl1
+            // 
+            this.appTestStudioStatusControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.appTestStudioStatusControl1.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("appTestStudioStatusControl1.Items")));
+            this.appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
+            this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
+            this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
+            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(856, 422);
+            this.appTestStudioStatusControl1.TabIndex = 0;
+            // 
             // toolStripMain
             // 
             this.toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -3881,93 +3968,6 @@
             this.toolStripLabelCurrentConfiguredInstance.Name = "toolStripLabelCurrentConfiguredInstance";
             this.toolStripLabelCurrentConfiguredInstance.Size = new System.Drawing.Size(224, 22);
             this.toolStripLabelCurrentConfiguredInstance.Text = "toolStripLabelCurrentConfiguredInstance";
-            // 
-            // appTestStudioToolStrip1
-            // 
-            this.appTestStudioToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolAddEvent,
-            this.toolStripSeparator9,
-            this.toolAddAction,
-            this.toolStripSeparator10,
-            this.toolTest,
-            this.toolTestAll,
-            this.toolStripSeparator11,
-            this.toolAddRNG,
-            this.toolAddRNGNode});
-            this.appTestStudioToolStrip1.Location = new System.Drawing.Point(0, 49);
-            this.appTestStudioToolStrip1.Name = "appTestStudioToolStrip1";
-            this.appTestStudioToolStrip1.Size = new System.Drawing.Size(1382, 25);
-            this.appTestStudioToolStrip1.TabIndex = 5;
-            this.appTestStudioToolStrip1.Text = "appTestStudioToolStrip1";
-            // 
-            // toolAddEvent
-            // 
-            this.toolAddEvent.Image = global::AppTestStudio.Properties.Resources.AddEvent;
-            this.toolAddEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAddEvent.Name = "toolAddEvent";
-            this.toolAddEvent.Size = new System.Drawing.Size(81, 22);
-            this.toolAddEvent.Text = "Add Event";
-            this.toolAddEvent.Click += new System.EventHandler(this.toolAddEvent_Click);
-            // 
-            // toolStripSeparator9
-            // 
-            this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolAddAction
-            // 
-            this.toolAddAction.Image = global::AppTestStudio.Properties.Resources.AddActionP;
-            this.toolAddAction.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAddAction.Name = "toolAddAction";
-            this.toolAddAction.Size = new System.Drawing.Size(87, 22);
-            this.toolAddAction.Text = "Add Action";
-            this.toolAddAction.Click += new System.EventHandler(this.toolAddAction_Click);
-            // 
-            // toolStripSeparator10
-            // 
-            this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolTest
-            // 
-            this.toolTest.Image = global::AppTestStudio.Properties.Resources.Test;
-            this.toolTest.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolTest.Name = "toolTest";
-            this.toolTest.Size = new System.Drawing.Size(47, 22);
-            this.toolTest.Text = "Test";
-            this.toolTest.Click += new System.EventHandler(this.toolTest_Click);
-            // 
-            // toolTestAll
-            // 
-            this.toolTestAll.Image = global::AppTestStudio.Properties.Resources.TestALLP;
-            this.toolTestAll.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolTestAll.Name = "toolTestAll";
-            this.toolTestAll.Size = new System.Drawing.Size(64, 22);
-            this.toolTestAll.Text = "Test All";
-            this.toolTestAll.Click += new System.EventHandler(this.toolTestAll_Click);
-            // 
-            // toolStripSeparator11
-            // 
-            this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 25);
-            // 
-            // toolAddRNG
-            // 
-            this.toolAddRNG.Image = global::AppTestStudio.Properties.Resources.AddRNGContainerP;
-            this.toolAddRNG.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAddRNG.Name = "toolAddRNG";
-            this.toolAddRNG.Size = new System.Drawing.Size(76, 22);
-            this.toolAddRNG.Text = "Add RNG";
-            this.toolAddRNG.Click += new System.EventHandler(this.toolAddRNG_Click);
-            // 
-            // toolAddRNGNode
-            // 
-            this.toolAddRNGNode.Image = global::AppTestStudio.Properties.Resources.AddRNGP;
-            this.toolAddRNGNode.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAddRNGNode.Name = "toolAddRNGNode";
-            this.toolAddRNGNode.Size = new System.Drawing.Size(108, 22);
-            this.toolAddRNGNode.Text = "Add RNG Node";
-            this.toolAddRNGNode.Click += new System.EventHandler(this.toolAddRNGNode_Click);
             // 
             // frmMain
             // 
@@ -4134,10 +4134,10 @@
             this.mnuThreadList.ResumeLayout(false);
             this.mnuPopupGame.ResumeLayout(false);
             this.mnuObjects.ResumeLayout(false);
-            this.toolStripMain.ResumeLayout(false);
-            this.toolStripMain.PerformLayout();
             this.appTestStudioToolStrip1.ResumeLayout(false);
             this.appTestStudioToolStrip1.PerformLayout();
+            this.toolStripMain.ResumeLayout(false);
+            this.toolStripMain.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4285,7 +4285,7 @@
         internal System.Windows.Forms.Label lblLimitTimeLabel;
         internal System.Windows.Forms.Label lblLimitIterationsLabel;
         internal System.Windows.Forms.CheckBox chkWaitFirst;
-        internal System.Windows.Forms.Label Label42;
+        internal System.Windows.Forms.Label lblLimitWaitType;
         internal System.Windows.Forms.ComboBox cboWaitType;
         internal System.Windows.Forms.CheckBox chkUseLimit;
         internal System.Windows.Forms.CheckBox chkAutoBalance;

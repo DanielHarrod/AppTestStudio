@@ -3453,6 +3453,15 @@ namespace AppTestStudio
                 GameNodeAction Node = tv.SelectedNode as GameNodeAction;
                 Node.IsLimited = chkUseLimit.Checked;
             }
+
+            // Grey out other controls if not using.
+            cboWaitType.Enabled = chkUseLimit.Checked;
+            chkWaitFirst.Enabled = chkUseLimit.Checked;
+            numIterations.Enabled = chkUseLimit.Checked;
+            lnkLimitTime.Enabled = chkUseLimit.Checked;
+            chkLimitRepeats.Enabled = chkUseLimit.Checked;
+            lblLimitIterationsLabel.Enabled = chkUseLimit.Checked;
+            lblLimitWaitType.Enabled = chkUseLimit.Checked;
         }
 
         private void cboWaitType_SelectedIndexChanged(object sender, EventArgs e)
