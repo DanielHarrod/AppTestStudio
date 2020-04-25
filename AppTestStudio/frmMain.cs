@@ -1421,16 +1421,13 @@ namespace AppTestStudio
                             //mnuPopupGame.Show(tv, p);
                             break;
                         case GameNodeType.Events:
-                            mnuTestAllEvents.Enabled = true;
                             mnuAddAction.Visible = false;
                             mnuEvents.Show(tv, p);
                             break;
                         case GameNodeType.Event:
-                            mnuTestAllEvents.Enabled = false;
                             mnuEvents.Show(tv, p);
                             break;
                         case GameNodeType.Action:
-                            mnuTestAllEvents.Enabled = false;
                             GameNodeAction Action = node as GameNodeAction;
                             switch (Action.ActionType)
                             {
@@ -4955,6 +4952,11 @@ namespace AppTestStudio
 
             // Load Emmulator and App
             Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution);
+        }
+
+        private void testToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
