@@ -2240,12 +2240,6 @@ namespace AppTestStudio
             }
         }
 
-        // Removes a tree node and sets focus to parent tree node.
-        private void cmdDelete_Click(object sender, EventArgs e)
-        {
-            DeleteSelectedTreeNode();
-        }
-
         private void DeleteSelectedTreeNode()
         {
             GameNode p = PanelLoadNode.Parent as GameNode;
