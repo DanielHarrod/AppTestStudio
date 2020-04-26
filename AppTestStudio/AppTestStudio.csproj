@@ -113,6 +113,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.cs" />
+    <Compile Include="BooleanParser\Parser.cs" />
+    <Compile Include="BooleanParser\ParsingHelpers.cs" />
+    <Compile Include="BooleanParser\TokenEnumerator.cs" />
+    <Compile Include="BooleanParser\UnexpectedTokenException.cs" />
     <Compile Include="ColorPoint.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="ExportGameResults.cs" />

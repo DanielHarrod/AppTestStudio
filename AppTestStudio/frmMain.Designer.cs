@@ -371,6 +371,9 @@
             this.toolSchedulerRunning = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelCurrentConfiguredInstance = new System.Windows.Forms.ToolStripLabel();
+            this.rdoCustom = new System.Windows.Forms.RadioButton();
+            this.txtCustom = new System.Windows.Forms.TextBox();
+            this.cmdValidate = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -1583,6 +1586,9 @@
             // grpAndOr
             // 
             this.grpAndOr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.grpAndOr.Controls.Add(this.cmdValidate);
+            this.grpAndOr.Controls.Add(this.txtCustom);
+            this.grpAndOr.Controls.Add(this.rdoCustom);
             this.grpAndOr.Controls.Add(this.label31);
             this.grpAndOr.Controls.Add(this.cboPoints);
             this.grpAndOr.Controls.Add(this.rdoOR);
@@ -4055,6 +4061,36 @@
             this.toolStripLabelCurrentConfiguredInstance.Size = new System.Drawing.Size(224, 22);
             this.toolStripLabelCurrentConfiguredInstance.Text = "toolStripLabelCurrentConfiguredInstance";
             // 
+            // rdoCustom
+            // 
+            this.rdoCustom.AutoSize = true;
+            this.rdoCustom.Location = new System.Drawing.Point(92, 15);
+            this.rdoCustom.Name = "rdoCustom";
+            this.rdoCustom.Size = new System.Drawing.Size(60, 17);
+            this.rdoCustom.TabIndex = 5;
+            this.rdoCustom.TabStop = true;
+            this.rdoCustom.Text = "Custom";
+            this.rdoCustom.UseVisualStyleBackColor = true;
+            this.rdoCustom.CheckedChanged += new System.EventHandler(this.rdoCustom_CheckedChanged);
+            // 
+            // txtCustom
+            // 
+            this.txtCustom.Location = new System.Drawing.Point(10, 35);
+            this.txtCustom.Multiline = true;
+            this.txtCustom.Name = "txtCustom";
+            this.txtCustom.Size = new System.Drawing.Size(306, 66);
+            this.txtCustom.TabIndex = 6;
+            // 
+            // cmdValidate
+            // 
+            this.cmdValidate.Location = new System.Drawing.Point(256, 75);
+            this.cmdValidate.Name = "cmdValidate";
+            this.cmdValidate.Size = new System.Drawing.Size(58, 23);
+            this.cmdValidate.TabIndex = 7;
+            this.cmdValidate.Text = "Validate";
+            this.cmdValidate.UseVisualStyleBackColor = true;
+            this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4555,5 +4591,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvYTest;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPassFail;
         private System.Windows.Forms.DataGridViewTextBoxColumn dvgRange;
+        private System.Windows.Forms.RadioButton rdoCustom;
+        private System.Windows.Forms.TextBox txtCustom;
+        private System.Windows.Forms.Button cmdValidate;
     }
 }

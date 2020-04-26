@@ -172,7 +172,7 @@ namespace AppTestStudio
                 cboGameInstances.Items.Add(i);
             }
 
-            if (cboGameInstances.Items.Count > 0 )
+            if (cboGameInstances.Items.Count > 0)
             {
                 cboGameInstances.SelectedIndex = 0;
             }
@@ -357,7 +357,7 @@ namespace AppTestStudio
             if (game.InstanceToLaunch.Trim().Length > 0)
             {
                 int instance = game.InstanceToLaunch.Trim().ToInt();
-                if (cboGameInstances.Items.Count-1 >= instance)
+                if (cboGameInstances.Items.Count - 1 >= instance)
                 {
                     cboGameInstances.SelectedIndex = instance;
                 }
@@ -390,7 +390,7 @@ namespace AppTestStudio
             toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
             toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
             toolStripButtonStartEmmulator.Enabled = false;
-            
+
             moveToolStripMenuItem.Enabled = false;
 
             toolStripButtonSaveScript.Enabled = false;
@@ -467,7 +467,7 @@ namespace AppTestStudio
                     moveToolStripMenuItem.Enabled = true;
                     break;
                 case GameNodeType.Action:
-                        moveToolStripMenuItem.Enabled = true;
+                    moveToolStripMenuItem.Enabled = true;
                     toolStripButtonSaveScript.Enabled = true;
                     toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
                     toolStripButtonStartEmmulator.Enabled = true;
@@ -764,10 +764,17 @@ namespace AppTestStudio
                     if (GameNode.LogicChoice.ToUpper() == "OR")
                     {
                         rdoOR.Checked = true;
+                        GameNode.LastLogicChoice = "OR";
+                    }
+                    else if (GameNode.LogicChoice.ToUpper() == "AND")
+                    {
+                        rdoAnd.Checked = true;
+                        GameNode.LastLogicChoice = "AND";
                     }
                     else
                     {
-                        rdoAnd.Checked = true;
+                        rdoCustom.Checked = true;
+                        GameNode.LastLogicChoice = "CUSTOM";
                     }
 
                     int RowCount = 1;
@@ -2942,7 +2949,7 @@ namespace AppTestStudio
                 foreach (DataGridViewRow row in dgv.Rows)
                 {
                     if (row.IsNewRow == false)
-                    {                        
+                    {
                         if (row.Cells["dgvRed"].Value.IsSomething())
                         {
                             SingleClick SingleClick = new SingleClick();
@@ -2961,9 +2968,13 @@ namespace AppTestStudio
                             {
                                 EventNode.LogicChoice = "AND";
                             }
-                            else
+                            else if (rdoOR.Checked)
                             {
                                 EventNode.LogicChoice = "OR";
+                            }
+                            else
+                            {
+                                EventNode.LogicChoice = "CUSTOM";
                             }
                         }
                     }
@@ -3115,7 +3126,7 @@ namespace AppTestStudio
 
                     if (rdoColorPoint.Checked)
                     {
-                        Utils.DrawColorPoints(e,dgv, "dgv", "dgvX", "dgvY");
+                        Utils.DrawColorPoints(e, dgv, "dgv", "dgvX", "dgvY");
                     }
                     else
                     {
@@ -3153,9 +3164,9 @@ namespace AppTestStudio
                 {
                     dgv.Rows.Remove(dgv.Rows[e.RowIndex]);
 
-                    for (int i = e.RowIndex; i < dgv.Rows.Count-1; i++)
+                    for (int i = e.RowIndex; i < dgv.Rows.Count - 1; i++)
                     {
-                        dgv.Rows[i].Cells["dgvID"].Value = i+1;
+                        dgv.Rows[i].Cells["dgvID"].Value = i + 1;
                     }
 
                     if (IsPanelLoading == false)
@@ -3177,7 +3188,7 @@ namespace AppTestStudio
                     int B = dgv.Rows[e.RowIndex].Cells["dgvBlue"].Value.ToString().ToInt();
 
                     Color CurrentColor = Color.FromArgb(R, G, B);
-                   
+
                     Color TargetColor = GetColorAtTargetWindowXY(X, Y);
 
                     if (TargetColor != CurrentColor)
@@ -3608,6 +3619,10 @@ namespace AppTestStudio
 
         private void rdoAnd_CheckedChanged(object sender, EventArgs e)
         {
+            if (rdoAnd.Checked)
+            {
+                PanelLoadNode.LastLogicChoice = "AND";
+            }
             if (IsPanelLoading == false)
             {
                 ArchaicSave();
@@ -3617,6 +3632,10 @@ namespace AppTestStudio
 
         private void rdoOR_CheckedChanged(object sender, EventArgs e)
         {
+            if (rdoOR.Checked)
+            {
+                PanelLoadNode.LastLogicChoice = "OR";
+            }
             if (IsPanelLoading == false)
             {
                 ArchaicSave();
@@ -4191,9 +4210,9 @@ namespace AppTestStudio
                 Row.Cells["dgvColorTestBlue"].Value = Item.Color.B.ToString();
 
                 // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
-                Row.Cells["dgvColorTestRed"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor); 
-                Row.Cells["dgvColorTestGreen"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor); 
-                Row.Cells["dgvColorTestBlue"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor); 
+                Row.Cells["dgvColorTestRed"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
+                Row.Cells["dgvColorTestGreen"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
+                Row.Cells["dgvColorTestBlue"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
 
                 Row.Cells["dgvXTest"].Value = Item.X;
                 Row.Cells["dgvYTest"].Value = Item.Y;
@@ -4216,12 +4235,17 @@ namespace AppTestStudio
                         FinalResult = true;
                     }
                 }
-                else
+                else if (Node.LogicChoice == "OR")
                 {
                     if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
                     {
                         Result = true;
                     }
+                }
+                else
+                {
+                    // Write Custom Logic
+                    Debug.Assert(false);
                 }
 
                 if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
@@ -4351,7 +4375,7 @@ namespace AppTestStudio
                 {
                     DialogResult Result = DialogResult.Yes;
                     int FolderIncrement = 1;
-                    String NewApplicationName = System.IO.Path.Combine(ApplicationFolder, ApplicationName + FolderIncrement.ToString()); 
+                    String NewApplicationName = System.IO.Path.Combine(ApplicationFolder, ApplicationName + FolderIncrement.ToString());
                     while (System.IO.Directory.Exists(NewApplicationName))
                     {
                         FolderIncrement++;
@@ -4360,7 +4384,7 @@ namespace AppTestStudio
 
                     Result = MessageBox.Show("Project Folder already exists with that name: " + ApplicationName + " Do you want to use " + ApplicationName + FolderIncrement.ToString() + " instead?", "Rename?", MessageBoxButtons.YesNoCancel);
 
-                    if (Result == DialogResult.Yes )
+                    if (Result == DialogResult.Yes)
                     {
                         ProjectFolder = System.IO.Path.Combine(ApplicationFolder, ApplicationName + FolderIncrement.ToString());
                         ApplicationName = ApplicationName + FolderIncrement.ToString();
@@ -4735,7 +4759,7 @@ namespace AppTestStudio
 
                 using (FileStream fs = new FileStream(saveFileDialog1.FileName, FileMode.OpenOrCreate))
                 {
-                    using (ZipArchive za = new ZipArchive(fs, ZipArchiveMode.Update,false,Encoding.UTF8))
+                    using (ZipArchive za = new ZipArchive(fs, ZipArchiveMode.Update, false, Encoding.UTF8))
                     {
                         ZipArchiveEntry zae = za.CreateEntry("Default.xml");
                         using (StreamWriter w = new StreamWriter(zae.Open()))
@@ -4775,7 +4799,7 @@ namespace AppTestStudio
                 ThreadManager.IncrementTestSaved();
 
                 String Argument = "/select, \"" + saveFileDialog1.FileName + "\"";
-                
+
                 System.Diagnostics.Process.Start("explorer.exe", Argument);
 
             }
@@ -4841,7 +4865,7 @@ namespace AppTestStudio
 
         private void cmdPatron_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.patreon.com/AppTestStudio?fan_landing=true");        
+            System.Diagnostics.Process.Start("https://www.patreon.com/AppTestStudio?fan_landing=true");
         }
 
         private void toolTestAll_Click(object sender, EventArgs e)
@@ -4865,7 +4889,7 @@ namespace AppTestStudio
             catch (Exception ex)
             {
                 Log("toolTest_Click:" + ex.Message);
-            }            
+            }
         }
 
         private void toolAddAction_Click(object sender, EventArgs e)
@@ -4927,7 +4951,7 @@ namespace AppTestStudio
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {            
+        {
             Visible = false;
             Timer1.Enabled = false;
             foreach (GameNodeGame Game in ThreadManager.Games)
@@ -5028,6 +5052,89 @@ namespace AppTestStudio
             catch (Exception ex)
             {
                 Log("testToolStripMenuItem_Click:" + ex.Message);
+            }
+        }
+
+        private void rdoCustom_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoCustom.Checked)
+            {
+                // Make room for Custom Logic
+                txtCustom.Visible = true;
+                cmdValidate.Visible = true;
+                dgv.Top = txtCustom.Top + txtCustom.Height + 2;
+                dgv.Height = dgv.Height - txtCustom.Height - 2;
+
+                txtCustom.Text = "";
+                for (int i = 1; i < dgv.Rows.Count; i++)
+                {
+                    if (txtCustom.Text.Length > 0)
+                    {
+                        if (PanelLoadNode.LastLogicChoice == "OR")
+                        {
+                            txtCustom.Text = txtCustom.Text + " OR ";
+                        }
+                        else
+                        {
+                            txtCustom.Text = txtCustom.Text + " AND ";
+                        }
+                    }
+                    txtCustom.Text = txtCustom.Text + i.ToString();
+                }
+
+                PanelLoadNode.LastLogicChoice = "CUSTOM";
+            }
+            else
+            {
+                txtCustom.Visible = false;
+                dgv.Top = txtCustom.Top;
+                dgv.Height = dgv.Height + txtCustom.Height + 2;
+            }
+
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+        }
+
+        private void cmdValidate_Click(object sender, EventArgs e)
+        {
+            // this is just a basic validator, it's not perfect but it's pretty good.
+
+            // add spaces to beginning and end.
+            String Expression = " " + txtCustom.Text + " ";
+
+            // Lets add space between everything and expand mix the logic to allow for C# and VB Logic.
+            Expression = Expression.ToUpper().Replace("AND", " AND ").Replace("OR"," OR ").Replace("NOT"," NOT ").Replace("("," ( ").Replace(")"," ) ").Replace("||"," OR ").Replace("&&", " AND ").Replace("|"," OR ").Replace("&"," AND ").Replace("!"," NOT ");
+
+            // remove the #'s since the parser doens't know what #'s are.
+            for (int i = dgv.Rows.Count-1; i >= 1; i--)
+            {
+                // Replace #'s with true
+                Expression = Expression.Replace(" " + i.ToString() + " ", " TRUE ");     
+            }
+
+            // Test the parser.
+            BooleanParser.Parser parser = new BooleanParser.Parser(Expression);
+            try
+            {
+                String NewExpress = Expression.Replace("(", "").Replace(")", "").Replace("TRUE", "").Replace("FALSE", "").Replace("AND", "").Replace("OR", "").Replace("NOT","").Replace(" ","");
+
+                if (NewExpress.Length > 0)
+                {
+                    Log("PreCheck unexpected: " + NewExpress);
+                }
+
+                Boolean result = parser.Parse();
+                Log("Parse Successful");
+                cmdValidate.BackColor = Color.Green;
+            }
+            catch (Exception ex)
+            {
+                Log("Parse Check:" + ex.Message);
+                cmdValidate.BackColor = Color.Red;
+
+                Log("Note: At runtime any unparseable custom logic will skip the node.");
             }
         }
     }

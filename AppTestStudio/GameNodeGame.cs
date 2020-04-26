@@ -743,7 +743,7 @@ namespace AppTestStudio
             String LogicChoice = "";
             if (eventNode.Attributes.GetNamedItem("LogicChoice").IsSomething())
             {
-                LogicChoice = eventNode.Attributes["LogicChoice"].Value;
+                LogicChoice = eventNode.Attributes["LogicChoice"].Value.ToUpper();
             }
 
             Boolean UseParentPicture = false;

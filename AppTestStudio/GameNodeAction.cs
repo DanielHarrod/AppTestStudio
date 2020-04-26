@@ -86,8 +86,15 @@ namespace AppTestStudio
         /// When And: All color/point combinations must match for a true result.
         /// When Or : At least one color/point combination must match for a true result.
         /// </summary>
-        public String LogicChoice { get; set; }
+        private String mLogicChoice;
 
+        public String LogicChoice
+        {
+            get { return mLogicChoice; }
+            set {
+                mLogicChoice = value; 
+            }
+        }
 
         private Boolean mIsColorPoint;
         /// <summary>
@@ -204,6 +211,9 @@ namespace AppTestStudio
                     return AfterCompletionType.Continue;
             }
         }
+
+        // Don't Clone
+        public String LastLogicChoice { get; set; }
 
         public GameNodeAction CloneMe()
         {
@@ -392,6 +402,10 @@ namespace AppTestStudio
 
                             //'TB.AddColorTest(click.Color, Color, Node.Points, Node.LogicChoice, False)
                         }
+                        break;
+                    case "CUSTOM":
+                        Debug.Assert(false);
+                        // Write custom logic
                         break;
                     default:
                         Debug.Assert(false);
