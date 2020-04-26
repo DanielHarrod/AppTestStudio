@@ -136,7 +136,6 @@ namespace AppTestStudio
             txtCustomLogic.Visible = false;
             cmdValidate.Visible = false;
 
-
         }
 
         private void LoadSchedule()
@@ -4056,11 +4055,18 @@ namespace AppTestStudio
 
                     if (Node.IsColorPoint)
                     {
-                        Node.GameNodeName = Node.Name + " - Points(" + QualifyingEvents + ")";
-
-                        if (QualifyingEvents < 10)
+                        if (Node.LogicChoice == "CUSTOM")
                         {
-                            Node.BackColor = Color.LightYellow;
+
+                        }
+                        else
+                        {
+                            Node.GameNodeName = Node.Name + " - Points(" + QualifyingEvents + ")";
+
+                            if (QualifyingEvents < 10)
+                            {
+                                Node.BackColor = Color.LightYellow;
+                            }
                         }
                     }
                     else
@@ -4104,6 +4110,8 @@ namespace AppTestStudio
         private void tvTestAllEvents_AfterSelect(object sender, TreeViewEventArgs e)
         {
             Debug.WriteLine("tvTestAllEvents_AfterSelect");
+            lblTestAllCustom.Text = "";
+
 
             GameNode GameNode = e.Node as GameNode;
 
@@ -4151,6 +4159,12 @@ namespace AppTestStudio
 
             dgvTestAllReference.Rows.Clear();
             dgvTest.Rows.Clear();
+
+
+            if (Node.LogicChoice == "CUSTOM")
+            {
+                lblTestAllCustom.Text = Node.CustomLogic;
+            }
 
             foreach (SingleClick Item in Node.ClickList)
             {
@@ -4225,8 +4239,9 @@ namespace AppTestStudio
                 }
                 else
                 {
+                    // Do nothing fancy, just show logic.
                     // Write Custom Logic
-                    Debug.Assert(false);
+                    //Debug.Assert(false);
                 }
 
                 if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))

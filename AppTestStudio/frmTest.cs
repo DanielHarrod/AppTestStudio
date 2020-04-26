@@ -260,6 +260,7 @@ namespace AppTestStudio
                     }
 
                     frm.Log("Parser Says:" + ex.Message);
+                    Result = false;
                 }
             }
             txtLogic.Text = PreExpression.ToLower();

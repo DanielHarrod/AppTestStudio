@@ -274,6 +274,7 @@ namespace AppTestStudio
             Action.ObjectName = ObjectName;
             Action.Channel = Channel;
             Action.IsColorPoint = IsColorPoint;  //must be set after Mode
+            Action.CustomLogic = CustomLogic;
 
             foreach (GameNodeAction ChildAction in Nodes)
             {
@@ -345,7 +346,7 @@ namespace AppTestStudio
         {
             if (IsColorPoint)
             {
-                return IsColorPointTrue(bmp, ref detectedOffset);
+                return IsColorPointTrue(game, bmp, ref detectedOffset);
             }
             else
             {
@@ -356,10 +357,11 @@ namespace AppTestStudio
         /// <summary>
         /// Compares the clicklist agains the bitmap.
         /// </summary>
+        /// <param name="game">For Logging custom exceptions</param>
         /// <param name="bmp"></param>
         /// <param name="offset">Returns the number of points on the first failure.</param>
         /// <returns>True if thie logic passes</returns>
-        private bool IsColorPointTrue(Bitmap bmp, ref int offset)
+        private bool IsColorPointTrue(GameNodeGame game, Bitmap bmp, ref int offset)
         {
             //' no colors to click = pass.
             if (ClickList.Count == 0)
@@ -368,9 +370,34 @@ namespace AppTestStudio
                 return true;
             }
 
-            // if a click is out of X or Y range then fail
-            foreach (SingleClick click in ClickList)
+            String Expression = "";
+
+            Boolean UsingCustomLogic = false;
+
+            if (LogicChoice == "CUSTOM")
             {
+                UsingCustomLogic = true;
+            }
+
+            String PreExpression = CustomLogic;
+            if (UsingCustomLogic)
+            {
+                // add spaces to beginning and end.
+                Expression = " " + CustomLogic + " ";
+
+                // Lets add space between everything and expand mix the logic to allow for C# and VB Logic.
+                Expression = Utils.ExtendCustomLogic(Expression);
+            }
+
+            String OriginalExpression = Expression;
+
+            // need to traverse reverse for customlogic
+            
+            for (int i= ClickList.Count-1; i >= 0; i--)
+            {
+                SingleClick click = ClickList[i];
+
+                // if a click is out of X or Y range then hard fail.
                 if (bmp.Width <= click.X)
                 {
                     return false;
@@ -411,7 +438,16 @@ namespace AppTestStudio
                         }
                         break;
                     case "CUSTOM":
-                        Debug.Assert(false);
+                        Boolean Result = click.Color.CompareColorWithPoints(Color, Points, ref offset);
+                        if (Result)
+                        {
+                            Expression = Expression.Replace((i + 1).ToString(), "TRUE");
+                        }
+                        else
+                        {
+                            Expression = Expression.Replace((i + 1).ToString(), "FALSE");
+                        }
+
                         // Write custom logic
                         break;
                     default:
@@ -424,6 +460,28 @@ namespace AppTestStudio
             {
                 //' TB.AddReturnFalse()
                 return false;
+            }
+
+            if (UsingCustomLogic)
+            {
+                BooleanParser.Parser parser = new BooleanParser.Parser(Expression);
+                try
+                {
+                    return parser.Parse();
+                }
+                catch (Exception ex)
+                {
+                    game.Log("Encountered Parse excetion");
+                    String NewExpress = OriginalExpression.Replace("(", "").Replace(")", "").Replace("TRUE", "").Replace("FALSE", "").Replace("AND", "").Replace("OR", "").Replace("NOT", "").Replace(" ", "");
+
+                    if (NewExpress.Length > 0)
+                    {
+                        game.Log("Precompile says: " + NewExpress);
+                    }
+
+                    game.Log("Parser Says:" + ex.Message);
+                    return false;
+                }
             }
 
             return true;
