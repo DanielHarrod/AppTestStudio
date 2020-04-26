@@ -2830,7 +2830,7 @@ namespace AppTestStudio
             }
         }
 
-        private void ArchaicSave()
+        public void ArchaicSave()
         {
             AfterCompletionType ChosenAfterCompletionType = AfterCompletionType.Continue;
 

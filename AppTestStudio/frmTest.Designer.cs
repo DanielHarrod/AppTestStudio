@@ -52,13 +52,6 @@
             this.SplitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dgvTest = new System.Windows.Forms.DataGridView();
             this.cmdClose = new System.Windows.Forms.Button();
-            this.dgvRed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvGreen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvBlue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvReferencePassFail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dvgReferenceRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvColorTestRed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvColorTestGreen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvColorTestBlue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -66,6 +59,14 @@
             this.dgvYTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPassFail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dvgRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvGreen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvBlue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvRed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvReferencePassFail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dvgReferenceRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvReferenceRemove = new System.Windows.Forms.DataGridViewButtonColumn();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTest)).BeginInit();
             this.PanelTest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer4)).BeginInit();
@@ -264,13 +265,14 @@
             this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvRed,
             this.dgvGreen,
             this.dgvBlue,
+            this.dgvRed,
             this.dgvX,
             this.dgvY,
             this.dgvReferencePassFail,
-            this.dvgReferenceRange});
+            this.dvgReferenceRange,
+            this.dgvReferenceRemove});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -285,6 +287,8 @@
             this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv.Size = new System.Drawing.Size(405, 281);
             this.dgv.TabIndex = 10;
+            this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
+            this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             // 
             // txtResolution
             // 
@@ -384,48 +388,6 @@
             this.cmdClose.UseVisualStyleBackColor = true;
             this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
             // 
-            // dgvRed
-            // 
-            this.dgvRed.HeaderText = "Red";
-            this.dgvRed.Name = "dgvRed";
-            this.dgvRed.Width = 35;
-            // 
-            // dgvGreen
-            // 
-            this.dgvGreen.HeaderText = "Green";
-            this.dgvGreen.Name = "dgvGreen";
-            this.dgvGreen.Width = 35;
-            // 
-            // dgvBlue
-            // 
-            this.dgvBlue.HeaderText = "Blue";
-            this.dgvBlue.Name = "dgvBlue";
-            this.dgvBlue.Width = 35;
-            // 
-            // dgvX
-            // 
-            this.dgvX.HeaderText = "X";
-            this.dgvX.Name = "dgvX";
-            this.dgvX.Width = 35;
-            // 
-            // dgvY
-            // 
-            this.dgvY.HeaderText = "Y";
-            this.dgvY.Name = "dgvY";
-            this.dgvY.Width = 35;
-            // 
-            // dgvReferencePassFail
-            // 
-            this.dgvReferencePassFail.HeaderText = "Status";
-            this.dgvReferencePassFail.Name = "dgvReferencePassFail";
-            this.dgvReferencePassFail.Width = 55;
-            // 
-            // dvgReferenceRange
-            // 
-            this.dvgReferenceRange.HeaderText = "Points";
-            this.dvgReferenceRange.Name = "dvgReferenceRange";
-            this.dvgReferenceRange.Width = 55;
-            // 
             // dgvColorTestRed
             // 
             this.dgvColorTestRed.HeaderText = "Red";
@@ -467,6 +429,55 @@
             this.dvgRange.HeaderText = "Points";
             this.dvgRange.Name = "dvgRange";
             this.dvgRange.Width = 55;
+            // 
+            // dgvGreen
+            // 
+            this.dgvGreen.HeaderText = "Green";
+            this.dgvGreen.Name = "dgvGreen";
+            this.dgvGreen.Width = 35;
+            // 
+            // dgvBlue
+            // 
+            this.dgvBlue.HeaderText = "Blue";
+            this.dgvBlue.Name = "dgvBlue";
+            this.dgvBlue.Width = 35;
+            // 
+            // dgvRed
+            // 
+            this.dgvRed.HeaderText = "Red";
+            this.dgvRed.Name = "dgvRed";
+            this.dgvRed.Width = 35;
+            // 
+            // dgvX
+            // 
+            this.dgvX.HeaderText = "X";
+            this.dgvX.Name = "dgvX";
+            this.dgvX.Width = 35;
+            // 
+            // dgvY
+            // 
+            this.dgvY.HeaderText = "Y";
+            this.dgvY.Name = "dgvY";
+            this.dgvY.Width = 35;
+            // 
+            // dgvReferencePassFail
+            // 
+            this.dgvReferencePassFail.HeaderText = "Status";
+            this.dgvReferencePassFail.Name = "dgvReferencePassFail";
+            this.dgvReferencePassFail.Width = 55;
+            // 
+            // dvgReferenceRange
+            // 
+            this.dvgReferenceRange.HeaderText = "Points";
+            this.dvgReferenceRange.Name = "dvgReferenceRange";
+            this.dvgReferenceRange.Width = 55;
+            // 
+            // dgvReferenceRemove
+            // 
+            this.dgvReferenceRemove.HeaderText = "Remove";
+            this.dgvReferenceRemove.Name = "dgvReferenceRemove";
+            this.dgvReferenceRemove.Text = "Remove";
+            this.dgvReferenceRemove.Width = 55;
             // 
             // frmTest
             // 
@@ -538,13 +549,6 @@
         internal System.Windows.Forms.SplitContainer SplitContainer2;
         internal System.Windows.Forms.DataGridView dgvTest;
         internal System.Windows.Forms.Button cmdClose;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvRed;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvGreen;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvBlue;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvX;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvY;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dgvReferencePassFail;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dvgReferenceRange;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvColorTestRed;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvColorTestGreen;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvColorTestBlue;
@@ -552,5 +556,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvYTest;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPassFail;
         private System.Windows.Forms.DataGridViewTextBoxColumn dvgRange;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvGreen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvBlue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvRed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvReferencePassFail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dvgReferenceRange;
+        private System.Windows.Forms.DataGridViewButtonColumn dgvReferenceRemove;
     }
 }

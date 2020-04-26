@@ -86,6 +86,7 @@ namespace AppTestStudio
                 dgv.Rows[RowIndex].Cells["dgvRed"].Value = R;
                 dgv.Rows[RowIndex].Cells["dgvGreen"].Value = G;
                 dgv.Rows[RowIndex].Cells["dgvBlue"].Value = B;
+                dgv.Rows[RowIndex].Cells["dgvReferenceRemove"].Value = "Remove";
 
 
                 Color Targetcolor = Color.FromArgb(R, G, B);
@@ -243,6 +244,48 @@ namespace AppTestStudio
         private void PictureBoxTest_Paint(object sender, PaintEventArgs e)
         {
             Utils.DrawColorPoints(e, dgvTest, "dgvColorTest", "dgvXTest", "dgvYTest");
+        }
+
+        private void dgv_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgv_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            try
+            {
+                if (e.RowIndex < 0)
+                {
+                    return;
+                }
+
+                if (e.ColumnIndex == dgv.Columns["dgvReferenceRemove"].Index)
+                {
+                    // remove this reference.
+                    dgv.Rows.Remove(dgv.Rows[e.RowIndex]);
+
+                    // remove main reference.
+                    frm.dgv.Rows.Remove(frm.dgv.Rows[e.RowIndex]);
+
+                    // Renumber.
+                    for (int i = e.RowIndex; i < frm.dgv.Rows.Count - 1; i++)
+                    {
+                        frm.dgv.Rows[i].Cells["dgvID"].Value = i + 1;
+                    }
+
+                    // Softsave
+                    frm.ArchaicSave();
+
+                    // redraw picture.
+                    PictureBox1.Refresh();
+                    return;
+                }
+            }
+            catch (Exception ex)
+            {
+                Game.Log(ex.Message);
+            }
         }
     }
 }
