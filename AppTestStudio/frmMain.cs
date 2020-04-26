@@ -4200,9 +4200,9 @@ namespace AppTestStudio
                     Style.ForeColor = Color.White;
                 }
 
-                Row.Cells["dgvColorTestRed"].Value = Item.Color.R.ToString();
-                Row.Cells["dgvColorTestGreen"].Value = Item.Color.G.ToString();
-                Row.Cells["dgvColorTestBlue"].Value = Item.Color.B.ToString();
+                Row.Cells["dgvColorTestRed"].Value = TargetColor.R.ToString();
+                Row.Cells["dgvColorTestGreen"].Value = TargetColor.G.ToString();
+                Row.Cells["dgvColorTestBlue"].Value = TargetColor.B.ToString();
 
                 // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                 Row.Cells["dgvColorTestRed"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
