@@ -770,10 +770,14 @@ namespace AppTestStudio
                         rdoAnd.Checked = true;
                     }
 
+                    int RowCount = 1;
                     foreach (SingleClick Click in GameNode.ClickList)
                     {
                         int RowIndex = dgv.Rows.Add();
-                        dgv.Rows[RowIndex].Cells["dgvColor"].Value = Click.Color.ToRGBString();
+                        dgv.Rows[RowIndex].Cells["dgvID"].Value = RowIndex + 1;
+                        dgv.Rows[RowIndex].Cells["dgvRed"].Value = Click.Color.R.ToString();
+                        dgv.Rows[RowIndex].Cells["dgvGreen"].Value = Click.Color.G.ToString();
+                        dgv.Rows[RowIndex].Cells["dgvBlue"].Value = Click.Color.B.ToString();
                         dgv.Rows[RowIndex].Cells["dgvX"].Value = Click.X;
                         dgv.Rows[RowIndex].Cells["dgvY"].Value = Click.Y;
                         dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
@@ -782,7 +786,11 @@ namespace AppTestStudio
                         // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                         DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Click.Color);
 
-                        dgv.Rows[RowIndex].Cells["dgvColor"].Style = Style;
+                        dgv.Rows[RowIndex].Cells["dgvRed"].Style = Style;
+                        dgv.Rows[RowIndex].Cells["dgvGreen"].Style = Style;
+                        dgv.Rows[RowIndex].Cells["dgvBlue"].Style = Style;
+
+                        RowCount++;
                     }
 
                     lblRHSColor.Text = "";
@@ -2185,12 +2193,17 @@ namespace AppTestStudio
                 int y = Convert.ToInt32(dgv.Rows[i].Cells["dgvY"].Value);
                 Color Color = bmp.GetPixel(x, y);
 
-                dgv.Rows[i].Cells["dgvColor"].Value = Color.ToRGBString();
+                dgv.Rows[i].Cells["dgvRed"].Value = Color.R.ToString();
+                dgv.Rows[i].Cells["dgvGreen"].Value = Color.G.ToString();
+                dgv.Rows[i].Cells["dgvBlue"].Value = Color.B.ToString();
+
 
                 // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                 DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Color);
 
-                dgv.Rows[i].Cells["dgvColor"].Style = Style;
+                dgv.Rows[i].Cells["dgvRed"].Style = Style;
+                dgv.Rows[i].Cells["dgvGreen"].Style = Style;
+                dgv.Rows[i].Cells["dgvBlue"].Style = Style;
             }
         }
 
@@ -2787,7 +2800,11 @@ namespace AppTestStudio
                         DataGridViewRow Row = dgv.Rows[0].Clone() as DataGridViewRow;
 
                         int RowIndex = dgv.Rows.Add();
-                        dgv.Rows[RowIndex].Cells["dgvColor"].Value = PictureBox1Color.ToRGBString();
+                        dgv.Rows[RowIndex].Cells["dgvID"].Value = RowIndex + 1;
+                        dgv.Rows[RowIndex].Cells["dgvRed"].Value = PictureBox1Color.R.ToString();
+                        dgv.Rows[RowIndex].Cells["dgvGreen"].Value = PictureBox1Color.G.ToString();
+                        dgv.Rows[RowIndex].Cells["dgvBlue"].Value = PictureBox1Color.B.ToString();
+
                         dgv.Rows[RowIndex].Cells["dgvX"].Value = PictureBox1X;
                         dgv.Rows[RowIndex].Cells["dgvY"].Value = PictureBox1Y;
                         dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
@@ -2795,7 +2812,9 @@ namespace AppTestStudio
                         // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                         DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(PictureBox1Color);
 
-                        dgv.Rows[RowIndex].Cells["dgvColor"].Style = Style;
+                        dgv.Rows[RowIndex].Cells["dgvRed"].Style = Style;
+                        dgv.Rows[RowIndex].Cells["dgvGreen"].Style = Style;
+                        dgv.Rows[RowIndex].Cells["dgvBlue"].Style = Style;
 
                         PictureBox1.Refresh();
 
@@ -2923,22 +2942,29 @@ namespace AppTestStudio
                 foreach (DataGridViewRow row in dgv.Rows)
                 {
                     if (row.IsNewRow == false)
-                    {
-                        SingleClick SingleClick = new SingleClick();
-
-                        SingleClick.Color = SingleClick.Color.FromRGBString(row.Cells["dgvColor"].Value.ToString());
-
-                        SingleClick.X = row.Cells["dgvX"].Value.ToString().ToInt();
-                        SingleClick.Y = row.Cells["dgvY"].Value.ToString().ToInt();
-                        EventNode.ClickList.Add(SingleClick);
-
-                        if (rdoAnd.Checked)
+                    {                        
+                        if (row.Cells["dgvRed"].Value.IsSomething())
                         {
-                            EventNode.LogicChoice = "AND";
-                        }
-                        else
-                        {
-                            EventNode.LogicChoice = "OR";
+                            SingleClick SingleClick = new SingleClick();
+
+                            int R = row.Cells["dgvRed"].Value.ToString().ToInt();
+                            int G = row.Cells["dgvGreen"].Value.ToString().ToInt();
+                            int B = row.Cells["dgvBlue"].Value.ToString().ToInt();
+
+                            SingleClick.Color = Color.FromArgb(R, G, B);
+
+                            SingleClick.X = row.Cells["dgvX"].Value.ToString().ToInt();
+                            SingleClick.Y = row.Cells["dgvY"].Value.ToString().ToInt();
+                            EventNode.ClickList.Add(SingleClick);
+
+                            if (rdoAnd.Checked)
+                            {
+                                EventNode.LogicChoice = "AND";
+                            }
+                            else
+                            {
+                                EventNode.LogicChoice = "OR";
+                            }
                         }
                     }
                 }
@@ -3089,7 +3115,7 @@ namespace AppTestStudio
 
                     if (rdoColorPoint.Checked)
                     {
-                        Utils.DrawColorPoints(e,dgv, "dgvColor", "dgvX", "dgvY");
+                        Utils.DrawColorPoints(e,dgv, "dgv", "dgvX", "dgvY");
                     }
                     else
                     {
@@ -3127,6 +3153,11 @@ namespace AppTestStudio
                 {
                     dgv.Rows.Remove(dgv.Rows[e.RowIndex]);
 
+                    for (int i = e.RowIndex; i < dgv.Rows.Count-1; i++)
+                    {
+                        dgv.Rows[i].Cells["dgvID"].Value = i+1;
+                    }
+
                     if (IsPanelLoading == false)
                     {
                         ArchaicSave();
@@ -3140,9 +3171,13 @@ namespace AppTestStudio
                 {
                     int X = dgv.Rows[e.RowIndex].Cells[dgv.Columns["dgvX"].Index].Value.ToString().ToInt();
                     int Y = dgv.Rows[e.RowIndex].Cells[dgv.Columns["dgvY"].Index].Value.ToString().ToInt();
-                    Color CurrentColor = Color.Empty;
-                    CurrentColor = CurrentColor.FromRGBString(dgv.Rows[e.RowIndex].Cells[dgv.Columns["dgvColor"].Index].Value.ToString());
 
+                    int R = dgv.Rows[e.RowIndex].Cells["dgvRed"].Value.ToString().ToInt();
+                    int G = dgv.Rows[e.RowIndex].Cells["dgvGreen"].Value.ToString().ToInt();
+                    int B = dgv.Rows[e.RowIndex].Cells["dgvBlue"].Value.ToString().ToInt();
+
+                    Color CurrentColor = Color.FromArgb(R, G, B);
+                   
                     Color TargetColor = GetColorAtTargetWindowXY(X, Y);
 
                     if (TargetColor != CurrentColor)
@@ -3155,12 +3190,21 @@ namespace AppTestStudio
                         {
                             if (row.IsNewRow == false)
                             {
-                                Boolean ColorMatches = row.Cells["dgvColor"].Value.ToString() == TargetColor.ToRGBString();
-                                Boolean XMatches = row.Cells["dgvX"].Value.ToString().ToInt() == X;
-                                Boolean YMatches = row.Cells["dgvY"].Value.ToString().ToInt() == Y;
-                                if (ColorMatches && XMatches && YMatches)
+                                if (row.Cells["dgvRed"].Value.IsSomething())
                                 {
-                                    XYColorCount = XYColorCount + 1;
+                                    int RowR = row.Cells["dgvRed"].Value.ToString().ToInt();
+                                    int RowG = row.Cells["dgvGreen"].Value.ToString().ToInt();
+                                    int RowB = row.Cells["dgvBlue"].Value.ToString().ToInt();
+
+                                    Color RowColor = Color.FromArgb(RowR, RowG, RowB);
+
+                                    Boolean ColorMatches = RowColor == TargetColor;
+                                    Boolean XMatches = row.Cells["dgvX"].Value.ToString().ToInt() == X;
+                                    Boolean YMatches = row.Cells["dgvY"].Value.ToString().ToInt() == Y;
+                                    if (ColorMatches && XMatches && YMatches)
+                                    {
+                                        XYColorCount = XYColorCount + 1;
+                                    }
                                 }
                             }
                         }
@@ -3169,7 +3213,11 @@ namespace AppTestStudio
                         {
                             //' add new row.
                             int RowIndex = dgv.Rows.Add();
-                            dgv.Rows[RowIndex].Cells["dgvColor"].Value = TargetColor.ToRGBString();
+                            dgv.Rows[RowIndex].Cells["dgvID"].Value = RowIndex + 1;
+                            dgv.Rows[RowIndex].Cells["dgvRed"].Value = TargetColor.R.ToString();
+                            dgv.Rows[RowIndex].Cells["dgvGreen"].Value = TargetColor.G.ToString();
+                            dgv.Rows[RowIndex].Cells["dgvBlue"].Value = TargetColor.B.ToString();
+
                             dgv.Rows[RowIndex].Cells["dgvX"].Value = X;
                             dgv.Rows[RowIndex].Cells["dgvY"].Value = Y;
                             dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
@@ -3177,19 +3225,18 @@ namespace AppTestStudio
 
                             // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                             DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
+                            dgv.Rows[RowIndex].Cells["dgvRed"].Style = Style;
+                            dgv.Rows[RowIndex].Cells["dgvGreen"].Style = Style;
+                            dgv.Rows[RowIndex].Cells["dgvBlue"].Style = Style;
 
-                            dgv.Rows[RowIndex].Cells["dgvColor"].Style = Style;
                             if (IsPanelLoading == false)
                             {
                                 ArchaicSave();
                             }
-
                         }
                     }
-
                     PictureBox1.Refresh();
                 }
-
             }
             catch (System.InvalidOperationException ex)
             {
@@ -4108,14 +4155,20 @@ namespace AppTestStudio
             foreach (SingleClick Item in Node.ClickList)
             {
                 int Rowindex = dgvTestAllReference.Rows.Add();
-                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceColor"].Value = Item.Color.ToRGBString();
+                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceRed"].Value = Item.Color.R.ToString();
+                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceGreen"].Value = Item.Color.G.ToString();
+                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceBlue"].Value = Item.Color.B.ToString();
+
+
                 dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceX"].Value = Item.X;
                 dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceY"].Value = Item.Y;
 
                 // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                 DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Item.Color);
 
-                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceColor"].Style = Style;
+                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceRed"].Style = Style;
+                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceGreen"].Style = Style;
+                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceBlue"].Style = Style;
 
                 Rowindex = dgvTest.Rows.Add();
 
@@ -4133,10 +4186,14 @@ namespace AppTestStudio
                     Style.ForeColor = Color.White;
                 }
 
-                Row.Cells["dgvColorTest"].Value = TargetColor.ToRGBString();
+                Row.Cells["dgvColorTestRed"].Value = Item.Color.R.ToString();
+                Row.Cells["dgvColorTestGreen"].Value = Item.Color.G.ToString();
+                Row.Cells["dgvColorTestBlue"].Value = Item.Color.B.ToString();
 
                 // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
-                Row.Cells["dgvColorTest"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
+                Row.Cells["dgvColorTestRed"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor); 
+                Row.Cells["dgvColorTestGreen"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor); 
+                Row.Cells["dgvColorTestBlue"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor); 
 
                 Row.Cells["dgvXTest"].Value = Item.X;
                 Row.Cells["dgvYTest"].Value = Item.Y;
@@ -4861,7 +4918,7 @@ namespace AppTestStudio
 
         private void PictureTestAllReference_Paint(object sender, PaintEventArgs e)
         {
-            Utils.DrawColorPoints(e, dgvTestAllReference, "dgvTestAllReferenceColor", "dgvTestAllReferenceX", "dgvTestAllReferenceY");
+            Utils.DrawColorPoints(e, dgvTestAllReference, "dgvTestAllReference", "dgvTestAllReferenceX", "dgvTestAllReferenceY");
         }
 
         private void PictureTestAllTest_Paint(object sender, PaintEventArgs e)

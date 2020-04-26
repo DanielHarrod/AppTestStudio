@@ -42,16 +42,8 @@
             this.lblReference = new System.Windows.Forms.Label();
             this.SplitContainer3 = new System.Windows.Forms.SplitContainer();
             this.SplitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.dvgRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvPassFail = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvYTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvXTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColorTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cmdRetest = new System.Windows.Forms.Button();
             this.Label3 = new System.Windows.Forms.Label();
-            this.dgvY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvColor = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Label2 = new System.Windows.Forms.Label();
             this.dgv = new System.Windows.Forms.DataGridView();
             this.txtResolution = new System.Windows.Forms.TextBox();
@@ -60,6 +52,18 @@
             this.SplitContainer2 = new System.Windows.Forms.SplitContainer();
             this.dgvTest = new System.Windows.Forms.DataGridView();
             this.cmdClose = new System.Windows.Forms.Button();
+            this.dgvRed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvGreen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvBlue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvColorTestRed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvColorTestGreen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvColorTestBlue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvXTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvYTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvPassFail = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dvgRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTest)).BeginInit();
             this.PanelTest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer4)).BeginInit();
@@ -214,35 +218,6 @@
             this.SplitContainer1.SplitterDistance = 269;
             this.SplitContainer1.TabIndex = 37;
             // 
-            // dvgRange
-            // 
-            this.dvgRange.HeaderText = "+-Points";
-            this.dvgRange.Name = "dvgRange";
-            // 
-            // dgvPassFail
-            // 
-            this.dgvPassFail.HeaderText = "Pass/Fail";
-            this.dgvPassFail.Name = "dgvPassFail";
-            // 
-            // dgvYTest
-            // 
-            this.dgvYTest.HeaderText = "Y";
-            this.dgvYTest.Name = "dgvYTest";
-            this.dgvYTest.Width = 30;
-            // 
-            // dgvXTest
-            // 
-            this.dgvXTest.HeaderText = "X";
-            this.dgvXTest.Name = "dgvXTest";
-            this.dgvXTest.Width = 30;
-            // 
-            // dgvColorTest
-            // 
-            this.dgvColorTest.HeaderText = "Color";
-            this.dgvColorTest.MinimumWidth = 20;
-            this.dgvColorTest.Name = "dgvColorTest";
-            this.dgvColorTest.Width = 162;
-            // 
             // cmdRetest
             // 
             this.cmdRetest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -263,25 +238,6 @@
             this.Label3.Size = new System.Drawing.Size(179, 24);
             this.Label3.TabIndex = 12;
             this.Label3.Text = "Test Window Colors";
-            // 
-            // dgvY
-            // 
-            this.dgvY.HeaderText = "Y";
-            this.dgvY.Name = "dgvY";
-            this.dgvY.Width = 30;
-            // 
-            // dgvX
-            // 
-            this.dgvX.HeaderText = "X";
-            this.dgvX.Name = "dgvX";
-            this.dgvX.Width = 30;
-            // 
-            // dgvColor
-            // 
-            this.dgvColor.HeaderText = "Color";
-            this.dgvColor.MinimumWidth = 20;
-            this.dgvColor.Name = "dgvColor";
-            this.dgvColor.Width = 162;
             // 
             // Label2
             // 
@@ -306,7 +262,9 @@
             this.dgv.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvColor,
+            this.dgvRed,
+            this.dgvGreen,
+            this.dgvBlue,
             this.dgvX,
             this.dgvY});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -389,7 +347,9 @@
             this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvColorTest,
+            this.dgvColorTestRed,
+            this.dgvColorTestGreen,
+            this.dgvColorTestBlue,
             this.dgvXTest,
             this.dgvYTest,
             this.dgvPassFail,
@@ -419,6 +379,76 @@
             this.cmdClose.Text = "Close";
             this.cmdClose.UseVisualStyleBackColor = true;
             this.cmdClose.Click += new System.EventHandler(this.cmdClose_Click);
+            // 
+            // dgvRed
+            // 
+            this.dgvRed.HeaderText = "Red";
+            this.dgvRed.Name = "dgvRed";
+            this.dgvRed.Width = 35;
+            // 
+            // dgvGreen
+            // 
+            this.dgvGreen.HeaderText = "Green";
+            this.dgvGreen.Name = "dgvGreen";
+            this.dgvGreen.Width = 35;
+            // 
+            // dgvBlue
+            // 
+            this.dgvBlue.HeaderText = "Blue";
+            this.dgvBlue.Name = "dgvBlue";
+            this.dgvBlue.Width = 35;
+            // 
+            // dgvX
+            // 
+            this.dgvX.HeaderText = "X";
+            this.dgvX.Name = "dgvX";
+            this.dgvX.Width = 30;
+            // 
+            // dgvY
+            // 
+            this.dgvY.HeaderText = "Y";
+            this.dgvY.Name = "dgvY";
+            this.dgvY.Width = 30;
+            // 
+            // dgvColorTestRed
+            // 
+            this.dgvColorTestRed.HeaderText = "Red";
+            this.dgvColorTestRed.Name = "dgvColorTestRed";
+            this.dgvColorTestRed.Width = 35;
+            // 
+            // dgvColorTestGreen
+            // 
+            this.dgvColorTestGreen.HeaderText = "Green";
+            this.dgvColorTestGreen.Name = "dgvColorTestGreen";
+            this.dgvColorTestGreen.Width = 35;
+            // 
+            // dgvColorTestBlue
+            // 
+            this.dgvColorTestBlue.HeaderText = "Blue";
+            this.dgvColorTestBlue.Name = "dgvColorTestBlue";
+            this.dgvColorTestBlue.Width = 35;
+            // 
+            // dgvXTest
+            // 
+            this.dgvXTest.HeaderText = "X";
+            this.dgvXTest.Name = "dgvXTest";
+            this.dgvXTest.Width = 30;
+            // 
+            // dgvYTest
+            // 
+            this.dgvYTest.HeaderText = "Y";
+            this.dgvYTest.Name = "dgvYTest";
+            this.dgvYTest.Width = 30;
+            // 
+            // dgvPassFail
+            // 
+            this.dgvPassFail.HeaderText = "Pass/Fail";
+            this.dgvPassFail.Name = "dgvPassFail";
+            // 
+            // dvgRange
+            // 
+            this.dvgRange.HeaderText = "+-Points";
+            this.dvgRange.Name = "dvgRange";
             // 
             // frmTest
             // 
@@ -480,16 +510,8 @@
         internal System.Windows.Forms.Label lblReference;
         internal System.Windows.Forms.SplitContainer SplitContainer3;
         internal System.Windows.Forms.SplitContainer SplitContainer1;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn dvgRange;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn dgvPassFail;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn dgvYTest;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn dgvXTest;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn dgvColorTest;
         internal System.Windows.Forms.Button cmdRetest;
         internal System.Windows.Forms.Label Label3;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn dgvY;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn dgvX;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn dgvColor;
         internal System.Windows.Forms.Label Label2;
         internal System.Windows.Forms.DataGridView dgv;
         internal System.Windows.Forms.TextBox txtResolution;
@@ -498,5 +520,17 @@
         internal System.Windows.Forms.SplitContainer SplitContainer2;
         internal System.Windows.Forms.DataGridView dgvTest;
         internal System.Windows.Forms.Button cmdClose;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvRed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvGreen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvBlue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvX;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvY;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColorTestRed;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColorTestGreen;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvColorTestBlue;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvXTest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvYTest;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dgvPassFail;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dvgRange;
     }
 }

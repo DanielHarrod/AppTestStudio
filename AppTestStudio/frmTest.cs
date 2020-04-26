@@ -78,14 +78,22 @@ namespace AppTestStudio
                 int RowIndex = dgv.Rows.Add();
                 int X = Convert.ToInt32(row.Cells["dgvX"].Value);
                 int y = Convert.ToInt32(row.Cells["dgvY"].Value);
-                Color Targetcolor = Color.Red;
-                Targetcolor = Targetcolor.FromRGBString(row.Cells["dgvColor"].Value.ToString());
-                dgv.Rows[RowIndex].Cells["dgvColor"].Value = Targetcolor.ToRGBString();
+
+                int R = row.Cells["dgvRed"].Value.ToString().ToInt();
+                int G = row.Cells["dgvGreen"].Value.ToString().ToInt();
+                int B = row.Cells["dgvBlue"].Value.ToString().ToInt();
+
+                dgv.Rows[RowIndex].Cells["dgvRed"].Value = R;
+                dgv.Rows[RowIndex].Cells["dgvGreen"].Value = G;
+                dgv.Rows[RowIndex].Cells["dgvBlue"].Value = B;
+
+
+                Color Targetcolor = Color.FromArgb(R, G, B);
                 dgv.Rows[RowIndex].Cells["dgvX"].Value = X;
                 dgv.Rows[RowIndex].Cells["dgvY"].Value = y;
 
                 DataGridViewCellStyle Style = new DataGridViewCellStyle();
-                Style.BackColor = Style.BackColor.FromRGBString(row.Cells["dgvColor"].Value.ToString());
+                Style.BackColor = Style.BackColor = Targetcolor;
                 Single brightness = Targetcolor.GetBrightness();
                 if (brightness < 0.55)
                 {
@@ -96,7 +104,9 @@ namespace AppTestStudio
                     Style.ForeColor = Color.Black;
                 }
 
-                dgv.Rows[RowIndex].Cells["dgvColor"].Style = Style;
+                dgv.Rows[RowIndex].Cells["dgvRed"].Style = Style;
+                dgv.Rows[RowIndex].Cells["dgvGreen"].Style = Style;
+                dgv.Rows[RowIndex].Cells["dgvBlue"].Style = Style;
 
                 RowIndex = dgvTest.Rows.Add();
 
@@ -113,9 +123,13 @@ namespace AppTestStudio
                     Style.ForeColor = Color.White;
                 }
 
-                dgvTestRow.Cells["dgvColorTest"].Value = TestColor.ToRGBString();
+                dgvTestRow.Cells["dgvColorTestRed"].Value = TestColor.R.ToString();
+                dgvTestRow.Cells["dgvColorTestGreen"].Value = TestColor.G.ToString();
+                dgvTestRow.Cells["dgvColorTestBlue"].Value = TestColor.B.ToString();
 
-                dgvTestRow.Cells["dgvColorTest"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor);
+                dgvTestRow.Cells["dgvColorTestRed"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor);
+                dgvTestRow.Cells["dgvColorTestGreen"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor);
+                dgvTestRow.Cells["dgvColorTestBlue"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor); 
 
                 dgvTestRow.Cells["dgvXTest"].Value = X;
                 dgvTestRow.Cells["dgvYTest"].Value = y;
@@ -217,7 +231,7 @@ namespace AppTestStudio
 
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
-            Utils.DrawColorPoints(e, dgv, "dgvColor", "dgvX", "dgvY");
+            Utils.DrawColorPoints(e, dgv, "dgv", "dgvX", "dgvY");
         }
 
         private void PictureBoxTest_Paint(object sender, PaintEventArgs e)

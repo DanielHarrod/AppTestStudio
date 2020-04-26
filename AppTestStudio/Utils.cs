@@ -121,42 +121,49 @@ namespace AppTestStudio
                 }
                 else
                 {
-                    Color c = Color.Empty;
-                    c = c.FromRGBString(row.Cells[cellColorName].Value.ToString());
-                    int x = row.Cells[xName].Value.ToString().ToInt();
-                    int y = row.Cells[yName].Value.ToString().ToInt();
-                    using (SolidBrush br = new SolidBrush(c))
-                    {
-                        using (Font f = new Font("Arial", 16, FontStyle.Bold))
-                        {
-                            SizeF fSize = e.Graphics.MeasureString(i.ToString(), f);
+                    if (row.Cells[cellColorName + "Red"].Value.IsSomething())
+                    { 
+                        int R = row.Cells[cellColorName + "Red"].Value.ToString().ToInt();
+                        int G = row.Cells[cellColorName + "Green"].Value.ToString().ToInt();
+                        int B = row.Cells[cellColorName + "Blue"].Value.ToString().ToInt();
 
-                            Single brightness = br.Color.GetBrightness();
-                            if (brightness < 0.55)
+                        Color c = Color.FromArgb(R, G, B);
+
+                        int x = row.Cells[xName].Value.ToString().ToInt();
+                        int y = row.Cells[yName].Value.ToString().ToInt();
+                        using (SolidBrush br = new SolidBrush(c))
+                        {
+                            using (Font f = new Font("Arial", 16, FontStyle.Bold))
                             {
-                                using (SolidBrush white = new SolidBrush(Color.WhiteSmoke))
+                                SizeF fSize = e.Graphics.MeasureString(i.ToString(), f);
+
+                                Single brightness = br.Color.GetBrightness();
+                                if (brightness < 0.55)
                                 {
-                                    e.Graphics.FillRectangle(white, x, y, fSize.Width, fSize.Height);
-                                    using (Pen BlackPen = new Pen(Color.Black, 1))
+                                    using (SolidBrush white = new SolidBrush(Color.WhiteSmoke))
                                     {
-                                        e.Graphics.DrawRectangle(BlackPen, x, y, fSize.Width, fSize.Height);
+                                        e.Graphics.FillRectangle(white, x, y, fSize.Width, fSize.Height);
+                                        using (Pen BlackPen = new Pen(Color.Black, 1))
+                                        {
+                                            e.Graphics.DrawRectangle(BlackPen, x, y, fSize.Width, fSize.Height);
+                                        }
                                     }
                                 }
-                            }
-                            else
-                            {
-                                using (SolidBrush black = new SolidBrush(Color.Black))
+                                else
                                 {
-                                    using (Pen WhitePen = new Pen(Color.White, 1))
+                                    using (SolidBrush black = new SolidBrush(Color.Black))
                                     {
-                                        e.Graphics.FillRectangle(black, x, y, fSize.Width, fSize.Height);
-                                        e.Graphics.DrawRectangle(WhitePen, x, y, fSize.Width, fSize.Height);
+                                        using (Pen WhitePen = new Pen(Color.White, 1))
+                                        {
+                                            e.Graphics.FillRectangle(black, x, y, fSize.Width, fSize.Height);
+                                            e.Graphics.DrawRectangle(WhitePen, x, y, fSize.Width, fSize.Height);
+                                        }
                                     }
                                 }
+                                e.Graphics.DrawString(i.ToString(), f, br, x, y);
                             }
-                            e.Graphics.DrawString(i.ToString(), f, br, x, y);
+                            i++;
                         }
-                        i++;
                     }
                 }
             }
