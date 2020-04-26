@@ -161,18 +161,23 @@ namespace AppTestStudio
 
                 if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused))
                 {
-                    dgvTestRow.Cells["dgvPassFail"].Value = "Test Passed";
+                    dgv.Rows[RowIndex].Cells["dgvReferencePassFail"].Value = "Passed";
+                    dgvTestRow.Cells["dgvPassFail"].Value = "Passed";
+
                     Style = new DataGridViewCellStyle();
                     Style.BackColor = Color.Green;
                     dgvTestRow.Cells["dgvPassFail"].Style = Style;
+                    dgv.Rows[RowIndex].Cells["dgvReferencePassFail"].Style = Style;
 
                 }
                 else
                 {
-                    dgvTestRow.Cells["dgvPassFail"].Value = "Test Failed";
+                    dgvTestRow.Cells["dgvPassFail"].Value = "Failed";
+                    dgv.Rows[RowIndex].Cells["dgvReferencePassFail"].Value = "Failed";
                     Style = new DataGridViewCellStyle();
                     Style.BackColor = Color.Red;
                     dgvTestRow.Cells["dgvPassFail"].Style = Style;
+                    dgv.Rows[RowIndex].Cells["dgvReferencePassFail"].Style = Style;
                 }
 
                 long r = Math.Abs(Convert.ToInt32(Targetcolor.R) - Convert.ToInt32(TestColor.R));
@@ -194,6 +199,7 @@ namespace AppTestStudio
                 }
 
                 dgvTestRow.Cells["dvgRange"].Value = Largest;
+                dgv.Rows[RowIndex].Cells["dvgReferenceRange"].Value = Largest;
             }
 
             if (frm.rdoAnd.Checked)
