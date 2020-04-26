@@ -5021,7 +5021,14 @@ namespace AppTestStudio
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            try
+            {
+                RunSingleTest();
+            }
+            catch (Exception ex)
+            {
+                Log("testToolStripMenuItem_Click:" + ex.Message);
+            }
         }
     }
 }
