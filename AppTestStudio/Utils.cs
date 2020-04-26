@@ -496,6 +496,11 @@ namespace AppTestStudio
                 }
             }
         }
+
+        internal static String ExtendCustomLogic(String expression)
+        {
+            return expression.ToUpper().Replace("AND", " AND ").Replace("OR", " OR ").Replace("NOT", " NOT ").Replace("(", " ( ").Replace(")", " ) ").Replace("||", " OR ").Replace("&&", " AND ").Replace("|", " OR ").Replace("&", " AND ").Replace("!", " NOT ");
+        }
     }
 
 }

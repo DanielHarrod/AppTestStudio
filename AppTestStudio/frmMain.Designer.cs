@@ -4592,8 +4592,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvYTest;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPassFail;
         private System.Windows.Forms.DataGridViewTextBoxColumn dvgRange;
-        private System.Windows.Forms.RadioButton rdoCustom;
-        private System.Windows.Forms.TextBox txtCustomLogic;
+        internal System.Windows.Forms.TextBox txtCustomLogic;
         private System.Windows.Forms.Button cmdValidate;
+        internal System.Windows.Forms.RadioButton rdoCustom;
     }
 }

@@ -64,16 +64,32 @@ namespace AppTestStudio
             Boolean Result = false;
             Boolean FinalResult = false;
 
-
             lblPoints.Text = Action.Points + " Points";
 
-            foreach (DataGridViewRow row in frm.dgv.Rows)
+            String Expression = "";
+
+            Boolean UsingCustomLogic = frm.rdoCustom.Checked;
+
+            String PreExpression = frm.txtCustomLogic.Text;
+            if (UsingCustomLogic)
             {
+                // add spaces to beginning and end.
+                Expression = " " + frm.txtCustomLogic.Text + " ";
+
+                // Lets add space between everything and expand mix the logic to allow for C# and VB Logic.
+                Expression = Utils.ExtendCustomLogic(Expression);
+            }
+
+            String OriginalExpression = Expression;
+
+            // need to go backwards for custom logic > 10 entries
+            for (int dgvRowIndex = frm.dgv.Rows.Count - 1; dgvRowIndex >= 0; dgvRowIndex--)
+            {
+                DataGridViewRow row = frm.dgv.Rows[dgvRowIndex];
                 if (row.IsNewRow)
                 {
                     continue;
                 }
-
 
                 int RowIndex = dgv.Rows.Add();
                 int X = Convert.ToInt32(row.Cells["dgvX"].Value);
@@ -152,11 +168,24 @@ namespace AppTestStudio
                         FinalResult = true;
                     }
                 }
-                else
+                else if (frm.rdoOR.Checked )
                 {
                     if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused))
                     {
                         Result = true;
+                    }
+                }
+                else
+                {
+                    // Custom Logic
+                    Result = Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused);
+                    if (Result)
+                    {
+                        Expression = Expression.Replace((dgvRowIndex + 1).ToString(), "TRUE");
+                    }
+                    else
+                    {
+                        Expression = Expression.Replace((dgvRowIndex + 1).ToString(), "FALSE");
                     }
                 }
 
@@ -205,18 +234,41 @@ namespace AppTestStudio
 
             if (frm.rdoAnd.Checked)
             {
-                lblLogic.Text = "Logic: AND";
+                txtLogic.Text = "Logic: AND";
+            }
+            else if (frm.rdoOR.Checked)
+            {
+                txtLogic.Text = "Logic: OR";
             }
             else
             {
-                lblLogic.Text = "Logic: OR";
-            }
+                txtLogic.Text = frm.txtCustomLogic.Text;
 
+                // Test the parser.
+                BooleanParser.Parser parser = new BooleanParser.Parser(Expression);
+                try
+                {
+                    Result = parser.Parse();
+                }
+                catch (Exception ex)
+                {
+                    String NewExpress = OriginalExpression.Replace("(", "").Replace(")", "").Replace("TRUE", "").Replace("FALSE", "").Replace("AND", "").Replace("OR", "").Replace("NOT", "").Replace(" ", "");
+
+                    if (NewExpress.Length > 0)
+                    {
+                        frm.Log("Precompile says: " + NewExpress);
+                    }
+
+                    frm.Log("Parser Says:" + ex.Message);
+                }
+            }
+            txtLogic.Text = PreExpression.ToLower();
+            txtLogic2.Text = OriginalExpression.ToLower();
+            txtLogic3.Text = Expression.ToLower();
             if (dgvTest.Rows.Count == 1)
             {
                 Result = true;
             }
-
 
             if (Result)
             {

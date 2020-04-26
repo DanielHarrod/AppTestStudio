@@ -5120,7 +5120,7 @@ namespace AppTestStudio
             String Expression = " " + txtCustomLogic.Text + " ";
 
             // Lets add space between everything and expand mix the logic to allow for C# and VB Logic.
-            Expression = Expression.ToUpper().Replace("AND", " AND ").Replace("OR"," OR ").Replace("NOT"," NOT ").Replace("("," ( ").Replace(")"," ) ").Replace("||"," OR ").Replace("&&", " AND ").Replace("|"," OR ").Replace("&"," AND ").Replace("!"," NOT ");
+            Expression = Utils.ExtendCustomLogic(Expression);            
 
             // remove the #'s since the parser doens't know what #'s are.
             for (int i = dgv.Rows.Count-1; i >= 1; i--)
