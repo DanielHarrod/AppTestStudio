@@ -39,6 +39,9 @@ namespace AppTestStudio
 
         private void RunTest()
         {
+            txtLogic.Text = "";
+            txtLogic2.Text = "";
+            txtLogic3.Text = "";
             dgv.Rows.Clear();
             dgvTest.Rows.Clear();
             PictureBox1.Image = frm.PictureBox1.Image;
