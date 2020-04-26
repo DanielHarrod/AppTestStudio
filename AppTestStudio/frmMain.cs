@@ -133,7 +133,7 @@ namespace AppTestStudio
             appTestStudioStatusControl1.ShowPercent = 120;
 
             // Hide Custom Logic controls
-            txtCustom.Visible = false;
+            txtCustomLogic.Visible = false;
             cmdValidate.Visible = false;
 
 
@@ -780,6 +780,7 @@ namespace AppTestStudio
                     {
                         rdoCustom.Checked = true;
                         GameNode.LastLogicChoice = "CUSTOM";
+                        txtCustomLogic.Text = GameNode.CustomLogic;
                     }
 
                     int RowCount = 1;
@@ -5040,26 +5041,26 @@ namespace AppTestStudio
             if (rdoCustom.Checked)
             {
                 // Make room for Custom Logic
-                txtCustom.Visible = true;
+                txtCustomLogic.Visible = true;
                 cmdValidate.Visible = true;
-                dgv.Top = txtCustom.Top + txtCustom.Height + 2;
-                dgv.Height = dgv.Height - txtCustom.Height - 2;
+                dgv.Top = txtCustomLogic.Top + txtCustomLogic.Height + 2;
+                dgv.Height = dgv.Height - txtCustomLogic.Height - 2;
 
-                txtCustom.Text = "";
+                txtCustomLogic.Text = "";
                 for (int i = 1; i < dgv.Rows.Count; i++)
                 {
-                    if (txtCustom.Text.Length > 0)
+                    if (txtCustomLogic.Text.Length > 0)
                     {
                         if (PanelLoadNode.LastLogicChoice == "OR")
                         {
-                            txtCustom.Text = txtCustom.Text + " OR ";
+                            txtCustomLogic.Text = txtCustomLogic.Text + " OR ";
                         }
                         else
                         {
-                            txtCustom.Text = txtCustom.Text + " AND ";
+                            txtCustomLogic.Text = txtCustomLogic.Text + " AND ";
                         }
                     }
-                    txtCustom.Text = txtCustom.Text + i.ToString();
+                    txtCustomLogic.Text = txtCustomLogic.Text + i.ToString();
                 }
 
                 PanelLoadNode.LastLogicChoice = "CUSTOM";
@@ -5077,10 +5078,10 @@ namespace AppTestStudio
 
         private void HideCustomLogicControls()
         {
-            txtCustom.Visible = false;
+            txtCustomLogic.Visible = false;
             cmdValidate.Visible = false;
-            dgv.Top = txtCustom.Top;
-            dgv.Height = dgv.Height + txtCustom.Height + 2;
+            dgv.Top = txtCustomLogic.Top;
+            dgv.Height = dgv.Height + txtCustomLogic.Height + 2;
         }
 
         private void rdoAnd_CheckedChanged(object sender, EventArgs e)
@@ -5116,7 +5117,7 @@ namespace AppTestStudio
             // this is just a basic validator, it's not perfect but it's pretty good.
 
             // add spaces to beginning and end.
-            String Expression = " " + txtCustom.Text + " ";
+            String Expression = " " + txtCustomLogic.Text + " ";
 
             // Lets add space between everything and expand mix the logic to allow for C# and VB Logic.
             Expression = Expression.ToUpper().Replace("AND", " AND ").Replace("OR"," OR ").Replace("NOT"," NOT ").Replace("("," ( ").Replace(")"," ) ").Replace("||"," OR ").Replace("&&", " AND ").Replace("|"," OR ").Replace("&"," AND ").Replace("!"," NOT ");
@@ -5149,6 +5150,18 @@ namespace AppTestStudio
                 cmdValidate.BackColor = Color.Red;
 
                 Log("Note: At runtime any unparseable custom logic will skip the node.");
+            }
+        }
+
+        private void txtCustom_TextChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading)
+            {
+                // do nothing
+            }
+            else
+            {
+                PanelLoadNode.CustomLogic = txtCustomLogic.Text.Trim();
             }
         }
     }

@@ -407,6 +407,12 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("Name", Activites.Name);
 
                         Writer.WriteAttributeString("LogicChoice", Activites.LogicChoice);
+
+                        if (Activites.LogicChoice == "CUSTOM")
+                        {
+                            Writer.WriteAttributeString("CustomLogic", Activites.CustomLogic);
+                        }
+
                         Writer.WriteAttributeString("UseParentPicture", Activites.UseParentPicture.ToString());
                         //'Writer.WriteAttributeString("DelayMS", Activites.DelayMS)
                         Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
@@ -744,6 +750,14 @@ namespace AppTestStudio
             if (eventNode.Attributes.GetNamedItem("LogicChoice").IsSomething())
             {
                 LogicChoice = eventNode.Attributes["LogicChoice"].Value.ToUpper();
+            }
+
+            if (LogicChoice == "CUSTOM")
+            {
+                if (eventNode.Attributes.GetNamedItem("CustomLogic").IsSomething())
+                {
+                    newEvent.CustomLogic = eventNode.Attributes["CustomLogic"].Value.ToUpper();
+                }
             }
 
             Boolean UseParentPicture = false;

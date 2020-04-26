@@ -126,7 +126,7 @@
             this.PictureBox2 = new System.Windows.Forms.PictureBox();
             this.grpAndOr = new System.Windows.Forms.GroupBox();
             this.cmdValidate = new System.Windows.Forms.Button();
-            this.txtCustom = new System.Windows.Forms.TextBox();
+            this.txtCustomLogic = new System.Windows.Forms.TextBox();
             this.rdoCustom = new System.Windows.Forms.RadioButton();
             this.label31 = new System.Windows.Forms.Label();
             this.cboPoints = new System.Windows.Forms.ComboBox();
@@ -1587,7 +1587,7 @@
             // 
             this.grpAndOr.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.grpAndOr.Controls.Add(this.cmdValidate);
-            this.grpAndOr.Controls.Add(this.txtCustom);
+            this.grpAndOr.Controls.Add(this.txtCustomLogic);
             this.grpAndOr.Controls.Add(this.rdoCustom);
             this.grpAndOr.Controls.Add(this.label31);
             this.grpAndOr.Controls.Add(this.cboPoints);
@@ -1611,13 +1611,14 @@
             this.cmdValidate.UseVisualStyleBackColor = true;
             this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
             // 
-            // txtCustom
+            // txtCustomLogic
             // 
-            this.txtCustom.Location = new System.Drawing.Point(10, 35);
-            this.txtCustom.Multiline = true;
-            this.txtCustom.Name = "txtCustom";
-            this.txtCustom.Size = new System.Drawing.Size(306, 66);
-            this.txtCustom.TabIndex = 6;
+            this.txtCustomLogic.Location = new System.Drawing.Point(10, 35);
+            this.txtCustomLogic.Multiline = true;
+            this.txtCustomLogic.Name = "txtCustomLogic";
+            this.txtCustomLogic.Size = new System.Drawing.Size(306, 66);
+            this.txtCustomLogic.TabIndex = 6;
+            this.txtCustomLogic.TextChanged += new System.EventHandler(this.txtCustom_TextChanged);
             // 
             // rdoCustom
             // 
@@ -4592,7 +4593,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPassFail;
         private System.Windows.Forms.DataGridViewTextBoxColumn dvgRange;
         private System.Windows.Forms.RadioButton rdoCustom;
-        private System.Windows.Forms.TextBox txtCustom;
+        private System.Windows.Forms.TextBox txtCustomLogic;
         private System.Windows.Forms.Button cmdValidate;
     }
 }

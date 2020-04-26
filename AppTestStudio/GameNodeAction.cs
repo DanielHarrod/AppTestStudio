@@ -96,6 +96,13 @@ namespace AppTestStudio
             }
         }
 
+        /// <summary>
+        /// When Logic Choice is CUSTOM this contains AND/OR/NOT/(/)/#'s logic
+        /// where the #'s represent the ClickList in a 1 based format
+        /// eg. 1 AND not (2)
+        /// </summary>
+        public String CustomLogic { get; set; }
+
         private Boolean mIsColorPoint;
         /// <summary>
         /// When True : Used on Event Node types ColorPoint is system will search a list of colors and points for a match
