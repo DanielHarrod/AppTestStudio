@@ -132,6 +132,11 @@ namespace AppTestStudio
             // Initialize
             appTestStudioStatusControl1.ShowPercent = 120;
 
+            // Hide Custom Logic controls
+            txtCustom.Visible = false;
+            cmdValidate.Visible = false;
+
+
         }
 
         private void LoadSchedule()
@@ -3617,31 +3622,6 @@ namespace AppTestStudio
 
         }
 
-        private void rdoAnd_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoAnd.Checked)
-            {
-                PanelLoadNode.LastLogicChoice = "AND";
-            }
-            if (IsPanelLoading == false)
-            {
-                ArchaicSave();
-            }
-
-        }
-
-        private void rdoOR_CheckedChanged(object sender, EventArgs e)
-        {
-            if (rdoOR.Checked)
-            {
-                PanelLoadNode.LastLogicChoice = "OR";
-            }
-            if (IsPanelLoading == false)
-            {
-                ArchaicSave();
-            }
-
-        }
 
         private void cboPoints_TextChanged(object sender, EventArgs e)
         {
@@ -5086,15 +5066,49 @@ namespace AppTestStudio
             }
             else
             {
-                txtCustom.Visible = false;
-                dgv.Top = txtCustom.Top;
-                dgv.Height = dgv.Height + txtCustom.Height + 2;
+                HideCustomLogicControls();
             }
 
             if (IsPanelLoading == false)
             {
                 ArchaicSave();
             }
+        }
+
+        private void HideCustomLogicControls()
+        {
+            txtCustom.Visible = false;
+            cmdValidate.Visible = false;
+            dgv.Top = txtCustom.Top;
+            dgv.Height = dgv.Height + txtCustom.Height + 2;
+        }
+
+        private void rdoAnd_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoAnd.Checked)
+            {
+                PanelLoadNode.LastLogicChoice = "AND";
+                HideCustomLogicControls();
+            }
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+
+        }
+
+        private void rdoOR_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rdoOR.Checked)
+            {
+                PanelLoadNode.LastLogicChoice = "OR";
+                HideCustomLogicControls();
+            }
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
+            }
+
         }
 
         private void cmdValidate_Click(object sender, EventArgs e)
