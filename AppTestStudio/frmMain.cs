@@ -5079,6 +5079,8 @@ namespace AppTestStudio
                 }
 
                 PanelLoadNode.LastLogicChoice = "CUSTOM";
+                Log("To Use include the Click List #, eg. 1 AND NOT (2 OR 3) ");
+                Log("Custom logic supports operators &, &&, AND, !, NOT, |, ||, OR, ()'s");
             }
             else
             {

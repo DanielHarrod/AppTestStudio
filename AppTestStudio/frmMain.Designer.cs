@@ -183,6 +183,7 @@
             this.PictureTestAllTest = new System.Windows.Forms.PictureBox();
             this.lblTestWindow = new System.Windows.Forms.Label();
             this.SplitContainer10 = new System.Windows.Forms.SplitContainer();
+            this.lblTestAllCustom = new System.Windows.Forms.Label();
             this.lblTestAllEventsReference = new System.Windows.Forms.Label();
             this.dgvTestAllReference = new System.Windows.Forms.DataGridView();
             this.dgvTestAllReferenceID = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -374,7 +375,6 @@
             this.toolSchedulerRunning = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelCurrentConfiguredInstance = new System.Windows.Forms.ToolStripLabel();
-            this.lblTestAllCustom = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -826,7 +826,7 @@
             this.PanelColorEvent.Controls.Add(this.grpAndOr);
             this.PanelColorEvent.Controls.Add(this.grpObjectAction);
             this.PanelColorEvent.Controls.Add(this.grpObject);
-            this.PanelColorEvent.Location = new System.Drawing.Point(477, 223);
+            this.PanelColorEvent.Location = new System.Drawing.Point(25, 22);
             this.PanelColorEvent.Name = "PanelColorEvent";
             this.PanelColorEvent.Size = new System.Drawing.Size(1048, 636);
             this.PanelColorEvent.TabIndex = 14;
@@ -2043,7 +2043,7 @@
             // PanelTestAllEvents
             // 
             this.PanelTestAllEvents.Controls.Add(this.SplitContainer6);
-            this.PanelTestAllEvents.Location = new System.Drawing.Point(19, 19);
+            this.PanelTestAllEvents.Location = new System.Drawing.Point(649, 116);
             this.PanelTestAllEvents.Name = "PanelTestAllEvents";
             this.PanelTestAllEvents.Size = new System.Drawing.Size(1048, 512);
             this.PanelTestAllEvents.TabIndex = 16;
@@ -2248,6 +2248,18 @@
             this.SplitContainer10.Size = new System.Drawing.Size(460, 512);
             this.SplitContainer10.SplitterDistance = 189;
             this.SplitContainer10.TabIndex = 0;
+            // 
+            // lblTestAllCustom
+            // 
+            this.lblTestAllCustom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblTestAllCustom.AutoSize = true;
+            this.lblTestAllCustom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTestAllCustom.Location = new System.Drawing.Point(307, 6);
+            this.lblTestAllCustom.Name = "lblTestAllCustom";
+            this.lblTestAllCustom.Size = new System.Drawing.Size(150, 24);
+            this.lblTestAllCustom.TabIndex = 12;
+            this.lblTestAllCustom.Text = "lblTestAllCustom";
+            this.lblTestAllCustom.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // lblTestAllEventsReference
             // 
@@ -4093,18 +4105,6 @@
             this.toolStripLabelCurrentConfiguredInstance.Name = "toolStripLabelCurrentConfiguredInstance";
             this.toolStripLabelCurrentConfiguredInstance.Size = new System.Drawing.Size(224, 22);
             this.toolStripLabelCurrentConfiguredInstance.Text = "toolStripLabelCurrentConfiguredInstance";
-            // 
-            // lblTestAllCustom
-            // 
-            this.lblTestAllCustom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblTestAllCustom.AutoSize = true;
-            this.lblTestAllCustom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestAllCustom.Location = new System.Drawing.Point(307, 6);
-            this.lblTestAllCustom.Name = "lblTestAllCustom";
-            this.lblTestAllCustom.Size = new System.Drawing.Size(150, 24);
-            this.lblTestAllCustom.TabIndex = 12;
-            this.lblTestAllCustom.Text = "lblTestAllCustom";
-            this.lblTestAllCustom.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // frmMain
             // 
