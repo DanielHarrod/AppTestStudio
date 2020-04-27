@@ -85,10 +85,8 @@ namespace AppTestStudio
 
             String OriginalExpression = Expression;
 
-            // need to go backwards for custom logic > 10 entries
-            for (int dgvRowIndex = frm.dgv.Rows.Count - 1; dgvRowIndex >= 0; dgvRowIndex--)
+            foreach (DataGridViewRow row in frm.dgv.Rows)
             {
-                DataGridViewRow row = frm.dgv.Rows[dgvRowIndex];
                 if (row.IsNewRow)
                 {
                     continue;
@@ -178,20 +176,7 @@ namespace AppTestStudio
                         Result = true;
                     }
                 }
-                else
-                {
-                    // Custom Logic
-                    Result = Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused);
-                    if (Result)
-                    {
-                        Expression = Expression.Replace((dgvRowIndex + 1).ToString(), "TRUE");
-                    }
-                    else
-                    {
-                        Expression = Expression.Replace((dgvRowIndex + 1).ToString(), "FALSE");
-                    }
-                }
-
+       
                 if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused))
                 {
                     dgv.Rows[RowIndex].Cells["dgvReferencePassFail"].Value = "Passed";
@@ -233,6 +218,27 @@ namespace AppTestStudio
 
                 dgvTestRow.Cells["dvgRange"].Value = Largest;
                 dgv.Rows[RowIndex].Cells["dvgReferenceRange"].Value = Largest;
+            }
+
+            if (frm.rdoCustom.Checked)
+            {
+                for (int dgvRowIndex = dgv.Rows.Count - 1; dgvRowIndex >= 0; dgvRowIndex--)
+                {
+                    DataGridViewRow row = dgv.Rows[dgvRowIndex];
+                    if (row.IsNewRow)
+                    {
+                        continue;
+                    }
+                    if (row.Cells["dgvReferencePassFail"].Value.ToString() == "Passed")
+                    {
+                        Expression = Expression.Replace((dgvRowIndex + 1).ToString(), "TRUE");
+
+                    }
+                    else
+                    {
+                        Expression = Expression.Replace((dgvRowIndex + 1).ToString(), "FALSE");
+                    }
+                }
             }
 
             if (frm.rdoAnd.Checked)
