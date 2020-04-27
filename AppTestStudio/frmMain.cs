@@ -1378,11 +1378,18 @@ namespace AppTestStudio
         private void txtSearch_KeyUp(object sender, KeyEventArgs e)
         {
             String SearchText = txtFilter.Text;
-            FilterChildNodes(SearchText, tv.Nodes[0] as GameNode);
+            GameNode FirstGameNode = null;
+            FilterChildNodes(SearchText, tv.Nodes[0] as GameNode, ref FirstGameNode);
+
+            if (FirstGameNode.IsSomething())
+            {
+                FirstGameNode.EnsureVisible();
+            }
         }
 
-        private void FilterChildNodes(string searchText, GameNode Game)
+        private void FilterChildNodes(string searchText, GameNode Game, ref GameNode firstGameNode)
         {
+
             foreach (GameNode gameNode in Game.Nodes)
             {
                 if (searchText.Length == 0)
@@ -1393,6 +1400,10 @@ namespace AppTestStudio
                 {
                     if (gameNode.Name.ToUpper().Contains(searchText.ToUpper()))
                     {
+                        if (firstGameNode.IsNothing())
+                        {
+                            firstGameNode = gameNode;
+                        }
                         gameNode.BackColor = Color.LightGreen;
                     }
                     else
@@ -1400,7 +1411,7 @@ namespace AppTestStudio
                         gameNode.BackColor = Color.White;
                     }
                 }
-                FilterChildNodes(searchText, gameNode);
+                FilterChildNodes(searchText, gameNode, ref firstGameNode);
 
             }
         }
