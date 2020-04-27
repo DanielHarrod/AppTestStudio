@@ -4088,6 +4088,11 @@ namespace AppTestStudio
 
                 }
             }
+            else
+            {
+                // Node it Test All have no purpose so set light gray.
+                Node.ForeColor = Color.LightGray;
+            }
             foreach (GameNodeAction n in Node.Nodes)
             {
                 CheckEvents(n);
