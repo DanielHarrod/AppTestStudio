@@ -270,7 +270,7 @@ namespace AppTestStudio
             Action.RelativeYOffset = RelativeYOffset;
             Action.Mode = Mode;
             Action.Points = Points;
-            Action.Text = Name;
+            Action.Text = Text;
             Action.ObjectName = ObjectName;
             Action.Channel = Channel;
             Action.IsColorPoint = IsColorPoint;  //must be set after Mode
