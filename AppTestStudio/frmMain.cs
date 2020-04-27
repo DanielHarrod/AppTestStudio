@@ -4017,14 +4017,41 @@ namespace AppTestStudio
                 lblTestWindowResolution.Text = PictureTestAllTest.Image.Width + " x " + PictureTestAllTest.Image.Height;
             }
 
+            // Calculate each node for true or false
             foreach (GameNodeEvents nodeEvents in tvTestAllEvents.Nodes)
             {
                 foreach (GameNodeAction action in nodeEvents.Nodes)
                 {
                     CheckEvents(action);
                 }
-
             }
+
+            // Attempt to set the node on the test tree to the selected node in main.
+            TreeNode LocatedNode =  GetFirstNodeByName(tvTestAllEvents.Nodes[0], tv.SelectedNode.Name);
+            if (LocatedNode.IsSomething())
+            {
+                LocatedNode.EnsureVisible();
+                // Simulate a click on the tree to populate tables.
+                TreeViewEventArgs Arg = new TreeViewEventArgs(LocatedNode);
+                tvTestAllEvents_AfterSelect(null, Arg);
+            }
+        }
+
+        private TreeNode GetFirstNodeByName(TreeNode parent, String Name)
+        {
+            foreach (TreeNode Node in parent.Nodes)
+            {
+                if (Node.Name.StartsWith(Name) )
+                {
+                    return Node;
+                }
+                TreeNode ChildNode = GetFirstNodeByName(Node, Name);
+                if (ChildNode.IsSomething())
+                {
+                    return ChildNode;
+                }
+            }
+            return null;
         }
 
         private void CheckEvents(GameNodeAction Node)
