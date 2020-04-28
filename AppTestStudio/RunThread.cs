@@ -459,6 +459,10 @@ namespace AppTestStudio
                                             ThreadManager.IncrementGoStop();
                                             StopThreadCloseWindow(WindowHandle);
                                             return AfterCompletionType.Stop;
+                                        case AfterCompletionType.ContinueProcess:
+                                            ThreadManager.IncrementGoContinue();
+                                            break;
+
                                         default:
                                             Debug.Assert(false);
                                             break;

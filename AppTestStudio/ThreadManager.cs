@@ -103,6 +103,8 @@ namespace AppTestStudio
 			get { return mClickCount; }
 			set { mClickCount = value; }
 		}
+
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementClickCount()
 		{
 			return Interlocked.Increment(ref mClickCount);
@@ -116,11 +118,13 @@ namespace AppTestStudio
 			set { mWaitLength = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long AddWaitLength(long value)
 		{
 			return Interlocked.Add(ref mWaitLength, value);
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementWaitLength()
 		{
 			return Interlocked.Increment(ref mWaitLength);
@@ -159,7 +163,7 @@ namespace AppTestStudio
 			get { return mGoParent; }
 			set { mGoParent = value; }
 		}
-
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementGoParent()
 		{
 			return Interlocked.Increment(ref mGoParent);
@@ -172,7 +176,7 @@ namespace AppTestStudio
 			get { return mGoHome; }
 			set { mGoHome = value; }
 		}
-
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementGoHome()
 		{
 			return Interlocked.Increment(ref mGoHome);
@@ -186,6 +190,7 @@ namespace AppTestStudio
 			set { mGoStop = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementGoStop()
 		{
 			return Interlocked.Increment(ref mGoStop);
@@ -199,6 +204,7 @@ namespace AppTestStudio
 			set { mGoContinue = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementGoContinue()
 		{
 			return Interlocked.Increment(ref mGoContinue);
@@ -206,12 +212,14 @@ namespace AppTestStudio
 
 		private long mGoChild;
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long GoChild
 		{
 			get { return mGoChild; }
 			set { mGoChild = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementGoChild()
 		{
 			return Interlocked.Increment(ref mGoChild);
@@ -224,6 +232,7 @@ namespace AppTestStudio
 			set { mRNG = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementRNG()
 		{
 			return Interlocked.Increment(ref mRNG);
@@ -237,6 +246,7 @@ namespace AppTestStudio
 			set { mAppLaunches = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementAppLaunches()
 		{
 			return Interlocked.Increment(ref mAppLaunches);
@@ -250,6 +260,7 @@ namespace AppTestStudio
 			set { mTestLoaded = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementTestLoaded()
 		{
 			return Interlocked.Increment(ref mTestLoaded);
@@ -263,6 +274,7 @@ namespace AppTestStudio
 			set { mTestSaved = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementTestSaved()
 		{
 			return Interlocked.Increment(ref mTestSaved);
@@ -276,6 +288,7 @@ namespace AppTestStudio
 			set { mNewAppAdded = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementNewAppAdded()
 		{
 			return Interlocked.Increment(ref mNewAppAdded);
@@ -289,6 +302,7 @@ namespace AppTestStudio
 			set { mNewEventAdded = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementNewEventAdded()
 		{
 			return Interlocked.Increment(ref mNewEventAdded);
@@ -302,6 +316,7 @@ namespace AppTestStudio
 			set { mNewActionAdded = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementNewActionAdded()
 		{
 			return Interlocked.Increment(ref mNewActionAdded);
@@ -315,6 +330,7 @@ namespace AppTestStudio
 			set { mInstanceLoaded = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementInstanceLoaded()
 		{
 			return Interlocked.Increment(ref mInstanceLoaded);
@@ -328,6 +344,7 @@ namespace AppTestStudio
 			set { mInstanceLaunched = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementInstanceLaunched()
 		{
 			return Interlocked.Increment(ref mInstanceLaunched);
@@ -341,6 +358,7 @@ namespace AppTestStudio
 			set { mNewRNGContainer = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementNewRNGContainer()
 		{
 			return Interlocked.Increment(ref mNewRNGContainer);
@@ -354,6 +372,7 @@ namespace AppTestStudio
 			set { mSingleTestRun = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementSingleTestRun()
 		{
 			return Interlocked.Increment(ref mSingleTestRun);
@@ -367,6 +386,7 @@ namespace AppTestStudio
 			set { mSingleTestClick = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementSingleTestClick()
 		{
 			return Interlocked.Increment(ref mSingleTestClick);
@@ -380,6 +400,7 @@ namespace AppTestStudio
 			set { mSingleTestClickDragRelease = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementSingleTestClickDragRelease()
 		{
 			return Interlocked.Increment(ref mSingleTestClickDragRelease);
@@ -393,6 +414,7 @@ namespace AppTestStudio
 			set { mSingleEventTest = value; }
 		}
 
+		[System.Diagnostics.DebuggerStepThrough]
 		public long IncrementSingleEventTest()
 		{
 			return Interlocked.Increment(ref mSingleEventTest);
