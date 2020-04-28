@@ -211,8 +211,7 @@ namespace AppTestStudio
 		}
 
 		private long mGoChild;
-
-		[System.Diagnostics.DebuggerStepThrough]
+		
 		public long GoChild
 		{
 			get { return mGoChild; }

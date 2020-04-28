@@ -861,6 +861,17 @@ namespace AppTestStudio
                 return;
             }
 
+            NumericYOffset.Minimum = -PictureBox1.Height;
+            NumericYOffset.Maximum = PictureBox1.Height;
+
+            NumericXOffset.Maximum = PictureBox1.Width;
+            NumericXOffset.Minimum = -PictureBox1.Width;
+            NumericXOffset.Value = CurrentNode.RelativeXOffset;
+            NumericYOffset.Value = CurrentNode.RelativeYOffset;
+
+            lblXOffsetRange.Text = "-" + PictureBox1.Width + " to " + PictureBox1.Width;
+            lblYOffsetRange.Text = "-" + PictureBox1.Height + " to " + PictureBox1.Height;
+
             if (CurrentParent is GameNodeAction)
             {
                 if (CurrentParent.IsColorPoint == false)
@@ -875,16 +886,7 @@ namespace AppTestStudio
                 }
             }
 
-            NumericYOffset.Minimum = -PictureBox1.Height;
-            NumericYOffset.Maximum = PictureBox1.Height;
 
-            NumericXOffset.Maximum = PictureBox1.Width;
-            NumericXOffset.Minimum = -PictureBox1.Width;
-            NumericXOffset.Value = CurrentNode.RelativeXOffset;
-            NumericYOffset.Value = CurrentNode.RelativeYOffset;
-
-            lblXOffsetRange.Text = "-" + PictureBox1.Width + " to " + PictureBox1.Width;
-            lblYOffsetRange.Text = "-" + PictureBox1.Height + " to " + PictureBox1.Height;
         }
 
         private void LoadObjectNodeSection()
