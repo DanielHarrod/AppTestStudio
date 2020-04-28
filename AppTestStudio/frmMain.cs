@@ -572,15 +572,82 @@ namespace AppTestStudio
             cboResolution.Text = gameNode.Resolution;
             chkSaveVideo.Checked = gameNode.SaveVideo;
             NumericVideoFrameLimit.Value = gameNode.VideoFrameLimit;
-
-
         }
 
         private void LoadObject(GameNodeObject node)
         {
             txtObjectName.Text = node.Name;
             PictureBoxObject.Image = node.Bitmap;
+
+            String References = "";
+            foreach (GameNodeAction Action in GetGameNodeEvents().Nodes)
+            {
+                GatherObjectReferences(node,ref References, Action);
+            }
+
+            if (References.Length > 0)
+            {
+                txtObjectReferencedBy.Text = References;
+                cmdDeleteObject.Enabled = false;
+            }
+            else
+            {
+                cmdDeleteObject.Enabled = true;
+            }
         }
+
+        private void GatherObjectReferences(GameNodeObject node, ref string References, GameNodeAction Action)
+        {
+            if (Action.ObjectName == node.Name)
+            {
+                if (References.Length > 0)
+                {
+                    References = References + Environment.NewLine;
+                }
+                References = References + Action.Name;
+            }
+            foreach (GameNodeAction ChildAction in Action.Nodes)
+            {
+                GatherObjectReferences(node, ref References, ChildAction);
+
+            }
+        }
+
+        private GameNodeGame GetGameNode()
+        {
+            if (tv.Nodes.Count > 0)
+            {
+                return tv.Nodes[0].Nodes[0] as GameNodeGame;
+            }
+            return null;
+        }
+
+        private GameNodeEvents GetGameNodeEvents()
+        {
+            GameNodeGame Game = GetGameNode();
+            if (Game.IsSomething())
+            {
+                if (Game.Nodes.Count > 0)
+                {
+                    return Game.Nodes[0] as GameNodeEvents;
+                }
+            }
+            return null;
+        }
+
+        private GameNodeObjects GetGameNodeObjects()
+        {
+            GameNodeGame Game = GetGameNode();
+            if (Game.IsSomething())
+            {
+                if (Game.Nodes.Count > 1)
+                {
+                    return Game.Nodes[1] as GameNodeObjects;
+                }
+            }
+            return null;
+        }
+
 
         private void LoadPanelSingleColorAtSingleLocation(GameNodeAction GameNode)
         {
@@ -3327,6 +3394,8 @@ namespace AppTestStudio
             //' Set the current image.
             PictureObjectScreenshot.Image = PictureBox1.Image;
 
+            PanelLoadNode.BackColor = Color.White;
+
         }
 
         private void toolStripButtonRunScript_Click(object sender, EventArgs e)
@@ -5241,6 +5310,21 @@ namespace AppTestStudio
             {
                 PanelLoadNode.CustomLogic = txtCustomLogic.Text.Trim();
             }
+        }
+
+        private void cmdDeleteObject_Click(object sender, EventArgs e)
+        {
+            GameNodeObjects Objects = GetGameNodeObjects();
+            foreach (GameNodeObject gameNodeObject in Objects.Nodes )
+            {
+                if (gameNodeObject.Name == txtObjectName.Text)
+                {
+                    Objects.Nodes.Remove(gameNodeObject);
+                    Log("Object: " + txtObjectName.Text + " deleted");
+                    break;
+                }
+            }
+            tv.SelectedNode = Objects;
         }
     }
 }
