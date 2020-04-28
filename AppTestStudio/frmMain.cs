@@ -41,18 +41,34 @@ namespace AppTestStudio
             Object
         }
 
-
         public ThreadManager ThreadManager { get; set; }
         private GameNodeWorkspace WorkspaceNode { get; set; }
         private GameNode LastNode { get; set; }
         private Boolean IsPictureObjectScreenshotMouseDown = false;
         private Rectangle PictureObjectScreenshotRectanble = new Rectangle();
 
-
         private Boolean IsPanelLoading = false;
         private Boolean IsLoadingSchedule = false;
 
-        private GameNodeAction PanelLoadNode;
+        private GameNodeAction mPanelLoadNode;
+        private GameNodeAction LastPanelLoadNode = null;
+        public GameNodeAction PanelLoadNode
+        {
+            get { return mPanelLoadNode; }
+            set {
+                if (LastPanelLoadNode.IsSomething())
+                {
+                    LastPanelLoadNode.BackColor = Color.White;
+                }
+                LastPanelLoadNode = mPanelLoadNode;
+                mPanelLoadNode = value;
+
+                if (mPanelLoadNode.IsSomething())
+                {
+                    mPanelLoadNode.BackColor = SystemColors.MenuHighlight;
+                }
+            }
+        }
 
         private int NoxInstances = -1;
 
