@@ -5036,7 +5036,7 @@ namespace AppTestStudio
             TreeNode PLN = PanelLoadNode;
             TreeNode parent = PLN.Parent;
             TreeView view = PLN.TreeView;
-            if (parent != null)
+            if (parent.IsSomething())
             {
                 int index = parent.Nodes.IndexOf(PLN);
                 if (index > 0)
@@ -5067,7 +5067,7 @@ namespace AppTestStudio
             TreeNode PLN = PanelLoadNode;
             TreeNode parent = PLN.Parent;
             TreeView view = PLN.TreeView;
-            if (parent != null)
+            if (parent.IsSomething())
             {
                 int index = parent.Nodes.IndexOf(PLN);
                 if (index < parent.Nodes.Count - 1)
@@ -5076,7 +5076,7 @@ namespace AppTestStudio
                     parent.Nodes.Insert(index + 1, PLN);
                 }
             }
-            else if (view != null && view.Nodes.Contains(PLN)) //root node
+            else if (view.IsSomething() && view.Nodes.Contains(PLN)) //root node
             {
                 int index = view.Nodes.IndexOf(PLN);
                 if (index < view.Nodes.Count - 1)
