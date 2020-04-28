@@ -302,24 +302,35 @@ namespace AppTestStudioControls
             long RectangleX1 = HeaderArea + StartPosition;
             long RectangelY1 = HeaderHeight + RowHeaderSeparatorLine + RowTop(yPositionIndex, rowHeight);
             long Height = CellHeight(rowHeight);
-            e.Graphics.FillRectangle(Brush, RectangleX1, RectangelY1, FirstWidth - 1, Height);
+
+            long StartX = RectangleX1 - FirstWidth;
+            long PaintWidth = FirstWidth;
+
+            // Header adjustment
+            if (StartX <= HeaderArea )
+            {
+                PaintWidth = PaintWidth - (HeaderArea - StartX);
+                StartX = HeaderArea;
+            }
+
+            e.Graphics.FillRectangle(Brush, StartX, RectangelY1, PaintWidth - 1, Height);
 
             if (FirstWidth == 1)
             {
                 return true;
             }
 
-            //'underneath
-            long x1 = HeaderArea + StartPosition + RowShadowOffSet;
-            long x2 = x1 + FirstWidth - RowShadowOffSet - 1;
+            //'underneath Shadow
+            long x1 = StartX + RowShadowOffSet;
+            long x2 = x1 + PaintWidth -1 -RowShadowOffSet - 1 ;
             long y1 = HeaderHeight + RowHeaderSeparatorLine + RowShadowTop(yPositionIndex, rowHeight);
             long y2 = HeaderHeight + RowHeaderSeparatorLine + RowShadowTop(yPositionIndex, rowHeight);
             e.Graphics.DrawLine(Pen, x1, y1, x2, y2);
 
             //'rigth hilight
-            //'y1 = RowTop(1 + yPositionIndex)
-            //'y2 = RowShadowTop(1 + yPositionIndex)
-            //'e.Graphics.DrawLine(Pen, x2, y1, x2, y2)
+            //y1 = RowTop(1 + yPositionIndex)
+            //y2 = RowShadowTop(1 + yPositionIndex)
+            //e.Graphics.DrawLine(Pen, x2, y1, x2, y2)
 
             Brush = null;
             Pen = null;

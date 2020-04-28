@@ -313,8 +313,10 @@ namespace AppTestStudio
 
                     int DelayCalc = node.DelayMS + (node.DelayS * 1000) + (node.DelayM * 60 * 1000);
 
-                    Thread.Sleep(DelayCalc);
+                    // Log status to status control.
                     Game.LogStatus(node.StatusNodeID, DelayCalc);
+
+                    Thread.Sleep(DelayCalc);                    
                     ThreadManager.AddWaitLength(DelayCalc);
 
                     switch (node.AfterCompletionType)
@@ -425,12 +427,12 @@ namespace AppTestStudio
                         {
                             Game.Log(node.Name + " Waiting " + DelayCalc);
                         }
-                        Thread.Sleep(DelayCalc);
-                        ThreadManager.AddWaitLength(DelayCalc);
 
                         //' show status control
                         Game.LogStatus(node.StatusNodeID, DelayCalc);
 
+                        Thread.Sleep(DelayCalc);
+                        ThreadManager.AddWaitLength(DelayCalc);
 
                         switch (node.AfterCompletionType)
                         {
@@ -762,11 +764,10 @@ namespace AppTestStudio
 
                 if (LoopDelay > 0)
                 {
-                    Thread.Sleep((int)LoopDelay);
-                    ThreadManager.AddWaitLength(LoopDelay);
                     Game.LogStatus(Game.StatusNodeID, LoopDelay);
 
-                    //'8/2 Game.LogStatus(0, LoopDelay)
+                    Thread.Sleep((int)LoopDelay);
+                    ThreadManager.AddWaitLength(LoopDelay);                                        
                 }
 
                 while (Game.IsPaused)

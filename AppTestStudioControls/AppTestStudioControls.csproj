@@ -69,6 +69,7 @@
     <Compile Include="AppTestStudioToolStrip.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
