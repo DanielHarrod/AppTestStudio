@@ -4415,6 +4415,9 @@ namespace AppTestStudio
             PictureTestAllReference.Image = Node.Bitmap;
             lblReferenceWindowResolution.Text = Node.Bitmap.Width + " x " + Node.Bitmap.Height;
 
+            // Force redraw.
+            PictureTestAllTest.Invalidate();
+
 
         }
 
@@ -5068,12 +5071,89 @@ namespace AppTestStudio
 
         private void PictureTestAllReference_Paint(object sender, PaintEventArgs e)
         {
-            Utils.DrawColorPoints(e, dgvTestAllReference, "dgvTestAllReference", "dgvTestAllReferenceX", "dgvTestAllReferenceY");
+            GameNode Node = tvTestAllEvents.SelectedNode as GameNode;
+
+            if (Node.IsSomething() && Node.GameNodeType == GameNodeType.Action )
+            {
+                GameNodeAction Action = Node as GameNodeAction;
+                if (Action.IsColorPoint)
+                {
+                    Utils.DrawColorPoints(e, dgvTestAllReference, "dgvTestAllReference", "dgvTestAllReferenceX", "dgvTestAllReferenceY");
+                }
+                else
+                {
+                    if (Action.Rectangle.IsEmpty)
+                    {
+                        Action.Rectangle = new Rectangle(0, 0, PictureTestAllReference.Width, PictureTestAllReference.Height);
+                    }
+                    Utils.DrawMask(PictureTestAllReference, Action.Rectangle, e);
+                }
+            }            
         }
 
         private void PictureTestAllTest_Paint(object sender, PaintEventArgs e)
         {
-            Utils.DrawColorPoints(e, dgvTest, "dgvColorTest", "dgvXTest", "dgvYTest");
+            GameNode Node = tvTestAllEvents.SelectedNode as GameNode;
+
+            if (Node.IsSomething() && Node.GameNodeType == GameNodeType.Action)
+            {
+                GameNodeAction Action = Node as GameNodeAction;
+                if (Action.IsColorPoint)
+                {
+                    Utils.DrawColorPoints(e, dgvTest, "dgvColorTest", "dgvXTest", "dgvYTest");
+                }
+                else
+                {
+                    if (Action.Rectangle.IsEmpty)
+                    {
+                        Action.Rectangle = new Rectangle(0, 0, PictureTestAllTest.Width, PictureTestAllTest.Height);
+                    }
+                    Utils.DrawMask(PictureTestAllTest, Action.Rectangle, e);
+                }
+
+                try
+                {
+                    //Unfortunately I don't store the solution on the nodes/maybe I should so going to parse it out of the name.
+                    //{Text = "Find Side Circle (x=16 ,y=246, Detected=62, Limit=79)"}
+                    String Text = Node.Text;
+                    String[] Keys = Text.Split(new[] { "(x=", " ,y=", ", Detected=" }, StringSplitOptions.RemoveEmptyEntries);
+                    if (Keys.Length == 4)
+                    {
+                        // x and y is center of detected
+                        int x = Keys[1].ToInt();
+                        int y = Keys[2].ToInt();
+
+                        Rectangle Rectangle = new Rectangle();
+
+                        // Add back 1/2 the mask to align the mask with the center detected coordinate.
+                        Rectangle.X = x + Action.Rectangle.X - (Action.ObjectSearchBitmap.Width / 2);
+                        Rectangle.Y = y + Action.Rectangle.Y - (Action.ObjectSearchBitmap.Height / 2);
+
+                        // Width and height of object search image size.
+                        Rectangle.Width = Action.ObjectSearchBitmap.Width;
+                        Rectangle.Height = Action.ObjectSearchBitmap.Height;
+
+                        // Draw a yellow transparent box.
+                        using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 255, 201, 14)))
+                        {
+                            e.Graphics.FillRectangle(br, Rectangle);
+                        }
+
+                        // Draw a solid yellow line.
+                        using (Pen p = new Pen(Color.FromArgb(255, 201, 14), 1))
+                        {
+                            e.Graphics.DrawRectangle(p, Rectangle);
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    Log(ex.Message);
+                }
+            }
+
+
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)

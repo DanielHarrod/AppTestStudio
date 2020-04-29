@@ -27,8 +27,6 @@ namespace AppTestStudio
             this.Node = node;
             this.Game = game;
             this.Parent = parent;
-
-
         }
 
         Mat m1;
