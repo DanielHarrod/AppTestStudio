@@ -4,6 +4,7 @@
 
 using AppTestStudioControls;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -13,6 +14,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -1313,6 +1315,31 @@ namespace AppTestStudio
 
             if (MainWindowHandle.ToInt32() > 0)
             {
+                //Start
+                API.RECT wrect;
+                API.GetWindowRect(MainWindowHandle, out wrect);
+                API.RECT crect;
+                API.GetClientRect(MainWindowHandle, out crect);
+                API.Point lefttop;
+                lefttop.X = crect.Left;
+                lefttop.Y = crect.Top;
+                API.ClientToScreen(MainWindowHandle, ref lefttop);
+                API.Point rightbottom;
+                rightbottom.X = crect.Right;
+                rightbottom.Y = crect.Bottom;
+                API.ClientToScreen(MainWindowHandle, ref rightbottom);
+
+                API.GetSystemMetrics(API.SystemMetric.SM_CYSIZE);
+
+                int left_border = lefttop.X - wrect.Left; // Windows 10: includes transparent part
+                int right_border = wrect.Right  - rightbottom.X; // As above
+                int bottom_border = wrect.Bottom - rightbottom.Y; // As above
+                int top_border_with_title_bar = lefttop.Y - wrect.Top; // There is no transparent part
+
+                int height = (API.GetSystemMetrics(API.SystemMetric.SM_CYFRAME) + API.GetSystemMetrics(API.SystemMetric.SM_CYCAPTION) + API.GetSystemMetrics(API.SystemMetric.SM_CXPADDEDBORDER));
+
+                //End
+
                 Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
 
                 PictureObjectScreenshot.Image = bmp;
@@ -5406,5 +5433,47 @@ namespace AppTestStudio
             }
             tv.SelectedNode = Objects;
         }
+
+        private static bool GetWindowHandle(IntPtr windowHandle, ArrayList windowHandles)
+        {
+            windowHandles.Add(windowHandle);
+            return true;
+        }
+
+        
+
+        private void toolStripButton1_Click(object sender, EventArgs e)
+        {
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNodeGame GameNode = Node.GetGameNodeGame();
+            String TargetWindow = GameNode.TargetWindow;
+
+            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
+
+            WindowHandleInfo hi = new WindowHandleInfo(MainWindowHandle);
+            var k = hi.GetAllChildHandles();
+
+
+            foreach (var x in k)
+            {
+                String Xyx = GetText(x);
+                API.RECT wrect;
+                API.GetWindowRect(x, out wrect);
+                API.RECT crect;
+                API.GetClientRect(x, out crect);
+
+                if ( Xyx == "ScreenBoardClassWindow")
+                {
+
+                }
+
+            }
+
+
+
+        }
+
+ 
+
     }
 }

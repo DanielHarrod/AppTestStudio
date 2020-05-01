@@ -79,6 +79,10 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
     <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
       <HintPath>..\packages\OpenCvSharp4.4.1.1.20191216\lib\net461\OpenCvSharp.dll</HintPath>
@@ -190,6 +194,7 @@
     <Compile Include="Schedule.cs" />
     <Compile Include="ScheduleItem.cs" />
     <Compile Include="SingleClick.cs" />
+    <Compile Include="Test.cs" />
     <Compile Include="ThreadManager.cs" />
     <Compile Include="Utils.cs" />
     <EmbeddedResource Include="frmAddNewGame.resx">
@@ -230,6 +235,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
