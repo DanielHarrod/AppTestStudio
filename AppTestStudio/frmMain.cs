@@ -3201,15 +3201,28 @@ namespace AppTestStudio
 
                         if (Node.Rectangle.Width > 0 && Node.Rectangle.Height > 0)
                         {
-                            //'draw box.
+                            //Draw a box at 50% transparency to show the click area.
                             using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
                             {
                                 e.Graphics.FillRectangle(br, Node.Rectangle);
                             }
 
+                            // Draw a blue outline around the click area.
                             using (Pen p = new Pen(Color.Blue, 1))
                             {
                                 e.Graphics.DrawRectangle(p, Node.Rectangle);
+                            }
+
+                            // Draw a white outline to show the offset window.
+                            if (Node.RelativeXOffset != 0 || Node.RelativeYOffset != 0)
+                            {
+                                using (Pen DashPen = new Pen(Color.WhiteSmoke))
+                                {
+                                    Rectangle Outline = Node.Rectangle;
+                                    Outline.X = Outline.X + Node.RelativeXOffset;
+                                    Outline.Y = Outline.Y + Node.RelativeYOffset;
+                                    e.Graphics.DrawRectangle(DashPen, Outline);                                    
+                                }
                             }
                         }
                     }
@@ -3227,9 +3240,12 @@ namespace AppTestStudio
                             {
                                 e.Graphics.DrawRectangle(p, Node.Rectangle);
                             }
+
+
                         }
                         else
                         {
+                            // Draw Drag Drop Line
                             using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
                             {
                                 linePen.StartCap = LineCap.RoundAnchor;
@@ -3238,7 +3254,6 @@ namespace AppTestStudio
                                 Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
                                 e.Graphics.DrawLine(linePen, Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
                             }
-
                         }
                     }
                     break;
@@ -3764,6 +3779,7 @@ namespace AppTestStudio
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.RelativeXOffset = (int)NumericXOffset.Value;
+                PictureBox1.Invalidate();
             }
         }
 
@@ -3773,6 +3789,7 @@ namespace AppTestStudio
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.RelativeYOffset = (int)NumericYOffset.Value;
+                PictureBox1.Invalidate();
             }
         }
 
