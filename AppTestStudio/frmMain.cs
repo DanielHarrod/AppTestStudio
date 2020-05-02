@@ -1315,37 +1315,10 @@ namespace AppTestStudio
 
             if (MainWindowHandle.ToInt32() > 0)
             {
-                //Start
-                API.RECT wrect;
-                API.GetWindowRect(MainWindowHandle, out wrect);
-                API.RECT crect;
-                API.GetClientRect(MainWindowHandle, out crect);
-                API.Point lefttop;
-                lefttop.X = crect.Left;
-                lefttop.Y = crect.Top;
-                API.ClientToScreen(MainWindowHandle, ref lefttop);
-                API.Point rightbottom;
-                rightbottom.X = crect.Right;
-                rightbottom.Y = crect.Bottom;
-                API.ClientToScreen(MainWindowHandle, ref rightbottom);
-
-                API.GetSystemMetrics(API.SystemMetric.SM_CYSIZE);
-
-                int left_border = lefttop.X - wrect.Left; // Windows 10: includes transparent part
-                int right_border = wrect.Right  - rightbottom.X; // As above
-                int bottom_border = wrect.Bottom - rightbottom.Y; // As above
-                int top_border_with_title_bar = lefttop.Y - wrect.Top; // There is no transparent part
-
-                int height = (API.GetSystemMetrics(API.SystemMetric.SM_CYFRAME) + API.GetSystemMetrics(API.SystemMetric.SM_CYCAPTION) + API.GetSystemMetrics(API.SystemMetric.SM_CXPADDEDBORDER));
-
-                //End
-
                 Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
 
                 PictureObjectScreenshot.Image = bmp;
             }
-
-
         }
 
         private GameNodeObjects GetObjectsNode()
@@ -2321,25 +2294,44 @@ namespace AppTestStudio
 
         private void ResampleColors()
         {
-            Bitmap bmp = PictureBox1.Image as Bitmap;
-            for (int i = 0; i < dgv.Rows.Count; i++)
+            try
             {
-                int x = Convert.ToInt32(dgv.Rows[i].Cells["dgvX"].Value);
-                int y = Convert.ToInt32(dgv.Rows[i].Cells["dgvY"].Value);
-                Color Color = bmp.GetPixel(x, y);
+                Bitmap bmp = PictureBox1.Image as Bitmap;
+                for (int i = 0; i < dgv.Rows.Count; i++)
+                {
+                    int x = Convert.ToInt32(dgv.Rows[i].Cells["dgvX"].Value);
+                    int y = Convert.ToInt32(dgv.Rows[i].Cells["dgvY"].Value);
+                    Color Color = bmp.GetPixel(x, y);
 
-                dgv.Rows[i].Cells["dgvRed"].Value = Color.R.ToString();
-                dgv.Rows[i].Cells["dgvGreen"].Value = Color.G.ToString();
-                dgv.Rows[i].Cells["dgvBlue"].Value = Color.B.ToString();
+                    dgv.Rows[i].Cells["dgvRed"].Value = Color.R.ToString();
+                    dgv.Rows[i].Cells["dgvGreen"].Value = Color.G.ToString();
+                    dgv.Rows[i].Cells["dgvBlue"].Value = Color.B.ToString();
 
 
-                // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
-                DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Color);
+                    // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
+                    DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Color);
 
-                dgv.Rows[i].Cells["dgvRed"].Style = Style;
-                dgv.Rows[i].Cells["dgvGreen"].Style = Style;
-                dgv.Rows[i].Cells["dgvBlue"].Style = Style;
+                    dgv.Rows[i].Cells["dgvRed"].Style = Style;
+                    dgv.Rows[i].Cells["dgvGreen"].Style = Style;
+                    dgv.Rows[i].Cells["dgvBlue"].Style = Style;
+                }
             }
+            catch (Exception ex)
+            {
+                Log("Error sampling Colors typically the points are outside the image that was captured.");
+                Log(ex.Message);
+
+                // Clear the points out.
+                dgv.Rows.Clear();
+
+                // Redraw the picture box.
+                PictureBox1.Refresh();
+
+                // Save 0 points.
+                ArchaicSave();
+
+            }
+
         }
 
         private void rdoColorPoint_CheckedChanged(object sender, EventArgs e)
@@ -5452,21 +5444,48 @@ namespace AppTestStudio
 
             WindowHandleInfo hi = new WindowHandleInfo(MainWindowHandle);
             var k = hi.GetAllChildHandles();
+            String Xyx = Utils.GetText(MainWindowHandle);
+            API.RECT wrect;
+            API.GetWindowRect(MainWindowHandle, out wrect);
+            API.RECT crect;
+            API.GetClientRect(MainWindowHandle, out crect);
 
+            IntPtr sbcw =IntPtr.Zero;
 
             foreach (var x in k)
             {
-                String Xyx = GetText(x);
-                API.RECT wrect;
+                 Xyx = Utils.GetText(x);
+    
                 API.GetWindowRect(x, out wrect);
-                API.RECT crect;
+   
                 API.GetClientRect(x, out crect);
 
-                if ( Xyx == "ScreenBoardClassWindow")
+                if (Xyx == "ScreenBoardClassWindow")
                 {
-
+                    sbcw = x;
                 }
 
+            }
+
+
+            if (sbcw.ToInt32() > 0)
+            {
+                Utils.ClickOnWindow(sbcw, 500, 650);
+                Utils.ClickOnWindow(sbcw, 500, 651);
+                Utils.ClickOnWindow(sbcw, 500, 652);
+                Utils.ClickOnWindow(sbcw, 500, 653);
+                Utils.ClickOnWindow(sbcw, 500, 654);
+                Utils.ClickOnWindow(sbcw, 500, 655);
+                Utils.ClickOnWindow(sbcw, 500, 656);
+                Utils.ClickOnWindow(sbcw, 500, 657);
+                Utils.ClickOnWindow(sbcw, 500, 658);
+                Utils.ClickOnWindow(sbcw, 500, 659);
+                Utils.ClickOnWindow(sbcw, 500, 660);
+                Utils.ClickOnWindow(sbcw, 500, 661);
+                Utils.ClickOnWindow(sbcw, 500, 662);
+                Utils.ClickOnWindow(sbcw, 500, 663);
+                Utils.ClickOnWindow(sbcw, 500, 664);
+                Utils.ClickOnWindow(sbcw, 500, 665);
             }
 
 

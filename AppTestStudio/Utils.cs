@@ -256,7 +256,7 @@ namespace AppTestStudio
             public IntPtr ImageAreaHandle;
         }
 
-        private static string GetText(IntPtr hWnd)
+        public static string GetText(IntPtr hWnd)
         {
             // Allocate correct string length first
             int length = API.GetWindowTextLength(hWnd);
@@ -265,7 +265,7 @@ namespace AppTestStudio
             return sb.ToString();
         }
 
-        public static WindowHandles GetWindowHandleByWindowName(String WindowName)
+        public static IntPtr GetWindowHandleByWindowName(String WindowName)
         {
             WindowHandles Handles = new WindowHandles();
             foreach (Process P in Process.GetProcesses())
@@ -285,13 +285,13 @@ namespace AppTestStudio
                             if (ChildText == "ScreenBoardClassWindow")
                             {
                                 Handles.ImageAreaHandle = ChildHandle;
-                                return Handles;
+                                return Handles.ImageAreaHandle;
                             }
                         }
                     }
                 }
             }
-            return Handles;
+            return Handles.ImageAreaHandle;
         }
 
         public static String CalculateDelay(DateTime dt)
@@ -424,6 +424,8 @@ namespace AppTestStudio
             }
 
             Arguments = Arguments + " -resolution:" + resolution;
+
+            Arguments = Arguments + " -dpi:96";
 
             //'-clone:Nox_1
             info.Arguments = Arguments;

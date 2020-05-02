@@ -663,46 +663,49 @@ namespace AppTestStudio
 
         public void Run()
         {
-            WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow);
-            while (WindowHandle.ToInt32() == 0)
-            {
-                while (Game.IsPaused)
-                {
-                    Thread.Sleep(1000);
-                }
 
-                Debug.WriteLine("Can't find window " + Game.TargetWindow + " attempts left " + RunTimeWindowTimeout);
-                Game.Log("Can't find Window " + Game.TargetWindow + " the window may have been closed - Press Start Emmulator");
-
-                long LoopDelay = Game.LoopDelay;
-                while (LoopDelay > 1000)
-                {
-                    LoopDelay = LoopDelay - 1000;
-                    Thread.Sleep(1000);
-                }
-
-                if (LoopDelay > 0)
-                {
-                    Thread.Sleep((int)LoopDelay);
-                }
-
-                WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow);
-                RunTimeWindowTimeout = RunTimeWindowTimeout - 1;
-
-                if (RunTimeWindowTimeout < 0)
-                {
-                    Game.Log("Unable to locate window during startup met timeout limit");
-                    Game.Log("Exiting thread");
-                }
-            }
 
             foreach (GameNodeAction node in Game.Events.Nodes)
             {
                 InitializeChildren(node);
             }
 
+            long LoopDelay = 0;
             while (ThreadIsShuttingDown == false)
             {
+                WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow);
+                while (WindowHandle.ToInt32() == 0)
+                {
+                    while (Game.IsPaused)
+                    {
+                        Thread.Sleep(1000);
+                    }
+
+                    Debug.WriteLine("Can't find window " + Game.TargetWindow + " attempts left " + RunTimeWindowTimeout);
+                    Game.Log("Can't find Window " + Game.TargetWindow + " the window may have been closed - Press Start Emmulator");
+
+                    LoopDelay = Game.LoopDelay;
+                    while (LoopDelay > 1000)
+                    {
+                        LoopDelay = LoopDelay - 1000;
+                        Thread.Sleep(1000);
+                    }
+
+                    if (LoopDelay > 0)
+                    {
+                        Thread.Sleep((int)LoopDelay);
+                    }
+
+                    WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow);
+                    RunTimeWindowTimeout = RunTimeWindowTimeout - 1;
+
+                    if (RunTimeWindowTimeout < 0)
+                    {
+                        Game.Log("Unable to locate window during startup met timeout limit");
+                        Game.Log("Exiting thread");
+                    }
+                }
+
                 Boolean BitMapSuccess = false;
                 Bitmap bmp = GetBitMap(ref BitMapSuccess);
                 if (BitMapSuccess)
@@ -755,7 +758,7 @@ namespace AppTestStudio
                     Game.Log("Lost window");
                 }
 
-                long LoopDelay = Game.LoopDelay;
+                LoopDelay = Game.LoopDelay;
                 while (LoopDelay > 1000)
                 {
 

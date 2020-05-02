@@ -611,15 +611,12 @@
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.txtLog);
             this.splitContainerMain.Size = new System.Drawing.Size(2073, 1104);
-            this.splitContainerMain.SplitterDistance = 1019;
+            this.splitContainerMain.SplitterDistance = 1017;
             this.splitContainerMain.SplitterWidth = 6;
             this.splitContainerMain.TabIndex = 2;
             // 
             // splitContainerWorkspace
             // 
-            this.splitContainerWorkspace.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.splitContainerWorkspace.Location = new System.Drawing.Point(0, 43);
             this.splitContainerWorkspace.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitContainerWorkspace.Name = "splitContainerWorkspace";
@@ -643,7 +640,7 @@
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObjects);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
-            this.splitContainerWorkspace.Size = new System.Drawing.Size(2073, 973);
+            this.splitContainerWorkspace.Size = new System.Drawing.Size(2073, 972);
             this.splitContainerWorkspace.SplitterDistance = 369;
             this.splitContainerWorkspace.SplitterWidth = 6;
             this.splitContainerWorkspace.TabIndex = 0;
@@ -658,7 +655,7 @@
             this.tabTree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabTree.Name = "tabTree";
             this.tabTree.SelectedIndex = 0;
-            this.tabTree.Size = new System.Drawing.Size(369, 973);
+            this.tabTree.Size = new System.Drawing.Size(369, 972);
             this.tabTree.TabIndex = 0;
             this.tabTree.SelectedIndexChanged += new System.EventHandler(this.tabTree_SelectedIndexChanged);
             // 
@@ -669,7 +666,7 @@
             this.tabDesign.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabDesign.Name = "tabDesign";
             this.tabDesign.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabDesign.Size = new System.Drawing.Size(361, 940);
+            this.tabDesign.Size = new System.Drawing.Size(361, 939);
             this.tabDesign.TabIndex = 0;
             this.tabDesign.Text = "Design";
             this.tabDesign.UseVisualStyleBackColor = true;
@@ -690,7 +687,7 @@
             // splitContainerDesignSearch.Panel2
             // 
             this.splitContainerDesignSearch.Panel2.Controls.Add(this.splitContainerTreeSupport);
-            this.splitContainerDesignSearch.Size = new System.Drawing.Size(353, 930);
+            this.splitContainerDesignSearch.Size = new System.Drawing.Size(353, 929);
             this.splitContainerDesignSearch.SplitterDistance = 25;
             this.splitContainerDesignSearch.SplitterWidth = 6;
             this.splitContainerDesignSearch.TabIndex = 0;
@@ -724,8 +721,8 @@
             this.splitContainerTreeSupport.Panel2.Controls.Add(this.cmdPatron);
             this.splitContainerTreeSupport.Panel2.ForeColor = System.Drawing.Color.Transparent;
             this.splitContainerTreeSupport.Panel2MinSize = 36;
-            this.splitContainerTreeSupport.Size = new System.Drawing.Size(353, 899);
-            this.splitContainerTreeSupport.SplitterDistance = 861;
+            this.splitContainerTreeSupport.Size = new System.Drawing.Size(353, 898);
+            this.splitContainerTreeSupport.SplitterDistance = 860;
             this.splitContainerTreeSupport.SplitterWidth = 2;
             this.splitContainerTreeSupport.TabIndex = 0;
             // 
@@ -739,7 +736,7 @@
             this.tv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tv.Name = "tv";
             this.tv.SelectedImageIndex = 0;
-            this.tv.Size = new System.Drawing.Size(353, 861);
+            this.tv.Size = new System.Drawing.Size(353, 860);
             this.tv.TabIndex = 0;
             this.tv.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.tv_ItemDrag);
             this.tv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_AfterSelect);
@@ -797,7 +794,7 @@
             this.tabRun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabRun.Name = "tabRun";
             this.tabRun.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabRun.Size = new System.Drawing.Size(361, 938);
+            this.tabRun.Size = new System.Drawing.Size(361, 939);
             this.tabRun.TabIndex = 1;
             this.tabRun.Text = "Run";
             this.tabRun.UseVisualStyleBackColor = true;
@@ -810,7 +807,7 @@
             this.lstThreads.Location = new System.Drawing.Point(4, 5);
             this.lstThreads.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstThreads.Name = "lstThreads";
-            this.lstThreads.Size = new System.Drawing.Size(353, 928);
+            this.lstThreads.Size = new System.Drawing.Size(353, 929);
             this.lstThreads.TabIndex = 0;
             this.lstThreads.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstThreads_MouseDown);
             // 
@@ -819,7 +816,7 @@
             this.tabSchedule.Location = new System.Drawing.Point(4, 29);
             this.tabSchedule.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabSchedule.Name = "tabSchedule";
-            this.tabSchedule.Size = new System.Drawing.Size(361, 938);
+            this.tabSchedule.Size = new System.Drawing.Size(361, 939);
             this.tabSchedule.TabIndex = 2;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
@@ -971,7 +968,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
             this.splitContainer1.Size = new System.Drawing.Size(1041, 112);
-            this.splitContainer1.SplitterDistance = 520;
+            this.splitContainer1.SplitterDistance = 519;
             this.splitContainer1.SplitterWidth = 6;
             this.splitContainer1.TabIndex = 1;
             // 
@@ -994,7 +991,7 @@
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(520, 112);
+            this.groupBox1.Size = new System.Drawing.Size(519, 112);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Session";
@@ -1138,7 +1135,7 @@
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox2.Size = new System.Drawing.Size(515, 112);
+            this.groupBox2.Size = new System.Drawing.Size(516, 112);
             this.groupBox2.TabIndex = 0;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Total";
@@ -1279,7 +1276,7 @@
             // 
             this.splitContainerSeconds.Panel2.BackColor = System.Drawing.SystemColors.ControlDark;
             this.splitContainerSeconds.Size = new System.Drawing.Size(1108, 29);
-            this.splitContainerSeconds.SplitterDistance = 179;
+            this.splitContainerSeconds.SplitterDistance = 178;
             this.splitContainerSeconds.SplitterWidth = 6;
             this.splitContainerSeconds.TabIndex = 0;
             this.splitContainerSeconds.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainerSeconds_SplitterMoving);
@@ -1294,7 +1291,7 @@
             this.appTestStudioStatusControl1.Margin = new System.Windows.Forms.Padding(6, 8, 6, 8);
             this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
             this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
-            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(1284, 704);
+            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(1284, 698);
             this.appTestStudioStatusControl1.TabIndex = 0;
             // 
             // PanelColorEvent
@@ -1321,7 +1318,7 @@
             this.PanelColorEvent.Controls.Add(this.grpAndOr);
             this.PanelColorEvent.Controls.Add(this.grpObjectAction);
             this.PanelColorEvent.Controls.Add(this.grpObject);
-            this.PanelColorEvent.Location = new System.Drawing.Point(716, 355);
+            this.PanelColorEvent.Location = new System.Drawing.Point(38, 9);
             this.PanelColorEvent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanelColorEvent.Name = "PanelColorEvent";
             this.PanelColorEvent.Size = new System.Drawing.Size(1572, 978);
@@ -2645,7 +2642,7 @@
             // PanelTestAllEvents
             // 
             this.PanelTestAllEvents.Controls.Add(this.SplitContainer6);
-            this.PanelTestAllEvents.Location = new System.Drawing.Point(46, 45);
+            this.PanelTestAllEvents.Location = new System.Drawing.Point(974, 198);
             this.PanelTestAllEvents.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanelTestAllEvents.Name = "PanelTestAllEvents";
             this.PanelTestAllEvents.Size = new System.Drawing.Size(1572, 788);
@@ -2666,7 +2663,7 @@
             // 
             this.SplitContainer6.Panel2.Controls.Add(this.SplitContainer8);
             this.SplitContainer6.Size = new System.Drawing.Size(1572, 788);
-            this.SplitContainer6.SplitterDistance = 277;
+            this.SplitContainer6.SplitterDistance = 276;
             this.SplitContainer6.SplitterWidth = 6;
             this.SplitContainer6.TabIndex = 2;
             // 
@@ -2685,7 +2682,7 @@
             // SplitContainer7.Panel2
             // 
             this.SplitContainer7.Panel2.Controls.Add(this.tvTestAllEvents);
-            this.SplitContainer7.Size = new System.Drawing.Size(277, 788);
+            this.SplitContainer7.Size = new System.Drawing.Size(276, 788);
             this.SplitContainer7.SplitterDistance = 38;
             this.SplitContainer7.SplitterWidth = 6;
             this.SplitContainer7.TabIndex = 0;
@@ -2710,7 +2707,7 @@
             this.tvTestAllEvents.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tvTestAllEvents.Name = "tvTestAllEvents";
             this.tvTestAllEvents.SelectedImageIndex = 0;
-            this.tvTestAllEvents.Size = new System.Drawing.Size(277, 744);
+            this.tvTestAllEvents.Size = new System.Drawing.Size(276, 744);
             this.tvTestAllEvents.TabIndex = 1;
             this.tvTestAllEvents.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvTestAllEvents_AfterSelect);
             this.tvTestAllEvents.MouseUp += new System.Windows.Forms.MouseEventHandler(this.tvTestAllEvents_MouseUp);
@@ -2729,8 +2726,8 @@
             // SplitContainer8.Panel2
             // 
             this.SplitContainer8.Panel2.Controls.Add(this.SplitContainer10);
-            this.SplitContainer8.Size = new System.Drawing.Size(1289, 788);
-            this.SplitContainer8.SplitterDistance = 592;
+            this.SplitContainer8.Size = new System.Drawing.Size(1290, 788);
+            this.SplitContainer8.SplitterDistance = 591;
             this.SplitContainer8.SplitterWidth = 6;
             this.SplitContainer8.TabIndex = 0;
             // 
@@ -2753,8 +2750,8 @@
             this.SplitContainer9.Panel2.Controls.Add(this.lblTestWindowResolution);
             this.SplitContainer9.Panel2.Controls.Add(this.Panel2);
             this.SplitContainer9.Panel2.Controls.Add(this.lblTestWindow);
-            this.SplitContainer9.Size = new System.Drawing.Size(592, 788);
-            this.SplitContainer9.SplitterDistance = 292;
+            this.SplitContainer9.Size = new System.Drawing.Size(591, 788);
+            this.SplitContainer9.SplitterDistance = 290;
             this.SplitContainer9.SplitterWidth = 6;
             this.SplitContainer9.TabIndex = 0;
             // 
@@ -2779,7 +2776,7 @@
             this.Panel1.Location = new System.Drawing.Point(6, 42);
             this.Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Panel1.Name = "Panel1";
-            this.Panel1.Size = new System.Drawing.Size(582, 240);
+            this.Panel1.Size = new System.Drawing.Size(580, 237);
             this.Panel1.TabIndex = 2;
             // 
             // PictureTestAllReference
@@ -2826,7 +2823,7 @@
             this.Panel2.Location = new System.Drawing.Point(6, 42);
             this.Panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Panel2.Name = "Panel2";
-            this.Panel2.Size = new System.Drawing.Size(582, 442);
+            this.Panel2.Size = new System.Drawing.Size(580, 439);
             this.Panel2.TabIndex = 3;
             // 
             // PictureTestAllTest
@@ -2870,8 +2867,8 @@
             // 
             this.SplitContainer10.Panel2.Controls.Add(this.lblTestAllEventsTestWindowColors);
             this.SplitContainer10.Panel2.Controls.Add(this.dgvTest);
-            this.SplitContainer10.Size = new System.Drawing.Size(691, 788);
-            this.SplitContainer10.SplitterDistance = 290;
+            this.SplitContainer10.Size = new System.Drawing.Size(693, 788);
+            this.SplitContainer10.SplitterDistance = 289;
             this.SplitContainer10.SplitterWidth = 6;
             this.SplitContainer10.TabIndex = 0;
             // 
@@ -2880,7 +2877,7 @@
             this.lblTestAllCustom.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTestAllCustom.AutoSize = true;
             this.lblTestAllCustom.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTestAllCustom.Location = new System.Drawing.Point(461, 9);
+            this.lblTestAllCustom.Location = new System.Drawing.Point(462, 9);
             this.lblTestAllCustom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblTestAllCustom.Name = "lblTestAllCustom";
             this.lblTestAllCustom.Size = new System.Drawing.Size(236, 33);
@@ -2934,7 +2931,7 @@
             this.dgvTestAllReference.RowHeadersWidth = 62;
             this.dgvTestAllReference.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvTestAllReference.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTestAllReference.Size = new System.Drawing.Size(676, 247);
+            this.dgvTestAllReference.Size = new System.Drawing.Size(678, 248);
             this.dgvTestAllReference.TabIndex = 11;
             // 
             // dgvTestAllReferenceID
@@ -3029,7 +3026,7 @@
             this.dgvTest.RowHeadersWidth = 62;
             this.dgvTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.dgvTest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTest.Size = new System.Drawing.Size(676, 427);
+            this.dgvTest.Size = new System.Drawing.Size(678, 422);
             this.dgvTest.TabIndex = 12;
             // 
             // dgvColorTestID
@@ -4029,7 +4026,7 @@
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(2073, 79);
+            this.txtLog.Size = new System.Drawing.Size(2073, 81);
             this.txtLog.TabIndex = 0;
             // 
             // mnuPopupGames
