@@ -57,7 +57,8 @@ namespace AppTestStudio
         public GameNodeAction PanelLoadNode
         {
             get { return mPanelLoadNode; }
-            set {
+            set
+            {
                 if (LastPanelLoadNode.IsSomething())
                 {
                     LastPanelLoadNode.BackColor = Color.White;
@@ -584,7 +585,7 @@ namespace AppTestStudio
             String References = "";
             foreach (GameNodeAction Action in GetGameNodeEvents().Nodes)
             {
-                GatherObjectReferences(node,ref References, Action);
+                GatherObjectReferences(node, ref References, Action);
             }
 
             if (References.Length > 0)
@@ -3193,72 +3194,74 @@ namespace AppTestStudio
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
             GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-            switch (lblMode.Text)
+
+            switch (Node.ActionType)
             {
-                case "Action":
-                    if (rdoModeRangeClick.Checked)
+                case ActionType.Action:
+                    switch (Node.Mode)
                     {
-
-                        if (Node.Rectangle.Width > 0 && Node.Rectangle.Height > 0)
-                        {
-                            //Draw a box at 50% transparency to show the click area.
-                            using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
+                        case Mode.RangeClick:
+                            if (Node.Rectangle.Width > 0 && Node.Rectangle.Height > 0)
                             {
-                                e.Graphics.FillRectangle(br, Node.Rectangle);
-                            }
-
-                            // Draw a blue outline around the click area.
-                            using (Pen p = new Pen(Color.Blue, 1))
-                            {
-                                e.Graphics.DrawRectangle(p, Node.Rectangle);
-                            }
-
-                            // Draw a white outline to show the offset window.
-                            if (Node.RelativeXOffset != 0 || Node.RelativeYOffset != 0)
-                            {
-                                using (Pen DashPen = new Pen(Color.WhiteSmoke))
+                                //Draw a box at 50% transparency to show the click area.
+                                using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
                                 {
-                                    Rectangle Outline = Node.Rectangle;
-                                    Outline.X = Outline.X + Node.RelativeXOffset;
-                                    Outline.Y = Outline.Y + Node.RelativeYOffset;
-                                    e.Graphics.DrawRectangle(DashPen, Outline);                                    
+                                    e.Graphics.FillRectangle(br, Node.Rectangle);
+                                }
+
+                                // Draw a blue outline around the click area.
+                                using (Pen p = new Pen(Color.Blue, 1))
+                                {
+                                    e.Graphics.DrawRectangle(p, Node.Rectangle);
+                                }
+
+                                // Draw a white outline to show the offset window.
+                                if (Node.RelativeXOffset != 0 || Node.RelativeYOffset != 0)
+                                {
+                                    using (Pen DashPen = new Pen(Color.WhiteSmoke))
+                                    {
+                                        Rectangle Outline = Node.Rectangle;
+                                        Outline.X = Outline.X + Node.RelativeXOffset;
+                                        Outline.Y = Outline.Y + Node.RelativeYOffset;
+                                        e.Graphics.DrawRectangle(DashPen, Outline);
+                                    }
                                 }
                             }
-                        }
-                    }
-                    else
-                    {
-                        if (Node.IsRelativeStart)
-                        {
-                            using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
+                            break;
+                        case Mode.ClickDragRelease:
+                            if (Node.IsRelativeStart)
                             {
-                                e.Graphics.FillRectangle(br, Node.Rectangle);
-                            }
+                                using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
+                                {
+                                    e.Graphics.FillRectangle(br, Node.Rectangle);
+                                }
 
-                            //'draw outline on box.
-                            using (Pen p = new Pen(Color.Blue, 1))
-                            {
-                                e.Graphics.DrawRectangle(p, Node.Rectangle);
-                            }
+                                //'draw outline on box.
+                                using (Pen p = new Pen(Color.Blue, 1))
+                                {
+                                    e.Graphics.DrawRectangle(p, Node.Rectangle);
+                                }
 
 
-                        }
-                        else
-                        {
-                            // Draw Drag Drop Line
-                            using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
-                            {
-                                linePen.StartCap = LineCap.RoundAnchor;
-                                linePen.EndCap = LineCap.ArrowAnchor;
-                                linePen.DashStyle = DashStyle.Dot;
-                                Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
-                                e.Graphics.DrawLine(linePen, Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
                             }
-                        }
+                            else
+                            {
+                                // Draw Drag Drop Line
+                                using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
+                                {
+                                    linePen.StartCap = LineCap.RoundAnchor;
+                                    linePen.EndCap = LineCap.ArrowAnchor;
+                                    linePen.DashStyle = DashStyle.Dot;
+                                    Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
+                                    e.Graphics.DrawLine(linePen, Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
+                                }
+                            }
+                            break;
+                        default:
+                            break;
                     }
                     break;
-                case "Event":
-
+                case ActionType.Event:
                     if (rdoColorPoint.Checked)
                     {
                         Utils.DrawColorPoints(e, dgv, "dgv", "dgvX", "dgvY");
@@ -3273,6 +3276,10 @@ namespace AppTestStudio
 
                         UpdateMaskSize();
                     }
+                    break;
+                case ActionType.RNG:
+                    break;
+                case ActionType.RNGContainer:
                     break;
                 default:
                     break;
@@ -4150,7 +4157,7 @@ namespace AppTestStudio
             }
 
             // Attempt to set the node on the test tree to the selected node in main.
-            TreeNode LocatedNode =  GetFirstNodeByName(tvTestAllEvents.Nodes[0], tv.SelectedNode.Name);
+            TreeNode LocatedNode = GetFirstNodeByName(tvTestAllEvents.Nodes[0], tv.SelectedNode.Name);
             if (LocatedNode.IsSomething())
             {
                 LocatedNode.EnsureVisible();
@@ -4164,7 +4171,7 @@ namespace AppTestStudio
         {
             foreach (TreeNode Node in parent.Nodes)
             {
-                if (Node.Name.StartsWith(Name) )
+                if (Node.Name.StartsWith(Name))
                 {
                     return Node;
                 }
@@ -5109,7 +5116,7 @@ namespace AppTestStudio
         {
             GameNode Node = tvTestAllEvents.SelectedNode as GameNode;
 
-            if (Node.IsSomething() && Node.GameNodeType == GameNodeType.Action )
+            if (Node.IsSomething() && Node.GameNodeType == GameNodeType.Action)
             {
                 GameNodeAction Action = Node as GameNodeAction;
                 if (Action.IsColorPoint)
@@ -5124,7 +5131,7 @@ namespace AppTestStudio
                     }
                     Utils.DrawMask(PictureTestAllReference, Action.Rectangle, e);
                 }
-            }            
+            }
         }
 
         private void PictureTestAllTest_Paint(object sender, PaintEventArgs e)
@@ -5383,20 +5390,20 @@ namespace AppTestStudio
             String Expression = " " + txtCustomLogic.Text + " ";
 
             // Lets add space between everything and expand mix the logic to allow for C# and VB Logic.
-            Expression = Utils.ExtendCustomLogic(Expression);            
+            Expression = Utils.ExtendCustomLogic(Expression);
 
             // remove the #'s since the parser doens't know what #'s are.
-            for (int i = dgv.Rows.Count-1; i >= 1; i--)
+            for (int i = dgv.Rows.Count - 1; i >= 1; i--)
             {
                 // Replace #'s with true
-                Expression = Expression.Replace(" " + i.ToString() + " ", " TRUE ");     
+                Expression = Expression.Replace(" " + i.ToString() + " ", " TRUE ");
             }
 
             // Test the parser.
             BooleanParser.Parser parser = new BooleanParser.Parser(Expression);
             try
             {
-                String NewExpress = Expression.Replace("(", "").Replace(")", "").Replace("TRUE", "").Replace("FALSE", "").Replace("AND", "").Replace("OR", "").Replace("NOT","").Replace(" ","");
+                String NewExpress = Expression.Replace("(", "").Replace(")", "").Replace("TRUE", "").Replace("FALSE", "").Replace("AND", "").Replace("OR", "").Replace("NOT", "").Replace(" ", "");
 
                 if (NewExpress.Length > 0)
                 {
@@ -5431,7 +5438,7 @@ namespace AppTestStudio
         private void cmdDeleteObject_Click(object sender, EventArgs e)
         {
             GameNodeObjects Objects = GetGameNodeObjects();
-            foreach (GameNodeObject gameNodeObject in Objects.Nodes )
+            foreach (GameNodeObject gameNodeObject in Objects.Nodes)
             {
                 if (gameNodeObject.Name == txtObjectName.Text)
                 {
@@ -5449,7 +5456,7 @@ namespace AppTestStudio
             return true;
         }
 
-        
+
 
         private void toolStripButton1_Click(object sender, EventArgs e)
         {
@@ -5467,14 +5474,14 @@ namespace AppTestStudio
             API.RECT crect;
             API.GetClientRect(MainWindowHandle, out crect);
 
-            IntPtr sbcw =IntPtr.Zero;
+            IntPtr sbcw = IntPtr.Zero;
 
             foreach (var x in k)
             {
-                 Xyx = Utils.GetText(x);
-    
+                Xyx = Utils.GetText(x);
+
                 API.GetWindowRect(x, out wrect);
-   
+
                 API.GetClientRect(x, out crect);
 
                 if (Xyx == "ScreenBoardClassWindow")
@@ -5509,7 +5516,7 @@ namespace AppTestStudio
 
         }
 
- 
+
 
     }
 }
