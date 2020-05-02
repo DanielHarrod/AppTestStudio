@@ -2409,13 +2409,16 @@ namespace AppTestStudio
             
             GameNodeGame game = GameNode as GameNodeGame;
 
-            if (ActionNode.Mode == Mode.RangeClick)
+            if (ActionNode.ActionType == ActionType.Action)
             {
-                // A button is needed 
-                if (ActionNode.Rectangle.Width <= 0 || ActionNode.Rectangle.Height <= 0)
+                if (ActionNode.Mode == Mode.RangeClick)
                 {
-                    Log("Please Draw a rectangle to indicate the click location.");
-                    return;
+                    // A button is needed 
+                    if (ActionNode.Rectangle.Width <= 0 || ActionNode.Rectangle.Height <= 0)
+                    {
+                        Log("Please Draw a rectangle to indicate the click location.");
+                        return;
+                    }
                 }
             }
 

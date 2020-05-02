@@ -184,32 +184,35 @@ namespace AppTestStudio
 
                             Boolean Failed = false;
 
-                            Parent = node.Parent as GameNode;
-                            if (Parent is GameNodeAction)
+                            if (node.IsParentObjectSearch())
                             {
-                                GameNodeAction ParentNode = Parent as GameNodeAction;
-                                xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2);
-                                yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2);
+                                Parent = node.Parent as GameNode;
+                                if (Parent is GameNodeAction)
+                                {
+                                    GameNodeAction ParentNode = Parent as GameNodeAction;
+                                    xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2);
+                                    yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2);
 
-                                //' xPos = CenterX + ParentNode.Rectangle.X + Node.RelativeXOffset - (Node.Rectangle.Width / 2) + RandomNumber(0, Node.Rectangle.Width)
-                                //' yPos = CenterY + ParentNode.Rectangle.Y + Node.RelativeYOffset - (Node.Rectangle.Height / 2) + RandomNumber(0, Node.Rectangle.Height)
-                            }
-                            else
-                            {
-                                xPos = centerX + node.RelativeXOffset - (node.Rectangle.Width / 2);
-                                yPos = centerY + node.RelativeYOffset - (node.Rectangle.Height / 2);
-                            }
+                                    //' xPos = CenterX + ParentNode.Rectangle.X + Node.RelativeXOffset - (Node.Rectangle.Width / 2) + RandomNumber(0, Node.Rectangle.Width)
+                                    //' yPos = CenterY + ParentNode.Rectangle.Y + Node.RelativeYOffset - (Node.Rectangle.Height / 2) + RandomNumber(0, Node.Rectangle.Height)
+                                }
+                                else
+                                {
+                                    xPos = centerX + node.RelativeXOffset - (node.Rectangle.Width / 2);
+                                    yPos = centerY + node.RelativeYOffset - (node.Rectangle.Height / 2);
+                                }
 
-                            if (xPos < 0)
-                            {
-                                Game.Log("Check Relative offset X, calculated to a negative position " + xPos);
-                                Failed = true;
-                            }
+                                if (xPos < 0)
+                                {
+                                    Game.Log("Check Relative offset X, calculated to a negative position " + xPos);
+                                    Failed = true;
+                                }
 
-                            if (yPos < 0)
-                            {
-                                Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
-                                Failed = true;
+                                if (yPos < 0)
+                                {
+                                    Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
+                                    Failed = true;
+                                }
                             }
 
                             if (Failed)
