@@ -625,7 +625,7 @@ namespace AppTestStudio
 
             if (detectedThreashold >= ((float)iObjectThreshold / 100))
             {
-                game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + " - x = " + centerX + "  y =" + centerY);
+                game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + ( centerX + Rectangle.X ) + "  y =" + (centerY + Rectangle.Y));
                 //'TB.AddReturnTrue()
 
                 if (FileName.IsNothing())
