@@ -309,7 +309,6 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
                         Writer.WriteAttributeString("Mode", Activites.Mode.ToString());
 
-                        Writer.WriteAttributeString("IsRelativeStart", Activites.IsRelativeStart.ToString());
                         Writer.WriteAttributeString("RelativeXOffset", Activites.RelativeXOffset.ToString());
                         Writer.WriteAttributeString("RelativeYOffset", Activites.RelativeYOffset.ToString());
 
@@ -1043,12 +1042,6 @@ namespace AppTestStudio
             else
             {
                 treeActionNode.AfterCompletionType = AfterCompletionType.Continue;
-            }
-
-            if (actionNode.Attributes.GetNamedItem("IsRelativeStart").IsSomething())
-            {
-                Boolean IsRelativeStart = Convert.ToBoolean(actionNode.Attributes["IsRelativeStart"].Value);
-                treeActionNode.IsRelativeStart = IsRelativeStart;
             }
 
             if (actionNode.Attributes.GetNamedItem("DragTargetMode").IsSomething())

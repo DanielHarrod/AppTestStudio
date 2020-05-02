@@ -799,8 +799,6 @@ namespace AppTestStudio
                 rdoModeClickDragRelease.Checked = true;
             }
 
-            chkRelativePosition.Checked = GameNode.IsRelativeStart;
-
             switch (GameNode.ActionType)
             {
                 case AppTestStudio.ActionType.Action:
@@ -2408,16 +2406,18 @@ namespace AppTestStudio
                 Log("Unable to find Node During test");
                 return;
             }
-
-            if (ActionNode.IsRelativeStart && (ActionNode.Rectangle.Width <= 0 || ActionNode.Rectangle.Height <= 0))
-            {
-                Log("Please Draw a rectangle on the workspace.");
-                return;
-
-
-            }
-
+            
             GameNodeGame game = GameNode as GameNodeGame;
+
+            if (ActionNode.Mode == Mode.RangeClick)
+            {
+                // A button is needed 
+                if (ActionNode.Rectangle.Width <= 0 || ActionNode.Rectangle.Height <= 0)
+                {
+                    Log("Please Draw a rectangle to indicate the click location.");
+                    return;
+                }
+            }
 
             IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(game.TargetWindow);
 
@@ -2433,25 +2433,12 @@ namespace AppTestStudio
                 switch (lblMode.Text)
                 {
                     case "Action":
-                        Boolean IsObjectSearchParent = false;
-
-                        // should check for null instead of this, due to Language conversion.
-                        GameNode Parent = Node.Parent as GameNode;
-
-                        if (Parent is GameNodeAction)
-                        {
-                            GameNodeAction ActionNodeParent = Parent as GameNodeAction;
-
-                            if (ActionNodeParent.IsColorPoint == false)
-                            {
-                                IsObjectSearchParent = true;
-                            }
-                        }
-
-                        if (IsObjectSearchParent && ActionNode.IsRelativeStart)
+                        Boolean IsObjectSearchParent = ActionNode.IsParentObjectSearch();
+                                           
+                        if (IsObjectSearchParent )
                         {
 
-                            frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, Parent as GameNodeAction);
+                            frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, Node.Parent as GameNodeAction);
                             frm2.StartPosition = FormStartPosition.CenterParent;
 
                             ThreadManager.IncrementSingleEventTest();
@@ -3229,32 +3216,14 @@ namespace AppTestStudio
                             }
                             break;
                         case Mode.ClickDragRelease:
-                            if (Node.IsRelativeStart)
+                            // Draw Drag Drop Line
+                            using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
                             {
-                                using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
-                                {
-                                    e.Graphics.FillRectangle(br, Node.Rectangle);
-                                }
-
-                                //'draw outline on box.
-                                using (Pen p = new Pen(Color.Blue, 1))
-                                {
-                                    e.Graphics.DrawRectangle(p, Node.Rectangle);
-                                }
-
-
-                            }
-                            else
-                            {
-                                // Draw Drag Drop Line
-                                using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
-                                {
-                                    linePen.StartCap = LineCap.RoundAnchor;
-                                    linePen.EndCap = LineCap.ArrowAnchor;
-                                    linePen.DashStyle = DashStyle.Dot;
-                                    Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
-                                    e.Graphics.DrawLine(linePen, Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
-                                }
+                                linePen.StartCap = LineCap.RoundAnchor;
+                                linePen.EndCap = LineCap.ArrowAnchor;
+                                linePen.DashStyle = DashStyle.Dot;
+                                Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
+                                e.Graphics.DrawLine(linePen, Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
                             }
                             break;
                         default:
@@ -3770,16 +3739,6 @@ namespace AppTestStudio
             }
         }
 
-        private void chkRelativePosition_CheckedChanged(object sender, EventArgs e)
-        {
-            if (IsPanelLoading == false)
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.IsRelativeStart = chkRelativePosition.Checked;
-                PictureBox1.Invalidate();
-            }
-        }
-
         private void NumericXOffset_ValueChanged(object sender, EventArgs e)
         {
             if (IsPanelLoading == false)
@@ -4065,11 +4024,6 @@ namespace AppTestStudio
             tv.SelectedNode = GameNodeAction;
 
             SetPanel(PanelMode.PanelColorEvent);
-
-            if (OriginalNode.IsColorPoint == false)
-            {
-                GameNodeAction.IsRelativeStart = true;
-            }
 
             LoadPanelSingleColorAtSingleLocation(GameNodeAction);
             LoadParentScreenshotIfNecessary();

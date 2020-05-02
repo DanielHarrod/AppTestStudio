@@ -64,7 +64,7 @@ namespace AppTestStudio
             if (Parent.IsSomething())
             {
                 RunTest(Parent, UseCurrentWindow);
-                LoadData(Parent,Parent.Rectangle);
+                LoadData(Parent, Parent.Rectangle);
                 Search(Parent, ref CenterX, ref CenterY, ref IsPassed);
 
                 if (IsPassed)
@@ -90,32 +90,29 @@ namespace AppTestStudio
 
                             Boolean Failed = false;
 
-                            if (Node.IsRelativeStart)
+                            GameNode ParentGameNode = Node.Parent as GameNode;
+                            if (ParentGameNode is GameNodeAction)
                             {
-                                GameNode Parent = Node.Parent as GameNode;
-                                if (Parent is GameNodeAction)
-                                {
-                                    GameNodeAction ParentNode = Parent as GameNodeAction;
-                                    xPos = CenterX + ParentNode.Rectangle.X + Node.RelativeXOffset - (Node.Rectangle.Width / 2) + Utils.RandomNumber(0, Node.Rectangle.Width);
-                                    yPos = CenterY + ParentNode.Rectangle.Y + Node.RelativeYOffset - (Node.Rectangle.Height / 2) + Utils.RandomNumber(0, Node.Rectangle.Height);
-                                }
-
-                                if (xPos < 0)
-                                {
-                                    frm.Log("Check Relative offset X, calculated to a negative position " + xPos);
-                                    Failed = true;
-                                }
-
-                                if (yPos < 0)
-                                {
-                                    frm.Log("Check Relative offset Y, calculated to a negative position " + yPos);
-                                    Failed = true;
-                                }
-
-                                ex = Node.Rectangle.X + Node.Rectangle.Width / 2;
-                                ey = Node.Rectangle.Y + Node.Rectangle.Height / 2;
-
+                                GameNodeAction ParentNode = ParentGameNode as GameNodeAction;
+                                xPos = CenterX + ParentNode.Rectangle.X + Node.RelativeXOffset - (Node.Rectangle.Width / 2) + Utils.RandomNumber(0, Node.Rectangle.Width);
+                                yPos = CenterY + ParentNode.Rectangle.Y + Node.RelativeYOffset - (Node.Rectangle.Height / 2) + Utils.RandomNumber(0, Node.Rectangle.Height);
                             }
+
+                            if (xPos < 0)
+                            {
+                                frm.Log("Check Relative offset X, calculated to a negative position " + xPos);
+                                Failed = true;
+                            }
+
+                            if (yPos < 0)
+                            {
+                                frm.Log("Check Relative offset Y, calculated to a negative position " + yPos);
+                                Failed = true;
+                            }
+
+                            ex = Node.Rectangle.X + Node.Rectangle.Width / 2;
+                            ey = Node.Rectangle.Y + Node.Rectangle.Height / 2;
+
 
                             if (Failed)
                             {
@@ -136,7 +133,7 @@ namespace AppTestStudio
             else
             {
                 RunTest(Node, UseCurrentWindow);
-                LoadData(Node,Node.Rectangle);
+                LoadData(Node, Node.Rectangle);
                 Search(Node, ref CenterX, ref CenterY, ref IsPassed);
             }
 
@@ -254,7 +251,7 @@ namespace AppTestStudio
 
             using (Graphics grp = Graphics.FromImage(CropImage))
             {
-                grp.DrawImage(PictureBoxSearchArea.Image, new Rectangle(0, 0, Mask.Width, Mask.Height), Node.Rectangle, GraphicsUnit.Pixel);
+                grp.DrawImage(PictureBoxSearchArea.Image, new Rectangle(0, 0, Mask.Width, Mask.Height), Mask, GraphicsUnit.Pixel);
                 //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
 
                 grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
@@ -390,61 +387,61 @@ namespace AppTestStudio
             {
                 e.Graphics.DrawRectangle(p, Rectangle);
             }
-        
-        return;
 
-//New StartRectangle Rectangle
+            return;
 
-//        if (Parent.IsSomething)
-//            {
-//                if (Node.RelativeXOffset <> 0 Or Node.RelativeYOffset <> 0 ) {
-//                    StartRectangle = New Rectangle
-    
+            //New StartRectangle Rectangle
 
-//                StartRectangle.X = DetectedPoint.X + Parent.Rectangle.X + Node.RelativeXOffset
-//                    StartRectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y + Node.RelativeYOffset
-    
+            //        if (Parent.IsSomething)
+            //            {
+            //                if (Node.RelativeXOffset <> 0 Or Node.RelativeYOffset <> 0 ) {
+            //                    StartRectangle = New Rectangle
 
-//                StartRectangle.Width = PictureBoxObject.Image.Width
-//                    StartRectangle.Height = PictureBoxObject.Image.Height
-//                    //'Using br As New SolidBrush(Color.FromArgb(128, 0, 255, 0))
-//                    //'    e.Graphics.FillRectangle(br, Rectangle)
-//                    //'End Using
-//                    Using p As New Pen(Color.FromArgb(0, 255, 0), 1)
-//                        e.Graphics.DrawRectangle(p, StartRectangle)
-//                    End Using
-    
-//            } else
-//                {
 
-//                    StartRectangle.X = DetectedPoint.X + Parent.Rectangle.X
-//                StartRectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y
-//                StartRectangle.Width = PictureBoxObject.Image.Width
-//                StartRectangle.Height = PictureBoxObject.Image.Height
+            //                StartRectangle.X = DetectedPoint.X + Parent.Rectangle.X + Node.RelativeXOffset
+            //                    StartRectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y + Node.RelativeYOffset
 
-//            }
 
-//                if (Node.Mode = Mode.ClickDragRelease)
-//                {
-//                    Using p As New Pen(Color.FromArgb(255, 0, 0), 1)
-//                        e.Graphics.DrawRectangle(p, Node.Rectangle)
-//                    End Using
-    
+            //                StartRectangle.Width = PictureBoxObject.Image.Width
+            //                    StartRectangle.Height = PictureBoxObject.Image.Height
+            //                    //'Using br As New SolidBrush(Color.FromArgb(128, 0, 255, 0))
+            //                    //'    e.Graphics.FillRectangle(br, Rectangle)
+            //                    //'End Using
+            //                    Using p As New Pen(Color.FromArgb(0, 255, 0), 1)
+            //                        e.Graphics.DrawRectangle(p, StartRectangle)
+            //                    End Using
 
-//Long StartX = StartRectangle.X + (StartRectangle.Width / 2)
-//    Long StartY = StartRectangle.Y + (StartRectangle.Height / 2)
-//    Long EndX = Node.Rectangle.X + (Node.Rectangle.Width / 2)
-//    Long EndY = Node.Rectangle.Y + (Node.Rectangle.Height / 2)
-    
-//                Using linePen As New Pen(Color.FromArgb(128, 0, 0, 255), 8)
-//                        linePen.StartCap = LineCap.RoundAnchor
-//                        linePen.EndCap = LineCap.ArrowAnchor
-//                        linePen.DashStyle = DashStyle.Dot
-//                        e.Graphics.DrawLine(linePen, StartX, StartY, EndX, EndY)
-//                    End Using
-    
-//            }
-//            }
+            //            } else
+            //                {
+
+            //                    StartRectangle.X = DetectedPoint.X + Parent.Rectangle.X
+            //                StartRectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y
+            //                StartRectangle.Width = PictureBoxObject.Image.Width
+            //                StartRectangle.Height = PictureBoxObject.Image.Height
+
+            //            }
+
+            //                if (Node.Mode = Mode.ClickDragRelease)
+            //                {
+            //                    Using p As New Pen(Color.FromArgb(255, 0, 0), 1)
+            //                        e.Graphics.DrawRectangle(p, Node.Rectangle)
+            //                    End Using
+
+
+            //Long StartX = StartRectangle.X + (StartRectangle.Width / 2)
+            //    Long StartY = StartRectangle.Y + (StartRectangle.Height / 2)
+            //    Long EndX = Node.Rectangle.X + (Node.Rectangle.Width / 2)
+            //    Long EndY = Node.Rectangle.Y + (Node.Rectangle.Height / 2)
+
+            //                Using linePen As New Pen(Color.FromArgb(128, 0, 0, 255), 8)
+            //                        linePen.StartCap = LineCap.RoundAnchor
+            //                        linePen.EndCap = LineCap.ArrowAnchor
+            //                        linePen.DashStyle = DashStyle.Dot
+            //                        e.Graphics.DrawLine(linePen, StartX, StartY, EndX, EndY)
+            //                    End Using
+
+            //            }
+            //            }
 
 
         }

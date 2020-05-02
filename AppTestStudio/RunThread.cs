@@ -30,7 +30,7 @@ namespace AppTestStudio
 
         private static Object GetBitMapLock;
 
-            static RunThread()
+        static RunThread()
         {
             GetBitMapLock = new Object();
         }
@@ -102,8 +102,8 @@ namespace AppTestStudio
             }
         }
 
-   
- 
+
+
         private void StopThreadCloseWindow(IntPtr windowHandle)
         {
             Game.Log("Closing Emmulator");
@@ -175,6 +175,7 @@ namespace AppTestStudio
                         }
                     }
 
+                    GameNode Parent = null;
                     switch (node.Mode)
                     {
                         case Mode.RangeClick:
@@ -183,36 +184,32 @@ namespace AppTestStudio
 
                             Boolean Failed = false;
 
-                            if (node.IsRelativeStart)
+                            Parent = node.Parent as GameNode;
+                            if (Parent is GameNodeAction)
                             {
+                                GameNodeAction ParentNode = Parent as GameNodeAction;
+                                xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2);
+                                yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2);
 
-                                GameNode Parent = node.Parent as GameNode;
-                                if (Parent is GameNodeAction)
-                                {
-                                    GameNodeAction ParentNode = Parent as GameNodeAction;
-                                    xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2);
-                                    yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2);
+                                //' xPos = CenterX + ParentNode.Rectangle.X + Node.RelativeXOffset - (Node.Rectangle.Width / 2) + RandomNumber(0, Node.Rectangle.Width)
+                                //' yPos = CenterY + ParentNode.Rectangle.Y + Node.RelativeYOffset - (Node.Rectangle.Height / 2) + RandomNumber(0, Node.Rectangle.Height)
+                            }
+                            else
+                            {
+                                xPos = centerX + node.RelativeXOffset - (node.Rectangle.Width / 2);
+                                yPos = centerY + node.RelativeYOffset - (node.Rectangle.Height / 2);
+                            }
 
-                                    //' xPos = CenterX + ParentNode.Rectangle.X + Node.RelativeXOffset - (Node.Rectangle.Width / 2) + RandomNumber(0, Node.Rectangle.Width)
-                                    //' yPos = CenterY + ParentNode.Rectangle.Y + Node.RelativeYOffset - (Node.Rectangle.Height / 2) + RandomNumber(0, Node.Rectangle.Height)
-                                }
-                                else
-                                {
-                                    xPos = centerX + node.RelativeXOffset - (node.Rectangle.Width / 2);
-                                    yPos = centerY + node.RelativeYOffset - (node.Rectangle.Height / 2);
-                                }
+                            if (xPos < 0)
+                            {
+                                Game.Log("Check Relative offset X, calculated to a negative position " + xPos);
+                                Failed = true;
+                            }
 
-                                if (xPos < 0)
-                                {
-                                    Game.Log("Check Relative offset X, calculated to a negative position " + xPos);
-                                    Failed = true;
-                                }
-
-                                if (yPos < 0)
-                                {
-                                    Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
-                                    Failed = true;
-                                }
+                            if (yPos < 0)
+                            {
+                                Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
+                                Failed = true;
                             }
 
                             if (Failed)
@@ -236,47 +233,44 @@ namespace AppTestStudio
                             int ey = yPos + node.Rectangle.Height;
                             Failed = false;
 
-                            if (node.IsRelativeStart)
+                            if (node.Rectangle.Width <= 0)
                             {
-
-                                if (node.Rectangle.Width <= 0)
-                                {
-                                    Game.Log(node.GameNodeName + " has width of " + node.Rectangle.Width + " please redraw");
-                                    Failed = true;
-                                }
-
-                                if (node.Rectangle.Height <= 0)
-                                {
-                                    Game.Log(node.GameNodeName + " has Height of " + node.Rectangle.Height + " please redraw");
-                                    Failed = true;
-                                }
-
-                                ex = xPos - (node.Rectangle.Width / 2) + Utils.RandomNumber(0, node.Rectangle.Width);
-                                ey = yPos - (node.Rectangle.Height / 2) + Utils.RandomNumber(0, node.Rectangle.Height);
-
-                                GameNode Parent = node.Parent as GameNode;
-                                if (Parent is GameNodeAction)
-                                {
-                                    GameNodeAction ParentNode = Parent as GameNodeAction;
-                                    xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2) + Utils.RandomNumber(0, node.Rectangle.Width);
-                                    yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2) + Utils.RandomNumber(0, node.Rectangle.Height);
-                                }
-
-                                if (xPos < 0)
-                                {
-                                    Game.Log("Check Relative offset X, calculated to a negative position " + xPos);
-                                    Failed = true;
-                                }
-
-                                if (yPos < 0)
-                                {
-                                    Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
-                                    Failed = true;
-                                }
-
-                                ex = node.Rectangle.X + node.Rectangle.Width / 2;
-                                ey = node.Rectangle.Y + node.Rectangle.Height / 2;
+                                Game.Log(node.GameNodeName + " has width of " + node.Rectangle.Width + " please redraw");
+                                Failed = true;
                             }
+
+                            if (node.Rectangle.Height <= 0)
+                            {
+                                Game.Log(node.GameNodeName + " has Height of " + node.Rectangle.Height + " please redraw");
+                                Failed = true;
+                            }
+
+                            ex = xPos - (node.Rectangle.Width / 2) + Utils.RandomNumber(0, node.Rectangle.Width);
+                            ey = yPos - (node.Rectangle.Height / 2) + Utils.RandomNumber(0, node.Rectangle.Height);
+
+                            Parent = node.Parent as GameNode;
+                            if (Parent is GameNodeAction)
+                            {
+                                GameNodeAction ParentNode = Parent as GameNodeAction;
+                                xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2) + Utils.RandomNumber(0, node.Rectangle.Width);
+                                yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2) + Utils.RandomNumber(0, node.Rectangle.Height);
+                            }
+
+                            if (xPos < 0)
+                            {
+                                Game.Log("Check Relative offset X, calculated to a negative position " + xPos);
+                                Failed = true;
+                            }
+
+                            if (yPos < 0)
+                            {
+                                Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
+                                Failed = true;
+                            }
+
+                            ex = node.Rectangle.X + node.Rectangle.Width / 2;
+                            ey = node.Rectangle.Y + node.Rectangle.Height / 2;
+
 
                             if (Failed)
                             {
@@ -304,7 +298,7 @@ namespace AppTestStudio
                     // Log status to status control.
                     Game.LogStatus(node.StatusNodeID, DelayCalc);
 
-                    Thread.Sleep(DelayCalc);                    
+                    Thread.Sleep(DelayCalc);
                     ThreadManager.AddWaitLength(DelayCalc);
 
                     switch (node.AfterCompletionType)
@@ -762,7 +756,7 @@ namespace AppTestStudio
                     Game.LogStatus(Game.StatusNodeID, LoopDelay);
 
                     Thread.Sleep((int)LoopDelay);
-                    ThreadManager.AddWaitLength(LoopDelay);                                        
+                    ThreadManager.AddWaitLength(LoopDelay);
                 }
 
                 while (Game.IsPaused)
@@ -809,7 +803,7 @@ namespace AppTestStudio
                         DateTime CurrentTime = DateTime.Now;
 
                         CurrentTime = CurrentTime.AddHours(node.LimitDelayH);
-                        CurrentTime = CurrentTime.AddMinutes(node.LimitDelayM); 
+                        CurrentTime = CurrentTime.AddMinutes(node.LimitDelayM);
                         CurrentTime = CurrentTime.AddSeconds(node.LimitDelayS);
                         CurrentTime = CurrentTime.AddMilliseconds(node.LimitDelayMS);
                         node.RuntimeNextAllowedTime = CurrentTime;

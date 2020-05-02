@@ -186,7 +186,6 @@ namespace AppTestStudio
         public DateTime RuntimeNextAllowedTime { get; set; }
         public String Channel { get; set; }
         public long ObjectThreshold { get; set; }
-        public Boolean IsRelativeStart { get; set; }
         public int RelativeXOffset { get; set; }
         public int RelativeYOffset { get; set; }
         public DragTargetMode DragTargetMode { get; set; }
@@ -265,7 +264,6 @@ namespace AppTestStudio
             Action.LimitDelayH = LimitDelayH;
             Action.LimitDelayM = LimitDelayM;
             Action.ObjectThreshold = ObjectThreshold;
-            Action.IsRelativeStart = IsRelativeStart;
             Action.RelativeXOffset = RelativeXOffset;
             Action.RelativeYOffset = RelativeYOffset;
             Action.Mode = Mode;
@@ -650,6 +648,19 @@ namespace AppTestStudio
             mbn.Bitmap = bmp.Clone() as Bitmap;
             FileName = "";
             game.MinimalBitmapClones.Enqueue(mbn);
+        }
+
+        public Boolean IsParentObjectSearch()
+        {
+            GameNodeAction Node = Parent as GameNodeAction;
+            if (Node.IsSomething())
+            {
+                if (Node.IsColorPoint == false)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
 
