@@ -213,12 +213,6 @@ namespace AppTestStudio
                                     Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
                                     Failed = true;
                                 }
-
-                                if (yPos <= 34)
-                                {
-                                    Game.Log("Check Relative offset Y, calculated to a position on the Window Title  " + yPos);
-                                    Failed = true;
-                                }
                             }
 
                             if (Failed)
@@ -277,12 +271,6 @@ namespace AppTestStudio
                                 if (yPos < 0)
                                 {
                                     Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
-                                    Failed = true;
-                                }
-
-                                if (yPos <= 34)
-                                {
-                                    Game.Log("Check Relative offset Y, calculated to a position on the Window Title  " + yPos);
                                     Failed = true;
                                 }
 

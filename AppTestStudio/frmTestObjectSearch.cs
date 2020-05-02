@@ -112,12 +112,6 @@ namespace AppTestStudio
                                     Failed = true;
                                 }
 
-                                if (yPos <= 34)
-                                {
-                                    frm.Log("Check Relative offset Y, calculated to a position on the Window Title  " + yPos + " use > 35");
-                                    Failed = true;
-                                }
-
                                 ex = Node.Rectangle.X + Node.Rectangle.Width / 2;
                                 ey = Node.Rectangle.Y + Node.Rectangle.Height / 2;
 
