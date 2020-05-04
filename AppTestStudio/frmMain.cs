@@ -1603,6 +1603,25 @@ namespace AppTestStudio
 
         private void tv_DragOver(object sender, DragEventArgs e)
         {
+            // Scrolling
+            TreeView tv = sender as TreeView;
+            Point pt = tv.PointToClient(new Point(e.X, e.Y));
+
+            int delta = tv.Height - pt.Y;
+            if ((delta < tv.Height / 2) && (delta > 0))
+            {
+                TreeNode tn = tv.GetNodeAt(pt.X, pt.Y);
+                if (tn.NextVisibleNode != null)
+                    tn.NextVisibleNode.EnsureVisible();
+            }
+            if ((delta > tv.Height / 2) && (delta < tv.Height))
+            {
+                TreeNode tn = tv.GetNodeAt(pt.X, pt.Y);
+                if (tn.PrevVisibleNode != null)
+                    tn.PrevVisibleNode.EnsureVisible();
+            }
+            // /Scrolling
+           
             Debug.WriteLine("tv_DragOver");
 
             GameNodeAction Action = e.Data.GetData("AppTestStudio.GameNodeAction") as GameNodeAction;
