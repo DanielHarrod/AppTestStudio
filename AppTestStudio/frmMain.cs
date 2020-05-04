@@ -4021,7 +4021,7 @@ namespace AppTestStudio
 
         private void AddAction()
         {
-            GameNodeAction OriginalNode = tv.SelectedNode as GameNodeAction;
+            GameNode OriginalNode = tv.SelectedNode as GameNode;
             GameNodeAction GameNodeAction = new GameNodeAction("Click " + tv.SelectedNode.Text, ActionType.Action);
             OriginalNode.Nodes.Add(GameNodeAction);
             tv.SelectedNode = GameNodeAction;
