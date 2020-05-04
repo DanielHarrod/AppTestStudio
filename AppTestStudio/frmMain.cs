@@ -4233,15 +4233,12 @@ namespace AppTestStudio
         {
             dgvTestAllReference.Visible = SetVisible;
             dgvTest.Visible = SetVisible;
-            lblTestAllEventsTestWindowColors.Visible = SetVisible;
-            lblTestAllEventsReference.Visible = SetVisible;
         }
 
         private void tvTestAllEvents_AfterSelect(object sender, TreeViewEventArgs e)
         {
             Debug.WriteLine("tvTestAllEvents_AfterSelect");
             lblTestAllCustom.Text = "";
-
 
             GameNode GameNode = e.Node as GameNode;
 
@@ -5473,7 +5470,40 @@ namespace AppTestStudio
 
         }
 
+        private void SplitContainer6_Panel2_Resize(object sender, EventArgs e)
+        {
+            int Height = (SplitContainer6.Panel2.Height / 2) - lblTestWindow.Height - lblReference.Height;
+            int Width = (SplitContainer6.Panel2.Width / 2) - 2;
+            Panel1.Height = Height;
+            Panel1.Top = lblTestWindow.Top + lblTestWindow.Height;
+            Panel1.Width = Width;
+
+            lblReference.Top = Panel1.Top + Panel1.Height;
+            lblReference.Left = 2;
+            lblTestWindow.Left = 2;
+
+            lblTestWindowResolution.Top = lblReference.Top;
+            lblTestWindowResolution.Left = Width / 2;
+
+            dgvTestAllReference.Top = Panel1.Top;
+            dgvTestAllReference.Height = Height;
+            dgvTestAllReference.Width = Width;
+            dgvTestAllReference.Left = Width - 2;
 
 
+            Panel2.Height = Height;
+            Panel2.Width = Width;
+
+            lblReferenceWindowResolution.Left = Width / 2;
+
+            dgvTest.Height = Height;
+            Panel2.Top = Panel1.Top + Panel1.Height + lblReference.Height + 2;
+            dgvTest.Top = Panel2.Top;
+            dgvTest.Width = Width;
+            dgvTest.Left = Width - 2;
+
+            lblTestAllCustom.Top = lblTestWindow.Top;
+            lblTestAllCustom.Left = dgvTest.Left;
+        }
     }
 }
