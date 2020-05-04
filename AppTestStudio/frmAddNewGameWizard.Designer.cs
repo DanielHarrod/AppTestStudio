@@ -33,6 +33,7 @@
             this.cmdCreateProject = new System.Windows.Forms.Button();
             this.cmdCancel = new System.Windows.Forms.Button();
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
             this.cmdSearch = new System.Windows.Forms.Button();
             this.txtSearch = new System.Windows.Forms.TextBox();
             this.cmdHome = new System.Windows.Forms.Button();
@@ -49,7 +50,6 @@
             this.Label1 = new System.Windows.Forms.Label();
             this.SplitContainer1 = new System.Windows.Forms.SplitContainer();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.label6 = new System.Windows.Forms.Label();
             this.GroupBox2.SuspendLayout();
             this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer1)).BeginInit();
@@ -99,6 +99,15 @@
             this.GroupBox2.TabStop = false;
             this.GroupBox2.Text = "Browser Navigator Controls";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(267, 15);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(224, 13);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Enter Search information to search for an app.";
+            // 
             // cmdSearch
             // 
             this.cmdSearch.Location = new System.Drawing.Point(561, 29);
@@ -114,7 +123,7 @@
             this.txtSearch.Location = new System.Drawing.Point(270, 31);
             this.txtSearch.Name = "txtSearch";
             this.txtSearch.Size = new System.Drawing.Size(285, 20);
-            this.txtSearch.TabIndex = 4;
+            this.txtSearch.TabIndex = 1;
             this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
             // 
             // cmdHome
@@ -266,15 +275,6 @@
             this.webBrowser1.Size = new System.Drawing.Size(929, 474);
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(267, 15);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(224, 13);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Enter Search information to search for an app.";
             // 
             // frmAddNewGameWizard
             // 
