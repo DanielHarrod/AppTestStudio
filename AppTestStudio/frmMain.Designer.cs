@@ -30,23 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle97 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle98 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle99 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle100 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle101 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle102 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,9 +64,7 @@
             this.splitContainerWorkspace = new System.Windows.Forms.SplitContainer();
             this.tabTree = new System.Windows.Forms.TabControl();
             this.tabDesign = new System.Windows.Forms.TabPage();
-            this.splitContainerDesignSearch = new System.Windows.Forms.SplitContainer();
             this.txtFilter = new System.Windows.Forms.TextBox();
-            this.splitContainerTreeSupport = new System.Windows.Forms.SplitContainer();
             this.tv = new System.Windows.Forms.TreeView();
             this.ImageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cmdPatron = new System.Windows.Forms.Button();
@@ -373,6 +371,8 @@
             this.toolSchedulerRunning = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelCurrentConfiguredInstance = new System.Windows.Forms.ToolStripLabel();
+            this.SplitContainerSearchTreePatron = new System.Windows.Forms.SplitContainer();
+            this.splitContainerTreePatron = new System.Windows.Forms.SplitContainer();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -384,14 +384,6 @@
             this.splitContainerWorkspace.SuspendLayout();
             this.tabTree.SuspendLayout();
             this.tabDesign.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerDesignSearch)).BeginInit();
-            this.splitContainerDesignSearch.Panel1.SuspendLayout();
-            this.splitContainerDesignSearch.Panel2.SuspendLayout();
-            this.splitContainerDesignSearch.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreeSupport)).BeginInit();
-            this.splitContainerTreeSupport.Panel1.SuspendLayout();
-            this.splitContainerTreeSupport.Panel2.SuspendLayout();
-            this.splitContainerTreeSupport.SuspendLayout();
             this.tabRun.SuspendLayout();
             this.PanelTestAllEvents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer6)).BeginInit();
@@ -472,6 +464,14 @@
             this.mnuObjects.SuspendLayout();
             this.appTestStudioToolStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerSearchTreePatron)).BeginInit();
+            this.SplitContainerSearchTreePatron.Panel1.SuspendLayout();
+            this.SplitContainerSearchTreePatron.Panel2.SuspendLayout();
+            this.SplitContainerSearchTreePatron.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreePatron)).BeginInit();
+            this.splitContainerTreePatron.Panel1.SuspendLayout();
+            this.splitContainerTreePatron.Panel2.SuspendLayout();
+            this.splitContainerTreePatron.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -581,7 +581,7 @@
             // splitContainerMain
             // 
             this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerMain.Location = new System.Drawing.Point(0, 65);
+            this.splitContainerMain.Location = new System.Drawing.Point(0, 99);
             this.splitContainerMain.Name = "splitContainerMain";
             this.splitContainerMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -592,13 +592,14 @@
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.txtLog);
-            this.splitContainerMain.Size = new System.Drawing.Size(1382, 696);
-            this.splitContainerMain.SplitterDistance = 641;
+            this.splitContainerMain.Size = new System.Drawing.Size(1382, 662);
+            this.splitContainerMain.SplitterDistance = 523;
             this.splitContainerMain.TabIndex = 2;
             // 
             // splitContainerWorkspace
             // 
-            this.splitContainerWorkspace.Location = new System.Drawing.Point(0, 28);
+            this.splitContainerWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerWorkspace.Location = new System.Drawing.Point(0, 0);
             this.splitContainerWorkspace.Name = "splitContainerWorkspace";
             // 
             // splitContainerWorkspace.Panel1
@@ -620,7 +621,7 @@
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObjects);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
-            this.splitContainerWorkspace.Size = new System.Drawing.Size(1382, 632);
+            this.splitContainerWorkspace.Size = new System.Drawing.Size(1382, 523);
             this.splitContainerWorkspace.SplitterDistance = 246;
             this.splitContainerWorkspace.TabIndex = 0;
             // 
@@ -633,39 +634,20 @@
             this.tabTree.Location = new System.Drawing.Point(0, 0);
             this.tabTree.Name = "tabTree";
             this.tabTree.SelectedIndex = 0;
-            this.tabTree.Size = new System.Drawing.Size(246, 632);
+            this.tabTree.Size = new System.Drawing.Size(246, 523);
             this.tabTree.TabIndex = 0;
             this.tabTree.SelectedIndexChanged += new System.EventHandler(this.tabTree_SelectedIndexChanged);
             // 
             // tabDesign
             // 
-            this.tabDesign.Controls.Add(this.splitContainerDesignSearch);
+            this.tabDesign.Controls.Add(this.SplitContainerSearchTreePatron);
             this.tabDesign.Location = new System.Drawing.Point(4, 22);
             this.tabDesign.Name = "tabDesign";
             this.tabDesign.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDesign.Size = new System.Drawing.Size(238, 606);
+            this.tabDesign.Size = new System.Drawing.Size(238, 497);
             this.tabDesign.TabIndex = 0;
             this.tabDesign.Text = "Design";
             this.tabDesign.UseVisualStyleBackColor = true;
-            // 
-            // splitContainerDesignSearch
-            // 
-            this.splitContainerDesignSearch.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerDesignSearch.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainerDesignSearch.Location = new System.Drawing.Point(3, 3);
-            this.splitContainerDesignSearch.Name = "splitContainerDesignSearch";
-            this.splitContainerDesignSearch.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerDesignSearch.Panel1
-            // 
-            this.splitContainerDesignSearch.Panel1.Controls.Add(this.txtFilter);
-            // 
-            // splitContainerDesignSearch.Panel2
-            // 
-            this.splitContainerDesignSearch.Panel2.Controls.Add(this.splitContainerTreeSupport);
-            this.splitContainerDesignSearch.Size = new System.Drawing.Size(232, 600);
-            this.splitContainerDesignSearch.SplitterDistance = 25;
-            this.splitContainerDesignSearch.TabIndex = 0;
             // 
             // txtFilter
             // 
@@ -676,29 +658,6 @@
             this.txtFilter.TabIndex = 0;
             this.txtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
-            // splitContainerTreeSupport
-            // 
-            this.splitContainerTreeSupport.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerTreeSupport.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainerTreeSupport.IsSplitterFixed = true;
-            this.splitContainerTreeSupport.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerTreeSupport.Name = "splitContainerTreeSupport";
-            this.splitContainerTreeSupport.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerTreeSupport.Panel1
-            // 
-            this.splitContainerTreeSupport.Panel1.Controls.Add(this.tv);
-            // 
-            // splitContainerTreeSupport.Panel2
-            // 
-            this.splitContainerTreeSupport.Panel2.Controls.Add(this.cmdPatron);
-            this.splitContainerTreeSupport.Panel2.ForeColor = System.Drawing.Color.Transparent;
-            this.splitContainerTreeSupport.Panel2MinSize = 36;
-            this.splitContainerTreeSupport.Size = new System.Drawing.Size(232, 571);
-            this.splitContainerTreeSupport.SplitterDistance = 534;
-            this.splitContainerTreeSupport.SplitterWidth = 1;
-            this.splitContainerTreeSupport.TabIndex = 0;
-            // 
             // tv
             // 
             this.tv.AllowDrop = true;
@@ -708,7 +667,7 @@
             this.tv.Location = new System.Drawing.Point(0, 0);
             this.tv.Name = "tv";
             this.tv.SelectedImageIndex = 0;
-            this.tv.Size = new System.Drawing.Size(232, 534);
+            this.tv.Size = new System.Drawing.Size(232, 433);
             this.tv.TabIndex = 0;
             this.tv.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.tv_ItemDrag);
             this.tv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_AfterSelect);
@@ -753,7 +712,7 @@
             this.cmdPatron.Image = global::AppTestStudio.Properties.Resources.Patron;
             this.cmdPatron.Location = new System.Drawing.Point(0, 0);
             this.cmdPatron.Name = "cmdPatron";
-            this.cmdPatron.Size = new System.Drawing.Size(232, 36);
+            this.cmdPatron.Size = new System.Drawing.Size(232, 25);
             this.cmdPatron.TabIndex = 0;
             this.cmdPatron.UseVisualStyleBackColor = false;
             this.cmdPatron.Click += new System.EventHandler(this.cmdPatron_Click);
@@ -876,14 +835,14 @@
             // 
             this.dgvTest.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle86.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle86.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle86.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle86.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle86.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle86.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle86;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTestID,
@@ -894,14 +853,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle87.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle87.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle87.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle87.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle87.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle87.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle87;
             this.dgvTest.Location = new System.Drawing.Point(640, 226);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.RowHeadersWidth = 62;
@@ -971,14 +930,14 @@
             // dgvTestAllReference
             // 
             this.dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle88.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle88.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle88.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle88.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle88.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle88.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle88;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceID,
@@ -987,14 +946,14 @@
             this.dgvTestAllReferenceBlue,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle89.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle89.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle89.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle89.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle89.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle89.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle89;
             this.dgvTestAllReference.Location = new System.Drawing.Point(640, 48);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.RowHeadersWidth = 62;
@@ -2299,8 +2258,8 @@
             // dgvID
             // 
             this.dgvID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvID.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvID.DefaultCellStyle = dataGridViewCellStyle90;
             this.dgvID.HeaderText = "ID";
             this.dgvID.MinimumWidth = 8;
             this.dgvID.Name = "dgvID";
@@ -2309,8 +2268,8 @@
             // dgvRed
             // 
             this.dgvRed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle91;
             this.dgvRed.HeaderText = "R";
             this.dgvRed.MinimumWidth = 8;
             this.dgvRed.Name = "dgvRed";
@@ -2319,8 +2278,8 @@
             // dgvBlue
             // 
             this.dgvBlue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle92;
             this.dgvBlue.HeaderText = "B";
             this.dgvBlue.MinimumWidth = 8;
             this.dgvBlue.Name = "dgvBlue";
@@ -2329,8 +2288,8 @@
             // dgvGreen
             // 
             this.dgvGreen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle93.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle93;
             this.dgvGreen.HeaderText = "G";
             this.dgvGreen.MinimumWidth = 8;
             this.dgvGreen.Name = "dgvGreen";
@@ -2339,8 +2298,8 @@
             // dgvX
             // 
             this.dgvX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvX.DefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvX.DefaultCellStyle = dataGridViewCellStyle94;
             this.dgvX.HeaderText = "X";
             this.dgvX.MinimumWidth = 8;
             this.dgvX.Name = "dgvX";
@@ -2349,8 +2308,8 @@
             // dgvY
             // 
             this.dgvY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvY.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle95.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvY.DefaultCellStyle = dataGridViewCellStyle95;
             this.dgvY.HeaderText = "Y";
             this.dgvY.MinimumWidth = 8;
             this.dgvY.Name = "dgvY";
@@ -2794,15 +2753,13 @@
             // 
             // appTestStudioStatusControl1
             // 
-            this.appTestStudioStatusControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.appTestStudioStatusControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.appTestStudioStatusControl1.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("appTestStudioStatusControl1.Items")));
             this.appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
             this.appTestStudioStatusControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
             this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
-            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(856, 415);
+            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(856, 422);
             this.appTestStudioStatusControl1.TabIndex = 0;
             // 
             // PanelGame
@@ -3192,8 +3149,8 @@
             // 
             // colMon
             // 
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colMon.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle96.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colMon.DefaultCellStyle = dataGridViewCellStyle96;
             this.colMon.HeaderText = "Mon";
             this.colMon.MaxInputLength = 1;
             this.colMon.MinimumWidth = 37;
@@ -3203,8 +3160,8 @@
             // 
             // colTue
             // 
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colTue.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle97.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colTue.DefaultCellStyle = dataGridViewCellStyle97;
             this.colTue.HeaderText = "Tue";
             this.colTue.MaxInputLength = 1;
             this.colTue.MinimumWidth = 37;
@@ -3214,8 +3171,8 @@
             // 
             // colWed
             // 
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colWed.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle98.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colWed.DefaultCellStyle = dataGridViewCellStyle98;
             this.colWed.HeaderText = "Wed";
             this.colWed.MaxInputLength = 1;
             this.colWed.MinimumWidth = 37;
@@ -3225,8 +3182,8 @@
             // 
             // colThu
             // 
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colThu.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle99.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colThu.DefaultCellStyle = dataGridViewCellStyle99;
             this.colThu.HeaderText = "Thu";
             this.colThu.MaxInputLength = 1;
             this.colThu.MinimumWidth = 37;
@@ -3236,8 +3193,8 @@
             // 
             // colFri
             // 
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colFri.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle100.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colFri.DefaultCellStyle = dataGridViewCellStyle100;
             this.colFri.HeaderText = "Fri";
             this.colFri.MaxInputLength = 1;
             this.colFri.MinimumWidth = 37;
@@ -3247,8 +3204,8 @@
             // 
             // colSat
             // 
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSat.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle101.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSat.DefaultCellStyle = dataGridViewCellStyle101;
             this.colSat.HeaderText = "Sat";
             this.colSat.MaxInputLength = 1;
             this.colSat.MinimumWidth = 37;
@@ -3258,8 +3215,8 @@
             // 
             // colSun
             // 
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSun.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle102.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSun.DefaultCellStyle = dataGridViewCellStyle102;
             this.colSun.HeaderText = "Sun";
             this.colSun.MaxInputLength = 1;
             this.colSun.MinimumWidth = 37;
@@ -3672,7 +3629,7 @@
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(1382, 51);
+            this.txtLog.Size = new System.Drawing.Size(1382, 135);
             this.txtLog.TabIndex = 0;
             // 
             // mnuPopupGames
@@ -3900,7 +3857,7 @@
             this.toolAddRNG,
             this.toolAddRNGNode,
             this.toolStripButton1});
-            this.appTestStudioToolStrip1.Location = new System.Drawing.Point(0, 65);
+            this.appTestStudioToolStrip1.Location = new System.Drawing.Point(0, 31);
             this.appTestStudioToolStrip1.Name = "appTestStudioToolStrip1";
             this.appTestStudioToolStrip1.Size = new System.Drawing.Size(1382, 34);
             this.appTestStudioToolStrip1.TabIndex = 5;
@@ -4002,7 +3959,7 @@
             this.toolSchedulerRunning,
             this.toolStripSeparator8,
             this.toolStripLabelCurrentConfiguredInstance});
-            this.toolStripMain.Location = new System.Drawing.Point(0, 31);
+            this.toolStripMain.Location = new System.Drawing.Point(0, 65);
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.Size = new System.Drawing.Size(1382, 34);
             this.toolStripMain.TabIndex = 1;
@@ -4108,14 +4065,55 @@
             this.toolStripLabelCurrentConfiguredInstance.Size = new System.Drawing.Size(333, 25);
             this.toolStripLabelCurrentConfiguredInstance.Text = "toolStripLabelCurrentConfiguredInstance";
             // 
+            // SplitContainerSearchTreePatron
+            // 
+            this.SplitContainerSearchTreePatron.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContainerSearchTreePatron.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.SplitContainerSearchTreePatron.IsSplitterFixed = true;
+            this.SplitContainerSearchTreePatron.Location = new System.Drawing.Point(3, 3);
+            this.SplitContainerSearchTreePatron.Name = "SplitContainerSearchTreePatron";
+            this.SplitContainerSearchTreePatron.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // SplitContainerSearchTreePatron.Panel1
+            // 
+            this.SplitContainerSearchTreePatron.Panel1.Controls.Add(this.txtFilter);
+            // 
+            // SplitContainerSearchTreePatron.Panel2
+            // 
+            this.SplitContainerSearchTreePatron.Panel2.Controls.Add(this.splitContainerTreePatron);
+            this.SplitContainerSearchTreePatron.Size = new System.Drawing.Size(232, 491);
+            this.SplitContainerSearchTreePatron.SplitterDistance = 25;
+            this.SplitContainerSearchTreePatron.TabIndex = 0;
+            // 
+            // splitContainerTreePatron
+            // 
+            this.splitContainerTreePatron.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerTreePatron.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainerTreePatron.IsSplitterFixed = true;
+            this.splitContainerTreePatron.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerTreePatron.Name = "splitContainerTreePatron";
+            this.splitContainerTreePatron.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerTreePatron.Panel1
+            // 
+            this.splitContainerTreePatron.Panel1.Controls.Add(this.tv);
+            // 
+            // splitContainerTreePatron.Panel2
+            // 
+            this.splitContainerTreePatron.Panel2.Controls.Add(this.cmdPatron);
+            this.splitContainerTreePatron.Panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitContainerTreePatron.Size = new System.Drawing.Size(232, 462);
+            this.splitContainerTreePatron.SplitterDistance = 433;
+            this.splitContainerTreePatron.TabIndex = 0;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1382, 761);
-            this.Controls.Add(this.appTestStudioToolStrip1);
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.toolStripMain);
+            this.Controls.Add(this.appTestStudioToolStrip1);
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "frmMain";
@@ -4123,6 +4121,7 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);
+            this.Resize += new System.EventHandler(this.frmMain_Resize);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.splitContainerMain.Panel1.ResumeLayout(false);
@@ -4136,15 +4135,6 @@
             this.splitContainerWorkspace.ResumeLayout(false);
             this.tabTree.ResumeLayout(false);
             this.tabDesign.ResumeLayout(false);
-            this.splitContainerDesignSearch.Panel1.ResumeLayout(false);
-            this.splitContainerDesignSearch.Panel1.PerformLayout();
-            this.splitContainerDesignSearch.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerDesignSearch)).EndInit();
-            this.splitContainerDesignSearch.ResumeLayout(false);
-            this.splitContainerTreeSupport.Panel1.ResumeLayout(false);
-            this.splitContainerTreeSupport.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreeSupport)).EndInit();
-            this.splitContainerTreeSupport.ResumeLayout(false);
             this.tabRun.ResumeLayout(false);
             this.PanelTestAllEvents.ResumeLayout(false);
             this.SplitContainer6.Panel1.ResumeLayout(false);
@@ -4261,6 +4251,15 @@
             this.appTestStudioToolStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
+            this.SplitContainerSearchTreePatron.Panel1.ResumeLayout(false);
+            this.SplitContainerSearchTreePatron.Panel1.PerformLayout();
+            this.SplitContainerSearchTreePatron.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerSearchTreePatron)).EndInit();
+            this.SplitContainerSearchTreePatron.ResumeLayout(false);
+            this.splitContainerTreePatron.Panel1.ResumeLayout(false);
+            this.splitContainerTreePatron.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreePatron)).EndInit();
+            this.splitContainerTreePatron.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4299,9 +4298,7 @@
         private System.Windows.Forms.TabPage tabDesign;
         private System.Windows.Forms.TabPage tabRun;
         private System.Windows.Forms.TabPage tabSchedule;
-        private System.Windows.Forms.SplitContainer splitContainerDesignSearch;
         private System.Windows.Forms.TextBox txtFilter;
-        private System.Windows.Forms.SplitContainer splitContainerTreeSupport;
         private System.Windows.Forms.TreeView tv;
         private System.Windows.Forms.ListBox lstThreads;
         private System.Windows.Forms.Panel PanelThread;
@@ -4581,11 +4578,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvPassFail;
         private System.Windows.Forms.DataGridViewTextBoxColumn dvgRange;
         private System.Windows.Forms.Label lblTestWindowResolution;
-        internal System.Windows.Forms.Panel Panel2;
         internal System.Windows.Forms.PictureBox PictureTestAllTest;
         internal System.Windows.Forms.Label lblTestWindow;
         internal System.Windows.Forms.Label lblReference;
-        internal System.Windows.Forms.Panel Panel1;
         internal System.Windows.Forms.PictureBox PictureTestAllReference;
         private System.Windows.Forms.Label lblTestAllCustom;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestAllReferenceID;
@@ -4594,5 +4589,9 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestAllReferenceBlue;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestAllReferenceX;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestAllReferenceY;
+        internal System.Windows.Forms.Panel Panel2;
+        internal System.Windows.Forms.Panel Panel1;
+        private System.Windows.Forms.SplitContainer SplitContainerSearchTreePatron;
+        private System.Windows.Forms.SplitContainer splitContainerTreePatron;
     }
 }

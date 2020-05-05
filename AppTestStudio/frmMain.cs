@@ -5524,5 +5524,10 @@ namespace AppTestStudio
             lblTestAllCustom.Top = lblTestWindow.Top;
             lblTestAllCustom.Left = dgvTest.Left;
         }
+
+        private void frmMain_Resize(object sender, EventArgs e)
+        {
+
+        }
     }
 }
