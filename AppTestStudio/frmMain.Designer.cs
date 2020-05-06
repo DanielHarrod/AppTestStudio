@@ -30,23 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle86 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle87 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle88 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle89 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle90 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle91 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle92 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle93 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle94 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle95 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle96 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle97 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle98 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle99 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle100 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle101 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle102 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,13 +64,48 @@
             this.splitContainerWorkspace = new System.Windows.Forms.SplitContainer();
             this.tabTree = new System.Windows.Forms.TabControl();
             this.tabDesign = new System.Windows.Forms.TabPage();
+            this.SplitContainerSearchTreePatron = new System.Windows.Forms.SplitContainer();
             this.txtFilter = new System.Windows.Forms.TextBox();
+            this.splitContainerTreePatron = new System.Windows.Forms.SplitContainer();
             this.tv = new System.Windows.Forms.TreeView();
             this.ImageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cmdPatron = new System.Windows.Forms.Button();
             this.tabRun = new System.Windows.Forms.TabPage();
             this.lstThreads = new System.Windows.Forms.ListBox();
             this.tabSchedule = new System.Windows.Forms.TabPage();
+            this.PanelThread = new System.Windows.Forms.Panel();
+            this.splitContainerThread = new System.Windows.Forms.SplitContainer();
+            this.splitContainerStatsNScrollie = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutStats = new System.Windows.Forms.TableLayoutPanel();
+            this.groupTotal = new System.Windows.Forms.GroupBox();
+            this.lblHomeTotal = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.lblWaitingTotal = new System.Windows.Forms.Label();
+            this.lblContinueTotal = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lblChildTotal = new System.Windows.Forms.Label();
+            this.lblScreenshotsTotal = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblClickCountTotal = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.groupSession = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanelSession = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblScreenshots = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblContinue = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblChild = new System.Windows.Forms.Label();
+            this.lblClickCount = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblHome = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblWaiting = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.splitContainerSeconds = new System.Windows.Forms.SplitContainer();
+            this.appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
             this.PanelTestAllEvents = new System.Windows.Forms.Panel();
             this.SplitContainer6 = new System.Windows.Forms.SplitContainer();
             this.SplitContainer7 = new System.Windows.Forms.SplitContainer();
@@ -203,37 +238,6 @@
             this.txtObjectName = new System.Windows.Forms.TextBox();
             this.Label47 = new System.Windows.Forms.Label();
             this.Label46 = new System.Windows.Forms.Label();
-            this.PanelThread = new System.Windows.Forms.Panel();
-            this.splitContainerThread = new System.Windows.Forms.SplitContainer();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.lblHome = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblWaiting = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblChild = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblClickCount = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblContinue = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblScreenshots = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.lblHomeTotal = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.lblWaitingTotal = new System.Windows.Forms.Label();
-            this.lblContinueTotal = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lblChildTotal = new System.Windows.Forms.Label();
-            this.lblScreenshotsTotal = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lblClickCountTotal = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.splitContainerSeconds = new System.Windows.Forms.SplitContainer();
-            this.appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
             this.PanelGame = new System.Windows.Forms.Panel();
             this.grpVideo = new System.Windows.Forms.GroupBox();
             this.lblFrameLimit = new System.Windows.Forms.Label();
@@ -371,8 +375,7 @@
             this.toolSchedulerRunning = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelCurrentConfiguredInstance = new System.Windows.Forms.ToolStripLabel();
-            this.SplitContainerSearchTreePatron = new System.Windows.Forms.SplitContainer();
-            this.splitContainerTreePatron = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -384,7 +387,30 @@
             this.splitContainerWorkspace.SuspendLayout();
             this.tabTree.SuspendLayout();
             this.tabDesign.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerSearchTreePatron)).BeginInit();
+            this.SplitContainerSearchTreePatron.Panel1.SuspendLayout();
+            this.SplitContainerSearchTreePatron.Panel2.SuspendLayout();
+            this.SplitContainerSearchTreePatron.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreePatron)).BeginInit();
+            this.splitContainerTreePatron.Panel1.SuspendLayout();
+            this.splitContainerTreePatron.Panel2.SuspendLayout();
+            this.splitContainerTreePatron.SuspendLayout();
             this.tabRun.SuspendLayout();
+            this.PanelThread.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).BeginInit();
+            this.splitContainerThread.Panel1.SuspendLayout();
+            this.splitContainerThread.Panel2.SuspendLayout();
+            this.splitContainerThread.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerStatsNScrollie)).BeginInit();
+            this.splitContainerStatsNScrollie.Panel1.SuspendLayout();
+            this.splitContainerStatsNScrollie.Panel2.SuspendLayout();
+            this.splitContainerStatsNScrollie.SuspendLayout();
+            this.tableLayoutStats.SuspendLayout();
+            this.groupTotal.SuspendLayout();
+            this.groupSession.SuspendLayout();
+            this.tableLayoutPanelSession.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSeconds)).BeginInit();
+            this.splitContainerSeconds.SuspendLayout();
             this.PanelTestAllEvents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer6)).BeginInit();
             this.SplitContainer6.Panel1.SuspendLayout();
@@ -427,19 +453,6 @@
             this.PanelObject.SuspendLayout();
             this.Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).BeginInit();
-            this.PanelThread.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).BeginInit();
-            this.splitContainerThread.Panel1.SuspendLayout();
-            this.splitContainerThread.Panel2.SuspendLayout();
-            this.splitContainerThread.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSeconds)).BeginInit();
-            this.splitContainerSeconds.SuspendLayout();
             this.PanelGame.SuspendLayout();
             this.grpVideo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericVideoFrameLimit)).BeginInit();
@@ -464,26 +477,18 @@
             this.mnuObjects.SuspendLayout();
             this.appTestStudioToolStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerSearchTreePatron)).BeginInit();
-            this.SplitContainerSearchTreePatron.Panel1.SuspendLayout();
-            this.SplitContainerSearchTreePatron.Panel2.SuspendLayout();
-            this.SplitContainerSearchTreePatron.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreePatron)).BeginInit();
-            this.splitContainerTreePatron.Panel1.SuspendLayout();
-            this.splitContainerTreePatron.Panel2.SuspendLayout();
-            this.splitContainerTreePatron.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
-            this.menuStrip1.GripMargin = new System.Windows.Forms.Padding(2, 2, 0, 2);
             this.menuStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1382, 31);
+            this.menuStrip1.Size = new System.Drawing.Size(1424, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -496,7 +501,7 @@
             this.toolStripSeparator2,
             this.exitToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
+            this.fileToolStripMenuItem.Size = new System.Drawing.Size(37, 22);
             this.fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
@@ -505,27 +510,27 @@
             this.wizardRecommendedToolStripMenuItem,
             this.manualToolStripMenuItem});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.newToolStripMenuItem.Text = "New";
             // 
             // wizardRecommendedToolStripMenuItem
             // 
             this.wizardRecommendedToolStripMenuItem.Name = "wizardRecommendedToolStripMenuItem";
-            this.wizardRecommendedToolStripMenuItem.Size = new System.Drawing.Size(304, 34);
+            this.wizardRecommendedToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.wizardRecommendedToolStripMenuItem.Text = "Wizard (Recommended)";
             this.wizardRecommendedToolStripMenuItem.Click += new System.EventHandler(this.wizardRecommendedToolStripMenuItem_Click);
             // 
             // manualToolStripMenuItem
             // 
             this.manualToolStripMenuItem.Name = "manualToolStripMenuItem";
-            this.manualToolStripMenuItem.Size = new System.Drawing.Size(304, 34);
+            this.manualToolStripMenuItem.Size = new System.Drawing.Size(202, 22);
             this.manualToolStripMenuItem.Text = "Manual";
             this.manualToolStripMenuItem.Click += new System.EventHandler(this.manualToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(224, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(146, 6);
             // 
             // importExportToolStripMenuItem
             // 
@@ -533,13 +538,13 @@
             this.importToolStripMenuItem,
             this.exportToolStripMenuItem});
             this.importExportToolStripMenuItem.Name = "importExportToolStripMenuItem";
-            this.importExportToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
+            this.importExportToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.importExportToolStripMenuItem.Text = "Import/Export";
             // 
             // importToolStripMenuItem
             // 
             this.importToolStripMenuItem.Name = "importToolStripMenuItem";
-            this.importToolStripMenuItem.Size = new System.Drawing.Size(169, 34);
+            this.importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.importToolStripMenuItem.Text = "Import";
             this.importToolStripMenuItem.Click += new System.EventHandler(this.importToolStripMenuItem_Click);
             // 
@@ -549,39 +554,39 @@
             this.fullExportToolStripMenuItem,
             this.minimalExportToolStripMenuItem});
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(169, 34);
+            this.exportToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
             this.exportToolStripMenuItem.Text = "Export";
             // 
             // fullExportToolStripMenuItem
             // 
             this.fullExportToolStripMenuItem.Name = "fullExportToolStripMenuItem";
-            this.fullExportToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
+            this.fullExportToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.fullExportToolStripMenuItem.Text = "Full Export";
             this.fullExportToolStripMenuItem.Click += new System.EventHandler(this.fullExportToolStripMenuItem_Click);
             // 
             // minimalExportToolStripMenuItem
             // 
             this.minimalExportToolStripMenuItem.Name = "minimalExportToolStripMenuItem";
-            this.minimalExportToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
+            this.minimalExportToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
             this.minimalExportToolStripMenuItem.Text = "Minimal Export";
             this.minimalExportToolStripMenuItem.Click += new System.EventHandler(this.minimalExportToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(224, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(146, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
             // splitContainerMain
             // 
             this.splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerMain.Location = new System.Drawing.Point(0, 99);
+            this.splitContainerMain.Location = new System.Drawing.Point(0, 86);
             this.splitContainerMain.Name = "splitContainerMain";
             this.splitContainerMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -592,8 +597,8 @@
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.txtLog);
-            this.splitContainerMain.Size = new System.Drawing.Size(1382, 662);
-            this.splitContainerMain.SplitterDistance = 523;
+            this.splitContainerMain.Size = new System.Drawing.Size(1424, 811);
+            this.splitContainerMain.SplitterDistance = 640;
             this.splitContainerMain.TabIndex = 2;
             // 
             // splitContainerWorkspace
@@ -621,8 +626,8 @@
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObjects);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
-            this.splitContainerWorkspace.Size = new System.Drawing.Size(1382, 523);
-            this.splitContainerWorkspace.SplitterDistance = 246;
+            this.splitContainerWorkspace.Size = new System.Drawing.Size(1424, 640);
+            this.splitContainerWorkspace.SplitterDistance = 253;
             this.splitContainerWorkspace.TabIndex = 0;
             // 
             // tabTree
@@ -634,7 +639,7 @@
             this.tabTree.Location = new System.Drawing.Point(0, 0);
             this.tabTree.Name = "tabTree";
             this.tabTree.SelectedIndex = 0;
-            this.tabTree.Size = new System.Drawing.Size(246, 523);
+            this.tabTree.Size = new System.Drawing.Size(253, 640);
             this.tabTree.TabIndex = 0;
             this.tabTree.SelectedIndexChanged += new System.EventHandler(this.tabTree_SelectedIndexChanged);
             // 
@@ -644,19 +649,60 @@
             this.tabDesign.Location = new System.Drawing.Point(4, 22);
             this.tabDesign.Name = "tabDesign";
             this.tabDesign.Padding = new System.Windows.Forms.Padding(3);
-            this.tabDesign.Size = new System.Drawing.Size(238, 497);
+            this.tabDesign.Size = new System.Drawing.Size(245, 614);
             this.tabDesign.TabIndex = 0;
             this.tabDesign.Text = "Design";
             this.tabDesign.UseVisualStyleBackColor = true;
+            // 
+            // SplitContainerSearchTreePatron
+            // 
+            this.SplitContainerSearchTreePatron.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SplitContainerSearchTreePatron.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.SplitContainerSearchTreePatron.IsSplitterFixed = true;
+            this.SplitContainerSearchTreePatron.Location = new System.Drawing.Point(3, 3);
+            this.SplitContainerSearchTreePatron.Name = "SplitContainerSearchTreePatron";
+            this.SplitContainerSearchTreePatron.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // SplitContainerSearchTreePatron.Panel1
+            // 
+            this.SplitContainerSearchTreePatron.Panel1.Controls.Add(this.txtFilter);
+            // 
+            // SplitContainerSearchTreePatron.Panel2
+            // 
+            this.SplitContainerSearchTreePatron.Panel2.Controls.Add(this.splitContainerTreePatron);
+            this.SplitContainerSearchTreePatron.Size = new System.Drawing.Size(239, 608);
+            this.SplitContainerSearchTreePatron.SplitterDistance = 25;
+            this.SplitContainerSearchTreePatron.TabIndex = 0;
             // 
             // txtFilter
             // 
             this.txtFilter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtFilter.Location = new System.Drawing.Point(0, 0);
             this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(232, 20);
+            this.txtFilter.Size = new System.Drawing.Size(239, 20);
             this.txtFilter.TabIndex = 0;
             this.txtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
+            // 
+            // splitContainerTreePatron
+            // 
+            this.splitContainerTreePatron.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerTreePatron.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainerTreePatron.IsSplitterFixed = true;
+            this.splitContainerTreePatron.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerTreePatron.Name = "splitContainerTreePatron";
+            this.splitContainerTreePatron.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerTreePatron.Panel1
+            // 
+            this.splitContainerTreePatron.Panel1.Controls.Add(this.tv);
+            // 
+            // splitContainerTreePatron.Panel2
+            // 
+            this.splitContainerTreePatron.Panel2.Controls.Add(this.cmdPatron);
+            this.splitContainerTreePatron.Panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.splitContainerTreePatron.Size = new System.Drawing.Size(239, 579);
+            this.splitContainerTreePatron.SplitterDistance = 550;
+            this.splitContainerTreePatron.TabIndex = 0;
             // 
             // tv
             // 
@@ -667,7 +713,7 @@
             this.tv.Location = new System.Drawing.Point(0, 0);
             this.tv.Name = "tv";
             this.tv.SelectedImageIndex = 0;
-            this.tv.Size = new System.Drawing.Size(232, 433);
+            this.tv.Size = new System.Drawing.Size(239, 550);
             this.tv.TabIndex = 0;
             this.tv.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.tv_ItemDrag);
             this.tv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_AfterSelect);
@@ -712,7 +758,7 @@
             this.cmdPatron.Image = global::AppTestStudio.Properties.Resources.Patron;
             this.cmdPatron.Location = new System.Drawing.Point(0, 0);
             this.cmdPatron.Name = "cmdPatron";
-            this.cmdPatron.Size = new System.Drawing.Size(232, 25);
+            this.cmdPatron.Size = new System.Drawing.Size(239, 25);
             this.cmdPatron.TabIndex = 0;
             this.cmdPatron.UseVisualStyleBackColor = false;
             this.cmdPatron.Click += new System.EventHandler(this.cmdPatron_Click);
@@ -723,7 +769,7 @@
             this.tabRun.Location = new System.Drawing.Point(4, 22);
             this.tabRun.Name = "tabRun";
             this.tabRun.Padding = new System.Windows.Forms.Padding(3);
-            this.tabRun.Size = new System.Drawing.Size(238, 606);
+            this.tabRun.Size = new System.Drawing.Size(238, 507);
             this.tabRun.TabIndex = 1;
             this.tabRun.Text = "Run";
             this.tabRun.UseVisualStyleBackColor = true;
@@ -734,7 +780,7 @@
             this.lstThreads.FormattingEnabled = true;
             this.lstThreads.Location = new System.Drawing.Point(3, 3);
             this.lstThreads.Name = "lstThreads";
-            this.lstThreads.Size = new System.Drawing.Size(232, 600);
+            this.lstThreads.Size = new System.Drawing.Size(232, 501);
             this.lstThreads.TabIndex = 0;
             this.lstThreads.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstThreads_MouseDown);
             // 
@@ -742,10 +788,368 @@
             // 
             this.tabSchedule.Location = new System.Drawing.Point(4, 22);
             this.tabSchedule.Name = "tabSchedule";
-            this.tabSchedule.Size = new System.Drawing.Size(238, 606);
+            this.tabSchedule.Size = new System.Drawing.Size(238, 507);
             this.tabSchedule.TabIndex = 2;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
+            // 
+            // PanelThread
+            // 
+            this.PanelThread.Controls.Add(this.splitContainerThread);
+            this.PanelThread.Location = new System.Drawing.Point(17, 11);
+            this.PanelThread.Name = "PanelThread";
+            this.PanelThread.Size = new System.Drawing.Size(1126, 658);
+            this.PanelThread.TabIndex = 0;
+            // 
+            // splitContainerThread
+            // 
+            this.splitContainerThread.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerThread.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainerThread.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerThread.Name = "splitContainerThread";
+            this.splitContainerThread.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerThread.Panel1
+            // 
+            this.splitContainerThread.Panel1.Controls.Add(this.splitContainerStatsNScrollie);
+            // 
+            // splitContainerThread.Panel2
+            // 
+            this.splitContainerThread.Panel2.Controls.Add(this.appTestStudioStatusControl1);
+            this.splitContainerThread.Size = new System.Drawing.Size(1126, 658);
+            this.splitContainerThread.SplitterDistance = 130;
+            this.splitContainerThread.TabIndex = 0;
+            // 
+            // splitContainerStatsNScrollie
+            // 
+            this.splitContainerStatsNScrollie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerStatsNScrollie.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainerStatsNScrollie.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerStatsNScrollie.Name = "splitContainerStatsNScrollie";
+            this.splitContainerStatsNScrollie.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerStatsNScrollie.Panel1
+            // 
+            this.splitContainerStatsNScrollie.Panel1.Controls.Add(this.tableLayoutStats);
+            // 
+            // splitContainerStatsNScrollie.Panel2
+            // 
+            this.splitContainerStatsNScrollie.Panel2.Controls.Add(this.splitContainerSeconds);
+            this.splitContainerStatsNScrollie.Size = new System.Drawing.Size(1126, 130);
+            this.splitContainerStatsNScrollie.SplitterDistance = 101;
+            this.splitContainerStatsNScrollie.TabIndex = 2;
+            // 
+            // tableLayoutStats
+            // 
+            this.tableLayoutStats.ColumnCount = 2;
+            this.tableLayoutStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutStats.Controls.Add(this.groupTotal, 0, 0);
+            this.tableLayoutStats.Controls.Add(this.groupSession, 0, 0);
+            this.tableLayoutStats.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutStats.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutStats.Name = "tableLayoutStats";
+            this.tableLayoutStats.RowCount = 1;
+            this.tableLayoutStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutStats.Size = new System.Drawing.Size(1126, 101);
+            this.tableLayoutStats.TabIndex = 3;
+            // 
+            // groupTotal
+            // 
+            this.groupTotal.Controls.Add(this.tableLayoutPanel1);
+            this.groupTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupTotal.Location = new System.Drawing.Point(566, 3);
+            this.groupTotal.Name = "groupTotal";
+            this.groupTotal.Size = new System.Drawing.Size(557, 95);
+            this.groupTotal.TabIndex = 2;
+            this.groupTotal.TabStop = false;
+            this.groupTotal.Text = "Total";
+            // 
+            // lblHomeTotal
+            // 
+            this.lblHomeTotal.AutoSize = true;
+            this.lblHomeTotal.Location = new System.Drawing.Point(408, 50);
+            this.lblHomeTotal.Name = "lblHomeTotal";
+            this.lblHomeTotal.Size = new System.Drawing.Size(69, 13);
+            this.lblHomeTotal.TabIndex = 2;
+            this.lblHomeTotal.Text = "lblHomeTotal";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(278, 50);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(38, 13);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "Home:";
+            // 
+            // lblWaitingTotal
+            // 
+            this.lblWaitingTotal.AutoSize = true;
+            this.lblWaitingTotal.Location = new System.Drawing.Point(133, 50);
+            this.lblWaitingTotal.Name = "lblWaitingTotal";
+            this.lblWaitingTotal.Size = new System.Drawing.Size(77, 13);
+            this.lblWaitingTotal.TabIndex = 2;
+            this.lblWaitingTotal.Text = "lblWaitingTotal";
+            // 
+            // lblContinueTotal
+            // 
+            this.lblContinueTotal.AutoSize = true;
+            this.lblContinueTotal.Location = new System.Drawing.Point(408, 0);
+            this.lblContinueTotal.Name = "lblContinueTotal";
+            this.lblContinueTotal.Size = new System.Drawing.Size(83, 13);
+            this.lblContinueTotal.TabIndex = 0;
+            this.lblContinueTotal.Text = "lblContinueTotal";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(3, 50);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(46, 13);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Waiting:";
+            // 
+            // lblChildTotal
+            // 
+            this.lblChildTotal.AutoSize = true;
+            this.lblChildTotal.Location = new System.Drawing.Point(408, 25);
+            this.lblChildTotal.Name = "lblChildTotal";
+            this.lblChildTotal.Size = new System.Drawing.Size(64, 13);
+            this.lblChildTotal.TabIndex = 1;
+            this.lblChildTotal.Text = "lblChildTotal";
+            // 
+            // lblScreenshotsTotal
+            // 
+            this.lblScreenshotsTotal.AutoSize = true;
+            this.lblScreenshotsTotal.Location = new System.Drawing.Point(133, 0);
+            this.lblScreenshotsTotal.Name = "lblScreenshotsTotal";
+            this.lblScreenshotsTotal.Size = new System.Drawing.Size(100, 13);
+            this.lblScreenshotsTotal.TabIndex = 0;
+            this.lblScreenshotsTotal.Text = "lblScreenshotsTotal";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(278, 25);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(33, 13);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Child:";
+            // 
+            // lblClickCountTotal
+            // 
+            this.lblClickCountTotal.AutoSize = true;
+            this.lblClickCountTotal.Location = new System.Drawing.Point(133, 25);
+            this.lblClickCountTotal.Name = "lblClickCountTotal";
+            this.lblClickCountTotal.Size = new System.Drawing.Size(92, 13);
+            this.lblClickCountTotal.TabIndex = 1;
+            this.lblClickCountTotal.Text = "lblClickCountTotal";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 25);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(38, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Clicks:";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Screenshots:";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(278, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(52, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Continue:";
+            // 
+            // groupSession
+            // 
+            this.groupSession.Controls.Add(this.tableLayoutPanelSession);
+            this.groupSession.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupSession.Location = new System.Drawing.Point(3, 3);
+            this.groupSession.Name = "groupSession";
+            this.groupSession.Size = new System.Drawing.Size(557, 95);
+            this.groupSession.TabIndex = 1;
+            this.groupSession.TabStop = false;
+            this.groupSession.Text = "Session";
+            // 
+            // tableLayoutPanelSession
+            // 
+            this.tableLayoutPanelSession.ColumnCount = 4;
+            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelSession.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanelSession.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanelSession.Controls.Add(this.lblWaiting, 1, 2);
+            this.tableLayoutPanelSession.Controls.Add(this.label9, 2, 2);
+            this.tableLayoutPanelSession.Controls.Add(this.lblHome, 3, 2);
+            this.tableLayoutPanelSession.Controls.Add(this.lblScreenshots, 1, 0);
+            this.tableLayoutPanelSession.Controls.Add(this.label7, 2, 0);
+            this.tableLayoutPanelSession.Controls.Add(this.lblContinue, 3, 0);
+            this.tableLayoutPanelSession.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanelSession.Controls.Add(this.lblChild, 3, 1);
+            this.tableLayoutPanelSession.Controls.Add(this.lblClickCount, 1, 1);
+            this.tableLayoutPanelSession.Controls.Add(this.label8, 2, 1);
+            this.tableLayoutPanelSession.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelSession.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanelSession.Name = "tableLayoutPanelSession";
+            this.tableLayoutPanelSession.RowCount = 3;
+            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelSession.Size = new System.Drawing.Size(551, 76);
+            this.tableLayoutPanelSession.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Screenshots:";
+            // 
+            // lblScreenshots
+            // 
+            this.lblScreenshots.AutoSize = true;
+            this.lblScreenshots.Location = new System.Drawing.Point(133, 0);
+            this.lblScreenshots.Name = "lblScreenshots";
+            this.lblScreenshots.Size = new System.Drawing.Size(76, 13);
+            this.lblScreenshots.TabIndex = 0;
+            this.lblScreenshots.Text = "lblScreenshots";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(278, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Continue:";
+            // 
+            // lblContinue
+            // 
+            this.lblContinue.AutoSize = true;
+            this.lblContinue.Location = new System.Drawing.Point(408, 0);
+            this.lblContinue.Name = "lblContinue";
+            this.lblContinue.Size = new System.Drawing.Size(59, 13);
+            this.lblContinue.TabIndex = 0;
+            this.lblContinue.Text = "lblContinue";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 25);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Clicks:";
+            // 
+            // lblChild
+            // 
+            this.lblChild.AutoSize = true;
+            this.lblChild.Location = new System.Drawing.Point(408, 25);
+            this.lblChild.Name = "lblChild";
+            this.lblChild.Size = new System.Drawing.Size(40, 13);
+            this.lblChild.TabIndex = 1;
+            this.lblChild.Text = "lblChild";
+            // 
+            // lblClickCount
+            // 
+            this.lblClickCount.AutoSize = true;
+            this.lblClickCount.Location = new System.Drawing.Point(133, 25);
+            this.lblClickCount.Name = "lblClickCount";
+            this.lblClickCount.Size = new System.Drawing.Size(68, 13);
+            this.lblClickCount.TabIndex = 1;
+            this.lblClickCount.Text = "lblClickCount";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(278, 25);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Child:";
+            // 
+            // lblHome
+            // 
+            this.lblHome.AutoSize = true;
+            this.lblHome.Location = new System.Drawing.Point(408, 50);
+            this.lblHome.Name = "lblHome";
+            this.lblHome.Size = new System.Drawing.Size(45, 13);
+            this.lblHome.TabIndex = 2;
+            this.lblHome.Text = "lblHome";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(278, 50);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Home:";
+            // 
+            // lblWaiting
+            // 
+            this.lblWaiting.AutoSize = true;
+            this.lblWaiting.Location = new System.Drawing.Point(133, 50);
+            this.lblWaiting.Name = "lblWaiting";
+            this.lblWaiting.Size = new System.Drawing.Size(53, 13);
+            this.lblWaiting.TabIndex = 2;
+            this.lblWaiting.Text = "lblWaiting";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 50);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Waiting:";
+            // 
+            // splitContainerSeconds
+            // 
+            this.splitContainerSeconds.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitContainerSeconds.Location = new System.Drawing.Point(0, 6);
+            this.splitContainerSeconds.Name = "splitContainerSeconds";
+            // 
+            // splitContainerSeconds.Panel1
+            // 
+            this.splitContainerSeconds.Panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            // 
+            // splitContainerSeconds.Panel2
+            // 
+            this.splitContainerSeconds.Panel2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.splitContainerSeconds.Size = new System.Drawing.Size(1126, 19);
+            this.splitContainerSeconds.SplitterDistance = 178;
+            this.splitContainerSeconds.TabIndex = 0;
+            this.splitContainerSeconds.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainerSeconds_SplitterMoving);
+            // 
+            // appTestStudioStatusControl1
+            // 
+            this.appTestStudioStatusControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.appTestStudioStatusControl1.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("appTestStudioStatusControl1.Items")));
+            this.appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
+            this.appTestStudioStatusControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
+            this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
+            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(1126, 524);
+            this.appTestStudioStatusControl1.TabIndex = 0;
             // 
             // PanelTestAllEvents
             // 
@@ -805,7 +1209,7 @@
             this.label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label35.Location = new System.Drawing.Point(1, 1);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(157, 26);
+            this.label35.Size = new System.Drawing.Size(105, 18);
             this.label35.TabIndex = 0;
             this.label35.Text = "Test All Events";
             // 
@@ -835,14 +1239,14 @@
             // 
             this.dgvTest.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle86.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle86.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle86.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle86.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle86.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle86.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle86.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle86;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTestID,
@@ -853,14 +1257,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle87.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle87.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle87.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle87.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle87.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle87.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle87.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle87;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvTest.Location = new System.Drawing.Point(640, 226);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.RowHeadersWidth = 62;
@@ -874,28 +1278,28 @@
             this.dgvColorTestID.HeaderText = "ID";
             this.dgvColorTestID.MinimumWidth = 8;
             this.dgvColorTestID.Name = "dgvColorTestID";
-            this.dgvColorTestID.Width = 62;
+            this.dgvColorTestID.Width = 43;
             // 
             // dgvColorTestRed
             // 
             this.dgvColorTestRed.HeaderText = "Red";
             this.dgvColorTestRed.MinimumWidth = 8;
             this.dgvColorTestRed.Name = "dgvColorTestRed";
-            this.dgvColorTestRed.Width = 75;
+            this.dgvColorTestRed.Width = 52;
             // 
             // dgvColorTestGreen
             // 
             this.dgvColorTestGreen.HeaderText = "Green";
             this.dgvColorTestGreen.MinimumWidth = 8;
             this.dgvColorTestGreen.Name = "dgvColorTestGreen";
-            this.dgvColorTestGreen.Width = 91;
+            this.dgvColorTestGreen.Width = 61;
             // 
             // dgvColorTestBlue
             // 
             this.dgvColorTestBlue.HeaderText = "Blue";
             this.dgvColorTestBlue.MinimumWidth = 8;
             this.dgvColorTestBlue.Name = "dgvColorTestBlue";
-            this.dgvColorTestBlue.Width = 79;
+            this.dgvColorTestBlue.Width = 53;
             // 
             // dgvXTest
             // 
@@ -903,7 +1307,7 @@
             this.dgvXTest.HeaderText = "X";
             this.dgvXTest.MinimumWidth = 8;
             this.dgvXTest.Name = "dgvXTest";
-            this.dgvXTest.Width = 56;
+            this.dgvXTest.Width = 39;
             // 
             // dgvYTest
             // 
@@ -911,33 +1315,33 @@
             this.dgvYTest.HeaderText = "Y";
             this.dgvYTest.MinimumWidth = 8;
             this.dgvYTest.Name = "dgvYTest";
-            this.dgvYTest.Width = 55;
+            this.dgvYTest.Width = 39;
             // 
             // dgvPassFail
             // 
             this.dgvPassFail.HeaderText = "Pass/Fail";
             this.dgvPassFail.MinimumWidth = 8;
             this.dgvPassFail.Name = "dgvPassFail";
-            this.dgvPassFail.Width = 115;
+            this.dgvPassFail.Width = 76;
             // 
             // dvgRange
             // 
             this.dvgRange.HeaderText = "+-Points";
             this.dvgRange.MinimumWidth = 8;
             this.dvgRange.Name = "dvgRange";
-            this.dvgRange.Width = 108;
+            this.dvgRange.Width = 70;
             // 
             // dgvTestAllReference
             // 
             this.dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle88.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle88.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle88.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle88.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle88.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle88.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle88.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle88;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceID,
@@ -946,14 +1350,14 @@
             this.dgvTestAllReferenceBlue,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle89.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle89.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle89.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle89.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle89.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle89.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle89.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle89;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvTestAllReference.Location = new System.Drawing.Point(640, 48);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.RowHeadersWidth = 62;
@@ -968,7 +1372,7 @@
             this.dgvTestAllReferenceID.HeaderText = "ID";
             this.dgvTestAllReferenceID.MinimumWidth = 8;
             this.dgvTestAllReferenceID.Name = "dgvTestAllReferenceID";
-            this.dgvTestAllReferenceID.Width = 62;
+            this.dgvTestAllReferenceID.Width = 43;
             // 
             // dgvTestAllReferenceRed
             // 
@@ -976,7 +1380,7 @@
             this.dgvTestAllReferenceRed.HeaderText = "Red";
             this.dgvTestAllReferenceRed.MinimumWidth = 8;
             this.dgvTestAllReferenceRed.Name = "dgvTestAllReferenceRed";
-            this.dgvTestAllReferenceRed.Width = 75;
+            this.dgvTestAllReferenceRed.Width = 52;
             // 
             // dgvTestAllReferenceGreen
             // 
@@ -984,7 +1388,7 @@
             this.dgvTestAllReferenceGreen.HeaderText = "Green";
             this.dgvTestAllReferenceGreen.MinimumWidth = 8;
             this.dgvTestAllReferenceGreen.Name = "dgvTestAllReferenceGreen";
-            this.dgvTestAllReferenceGreen.Width = 91;
+            this.dgvTestAllReferenceGreen.Width = 61;
             // 
             // dgvTestAllReferenceBlue
             // 
@@ -992,7 +1396,7 @@
             this.dgvTestAllReferenceBlue.HeaderText = "Blue";
             this.dgvTestAllReferenceBlue.MinimumWidth = 8;
             this.dgvTestAllReferenceBlue.Name = "dgvTestAllReferenceBlue";
-            this.dgvTestAllReferenceBlue.Width = 79;
+            this.dgvTestAllReferenceBlue.Width = 53;
             // 
             // dgvTestAllReferenceX
             // 
@@ -1001,7 +1405,7 @@
             this.dgvTestAllReferenceX.HeaderText = "X";
             this.dgvTestAllReferenceX.MinimumWidth = 8;
             this.dgvTestAllReferenceX.Name = "dgvTestAllReferenceX";
-            this.dgvTestAllReferenceX.Width = 56;
+            this.dgvTestAllReferenceX.Width = 39;
             // 
             // dgvTestAllReferenceY
             // 
@@ -1010,7 +1414,7 @@
             this.dgvTestAllReferenceY.HeaderText = "Y";
             this.dgvTestAllReferenceY.MinimumWidth = 8;
             this.dgvTestAllReferenceY.Name = "dgvTestAllReferenceY";
-            this.dgvTestAllReferenceY.Width = 55;
+            this.dgvTestAllReferenceY.Width = 39;
             // 
             // lblReferenceWindowResolution
             // 
@@ -1056,7 +1460,7 @@
             this.lblTestWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTestWindow.Location = new System.Drawing.Point(11, 8);
             this.lblTestWindow.Name = "lblTestWindow";
-            this.lblTestWindow.Size = new System.Drawing.Size(183, 33);
+            this.lblTestWindow.Size = new System.Drawing.Size(120, 24);
             this.lblTestWindow.TabIndex = 10;
             this.lblTestWindow.Text = "Test Window";
             // 
@@ -1066,7 +1470,7 @@
             this.lblReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReference.Location = new System.Drawing.Point(8, 235);
             this.lblReference.Name = "lblReference";
-            this.lblReference.Size = new System.Drawing.Size(149, 33);
+            this.lblReference.Size = new System.Drawing.Size(98, 24);
             this.lblReference.TabIndex = 9;
             this.lblReference.Text = "Reference";
             // 
@@ -1147,7 +1551,7 @@
             this.rdoObjectSearch.AutoSize = true;
             this.rdoObjectSearch.Location = new System.Drawing.Point(92, 15);
             this.rdoObjectSearch.Name = "rdoObjectSearch";
-            this.rdoObjectSearch.Size = new System.Drawing.Size(100, 20);
+            this.rdoObjectSearch.Size = new System.Drawing.Size(93, 17);
             this.rdoObjectSearch.TabIndex = 1;
             this.rdoObjectSearch.TabStop = true;
             this.rdoObjectSearch.Text = "Object Search";
@@ -1159,7 +1563,7 @@
             this.rdoColorPoint.AutoSize = true;
             this.rdoColorPoint.Location = new System.Drawing.Point(10, 15);
             this.rdoColorPoint.Name = "rdoColorPoint";
-            this.rdoColorPoint.Size = new System.Drawing.Size(85, 20);
+            this.rdoColorPoint.Size = new System.Drawing.Size(78, 17);
             this.rdoColorPoint.TabIndex = 0;
             this.rdoColorPoint.TabStop = true;
             this.rdoColorPoint.Text = "Color/Point";
@@ -1242,7 +1646,7 @@
             this.rdoModeClickDragRelease.AutoSize = true;
             this.rdoModeClickDragRelease.Location = new System.Drawing.Point(88, 15);
             this.rdoModeClickDragRelease.Name = "rdoModeClickDragRelease";
-            this.rdoModeClickDragRelease.Size = new System.Drawing.Size(123, 20);
+            this.rdoModeClickDragRelease.Size = new System.Drawing.Size(116, 17);
             this.rdoModeClickDragRelease.TabIndex = 1;
             this.rdoModeClickDragRelease.Text = "Click Drag Release";
             this.rdoModeClickDragRelease.UseVisualStyleBackColor = true;
@@ -1254,7 +1658,7 @@
             this.rdoModeRangeClick.Checked = true;
             this.rdoModeRangeClick.Location = new System.Drawing.Point(6, 15);
             this.rdoModeRangeClick.Name = "rdoModeRangeClick";
-            this.rdoModeRangeClick.Size = new System.Drawing.Size(90, 20);
+            this.rdoModeRangeClick.Size = new System.Drawing.Size(83, 17);
             this.rdoModeRangeClick.TabIndex = 0;
             this.rdoModeRangeClick.TabStop = true;
             this.rdoModeRangeClick.Text = "Range Click";
@@ -1294,7 +1698,7 @@
             this.chkLimitRepeats.AutoSize = true;
             this.chkLimitRepeats.Location = new System.Drawing.Point(9, 63);
             this.chkLimitRepeats.Name = "chkLimitRepeats";
-            this.chkLimitRepeats.Size = new System.Drawing.Size(73, 21);
+            this.chkLimitRepeats.Size = new System.Drawing.Size(66, 17);
             this.chkLimitRepeats.TabIndex = 31;
             this.chkLimitRepeats.Text = "Repeats";
             this.chkLimitRepeats.UseVisualStyleBackColor = true;
@@ -1342,7 +1746,7 @@
             this.chkWaitFirst.AutoSize = true;
             this.chkWaitFirst.Location = new System.Drawing.Point(5, 0);
             this.chkWaitFirst.Name = "chkWaitFirst";
-            this.chkWaitFirst.Size = new System.Drawing.Size(77, 21);
+            this.chkWaitFirst.Size = new System.Drawing.Size(70, 17);
             this.chkWaitFirst.TabIndex = 4;
             this.chkWaitFirst.Text = "Wait First";
             this.chkWaitFirst.UseVisualStyleBackColor = true;
@@ -1376,7 +1780,7 @@
             this.chkUseLimit.AutoSize = true;
             this.chkUseLimit.Location = new System.Drawing.Point(6, 1);
             this.chkUseLimit.Name = "chkUseLimit";
-            this.chkUseLimit.Size = new System.Drawing.Size(54, 21);
+            this.chkUseLimit.Size = new System.Drawing.Size(47, 17);
             this.chkUseLimit.TabIndex = 3;
             this.chkUseLimit.Text = "Limit";
             this.chkUseLimit.UseVisualStyleBackColor = true;
@@ -1387,7 +1791,7 @@
             this.chkAutoBalance.AutoSize = true;
             this.chkAutoBalance.Location = new System.Drawing.Point(17, 87);
             this.chkAutoBalance.Name = "chkAutoBalance";
-            this.chkAutoBalance.Size = new System.Drawing.Size(97, 21);
+            this.chkAutoBalance.Size = new System.Drawing.Size(90, 17);
             this.chkAutoBalance.TabIndex = 18;
             this.chkAutoBalance.Text = "Auto Balance";
             this.chkAutoBalance.UseVisualStyleBackColor = true;
@@ -1412,7 +1816,7 @@
             this.rdoAfterCompletionStop.AutoSize = true;
             this.rdoAfterCompletionStop.Location = new System.Drawing.Point(8, 78);
             this.rdoAfterCompletionStop.Name = "rdoAfterCompletionStop";
-            this.rdoAfterCompletionStop.Size = new System.Drawing.Size(54, 20);
+            this.rdoAfterCompletionStop.Size = new System.Drawing.Size(47, 17);
             this.rdoAfterCompletionStop.TabIndex = 6;
             this.rdoAfterCompletionStop.TabStop = true;
             this.rdoAfterCompletionStop.Text = "Stop";
@@ -1727,7 +2131,7 @@
             this.rdoAfterCompletionParent.AutoSize = true;
             this.rdoAfterCompletionParent.Location = new System.Drawing.Point(8, 58);
             this.rdoAfterCompletionParent.Name = "rdoAfterCompletionParent";
-            this.rdoAfterCompletionParent.Size = new System.Drawing.Size(103, 20);
+            this.rdoAfterCompletionParent.Size = new System.Drawing.Size(96, 17);
             this.rdoAfterCompletionParent.TabIndex = 2;
             this.rdoAfterCompletionParent.TabStop = true;
             this.rdoAfterCompletionParent.Text = "Back to Parent";
@@ -1739,7 +2143,7 @@
             this.rdoAfterCompletionHome.AutoSize = true;
             this.rdoAfterCompletionHome.Location = new System.Drawing.Point(8, 38);
             this.rdoAfterCompletionHome.Name = "rdoAfterCompletionHome";
-            this.rdoAfterCompletionHome.Size = new System.Drawing.Size(100, 20);
+            this.rdoAfterCompletionHome.Size = new System.Drawing.Size(93, 17);
             this.rdoAfterCompletionHome.TabIndex = 1;
             this.rdoAfterCompletionHome.TabStop = true;
             this.rdoAfterCompletionHome.Text = "Back to Home";
@@ -1751,7 +2155,7 @@
             this.rdoAfterCompletionContinue.AutoSize = true;
             this.rdoAfterCompletionContinue.Location = new System.Drawing.Point(8, 19);
             this.rdoAfterCompletionContinue.Name = "rdoAfterCompletionContinue";
-            this.rdoAfterCompletionContinue.Size = new System.Drawing.Size(74, 20);
+            this.rdoAfterCompletionContinue.Size = new System.Drawing.Size(67, 17);
             this.rdoAfterCompletionContinue.TabIndex = 0;
             this.rdoAfterCompletionContinue.TabStop = true;
             this.rdoAfterCompletionContinue.Text = "Continue";
@@ -1763,7 +2167,7 @@
             this.chkUseParentScreenshot.AutoSize = true;
             this.chkUseParentScreenshot.Location = new System.Drawing.Point(7, 5);
             this.chkUseParentScreenshot.Name = "chkUseParentScreenshot";
-            this.chkUseParentScreenshot.Size = new System.Drawing.Size(143, 21);
+            this.chkUseParentScreenshot.Size = new System.Drawing.Size(136, 17);
             this.chkUseParentScreenshot.TabIndex = 15;
             this.chkUseParentScreenshot.Text = "Use Parent Screenshot";
             this.chkUseParentScreenshot.UseVisualStyleBackColor = true;
@@ -1923,7 +2327,7 @@
             this.rdoAbsoluteTarget.AutoSize = true;
             this.rdoAbsoluteTarget.Location = new System.Drawing.Point(155, 127);
             this.rdoAbsoluteTarget.Name = "rdoAbsoluteTarget";
-            this.rdoAbsoluteTarget.Size = new System.Drawing.Size(107, 20);
+            this.rdoAbsoluteTarget.Size = new System.Drawing.Size(100, 17);
             this.rdoAbsoluteTarget.TabIndex = 1;
             this.rdoAbsoluteTarget.TabStop = true;
             this.rdoAbsoluteTarget.Text = "Absolute Target";
@@ -1936,7 +2340,7 @@
             this.rdoRelativeTarget.Enabled = false;
             this.rdoRelativeTarget.Location = new System.Drawing.Point(15, 127);
             this.rdoRelativeTarget.Name = "rdoRelativeTarget";
-            this.rdoRelativeTarget.Size = new System.Drawing.Size(105, 20);
+            this.rdoRelativeTarget.Size = new System.Drawing.Size(98, 17);
             this.rdoRelativeTarget.TabIndex = 0;
             this.rdoRelativeTarget.TabStop = true;
             this.rdoRelativeTarget.Text = "Relative Target";
@@ -1963,7 +2367,7 @@
             this.NumericXOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumericXOffset.Location = new System.Drawing.Point(47, 17);
             this.NumericXOffset.Name = "NumericXOffset";
-            this.NumericXOffset.Size = new System.Drawing.Size(86, 41);
+            this.NumericXOffset.Size = new System.Drawing.Size(86, 30);
             this.NumericXOffset.TabIndex = 8;
             this.NumericXOffset.ValueChanged += new System.EventHandler(this.NumericXOffset_ValueChanged);
             // 
@@ -1981,7 +2385,7 @@
             this.NumericYOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumericYOffset.Location = new System.Drawing.Point(181, 14);
             this.NumericYOffset.Name = "NumericYOffset";
-            this.NumericYOffset.Size = new System.Drawing.Size(85, 41);
+            this.NumericYOffset.Size = new System.Drawing.Size(85, 30);
             this.NumericYOffset.TabIndex = 8;
             this.NumericYOffset.ValueChanged += new System.EventHandler(this.NumericYOffset_ValueChanged);
             // 
@@ -2038,7 +2442,7 @@
             this.NumericObjectThreshold.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.NumericObjectThreshold.Location = new System.Drawing.Point(88, 70);
             this.NumericObjectThreshold.Name = "NumericObjectThreshold";
-            this.NumericObjectThreshold.Size = new System.Drawing.Size(94, 41);
+            this.NumericObjectThreshold.Size = new System.Drawing.Size(94, 30);
             this.NumericObjectThreshold.TabIndex = 10;
             this.NumericObjectThreshold.ValueChanged += new System.EventHandler(this.NumericObjectThreshold_ValueChanged);
             // 
@@ -2180,7 +2584,7 @@
             this.rdoCustom.AutoSize = true;
             this.rdoCustom.Location = new System.Drawing.Point(92, 15);
             this.rdoCustom.Name = "rdoCustom";
-            this.rdoCustom.Size = new System.Drawing.Size(67, 20);
+            this.rdoCustom.Size = new System.Drawing.Size(60, 17);
             this.rdoCustom.TabIndex = 5;
             this.rdoCustom.TabStop = true;
             this.rdoCustom.Text = "Custom";
@@ -2211,7 +2615,7 @@
             this.rdoOR.AutoSize = true;
             this.rdoOR.Location = new System.Drawing.Point(52, 15);
             this.rdoOR.Name = "rdoOR";
-            this.rdoOR.Size = new System.Drawing.Size(48, 20);
+            this.rdoOR.Size = new System.Drawing.Size(41, 17);
             this.rdoOR.TabIndex = 1;
             this.rdoOR.TabStop = true;
             this.rdoOR.Text = "OR";
@@ -2223,7 +2627,7 @@
             this.rdoAnd.AutoSize = true;
             this.rdoAnd.Location = new System.Drawing.Point(7, 15);
             this.rdoAnd.Name = "rdoAnd";
-            this.rdoAnd.Size = new System.Drawing.Size(55, 20);
+            this.rdoAnd.Size = new System.Drawing.Size(48, 17);
             this.rdoAnd.TabIndex = 0;
             this.rdoAnd.TabStop = true;
             this.rdoAnd.Text = "AND";
@@ -2258,62 +2662,62 @@
             // dgvID
             // 
             this.dgvID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle90.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvID.DefaultCellStyle = dataGridViewCellStyle90;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvID.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvID.HeaderText = "ID";
             this.dgvID.MinimumWidth = 8;
             this.dgvID.Name = "dgvID";
-            this.dgvID.Width = 54;
+            this.dgvID.Width = 43;
             // 
             // dgvRed
             // 
             this.dgvRed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle91.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle91;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvRed.HeaderText = "R";
             this.dgvRed.MinimumWidth = 8;
             this.dgvRed.Name = "dgvRed";
-            this.dgvRed.Width = 51;
+            this.dgvRed.Width = 40;
             // 
             // dgvBlue
             // 
             this.dgvBlue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle92.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle92;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle7;
             this.dgvBlue.HeaderText = "B";
             this.dgvBlue.MinimumWidth = 8;
             this.dgvBlue.Name = "dgvBlue";
-            this.dgvBlue.Width = 50;
+            this.dgvBlue.Width = 39;
             // 
             // dgvGreen
             // 
             this.dgvGreen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle93.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle93;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvGreen.HeaderText = "G";
             this.dgvGreen.MinimumWidth = 8;
             this.dgvGreen.Name = "dgvGreen";
-            this.dgvGreen.Width = 51;
+            this.dgvGreen.Width = 40;
             // 
             // dgvX
             // 
             this.dgvX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle94.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvX.DefaultCellStyle = dataGridViewCellStyle94;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvX.DefaultCellStyle = dataGridViewCellStyle9;
             this.dgvX.HeaderText = "X";
             this.dgvX.MinimumWidth = 8;
             this.dgvX.Name = "dgvX";
-            this.dgvX.Width = 50;
+            this.dgvX.Width = 39;
             // 
             // dgvY
             // 
             this.dgvY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            dataGridViewCellStyle95.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvY.DefaultCellStyle = dataGridViewCellStyle95;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvY.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvY.HeaderText = "Y";
             this.dgvY.MinimumWidth = 8;
             this.dgvY.Name = "dgvY";
-            this.dgvY.Width = 50;
+            this.dgvY.Width = 39;
             // 
             // dgvScan
             // 
@@ -2324,7 +2728,7 @@
             this.dgvScan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
             this.dgvScan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.dgvScan.ToolTipText = "Scan and Add Additional Colors from location, from Current Target Window";
-            this.dgvScan.Width = 68;
+            this.dgvScan.Width = 57;
             // 
             // dgvRemove
             // 
@@ -2428,340 +2832,6 @@
             this.Label46.TabIndex = 0;
             this.Label46.Text = "Object";
             // 
-            // PanelThread
-            // 
-            this.PanelThread.Controls.Add(this.splitContainerThread);
-            this.PanelThread.Location = new System.Drawing.Point(102, 63);
-            this.PanelThread.Name = "PanelThread";
-            this.PanelThread.Size = new System.Drawing.Size(856, 531);
-            this.PanelThread.TabIndex = 0;
-            // 
-            // splitContainerThread
-            // 
-            this.splitContainerThread.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerThread.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainerThread.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerThread.Name = "splitContainerThread";
-            this.splitContainerThread.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerThread.Panel1
-            // 
-            this.splitContainerThread.Panel1.Controls.Add(this.splitContainer1);
-            this.splitContainerThread.Panel1.Controls.Add(this.splitContainerSeconds);
-            // 
-            // splitContainerThread.Panel2
-            // 
-            this.splitContainerThread.Panel2.Controls.Add(this.appTestStudioStatusControl1);
-            this.splitContainerThread.Size = new System.Drawing.Size(856, 531);
-            this.splitContainerThread.SplitterDistance = 105;
-            this.splitContainerThread.TabIndex = 0;
-            // 
-            // splitContainer1
-            // 
-            this.splitContainer1.Location = new System.Drawing.Point(4, 4);
-            this.splitContainer1.Name = "splitContainer1";
-            // 
-            // splitContainer1.Panel1
-            // 
-            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox2);
-            this.splitContainer1.Size = new System.Drawing.Size(694, 73);
-            this.splitContainer1.SplitterDistance = 346;
-            this.splitContainer1.TabIndex = 1;
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.lblHome);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.lblWaiting);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.lblChild);
-            this.groupBox1.Controls.Add(this.label8);
-            this.groupBox1.Controls.Add(this.lblClickCount);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.lblContinue);
-            this.groupBox1.Controls.Add(this.label7);
-            this.groupBox1.Controls.Add(this.lblScreenshots);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(346, 73);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Session";
-            // 
-            // lblHome
-            // 
-            this.lblHome.AutoSize = true;
-            this.lblHome.Location = new System.Drawing.Point(218, 48);
-            this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(45, 13);
-            this.lblHome.TabIndex = 2;
-            this.lblHome.Text = "lblHome";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(166, 48);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Home:";
-            // 
-            // lblWaiting
-            // 
-            this.lblWaiting.AutoSize = true;
-            this.lblWaiting.Location = new System.Drawing.Point(76, 48);
-            this.lblWaiting.Name = "lblWaiting";
-            this.lblWaiting.Size = new System.Drawing.Size(53, 13);
-            this.lblWaiting.TabIndex = 2;
-            this.lblWaiting.Text = "lblWaiting";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(6, 48);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Waiting:";
-            // 
-            // lblChild
-            // 
-            this.lblChild.AutoSize = true;
-            this.lblChild.Location = new System.Drawing.Point(218, 32);
-            this.lblChild.Name = "lblChild";
-            this.lblChild.Size = new System.Drawing.Size(40, 13);
-            this.lblChild.TabIndex = 1;
-            this.lblChild.Text = "lblChild";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(166, 32);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Child:";
-            // 
-            // lblClickCount
-            // 
-            this.lblClickCount.AutoSize = true;
-            this.lblClickCount.Location = new System.Drawing.Point(76, 32);
-            this.lblClickCount.Name = "lblClickCount";
-            this.lblClickCount.Size = new System.Drawing.Size(68, 13);
-            this.lblClickCount.TabIndex = 1;
-            this.lblClickCount.Text = "lblClickCount";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 32);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Clicks:";
-            // 
-            // lblContinue
-            // 
-            this.lblContinue.AutoSize = true;
-            this.lblContinue.Location = new System.Drawing.Point(218, 16);
-            this.lblContinue.Name = "lblContinue";
-            this.lblContinue.Size = new System.Drawing.Size(59, 13);
-            this.lblContinue.TabIndex = 0;
-            this.lblContinue.Text = "lblContinue";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(166, 16);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Continue:";
-            // 
-            // lblScreenshots
-            // 
-            this.lblScreenshots.AutoSize = true;
-            this.lblScreenshots.Location = new System.Drawing.Point(76, 16);
-            this.lblScreenshots.Name = "lblScreenshots";
-            this.lblScreenshots.Size = new System.Drawing.Size(76, 13);
-            this.lblScreenshots.TabIndex = 0;
-            this.lblScreenshots.Text = "lblScreenshots";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 16);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Screenshots:";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.lblHomeTotal);
-            this.groupBox2.Controls.Add(this.label21);
-            this.groupBox2.Controls.Add(this.lblWaitingTotal);
-            this.groupBox2.Controls.Add(this.lblContinueTotal);
-            this.groupBox2.Controls.Add(this.label20);
-            this.groupBox2.Controls.Add(this.lblChildTotal);
-            this.groupBox2.Controls.Add(this.lblScreenshotsTotal);
-            this.groupBox2.Controls.Add(this.label19);
-            this.groupBox2.Controls.Add(this.lblClickCountTotal);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Controls.Add(this.label14);
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(344, 73);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Total";
-            // 
-            // lblHomeTotal
-            // 
-            this.lblHomeTotal.AutoSize = true;
-            this.lblHomeTotal.Location = new System.Drawing.Point(217, 49);
-            this.lblHomeTotal.Name = "lblHomeTotal";
-            this.lblHomeTotal.Size = new System.Drawing.Size(69, 13);
-            this.lblHomeTotal.TabIndex = 2;
-            this.lblHomeTotal.Text = "lblHomeTotal";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(161, 48);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(38, 13);
-            this.label21.TabIndex = 2;
-            this.label21.Text = "Home:";
-            // 
-            // lblWaitingTotal
-            // 
-            this.lblWaitingTotal.AutoSize = true;
-            this.lblWaitingTotal.Location = new System.Drawing.Point(71, 48);
-            this.lblWaitingTotal.Name = "lblWaitingTotal";
-            this.lblWaitingTotal.Size = new System.Drawing.Size(77, 13);
-            this.lblWaitingTotal.TabIndex = 2;
-            this.lblWaitingTotal.Text = "lblWaitingTotal";
-            // 
-            // lblContinueTotal
-            // 
-            this.lblContinueTotal.AutoSize = true;
-            this.lblContinueTotal.Location = new System.Drawing.Point(217, 17);
-            this.lblContinueTotal.Name = "lblContinueTotal";
-            this.lblContinueTotal.Size = new System.Drawing.Size(83, 13);
-            this.lblContinueTotal.TabIndex = 0;
-            this.lblContinueTotal.Text = "lblContinueTotal";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(1, 48);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(46, 13);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "Waiting:";
-            // 
-            // lblChildTotal
-            // 
-            this.lblChildTotal.AutoSize = true;
-            this.lblChildTotal.Location = new System.Drawing.Point(217, 33);
-            this.lblChildTotal.Name = "lblChildTotal";
-            this.lblChildTotal.Size = new System.Drawing.Size(64, 13);
-            this.lblChildTotal.TabIndex = 1;
-            this.lblChildTotal.Text = "lblChildTotal";
-            // 
-            // lblScreenshotsTotal
-            // 
-            this.lblScreenshotsTotal.AutoSize = true;
-            this.lblScreenshotsTotal.Location = new System.Drawing.Point(71, 16);
-            this.lblScreenshotsTotal.Name = "lblScreenshotsTotal";
-            this.lblScreenshotsTotal.Size = new System.Drawing.Size(100, 13);
-            this.lblScreenshotsTotal.TabIndex = 0;
-            this.lblScreenshotsTotal.Text = "lblScreenshotsTotal";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(161, 32);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(33, 13);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Child:";
-            // 
-            // lblClickCountTotal
-            // 
-            this.lblClickCountTotal.AutoSize = true;
-            this.lblClickCountTotal.Location = new System.Drawing.Point(71, 32);
-            this.lblClickCountTotal.Name = "lblClickCountTotal";
-            this.lblClickCountTotal.Size = new System.Drawing.Size(92, 13);
-            this.lblClickCountTotal.TabIndex = 1;
-            this.lblClickCountTotal.Text = "lblClickCountTotal";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(1, 32);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(38, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Clicks:";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(1, 16);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Screenshots:";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(161, 16);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(52, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Continue:";
-            // 
-            // splitContainerSeconds
-            // 
-            this.splitContainerSeconds.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainerSeconds.Location = new System.Drawing.Point(114, 83);
-            this.splitContainerSeconds.Name = "splitContainerSeconds";
-            // 
-            // splitContainerSeconds.Panel1
-            // 
-            this.splitContainerSeconds.Panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            // 
-            // splitContainerSeconds.Panel2
-            // 
-            this.splitContainerSeconds.Panel2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.splitContainerSeconds.Size = new System.Drawing.Size(739, 19);
-            this.splitContainerSeconds.SplitterDistance = 118;
-            this.splitContainerSeconds.TabIndex = 0;
-            this.splitContainerSeconds.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainerSeconds_SplitterMoving);
-            // 
-            // appTestStudioStatusControl1
-            // 
-            this.appTestStudioStatusControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.appTestStudioStatusControl1.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("appTestStudioStatusControl1.Items")));
-            this.appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
-            this.appTestStudioStatusControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
-            this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
-            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(856, 422);
-            this.appTestStudioStatusControl1.TabIndex = 0;
-            // 
             // PanelGame
             // 
             this.PanelGame.Controls.Add(this.grpVideo);
@@ -2821,7 +2891,7 @@
             0,
             0});
             this.NumericVideoFrameLimit.Name = "NumericVideoFrameLimit";
-            this.NumericVideoFrameLimit.Size = new System.Drawing.Size(94, 41);
+            this.NumericVideoFrameLimit.Size = new System.Drawing.Size(94, 30);
             this.NumericVideoFrameLimit.TabIndex = 32;
             this.NumericVideoFrameLimit.ValueChanged += new System.EventHandler(this.NumericVideoFrameLimit_ValueChanged);
             // 
@@ -2830,7 +2900,7 @@
             this.chkSaveVideo.AutoSize = true;
             this.chkSaveVideo.Location = new System.Drawing.Point(9, 15);
             this.chkSaveVideo.Name = "chkSaveVideo";
-            this.chkSaveVideo.Size = new System.Drawing.Size(88, 21);
+            this.chkSaveVideo.Size = new System.Drawing.Size(81, 17);
             this.chkSaveVideo.TabIndex = 31;
             this.chkSaveVideo.Text = "Save Video";
             this.chkSaveVideo.UseVisualStyleBackColor = true;
@@ -3025,7 +3095,7 @@
             this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label22.Location = new System.Drawing.Point(3, 0);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(113, 26);
+            this.label22.Size = new System.Drawing.Size(74, 18);
             this.label22.TabIndex = 0;
             this.label22.Text = "App Panel";
             // 
@@ -3057,7 +3127,7 @@
             this.chkEnableSchedule.AutoSize = true;
             this.chkEnableSchedule.Location = new System.Drawing.Point(9, 24);
             this.chkEnableSchedule.Name = "chkEnableSchedule";
-            this.chkEnableSchedule.Size = new System.Drawing.Size(117, 21);
+            this.chkEnableSchedule.Size = new System.Drawing.Size(110, 17);
             this.chkEnableSchedule.TabIndex = 6;
             this.chkEnableSchedule.Text = "Enable Scheduler";
             this.chkEnableSchedule.UseVisualStyleBackColor = true;
@@ -3149,8 +3219,8 @@
             // 
             // colMon
             // 
-            dataGridViewCellStyle96.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colMon.DefaultCellStyle = dataGridViewCellStyle96;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colMon.DefaultCellStyle = dataGridViewCellStyle11;
             this.colMon.HeaderText = "Mon";
             this.colMon.MaxInputLength = 1;
             this.colMon.MinimumWidth = 37;
@@ -3160,8 +3230,8 @@
             // 
             // colTue
             // 
-            dataGridViewCellStyle97.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colTue.DefaultCellStyle = dataGridViewCellStyle97;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colTue.DefaultCellStyle = dataGridViewCellStyle12;
             this.colTue.HeaderText = "Tue";
             this.colTue.MaxInputLength = 1;
             this.colTue.MinimumWidth = 37;
@@ -3171,8 +3241,8 @@
             // 
             // colWed
             // 
-            dataGridViewCellStyle98.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colWed.DefaultCellStyle = dataGridViewCellStyle98;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colWed.DefaultCellStyle = dataGridViewCellStyle13;
             this.colWed.HeaderText = "Wed";
             this.colWed.MaxInputLength = 1;
             this.colWed.MinimumWidth = 37;
@@ -3182,8 +3252,8 @@
             // 
             // colThu
             // 
-            dataGridViewCellStyle99.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colThu.DefaultCellStyle = dataGridViewCellStyle99;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colThu.DefaultCellStyle = dataGridViewCellStyle14;
             this.colThu.HeaderText = "Thu";
             this.colThu.MaxInputLength = 1;
             this.colThu.MinimumWidth = 37;
@@ -3193,8 +3263,8 @@
             // 
             // colFri
             // 
-            dataGridViewCellStyle100.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colFri.DefaultCellStyle = dataGridViewCellStyle100;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colFri.DefaultCellStyle = dataGridViewCellStyle15;
             this.colFri.HeaderText = "Fri";
             this.colFri.MaxInputLength = 1;
             this.colFri.MinimumWidth = 37;
@@ -3204,8 +3274,8 @@
             // 
             // colSat
             // 
-            dataGridViewCellStyle101.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSat.DefaultCellStyle = dataGridViewCellStyle101;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSat.DefaultCellStyle = dataGridViewCellStyle16;
             this.colSat.HeaderText = "Sat";
             this.colSat.MaxInputLength = 1;
             this.colSat.MinimumWidth = 37;
@@ -3215,8 +3285,8 @@
             // 
             // colSun
             // 
-            dataGridViewCellStyle102.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSun.DefaultCellStyle = dataGridViewCellStyle102;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSun.DefaultCellStyle = dataGridViewCellStyle17;
             this.colSun.HeaderText = "Sun";
             this.colSun.MaxInputLength = 1;
             this.colSun.MinimumWidth = 37;
@@ -3248,7 +3318,7 @@
             this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label40.Location = new System.Drawing.Point(3, 2);
             this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(103, 26);
+            this.label40.Size = new System.Drawing.Size(69, 18);
             this.label40.TabIndex = 2;
             this.label40.Text = "Schedule";
             // 
@@ -3266,7 +3336,7 @@
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.Location = new System.Drawing.Point(3, 3);
             this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(145, 26);
+            this.label43.Size = new System.Drawing.Size(98, 18);
             this.label43.TabIndex = 1;
             this.label43.Text = "Panel Games";
             // 
@@ -3284,7 +3354,7 @@
             this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.Location = new System.Drawing.Point(3, 0);
             this.label41.Name = "label41";
-            this.label41.Size = new System.Drawing.Size(146, 26);
+            this.label41.Size = new System.Drawing.Size(98, 18);
             this.label41.TabIndex = 2;
             this.label41.Text = "Actions Panel";
             // 
@@ -3460,7 +3530,7 @@
             this.label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.Location = new System.Drawing.Point(3, 0);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(183, 29);
+            this.label38.Size = new System.Drawing.Size(112, 18);
             this.label38.TabIndex = 0;
             this.label38.Text = "Add New Game";
             // 
@@ -3488,7 +3558,7 @@
             this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label32.Location = new System.Drawing.Point(3, 0);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(96, 29);
+            this.label32.Size = new System.Drawing.Size(59, 18);
             this.label32.TabIndex = 2;
             this.label32.Text = "Objects";
             // 
@@ -3526,7 +3596,7 @@
             this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.Location = new System.Drawing.Point(3, 5);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(85, 29);
+            this.label10.Size = new System.Drawing.Size(53, 18);
             this.label10.TabIndex = 1;
             this.label10.Text = "Events";
             // 
@@ -3618,7 +3688,7 @@
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.Location = new System.Drawing.Point(4, 4);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(134, 29);
+            this.label4.Size = new System.Drawing.Size(85, 18);
             this.label4.TabIndex = 0;
             this.label4.Text = "Workspace";
             // 
@@ -3629,7 +3699,7 @@
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(1382, 135);
+            this.txtLog.Size = new System.Drawing.Size(1424, 167);
             this.txtLog.TabIndex = 0;
             // 
             // mnuPopupGames
@@ -3639,18 +3709,18 @@
             this.mnuGamesAddNewGame,
             this.mnuGamesLoadApp});
             this.mnuPopupGames.Name = "mnuPopupGames";
-            this.mnuPopupGames.Size = new System.Drawing.Size(210, 68);
+            this.mnuPopupGames.Size = new System.Drawing.Size(158, 48);
             // 
             // mnuGamesAddNewGame
             // 
             this.mnuGamesAddNewGame.Name = "mnuGamesAddNewGame";
-            this.mnuGamesAddNewGame.Size = new System.Drawing.Size(209, 32);
+            this.mnuGamesAddNewGame.Size = new System.Drawing.Size(157, 22);
             this.mnuGamesAddNewGame.Text = "Add New Game";
             // 
             // mnuGamesLoadApp
             // 
             this.mnuGamesLoadApp.Name = "mnuGamesLoadApp";
-            this.mnuGamesLoadApp.Size = new System.Drawing.Size(209, 32);
+            this.mnuGamesLoadApp.Size = new System.Drawing.Size(157, 22);
             this.mnuGamesLoadApp.Text = "Load App";
             // 
             // mnuEvents
@@ -3668,13 +3738,13 @@
             this.toolStripSeparator12,
             this.advancedToolStripMenuItem});
             this.mnuEvents.Name = "mnuEvents";
-            this.mnuEvents.Size = new System.Drawing.Size(321, 246);
+            this.mnuEvents.Size = new System.Drawing.Size(235, 232);
             // 
             // mnuAddEvent
             // 
             this.mnuAddEvent.Image = global::AppTestStudio.Properties.Resources.AddEvent;
             this.mnuAddEvent.Name = "mnuAddEvent";
-            this.mnuAddEvent.Size = new System.Drawing.Size(320, 32);
+            this.mnuAddEvent.Size = new System.Drawing.Size(234, 30);
             this.mnuAddEvent.Text = "Add Event";
             this.mnuAddEvent.Click += new System.EventHandler(this.mnuAddEvent_Click);
             // 
@@ -3682,20 +3752,20 @@
             // 
             this.mnuAddAction.Image = global::AppTestStudio.Properties.Resources.AddActionP;
             this.mnuAddAction.Name = "mnuAddAction";
-            this.mnuAddAction.Size = new System.Drawing.Size(320, 32);
+            this.mnuAddAction.Size = new System.Drawing.Size(234, 30);
             this.mnuAddAction.Text = "Add Action";
             this.mnuAddAction.Click += new System.EventHandler(this.mnuAddAction_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(317, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(231, 6);
             // 
             // testToolStripMenuItem
             // 
             this.testToolStripMenuItem.Image = global::AppTestStudio.Properties.Resources.Test;
             this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(320, 32);
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
             this.testToolStripMenuItem.Text = "Test";
             this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
             // 
@@ -3703,20 +3773,20 @@
             // 
             this.mnuTestAllEvents.Image = global::AppTestStudio.Properties.Resources.TestALLP;
             this.mnuTestAllEvents.Name = "mnuTestAllEvents";
-            this.mnuTestAllEvents.Size = new System.Drawing.Size(320, 32);
+            this.mnuTestAllEvents.Size = new System.Drawing.Size(234, 30);
             this.mnuTestAllEvents.Text = "Test All";
             this.mnuTestAllEvents.Click += new System.EventHandler(this.mnuTestAllEvents_Click);
             // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
-            this.toolStripSeparator7.Size = new System.Drawing.Size(317, 6);
+            this.toolStripSeparator7.Size = new System.Drawing.Size(231, 6);
             // 
             // mnuAddRNG
             // 
             this.mnuAddRNG.Image = global::AppTestStudio.Properties.Resources.AddRNGContainerP;
             this.mnuAddRNG.Name = "mnuAddRNG";
-            this.mnuAddRNG.Size = new System.Drawing.Size(320, 32);
+            this.mnuAddRNG.Size = new System.Drawing.Size(234, 30);
             this.mnuAddRNG.Text = "Add Random Number (RNG)";
             this.mnuAddRNG.Click += new System.EventHandler(this.mnuAddRNG_Click);
             // 
@@ -3724,14 +3794,14 @@
             // 
             this.mnuAddRNGNode.Image = global::AppTestStudio.Properties.Resources.AddRNGP;
             this.mnuAddRNGNode.Name = "mnuAddRNGNode";
-            this.mnuAddRNGNode.Size = new System.Drawing.Size(320, 32);
+            this.mnuAddRNGNode.Size = new System.Drawing.Size(234, 30);
             this.mnuAddRNGNode.Text = "Add RNG Node";
             this.mnuAddRNGNode.Click += new System.EventHandler(this.mnuAddRNGNode_Click);
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
-            this.toolStripSeparator12.Size = new System.Drawing.Size(317, 6);
+            this.toolStripSeparator12.Size = new System.Drawing.Size(231, 6);
             // 
             // advancedToolStripMenuItem
             // 
@@ -3739,7 +3809,7 @@
             this.moveToolStripMenuItem,
             this.deleteToolStripMenuItem});
             this.advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(320, 32);
+            this.advancedToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
             this.advancedToolStripMenuItem.Text = "Advanced";
             // 
             // moveToolStripMenuItem
@@ -3748,27 +3818,27 @@
             this.upToolStripMenuItem,
             this.downToolStripMenuItem});
             this.moveToolStripMenuItem.Name = "moveToolStripMenuItem";
-            this.moveToolStripMenuItem.Size = new System.Drawing.Size(164, 34);
+            this.moveToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.moveToolStripMenuItem.Text = "Move";
             // 
             // upToolStripMenuItem
             // 
             this.upToolStripMenuItem.Name = "upToolStripMenuItem";
-            this.upToolStripMenuItem.Size = new System.Drawing.Size(161, 34);
+            this.upToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.upToolStripMenuItem.Text = "Up";
             this.upToolStripMenuItem.Click += new System.EventHandler(this.upToolStripMenuItem_Click);
             // 
             // downToolStripMenuItem
             // 
             this.downToolStripMenuItem.Name = "downToolStripMenuItem";
-            this.downToolStripMenuItem.Size = new System.Drawing.Size(161, 34);
+            this.downToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
             this.downToolStripMenuItem.Text = "Down";
             this.downToolStripMenuItem.Click += new System.EventHandler(this.downToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             this.deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(164, 34);
+            this.deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
             this.deleteToolStripMenuItem.Text = "Delete";
             this.deleteToolStripMenuItem.Click += new System.EventHandler(this.deleteToolStripMenuItem_Click);
             // 
@@ -3778,12 +3848,12 @@
             this.mnuThreadList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuThreadExit});
             this.mnuThreadList.Name = "mnuThreadList";
-            this.mnuThreadList.Size = new System.Drawing.Size(181, 36);
+            this.mnuThreadList.Size = new System.Drawing.Size(138, 26);
             // 
             // mnuThreadExit
             // 
             this.mnuThreadExit.Name = "mnuThreadExit";
-            this.mnuThreadExit.Size = new System.Drawing.Size(180, 32);
+            this.mnuThreadExit.Size = new System.Drawing.Size(137, 22);
             this.mnuThreadExit.Text = "Stop Thread";
             this.mnuThreadExit.Click += new System.EventHandler(this.mnuThreadExit_Click);
             // 
@@ -3794,18 +3864,18 @@
             this.mnuLoadInstance,
             this.mnuLaunchAndLoad});
             this.mnuPopupGame.Name = "mnuPopupGame";
-            this.mnuPopupGame.Size = new System.Drawing.Size(408, 68);
+            this.mnuPopupGame.Size = new System.Drawing.Size(289, 48);
             // 
             // mnuLoadInstance
             // 
             this.mnuLoadInstance.Name = "mnuLoadInstance";
-            this.mnuLoadInstance.Size = new System.Drawing.Size(407, 32);
+            this.mnuLoadInstance.Size = new System.Drawing.Size(288, 22);
             this.mnuLoadInstance.Text = "Run Script";
             // 
             // mnuLaunchAndLoad
             // 
             this.mnuLaunchAndLoad.Name = "mnuLaunchAndLoad";
-            this.mnuLaunchAndLoad.Size = new System.Drawing.Size(407, 32);
+            this.mnuLaunchAndLoad.Size = new System.Drawing.Size(288, 22);
             this.mnuLaunchAndLoad.Text = "Start Emmulator + Run App + Run Script";
             // 
             // mnuObjects
@@ -3815,12 +3885,12 @@
             this.mnuObjects.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mnuAddObject});
             this.mnuObjects.Name = "mnuObjects";
-            this.mnuObjects.Size = new System.Drawing.Size(211, 36);
+            this.mnuObjects.Size = new System.Drawing.Size(158, 26);
             // 
             // mnuAddObject
             // 
             this.mnuAddObject.Name = "mnuAddObject";
-            this.mnuAddObject.Size = new System.Drawing.Size(210, 32);
+            this.mnuAddObject.Size = new System.Drawing.Size(157, 22);
             this.mnuAddObject.Text = "Add Screenshot";
             this.mnuAddObject.Click += new System.EventHandler(this.mnuAddObject_Click);
             // 
@@ -3857,9 +3927,9 @@
             this.toolAddRNG,
             this.toolAddRNGNode,
             this.toolStripButton1});
-            this.appTestStudioToolStrip1.Location = new System.Drawing.Point(0, 31);
+            this.appTestStudioToolStrip1.Location = new System.Drawing.Point(0, 24);
             this.appTestStudioToolStrip1.Name = "appTestStudioToolStrip1";
-            this.appTestStudioToolStrip1.Size = new System.Drawing.Size(1382, 34);
+            this.appTestStudioToolStrip1.Size = new System.Drawing.Size(1424, 31);
             this.appTestStudioToolStrip1.TabIndex = 5;
             this.appTestStudioToolStrip1.Text = "appTestStudioToolStrip1";
             // 
@@ -3868,35 +3938,35 @@
             this.toolAddEvent.Image = global::AppTestStudio.Properties.Resources.AddEvent;
             this.toolAddEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAddEvent.Name = "toolAddEvent";
-            this.toolAddEvent.Size = new System.Drawing.Size(122, 29);
+            this.toolAddEvent.Size = new System.Drawing.Size(89, 28);
             this.toolAddEvent.Text = "Add Event";
             this.toolAddEvent.Click += new System.EventHandler(this.toolAddEvent_Click);
             // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
-            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator9.Size = new System.Drawing.Size(6, 31);
             // 
             // toolAddAction
             // 
             this.toolAddAction.Image = global::AppTestStudio.Properties.Resources.AddActionP;
             this.toolAddAction.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAddAction.Name = "toolAddAction";
-            this.toolAddAction.Size = new System.Drawing.Size(130, 29);
+            this.toolAddAction.Size = new System.Drawing.Size(95, 28);
             this.toolAddAction.Text = "Add Action";
             this.toolAddAction.Click += new System.EventHandler(this.toolAddAction_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
-            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator10.Size = new System.Drawing.Size(6, 31);
             // 
             // toolTest
             // 
             this.toolTest.Image = global::AppTestStudio.Properties.Resources.Test;
             this.toolTest.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolTest.Name = "toolTest";
-            this.toolTest.Size = new System.Drawing.Size(70, 29);
+            this.toolTest.Size = new System.Drawing.Size(55, 28);
             this.toolTest.Text = "Test";
             this.toolTest.Click += new System.EventHandler(this.toolTest_Click);
             // 
@@ -3905,21 +3975,21 @@
             this.toolTestAll.Image = global::AppTestStudio.Properties.Resources.TestALLP;
             this.toolTestAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolTestAll.Name = "toolTestAll";
-            this.toolTestAll.Size = new System.Drawing.Size(95, 29);
+            this.toolTestAll.Size = new System.Drawing.Size(72, 28);
             this.toolTestAll.Text = "Test All";
             this.toolTestAll.Click += new System.EventHandler(this.toolTestAll_Click);
             // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
-            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator11.Size = new System.Drawing.Size(6, 31);
             // 
             // toolAddRNG
             // 
             this.toolAddRNG.Image = global::AppTestStudio.Properties.Resources.AddRNGContainerP;
             this.toolAddRNG.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAddRNG.Name = "toolAddRNG";
-            this.toolAddRNG.Size = new System.Drawing.Size(115, 29);
+            this.toolAddRNG.Size = new System.Drawing.Size(84, 28);
             this.toolAddRNG.Text = "Add RNG";
             this.toolAddRNG.Click += new System.EventHandler(this.toolAddRNG_Click);
             // 
@@ -3928,7 +3998,7 @@
             this.toolAddRNGNode.Image = global::AppTestStudio.Properties.Resources.AddRNGP;
             this.toolAddRNGNode.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolAddRNGNode.Name = "toolAddRNGNode";
-            this.toolAddRNGNode.Size = new System.Drawing.Size(164, 29);
+            this.toolAddRNGNode.Size = new System.Drawing.Size(116, 28);
             this.toolAddRNGNode.Text = "Add RNG Node";
             this.toolAddRNGNode.Click += new System.EventHandler(this.toolAddRNGNode_Click);
             // 
@@ -3938,7 +4008,7 @@
             this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
             this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(34, 29);
+            this.toolStripButton1.Size = new System.Drawing.Size(28, 28);
             this.toolStripButton1.Text = "toolStripButton1";
             this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
@@ -3959,9 +4029,9 @@
             this.toolSchedulerRunning,
             this.toolStripSeparator8,
             this.toolStripLabelCurrentConfiguredInstance});
-            this.toolStripMain.Location = new System.Drawing.Point(0, 65);
+            this.toolStripMain.Location = new System.Drawing.Point(0, 55);
             this.toolStripMain.Name = "toolStripMain";
-            this.toolStripMain.Size = new System.Drawing.Size(1382, 34);
+            this.toolStripMain.Size = new System.Drawing.Size(1424, 31);
             this.toolStripMain.TabIndex = 1;
             this.toolStripMain.Text = "toolStripMain";
             // 
@@ -3970,7 +4040,7 @@
             this.toolStripLoadScript.Image = global::AppTestStudio.Properties.Resources.UploadFile_16x_24;
             this.toolStripLoadScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripLoadScript.Name = "toolStripLoadScript";
-            this.toolStripLoadScript.Size = new System.Drawing.Size(129, 29);
+            this.toolStripLoadScript.Size = new System.Drawing.Size(94, 28);
             this.toolStripLoadScript.Text = "Load Script";
             this.toolStripLoadScript.Click += new System.EventHandler(this.toolStripLoadScript_Click);
             // 
@@ -3979,21 +4049,21 @@
             this.toolStripButtonSaveScript.Image = global::AppTestStudio.Properties.Resources.Save_16x_24;
             this.toolStripButtonSaveScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonSaveScript.Name = "toolStripButtonSaveScript";
-            this.toolStripButtonSaveScript.Size = new System.Drawing.Size(127, 29);
+            this.toolStripButtonSaveScript.Size = new System.Drawing.Size(92, 28);
             this.toolStripButtonSaveScript.Text = "Save Script";
             this.toolStripButtonSaveScript.Click += new System.EventHandler(this.toolStripButtonSaveScript_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripButtonRunScript
             // 
             this.toolStripButtonRunScript.Image = global::AppTestStudio.Properties.Resources.UploadFile_16x_24;
             this.toolStripButtonRunScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRunScript.Name = "toolStripButtonRunScript";
-            this.toolStripButtonRunScript.Size = new System.Drawing.Size(71, 29);
+            this.toolStripButtonRunScript.Size = new System.Drawing.Size(56, 28);
             this.toolStripButtonRunScript.Text = "Run";
             this.toolStripButtonRunScript.ToolTipText = "Run Script";
             this.toolStripButtonRunScript.Click += new System.EventHandler(this.toolStripButtonRunScript_Click);
@@ -4003,7 +4073,7 @@
             this.toolStripButtonRunStartLaunch.Image = global::AppTestStudio.Properties.Resources.ImportCatalogPart_16x_24;
             this.toolStripButtonRunStartLaunch.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonRunStartLaunch.Name = "toolStripButtonRunStartLaunch";
-            this.toolStripButtonRunStartLaunch.Size = new System.Drawing.Size(206, 29);
+            this.toolStripButtonRunStartLaunch.Size = new System.Drawing.Size(147, 28);
             this.toolStripButtonRunStartLaunch.Text = "Run + Start + Launch";
             this.toolStripButtonRunStartLaunch.ToolTipText = "Run Script + Start Emmulator + Launch App";
             this.toolStripButtonRunStartLaunch.Click += new System.EventHandler(this.toolStripButtonRunStartLaunch_Click);
@@ -4013,7 +4083,7 @@
             this.toolStripButtonStartEmmulatorLaunchApp.Image = global::AppTestStudio.Properties.Resources.ImportCatalogPart_16x_24;
             this.toolStripButtonStartEmmulatorLaunchApp.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonStartEmmulatorLaunchApp.Name = "toolStripButtonStartEmmulatorLaunchApp";
-            this.toolStripButtonStartEmmulatorLaunchApp.Size = new System.Drawing.Size(153, 29);
+            this.toolStripButtonStartEmmulatorLaunchApp.Size = new System.Drawing.Size(112, 28);
             this.toolStripButtonStartEmmulatorLaunchApp.Text = "Start + Launch";
             this.toolStripButtonStartEmmulatorLaunchApp.ToolTipText = "Start Emmulator + Launch App";
             this.toolStripButtonStartEmmulatorLaunchApp.Click += new System.EventHandler(this.toolStripButtonStartEmmulatorLaunchApp_Click);
@@ -4023,7 +4093,7 @@
             this.toolStripButtonStartEmmulator.Image = global::AppTestStudio.Properties.Resources.StartEmmulator;
             this.toolStripButtonStartEmmulator.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonStartEmmulator.Name = "toolStripButtonStartEmmulator";
-            this.toolStripButtonStartEmmulator.Size = new System.Drawing.Size(76, 29);
+            this.toolStripButtonStartEmmulator.Size = new System.Drawing.Size(59, 28);
             this.toolStripButtonStartEmmulator.Text = "Start";
             this.toolStripButtonStartEmmulator.ToolTipText = "Start Emmulator";
             this.toolStripButtonStartEmmulator.Click += new System.EventHandler(this.toolStripButtonStartEmmulator_Click);
@@ -4031,7 +4101,7 @@
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripButtonToggleScript
             // 
@@ -4039,78 +4109,66 @@
             this.toolStripButtonToggleScript.Image = global::AppTestStudio.Properties.Resources.Pause_64x_64;
             this.toolStripButtonToggleScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.toolStripButtonToggleScript.Name = "toolStripButtonToggleScript";
-            this.toolStripButtonToggleScript.Size = new System.Drawing.Size(135, 29);
+            this.toolStripButtonToggleScript.Size = new System.Drawing.Size(99, 28);
             this.toolStripButtonToggleScript.Text = "Pause Script";
             this.toolStripButtonToggleScript.Click += new System.EventHandler(this.toolStripButtonToggleScript_Click);
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
             // 
             // toolSchedulerRunning
             // 
             this.toolSchedulerRunning.Name = "toolSchedulerRunning";
-            this.toolSchedulerRunning.Size = new System.Drawing.Size(150, 29);
+            this.toolSchedulerRunning.Size = new System.Drawing.Size(100, 28);
             this.toolSchedulerRunning.Text = "Scheduler Paused";
             // 
             // toolStripSeparator8
             // 
             this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 34);
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 31);
             // 
             // toolStripLabelCurrentConfiguredInstance
             // 
             this.toolStripLabelCurrentConfiguredInstance.Name = "toolStripLabelCurrentConfiguredInstance";
-            this.toolStripLabelCurrentConfiguredInstance.Size = new System.Drawing.Size(333, 25);
+            this.toolStripLabelCurrentConfiguredInstance.Size = new System.Drawing.Size(224, 28);
             this.toolStripLabelCurrentConfiguredInstance.Text = "toolStripLabelCurrentConfiguredInstance";
             // 
-            // SplitContainerSearchTreePatron
+            // tableLayoutPanel1
             // 
-            this.SplitContainerSearchTreePatron.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainerSearchTreePatron.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.SplitContainerSearchTreePatron.IsSplitterFixed = true;
-            this.SplitContainerSearchTreePatron.Location = new System.Drawing.Point(3, 3);
-            this.SplitContainerSearchTreePatron.Name = "SplitContainerSearchTreePatron";
-            this.SplitContainerSearchTreePatron.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // SplitContainerSearchTreePatron.Panel1
-            // 
-            this.SplitContainerSearchTreePatron.Panel1.Controls.Add(this.txtFilter);
-            // 
-            // SplitContainerSearchTreePatron.Panel2
-            // 
-            this.SplitContainerSearchTreePatron.Panel2.Controls.Add(this.splitContainerTreePatron);
-            this.SplitContainerSearchTreePatron.Size = new System.Drawing.Size(232, 491);
-            this.SplitContainerSearchTreePatron.SplitterDistance = 25;
-            this.SplitContainerSearchTreePatron.TabIndex = 0;
-            // 
-            // splitContainerTreePatron
-            // 
-            this.splitContainerTreePatron.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerTreePatron.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainerTreePatron.IsSplitterFixed = true;
-            this.splitContainerTreePatron.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerTreePatron.Name = "splitContainerTreePatron";
-            this.splitContainerTreePatron.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerTreePatron.Panel1
-            // 
-            this.splitContainerTreePatron.Panel1.Controls.Add(this.tv);
-            // 
-            // splitContainerTreePatron.Panel2
-            // 
-            this.splitContainerTreePatron.Panel2.Controls.Add(this.cmdPatron);
-            this.splitContainerTreePatron.Panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.splitContainerTreePatron.Size = new System.Drawing.Size(232, 462);
-            this.splitContainerTreePatron.SplitterDistance = 433;
-            this.splitContainerTreePatron.TabIndex = 0;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label13, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblHomeTotal, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblChildTotal, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblContinueTotal, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label21, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label20, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblWaitingTotal, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblScreenshotsTotal, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label19, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblClickCountTotal, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label14, 2, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(551, 76);
+            this.tableLayoutPanel1.TabIndex = 4;
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1382, 761);
+            this.ClientSize = new System.Drawing.Size(1424, 897);
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.toolStripMain);
             this.Controls.Add(this.appTestStudioToolStrip1);
@@ -4135,7 +4193,32 @@
             this.splitContainerWorkspace.ResumeLayout(false);
             this.tabTree.ResumeLayout(false);
             this.tabDesign.ResumeLayout(false);
+            this.SplitContainerSearchTreePatron.Panel1.ResumeLayout(false);
+            this.SplitContainerSearchTreePatron.Panel1.PerformLayout();
+            this.SplitContainerSearchTreePatron.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerSearchTreePatron)).EndInit();
+            this.SplitContainerSearchTreePatron.ResumeLayout(false);
+            this.splitContainerTreePatron.Panel1.ResumeLayout(false);
+            this.splitContainerTreePatron.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreePatron)).EndInit();
+            this.splitContainerTreePatron.ResumeLayout(false);
             this.tabRun.ResumeLayout(false);
+            this.PanelThread.ResumeLayout(false);
+            this.splitContainerThread.Panel1.ResumeLayout(false);
+            this.splitContainerThread.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).EndInit();
+            this.splitContainerThread.ResumeLayout(false);
+            this.splitContainerStatsNScrollie.Panel1.ResumeLayout(false);
+            this.splitContainerStatsNScrollie.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerStatsNScrollie)).EndInit();
+            this.splitContainerStatsNScrollie.ResumeLayout(false);
+            this.tableLayoutStats.ResumeLayout(false);
+            this.groupTotal.ResumeLayout(false);
+            this.groupSession.ResumeLayout(false);
+            this.tableLayoutPanelSession.ResumeLayout(false);
+            this.tableLayoutPanelSession.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSeconds)).EndInit();
+            this.splitContainerSeconds.ResumeLayout(false);
             this.PanelTestAllEvents.ResumeLayout(false);
             this.SplitContainer6.Panel1.ResumeLayout(false);
             this.SplitContainer6.Panel2.ResumeLayout(false);
@@ -4197,21 +4280,6 @@
             this.Panel5.ResumeLayout(false);
             this.Panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).EndInit();
-            this.PanelThread.ResumeLayout(false);
-            this.splitContainerThread.Panel1.ResumeLayout(false);
-            this.splitContainerThread.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).EndInit();
-            this.splitContainerThread.ResumeLayout(false);
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSeconds)).EndInit();
-            this.splitContainerSeconds.ResumeLayout(false);
             this.PanelGame.ResumeLayout(false);
             this.PanelGame.PerformLayout();
             this.grpVideo.ResumeLayout(false);
@@ -4251,15 +4319,8 @@
             this.appTestStudioToolStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
-            this.SplitContainerSearchTreePatron.Panel1.ResumeLayout(false);
-            this.SplitContainerSearchTreePatron.Panel1.PerformLayout();
-            this.SplitContainerSearchTreePatron.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerSearchTreePatron)).EndInit();
-            this.SplitContainerSearchTreePatron.ResumeLayout(false);
-            this.splitContainerTreePatron.Panel1.ResumeLayout(false);
-            this.splitContainerTreePatron.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreePatron)).EndInit();
-            this.splitContainerTreePatron.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -4305,33 +4366,6 @@
         private System.Windows.Forms.SplitContainer splitContainerThread;
         private AppTestStudioControls.AppTestStudioStatusControl appTestStudioStatusControl1;
         private System.Windows.Forms.SplitContainer splitContainerSeconds;
-        private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.Label lblHome;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label lblWaiting;
-        private System.Windows.Forms.Label lblChild;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label lblClickCount;
-        private System.Windows.Forms.Label lblContinue;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label lblScreenshots;
-        private System.Windows.Forms.Label lblHomeTotal;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.Label lblWaitingTotal;
-        private System.Windows.Forms.Label lblContinueTotal;
-        private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.Label lblChildTotal;
-        private System.Windows.Forms.Label lblScreenshotsTotal;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.Label lblClickCountTotal;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Panel PanelWorkspace;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.LinkLabel lblHowToFixEmmulatorInstancesFound;
@@ -4589,9 +4623,39 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestAllReferenceBlue;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestAllReferenceX;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestAllReferenceY;
-        internal System.Windows.Forms.Panel Panel2;
-        internal System.Windows.Forms.Panel Panel1;
         private System.Windows.Forms.SplitContainer SplitContainerSearchTreePatron;
         private System.Windows.Forms.SplitContainer splitContainerTreePatron;
+        private System.Windows.Forms.SplitContainer splitContainerStatsNScrollie;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutStats;
+        private System.Windows.Forms.GroupBox groupTotal;
+        private System.Windows.Forms.Label lblHomeTotal;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Label lblWaitingTotal;
+        private System.Windows.Forms.Label lblContinueTotal;
+        private System.Windows.Forms.Label label20;
+        private System.Windows.Forms.Label lblChildTotal;
+        private System.Windows.Forms.Label lblScreenshotsTotal;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label lblClickCountTotal;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.GroupBox groupSession;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelSession;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblScreenshots;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblContinue;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblClickCount;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblHome;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblWaiting;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblChild;
+        internal System.Windows.Forms.Panel Panel2;
+        internal System.Windows.Forms.Panel Panel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
     }
 }
