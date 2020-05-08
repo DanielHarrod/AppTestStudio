@@ -1883,17 +1883,16 @@ namespace AppTestStudio
         private void PictureObjectScreenshot_MouseMove(object sender, MouseEventArgs e)
         {
             Debug.WriteLine("PictureObjectScreenshot_MouseMove");
-            Label label = new Label();  // not sure this is necessary
             int x = 1;
             int y = 0;
             Color color = new Color();
-            ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, label, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown, ref PictureObjectScreenshotRectanble);
+            ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown, ref PictureObjectScreenshotRectanble);
             cmdMakeObject.Enabled = IsCreateScreenshotReadyToCreate();
 
         }
 
         // Zoom and Crop/Mask
-        private void ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, Label lblWarning, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown, ref Rectangle rect)
+        private void ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown, ref Rectangle rect)
         {
             if (pb.Image.IsSomething())
             {
@@ -1956,16 +1955,6 @@ namespace AppTestStudio
                 if (TargetY > 20)
                 {
                     TargetY = TargetY - 20;
-                }
-
-
-                if ((Color.R == 255 && Color.G == 255 && Color.B == 255) || (Color.R == 0 && Color.G == 0 && Color.B == 0))
-                {
-                    lblWarning.Visible = true;
-                }
-                else
-                {
-                    lblWarning.Visible = false;
                 }
 
                 Rectangle CropRect = new Rectangle(TargetX, TargetY, 40, 40);
@@ -3178,7 +3167,7 @@ namespace AppTestStudio
         private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-            ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, lblRHSWarning, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.Rectangle);
+            ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.Rectangle);
         }
 
         private void PictureBox1_MouseUp(object sender, MouseEventArgs e)
