@@ -1331,9 +1331,12 @@ namespace AppTestStudio
             GameNodeObjects ObjectsNode = GetObjectsNode();
         Restart:
             foreach (GameNodeObject obj in ObjectsNode.Nodes)
-            {
-                Increment = Increment + 1;
-                goto Restart;
+            {   
+                if (obj.GameNodeName == txt + Increment)
+                {
+                    Increment = Increment + 1;
+                    goto Restart;
+                }
             }
             return txt + Increment.ToString();
         }
@@ -2352,6 +2355,24 @@ namespace AppTestStudio
 
         }
 
+        private void rdoObjectSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                HideShowObjectvsAndOR();
+                GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
+                GameNode.IsColorPoint = rdoColorPoint.Checked;
+
+                if (GameNode.Rectangle.IsEmpty)
+                {
+                    GameNode.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
+                }
+                PictureBox1.Refresh();
+
+                LoadObjectNodeSection();
+            }
+        }
+
         private void rdoColorPoint_CheckedChanged(object sender, EventArgs e)
         {
             if (IsPanelLoading == false)
@@ -2377,24 +2398,6 @@ namespace AppTestStudio
             {
                 grpAndOr.Visible = false;
                 grpObject.Visible = true;
-            }
-        }
-
-        private void rdoObjectSearch_CheckedChanged(object sender, EventArgs e)
-        {
-            if (IsPanelLoading == false)
-            {
-                HideShowObjectvsAndOR();
-                GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
-                GameNode.IsColorPoint = rdoColorPoint.Checked;
-
-                if (GameNode.Rectangle.IsEmpty)
-                {
-                    GameNode.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
-                }
-                PictureBox1.Refresh();
-
-                LoadObjectNodeSection();
             }
         }
 

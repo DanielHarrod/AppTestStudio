@@ -46,14 +46,6 @@
             this.Label3 = new System.Windows.Forms.Label();
             this.Label2 = new System.Windows.Forms.Label();
             this.dgv = new System.Windows.Forms.DataGridView();
-            this.txtResolution = new System.Windows.Forms.TextBox();
-            this.txtResult = new System.Windows.Forms.TextBox();
-            this.SplitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.dgvTest = new System.Windows.Forms.DataGridView();
-            this.cmdClose = new System.Windows.Forms.Button();
-            this.txtLogic = new System.Windows.Forms.TextBox();
-            this.txtLogic2 = new System.Windows.Forms.TextBox();
-            this.txtLogic3 = new System.Windows.Forms.TextBox();
             this.dgvRed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvGreen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvBlue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -62,6 +54,10 @@
             this.dgvReferencePassFail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dvgReferenceRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvReferenceRemove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtResolution = new System.Windows.Forms.TextBox();
+            this.txtResult = new System.Windows.Forms.TextBox();
+            this.SplitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.dgvTest = new System.Windows.Forms.DataGridView();
             this.dgvColorTestRed = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvColorTestGreen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvColorTestBlue = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -69,6 +65,10 @@
             this.dgvYTest = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgvPassFail = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dvgRange = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cmdClose = new System.Windows.Forms.Button();
+            this.txtLogic = new System.Windows.Forms.TextBox();
+            this.txtLogic2 = new System.Windows.Forms.TextBox();
+            this.txtLogic3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxTest)).BeginInit();
             this.PanelTest.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer4)).BeginInit();
@@ -131,7 +131,7 @@
             this.lblTestWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblTestWindow.Location = new System.Drawing.Point(0, 0);
             this.lblTestWindow.Name = "lblTestWindow";
-            this.lblTestWindow.Size = new System.Drawing.Size(183, 33);
+            this.lblTestWindow.Size = new System.Drawing.Size(120, 24);
             this.lblTestWindow.TabIndex = 1;
             this.lblTestWindow.Text = "Test Window";
             // 
@@ -181,7 +181,7 @@
             this.lblReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblReference.Location = new System.Drawing.Point(0, 0);
             this.lblReference.Name = "lblReference";
-            this.lblReference.Size = new System.Drawing.Size(149, 33);
+            this.lblReference.Size = new System.Drawing.Size(98, 24);
             this.lblReference.TabIndex = 0;
             this.lblReference.Text = "Reference";
             // 
@@ -240,7 +240,7 @@
             this.Label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label3.Location = new System.Drawing.Point(4, 0);
             this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(276, 33);
+            this.Label3.Size = new System.Drawing.Size(179, 24);
             this.Label3.TabIndex = 12;
             this.Label3.Text = "Test Window Colors";
             // 
@@ -250,7 +250,7 @@
             this.Label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Label2.Location = new System.Drawing.Point(4, 4);
             this.Label2.Name = "Label2";
-            this.Label2.Size = new System.Drawing.Size(149, 33);
+            this.Label2.Size = new System.Drawing.Size(98, 24);
             this.Label2.TabIndex = 11;
             this.Label2.Text = "Reference";
             // 
@@ -294,6 +294,71 @@
             this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
             this.dgv.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellContentClick);
             // 
+            // dgvRed
+            // 
+            this.dgvRed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvRed.HeaderText = "Red";
+            this.dgvRed.MinimumWidth = 8;
+            this.dgvRed.Name = "dgvRed";
+            this.dgvRed.Width = 52;
+            // 
+            // dgvGreen
+            // 
+            this.dgvGreen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvGreen.HeaderText = "Green";
+            this.dgvGreen.MinimumWidth = 8;
+            this.dgvGreen.Name = "dgvGreen";
+            this.dgvGreen.Width = 61;
+            // 
+            // dgvBlue
+            // 
+            this.dgvBlue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvBlue.HeaderText = "Blue";
+            this.dgvBlue.MinimumWidth = 8;
+            this.dgvBlue.Name = "dgvBlue";
+            this.dgvBlue.Width = 53;
+            // 
+            // dgvX
+            // 
+            this.dgvX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvX.HeaderText = "X";
+            this.dgvX.MinimumWidth = 8;
+            this.dgvX.Name = "dgvX";
+            this.dgvX.Width = 39;
+            // 
+            // dgvY
+            // 
+            this.dgvY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvY.HeaderText = "Y";
+            this.dgvY.MinimumWidth = 8;
+            this.dgvY.Name = "dgvY";
+            this.dgvY.Width = 39;
+            // 
+            // dgvReferencePassFail
+            // 
+            this.dgvReferencePassFail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReferencePassFail.HeaderText = "Status";
+            this.dgvReferencePassFail.MinimumWidth = 8;
+            this.dgvReferencePassFail.Name = "dgvReferencePassFail";
+            this.dgvReferencePassFail.Width = 62;
+            // 
+            // dvgReferenceRange
+            // 
+            this.dvgReferenceRange.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dvgReferenceRange.HeaderText = "Points";
+            this.dvgReferenceRange.MinimumWidth = 8;
+            this.dvgReferenceRange.Name = "dvgReferenceRange";
+            this.dvgReferenceRange.Width = 61;
+            // 
+            // dgvReferenceRemove
+            // 
+            this.dgvReferenceRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvReferenceRemove.HeaderText = "Remove";
+            this.dgvReferenceRemove.MinimumWidth = 8;
+            this.dgvReferenceRemove.Name = "dgvReferenceRemove";
+            this.dgvReferenceRemove.Text = "Remove";
+            this.dgvReferenceRemove.Width = 53;
+            // 
             // txtResolution
             // 
             this.txtResolution.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -301,7 +366,7 @@
             this.txtResolution.Location = new System.Drawing.Point(456, 1);
             this.txtResolution.Name = "txtResolution";
             this.txtResolution.ReadOnly = true;
-            this.txtResolution.Size = new System.Drawing.Size(425, 33);
+            this.txtResolution.Size = new System.Drawing.Size(425, 22);
             this.txtResolution.TabIndex = 41;
             this.txtResolution.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -313,7 +378,7 @@
             this.txtResult.Location = new System.Drawing.Point(18, 1);
             this.txtResult.Name = "txtResult";
             this.txtResult.ReadOnly = true;
-            this.txtResult.Size = new System.Drawing.Size(425, 33);
+            this.txtResult.Size = new System.Drawing.Size(425, 22);
             this.txtResult.TabIndex = 40;
             this.txtResult.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -374,6 +439,62 @@
             this.dgvTest.Size = new System.Drawing.Size(405, 278);
             this.dgvTest.TabIndex = 11;
             // 
+            // dgvColorTestRed
+            // 
+            this.dgvColorTestRed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvColorTestRed.HeaderText = "Red";
+            this.dgvColorTestRed.MinimumWidth = 8;
+            this.dgvColorTestRed.Name = "dgvColorTestRed";
+            this.dgvColorTestRed.Width = 52;
+            // 
+            // dgvColorTestGreen
+            // 
+            this.dgvColorTestGreen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvColorTestGreen.HeaderText = "Green";
+            this.dgvColorTestGreen.MinimumWidth = 8;
+            this.dgvColorTestGreen.Name = "dgvColorTestGreen";
+            this.dgvColorTestGreen.Width = 61;
+            // 
+            // dgvColorTestBlue
+            // 
+            this.dgvColorTestBlue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvColorTestBlue.HeaderText = "Blue";
+            this.dgvColorTestBlue.MinimumWidth = 8;
+            this.dgvColorTestBlue.Name = "dgvColorTestBlue";
+            this.dgvColorTestBlue.Width = 53;
+            // 
+            // dgvXTest
+            // 
+            this.dgvXTest.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvXTest.HeaderText = "X";
+            this.dgvXTest.MinimumWidth = 8;
+            this.dgvXTest.Name = "dgvXTest";
+            this.dgvXTest.Width = 39;
+            // 
+            // dgvYTest
+            // 
+            this.dgvYTest.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvYTest.HeaderText = "Y";
+            this.dgvYTest.MinimumWidth = 8;
+            this.dgvYTest.Name = "dgvYTest";
+            this.dgvYTest.Width = 39;
+            // 
+            // dgvPassFail
+            // 
+            this.dgvPassFail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dgvPassFail.HeaderText = "Status";
+            this.dgvPassFail.MinimumWidth = 8;
+            this.dgvPassFail.Name = "dgvPassFail";
+            this.dgvPassFail.Width = 62;
+            // 
+            // dvgRange
+            // 
+            this.dvgRange.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dvgRange.HeaderText = "Points";
+            this.dvgRange.MinimumWidth = 8;
+            this.dvgRange.Name = "dvgRange";
+            this.dvgRange.Width = 61;
+            // 
             // cmdClose
             // 
             this.cmdClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -393,7 +514,7 @@
             this.txtLogic.Location = new System.Drawing.Point(18, 22);
             this.txtLogic.Name = "txtLogic";
             this.txtLogic.ReadOnly = true;
-            this.txtLogic.Size = new System.Drawing.Size(863, 28);
+            this.txtLogic.Size = new System.Drawing.Size(863, 19);
             this.txtLogic.TabIndex = 41;
             this.txtLogic.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -405,7 +526,7 @@
             this.txtLogic2.Location = new System.Drawing.Point(18, 43);
             this.txtLogic2.Name = "txtLogic2";
             this.txtLogic2.ReadOnly = true;
-            this.txtLogic2.Size = new System.Drawing.Size(863, 28);
+            this.txtLogic2.Size = new System.Drawing.Size(863, 19);
             this.txtLogic2.TabIndex = 41;
             this.txtLogic2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -416,130 +537,9 @@
             this.txtLogic3.Location = new System.Drawing.Point(18, 65);
             this.txtLogic3.Name = "txtLogic3";
             this.txtLogic3.ReadOnly = true;
-            this.txtLogic3.Size = new System.Drawing.Size(863, 28);
+            this.txtLogic3.Size = new System.Drawing.Size(863, 19);
             this.txtLogic3.TabIndex = 41;
             this.txtLogic3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // dgvRed
-            // 
-            this.dgvRed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvRed.HeaderText = "Red";
-            this.dgvRed.MinimumWidth = 8;
-            this.dgvRed.Name = "dgvRed";
-            this.dgvRed.Width = 75;
-            // 
-            // dgvGreen
-            // 
-            this.dgvGreen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvGreen.HeaderText = "Green";
-            this.dgvGreen.MinimumWidth = 8;
-            this.dgvGreen.Name = "dgvGreen";
-            this.dgvGreen.Width = 91;
-            // 
-            // dgvBlue
-            // 
-            this.dgvBlue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvBlue.HeaderText = "Blue";
-            this.dgvBlue.MinimumWidth = 8;
-            this.dgvBlue.Name = "dgvBlue";
-            this.dgvBlue.Width = 79;
-            // 
-            // dgvX
-            // 
-            this.dgvX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvX.HeaderText = "X";
-            this.dgvX.MinimumWidth = 8;
-            this.dgvX.Name = "dgvX";
-            this.dgvX.Width = 56;
-            // 
-            // dgvY
-            // 
-            this.dgvY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvY.HeaderText = "Y";
-            this.dgvY.MinimumWidth = 8;
-            this.dgvY.Name = "dgvY";
-            this.dgvY.Width = 55;
-            // 
-            // dgvReferencePassFail
-            // 
-            this.dgvReferencePassFail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvReferencePassFail.HeaderText = "Status";
-            this.dgvReferencePassFail.MinimumWidth = 8;
-            this.dgvReferencePassFail.Name = "dgvReferencePassFail";
-            this.dgvReferencePassFail.Width = 93;
-            // 
-            // dvgReferenceRange
-            // 
-            this.dvgReferenceRange.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dvgReferenceRange.HeaderText = "Points";
-            this.dvgReferenceRange.MinimumWidth = 8;
-            this.dvgReferenceRange.Name = "dvgReferenceRange";
-            this.dvgReferenceRange.Width = 92;
-            // 
-            // dgvReferenceRemove
-            // 
-            this.dgvReferenceRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvReferenceRemove.HeaderText = "Remove";
-            this.dgvReferenceRemove.MinimumWidth = 8;
-            this.dgvReferenceRemove.Name = "dgvReferenceRemove";
-            this.dgvReferenceRemove.Text = "Remove";
-            this.dgvReferenceRemove.Width = 76;
-            // 
-            // dgvColorTestRed
-            // 
-            this.dgvColorTestRed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvColorTestRed.HeaderText = "Red";
-            this.dgvColorTestRed.MinimumWidth = 8;
-            this.dgvColorTestRed.Name = "dgvColorTestRed";
-            this.dgvColorTestRed.Width = 75;
-            // 
-            // dgvColorTestGreen
-            // 
-            this.dgvColorTestGreen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvColorTestGreen.HeaderText = "Green";
-            this.dgvColorTestGreen.MinimumWidth = 8;
-            this.dgvColorTestGreen.Name = "dgvColorTestGreen";
-            this.dgvColorTestGreen.Width = 91;
-            // 
-            // dgvColorTestBlue
-            // 
-            this.dgvColorTestBlue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvColorTestBlue.HeaderText = "Blue";
-            this.dgvColorTestBlue.MinimumWidth = 8;
-            this.dgvColorTestBlue.Name = "dgvColorTestBlue";
-            this.dgvColorTestBlue.Width = 79;
-            // 
-            // dgvXTest
-            // 
-            this.dgvXTest.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvXTest.HeaderText = "X";
-            this.dgvXTest.MinimumWidth = 8;
-            this.dgvXTest.Name = "dgvXTest";
-            this.dgvXTest.Width = 56;
-            // 
-            // dgvYTest
-            // 
-            this.dgvYTest.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvYTest.HeaderText = "Y";
-            this.dgvYTest.MinimumWidth = 8;
-            this.dgvYTest.Name = "dgvYTest";
-            this.dgvYTest.Width = 55;
-            // 
-            // dgvPassFail
-            // 
-            this.dgvPassFail.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dgvPassFail.HeaderText = "Status";
-            this.dgvPassFail.MinimumWidth = 8;
-            this.dgvPassFail.Name = "dgvPassFail";
-            this.dgvPassFail.Width = 93;
-            // 
-            // dvgRange
-            // 
-            this.dvgRange.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dvgRange.HeaderText = "Points";
-            this.dvgRange.MinimumWidth = 8;
-            this.dvgRange.Name = "dvgRange";
-            this.dvgRange.Width = 92;
             // 
             // frmTest
             // 
