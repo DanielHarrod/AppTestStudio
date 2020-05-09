@@ -19,6 +19,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -88,6 +89,8 @@ namespace AppTestStudio
 
         private Schedule Schedule = new Schedule();
 
+        private int InitialPanelRightColorAtPointerHeight;
+
         public frmMain()
         {
             InitializeComponent();
@@ -101,11 +104,9 @@ namespace AppTestStudio
             ThreadManager.Load();
             InitializeToolbars();
 
-            //'overlap
-            grpObject.Top = grpAndOr.Top;
-
             FirstFormost();
             InitializedInstances();
+            InitialPanelRightColorAtPointerHeight = panelRightColorAtPointer.Height;
 
             Timer1.Enabled = true;
             //'Debug.Assert(false, "Fix")
@@ -152,9 +153,8 @@ namespace AppTestStudio
             appTestStudioStatusControl1.ShowPercent = 120;
 
             // Hide Custom Logic controls
-            txtCustomLogic.Visible = false;
-            cmdValidate.Visible = false;
-
+            panelRightCustomLogic.Visible = false;
+            
         }
 
         private void LoadSchedule()
@@ -684,7 +684,10 @@ namespace AppTestStudio
             dgv.Rows.Clear();
 
             dgv.Visible = false;
-            grpAndOr.Visible = false;
+
+            panelRightLogic.Visible = false;
+            panelRightCustomLogic.Visible = false;
+            panelRightPointGrid.Visible = false;
 
             PictureBox2.Visible = false;
             PanelSelectedColor.Visible = false;
@@ -697,8 +700,6 @@ namespace AppTestStudio
 
             lblRHSColor.Visible = false;
             lblRHSXY.Visible = false;
-            chkAutoBalance.Visible = false;
-
 
             //'if (PanelLoadNode.Nodes.Count = 0 ) {
             //'    cmdDelete.Enabled = true
@@ -804,7 +805,7 @@ namespace AppTestStudio
                 case AppTestStudio.ActionType.Action:
                     grpEventMode.Visible = false;
                     grpMode.Visible = true;
-                    grpObject.Visible = false;
+                    panelRightObject.Visible = false;
                     //'cmdHelpAddAction.Visible = true
 
                     //' cmdHelpAddAction.Visible = true
@@ -904,11 +905,6 @@ namespace AppTestStudio
                     grpEventMode.Visible = false;
                     grpMode.Visible = false;
                     //' cmdHelpAddAction.Visible = false
-
-                    chkAutoBalance.Checked = GameNode.AutoBalance;
-                    //'chkAutoBalance.Visible = true
-                    chkAutoBalance.Visible = true;
-
                     break;
                 default:
                     Debug.Assert(false);
@@ -941,7 +937,7 @@ namespace AppTestStudio
             }
             else
             {
-                grpObjectAction.Visible = false;
+                //grpObjectAction.Visible = false;
                 return;
             }
 
@@ -960,12 +956,12 @@ namespace AppTestStudio
             {
                 if (CurrentParent.IsColorPoint == false)
                 {
-                    grpObjectAction.Visible = true;
+                    //grpObjectAction.Visible = true;
                     return;
                 }
                 else
                 {
-                    grpObjectAction.Visible = false;
+                    //grpObjectAction.Visible = false;
                     return;
                 }
             }
@@ -2372,7 +2368,6 @@ namespace AppTestStudio
 
                 PictureBox1.Refresh();
             }
-
         }
 
         private void HideShowObjectvsAndOR()
@@ -2380,13 +2375,17 @@ namespace AppTestStudio
             GameNodeAction Node = tv.SelectedNode as GameNodeAction;
             if (Node.IsColorPoint)
             {
-                grpAndOr.Visible = true;
-                grpObject.Visible = false;
+                panelRightLogic.Visible = true;
+                panelRightCustomLogic.Visible = true;
+                panelRightPointGrid.Visible = true;
+                panelRightObject.Visible = false;
             }
             else
             {
-                grpAndOr.Visible = false;
-                grpObject.Visible = true;
+                panelRightLogic.Visible = false;
+                panelRightCustomLogic.Visible = false;
+                panelRightPointGrid.Visible = false;
+                panelRightObject.Visible = true;
             }
         }
 
@@ -3993,9 +3992,11 @@ namespace AppTestStudio
             PictureBox1.Refresh();
             if (IsPanelLoading == false)
             {
+                
                 ArchaicSave();
             }
             Utils.SetIcons(PanelLoadNode);
+            panelRightDragMode.Visible = rdoModeClickDragRelease.Checked;
         }
 
         private void rdoModeClickDragRelease_CheckedChanged(object sender, EventArgs e)
@@ -4006,6 +4007,7 @@ namespace AppTestStudio
                 ArchaicSave();
             }
             Utils.SetIcons(PanelLoadNode);
+            panelRightDragMode.Visible = rdoModeClickDragRelease.Checked;
         }
 
         private void mnuAddEvent_Click(object sender, EventArgs e)
@@ -5274,10 +5276,7 @@ namespace AppTestStudio
             if (rdoCustom.Checked)
             {
                 // Make room for Custom Logic
-                txtCustomLogic.Visible = true;
-                cmdValidate.Visible = true;
-                dgv.Top = txtCustomLogic.Top + txtCustomLogic.Height + 2;
-                dgv.Height = dgv.Height - txtCustomLogic.Height - 2;
+                panelRightCustomLogic.Visible = true;
 
                 txtCustomLogic.Text = "";
                 for (int i = 1; i < dgv.Rows.Count; i++)
@@ -5313,10 +5312,7 @@ namespace AppTestStudio
 
         private void HideCustomLogicControls()
         {
-            txtCustomLogic.Visible = false;
-            cmdValidate.Visible = false;
-            dgv.Top = txtCustomLogic.Top;
-            dgv.Height = dgv.Height + txtCustomLogic.Height + 2;
+            panelRightCustomLogic.Visible = false;
         }
 
         private void rdoAnd_CheckedChanged(object sender, EventArgs e)
@@ -5522,5 +5518,26 @@ namespace AppTestStudio
 
         }
 
+        private void cmdColorAtPointer_Click(object sender, EventArgs e)
+        {
+            if (panelRightColorAtPointer.Height == InitialPanelRightColorAtPointerHeight)
+            {
+                panelRightColorAtPointer.Height = cmdColorAtPointerPanel.Height;
+            }
+            else
+            {
+                panelRightColorAtPointer.Height = InitialPanelRightColorAtPointerHeight;
+            }
+        }
+
+        private void label37_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
