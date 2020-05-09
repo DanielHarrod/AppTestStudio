@@ -261,6 +261,8 @@
     <Content Include="Resources\AddEvent.png" />
     <Content Include="Resources\AddRNGContainerP.png" />
     <Content Include="Resources\AddRNGP.png" />
+    <Content Include="Resources\ASX_CollapseChevronDown_grey_16x.png" />
+    <Content Include="Resources\CollapseChevronLeft_16x.png" />
     <Content Include="Resources\Patron.png" />
     <Content Include="Resources\StartEmmulator.bmp" />
     <Content Include="Resources\Test.png" />

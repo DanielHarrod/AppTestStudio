@@ -150,5 +150,15 @@ namespace AppTestStudio
         {
             return 21;
         }
+
+        public static int DownChevron()
+        {
+            return 22;
+        }
+
+        public static int LeftChevron()
+        {
+            return 23;
+        }
     }
 }

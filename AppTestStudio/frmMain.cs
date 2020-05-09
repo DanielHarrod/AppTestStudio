@@ -90,6 +90,15 @@ namespace AppTestStudio
         private Schedule Schedule = new Schedule();
 
         private int InitialPanelRightColorAtPointerHeight;
+        private int InitialPanelRightLimitHeight;
+        private int InitialPanelRightOffsetHeight;
+        private int InitialPanelRightDragModeHeight;
+        private int InitialPanelRightResolutionHeight;
+        private int InitialPanelRightAfterCompletionHeight;
+        private int InitialPanelRightObjectHeight;
+        private int InitialPanelRightLogicHeight;
+        private int InitialPanelRightCustomLogicHeight;
+        private int InitialPanelRightPointGridHeight;
 
         public frmMain()
         {
@@ -107,6 +116,16 @@ namespace AppTestStudio
             FirstFormost();
             InitializedInstances();
             InitialPanelRightColorAtPointerHeight = panelRightColorAtPointer.Height;
+
+            InitialPanelRightLimitHeight = panelRightLimit.Height;
+            InitialPanelRightOffsetHeight = panelRightOffset.Height;
+            InitialPanelRightDragModeHeight = panelRightDragMode.Height;
+            InitialPanelRightResolutionHeight = panelRightResolution.Height;
+            InitialPanelRightAfterCompletionHeight = panelRightAfterCompletion.Height;
+            InitialPanelRightObjectHeight = panelRightObject.Height;
+            InitialPanelRightLogicHeight = panelRightLogic.Height;
+            InitialPanelRightCustomLogicHeight = panelRightCustomLogic.Height;
+            InitialPanelRightPointGridHeight = panelRightCustomLogic.Height;
 
             Timer1.Enabled = true;
             //'Debug.Assert(false, "Fix")
@@ -154,7 +173,7 @@ namespace AppTestStudio
 
             // Hide Custom Logic controls
             panelRightCustomLogic.Visible = false;
-            
+
         }
 
         private void LoadSchedule()
@@ -490,6 +509,9 @@ namespace AppTestStudio
 
                     GameNodeAction Action = e.Node as GameNodeAction;
 
+                    panelRightDragMode.Visible = false;
+                    panelRightOffset.Visible = false;
+
                     switch (Action.ActionType)
                     {
                         case AppTestStudio.ActionType.RNGContainer:
@@ -519,6 +541,17 @@ namespace AppTestStudio
                             toolAddEvent.Enabled = true;
                             toolAddAction.Enabled = true;
                             toolTest.Enabled = true;
+
+                            if ( Action.IsParentObjectSearch())
+                            {
+                                panelRightOffset.Visible = true;
+
+                                if (Action.Mode == Mode.ClickDragRelease)
+                                {
+                                    panelRightDragMode.Visible = true;
+                                }
+                            }
+                            
                             break;
                         default:
                             break;
@@ -1314,7 +1347,7 @@ namespace AppTestStudio
             GameNodeObjects ObjectsNode = GetObjectsNode();
         Restart:
             foreach (GameNodeObject obj in ObjectsNode.Nodes)
-            {   
+            {
                 if (obj.GameNodeName == txt + Increment)
                 {
                     Increment = Increment + 1;
@@ -1604,7 +1637,7 @@ namespace AppTestStudio
                     tn.PrevVisibleNode.EnsureVisible();
             }
             // /Scrolling
-           
+
             Debug.WriteLine("tv_DragOver");
 
             GameNodeAction Action = e.Data.GetData("AppTestStudio.GameNodeAction") as GameNodeAction;
@@ -1647,6 +1680,7 @@ namespace AppTestStudio
                                     e.Effect = DragDropEffects.Move;
                                     break;
                                 case ActionType.RNGContainer:
+                                    e.Effect = DragDropEffects.Move;
                                     e.Effect = DragDropEffects.Move;
                                     break;
                                 default:
@@ -2397,7 +2431,7 @@ namespace AppTestStudio
                 Log("Unable to find Node During test");
                 return;
             }
-            
+
             GameNodeGame game = GameNode as GameNodeGame;
 
             if (ActionNode.ActionType == ActionType.Action)
@@ -2428,8 +2462,8 @@ namespace AppTestStudio
                 {
                     case "Action":
                         Boolean IsObjectSearchParent = ActionNode.IsParentObjectSearch();
-                                           
-                        if (IsObjectSearchParent )
+
+                        if (IsObjectSearchParent)
                         {
 
                             frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, Node.Parent as GameNodeAction);
@@ -3973,7 +4007,7 @@ namespace AppTestStudio
             PictureBox1.Refresh();
             if (IsPanelLoading == false)
             {
-                
+
                 ArchaicSave();
             }
             Utils.SetIcons(PanelLoadNode);
@@ -5503,11 +5537,13 @@ namespace AppTestStudio
         {
             if (panelRightColorAtPointer.Height == InitialPanelRightColorAtPointerHeight)
             {
-                panelRightColorAtPointer.Height = cmdColorAtPointerPanel.Height;
+                panelRightColorAtPointer.Height = cmdRightColorAtPointer.Height;
+                cmdRightColorAtPointer.ImageIndex = IconNames.LeftChevron();
             }
             else
             {
                 panelRightColorAtPointer.Height = InitialPanelRightColorAtPointerHeight;
+                cmdRightColorAtPointer.ImageIndex = IconNames.DownChevron();
             }
         }
 
@@ -5519,6 +5555,94 @@ namespace AppTestStudio
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void cmdRightLimit_Click(object sender, EventArgs e)
+        {
+            if (panelRightLimit.Height == InitialPanelRightLimitHeight)
+            {
+                panelRightLimit.Height = cmdRightLimit.Height;
+                cmdRightLimit.ImageIndex = IconNames.LeftChevron();
+            }
+            else
+            {
+                panelRightLimit.Height = InitialPanelRightLimitHeight;
+                cmdRightLimit.ImageIndex = IconNames.DownChevron();
+            }
+        }
+
+        private void cmdPanelOffset_Click(object sender, EventArgs e)
+        {
+            if (panelRightOffset.Height == InitialPanelRightOffsetHeight)
+            {
+                panelRightOffset.Height = cmdRightOffset.Height;
+                cmdRightOffset.ImageIndex = IconNames.LeftChevron();
+            }
+            else
+            {
+                panelRightOffset.Height = InitialPanelRightOffsetHeight;
+                cmdRightOffset.ImageIndex = IconNames.DownChevron();
+            }
+        }
+
+        private void cmdRightDragMode_Click(object sender, EventArgs e)
+        {
+            if (panelRightDragMode.Height == InitialPanelRightDragModeHeight)
+            {
+                panelRightDragMode.Height = cmdRightDragMode.Height;
+                cmdRightDragMode.ImageIndex = IconNames.LeftChevron();
+            }
+            else
+            {
+                panelRightDragMode.Height = InitialPanelRightDragModeHeight;
+                cmdRightDragMode.ImageIndex = IconNames.DownChevron();
+            }
+        }
+
+        private void cmdRightAfterCompletion_Click(object sender, EventArgs e)
+        {
+            if (panelRightAfterCompletion.Height == InitialPanelRightAfterCompletionHeight)
+            {
+                panelRightAfterCompletion.Height = cmdRightAfterCompletion.Height;
+                cmdRightAfterCompletion.ImageIndex = IconNames.LeftChevron();
+            }
+            else
+            {
+                panelRightAfterCompletion.Height = InitialPanelRightAfterCompletionHeight;
+                cmdRightAfterCompletion.ImageIndex = IconNames.DownChevron();
+            }
+        }
+
+        private void cmdRightObject_Click(object sender, EventArgs e)
+        {
+            if (panelRightObject.Height == InitialPanelRightObjectHeight)
+            {
+                panelRightObject.Height = cmdRightObject.Height;
+                cmdRightObject.ImageIndex = IconNames.LeftChevron();
+            }
+            else
+            {
+                panelRightObject.Height = InitialPanelRightObjectHeight;
+                cmdRightObject.ImageIndex = IconNames.DownChevron();
+            }
+        }
+
+        private void cmdRightLogic_Click(object sender, EventArgs e)
+        {
+            if (panelRightLogic.Height == InitialPanelRightLogicHeight)
+            {
+                panelRightLogic.Height = cmdRightLogic.Height;
+                panelRightCustomLogic.Visible = false;
+                panelRightPointGrid.Visible = false;
+                cmdRightLogic.ImageIndex = IconNames.LeftChevron();
+            }
+            else
+            {
+                panelRightLogic.Height = InitialPanelRightLogicHeight;
+                panelRightCustomLogic.Visible = true;
+                panelRightPointGrid.Visible = true;
+                cmdRightLogic.ImageIndex = IconNames.DownChevron();
+            }
         }
     }
 }
