@@ -476,19 +476,6 @@ namespace AppTestStudio
                     toolAddAction.Enabled = true;
 
                     break;
-                case GameNodeType.Event:
-                    SetPanel(PanelMode.PanelColorEvent);
-                    LoadPanelSingleColorAtSingleLocation(e.Node as GameNodeAction);
-
-                    toolStripButtonSaveScript.Enabled = true;
-                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
-                    toolStripButtonStartEmmulator.Enabled = true;
-
-                    toolStripButtonRunScript.Enabled = true;
-                    toolStripButtonRunStartLaunch.Enabled = true;
-
-                    moveToolStripMenuItem.Enabled = true;
-                    break;
                 case GameNodeType.Action:
                     moveToolStripMenuItem.Enabled = true;
                     toolStripButtonSaveScript.Enabled = true;
@@ -1543,9 +1530,6 @@ namespace AppTestStudio
                             mnuAddAction.Visible = false;
                             mnuEvents.Show(tv, p);
                             break;
-                        case GameNodeType.Event:
-                            mnuEvents.Show(tv, p);
-                            break;
                         case GameNodeType.Action:
                             GameNodeAction Action = node as GameNodeAction;
                             switch (Action.ActionType)
@@ -1670,9 +1654,6 @@ namespace AppTestStudio
                                     break;
                             }
                         }
-                        break;
-                    case GameNodeType.Event:
-                        e.Effect = DragDropEffects.Move;
                         break;
                     case GameNodeType.Action:
                         if (node is GameNodeEvents)

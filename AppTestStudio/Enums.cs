@@ -17,7 +17,7 @@ namespace AppTestStudio
         Games,
         Game,
         Events,
-        Event,
+//        Event, - No longer used Moved to Action
         Action,
         Objects,
         ObjectScreenshot,

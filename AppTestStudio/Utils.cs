@@ -33,10 +33,6 @@ namespace AppTestStudio
                     Node.ImageIndex = IconNames.Home();
                     Node.SelectedImageIndex = IconNames.Home();
                     break;
-                case GameNodeType.Event:
-                    Node.ImageIndex = IconNames.Event();
-                    Node.SelectedImageIndex = IconNames.Event();
-                    break;
                 case GameNodeType.Action:
                     GameNodeAction ActionNode = Node as GameNodeAction;
                     if (ActionNode.IsSomething())
