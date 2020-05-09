@@ -30,23 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -69,15 +69,33 @@
             this.splitContainerTreePatron = new System.Windows.Forms.SplitContainer();
             this.tv = new System.Windows.Forms.TreeView();
             this.ImageList1 = new System.Windows.Forms.ImageList(this.components);
+            this.cmdPatron = new System.Windows.Forms.Button();
             this.tabRun = new System.Windows.Forms.TabPage();
             this.lstThreads = new System.Windows.Forms.ListBox();
             this.tabSchedule = new System.Windows.Forms.TabPage();
             this.PanelColorEvent = new System.Windows.Forms.Panel();
+            this.tableColorEvent = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.cmdTest = new System.Windows.Forms.Button();
+            this.cmdAddObject2 = new System.Windows.Forms.Button();
+            this.grpMode = new System.Windows.Forms.GroupBox();
+            this.rdoModeClickDragRelease = new System.Windows.Forms.RadioButton();
+            this.rdoModeRangeClick = new System.Windows.Forms.RadioButton();
+            this.PanelScreenshot = new System.Windows.Forms.Panel();
+            this.PictureBox1 = new System.Windows.Forms.PictureBox();
+            this.cmdUndoScreenshot = new System.Windows.Forms.LinkLabel();
+            this.label29 = new System.Windows.Forms.Label();
+            this.txtEventName = new System.Windows.Forms.TextBox();
+            this.chkUseParentScreenshot = new System.Windows.Forms.CheckBox();
+            this.grpEventMode = new System.Windows.Forms.GroupBox();
+            this.rdoObjectSearch = new System.Windows.Forms.RadioButton();
+            this.rdoColorPoint = new System.Windows.Forms.RadioButton();
+            this.cmdAddSingleColorAtSingleLocationTakeASceenshot = new System.Windows.Forms.Button();
+            this.lblMode = new System.Windows.Forms.Label();
             this.FlowLayoutPanelColorEvent1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelRightColorAtPointer = new System.Windows.Forms.Panel();
-            this.PanelSelectedColor = new System.Windows.Forms.Panel();
-            this.lblRHSColor = new System.Windows.Forms.Label();
-            this.lblRHSXY = new System.Windows.Forms.Label();
+            this.panelRightResolution = new System.Windows.Forms.Panel();
+            this.lblResolution = new System.Windows.Forms.Label();
+            this.cmdPanelRightResolution = new System.Windows.Forms.Button();
             this.panelRightAfterCompletion = new System.Windows.Forms.Panel();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.lblDelayCalc = new System.Windows.Forms.Label();
@@ -89,10 +107,52 @@
             this.cboDelayS = new System.Windows.Forms.ComboBox();
             this.label28 = new System.Windows.Forms.Label();
             this.cboDelayMS = new System.Windows.Forms.ComboBox();
+            this.cmdRightAfterCompletion = new System.Windows.Forms.Button();
             this.rdoAfterCompletionStop = new System.Windows.Forms.RadioButton();
             this.rdoAfterCompletionContinue = new System.Windows.Forms.RadioButton();
             this.rdoAfterCompletionHome = new System.Windows.Forms.RadioButton();
             this.rdoAfterCompletionParent = new System.Windows.Forms.RadioButton();
+            this.panelRightObject = new System.Windows.Forms.Panel();
+            this.NumericObjectThreshold = new System.Windows.Forms.NumericUpDown();
+            this.cmdRightObject = new System.Windows.Forms.Button();
+            this.Label52 = new System.Windows.Forms.Label();
+            this.cboObject = new System.Windows.Forms.ComboBox();
+            this.cmdMaxMask = new System.Windows.Forms.Button();
+            this.lblSearchObject = new System.Windows.Forms.Label();
+            this.lblMaskSize = new System.Windows.Forms.Label();
+            this.lblColorChannel = new System.Windows.Forms.Label();
+            this.Label51 = new System.Windows.Forms.Label();
+            this.PictureBoxEventObjectSelection = new System.Windows.Forms.PictureBox();
+            this.Label50 = new System.Windows.Forms.Label();
+            this.cboChannel = new System.Windows.Forms.ComboBox();
+            this.panelRightLogic = new System.Windows.Forms.Panel();
+            this.cmdRightLogic = new System.Windows.Forms.Button();
+            this.cboPoints = new System.Windows.Forms.ComboBox();
+            this.rdoCustom = new System.Windows.Forms.RadioButton();
+            this.label31 = new System.Windows.Forms.Label();
+            this.rdoOR = new System.Windows.Forms.RadioButton();
+            this.rdoAnd = new System.Windows.Forms.RadioButton();
+            this.panelRightCustomLogic = new System.Windows.Forms.Panel();
+            this.cmdValidate = new System.Windows.Forms.Button();
+            this.label37 = new System.Windows.Forms.Label();
+            this.txtCustomLogic = new System.Windows.Forms.TextBox();
+            this.panelRightPointGrid = new System.Windows.Forms.Panel();
+            this.dgv = new System.Windows.Forms.DataGridView();
+            this.dgvID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvRed = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvBlue = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvGreen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvX = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvY = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dgvScan = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dgvRemove = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.FlowLayoutPanelColorEvent2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.panelRightColorAtPointer = new System.Windows.Forms.Panel();
+            this.cmdRightColorAtPointer = new System.Windows.Forms.Button();
+            this.PictureBox2 = new System.Windows.Forms.PictureBox();
+            this.PanelSelectedColor = new System.Windows.Forms.Panel();
+            this.lblRHSColor = new System.Windows.Forms.Label();
+            this.lblRHSXY = new System.Windows.Forms.Label();
             this.panelRightLimit = new System.Windows.Forms.Panel();
             this.GroupBox7 = new System.Windows.Forms.GroupBox();
             this.chkLimitRepeats = new System.Windows.Forms.CheckBox();
@@ -101,50 +161,23 @@
             this.lblLimitTimeLabel = new System.Windows.Forms.Label();
             this.lblLimitIterationsLabel = new System.Windows.Forms.Label();
             this.chkWaitFirst = new System.Windows.Forms.CheckBox();
+            this.cmdRightLimit = new System.Windows.Forms.Button();
             this.lblLimitWaitType = new System.Windows.Forms.Label();
-            this.cboWaitType = new System.Windows.Forms.ComboBox();
             this.chkUseLimit = new System.Windows.Forms.CheckBox();
-            this.NumericXOffset = new System.Windows.Forms.NumericUpDown();
-            this.Label48 = new System.Windows.Forms.Label();
-            this.NumericYOffset = new System.Windows.Forms.NumericUpDown();
-            this.lblXOffsetRange = new System.Windows.Forms.Label();
-            this.Label49 = new System.Windows.Forms.Label();
+            this.cboWaitType = new System.Windows.Forms.ComboBox();
+            this.panelRightOffset = new System.Windows.Forms.Panel();
             this.lblYOffsetRange = new System.Windows.Forms.Label();
+            this.lblXOffsetRange = new System.Windows.Forms.Label();
+            this.NumericYOffset = new System.Windows.Forms.NumericUpDown();
+            this.NumericXOffset = new System.Windows.Forms.NumericUpDown();
+            this.Label49 = new System.Windows.Forms.Label();
+            this.Label48 = new System.Windows.Forms.Label();
+            this.cmdRightOffset = new System.Windows.Forms.Button();
+            this.panelRightDragMode = new System.Windows.Forms.Panel();
+            this.cmdRightDragMode = new System.Windows.Forms.Button();
+            this.PictureBox4 = new System.Windows.Forms.PictureBox();
             this.rdoAbsoluteTarget = new System.Windows.Forms.RadioButton();
             this.rdoRelativeTarget = new System.Windows.Forms.RadioButton();
-            this.NumericObjectThreshold = new System.Windows.Forms.NumericUpDown();
-            this.Label52 = new System.Windows.Forms.Label();
-            this.cmdMaxMask = new System.Windows.Forms.Button();
-            this.lblMaskSize = new System.Windows.Forms.Label();
-            this.Label51 = new System.Windows.Forms.Label();
-            this.Label50 = new System.Windows.Forms.Label();
-            this.cboChannel = new System.Windows.Forms.ComboBox();
-            this.cboObject = new System.Windows.Forms.ComboBox();
-            this.lblColorChannel = new System.Windows.Forms.Label();
-            this.lblSearchObject = new System.Windows.Forms.Label();
-            this.cmdValidate = new System.Windows.Forms.Button();
-            this.txtCustomLogic = new System.Windows.Forms.TextBox();
-            this.rdoCustom = new System.Windows.Forms.RadioButton();
-            this.label31 = new System.Windows.Forms.Label();
-            this.cboPoints = new System.Windows.Forms.ComboBox();
-            this.rdoOR = new System.Windows.Forms.RadioButton();
-            this.rdoAnd = new System.Windows.Forms.RadioButton();
-            this.dgv = new System.Windows.Forms.DataGridView();
-            this.grpEventMode = new System.Windows.Forms.GroupBox();
-            this.rdoObjectSearch = new System.Windows.Forms.RadioButton();
-            this.rdoColorPoint = new System.Windows.Forms.RadioButton();
-            this.grpMode = new System.Windows.Forms.GroupBox();
-            this.rdoModeClickDragRelease = new System.Windows.Forms.RadioButton();
-            this.rdoModeRangeClick = new System.Windows.Forms.RadioButton();
-            this.cmdAddObject2 = new System.Windows.Forms.Button();
-            this.PanelScreenshot = new System.Windows.Forms.Panel();
-            this.cmdUndoScreenshot = new System.Windows.Forms.LinkLabel();
-            this.cmdTest = new System.Windows.Forms.Button();
-            this.chkUseParentScreenshot = new System.Windows.Forms.CheckBox();
-            this.lblMode = new System.Windows.Forms.Label();
-            this.txtEventName = new System.Windows.Forms.TextBox();
-            this.label29 = new System.Windows.Forms.Label();
-            this.cmdAddSingleColorAtSingleLocationTakeASceenshot = new System.Windows.Forms.Button();
             this.PanelThread = new System.Windows.Forms.Panel();
             this.splitContainerThread = new System.Windows.Forms.SplitContainer();
             this.splitContainerStatsNScrollie = new System.Windows.Forms.SplitContainer();
@@ -204,14 +237,17 @@
             this.lblReferenceWindowResolution = new System.Windows.Forms.Label();
             this.lblTestWindowResolution = new System.Windows.Forms.Label();
             this.Panel2 = new System.Windows.Forms.Panel();
+            this.PictureTestAllTest = new System.Windows.Forms.PictureBox();
             this.lblTestWindow = new System.Windows.Forms.Label();
             this.lblReference = new System.Windows.Forms.Label();
             this.Panel1 = new System.Windows.Forms.Panel();
+            this.PictureTestAllReference = new System.Windows.Forms.PictureBox();
             this.PanelObject = new System.Windows.Forms.Panel();
             this.cmdDeleteObject = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
             this.txtObjectReferencedBy = new System.Windows.Forms.TextBox();
             this.Panel5 = new System.Windows.Forms.Panel();
+            this.PictureBoxObject = new System.Windows.Forms.PictureBox();
             this.txtObjectName = new System.Windows.Forms.TextBox();
             this.Label47 = new System.Windows.Forms.Label();
             this.Label46 = new System.Windows.Forms.Label();
@@ -270,10 +306,12 @@
             this.panelObjectScreenshotColor = new System.Windows.Forms.Panel();
             this.lblObjectScreenshotColorXY = new System.Windows.Forms.Label();
             this.lblObjectScreenshotRHSXY = new System.Windows.Forms.Label();
+            this.PictureObjectScreenshotZoomBox = new System.Windows.Forms.PictureBox();
             this.txtObjectScreenshotName = new System.Windows.Forms.TextBox();
             this.Label45 = new System.Windows.Forms.Label();
             this.cmdObjectScreenshotsTakeAScreenshot = new System.Windows.Forms.Button();
             this.Panel4 = new System.Windows.Forms.Panel();
+            this.PictureObjectScreenshot = new System.Windows.Forms.PictureBox();
             this.Label44 = new System.Windows.Forms.Label();
             this.PanelAddNewGames = new System.Windows.Forms.Panel();
             this.label39 = new System.Windows.Forms.Label();
@@ -300,8 +338,14 @@
             this.mnuGamesAddNewGame = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuGamesLoadApp = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuEvents = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.mnuAddEvent = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAddAction = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
+            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuTestAllEvents = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator7 = new System.Windows.Forms.ToolStripSeparator();
+            this.mnuAddRNG = new System.Windows.Forms.ToolStripMenuItem();
+            this.mnuAddRNGNode = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator12 = new System.Windows.Forms.ToolStripSeparator();
             this.advancedToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.moveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -320,74 +364,30 @@
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.appTestStudioToolStrip1 = new AppTestStudioControls.AppTestStudioToolStrip();
+            this.toolAddEvent = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolAddAction = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolTest = new System.Windows.Forms.ToolStripButton();
+            this.toolTestAll = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator11 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolAddRNG = new System.Windows.Forms.ToolStripButton();
+            this.toolAddRNGNode = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripMain = new AppTestStudioControls.AppTestStudioToolStrip();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolSchedulerRunning = new System.Windows.Forms.ToolStripLabel();
-            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripLabelCurrentConfiguredInstance = new System.Windows.Forms.ToolStripLabel();
-            this.panelRightOffset = new System.Windows.Forms.Panel();
-            this.panelRightDragMode = new System.Windows.Forms.Panel();
-            this.panelRightObject = new System.Windows.Forms.Panel();
-            this.panelRightLogic = new System.Windows.Forms.Panel();
-            this.panelRightCustomLogic = new System.Windows.Forms.Panel();
-            this.label37 = new System.Windows.Forms.Label();
-            this.tableColorEvent = new System.Windows.Forms.TableLayoutPanel();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.FlowLayoutPanelColorEvent2 = new System.Windows.Forms.FlowLayoutPanel();
-            this.panelRightPointGrid = new System.Windows.Forms.Panel();
-            this.dgvID = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvRed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvBlue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvGreen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvX = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvY = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dgvScan = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.dgvRemove = new System.Windows.Forms.DataGridViewButtonColumn();
-            this.panelRightResolution = new System.Windows.Forms.Panel();
-            this.lblResolution = new System.Windows.Forms.Label();
-            this.cmdPanelRightResolution = new System.Windows.Forms.Button();
-            this.cmdPatron = new System.Windows.Forms.Button();
-            this.PictureBox1 = new System.Windows.Forms.PictureBox();
-            this.cmdRightAfterCompletion = new System.Windows.Forms.Button();
-            this.cmdRightObject = new System.Windows.Forms.Button();
-            this.PictureBoxEventObjectSelection = new System.Windows.Forms.PictureBox();
-            this.cmdRightLogic = new System.Windows.Forms.Button();
-            this.cmdRightColorAtPointer = new System.Windows.Forms.Button();
-            this.PictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cmdRightLimit = new System.Windows.Forms.Button();
-            this.cmdRightOffset = new System.Windows.Forms.Button();
-            this.cmdRightDragMode = new System.Windows.Forms.Button();
-            this.PictureBox4 = new System.Windows.Forms.PictureBox();
-            this.PictureTestAllTest = new System.Windows.Forms.PictureBox();
-            this.PictureTestAllReference = new System.Windows.Forms.PictureBox();
-            this.PictureBoxObject = new System.Windows.Forms.PictureBox();
-            this.PictureObjectScreenshotZoomBox = new System.Windows.Forms.PictureBox();
-            this.PictureObjectScreenshot = new System.Windows.Forms.PictureBox();
             this.toolStripLoadScript = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonSaveScript = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonRunScript = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonRunStartLaunch = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonStartEmmulatorLaunchApp = new System.Windows.Forms.ToolStripButton();
             this.toolStripButtonStartEmmulator = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButtonToggleScript = new System.Windows.Forms.ToolStripButton();
-            this.toolAddEvent = new System.Windows.Forms.ToolStripButton();
-            this.toolAddAction = new System.Windows.Forms.ToolStripButton();
-            this.toolTest = new System.Windows.Forms.ToolStripButton();
-            this.toolTestAll = new System.Windows.Forms.ToolStripButton();
-            this.toolAddRNG = new System.Windows.Forms.ToolStripButton();
-            this.toolAddRNGNode = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.mnuAddEvent = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAddAction = new System.Windows.Forms.ToolStripMenuItem();
-            this.testToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuTestAllEvents = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAddRNG = new System.Windows.Forms.ToolStripMenuItem();
-            this.mnuAddRNGNode = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolSchedulerRunning = new System.Windows.Forms.ToolStripLabel();
+            this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripLabelCurrentConfiguredInstance = new System.Windows.Forms.ToolStripLabel();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -409,21 +409,35 @@
             this.splitContainerTreePatron.SuspendLayout();
             this.tabRun.SuspendLayout();
             this.PanelColorEvent.SuspendLayout();
+            this.tableColorEvent.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.grpMode.SuspendLayout();
+            this.PanelScreenshot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
+            this.grpEventMode.SuspendLayout();
             this.FlowLayoutPanelColorEvent1.SuspendLayout();
-            this.panelRightColorAtPointer.SuspendLayout();
-            this.PanelSelectedColor.SuspendLayout();
+            this.panelRightResolution.SuspendLayout();
             this.panelRightAfterCompletion.SuspendLayout();
             this.groupBox6.SuspendLayout();
+            this.panelRightObject.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEventObjectSelection)).BeginInit();
+            this.panelRightLogic.SuspendLayout();
+            this.panelRightCustomLogic.SuspendLayout();
+            this.panelRightPointGrid.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
+            this.FlowLayoutPanelColorEvent2.SuspendLayout();
+            this.panelRightColorAtPointer.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
+            this.PanelSelectedColor.SuspendLayout();
             this.panelRightLimit.SuspendLayout();
             this.GroupBox7.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numIterations)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericXOffset)).BeginInit();
+            this.panelRightOffset.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericYOffset)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).BeginInit();
-            this.grpEventMode.SuspendLayout();
-            this.grpMode.SuspendLayout();
-            this.PanelScreenshot.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericXOffset)).BeginInit();
+            this.panelRightDragMode.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).BeginInit();
             this.PanelThread.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).BeginInit();
             this.splitContainerThread.Panel1.SuspendLayout();
@@ -452,9 +466,12 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTest)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestAllReference)).BeginInit();
             this.Panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllTest)).BeginInit();
             this.Panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllReference)).BeginInit();
             this.PanelObject.SuspendLayout();
             this.Panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).BeginInit();
             this.PanelGame.SuspendLayout();
             this.grpVideo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericVideoFrameLimit)).BeginInit();
@@ -464,7 +481,9 @@
             this.PanelActions.SuspendLayout();
             this.PanelObjectScreenshot.SuspendLayout();
             this.panelObjectScreenshotColor.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshotZoomBox)).BeginInit();
             this.Panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshot)).BeginInit();
             this.PanelAddNewGames.SuspendLayout();
             this.PanelObjects.SuspendLayout();
             this.PanelEvents.SuspendLayout();
@@ -477,25 +496,6 @@
             this.mnuObjects.SuspendLayout();
             this.appTestStudioToolStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
-            this.panelRightOffset.SuspendLayout();
-            this.panelRightDragMode.SuspendLayout();
-            this.panelRightObject.SuspendLayout();
-            this.panelRightLogic.SuspendLayout();
-            this.panelRightCustomLogic.SuspendLayout();
-            this.tableColorEvent.SuspendLayout();
-            this.panel3.SuspendLayout();
-            this.FlowLayoutPanelColorEvent2.SuspendLayout();
-            this.panelRightPointGrid.SuspendLayout();
-            this.panelRightResolution.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEventObjectSelection)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllTest)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllReference)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshotZoomBox)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshot)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -506,7 +506,6 @@
             this.fileToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(6, 2, 0, 2);
             this.menuStrip1.Size = new System.Drawing.Size(2667, 33);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
@@ -649,7 +648,7 @@
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
             this.splitContainerWorkspace.Size = new System.Drawing.Size(2667, 1153);
-            this.splitContainerWorkspace.SplitterDistance = 472;
+            this.splitContainerWorkspace.SplitterDistance = 471;
             this.splitContainerWorkspace.SplitterWidth = 6;
             this.splitContainerWorkspace.TabIndex = 0;
             // 
@@ -663,7 +662,7 @@
             this.tabTree.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabTree.Name = "tabTree";
             this.tabTree.SelectedIndex = 0;
-            this.tabTree.Size = new System.Drawing.Size(472, 1153);
+            this.tabTree.Size = new System.Drawing.Size(471, 1153);
             this.tabTree.TabIndex = 0;
             this.tabTree.SelectedIndexChanged += new System.EventHandler(this.tabTree_SelectedIndexChanged);
             // 
@@ -674,7 +673,7 @@
             this.tabDesign.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabDesign.Name = "tabDesign";
             this.tabDesign.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabDesign.Size = new System.Drawing.Size(464, 1120);
+            this.tabDesign.Size = new System.Drawing.Size(463, 1120);
             this.tabDesign.TabIndex = 0;
             this.tabDesign.Text = "Design";
             this.tabDesign.UseVisualStyleBackColor = true;
@@ -696,7 +695,7 @@
             // SplitContainerSearchTreePatron.Panel2
             // 
             this.SplitContainerSearchTreePatron.Panel2.Controls.Add(this.splitContainerTreePatron);
-            this.SplitContainerSearchTreePatron.Size = new System.Drawing.Size(456, 1110);
+            this.SplitContainerSearchTreePatron.Size = new System.Drawing.Size(455, 1110);
             this.SplitContainerSearchTreePatron.SplitterDistance = 25;
             this.SplitContainerSearchTreePatron.SplitterWidth = 6;
             this.SplitContainerSearchTreePatron.TabIndex = 0;
@@ -707,7 +706,7 @@
             this.txtFilter.Location = new System.Drawing.Point(0, 0);
             this.txtFilter.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(456, 26);
+            this.txtFilter.Size = new System.Drawing.Size(455, 26);
             this.txtFilter.TabIndex = 0;
             this.txtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
@@ -729,8 +728,8 @@
             // 
             this.splitContainerTreePatron.Panel2.Controls.Add(this.cmdPatron);
             this.splitContainerTreePatron.Panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.splitContainerTreePatron.Size = new System.Drawing.Size(456, 1079);
-            this.splitContainerTreePatron.SplitterDistance = 1048;
+            this.splitContainerTreePatron.Size = new System.Drawing.Size(455, 1079);
+            this.splitContainerTreePatron.SplitterDistance = 1046;
             this.splitContainerTreePatron.SplitterWidth = 6;
             this.splitContainerTreePatron.TabIndex = 0;
             // 
@@ -744,7 +743,7 @@
             this.tv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tv.Name = "tv";
             this.tv.SelectedImageIndex = 0;
-            this.tv.Size = new System.Drawing.Size(456, 1048);
+            this.tv.Size = new System.Drawing.Size(455, 1046);
             this.tv.TabIndex = 0;
             this.tv.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.tv_ItemDrag);
             this.tv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_AfterSelect);
@@ -782,6 +781,21 @@
             this.ImageList1.Images.SetKeyName(22, "ASX_CollapseChevronDown_grey_16x.png");
             this.ImageList1.Images.SetKeyName(23, "CollapseChevronLeft_16x.png");
             // 
+            // cmdPatron
+            // 
+            this.cmdPatron.BackColor = System.Drawing.Color.White;
+            this.cmdPatron.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdPatron.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.cmdPatron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdPatron.Image = global::AppTestStudio.Properties.Resources.Patron;
+            this.cmdPatron.Location = new System.Drawing.Point(0, 0);
+            this.cmdPatron.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdPatron.Name = "cmdPatron";
+            this.cmdPatron.Size = new System.Drawing.Size(455, 27);
+            this.cmdPatron.TabIndex = 0;
+            this.cmdPatron.UseVisualStyleBackColor = false;
+            this.cmdPatron.Click += new System.EventHandler(this.cmdPatron_Click);
+            // 
             // tabRun
             // 
             this.tabRun.Controls.Add(this.lstThreads);
@@ -789,7 +803,7 @@
             this.tabRun.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabRun.Name = "tabRun";
             this.tabRun.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.tabRun.Size = new System.Drawing.Size(464, 1110);
+            this.tabRun.Size = new System.Drawing.Size(463, 1120);
             this.tabRun.TabIndex = 1;
             this.tabRun.Text = "Run";
             this.tabRun.UseVisualStyleBackColor = true;
@@ -802,7 +816,7 @@
             this.lstThreads.Location = new System.Drawing.Point(4, 5);
             this.lstThreads.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.lstThreads.Name = "lstThreads";
-            this.lstThreads.Size = new System.Drawing.Size(456, 1100);
+            this.lstThreads.Size = new System.Drawing.Size(455, 1110);
             this.lstThreads.TabIndex = 0;
             this.lstThreads.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lstThreads_MouseDown);
             // 
@@ -811,7 +825,7 @@
             this.tabSchedule.Location = new System.Drawing.Point(4, 29);
             this.tabSchedule.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tabSchedule.Name = "tabSchedule";
-            this.tabSchedule.Size = new System.Drawing.Size(464, 1110);
+            this.tabSchedule.Size = new System.Drawing.Size(463, 1120);
             this.tabSchedule.TabIndex = 2;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
@@ -824,6 +838,244 @@
             this.PanelColorEvent.Name = "PanelColorEvent";
             this.PanelColorEvent.Size = new System.Drawing.Size(1920, 1070);
             this.PanelColorEvent.TabIndex = 14;
+            // 
+            // tableColorEvent
+            // 
+            this.tableColorEvent.ColumnCount = 3;
+            this.tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 437F));
+            this.tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 437F));
+            this.tableColorEvent.Controls.Add(this.panel3, 0, 0);
+            this.tableColorEvent.Controls.Add(this.FlowLayoutPanelColorEvent1, 1, 0);
+            this.tableColorEvent.Controls.Add(this.FlowLayoutPanelColorEvent2, 2, 0);
+            this.tableColorEvent.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableColorEvent.Location = new System.Drawing.Point(0, 0);
+            this.tableColorEvent.Name = "tableColorEvent";
+            this.tableColorEvent.RowCount = 1;
+            this.tableColorEvent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableColorEvent.Size = new System.Drawing.Size(1920, 1070);
+            this.tableColorEvent.TabIndex = 33;
+            this.tableColorEvent.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.cmdTest);
+            this.panel3.Controls.Add(this.cmdAddObject2);
+            this.panel3.Controls.Add(this.grpMode);
+            this.panel3.Controls.Add(this.PanelScreenshot);
+            this.panel3.Controls.Add(this.cmdUndoScreenshot);
+            this.panel3.Controls.Add(this.label29);
+            this.panel3.Controls.Add(this.txtEventName);
+            this.panel3.Controls.Add(this.chkUseParentScreenshot);
+            this.panel3.Controls.Add(this.grpEventMode);
+            this.panel3.Controls.Add(this.cmdAddSingleColorAtSingleLocationTakeASceenshot);
+            this.panel3.Controls.Add(this.lblMode);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1040, 1064);
+            this.panel3.TabIndex = 0;
+            // 
+            // cmdTest
+            // 
+            this.cmdTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdTest.Location = new System.Drawing.Point(887, 49);
+            this.cmdTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdTest.Name = "cmdTest";
+            this.cmdTest.Size = new System.Drawing.Size(148, 35);
+            this.cmdTest.TabIndex = 16;
+            this.cmdTest.Text = "Test";
+            this.cmdTest.UseVisualStyleBackColor = true;
+            this.cmdTest.Click += new System.EventHandler(this.cmdTest_Click);
+            // 
+            // cmdAddObject2
+            // 
+            this.cmdAddObject2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdAddObject2.Location = new System.Drawing.Point(887, 5);
+            this.cmdAddObject2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdAddObject2.Name = "cmdAddObject2";
+            this.cmdAddObject2.Size = new System.Drawing.Size(148, 35);
+            this.cmdAddObject2.TabIndex = 31;
+            this.cmdAddObject2.Text = "Create Object";
+            this.cmdAddObject2.UseVisualStyleBackColor = true;
+            this.cmdAddObject2.Click += new System.EventHandler(this.cmdAddObject2_Click);
+            // 
+            // grpMode
+            // 
+            this.grpMode.Controls.Add(this.rdoModeClickDragRelease);
+            this.grpMode.Controls.Add(this.rdoModeRangeClick);
+            this.grpMode.Location = new System.Drawing.Point(584, 13);
+            this.grpMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpMode.Name = "grpMode";
+            this.grpMode.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpMode.Size = new System.Drawing.Size(176, 65);
+            this.grpMode.TabIndex = 21;
+            this.grpMode.TabStop = false;
+            this.grpMode.Text = "Mode";
+            // 
+            // rdoModeClickDragRelease
+            // 
+            this.rdoModeClickDragRelease.AutoSize = true;
+            this.rdoModeClickDragRelease.Location = new System.Drawing.Point(84, 23);
+            this.rdoModeClickDragRelease.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdoModeClickDragRelease.Name = "rdoModeClickDragRelease";
+            this.rdoModeClickDragRelease.Size = new System.Drawing.Size(77, 24);
+            this.rdoModeClickDragRelease.TabIndex = 1;
+            this.rdoModeClickDragRelease.Text = "Swipe";
+            this.rdoModeClickDragRelease.UseVisualStyleBackColor = true;
+            this.rdoModeClickDragRelease.CheckedChanged += new System.EventHandler(this.rdoModeClickDragRelease_CheckedChanged);
+            // 
+            // rdoModeRangeClick
+            // 
+            this.rdoModeRangeClick.AutoSize = true;
+            this.rdoModeRangeClick.Checked = true;
+            this.rdoModeRangeClick.Location = new System.Drawing.Point(9, 23);
+            this.rdoModeRangeClick.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdoModeRangeClick.Name = "rdoModeRangeClick";
+            this.rdoModeRangeClick.Size = new System.Drawing.Size(67, 24);
+            this.rdoModeRangeClick.TabIndex = 0;
+            this.rdoModeRangeClick.TabStop = true;
+            this.rdoModeRangeClick.Text = "Click";
+            this.rdoModeRangeClick.UseVisualStyleBackColor = true;
+            this.rdoModeRangeClick.CheckedChanged += new System.EventHandler(this.rdoModeRangeClick_CheckedChanged);
+            // 
+            // PanelScreenshot
+            // 
+            this.PanelScreenshot.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelScreenshot.AutoScroll = true;
+            this.PanelScreenshot.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.PanelScreenshot.Controls.Add(this.PictureBox1);
+            this.PanelScreenshot.Location = new System.Drawing.Point(6, 126);
+            this.PanelScreenshot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PanelScreenshot.Name = "PanelScreenshot";
+            this.PanelScreenshot.Size = new System.Drawing.Size(1029, 936);
+            this.PanelScreenshot.TabIndex = 7;
+            // 
+            // PictureBox1
+            // 
+            this.PictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.PictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.PictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PictureBox1.Name = "PictureBox1";
+            this.PictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureBox1.TabIndex = 0;
+            this.PictureBox1.TabStop = false;
+            this.PictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
+            this.PictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBox1_Paint);
+            this.PictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
+            this.PictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseMove);
+            this.PictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseUp);
+            // 
+            // cmdUndoScreenshot
+            // 
+            this.cmdUndoScreenshot.AutoSize = true;
+            this.cmdUndoScreenshot.Location = new System.Drawing.Point(176, 44);
+            this.cmdUndoScreenshot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.cmdUndoScreenshot.Name = "cmdUndoScreenshot";
+            this.cmdUndoScreenshot.Size = new System.Drawing.Size(134, 20);
+            this.cmdUndoScreenshot.TabIndex = 24;
+            this.cmdUndoScreenshot.TabStop = true;
+            this.cmdUndoScreenshot.Text = "Undo Screenshot";
+            this.cmdUndoScreenshot.Visible = false;
+            this.cmdUndoScreenshot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.cmdUndoScreenshot_LinkClicked);
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(18, 91);
+            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(96, 20);
+            this.label29.TabIndex = 9;
+            this.label29.Text = "Event Name";
+            // 
+            // txtEventName
+            // 
+            this.txtEventName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEventName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtEventName.Location = new System.Drawing.Point(130, 91);
+            this.txtEventName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtEventName.Name = "txtEventName";
+            this.txtEventName.Size = new System.Drawing.Size(905, 26);
+            this.txtEventName.TabIndex = 10;
+            this.txtEventName.TextChanged += new System.EventHandler(this.txtEventName_TextChanged);
+            // 
+            // chkUseParentScreenshot
+            // 
+            this.chkUseParentScreenshot.AutoSize = true;
+            this.chkUseParentScreenshot.Location = new System.Drawing.Point(6, 10);
+            this.chkUseParentScreenshot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkUseParentScreenshot.Name = "chkUseParentScreenshot";
+            this.chkUseParentScreenshot.Size = new System.Drawing.Size(201, 24);
+            this.chkUseParentScreenshot.TabIndex = 15;
+            this.chkUseParentScreenshot.Text = "Use Parent Screenshot";
+            this.chkUseParentScreenshot.UseVisualStyleBackColor = true;
+            this.chkUseParentScreenshot.CheckedChanged += new System.EventHandler(this.chkUseParentScreenshot_CheckedChanged);
+            // 
+            // grpEventMode
+            // 
+            this.grpEventMode.Controls.Add(this.rdoObjectSearch);
+            this.grpEventMode.Controls.Add(this.rdoColorPoint);
+            this.grpEventMode.Location = new System.Drawing.Point(318, 13);
+            this.grpEventMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpEventMode.Name = "grpEventMode";
+            this.grpEventMode.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.grpEventMode.Size = new System.Drawing.Size(258, 66);
+            this.grpEventMode.TabIndex = 28;
+            this.grpEventMode.TabStop = false;
+            this.grpEventMode.Text = "Event Mode";
+            // 
+            // rdoObjectSearch
+            // 
+            this.rdoObjectSearch.AutoSize = true;
+            this.rdoObjectSearch.Location = new System.Drawing.Point(123, 23);
+            this.rdoObjectSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdoObjectSearch.Name = "rdoObjectSearch";
+            this.rdoObjectSearch.Size = new System.Drawing.Size(135, 24);
+            this.rdoObjectSearch.TabIndex = 1;
+            this.rdoObjectSearch.TabStop = true;
+            this.rdoObjectSearch.Text = "Object Search";
+            this.rdoObjectSearch.UseVisualStyleBackColor = true;
+            this.rdoObjectSearch.CheckedChanged += new System.EventHandler(this.rdoObjectSearch_CheckedChanged);
+            // 
+            // rdoColorPoint
+            // 
+            this.rdoColorPoint.AutoSize = true;
+            this.rdoColorPoint.Location = new System.Drawing.Point(15, 23);
+            this.rdoColorPoint.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdoColorPoint.Name = "rdoColorPoint";
+            this.rdoColorPoint.Size = new System.Drawing.Size(111, 24);
+            this.rdoColorPoint.TabIndex = 0;
+            this.rdoColorPoint.TabStop = true;
+            this.rdoColorPoint.Text = "Color/Point";
+            this.rdoColorPoint.UseVisualStyleBackColor = true;
+            this.rdoColorPoint.CheckedChanged += new System.EventHandler(this.rdoColorPoint_CheckedChanged);
+            // 
+            // cmdAddSingleColorAtSingleLocationTakeASceenshot
+            // 
+            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Location = new System.Drawing.Point(6, 36);
+            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Name = "cmdAddSingleColorAtSingleLocationTakeASceenshot";
+            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Size = new System.Drawing.Size(162, 35);
+            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.TabIndex = 6;
+            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Text = "Take a Screenshot";
+            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.UseVisualStyleBackColor = true;
+            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Click += new System.EventHandler(this.cmdAddSingleColorAtSingleLocationTakeASceenshot_Click);
+            // 
+            // lblMode
+            // 
+            this.lblMode.AutoSize = true;
+            this.lblMode.Location = new System.Drawing.Point(230, 12);
+            this.lblMode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMode.Name = "lblMode";
+            this.lblMode.Size = new System.Drawing.Size(64, 20);
+            this.lblMode.TabIndex = 12;
+            this.lblMode.Text = "lblMode";
+            this.lblMode.Visible = false;
             // 
             // FlowLayoutPanelColorEvent1
             // 
@@ -843,49 +1095,44 @@
             this.FlowLayoutPanelColorEvent1.TabIndex = 32;
             this.FlowLayoutPanelColorEvent1.WrapContents = false;
             // 
-            // panelRightColorAtPointer
+            // panelRightResolution
             // 
-            this.panelRightColorAtPointer.Controls.Add(this.cmdRightColorAtPointer);
-            this.panelRightColorAtPointer.Controls.Add(this.PictureBox2);
-            this.panelRightColorAtPointer.Controls.Add(this.PanelSelectedColor);
-            this.panelRightColorAtPointer.Location = new System.Drawing.Point(4, 5);
-            this.panelRightColorAtPointer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.panelRightColorAtPointer.Name = "panelRightColorAtPointer";
-            this.panelRightColorAtPointer.Size = new System.Drawing.Size(394, 336);
-            this.panelRightColorAtPointer.TabIndex = 0;
+            this.panelRightResolution.Controls.Add(this.lblResolution);
+            this.panelRightResolution.Controls.Add(this.cmdPanelRightResolution);
+            this.panelRightResolution.Location = new System.Drawing.Point(3, 3);
+            this.panelRightResolution.Name = "panelRightResolution";
+            this.panelRightResolution.Size = new System.Drawing.Size(395, 34);
+            this.panelRightResolution.TabIndex = 38;
             // 
-            // PanelSelectedColor
+            // lblResolution
             // 
-            this.PanelSelectedColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PanelSelectedColor.Controls.Add(this.lblRHSColor);
-            this.PanelSelectedColor.Controls.Add(this.lblRHSXY);
-            this.PanelSelectedColor.Location = new System.Drawing.Point(71, 280);
-            this.PanelSelectedColor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PanelSelectedColor.Name = "PanelSelectedColor";
-            this.PanelSelectedColor.Size = new System.Drawing.Size(240, 55);
-            this.PanelSelectedColor.TabIndex = 1;
+            this.lblResolution.AutoSize = true;
+            this.lblResolution.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.lblResolution.Location = new System.Drawing.Point(289, 7);
+            this.lblResolution.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblResolution.Name = "lblResolution";
+            this.lblResolution.Size = new System.Drawing.Size(100, 20);
+            this.lblResolution.TabIndex = 1;
+            this.lblResolution.Text = "lblResolution";
+            this.lblResolution.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
-            // lblRHSColor
+            // cmdPanelRightResolution
             // 
-            this.lblRHSColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblRHSColor.AutoSize = true;
-            this.lblRHSColor.Location = new System.Drawing.Point(6, 31);
-            this.lblRHSColor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRHSColor.Name = "lblRHSColor";
-            this.lblRHSColor.Size = new System.Drawing.Size(91, 20);
-            this.lblRHSColor.TabIndex = 2;
-            this.lblRHSColor.Text = "[lblColorXY]";
-            // 
-            // lblRHSXY
-            // 
-            this.lblRHSXY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblRHSXY.AutoSize = true;
-            this.lblRHSXY.Location = new System.Drawing.Point(7, 11);
-            this.lblRHSXY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblRHSXY.Name = "lblRHSXY";
-            this.lblRHSXY.Size = new System.Drawing.Size(89, 20);
-            this.lblRHSXY.TabIndex = 3;
-            this.lblRHSXY.Text = "[lblRHSXY]";
+            this.cmdPanelRightResolution.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.cmdPanelRightResolution.Cursor = System.Windows.Forms.Cursors.Default;
+            this.cmdPanelRightResolution.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cmdPanelRightResolution.FlatAppearance.BorderSize = 0;
+            this.cmdPanelRightResolution.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdPanelRightResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdPanelRightResolution.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.cmdPanelRightResolution.Location = new System.Drawing.Point(0, 0);
+            this.cmdPanelRightResolution.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdPanelRightResolution.Name = "cmdPanelRightResolution";
+            this.cmdPanelRightResolution.Size = new System.Drawing.Size(395, 35);
+            this.cmdPanelRightResolution.TabIndex = 8;
+            this.cmdPanelRightResolution.Text = "Resolution";
+            this.cmdPanelRightResolution.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdPanelRightResolution.UseVisualStyleBackColor = false;
             // 
             // panelRightAfterCompletion
             // 
@@ -1215,6 +1462,29 @@
             this.cboDelayMS.TabIndex = 4;
             this.cboDelayMS.TextChanged += new System.EventHandler(this.cboDelayMS_TextChanged);
             // 
+            // cmdRightAfterCompletion
+            // 
+            this.cmdRightAfterCompletion.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.cmdRightAfterCompletion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdRightAfterCompletion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cmdRightAfterCompletion.FlatAppearance.BorderSize = 0;
+            this.cmdRightAfterCompletion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdRightAfterCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRightAfterCompletion.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.cmdRightAfterCompletion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightAfterCompletion.ImageIndex = 22;
+            this.cmdRightAfterCompletion.ImageList = this.ImageList1;
+            this.cmdRightAfterCompletion.Location = new System.Drawing.Point(0, 0);
+            this.cmdRightAfterCompletion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdRightAfterCompletion.Name = "cmdRightAfterCompletion";
+            this.cmdRightAfterCompletion.Size = new System.Drawing.Size(394, 35);
+            this.cmdRightAfterCompletion.TabIndex = 7;
+            this.cmdRightAfterCompletion.Text = "After Completion";
+            this.cmdRightAfterCompletion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightAfterCompletion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cmdRightAfterCompletion.UseVisualStyleBackColor = false;
+            this.cmdRightAfterCompletion.Click += new System.EventHandler(this.cmdRightAfterCompletion_Click);
+            // 
             // rdoAfterCompletionStop
             // 
             this.rdoAfterCompletionStop.AutoSize = true;
@@ -1266,6 +1536,510 @@
             this.rdoAfterCompletionParent.Text = "Back to Parent";
             this.rdoAfterCompletionParent.UseVisualStyleBackColor = true;
             this.rdoAfterCompletionParent.CheckedChanged += new System.EventHandler(this.rdoAfterCompletionParent_CheckedChanged);
+            // 
+            // panelRightObject
+            // 
+            this.panelRightObject.Controls.Add(this.NumericObjectThreshold);
+            this.panelRightObject.Controls.Add(this.cmdRightObject);
+            this.panelRightObject.Controls.Add(this.Label52);
+            this.panelRightObject.Controls.Add(this.cboObject);
+            this.panelRightObject.Controls.Add(this.cmdMaxMask);
+            this.panelRightObject.Controls.Add(this.lblSearchObject);
+            this.panelRightObject.Controls.Add(this.lblMaskSize);
+            this.panelRightObject.Controls.Add(this.lblColorChannel);
+            this.panelRightObject.Controls.Add(this.Label51);
+            this.panelRightObject.Controls.Add(this.PictureBoxEventObjectSelection);
+            this.panelRightObject.Controls.Add(this.Label50);
+            this.panelRightObject.Controls.Add(this.cboChannel);
+            this.panelRightObject.Location = new System.Drawing.Point(3, 313);
+            this.panelRightObject.Name = "panelRightObject";
+            this.panelRightObject.Size = new System.Drawing.Size(395, 308);
+            this.panelRightObject.TabIndex = 34;
+            // 
+            // NumericObjectThreshold
+            // 
+            this.NumericObjectThreshold.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumericObjectThreshold.Location = new System.Drawing.Point(155, 123);
+            this.NumericObjectThreshold.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NumericObjectThreshold.Name = "NumericObjectThreshold";
+            this.NumericObjectThreshold.Size = new System.Drawing.Size(206, 41);
+            this.NumericObjectThreshold.TabIndex = 10;
+            this.NumericObjectThreshold.ValueChanged += new System.EventHandler(this.NumericObjectThreshold_ValueChanged);
+            // 
+            // cmdRightObject
+            // 
+            this.cmdRightObject.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cmdRightObject.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdRightObject.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cmdRightObject.FlatAppearance.BorderSize = 0;
+            this.cmdRightObject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdRightObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRightObject.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.cmdRightObject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightObject.ImageIndex = 22;
+            this.cmdRightObject.ImageList = this.ImageList1;
+            this.cmdRightObject.Location = new System.Drawing.Point(0, 0);
+            this.cmdRightObject.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdRightObject.Name = "cmdRightObject";
+            this.cmdRightObject.Size = new System.Drawing.Size(395, 34);
+            this.cmdRightObject.TabIndex = 11;
+            this.cmdRightObject.Text = "Object";
+            this.cmdRightObject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightObject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cmdRightObject.UseVisualStyleBackColor = false;
+            this.cmdRightObject.Click += new System.EventHandler(this.cmdRightObject_Click);
+            // 
+            // Label52
+            // 
+            this.Label52.AutoSize = true;
+            this.Label52.Location = new System.Drawing.Point(33, 135);
+            this.Label52.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label52.Name = "Label52";
+            this.Label52.Size = new System.Drawing.Size(79, 20);
+            this.Label52.TabIndex = 9;
+            this.Label52.Text = "Threshold";
+            // 
+            // cboObject
+            // 
+            this.cboObject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboObject.FormattingEnabled = true;
+            this.cboObject.Location = new System.Drawing.Point(155, 46);
+            this.cboObject.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboObject.Name = "cboObject";
+            this.cboObject.Size = new System.Drawing.Size(206, 28);
+            this.cboObject.TabIndex = 0;
+            this.cboObject.SelectedIndexChanged += new System.EventHandler(this.cboObject_SelectedIndexChanged);
+            // 
+            // cmdMaxMask
+            // 
+            this.cmdMaxMask.Location = new System.Drawing.Point(155, 200);
+            this.cmdMaxMask.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdMaxMask.Name = "cmdMaxMask";
+            this.cmdMaxMask.Size = new System.Drawing.Size(203, 35);
+            this.cmdMaxMask.TabIndex = 8;
+            this.cmdMaxMask.Text = "Set Mask to Max";
+            this.cmdMaxMask.UseVisualStyleBackColor = true;
+            this.cmdMaxMask.Click += new System.EventHandler(this.cmdMaxMask_Click);
+            // 
+            // lblSearchObject
+            // 
+            this.lblSearchObject.Location = new System.Drawing.Point(33, 46);
+            this.lblSearchObject.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSearchObject.Name = "lblSearchObject";
+            this.lblSearchObject.Size = new System.Drawing.Size(188, 32);
+            this.lblSearchObject.TabIndex = 2;
+            this.lblSearchObject.Text = "Search Object";
+            // 
+            // lblMaskSize
+            // 
+            this.lblMaskSize.AutoSize = true;
+            this.lblMaskSize.Location = new System.Drawing.Point(151, 177);
+            this.lblMaskSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMaskSize.Name = "lblMaskSize";
+            this.lblMaskSize.Size = new System.Drawing.Size(93, 20);
+            this.lblMaskSize.TabIndex = 7;
+            this.lblMaskSize.Text = "lblMaskSize";
+            // 
+            // lblColorChannel
+            // 
+            this.lblColorChannel.Location = new System.Drawing.Point(33, 89);
+            this.lblColorChannel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblColorChannel.Name = "lblColorChannel";
+            this.lblColorChannel.Size = new System.Drawing.Size(119, 32);
+            this.lblColorChannel.TabIndex = 4;
+            this.lblColorChannel.Text = "Color Channel";
+            // 
+            // Label51
+            // 
+            this.Label51.AutoSize = true;
+            this.Label51.Location = new System.Drawing.Point(33, 177);
+            this.Label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label51.Name = "Label51";
+            this.Label51.Size = new System.Drawing.Size(82, 20);
+            this.Label51.TabIndex = 6;
+            this.Label51.Text = "Mask Size";
+            // 
+            // PictureBoxEventObjectSelection
+            // 
+            this.PictureBoxEventObjectSelection.Location = new System.Drawing.Point(155, 244);
+            this.PictureBoxEventObjectSelection.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PictureBoxEventObjectSelection.Name = "PictureBoxEventObjectSelection";
+            this.PictureBoxEventObjectSelection.Size = new System.Drawing.Size(100, 50);
+            this.PictureBoxEventObjectSelection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureBoxEventObjectSelection.TabIndex = 1;
+            this.PictureBoxEventObjectSelection.TabStop = false;
+            // 
+            // Label50
+            // 
+            this.Label50.AutoSize = true;
+            this.Label50.Location = new System.Drawing.Point(38, 244);
+            this.Label50.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label50.Name = "Label50";
+            this.Label50.Size = new System.Drawing.Size(55, 20);
+            this.Label50.TabIndex = 5;
+            this.Label50.Text = "Object";
+            // 
+            // cboChannel
+            // 
+            this.cboChannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboChannel.FormattingEnabled = true;
+            this.cboChannel.Items.AddRange(new object[] {
+            "Choose a Channel",
+            "Red Channel",
+            "Green Channel",
+            "Blue Channel"});
+            this.cboChannel.Location = new System.Drawing.Point(155, 89);
+            this.cboChannel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboChannel.Name = "cboChannel";
+            this.cboChannel.Size = new System.Drawing.Size(206, 28);
+            this.cboChannel.TabIndex = 3;
+            this.cboChannel.SelectedIndexChanged += new System.EventHandler(this.cboChannel_SelectedIndexChanged);
+            // 
+            // panelRightLogic
+            // 
+            this.panelRightLogic.Controls.Add(this.cmdRightLogic);
+            this.panelRightLogic.Controls.Add(this.cboPoints);
+            this.panelRightLogic.Controls.Add(this.rdoCustom);
+            this.panelRightLogic.Controls.Add(this.label31);
+            this.panelRightLogic.Controls.Add(this.rdoOR);
+            this.panelRightLogic.Controls.Add(this.rdoAnd);
+            this.panelRightLogic.Location = new System.Drawing.Point(3, 627);
+            this.panelRightLogic.Name = "panelRightLogic";
+            this.panelRightLogic.Size = new System.Drawing.Size(395, 109);
+            this.panelRightLogic.TabIndex = 35;
+            // 
+            // cmdRightLogic
+            // 
+            this.cmdRightLogic.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cmdRightLogic.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdRightLogic.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cmdRightLogic.FlatAppearance.BorderSize = 0;
+            this.cmdRightLogic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdRightLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRightLogic.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.cmdRightLogic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightLogic.ImageIndex = 22;
+            this.cmdRightLogic.ImageList = this.ImageList1;
+            this.cmdRightLogic.Location = new System.Drawing.Point(0, 0);
+            this.cmdRightLogic.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdRightLogic.Name = "cmdRightLogic";
+            this.cmdRightLogic.Size = new System.Drawing.Size(395, 34);
+            this.cmdRightLogic.TabIndex = 12;
+            this.cmdRightLogic.Text = "Logic";
+            this.cmdRightLogic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightLogic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cmdRightLogic.UseVisualStyleBackColor = false;
+            this.cmdRightLogic.Click += new System.EventHandler(this.cmdRightLogic_Click);
+            // 
+            // cboPoints
+            // 
+            this.cboPoints.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPoints.FormattingEnabled = true;
+            this.cboPoints.Location = new System.Drawing.Point(296, 72);
+            this.cboPoints.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboPoints.Name = "cboPoints";
+            this.cboPoints.Size = new System.Drawing.Size(91, 28);
+            this.cboPoints.TabIndex = 2;
+            this.cboPoints.TextChanged += new System.EventHandler(this.cboPoints_TextChanged);
+            // 
+            // rdoCustom
+            // 
+            this.rdoCustom.AutoSize = true;
+            this.rdoCustom.Location = new System.Drawing.Point(137, 45);
+            this.rdoCustom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdoCustom.Name = "rdoCustom";
+            this.rdoCustom.Size = new System.Drawing.Size(89, 24);
+            this.rdoCustom.TabIndex = 5;
+            this.rdoCustom.TabStop = true;
+            this.rdoCustom.Text = "Custom";
+            this.rdoCustom.UseVisualStyleBackColor = true;
+            this.rdoCustom.CheckedChanged += new System.EventHandler(this.rdoCustom_CheckedChanged);
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Location = new System.Drawing.Point(296, 45);
+            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(79, 20);
+            this.label31.TabIndex = 3;
+            this.label31.Text = "Points +/-.";
+            // 
+            // rdoOR
+            // 
+            this.rdoOR.AutoSize = true;
+            this.rdoOR.Location = new System.Drawing.Point(77, 45);
+            this.rdoOR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdoOR.Name = "rdoOR";
+            this.rdoOR.Size = new System.Drawing.Size(58, 24);
+            this.rdoOR.TabIndex = 1;
+            this.rdoOR.TabStop = true;
+            this.rdoOR.Text = "OR";
+            this.rdoOR.UseVisualStyleBackColor = true;
+            this.rdoOR.CheckedChanged += new System.EventHandler(this.rdoOR_CheckedChanged);
+            // 
+            // rdoAnd
+            // 
+            this.rdoAnd.AutoSize = true;
+            this.rdoAnd.Location = new System.Drawing.Point(9, 45);
+            this.rdoAnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.rdoAnd.Name = "rdoAnd";
+            this.rdoAnd.Size = new System.Drawing.Size(68, 24);
+            this.rdoAnd.TabIndex = 0;
+            this.rdoAnd.TabStop = true;
+            this.rdoAnd.Text = "AND";
+            this.rdoAnd.UseVisualStyleBackColor = true;
+            this.rdoAnd.CheckedChanged += new System.EventHandler(this.rdoAnd_CheckedChanged);
+            // 
+            // panelRightCustomLogic
+            // 
+            this.panelRightCustomLogic.Controls.Add(this.cmdValidate);
+            this.panelRightCustomLogic.Controls.Add(this.label37);
+            this.panelRightCustomLogic.Controls.Add(this.txtCustomLogic);
+            this.panelRightCustomLogic.Location = new System.Drawing.Point(3, 742);
+            this.panelRightCustomLogic.Name = "panelRightCustomLogic";
+            this.panelRightCustomLogic.Size = new System.Drawing.Size(395, 143);
+            this.panelRightCustomLogic.TabIndex = 36;
+            // 
+            // cmdValidate
+            // 
+            this.cmdValidate.Location = new System.Drawing.Point(302, 2);
+            this.cmdValidate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdValidate.Name = "cmdValidate";
+            this.cmdValidate.Size = new System.Drawing.Size(87, 27);
+            this.cmdValidate.TabIndex = 7;
+            this.cmdValidate.Text = "Validate";
+            this.cmdValidate.UseVisualStyleBackColor = true;
+            this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(9, 9);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(273, 20);
+            this.label37.TabIndex = 7;
+            this.label37.Text = "Custom Logic:  NOT 1 AND ( 2 OR 3 )";
+            this.label37.Click += new System.EventHandler(this.label37_Click);
+            // 
+            // txtCustomLogic
+            // 
+            this.txtCustomLogic.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.txtCustomLogic.Location = new System.Drawing.Point(0, 34);
+            this.txtCustomLogic.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtCustomLogic.Multiline = true;
+            this.txtCustomLogic.Name = "txtCustomLogic";
+            this.txtCustomLogic.Size = new System.Drawing.Size(395, 109);
+            this.txtCustomLogic.TabIndex = 6;
+            this.txtCustomLogic.TextChanged += new System.EventHandler(this.txtCustom_TextChanged);
+            // 
+            // panelRightPointGrid
+            // 
+            this.panelRightPointGrid.Controls.Add(this.dgv);
+            this.panelRightPointGrid.Location = new System.Drawing.Point(3, 891);
+            this.panelRightPointGrid.Name = "panelRightPointGrid";
+            this.panelRightPointGrid.Size = new System.Drawing.Size(396, 237);
+            this.panelRightPointGrid.TabIndex = 37;
+            // 
+            // dgv
+            // 
+            this.dgv.ColumnHeadersHeight = 34;
+            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dgvID,
+            this.dgvRed,
+            this.dgvBlue,
+            this.dgvGreen,
+            this.dgvX,
+            this.dgvY,
+            this.dgvScan,
+            this.dgvRemove});
+            this.dgv.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgv.Location = new System.Drawing.Point(0, 0);
+            this.dgv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.dgv.Name = "dgv";
+            this.dgv.RowHeadersVisible = false;
+            this.dgv.RowHeadersWidth = 62;
+            this.dgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgv.Size = new System.Drawing.Size(396, 237);
+            this.dgv.TabIndex = 4;
+            this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
+            // 
+            // dgvID
+            // 
+            this.dgvID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvID.DefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvID.HeaderText = "ID";
+            this.dgvID.MinimumWidth = 8;
+            this.dgvID.Name = "dgvID";
+            this.dgvID.Width = 28;
+            // 
+            // dgvRed
+            // 
+            this.dgvRed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvRed.HeaderText = "R";
+            this.dgvRed.MinimumWidth = 8;
+            this.dgvRed.Name = "dgvRed";
+            this.dgvRed.Width = 37;
+            // 
+            // dgvBlue
+            // 
+            this.dgvBlue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvBlue.HeaderText = "B";
+            this.dgvBlue.MinimumWidth = 8;
+            this.dgvBlue.Name = "dgvBlue";
+            this.dgvBlue.Width = 37;
+            // 
+            // dgvGreen
+            // 
+            this.dgvGreen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvGreen.HeaderText = "G";
+            this.dgvGreen.MinimumWidth = 8;
+            this.dgvGreen.Name = "dgvGreen";
+            this.dgvGreen.Width = 37;
+            // 
+            // dgvX
+            // 
+            this.dgvX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvX.DefaultCellStyle = dataGridViewCellStyle5;
+            this.dgvX.HeaderText = "X";
+            this.dgvX.MinimumWidth = 8;
+            this.dgvX.Name = "dgvX";
+            this.dgvX.Width = 47;
+            // 
+            // dgvY
+            // 
+            this.dgvY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvY.DefaultCellStyle = dataGridViewCellStyle6;
+            this.dgvY.HeaderText = "Y";
+            this.dgvY.MinimumWidth = 8;
+            this.dgvY.Name = "dgvY";
+            this.dgvY.Width = 47;
+            // 
+            // dgvScan
+            // 
+            this.dgvScan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvScan.HeaderText = "Scan";
+            this.dgvScan.MinimumWidth = 8;
+            this.dgvScan.Name = "dgvScan";
+            this.dgvScan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvScan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.dgvScan.ToolTipText = "Scan and Add Additional Colors from location, from Current Target Window";
+            this.dgvScan.Width = 50;
+            // 
+            // dgvRemove
+            // 
+            this.dgvRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dgvRemove.HeaderText = "Remove?";
+            this.dgvRemove.MinimumWidth = 8;
+            this.dgvRemove.Name = "dgvRemove";
+            this.dgvRemove.Text = "Remove";
+            this.dgvRemove.Width = 70;
+            // 
+            // FlowLayoutPanelColorEvent2
+            // 
+            this.FlowLayoutPanelColorEvent2.AutoScroll = true;
+            this.FlowLayoutPanelColorEvent2.Controls.Add(this.panelRightColorAtPointer);
+            this.FlowLayoutPanelColorEvent2.Controls.Add(this.panelRightLimit);
+            this.FlowLayoutPanelColorEvent2.Controls.Add(this.panelRightOffset);
+            this.FlowLayoutPanelColorEvent2.Controls.Add(this.panelRightDragMode);
+            this.FlowLayoutPanelColorEvent2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.FlowLayoutPanelColorEvent2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.FlowLayoutPanelColorEvent2.Location = new System.Drawing.Point(1486, 3);
+            this.FlowLayoutPanelColorEvent2.Name = "FlowLayoutPanelColorEvent2";
+            this.FlowLayoutPanelColorEvent2.Size = new System.Drawing.Size(431, 1064);
+            this.FlowLayoutPanelColorEvent2.TabIndex = 33;
+            this.FlowLayoutPanelColorEvent2.WrapContents = false;
+            // 
+            // panelRightColorAtPointer
+            // 
+            this.panelRightColorAtPointer.Controls.Add(this.cmdRightColorAtPointer);
+            this.panelRightColorAtPointer.Controls.Add(this.PictureBox2);
+            this.panelRightColorAtPointer.Controls.Add(this.PanelSelectedColor);
+            this.panelRightColorAtPointer.Location = new System.Drawing.Point(4, 5);
+            this.panelRightColorAtPointer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.panelRightColorAtPointer.Name = "panelRightColorAtPointer";
+            this.panelRightColorAtPointer.Size = new System.Drawing.Size(394, 336);
+            this.panelRightColorAtPointer.TabIndex = 0;
+            // 
+            // cmdRightColorAtPointer
+            // 
+            this.cmdRightColorAtPointer.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cmdRightColorAtPointer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdRightColorAtPointer.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cmdRightColorAtPointer.FlatAppearance.BorderSize = 0;
+            this.cmdRightColorAtPointer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdRightColorAtPointer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRightColorAtPointer.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.cmdRightColorAtPointer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightColorAtPointer.ImageIndex = 22;
+            this.cmdRightColorAtPointer.ImageList = this.ImageList1;
+            this.cmdRightColorAtPointer.Location = new System.Drawing.Point(0, 0);
+            this.cmdRightColorAtPointer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdRightColorAtPointer.Name = "cmdRightColorAtPointer";
+            this.cmdRightColorAtPointer.Size = new System.Drawing.Size(394, 35);
+            this.cmdRightColorAtPointer.TabIndex = 0;
+            this.cmdRightColorAtPointer.Text = "Color At Pointer";
+            this.cmdRightColorAtPointer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightColorAtPointer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cmdRightColorAtPointer.UseVisualStyleBackColor = false;
+            this.cmdRightColorAtPointer.Click += new System.EventHandler(this.cmdColorAtPointer_Click);
+            // 
+            // PictureBox2
+            // 
+            this.PictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox2.Image")));
+            this.PictureBox2.Location = new System.Drawing.Point(71, 35);
+            this.PictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PictureBox2.Name = "PictureBox2";
+            this.PictureBox2.Size = new System.Drawing.Size(240, 246);
+            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox2.TabIndex = 0;
+            this.PictureBox2.TabStop = false;
+            // 
+            // PanelSelectedColor
+            // 
+            this.PanelSelectedColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PanelSelectedColor.Controls.Add(this.lblRHSColor);
+            this.PanelSelectedColor.Controls.Add(this.lblRHSXY);
+            this.PanelSelectedColor.Location = new System.Drawing.Point(71, 280);
+            this.PanelSelectedColor.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PanelSelectedColor.Name = "PanelSelectedColor";
+            this.PanelSelectedColor.Size = new System.Drawing.Size(240, 55);
+            this.PanelSelectedColor.TabIndex = 1;
+            // 
+            // lblRHSColor
+            // 
+            this.lblRHSColor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRHSColor.AutoSize = true;
+            this.lblRHSColor.Location = new System.Drawing.Point(6, 31);
+            this.lblRHSColor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRHSColor.Name = "lblRHSColor";
+            this.lblRHSColor.Size = new System.Drawing.Size(91, 20);
+            this.lblRHSColor.TabIndex = 2;
+            this.lblRHSColor.Text = "[lblColorXY]";
+            // 
+            // lblRHSXY
+            // 
+            this.lblRHSXY.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblRHSXY.AutoSize = true;
+            this.lblRHSXY.Location = new System.Drawing.Point(7, 11);
+            this.lblRHSXY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblRHSXY.Name = "lblRHSXY";
+            this.lblRHSXY.Size = new System.Drawing.Size(89, 20);
+            this.lblRHSXY.TabIndex = 3;
+            this.lblRHSXY.Text = "[lblRHSXY]";
             // 
             // panelRightLimit
             // 
@@ -1361,6 +2135,29 @@
             this.chkWaitFirst.UseVisualStyleBackColor = true;
             this.chkWaitFirst.CheckedChanged += new System.EventHandler(this.chkWaitFirst_CheckedChanged);
             // 
+            // cmdRightLimit
+            // 
+            this.cmdRightLimit.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cmdRightLimit.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdRightLimit.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cmdRightLimit.FlatAppearance.BorderSize = 0;
+            this.cmdRightLimit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdRightLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRightLimit.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.cmdRightLimit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightLimit.ImageIndex = 22;
+            this.cmdRightLimit.ImageList = this.ImageList1;
+            this.cmdRightLimit.Location = new System.Drawing.Point(0, 0);
+            this.cmdRightLimit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdRightLimit.Name = "cmdRightLimit";
+            this.cmdRightLimit.Size = new System.Drawing.Size(394, 34);
+            this.cmdRightLimit.TabIndex = 8;
+            this.cmdRightLimit.Text = "Limit";
+            this.cmdRightLimit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightLimit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cmdRightLimit.UseVisualStyleBackColor = false;
+            this.cmdRightLimit.Click += new System.EventHandler(this.cmdRightLimit_Click);
+            // 
             // lblLimitWaitType
             // 
             this.lblLimitWaitType.AutoSize = true;
@@ -1370,6 +2167,18 @@
             this.lblLimitWaitType.Size = new System.Drawing.Size(80, 20);
             this.lblLimitWaitType.TabIndex = 29;
             this.lblLimitWaitType.Text = "Limit Type";
+            // 
+            // chkUseLimit
+            // 
+            this.chkUseLimit.AutoSize = true;
+            this.chkUseLimit.Location = new System.Drawing.Point(17, 47);
+            this.chkUseLimit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.chkUseLimit.Name = "chkUseLimit";
+            this.chkUseLimit.Size = new System.Drawing.Size(130, 24);
+            this.chkUseLimit.TabIndex = 3;
+            this.chkUseLimit.Text = "Enable Limits";
+            this.chkUseLimit.UseVisualStyleBackColor = true;
+            this.chkUseLimit.CheckedChanged += new System.EventHandler(this.chkUseLimit_CheckedChanged);
             // 
             // cboWaitType
             // 
@@ -1386,47 +2195,29 @@
             this.cboWaitType.TabIndex = 28;
             this.cboWaitType.SelectedIndexChanged += new System.EventHandler(this.cboWaitType_SelectedIndexChanged);
             // 
-            // chkUseLimit
+            // panelRightOffset
             // 
-            this.chkUseLimit.AutoSize = true;
-            this.chkUseLimit.Location = new System.Drawing.Point(17, 47);
-            this.chkUseLimit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.chkUseLimit.Name = "chkUseLimit";
-            this.chkUseLimit.Size = new System.Drawing.Size(130, 24);
-            this.chkUseLimit.TabIndex = 3;
-            this.chkUseLimit.Text = "Enable Limits";
-            this.chkUseLimit.UseVisualStyleBackColor = true;
-            this.chkUseLimit.CheckedChanged += new System.EventHandler(this.chkUseLimit_CheckedChanged);
+            this.panelRightOffset.Controls.Add(this.lblYOffsetRange);
+            this.panelRightOffset.Controls.Add(this.lblXOffsetRange);
+            this.panelRightOffset.Controls.Add(this.NumericYOffset);
+            this.panelRightOffset.Controls.Add(this.NumericXOffset);
+            this.panelRightOffset.Controls.Add(this.Label49);
+            this.panelRightOffset.Controls.Add(this.Label48);
+            this.panelRightOffset.Controls.Add(this.cmdRightOffset);
+            this.panelRightOffset.Location = new System.Drawing.Point(3, 542);
+            this.panelRightOffset.Name = "panelRightOffset";
+            this.panelRightOffset.Size = new System.Drawing.Size(395, 129);
+            this.panelRightOffset.TabIndex = 32;
             // 
-            // NumericXOffset
+            // lblYOffsetRange
             // 
-            this.NumericXOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumericXOffset.Location = new System.Drawing.Point(72, 44);
-            this.NumericXOffset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.NumericXOffset.Name = "NumericXOffset";
-            this.NumericXOffset.Size = new System.Drawing.Size(95, 41);
-            this.NumericXOffset.TabIndex = 8;
-            this.NumericXOffset.ValueChanged += new System.EventHandler(this.NumericXOffset_ValueChanged);
-            // 
-            // Label48
-            // 
-            this.Label48.AutoSize = true;
-            this.Label48.Location = new System.Drawing.Point(5, 54);
-            this.Label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label48.Name = "Label48";
-            this.Label48.Size = new System.Drawing.Size(68, 20);
-            this.Label48.TabIndex = 7;
-            this.Label48.Text = "X Offset";
-            // 
-            // NumericYOffset
-            // 
-            this.NumericYOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumericYOffset.Location = new System.Drawing.Point(269, 44);
-            this.NumericYOffset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.NumericYOffset.Name = "NumericYOffset";
-            this.NumericYOffset.Size = new System.Drawing.Size(98, 41);
-            this.NumericYOffset.TabIndex = 8;
-            this.NumericYOffset.ValueChanged += new System.EventHandler(this.NumericYOffset_ValueChanged);
+            this.lblYOffsetRange.Location = new System.Drawing.Point(229, 92);
+            this.lblYOffsetRange.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblYOffsetRange.Name = "lblYOffsetRange";
+            this.lblYOffsetRange.Size = new System.Drawing.Size(117, 29);
+            this.lblYOffsetRange.TabIndex = 9;
+            this.lblYOffsetRange.Text = "lblYOffsetRange";
+            this.lblYOffsetRange.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblXOffsetRange
             // 
@@ -1438,6 +2229,26 @@
             this.lblXOffsetRange.Text = "lblXOffsetRange";
             this.lblXOffsetRange.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // NumericYOffset
+            // 
+            this.NumericYOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumericYOffset.Location = new System.Drawing.Point(269, 44);
+            this.NumericYOffset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NumericYOffset.Name = "NumericYOffset";
+            this.NumericYOffset.Size = new System.Drawing.Size(98, 41);
+            this.NumericYOffset.TabIndex = 8;
+            this.NumericYOffset.ValueChanged += new System.EventHandler(this.NumericYOffset_ValueChanged);
+            // 
+            // NumericXOffset
+            // 
+            this.NumericXOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumericXOffset.Location = new System.Drawing.Point(72, 44);
+            this.NumericXOffset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.NumericXOffset.Name = "NumericXOffset";
+            this.NumericXOffset.Size = new System.Drawing.Size(95, 41);
+            this.NumericXOffset.TabIndex = 8;
+            this.NumericXOffset.ValueChanged += new System.EventHandler(this.NumericXOffset_ValueChanged);
+            // 
             // Label49
             // 
             this.Label49.AutoSize = true;
@@ -1448,15 +2259,84 @@
             this.Label49.TabIndex = 7;
             this.Label49.Text = "Y Offset";
             // 
-            // lblYOffsetRange
+            // Label48
             // 
-            this.lblYOffsetRange.Location = new System.Drawing.Point(229, 92);
-            this.lblYOffsetRange.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblYOffsetRange.Name = "lblYOffsetRange";
-            this.lblYOffsetRange.Size = new System.Drawing.Size(117, 29);
-            this.lblYOffsetRange.TabIndex = 9;
-            this.lblYOffsetRange.Text = "lblYOffsetRange";
-            this.lblYOffsetRange.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.Label48.AutoSize = true;
+            this.Label48.Location = new System.Drawing.Point(5, 54);
+            this.Label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label48.Name = "Label48";
+            this.Label48.Size = new System.Drawing.Size(68, 20);
+            this.Label48.TabIndex = 7;
+            this.Label48.Text = "X Offset";
+            // 
+            // cmdRightOffset
+            // 
+            this.cmdRightOffset.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cmdRightOffset.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdRightOffset.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cmdRightOffset.FlatAppearance.BorderSize = 0;
+            this.cmdRightOffset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdRightOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRightOffset.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.cmdRightOffset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightOffset.ImageIndex = 22;
+            this.cmdRightOffset.ImageList = this.ImageList1;
+            this.cmdRightOffset.Location = new System.Drawing.Point(0, 0);
+            this.cmdRightOffset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdRightOffset.Name = "cmdRightOffset";
+            this.cmdRightOffset.Size = new System.Drawing.Size(395, 34);
+            this.cmdRightOffset.TabIndex = 9;
+            this.cmdRightOffset.Text = "Offset";
+            this.cmdRightOffset.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightOffset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cmdRightOffset.UseVisualStyleBackColor = false;
+            this.cmdRightOffset.Click += new System.EventHandler(this.cmdPanelOffset_Click);
+            // 
+            // panelRightDragMode
+            // 
+            this.panelRightDragMode.Controls.Add(this.cmdRightDragMode);
+            this.panelRightDragMode.Controls.Add(this.PictureBox4);
+            this.panelRightDragMode.Controls.Add(this.rdoAbsoluteTarget);
+            this.panelRightDragMode.Controls.Add(this.rdoRelativeTarget);
+            this.panelRightDragMode.Location = new System.Drawing.Point(3, 677);
+            this.panelRightDragMode.Name = "panelRightDragMode";
+            this.panelRightDragMode.Size = new System.Drawing.Size(395, 252);
+            this.panelRightDragMode.TabIndex = 33;
+            // 
+            // cmdRightDragMode
+            // 
+            this.cmdRightDragMode.BackColor = System.Drawing.SystemColors.ButtonShadow;
+            this.cmdRightDragMode.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.cmdRightDragMode.Dock = System.Windows.Forms.DockStyle.Top;
+            this.cmdRightDragMode.FlatAppearance.BorderSize = 0;
+            this.cmdRightDragMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmdRightDragMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdRightDragMode.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.cmdRightDragMode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightDragMode.ImageIndex = 22;
+            this.cmdRightDragMode.ImageList = this.ImageList1;
+            this.cmdRightDragMode.Location = new System.Drawing.Point(0, 0);
+            this.cmdRightDragMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdRightDragMode.Name = "cmdRightDragMode";
+            this.cmdRightDragMode.Size = new System.Drawing.Size(395, 34);
+            this.cmdRightDragMode.TabIndex = 10;
+            this.cmdRightDragMode.Text = "Drag Mode";
+            this.cmdRightDragMode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.cmdRightDragMode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.cmdRightDragMode.UseVisualStyleBackColor = false;
+            this.cmdRightDragMode.Click += new System.EventHandler(this.cmdRightDragMode_Click);
+            // 
+            // PictureBox4
+            // 
+            this.PictureBox4.Image = global::AppTestStudio.Properties.Resources.DragTargetMode;
+            this.PictureBox4.InitialImage = null;
+            this.PictureBox4.Location = new System.Drawing.Point(11, 48);
+            this.PictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PictureBox4.Name = "PictureBox4";
+            this.PictureBox4.Size = new System.Drawing.Size(375, 169);
+            this.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureBox4.TabIndex = 2;
+            this.PictureBox4.TabStop = false;
             // 
             // rdoAbsoluteTarget
             // 
@@ -1484,405 +2364,6 @@
             this.rdoRelativeTarget.Text = "Relative Target";
             this.rdoRelativeTarget.UseVisualStyleBackColor = true;
             this.rdoRelativeTarget.CheckedChanged += new System.EventHandler(this.rdoRelativeTarget_CheckedChanged);
-            // 
-            // NumericObjectThreshold
-            // 
-            this.NumericObjectThreshold.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumericObjectThreshold.Location = new System.Drawing.Point(155, 123);
-            this.NumericObjectThreshold.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.NumericObjectThreshold.Name = "NumericObjectThreshold";
-            this.NumericObjectThreshold.Size = new System.Drawing.Size(206, 41);
-            this.NumericObjectThreshold.TabIndex = 10;
-            this.NumericObjectThreshold.ValueChanged += new System.EventHandler(this.NumericObjectThreshold_ValueChanged);
-            // 
-            // Label52
-            // 
-            this.Label52.AutoSize = true;
-            this.Label52.Location = new System.Drawing.Point(33, 135);
-            this.Label52.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label52.Name = "Label52";
-            this.Label52.Size = new System.Drawing.Size(79, 20);
-            this.Label52.TabIndex = 9;
-            this.Label52.Text = "Threshold";
-            // 
-            // cmdMaxMask
-            // 
-            this.cmdMaxMask.Location = new System.Drawing.Point(155, 200);
-            this.cmdMaxMask.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdMaxMask.Name = "cmdMaxMask";
-            this.cmdMaxMask.Size = new System.Drawing.Size(203, 35);
-            this.cmdMaxMask.TabIndex = 8;
-            this.cmdMaxMask.Text = "Set Mask to Max";
-            this.cmdMaxMask.UseVisualStyleBackColor = true;
-            this.cmdMaxMask.Click += new System.EventHandler(this.cmdMaxMask_Click);
-            // 
-            // lblMaskSize
-            // 
-            this.lblMaskSize.AutoSize = true;
-            this.lblMaskSize.Location = new System.Drawing.Point(151, 177);
-            this.lblMaskSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMaskSize.Name = "lblMaskSize";
-            this.lblMaskSize.Size = new System.Drawing.Size(93, 20);
-            this.lblMaskSize.TabIndex = 7;
-            this.lblMaskSize.Text = "lblMaskSize";
-            // 
-            // Label51
-            // 
-            this.Label51.AutoSize = true;
-            this.Label51.Location = new System.Drawing.Point(33, 177);
-            this.Label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label51.Name = "Label51";
-            this.Label51.Size = new System.Drawing.Size(82, 20);
-            this.Label51.TabIndex = 6;
-            this.Label51.Text = "Mask Size";
-            // 
-            // Label50
-            // 
-            this.Label50.AutoSize = true;
-            this.Label50.Location = new System.Drawing.Point(38, 244);
-            this.Label50.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label50.Name = "Label50";
-            this.Label50.Size = new System.Drawing.Size(55, 20);
-            this.Label50.TabIndex = 5;
-            this.Label50.Text = "Object";
-            // 
-            // cboChannel
-            // 
-            this.cboChannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboChannel.FormattingEnabled = true;
-            this.cboChannel.Items.AddRange(new object[] {
-            "Choose a Channel",
-            "Red Channel",
-            "Green Channel",
-            "Blue Channel"});
-            this.cboChannel.Location = new System.Drawing.Point(155, 89);
-            this.cboChannel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cboChannel.Name = "cboChannel";
-            this.cboChannel.Size = new System.Drawing.Size(206, 28);
-            this.cboChannel.TabIndex = 3;
-            this.cboChannel.SelectedIndexChanged += new System.EventHandler(this.cboChannel_SelectedIndexChanged);
-            // 
-            // cboObject
-            // 
-            this.cboObject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboObject.FormattingEnabled = true;
-            this.cboObject.Location = new System.Drawing.Point(155, 46);
-            this.cboObject.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cboObject.Name = "cboObject";
-            this.cboObject.Size = new System.Drawing.Size(206, 28);
-            this.cboObject.TabIndex = 0;
-            this.cboObject.SelectedIndexChanged += new System.EventHandler(this.cboObject_SelectedIndexChanged);
-            // 
-            // lblColorChannel
-            // 
-            this.lblColorChannel.Location = new System.Drawing.Point(33, 89);
-            this.lblColorChannel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblColorChannel.Name = "lblColorChannel";
-            this.lblColorChannel.Size = new System.Drawing.Size(119, 32);
-            this.lblColorChannel.TabIndex = 4;
-            this.lblColorChannel.Text = "Color Channel";
-            // 
-            // lblSearchObject
-            // 
-            this.lblSearchObject.Location = new System.Drawing.Point(33, 46);
-            this.lblSearchObject.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSearchObject.Name = "lblSearchObject";
-            this.lblSearchObject.Size = new System.Drawing.Size(188, 32);
-            this.lblSearchObject.TabIndex = 2;
-            this.lblSearchObject.Text = "Search Object";
-            // 
-            // cmdValidate
-            // 
-            this.cmdValidate.Location = new System.Drawing.Point(302, 2);
-            this.cmdValidate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdValidate.Name = "cmdValidate";
-            this.cmdValidate.Size = new System.Drawing.Size(87, 27);
-            this.cmdValidate.TabIndex = 7;
-            this.cmdValidate.Text = "Validate";
-            this.cmdValidate.UseVisualStyleBackColor = true;
-            this.cmdValidate.Click += new System.EventHandler(this.cmdValidate_Click);
-            // 
-            // txtCustomLogic
-            // 
-            this.txtCustomLogic.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.txtCustomLogic.Location = new System.Drawing.Point(0, 34);
-            this.txtCustomLogic.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCustomLogic.Multiline = true;
-            this.txtCustomLogic.Name = "txtCustomLogic";
-            this.txtCustomLogic.Size = new System.Drawing.Size(395, 109);
-            this.txtCustomLogic.TabIndex = 6;
-            this.txtCustomLogic.TextChanged += new System.EventHandler(this.txtCustom_TextChanged);
-            // 
-            // rdoCustom
-            // 
-            this.rdoCustom.AutoSize = true;
-            this.rdoCustom.Location = new System.Drawing.Point(137, 45);
-            this.rdoCustom.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdoCustom.Name = "rdoCustom";
-            this.rdoCustom.Size = new System.Drawing.Size(89, 24);
-            this.rdoCustom.TabIndex = 5;
-            this.rdoCustom.TabStop = true;
-            this.rdoCustom.Text = "Custom";
-            this.rdoCustom.UseVisualStyleBackColor = true;
-            this.rdoCustom.CheckedChanged += new System.EventHandler(this.rdoCustom_CheckedChanged);
-            // 
-            // label31
-            // 
-            this.label31.AutoSize = true;
-            this.label31.Location = new System.Drawing.Point(296, 45);
-            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(79, 20);
-            this.label31.TabIndex = 3;
-            this.label31.Text = "Points +/-.";
-            // 
-            // cboPoints
-            // 
-            this.cboPoints.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPoints.FormattingEnabled = true;
-            this.cboPoints.Location = new System.Drawing.Point(296, 72);
-            this.cboPoints.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cboPoints.Name = "cboPoints";
-            this.cboPoints.Size = new System.Drawing.Size(91, 28);
-            this.cboPoints.TabIndex = 2;
-            this.cboPoints.TextChanged += new System.EventHandler(this.cboPoints_TextChanged);
-            // 
-            // rdoOR
-            // 
-            this.rdoOR.AutoSize = true;
-            this.rdoOR.Location = new System.Drawing.Point(77, 45);
-            this.rdoOR.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdoOR.Name = "rdoOR";
-            this.rdoOR.Size = new System.Drawing.Size(58, 24);
-            this.rdoOR.TabIndex = 1;
-            this.rdoOR.TabStop = true;
-            this.rdoOR.Text = "OR";
-            this.rdoOR.UseVisualStyleBackColor = true;
-            this.rdoOR.CheckedChanged += new System.EventHandler(this.rdoOR_CheckedChanged);
-            // 
-            // rdoAnd
-            // 
-            this.rdoAnd.AutoSize = true;
-            this.rdoAnd.Location = new System.Drawing.Point(9, 45);
-            this.rdoAnd.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdoAnd.Name = "rdoAnd";
-            this.rdoAnd.Size = new System.Drawing.Size(68, 24);
-            this.rdoAnd.TabIndex = 0;
-            this.rdoAnd.TabStop = true;
-            this.rdoAnd.Text = "AND";
-            this.rdoAnd.UseVisualStyleBackColor = true;
-            this.rdoAnd.CheckedChanged += new System.EventHandler(this.rdoAnd_CheckedChanged);
-            // 
-            // dgv
-            // 
-            this.dgv.ColumnHeadersHeight = 34;
-            this.dgv.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgv.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dgvID,
-            this.dgvRed,
-            this.dgvBlue,
-            this.dgvGreen,
-            this.dgvX,
-            this.dgvY,
-            this.dgvScan,
-            this.dgvRemove});
-            this.dgv.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.dgv.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgv.Location = new System.Drawing.Point(0, 0);
-            this.dgv.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.dgv.Name = "dgv";
-            this.dgv.RowHeadersVisible = false;
-            this.dgv.RowHeadersWidth = 62;
-            this.dgv.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv.Size = new System.Drawing.Size(396, 237);
-            this.dgv.TabIndex = 4;
-            this.dgv.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_CellClick);
-            // 
-            // grpEventMode
-            // 
-            this.grpEventMode.Controls.Add(this.rdoObjectSearch);
-            this.grpEventMode.Controls.Add(this.rdoColorPoint);
-            this.grpEventMode.Location = new System.Drawing.Point(318, 13);
-            this.grpEventMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grpEventMode.Name = "grpEventMode";
-            this.grpEventMode.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grpEventMode.Size = new System.Drawing.Size(258, 66);
-            this.grpEventMode.TabIndex = 28;
-            this.grpEventMode.TabStop = false;
-            this.grpEventMode.Text = "Event Mode";
-            // 
-            // rdoObjectSearch
-            // 
-            this.rdoObjectSearch.AutoSize = true;
-            this.rdoObjectSearch.Location = new System.Drawing.Point(123, 23);
-            this.rdoObjectSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdoObjectSearch.Name = "rdoObjectSearch";
-            this.rdoObjectSearch.Size = new System.Drawing.Size(135, 24);
-            this.rdoObjectSearch.TabIndex = 1;
-            this.rdoObjectSearch.TabStop = true;
-            this.rdoObjectSearch.Text = "Object Search";
-            this.rdoObjectSearch.UseVisualStyleBackColor = true;
-            this.rdoObjectSearch.CheckedChanged += new System.EventHandler(this.rdoObjectSearch_CheckedChanged);
-            // 
-            // rdoColorPoint
-            // 
-            this.rdoColorPoint.AutoSize = true;
-            this.rdoColorPoint.Location = new System.Drawing.Point(15, 23);
-            this.rdoColorPoint.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdoColorPoint.Name = "rdoColorPoint";
-            this.rdoColorPoint.Size = new System.Drawing.Size(111, 24);
-            this.rdoColorPoint.TabIndex = 0;
-            this.rdoColorPoint.TabStop = true;
-            this.rdoColorPoint.Text = "Color/Point";
-            this.rdoColorPoint.UseVisualStyleBackColor = true;
-            this.rdoColorPoint.CheckedChanged += new System.EventHandler(this.rdoColorPoint_CheckedChanged);
-            // 
-            // grpMode
-            // 
-            this.grpMode.Controls.Add(this.rdoModeClickDragRelease);
-            this.grpMode.Controls.Add(this.rdoModeRangeClick);
-            this.grpMode.Location = new System.Drawing.Point(584, 13);
-            this.grpMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grpMode.Name = "grpMode";
-            this.grpMode.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grpMode.Size = new System.Drawing.Size(176, 65);
-            this.grpMode.TabIndex = 21;
-            this.grpMode.TabStop = false;
-            this.grpMode.Text = "Mode";
-            // 
-            // rdoModeClickDragRelease
-            // 
-            this.rdoModeClickDragRelease.AutoSize = true;
-            this.rdoModeClickDragRelease.Location = new System.Drawing.Point(84, 23);
-            this.rdoModeClickDragRelease.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdoModeClickDragRelease.Name = "rdoModeClickDragRelease";
-            this.rdoModeClickDragRelease.Size = new System.Drawing.Size(77, 24);
-            this.rdoModeClickDragRelease.TabIndex = 1;
-            this.rdoModeClickDragRelease.Text = "Swipe";
-            this.rdoModeClickDragRelease.UseVisualStyleBackColor = true;
-            this.rdoModeClickDragRelease.CheckedChanged += new System.EventHandler(this.rdoModeClickDragRelease_CheckedChanged);
-            // 
-            // rdoModeRangeClick
-            // 
-            this.rdoModeRangeClick.AutoSize = true;
-            this.rdoModeRangeClick.Checked = true;
-            this.rdoModeRangeClick.Location = new System.Drawing.Point(9, 23);
-            this.rdoModeRangeClick.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.rdoModeRangeClick.Name = "rdoModeRangeClick";
-            this.rdoModeRangeClick.Size = new System.Drawing.Size(67, 24);
-            this.rdoModeRangeClick.TabIndex = 0;
-            this.rdoModeRangeClick.TabStop = true;
-            this.rdoModeRangeClick.Text = "Click";
-            this.rdoModeRangeClick.UseVisualStyleBackColor = true;
-            this.rdoModeRangeClick.CheckedChanged += new System.EventHandler(this.rdoModeRangeClick_CheckedChanged);
-            // 
-            // cmdAddObject2
-            // 
-            this.cmdAddObject2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdAddObject2.Location = new System.Drawing.Point(887, 5);
-            this.cmdAddObject2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdAddObject2.Name = "cmdAddObject2";
-            this.cmdAddObject2.Size = new System.Drawing.Size(148, 35);
-            this.cmdAddObject2.TabIndex = 31;
-            this.cmdAddObject2.Text = "Create Object";
-            this.cmdAddObject2.UseVisualStyleBackColor = true;
-            this.cmdAddObject2.Click += new System.EventHandler(this.cmdAddObject2_Click);
-            // 
-            // PanelScreenshot
-            // 
-            this.PanelScreenshot.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.PanelScreenshot.AutoScroll = true;
-            this.PanelScreenshot.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.PanelScreenshot.Controls.Add(this.PictureBox1);
-            this.PanelScreenshot.Location = new System.Drawing.Point(6, 126);
-            this.PanelScreenshot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PanelScreenshot.Name = "PanelScreenshot";
-            this.PanelScreenshot.Size = new System.Drawing.Size(1029, 936);
-            this.PanelScreenshot.TabIndex = 7;
-            // 
-            // cmdUndoScreenshot
-            // 
-            this.cmdUndoScreenshot.AutoSize = true;
-            this.cmdUndoScreenshot.Location = new System.Drawing.Point(176, 44);
-            this.cmdUndoScreenshot.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.cmdUndoScreenshot.Name = "cmdUndoScreenshot";
-            this.cmdUndoScreenshot.Size = new System.Drawing.Size(134, 20);
-            this.cmdUndoScreenshot.TabIndex = 24;
-            this.cmdUndoScreenshot.TabStop = true;
-            this.cmdUndoScreenshot.Text = "Undo Screenshot";
-            this.cmdUndoScreenshot.Visible = false;
-            this.cmdUndoScreenshot.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.cmdUndoScreenshot_LinkClicked);
-            // 
-            // cmdTest
-            // 
-            this.cmdTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdTest.Location = new System.Drawing.Point(887, 49);
-            this.cmdTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdTest.Name = "cmdTest";
-            this.cmdTest.Size = new System.Drawing.Size(148, 35);
-            this.cmdTest.TabIndex = 16;
-            this.cmdTest.Text = "Test";
-            this.cmdTest.UseVisualStyleBackColor = true;
-            this.cmdTest.Click += new System.EventHandler(this.cmdTest_Click);
-            // 
-            // chkUseParentScreenshot
-            // 
-            this.chkUseParentScreenshot.AutoSize = true;
-            this.chkUseParentScreenshot.Location = new System.Drawing.Point(6, 10);
-            this.chkUseParentScreenshot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.chkUseParentScreenshot.Name = "chkUseParentScreenshot";
-            this.chkUseParentScreenshot.Size = new System.Drawing.Size(201, 24);
-            this.chkUseParentScreenshot.TabIndex = 15;
-            this.chkUseParentScreenshot.Text = "Use Parent Screenshot";
-            this.chkUseParentScreenshot.UseVisualStyleBackColor = true;
-            this.chkUseParentScreenshot.CheckedChanged += new System.EventHandler(this.chkUseParentScreenshot_CheckedChanged);
-            // 
-            // lblMode
-            // 
-            this.lblMode.AutoSize = true;
-            this.lblMode.Location = new System.Drawing.Point(230, 12);
-            this.lblMode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblMode.Name = "lblMode";
-            this.lblMode.Size = new System.Drawing.Size(64, 20);
-            this.lblMode.TabIndex = 12;
-            this.lblMode.Text = "lblMode";
-            this.lblMode.Visible = false;
-            // 
-            // txtEventName
-            // 
-            this.txtEventName.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtEventName.BackColor = System.Drawing.SystemColors.Window;
-            this.txtEventName.Location = new System.Drawing.Point(130, 91);
-            this.txtEventName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtEventName.Name = "txtEventName";
-            this.txtEventName.Size = new System.Drawing.Size(905, 26);
-            this.txtEventName.TabIndex = 10;
-            this.txtEventName.TextChanged += new System.EventHandler(this.txtEventName_TextChanged);
-            // 
-            // label29
-            // 
-            this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(18, 91);
-            this.label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(96, 20);
-            this.label29.TabIndex = 9;
-            this.label29.Text = "Event Name";
-            // 
-            // cmdAddSingleColorAtSingleLocationTakeASceenshot
-            // 
-            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Location = new System.Drawing.Point(6, 36);
-            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Name = "cmdAddSingleColorAtSingleLocationTakeASceenshot";
-            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Size = new System.Drawing.Size(162, 35);
-            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.TabIndex = 6;
-            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Text = "Take a Screenshot";
-            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.UseVisualStyleBackColor = true;
-            this.cmdAddSingleColorAtSingleLocationTakeASceenshot.Click += new System.EventHandler(this.cmdAddSingleColorAtSingleLocationTakeASceenshot_Click);
             // 
             // PanelThread
             // 
@@ -1931,7 +2412,7 @@
             // 
             this.splitContainerStatsNScrollie.Panel2.Controls.Add(this.splitContainerSeconds);
             this.splitContainerStatsNScrollie.Size = new System.Drawing.Size(1689, 130);
-            this.splitContainerStatsNScrollie.SplitterDistance = 99;
+            this.splitContainerStatsNScrollie.SplitterDistance = 97;
             this.splitContainerStatsNScrollie.SplitterWidth = 6;
             this.splitContainerStatsNScrollie.TabIndex = 2;
             // 
@@ -1948,7 +2429,7 @@
             this.tableLayoutStats.Name = "tableLayoutStats";
             this.tableLayoutStats.RowCount = 1;
             this.tableLayoutStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutStats.Size = new System.Drawing.Size(1689, 99);
+            this.tableLayoutStats.Size = new System.Drawing.Size(1689, 97);
             this.tableLayoutStats.TabIndex = 3;
             // 
             // groupTotal
@@ -1959,7 +2440,7 @@
             this.groupTotal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupTotal.Name = "groupTotal";
             this.groupTotal.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupTotal.Size = new System.Drawing.Size(837, 89);
+            this.groupTotal.Size = new System.Drawing.Size(837, 87);
             this.groupTotal.TabIndex = 2;
             this.groupTotal.TabStop = false;
             this.groupTotal.Text = "Total";
@@ -1991,7 +2472,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(829, 60);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(829, 58);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // label13
@@ -2122,7 +2603,7 @@
             this.groupSession.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupSession.Name = "groupSession";
             this.groupSession.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupSession.Size = new System.Drawing.Size(836, 89);
+            this.groupSession.Size = new System.Drawing.Size(836, 87);
             this.groupSession.TabIndex = 1;
             this.groupSession.TabStop = false;
             this.groupSession.Text = "Session";
@@ -2155,7 +2636,7 @@
             this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
             this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanelSession.Size = new System.Drawing.Size(828, 60);
+            this.tableLayoutPanelSession.Size = new System.Drawing.Size(828, 58);
             this.tableLayoutPanelSession.TabIndex = 3;
             // 
             // label1
@@ -2281,7 +2762,7 @@
             // splitContainerSeconds
             // 
             this.splitContainerSeconds.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitContainerSeconds.Location = new System.Drawing.Point(0, -4);
+            this.splitContainerSeconds.Location = new System.Drawing.Point(0, -2);
             this.splitContainerSeconds.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitContainerSeconds.Name = "splitContainerSeconds";
             // 
@@ -2405,14 +2886,14 @@
             // 
             this.dgvTest.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle35.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle35.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle35.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle35;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTestID,
@@ -2423,15 +2904,15 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle36.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle36.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle36.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle36;
-            this.dgvTest.Location = new System.Drawing.Point(960, 348);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgvTest.Location = new System.Drawing.Point(959, 348);
             this.dgvTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.RowHeadersWidth = 62;
@@ -2501,14 +2982,14 @@
             // dgvTestAllReference
             // 
             this.dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle37.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle37.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle37.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceID,
@@ -2517,15 +2998,15 @@
             this.dgvTestAllReferenceBlue,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle38.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle38.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle38.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle38;
-            this.dgvTestAllReference.Location = new System.Drawing.Point(960, 74);
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
+            this.dgvTestAllReference.Location = new System.Drawing.Point(959, 74);
             this.dgvTestAllReference.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.RowHeadersWidth = 62;
@@ -2610,11 +3091,21 @@
             this.Panel2.AutoScroll = true;
             this.Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Panel2.Controls.Add(this.PictureTestAllTest);
-            this.Panel2.Location = new System.Drawing.Point(15, 422);
+            this.Panel2.Location = new System.Drawing.Point(14, 422);
             this.Panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(734, 363);
             this.Panel2.TabIndex = 11;
+            // 
+            // PictureTestAllTest
+            // 
+            this.PictureTestAllTest.Location = new System.Drawing.Point(4, 5);
+            this.PictureTestAllTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PictureTestAllTest.Name = "PictureTestAllTest";
+            this.PictureTestAllTest.Size = new System.Drawing.Size(100, 50);
+            this.PictureTestAllTest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureTestAllTest.TabIndex = 1;
+            this.PictureTestAllTest.TabStop = false;
             // 
             // lblTestWindow
             // 
@@ -2645,11 +3136,21 @@
             this.Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Panel1.Controls.Add(this.PictureTestAllReference);
-            this.Panel1.Location = new System.Drawing.Point(21, 65);
+            this.Panel1.Location = new System.Drawing.Point(20, 65);
             this.Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(728, 292);
             this.Panel1.TabIndex = 8;
+            // 
+            // PictureTestAllReference
+            // 
+            this.PictureTestAllReference.Location = new System.Drawing.Point(4, 5);
+            this.PictureTestAllReference.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PictureTestAllReference.Name = "PictureTestAllReference";
+            this.PictureTestAllReference.Size = new System.Drawing.Size(100, 50);
+            this.PictureTestAllReference.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureTestAllReference.TabIndex = 1;
+            this.PictureTestAllReference.TabStop = false;
             // 
             // PanelObject
             // 
@@ -2713,6 +3214,16 @@
             this.Panel5.Name = "Panel5";
             this.Panel5.Size = new System.Drawing.Size(684, 597);
             this.Panel5.TabIndex = 9;
+            // 
+            // PictureBoxObject
+            // 
+            this.PictureBoxObject.Location = new System.Drawing.Point(0, 0);
+            this.PictureBoxObject.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PictureBoxObject.Name = "PictureBoxObject";
+            this.PictureBoxObject.Size = new System.Drawing.Size(100, 50);
+            this.PictureBoxObject.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureBoxObject.TabIndex = 0;
+            this.PictureBoxObject.TabStop = false;
             // 
             // txtObjectName
             // 
@@ -3162,8 +3673,8 @@
             // 
             // colMon
             // 
-            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colMon.DefaultCellStyle = dataGridViewCellStyle39;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colMon.DefaultCellStyle = dataGridViewCellStyle11;
             this.colMon.HeaderText = "Mon";
             this.colMon.MaxInputLength = 1;
             this.colMon.MinimumWidth = 37;
@@ -3173,8 +3684,8 @@
             // 
             // colTue
             // 
-            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colTue.DefaultCellStyle = dataGridViewCellStyle40;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colTue.DefaultCellStyle = dataGridViewCellStyle12;
             this.colTue.HeaderText = "Tue";
             this.colTue.MaxInputLength = 1;
             this.colTue.MinimumWidth = 37;
@@ -3184,8 +3695,8 @@
             // 
             // colWed
             // 
-            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colWed.DefaultCellStyle = dataGridViewCellStyle41;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colWed.DefaultCellStyle = dataGridViewCellStyle13;
             this.colWed.HeaderText = "Wed";
             this.colWed.MaxInputLength = 1;
             this.colWed.MinimumWidth = 37;
@@ -3195,8 +3706,8 @@
             // 
             // colThu
             // 
-            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colThu.DefaultCellStyle = dataGridViewCellStyle42;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colThu.DefaultCellStyle = dataGridViewCellStyle14;
             this.colThu.HeaderText = "Thu";
             this.colThu.MaxInputLength = 1;
             this.colThu.MinimumWidth = 37;
@@ -3206,8 +3717,8 @@
             // 
             // colFri
             // 
-            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colFri.DefaultCellStyle = dataGridViewCellStyle43;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colFri.DefaultCellStyle = dataGridViewCellStyle15;
             this.colFri.HeaderText = "Fri";
             this.colFri.MaxInputLength = 1;
             this.colFri.MinimumWidth = 37;
@@ -3217,8 +3728,8 @@
             // 
             // colSat
             // 
-            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSat.DefaultCellStyle = dataGridViewCellStyle44;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSat.DefaultCellStyle = dataGridViewCellStyle16;
             this.colSat.HeaderText = "Sat";
             this.colSat.MaxInputLength = 1;
             this.colSat.MinimumWidth = 37;
@@ -3228,8 +3739,8 @@
             // 
             // colSun
             // 
-            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSun.DefaultCellStyle = dataGridViewCellStyle45;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSun.DefaultCellStyle = dataGridViewCellStyle17;
             this.colSun.HeaderText = "Sun";
             this.colSun.MaxInputLength = 1;
             this.colSun.MinimumWidth = 37;
@@ -3378,6 +3889,18 @@
             this.lblObjectScreenshotRHSXY.TabIndex = 3;
             this.lblObjectScreenshotRHSXY.Text = "[lblRHSXY]";
             // 
+            // PictureObjectScreenshotZoomBox
+            // 
+            this.PictureObjectScreenshotZoomBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.PictureObjectScreenshotZoomBox.Image = ((System.Drawing.Image)(resources.GetObject("PictureObjectScreenshotZoomBox.Image")));
+            this.PictureObjectScreenshotZoomBox.Location = new System.Drawing.Point(705, 6);
+            this.PictureObjectScreenshotZoomBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PictureObjectScreenshotZoomBox.Name = "PictureObjectScreenshotZoomBox";
+            this.PictureObjectScreenshotZoomBox.Size = new System.Drawing.Size(240, 246);
+            this.PictureObjectScreenshotZoomBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PictureObjectScreenshotZoomBox.TabIndex = 12;
+            this.PictureObjectScreenshotZoomBox.TabStop = false;
+            // 
             // txtObjectScreenshotName
             // 
             this.txtObjectScreenshotName.Location = new System.Drawing.Point(86, 71);
@@ -3421,6 +3944,20 @@
             this.Panel4.Name = "Panel4";
             this.Panel4.Size = new System.Drawing.Size(536, 451);
             this.Panel4.TabIndex = 8;
+            // 
+            // PictureObjectScreenshot
+            // 
+            this.PictureObjectScreenshot.Location = new System.Drawing.Point(12, 12);
+            this.PictureObjectScreenshot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.PictureObjectScreenshot.Name = "PictureObjectScreenshot";
+            this.PictureObjectScreenshot.Size = new System.Drawing.Size(286, 263);
+            this.PictureObjectScreenshot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureObjectScreenshot.TabIndex = 16;
+            this.PictureObjectScreenshot.TabStop = false;
+            this.PictureObjectScreenshot.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureObjectScreenshot_Paint);
+            this.PictureObjectScreenshot.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureObjectScreenshot_MouseDown);
+            this.PictureObjectScreenshot.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureObjectScreenshot_MouseMove);
+            this.PictureObjectScreenshot.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureObjectScreenshot_MouseUp);
             // 
             // Label44
             // 
@@ -3697,15 +4234,63 @@
             this.mnuEvents.Name = "mnuEvents";
             this.mnuEvents.Size = new System.Drawing.Size(321, 246);
             // 
+            // mnuAddEvent
+            // 
+            this.mnuAddEvent.Image = global::AppTestStudio.Properties.Resources.AddEvent;
+            this.mnuAddEvent.Name = "mnuAddEvent";
+            this.mnuAddEvent.Size = new System.Drawing.Size(320, 32);
+            this.mnuAddEvent.Text = "Add Event";
+            this.mnuAddEvent.Click += new System.EventHandler(this.mnuAddEvent_Click);
+            // 
+            // mnuAddAction
+            // 
+            this.mnuAddAction.Image = global::AppTestStudio.Properties.Resources.AddActionP;
+            this.mnuAddAction.Name = "mnuAddAction";
+            this.mnuAddAction.Size = new System.Drawing.Size(320, 32);
+            this.mnuAddAction.Text = "Add Action";
+            this.mnuAddAction.Click += new System.EventHandler(this.mnuAddAction_Click);
+            // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(317, 6);
             // 
+            // testToolStripMenuItem
+            // 
+            this.testToolStripMenuItem.Image = global::AppTestStudio.Properties.Resources.Test;
+            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
+            this.testToolStripMenuItem.Size = new System.Drawing.Size(320, 32);
+            this.testToolStripMenuItem.Text = "Test";
+            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
+            // 
+            // mnuTestAllEvents
+            // 
+            this.mnuTestAllEvents.Image = global::AppTestStudio.Properties.Resources.TestALLP;
+            this.mnuTestAllEvents.Name = "mnuTestAllEvents";
+            this.mnuTestAllEvents.Size = new System.Drawing.Size(320, 32);
+            this.mnuTestAllEvents.Text = "Test All";
+            this.mnuTestAllEvents.Click += new System.EventHandler(this.mnuTestAllEvents_Click);
+            // 
             // toolStripSeparator7
             // 
             this.toolStripSeparator7.Name = "toolStripSeparator7";
             this.toolStripSeparator7.Size = new System.Drawing.Size(317, 6);
+            // 
+            // mnuAddRNG
+            // 
+            this.mnuAddRNG.Image = global::AppTestStudio.Properties.Resources.AddRNGContainerP;
+            this.mnuAddRNG.Name = "mnuAddRNG";
+            this.mnuAddRNG.Size = new System.Drawing.Size(320, 32);
+            this.mnuAddRNG.Text = "Add Random Number (RNG)";
+            this.mnuAddRNG.Click += new System.EventHandler(this.mnuAddRNG_Click);
+            // 
+            // mnuAddRNGNode
+            // 
+            this.mnuAddRNGNode.Image = global::AppTestStudio.Properties.Resources.AddRNGP;
+            this.mnuAddRNGNode.Name = "mnuAddRNGNode";
+            this.mnuAddRNGNode.Size = new System.Drawing.Size(320, 32);
+            this.mnuAddRNGNode.Text = "Add RNG Node";
+            this.mnuAddRNGNode.Click += new System.EventHandler(this.mnuAddRNGNode_Click);
             // 
             // toolStripSeparator12
             // 
@@ -3843,20 +4428,84 @@
             this.appTestStudioToolStrip1.TabIndex = 5;
             this.appTestStudioToolStrip1.Text = "appTestStudioToolStrip1";
             // 
+            // toolAddEvent
+            // 
+            this.toolAddEvent.Image = global::AppTestStudio.Properties.Resources.AddEvent;
+            this.toolAddEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAddEvent.Name = "toolAddEvent";
+            this.toolAddEvent.Size = new System.Drawing.Size(122, 29);
+            this.toolAddEvent.Text = "Add Event";
+            this.toolAddEvent.Click += new System.EventHandler(this.toolAddEvent_Click);
+            // 
             // toolStripSeparator9
             // 
             this.toolStripSeparator9.Name = "toolStripSeparator9";
             this.toolStripSeparator9.Size = new System.Drawing.Size(6, 34);
+            // 
+            // toolAddAction
+            // 
+            this.toolAddAction.Image = global::AppTestStudio.Properties.Resources.AddActionP;
+            this.toolAddAction.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAddAction.Name = "toolAddAction";
+            this.toolAddAction.Size = new System.Drawing.Size(130, 29);
+            this.toolAddAction.Text = "Add Action";
+            this.toolAddAction.Click += new System.EventHandler(this.toolAddAction_Click);
             // 
             // toolStripSeparator10
             // 
             this.toolStripSeparator10.Name = "toolStripSeparator10";
             this.toolStripSeparator10.Size = new System.Drawing.Size(6, 34);
             // 
+            // toolTest
+            // 
+            this.toolTest.Image = global::AppTestStudio.Properties.Resources.Test;
+            this.toolTest.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolTest.Name = "toolTest";
+            this.toolTest.Size = new System.Drawing.Size(70, 29);
+            this.toolTest.Text = "Test";
+            this.toolTest.Click += new System.EventHandler(this.toolTest_Click);
+            // 
+            // toolTestAll
+            // 
+            this.toolTestAll.Image = global::AppTestStudio.Properties.Resources.TestALLP;
+            this.toolTestAll.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolTestAll.Name = "toolTestAll";
+            this.toolTestAll.Size = new System.Drawing.Size(95, 29);
+            this.toolTestAll.Text = "Test All";
+            this.toolTestAll.Click += new System.EventHandler(this.toolTestAll_Click);
+            // 
             // toolStripSeparator11
             // 
             this.toolStripSeparator11.Name = "toolStripSeparator11";
             this.toolStripSeparator11.Size = new System.Drawing.Size(6, 34);
+            // 
+            // toolAddRNG
+            // 
+            this.toolAddRNG.Image = global::AppTestStudio.Properties.Resources.AddRNGContainerP;
+            this.toolAddRNG.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAddRNG.Name = "toolAddRNG";
+            this.toolAddRNG.Size = new System.Drawing.Size(115, 29);
+            this.toolAddRNG.Text = "Add RNG";
+            this.toolAddRNG.Click += new System.EventHandler(this.toolAddRNG_Click);
+            // 
+            // toolAddRNGNode
+            // 
+            this.toolAddRNGNode.Image = global::AppTestStudio.Properties.Resources.AddRNGP;
+            this.toolAddRNGNode.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolAddRNGNode.Name = "toolAddRNGNode";
+            this.toolAddRNGNode.Size = new System.Drawing.Size(164, 29);
+            this.toolAddRNGNode.Text = "Add RNG Node";
+            this.toolAddRNGNode.Click += new System.EventHandler(this.toolAddRNGNode_Click);
+            // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(34, 29);
+            this.toolStripButton1.Text = "toolStripButton1";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripMain
             // 
@@ -3882,576 +4531,6 @@
             this.toolStripMain.TabIndex = 1;
             this.toolStripMain.Text = "toolStripMain";
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 34);
-            // 
-            // toolStripSeparator4
-            // 
-            this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 34);
-            // 
-            // toolStripSeparator5
-            // 
-            this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 34);
-            // 
-            // toolSchedulerRunning
-            // 
-            this.toolSchedulerRunning.Name = "toolSchedulerRunning";
-            this.toolSchedulerRunning.Size = new System.Drawing.Size(150, 29);
-            this.toolSchedulerRunning.Text = "Scheduler Paused";
-            // 
-            // toolStripSeparator8
-            // 
-            this.toolStripSeparator8.Name = "toolStripSeparator8";
-            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 34);
-            // 
-            // toolStripLabelCurrentConfiguredInstance
-            // 
-            this.toolStripLabelCurrentConfiguredInstance.Name = "toolStripLabelCurrentConfiguredInstance";
-            this.toolStripLabelCurrentConfiguredInstance.Size = new System.Drawing.Size(333, 29);
-            this.toolStripLabelCurrentConfiguredInstance.Text = "toolStripLabelCurrentConfiguredInstance";
-            // 
-            // panelRightOffset
-            // 
-            this.panelRightOffset.Controls.Add(this.lblYOffsetRange);
-            this.panelRightOffset.Controls.Add(this.lblXOffsetRange);
-            this.panelRightOffset.Controls.Add(this.NumericYOffset);
-            this.panelRightOffset.Controls.Add(this.NumericXOffset);
-            this.panelRightOffset.Controls.Add(this.Label49);
-            this.panelRightOffset.Controls.Add(this.Label48);
-            this.panelRightOffset.Controls.Add(this.cmdRightOffset);
-            this.panelRightOffset.Location = new System.Drawing.Point(3, 542);
-            this.panelRightOffset.Name = "panelRightOffset";
-            this.panelRightOffset.Size = new System.Drawing.Size(395, 129);
-            this.panelRightOffset.TabIndex = 32;
-            // 
-            // panelRightDragMode
-            // 
-            this.panelRightDragMode.Controls.Add(this.cmdRightDragMode);
-            this.panelRightDragMode.Controls.Add(this.PictureBox4);
-            this.panelRightDragMode.Controls.Add(this.rdoAbsoluteTarget);
-            this.panelRightDragMode.Controls.Add(this.rdoRelativeTarget);
-            this.panelRightDragMode.Location = new System.Drawing.Point(3, 677);
-            this.panelRightDragMode.Name = "panelRightDragMode";
-            this.panelRightDragMode.Size = new System.Drawing.Size(395, 252);
-            this.panelRightDragMode.TabIndex = 33;
-            // 
-            // panelRightObject
-            // 
-            this.panelRightObject.Controls.Add(this.NumericObjectThreshold);
-            this.panelRightObject.Controls.Add(this.cmdRightObject);
-            this.panelRightObject.Controls.Add(this.Label52);
-            this.panelRightObject.Controls.Add(this.cboObject);
-            this.panelRightObject.Controls.Add(this.cmdMaxMask);
-            this.panelRightObject.Controls.Add(this.lblSearchObject);
-            this.panelRightObject.Controls.Add(this.lblMaskSize);
-            this.panelRightObject.Controls.Add(this.lblColorChannel);
-            this.panelRightObject.Controls.Add(this.Label51);
-            this.panelRightObject.Controls.Add(this.PictureBoxEventObjectSelection);
-            this.panelRightObject.Controls.Add(this.Label50);
-            this.panelRightObject.Controls.Add(this.cboChannel);
-            this.panelRightObject.Location = new System.Drawing.Point(3, 313);
-            this.panelRightObject.Name = "panelRightObject";
-            this.panelRightObject.Size = new System.Drawing.Size(395, 308);
-            this.panelRightObject.TabIndex = 34;
-            // 
-            // panelRightLogic
-            // 
-            this.panelRightLogic.Controls.Add(this.cmdRightLogic);
-            this.panelRightLogic.Controls.Add(this.cboPoints);
-            this.panelRightLogic.Controls.Add(this.rdoCustom);
-            this.panelRightLogic.Controls.Add(this.label31);
-            this.panelRightLogic.Controls.Add(this.rdoOR);
-            this.panelRightLogic.Controls.Add(this.rdoAnd);
-            this.panelRightLogic.Location = new System.Drawing.Point(3, 627);
-            this.panelRightLogic.Name = "panelRightLogic";
-            this.panelRightLogic.Size = new System.Drawing.Size(395, 109);
-            this.panelRightLogic.TabIndex = 35;
-            // 
-            // panelRightCustomLogic
-            // 
-            this.panelRightCustomLogic.Controls.Add(this.cmdValidate);
-            this.panelRightCustomLogic.Controls.Add(this.label37);
-            this.panelRightCustomLogic.Controls.Add(this.txtCustomLogic);
-            this.panelRightCustomLogic.Location = new System.Drawing.Point(3, 742);
-            this.panelRightCustomLogic.Name = "panelRightCustomLogic";
-            this.panelRightCustomLogic.Size = new System.Drawing.Size(395, 143);
-            this.panelRightCustomLogic.TabIndex = 36;
-            // 
-            // label37
-            // 
-            this.label37.AutoSize = true;
-            this.label37.Location = new System.Drawing.Point(9, 9);
-            this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(273, 20);
-            this.label37.TabIndex = 7;
-            this.label37.Text = "Custom Logic:  NOT 1 AND ( 2 OR 3 )";
-            this.label37.Click += new System.EventHandler(this.label37_Click);
-            // 
-            // tableColorEvent
-            // 
-            this.tableColorEvent.ColumnCount = 3;
-            this.tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 437F));
-            this.tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 437F));
-            this.tableColorEvent.Controls.Add(this.panel3, 0, 0);
-            this.tableColorEvent.Controls.Add(this.FlowLayoutPanelColorEvent1, 1, 0);
-            this.tableColorEvent.Controls.Add(this.FlowLayoutPanelColorEvent2, 2, 0);
-            this.tableColorEvent.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableColorEvent.Location = new System.Drawing.Point(0, 0);
-            this.tableColorEvent.Name = "tableColorEvent";
-            this.tableColorEvent.RowCount = 1;
-            this.tableColorEvent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableColorEvent.Size = new System.Drawing.Size(1920, 1070);
-            this.tableColorEvent.TabIndex = 33;
-            this.tableColorEvent.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.cmdTest);
-            this.panel3.Controls.Add(this.cmdAddObject2);
-            this.panel3.Controls.Add(this.grpMode);
-            this.panel3.Controls.Add(this.PanelScreenshot);
-            this.panel3.Controls.Add(this.cmdUndoScreenshot);
-            this.panel3.Controls.Add(this.label29);
-            this.panel3.Controls.Add(this.txtEventName);
-            this.panel3.Controls.Add(this.chkUseParentScreenshot);
-            this.panel3.Controls.Add(this.grpEventMode);
-            this.panel3.Controls.Add(this.cmdAddSingleColorAtSingleLocationTakeASceenshot);
-            this.panel3.Controls.Add(this.lblMode);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1040, 1064);
-            this.panel3.TabIndex = 0;
-            // 
-            // FlowLayoutPanelColorEvent2
-            // 
-            this.FlowLayoutPanelColorEvent2.AutoScroll = true;
-            this.FlowLayoutPanelColorEvent2.Controls.Add(this.panelRightColorAtPointer);
-            this.FlowLayoutPanelColorEvent2.Controls.Add(this.panelRightLimit);
-            this.FlowLayoutPanelColorEvent2.Controls.Add(this.panelRightOffset);
-            this.FlowLayoutPanelColorEvent2.Controls.Add(this.panelRightDragMode);
-            this.FlowLayoutPanelColorEvent2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.FlowLayoutPanelColorEvent2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.FlowLayoutPanelColorEvent2.Location = new System.Drawing.Point(1486, 3);
-            this.FlowLayoutPanelColorEvent2.Name = "FlowLayoutPanelColorEvent2";
-            this.FlowLayoutPanelColorEvent2.Size = new System.Drawing.Size(431, 1064);
-            this.FlowLayoutPanelColorEvent2.TabIndex = 33;
-            this.FlowLayoutPanelColorEvent2.WrapContents = false;
-            // 
-            // panelRightPointGrid
-            // 
-            this.panelRightPointGrid.Controls.Add(this.dgv);
-            this.panelRightPointGrid.Location = new System.Drawing.Point(3, 891);
-            this.panelRightPointGrid.Name = "panelRightPointGrid";
-            this.panelRightPointGrid.Size = new System.Drawing.Size(396, 237);
-            this.panelRightPointGrid.TabIndex = 37;
-            // 
-            // dgvID
-            // 
-            this.dgvID.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvID.DefaultCellStyle = dataGridViewCellStyle46;
-            this.dgvID.HeaderText = "ID";
-            this.dgvID.MinimumWidth = 8;
-            this.dgvID.Name = "dgvID";
-            this.dgvID.Width = 28;
-            // 
-            // dgvRed
-            // 
-            this.dgvRed.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle47;
-            this.dgvRed.HeaderText = "R";
-            this.dgvRed.MinimumWidth = 8;
-            this.dgvRed.Name = "dgvRed";
-            this.dgvRed.Width = 37;
-            // 
-            // dgvBlue
-            // 
-            this.dgvBlue.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle48;
-            this.dgvBlue.HeaderText = "B";
-            this.dgvBlue.MinimumWidth = 8;
-            this.dgvBlue.Name = "dgvBlue";
-            this.dgvBlue.Width = 37;
-            // 
-            // dgvGreen
-            // 
-            this.dgvGreen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle49;
-            this.dgvGreen.HeaderText = "G";
-            this.dgvGreen.MinimumWidth = 8;
-            this.dgvGreen.Name = "dgvGreen";
-            this.dgvGreen.Width = 37;
-            // 
-            // dgvX
-            // 
-            this.dgvX.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvX.DefaultCellStyle = dataGridViewCellStyle50;
-            this.dgvX.HeaderText = "X";
-            this.dgvX.MinimumWidth = 8;
-            this.dgvX.Name = "dgvX";
-            this.dgvX.Width = 47;
-            // 
-            // dgvY
-            // 
-            this.dgvY.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvY.DefaultCellStyle = dataGridViewCellStyle51;
-            this.dgvY.HeaderText = "Y";
-            this.dgvY.MinimumWidth = 8;
-            this.dgvY.Name = "dgvY";
-            this.dgvY.Width = 47;
-            // 
-            // dgvScan
-            // 
-            this.dgvScan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvScan.HeaderText = "Scan";
-            this.dgvScan.MinimumWidth = 8;
-            this.dgvScan.Name = "dgvScan";
-            this.dgvScan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvScan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.dgvScan.ToolTipText = "Scan and Add Additional Colors from location, from Current Target Window";
-            this.dgvScan.Width = 50;
-            // 
-            // dgvRemove
-            // 
-            this.dgvRemove.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.dgvRemove.HeaderText = "Remove?";
-            this.dgvRemove.MinimumWidth = 8;
-            this.dgvRemove.Name = "dgvRemove";
-            this.dgvRemove.Text = "Remove";
-            this.dgvRemove.Width = 70;
-            // 
-            // panelRightResolution
-            // 
-            this.panelRightResolution.Controls.Add(this.lblResolution);
-            this.panelRightResolution.Controls.Add(this.cmdPanelRightResolution);
-            this.panelRightResolution.Location = new System.Drawing.Point(3, 3);
-            this.panelRightResolution.Name = "panelRightResolution";
-            this.panelRightResolution.Size = new System.Drawing.Size(395, 34);
-            this.panelRightResolution.TabIndex = 38;
-            // 
-            // lblResolution
-            // 
-            this.lblResolution.AutoSize = true;
-            this.lblResolution.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.lblResolution.Location = new System.Drawing.Point(289, 7);
-            this.lblResolution.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblResolution.Name = "lblResolution";
-            this.lblResolution.Size = new System.Drawing.Size(100, 20);
-            this.lblResolution.TabIndex = 1;
-            this.lblResolution.Text = "lblResolution";
-            this.lblResolution.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            // 
-            // cmdPanelRightResolution
-            // 
-            this.cmdPanelRightResolution.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.cmdPanelRightResolution.Cursor = System.Windows.Forms.Cursors.Default;
-            this.cmdPanelRightResolution.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cmdPanelRightResolution.FlatAppearance.BorderSize = 0;
-            this.cmdPanelRightResolution.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdPanelRightResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdPanelRightResolution.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cmdPanelRightResolution.Location = new System.Drawing.Point(0, 0);
-            this.cmdPanelRightResolution.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdPanelRightResolution.Name = "cmdPanelRightResolution";
-            this.cmdPanelRightResolution.Size = new System.Drawing.Size(395, 35);
-            this.cmdPanelRightResolution.TabIndex = 8;
-            this.cmdPanelRightResolution.Text = "Resolution";
-            this.cmdPanelRightResolution.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdPanelRightResolution.UseVisualStyleBackColor = false;
-            // 
-            // cmdPatron
-            // 
-            this.cmdPatron.BackColor = System.Drawing.Color.White;
-            this.cmdPatron.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdPatron.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdPatron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdPatron.Image = global::AppTestStudio.Properties.Resources.Patron;
-            this.cmdPatron.Location = new System.Drawing.Point(0, 0);
-            this.cmdPatron.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdPatron.Name = "cmdPatron";
-            this.cmdPatron.Size = new System.Drawing.Size(456, 25);
-            this.cmdPatron.TabIndex = 0;
-            this.cmdPatron.UseVisualStyleBackColor = false;
-            this.cmdPatron.Click += new System.EventHandler(this.cmdPatron_Click);
-            // 
-            // PictureBox1
-            // 
-            this.PictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.PictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.PictureBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureBox1.TabIndex = 0;
-            this.PictureBox1.TabStop = false;
-            this.PictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
-            this.PictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBox1_Paint);
-            this.PictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
-            this.PictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseMove);
-            this.PictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseUp);
-            // 
-            // cmdRightAfterCompletion
-            // 
-            this.cmdRightAfterCompletion.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.cmdRightAfterCompletion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdRightAfterCompletion.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cmdRightAfterCompletion.FlatAppearance.BorderSize = 0;
-            this.cmdRightAfterCompletion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdRightAfterCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRightAfterCompletion.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cmdRightAfterCompletion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightAfterCompletion.ImageIndex = 22;
-            this.cmdRightAfterCompletion.ImageList = this.ImageList1;
-            this.cmdRightAfterCompletion.Location = new System.Drawing.Point(0, 0);
-            this.cmdRightAfterCompletion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdRightAfterCompletion.Name = "cmdRightAfterCompletion";
-            this.cmdRightAfterCompletion.Size = new System.Drawing.Size(394, 35);
-            this.cmdRightAfterCompletion.TabIndex = 7;
-            this.cmdRightAfterCompletion.Text = "After Completion";
-            this.cmdRightAfterCompletion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightAfterCompletion.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cmdRightAfterCompletion.UseVisualStyleBackColor = false;
-            this.cmdRightAfterCompletion.Click += new System.EventHandler(this.cmdRightAfterCompletion_Click);
-            // 
-            // cmdRightObject
-            // 
-            this.cmdRightObject.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.cmdRightObject.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdRightObject.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cmdRightObject.FlatAppearance.BorderSize = 0;
-            this.cmdRightObject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdRightObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRightObject.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cmdRightObject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightObject.ImageIndex = 22;
-            this.cmdRightObject.ImageList = this.ImageList1;
-            this.cmdRightObject.Location = new System.Drawing.Point(0, 0);
-            this.cmdRightObject.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdRightObject.Name = "cmdRightObject";
-            this.cmdRightObject.Size = new System.Drawing.Size(395, 34);
-            this.cmdRightObject.TabIndex = 11;
-            this.cmdRightObject.Text = "Object";
-            this.cmdRightObject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightObject.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cmdRightObject.UseVisualStyleBackColor = false;
-            this.cmdRightObject.Click += new System.EventHandler(this.cmdRightObject_Click);
-            // 
-            // PictureBoxEventObjectSelection
-            // 
-            this.PictureBoxEventObjectSelection.Location = new System.Drawing.Point(155, 244);
-            this.PictureBoxEventObjectSelection.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PictureBoxEventObjectSelection.Name = "PictureBoxEventObjectSelection";
-            this.PictureBoxEventObjectSelection.Size = new System.Drawing.Size(100, 50);
-            this.PictureBoxEventObjectSelection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureBoxEventObjectSelection.TabIndex = 1;
-            this.PictureBoxEventObjectSelection.TabStop = false;
-            // 
-            // cmdRightLogic
-            // 
-            this.cmdRightLogic.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.cmdRightLogic.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdRightLogic.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cmdRightLogic.FlatAppearance.BorderSize = 0;
-            this.cmdRightLogic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdRightLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRightLogic.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cmdRightLogic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightLogic.ImageIndex = 22;
-            this.cmdRightLogic.ImageList = this.ImageList1;
-            this.cmdRightLogic.Location = new System.Drawing.Point(0, 0);
-            this.cmdRightLogic.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdRightLogic.Name = "cmdRightLogic";
-            this.cmdRightLogic.Size = new System.Drawing.Size(395, 34);
-            this.cmdRightLogic.TabIndex = 12;
-            this.cmdRightLogic.Text = "Logic";
-            this.cmdRightLogic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightLogic.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cmdRightLogic.UseVisualStyleBackColor = false;
-            this.cmdRightLogic.Click += new System.EventHandler(this.cmdRightLogic_Click);
-            // 
-            // cmdRightColorAtPointer
-            // 
-            this.cmdRightColorAtPointer.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.cmdRightColorAtPointer.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdRightColorAtPointer.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cmdRightColorAtPointer.FlatAppearance.BorderSize = 0;
-            this.cmdRightColorAtPointer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdRightColorAtPointer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRightColorAtPointer.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cmdRightColorAtPointer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightColorAtPointer.ImageIndex = 22;
-            this.cmdRightColorAtPointer.ImageList = this.ImageList1;
-            this.cmdRightColorAtPointer.Location = new System.Drawing.Point(0, 0);
-            this.cmdRightColorAtPointer.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdRightColorAtPointer.Name = "cmdRightColorAtPointer";
-            this.cmdRightColorAtPointer.Size = new System.Drawing.Size(394, 35);
-            this.cmdRightColorAtPointer.TabIndex = 0;
-            this.cmdRightColorAtPointer.Text = "Color At Pointer";
-            this.cmdRightColorAtPointer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightColorAtPointer.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cmdRightColorAtPointer.UseVisualStyleBackColor = false;
-            this.cmdRightColorAtPointer.Click += new System.EventHandler(this.cmdColorAtPointer_Click);
-            // 
-            // PictureBox2
-            // 
-            this.PictureBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("PictureBox2.Image")));
-            this.PictureBox2.Location = new System.Drawing.Point(71, 35);
-            this.PictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PictureBox2.Name = "PictureBox2";
-            this.PictureBox2.Size = new System.Drawing.Size(240, 246);
-            this.PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBox2.TabIndex = 0;
-            this.PictureBox2.TabStop = false;
-            // 
-            // cmdRightLimit
-            // 
-            this.cmdRightLimit.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.cmdRightLimit.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdRightLimit.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cmdRightLimit.FlatAppearance.BorderSize = 0;
-            this.cmdRightLimit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdRightLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRightLimit.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cmdRightLimit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightLimit.ImageIndex = 22;
-            this.cmdRightLimit.ImageList = this.ImageList1;
-            this.cmdRightLimit.Location = new System.Drawing.Point(0, 0);
-            this.cmdRightLimit.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdRightLimit.Name = "cmdRightLimit";
-            this.cmdRightLimit.Size = new System.Drawing.Size(394, 34);
-            this.cmdRightLimit.TabIndex = 8;
-            this.cmdRightLimit.Text = "Limit";
-            this.cmdRightLimit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightLimit.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cmdRightLimit.UseVisualStyleBackColor = false;
-            this.cmdRightLimit.Click += new System.EventHandler(this.cmdRightLimit_Click);
-            // 
-            // cmdRightOffset
-            // 
-            this.cmdRightOffset.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.cmdRightOffset.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdRightOffset.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cmdRightOffset.FlatAppearance.BorderSize = 0;
-            this.cmdRightOffset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdRightOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRightOffset.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cmdRightOffset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightOffset.ImageIndex = 22;
-            this.cmdRightOffset.ImageList = this.ImageList1;
-            this.cmdRightOffset.Location = new System.Drawing.Point(0, 0);
-            this.cmdRightOffset.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdRightOffset.Name = "cmdRightOffset";
-            this.cmdRightOffset.Size = new System.Drawing.Size(395, 34);
-            this.cmdRightOffset.TabIndex = 9;
-            this.cmdRightOffset.Text = "Offset";
-            this.cmdRightOffset.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightOffset.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cmdRightOffset.UseVisualStyleBackColor = false;
-            this.cmdRightOffset.Click += new System.EventHandler(this.cmdPanelOffset_Click);
-            // 
-            // cmdRightDragMode
-            // 
-            this.cmdRightDragMode.BackColor = System.Drawing.SystemColors.ButtonShadow;
-            this.cmdRightDragMode.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.cmdRightDragMode.Dock = System.Windows.Forms.DockStyle.Top;
-            this.cmdRightDragMode.FlatAppearance.BorderSize = 0;
-            this.cmdRightDragMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cmdRightDragMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdRightDragMode.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.cmdRightDragMode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightDragMode.ImageIndex = 22;
-            this.cmdRightDragMode.ImageList = this.ImageList1;
-            this.cmdRightDragMode.Location = new System.Drawing.Point(0, 0);
-            this.cmdRightDragMode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdRightDragMode.Name = "cmdRightDragMode";
-            this.cmdRightDragMode.Size = new System.Drawing.Size(395, 34);
-            this.cmdRightDragMode.TabIndex = 10;
-            this.cmdRightDragMode.Text = "Drag Mode";
-            this.cmdRightDragMode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.cmdRightDragMode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.cmdRightDragMode.UseVisualStyleBackColor = false;
-            this.cmdRightDragMode.Click += new System.EventHandler(this.cmdRightDragMode_Click);
-            // 
-            // PictureBox4
-            // 
-            this.PictureBox4.Image = global::AppTestStudio.Properties.Resources.DragTargetMode;
-            this.PictureBox4.InitialImage = null;
-            this.PictureBox4.Location = new System.Drawing.Point(11, 48);
-            this.PictureBox4.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PictureBox4.Name = "PictureBox4";
-            this.PictureBox4.Size = new System.Drawing.Size(375, 169);
-            this.PictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureBox4.TabIndex = 2;
-            this.PictureBox4.TabStop = false;
-            // 
-            // PictureTestAllTest
-            // 
-            this.PictureTestAllTest.Location = new System.Drawing.Point(4, 5);
-            this.PictureTestAllTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PictureTestAllTest.Name = "PictureTestAllTest";
-            this.PictureTestAllTest.Size = new System.Drawing.Size(100, 50);
-            this.PictureTestAllTest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureTestAllTest.TabIndex = 1;
-            this.PictureTestAllTest.TabStop = false;
-            // 
-            // PictureTestAllReference
-            // 
-            this.PictureTestAllReference.Location = new System.Drawing.Point(4, 5);
-            this.PictureTestAllReference.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PictureTestAllReference.Name = "PictureTestAllReference";
-            this.PictureTestAllReference.Size = new System.Drawing.Size(100, 50);
-            this.PictureTestAllReference.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureTestAllReference.TabIndex = 1;
-            this.PictureTestAllReference.TabStop = false;
-            // 
-            // PictureBoxObject
-            // 
-            this.PictureBoxObject.Location = new System.Drawing.Point(0, 0);
-            this.PictureBoxObject.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PictureBoxObject.Name = "PictureBoxObject";
-            this.PictureBoxObject.Size = new System.Drawing.Size(100, 50);
-            this.PictureBoxObject.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureBoxObject.TabIndex = 0;
-            this.PictureBoxObject.TabStop = false;
-            // 
-            // PictureObjectScreenshotZoomBox
-            // 
-            this.PictureObjectScreenshotZoomBox.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.PictureObjectScreenshotZoomBox.Image = ((System.Drawing.Image)(resources.GetObject("PictureObjectScreenshotZoomBox.Image")));
-            this.PictureObjectScreenshotZoomBox.Location = new System.Drawing.Point(705, 6);
-            this.PictureObjectScreenshotZoomBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PictureObjectScreenshotZoomBox.Name = "PictureObjectScreenshotZoomBox";
-            this.PictureObjectScreenshotZoomBox.Size = new System.Drawing.Size(240, 246);
-            this.PictureObjectScreenshotZoomBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PictureObjectScreenshotZoomBox.TabIndex = 12;
-            this.PictureObjectScreenshotZoomBox.TabStop = false;
-            // 
-            // PictureObjectScreenshot
-            // 
-            this.PictureObjectScreenshot.Location = new System.Drawing.Point(12, 12);
-            this.PictureObjectScreenshot.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.PictureObjectScreenshot.Name = "PictureObjectScreenshot";
-            this.PictureObjectScreenshot.Size = new System.Drawing.Size(286, 263);
-            this.PictureObjectScreenshot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureObjectScreenshot.TabIndex = 16;
-            this.PictureObjectScreenshot.TabStop = false;
-            this.PictureObjectScreenshot.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureObjectScreenshot_Paint);
-            this.PictureObjectScreenshot.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureObjectScreenshot_MouseDown);
-            this.PictureObjectScreenshot.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureObjectScreenshot_MouseMove);
-            this.PictureObjectScreenshot.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureObjectScreenshot_MouseUp);
-            // 
             // toolStripLoadScript
             // 
             this.toolStripLoadScript.Image = global::AppTestStudio.Properties.Resources.UploadFile_16x_24;
@@ -4469,6 +4548,11 @@
             this.toolStripButtonSaveScript.Size = new System.Drawing.Size(127, 29);
             this.toolStripButtonSaveScript.Text = "Save Script";
             this.toolStripButtonSaveScript.Click += new System.EventHandler(this.toolStripButtonSaveScript_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(6, 34);
             // 
             // toolStripButtonRunScript
             // 
@@ -4510,6 +4594,11 @@
             this.toolStripButtonStartEmmulator.ToolTipText = "Start Emmulator";
             this.toolStripButtonStartEmmulator.Click += new System.EventHandler(this.toolStripButtonStartEmmulator_Click);
             // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(6, 34);
+            // 
             // toolStripButtonToggleScript
             // 
             this.toolStripButtonToggleScript.Enabled = false;
@@ -4520,117 +4609,27 @@
             this.toolStripButtonToggleScript.Text = "Pause Script";
             this.toolStripButtonToggleScript.Click += new System.EventHandler(this.toolStripButtonToggleScript_Click);
             // 
-            // toolAddEvent
+            // toolStripSeparator5
             // 
-            this.toolAddEvent.Image = global::AppTestStudio.Properties.Resources.AddEvent;
-            this.toolAddEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAddEvent.Name = "toolAddEvent";
-            this.toolAddEvent.Size = new System.Drawing.Size(122, 29);
-            this.toolAddEvent.Text = "Add Event";
-            this.toolAddEvent.Click += new System.EventHandler(this.toolAddEvent_Click);
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            this.toolStripSeparator5.Size = new System.Drawing.Size(6, 34);
             // 
-            // toolAddAction
+            // toolSchedulerRunning
             // 
-            this.toolAddAction.Image = global::AppTestStudio.Properties.Resources.AddActionP;
-            this.toolAddAction.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAddAction.Name = "toolAddAction";
-            this.toolAddAction.Size = new System.Drawing.Size(130, 29);
-            this.toolAddAction.Text = "Add Action";
-            this.toolAddAction.Click += new System.EventHandler(this.toolAddAction_Click);
+            this.toolSchedulerRunning.Name = "toolSchedulerRunning";
+            this.toolSchedulerRunning.Size = new System.Drawing.Size(150, 29);
+            this.toolSchedulerRunning.Text = "Scheduler Paused";
             // 
-            // toolTest
+            // toolStripSeparator8
             // 
-            this.toolTest.Image = global::AppTestStudio.Properties.Resources.Test;
-            this.toolTest.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolTest.Name = "toolTest";
-            this.toolTest.Size = new System.Drawing.Size(70, 29);
-            this.toolTest.Text = "Test";
-            this.toolTest.Click += new System.EventHandler(this.toolTest_Click);
+            this.toolStripSeparator8.Name = "toolStripSeparator8";
+            this.toolStripSeparator8.Size = new System.Drawing.Size(6, 34);
             // 
-            // toolTestAll
+            // toolStripLabelCurrentConfiguredInstance
             // 
-            this.toolTestAll.Image = global::AppTestStudio.Properties.Resources.TestALLP;
-            this.toolTestAll.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolTestAll.Name = "toolTestAll";
-            this.toolTestAll.Size = new System.Drawing.Size(95, 29);
-            this.toolTestAll.Text = "Test All";
-            this.toolTestAll.Click += new System.EventHandler(this.toolTestAll_Click);
-            // 
-            // toolAddRNG
-            // 
-            this.toolAddRNG.Image = global::AppTestStudio.Properties.Resources.AddRNGContainerP;
-            this.toolAddRNG.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAddRNG.Name = "toolAddRNG";
-            this.toolAddRNG.Size = new System.Drawing.Size(115, 29);
-            this.toolAddRNG.Text = "Add RNG";
-            this.toolAddRNG.Click += new System.EventHandler(this.toolAddRNG_Click);
-            // 
-            // toolAddRNGNode
-            // 
-            this.toolAddRNGNode.Image = global::AppTestStudio.Properties.Resources.AddRNGP;
-            this.toolAddRNGNode.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolAddRNGNode.Name = "toolAddRNGNode";
-            this.toolAddRNGNode.Size = new System.Drawing.Size(164, 29);
-            this.toolAddRNGNode.Text = "Add RNG Node";
-            this.toolAddRNGNode.Click += new System.EventHandler(this.toolAddRNGNode_Click);
-            // 
-            // toolStripButton1
-            // 
-            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
-            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButton1.Name = "toolStripButton1";
-            this.toolStripButton1.Size = new System.Drawing.Size(34, 29);
-            this.toolStripButton1.Text = "toolStripButton1";
-            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
-            // 
-            // mnuAddEvent
-            // 
-            this.mnuAddEvent.Image = global::AppTestStudio.Properties.Resources.AddEvent;
-            this.mnuAddEvent.Name = "mnuAddEvent";
-            this.mnuAddEvent.Size = new System.Drawing.Size(320, 32);
-            this.mnuAddEvent.Text = "Add Event";
-            this.mnuAddEvent.Click += new System.EventHandler(this.mnuAddEvent_Click);
-            // 
-            // mnuAddAction
-            // 
-            this.mnuAddAction.Image = global::AppTestStudio.Properties.Resources.AddActionP;
-            this.mnuAddAction.Name = "mnuAddAction";
-            this.mnuAddAction.Size = new System.Drawing.Size(320, 32);
-            this.mnuAddAction.Text = "Add Action";
-            this.mnuAddAction.Click += new System.EventHandler(this.mnuAddAction_Click);
-            // 
-            // testToolStripMenuItem
-            // 
-            this.testToolStripMenuItem.Image = global::AppTestStudio.Properties.Resources.Test;
-            this.testToolStripMenuItem.Name = "testToolStripMenuItem";
-            this.testToolStripMenuItem.Size = new System.Drawing.Size(320, 32);
-            this.testToolStripMenuItem.Text = "Test";
-            this.testToolStripMenuItem.Click += new System.EventHandler(this.testToolStripMenuItem_Click);
-            // 
-            // mnuTestAllEvents
-            // 
-            this.mnuTestAllEvents.Image = global::AppTestStudio.Properties.Resources.TestALLP;
-            this.mnuTestAllEvents.Name = "mnuTestAllEvents";
-            this.mnuTestAllEvents.Size = new System.Drawing.Size(320, 32);
-            this.mnuTestAllEvents.Text = "Test All";
-            this.mnuTestAllEvents.Click += new System.EventHandler(this.mnuTestAllEvents_Click);
-            // 
-            // mnuAddRNG
-            // 
-            this.mnuAddRNG.Image = global::AppTestStudio.Properties.Resources.AddRNGContainerP;
-            this.mnuAddRNG.Name = "mnuAddRNG";
-            this.mnuAddRNG.Size = new System.Drawing.Size(320, 32);
-            this.mnuAddRNG.Text = "Add Random Number (RNG)";
-            this.mnuAddRNG.Click += new System.EventHandler(this.mnuAddRNG_Click);
-            // 
-            // mnuAddRNGNode
-            // 
-            this.mnuAddRNGNode.Image = global::AppTestStudio.Properties.Resources.AddRNGP;
-            this.mnuAddRNGNode.Name = "mnuAddRNGNode";
-            this.mnuAddRNGNode.Size = new System.Drawing.Size(320, 32);
-            this.mnuAddRNGNode.Text = "Add RNG Node";
-            this.mnuAddRNGNode.Click += new System.EventHandler(this.mnuAddRNGNode_Click);
+            this.toolStripLabelCurrentConfiguredInstance.Name = "toolStripLabelCurrentConfiguredInstance";
+            this.toolStripLabelCurrentConfiguredInstance.Size = new System.Drawing.Size(333, 29);
+            this.toolStripLabelCurrentConfiguredInstance.Text = "toolStripLabelCurrentConfiguredInstance";
             // 
             // frmMain
             // 
@@ -4673,29 +4672,50 @@
             this.splitContainerTreePatron.ResumeLayout(false);
             this.tabRun.ResumeLayout(false);
             this.PanelColorEvent.ResumeLayout(false);
+            this.tableColorEvent.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.grpMode.ResumeLayout(false);
+            this.grpMode.PerformLayout();
+            this.PanelScreenshot.ResumeLayout(false);
+            this.PanelScreenshot.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
+            this.grpEventMode.ResumeLayout(false);
+            this.grpEventMode.PerformLayout();
             this.FlowLayoutPanelColorEvent1.ResumeLayout(false);
-            this.panelRightColorAtPointer.ResumeLayout(false);
-            this.PanelSelectedColor.ResumeLayout(false);
-            this.PanelSelectedColor.PerformLayout();
+            this.panelRightResolution.ResumeLayout(false);
+            this.panelRightResolution.PerformLayout();
             this.panelRightAfterCompletion.ResumeLayout(false);
             this.panelRightAfterCompletion.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
+            this.panelRightObject.ResumeLayout(false);
+            this.panelRightObject.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEventObjectSelection)).EndInit();
+            this.panelRightLogic.ResumeLayout(false);
+            this.panelRightLogic.PerformLayout();
+            this.panelRightCustomLogic.ResumeLayout(false);
+            this.panelRightCustomLogic.PerformLayout();
+            this.panelRightPointGrid.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
+            this.FlowLayoutPanelColorEvent2.ResumeLayout(false);
+            this.panelRightColorAtPointer.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
+            this.PanelSelectedColor.ResumeLayout(false);
+            this.PanelSelectedColor.PerformLayout();
             this.panelRightLimit.ResumeLayout(false);
             this.panelRightLimit.PerformLayout();
             this.GroupBox7.ResumeLayout(false);
             this.GroupBox7.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numIterations)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericXOffset)).EndInit();
+            this.panelRightOffset.ResumeLayout(false);
+            this.panelRightOffset.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NumericYOffset)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericObjectThreshold)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgv)).EndInit();
-            this.grpEventMode.ResumeLayout(false);
-            this.grpEventMode.PerformLayout();
-            this.grpMode.ResumeLayout(false);
-            this.grpMode.PerformLayout();
-            this.PanelScreenshot.ResumeLayout(false);
-            this.PanelScreenshot.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericXOffset)).EndInit();
+            this.panelRightDragMode.ResumeLayout(false);
+            this.panelRightDragMode.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).EndInit();
             this.PanelThread.ResumeLayout(false);
             this.splitContainerThread.Panel1.ResumeLayout(false);
             this.splitContainerThread.Panel2.ResumeLayout(false);
@@ -4729,12 +4749,15 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTestAllReference)).EndInit();
             this.Panel2.ResumeLayout(false);
             this.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllTest)).EndInit();
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllReference)).EndInit();
             this.PanelObject.ResumeLayout(false);
             this.PanelObject.PerformLayout();
             this.Panel5.ResumeLayout(false);
             this.Panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).EndInit();
             this.PanelGame.ResumeLayout(false);
             this.PanelGame.PerformLayout();
             this.grpVideo.ResumeLayout(false);
@@ -4751,8 +4774,10 @@
             this.PanelObjectScreenshot.PerformLayout();
             this.panelObjectScreenshotColor.ResumeLayout(false);
             this.panelObjectScreenshotColor.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshotZoomBox)).EndInit();
             this.Panel4.ResumeLayout(false);
             this.Panel4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshot)).EndInit();
             this.PanelAddNewGames.ResumeLayout(false);
             this.PanelAddNewGames.PerformLayout();
             this.PanelObjects.ResumeLayout(false);
@@ -4772,32 +4797,6 @@
             this.appTestStudioToolStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
-            this.panelRightOffset.ResumeLayout(false);
-            this.panelRightOffset.PerformLayout();
-            this.panelRightDragMode.ResumeLayout(false);
-            this.panelRightDragMode.PerformLayout();
-            this.panelRightObject.ResumeLayout(false);
-            this.panelRightObject.PerformLayout();
-            this.panelRightLogic.ResumeLayout(false);
-            this.panelRightLogic.PerformLayout();
-            this.panelRightCustomLogic.ResumeLayout(false);
-            this.panelRightCustomLogic.PerformLayout();
-            this.tableColorEvent.ResumeLayout(false);
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
-            this.FlowLayoutPanelColorEvent2.ResumeLayout(false);
-            this.panelRightPointGrid.ResumeLayout(false);
-            this.panelRightResolution.ResumeLayout(false);
-            this.panelRightResolution.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxEventObjectSelection)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllTest)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllReference)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshotZoomBox)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureObjectScreenshot)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

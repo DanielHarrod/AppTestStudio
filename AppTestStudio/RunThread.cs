@@ -689,6 +689,11 @@ namespace AppTestStudio
                         Game.Log("Unable to locate window during startup met timeout limit");
                         Game.Log("Exiting thread");
                     }
+
+                    if (WindowHandle.ToInt32() > 0)
+                    {
+                        Game.Log("Located window " + Game.TargetWindow);
+                    }
                 }
 
                 Boolean BitMapSuccess = false;
