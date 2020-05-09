@@ -870,6 +870,8 @@ namespace AppTestStudio
 
                     //'load existing
                     PictureBox1.Image = GameNode.Bitmap;
+
+                    panelRightCustomLogic.Visible = false;
                     if (GameNode.LogicChoice.ToUpper() == "OR")
                     {
                         rdoOR.Checked = true;
@@ -885,6 +887,7 @@ namespace AppTestStudio
                         rdoCustom.Checked = true;
                         GameNode.LastLogicChoice = "CUSTOM";
                         txtCustomLogic.Text = GameNode.CustomLogic;
+                        panelRightCustomLogic.Visible = true;
                     }
 
                     int RowCount = 1;
@@ -2391,7 +2394,15 @@ namespace AppTestStudio
             if (Node.IsColorPoint)
             {
                 panelRightLogic.Visible = true;
-                panelRightCustomLogic.Visible = true;
+
+                if (Node.LogicChoice.ToUpper() == "CUSTOM")
+                {
+                    panelRightCustomLogic.Visible = true;
+                }
+                else
+                {
+                    panelRightCustomLogic.Visible = false;
+                }
                 panelRightPointGrid.Visible = true;
                 panelRightObject.Visible = false;
             }
