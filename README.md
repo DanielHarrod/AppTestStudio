@@ -20,8 +20,10 @@ Interactively: Design, Test, Schedule and Play multiple clients at the same time
 
    ![Image](https://appteststudio.b-cdn.net/Tools.png)
    ![Image](https://appteststudio.b-cdn.net/PlayStore.png)
+   
+3. Close this instance of Nox Player, Use the launch controls from App Test Studio - Launching from app test studio, configures DPI, resolution, and window naming.  Which enables consistency and transportability between systems.   
 
-3. Install AppTestStudio
+4. Install AppTestStudio
 
 ## To Create a new project in AppTestStudio use the Wizard.
 
