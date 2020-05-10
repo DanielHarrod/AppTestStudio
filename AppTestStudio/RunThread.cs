@@ -689,7 +689,7 @@ namespace AppTestStudio
                     }
 
                     Debug.WriteLine("Can't find window " + Game.TargetWindow + " attempts left " + RunTimeWindowTimeout);
-                    Game.Log("Can't find Window " + Game.TargetWindow + " the window may have been closed - Press Start Emmulator");
+                    Game.Log("Can't find Window " + Game.TargetWindow + " the window may have been closed - Press Start Emmulator - Retry Attempts left: " + RunTimeWindowTimeout);
 
                     LoopDelay = Game.LoopDelay;
                     while (LoopDelay > 1000)
