@@ -260,7 +260,6 @@ namespace AppTestStudio
                 NoxInstances = DirectoryCount;
                 lblEmmulatorInstancesFound.Text = NoxInstances.ToString();
                 lblEmmulatorInstancesFound.ForeColor = Color.Green;
-                lblHowToFixEmmulatorInstancesFound.LinkColor = Color.DarkGray;
             }
             else
             {
@@ -277,7 +276,6 @@ namespace AppTestStudio
             {
                 lblEmmulatorInstalled.Text = "Yes";
                 lblEmmulatorInstalled.ForeColor = Color.Green;
-                lblHowToFixEmmulatorInstalled.LinkColor = Color.DarkGray;
 
             }
             else
@@ -1309,16 +1307,6 @@ namespace AppTestStudio
         private void splitContainerSeconds_SplitterMoving(object sender, SplitterCancelEventArgs e)
         {
             appTestStudioStatusControl1.ShowPercent = e.SplitX;
-        }
-
-        private void lblHowToFixEmmulatorInstalled_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.appteststudio.com/#FixEmmulatorInstalled");
-        }
-
-        private void lblHowToFixEmmulatorInstancesFound_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.appteststudio.com/#FixEmmulatorInstances");
         }
 
         private void cmdObjectScreenshotsTakeAScreenshot_Click(object sender, EventArgs e)
@@ -5442,67 +5430,7 @@ namespace AppTestStudio
             windowHandles.Add(windowHandle);
             return true;
         }
-
-
-
-        private void toolStripButton1_Click(object sender, EventArgs e)
-        {
-            GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNodeGame();
-            String TargetWindow = GameNode.TargetWindow;
-
-            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
-
-            WindowHandleInfo hi = new WindowHandleInfo(MainWindowHandle);
-            var k = hi.GetAllChildHandles();
-            String Xyx = Utils.GetText(MainWindowHandle);
-            API.RECT wrect;
-            API.GetWindowRect(MainWindowHandle, out wrect);
-            API.RECT crect;
-            API.GetClientRect(MainWindowHandle, out crect);
-
-            IntPtr sbcw = IntPtr.Zero;
-
-            foreach (var x in k)
-            {
-                Xyx = Utils.GetText(x);
-
-                API.GetWindowRect(x, out wrect);
-
-                API.GetClientRect(x, out crect);
-
-                if (Xyx == "ScreenBoardClassWindow")
-                {
-                    sbcw = x;
-                }
-
-            }
-
-
-            if (sbcw.ToInt32() > 0)
-            {
-                Utils.ClickOnWindow(sbcw, 500, 650);
-                Utils.ClickOnWindow(sbcw, 500, 651);
-                Utils.ClickOnWindow(sbcw, 500, 652);
-                Utils.ClickOnWindow(sbcw, 500, 653);
-                Utils.ClickOnWindow(sbcw, 500, 654);
-                Utils.ClickOnWindow(sbcw, 500, 655);
-                Utils.ClickOnWindow(sbcw, 500, 656);
-                Utils.ClickOnWindow(sbcw, 500, 657);
-                Utils.ClickOnWindow(sbcw, 500, 658);
-                Utils.ClickOnWindow(sbcw, 500, 659);
-                Utils.ClickOnWindow(sbcw, 500, 660);
-                Utils.ClickOnWindow(sbcw, 500, 661);
-                Utils.ClickOnWindow(sbcw, 500, 662);
-                Utils.ClickOnWindow(sbcw, 500, 663);
-                Utils.ClickOnWindow(sbcw, 500, 664);
-                Utils.ClickOnWindow(sbcw, 500, 665);
-            }
-
-
-
-        }
-
+          
         private void SplitContainer6_Panel2_Resize(object sender, EventArgs e)
         {
             int Height = (SplitContainer6.Panel2.Height / 2) - lblTestWindow.Height - lblReference.Height;
