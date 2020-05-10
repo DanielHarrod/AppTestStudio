@@ -235,6 +235,7 @@ namespace AppTestStudio
 
             API.PostMessage(windowHandle, WM_LBUTTONDOWN, (int)WM_LBUTTONDOWN, Utils.HiLoWord(xTarget, yTarget));
             //'Thread.Sleep(25)
+            Thread.Sleep(25);
             API.PostMessage(windowHandle, WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
 
         }
