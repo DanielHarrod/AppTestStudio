@@ -593,6 +593,7 @@ namespace AppTestStudio
             cboResolution.Text = gameNode.Resolution;
             chkSaveVideo.Checked = gameNode.SaveVideo;
             NumericVideoFrameLimit.Value = gameNode.VideoFrameLimit;
+            numericApplicationDefaultClickSpeed.Value = gameNode.DefaultClickSpeed;
         }
 
         private void LoadObject(GameNodeObject node)
@@ -5589,6 +5590,15 @@ namespace AppTestStudio
                 panelRightCustomLogic.Visible = true;
                 panelRightPointGrid.Visible = true;
                 cmdRightLogic.ImageIndex = IconNames.DownChevron();
+            }
+        }
+
+        private void numericApplicationDefaultClickSpeed_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+            if (Game.IsSomething())
+            {
+                Game.DefaultClickSpeed = Convert.ToInt32( numericApplicationDefaultClickSpeed.Value);
             }
         }
     }

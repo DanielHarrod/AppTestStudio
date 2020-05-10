@@ -385,6 +385,10 @@
             this.toolSchedulerRunning = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelCurrentConfiguredInstance = new System.Windows.Forms.ToolStripLabel();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.numericApplicationDefaultClickSpeed = new System.Windows.Forms.NumericUpDown();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -493,6 +497,9 @@
             this.mnuObjects.SuspendLayout();
             this.appTestStudioToolStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -631,11 +638,11 @@
             // 
             // splitContainerWorkspace.Panel2
             // 
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelColorEvent);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelThread);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelTestAllEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObject);
-            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelSchedule);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGames);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelActions);
@@ -3253,6 +3260,7 @@
             // 
             // PanelGame
             // 
+            this.PanelGame.Controls.Add(this.groupBox1);
             this.PanelGame.Controls.Add(this.grpVideo);
             this.PanelGame.Controls.Add(this.cmdRunScript);
             this.PanelGame.Controls.Add(this.cmdStartEmmulatorPackageAndRunScript);
@@ -3274,7 +3282,7 @@
             this.PanelGame.Controls.Add(this.lblGamePanelGameName);
             this.PanelGame.Controls.Add(this.label18);
             this.PanelGame.Controls.Add(this.label22);
-            this.PanelGame.Location = new System.Drawing.Point(1342, 45);
+            this.PanelGame.Location = new System.Drawing.Point(57, 35);
             this.PanelGame.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanelGame.Name = "PanelGame";
             this.PanelGame.Size = new System.Drawing.Size(1179, 623);
@@ -4084,7 +4092,7 @@
             // 
             this.PanelWorkspace.Controls.Add(this.groupBox3);
             this.PanelWorkspace.Controls.Add(this.label4);
-            this.PanelWorkspace.Location = new System.Drawing.Point(164, 182);
+            this.PanelWorkspace.Location = new System.Drawing.Point(331, 678);
             this.PanelWorkspace.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanelWorkspace.Name = "PanelWorkspace";
             this.PanelWorkspace.Size = new System.Drawing.Size(1304, 826);
@@ -4591,6 +4599,51 @@
             this.toolStripLabelCurrentConfiguredInstance.Size = new System.Drawing.Size(333, 29);
             this.toolStripLabelCurrentConfiguredInstance.Text = "toolStripLabelCurrentConfiguredInstance";
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Location = new System.Drawing.Point(631, 109);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(528, 392);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Defaults";
+            // 
+            // numericApplicationDefaultClickSpeed
+            // 
+            this.numericApplicationDefaultClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericApplicationDefaultClickSpeed.Location = new System.Drawing.Point(18, 27);
+            this.numericApplicationDefaultClickSpeed.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.numericApplicationDefaultClickSpeed.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericApplicationDefaultClickSpeed.Name = "numericApplicationDefaultClickSpeed";
+            this.numericApplicationDefaultClickSpeed.Size = new System.Drawing.Size(141, 41);
+            this.numericApplicationDefaultClickSpeed.TabIndex = 33;
+            this.numericApplicationDefaultClickSpeed.ValueChanged += new System.EventHandler(this.numericApplicationDefaultClickSpeed_ValueChanged);
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label42);
+            this.groupBox2.Controls.Add(this.numericApplicationDefaultClickSpeed);
+            this.groupBox2.Location = new System.Drawing.Point(18, 25);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(497, 87);
+            this.groupBox2.TabIndex = 34;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Default Click Speed (ms)";
+            // 
+            // label42
+            // 
+            this.label42.Location = new System.Drawing.Point(178, 22);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(313, 60);
+            this.label42.TabIndex = 34;
+            this.label42.Text = "How long to hold the mouse down during a click event.  Some applications cannot h" +
+    "andle 0.";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -4757,6 +4810,9 @@
             this.appTestStudioToolStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).EndInit();
+            this.groupBox2.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5102,5 +5158,9 @@
         private System.Windows.Forms.Panel panelRightResolution;
         internal System.Windows.Forms.Label lblResolution;
         private System.Windows.Forms.Button cmdPanelRightResolution;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label42;
+        internal System.Windows.Forms.NumericUpDown numericApplicationDefaultClickSpeed;
     }
 }
