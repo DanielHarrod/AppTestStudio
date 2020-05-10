@@ -2405,9 +2405,17 @@ namespace AppTestStudio
 
         private void DeleteSelectedTreeNode()
         {
-            GameNode p = PanelLoadNode.Parent as GameNode;
-            PanelLoadNode.Remove();
-            tv.SelectedNode = p;
+            try
+            {
+                GameNode p = PanelLoadNode.Parent as GameNode;
+                PanelLoadNode.Remove();
+                tv.SelectedNode = p;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+                Debug.Assert(false);  // need to fix.
+            }
         }
 
         private void cmdTest_Click(object sender, EventArgs e)

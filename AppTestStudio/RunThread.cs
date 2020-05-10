@@ -175,7 +175,7 @@ namespace AppTestStudio
                         }
                     }
 
-                    GameNode Parent = null;
+                    GameNode Parent = node.Parent as GameNode;
                     switch (node.Mode)
                     {
                         case Mode.RangeClick:
@@ -186,32 +186,34 @@ namespace AppTestStudio
 
                             if (node.IsParentObjectSearch())
                             {
-                                Parent = node.Parent as GameNode;
-                                if (Parent is GameNodeAction)
+                                if (Parent.IsSomething())
                                 {
-                                    GameNodeAction ParentNode = Parent as GameNodeAction;
-                                    xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2);
-                                    yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2);
+                                    if (Parent is GameNodeAction)
+                                    {
+                                        GameNodeAction ParentNode = Parent as GameNodeAction;
+                                        xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2);
+                                        yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2);
 
-                                    //' xPos = CenterX + ParentNode.Rectangle.X + Node.RelativeXOffset - (Node.Rectangle.Width / 2) + RandomNumber(0, Node.Rectangle.Width)
-                                    //' yPos = CenterY + ParentNode.Rectangle.Y + Node.RelativeYOffset - (Node.Rectangle.Height / 2) + RandomNumber(0, Node.Rectangle.Height)
-                                }
-                                else
-                                {
-                                    xPos = centerX + node.RelativeXOffset - (node.Rectangle.Width / 2);
-                                    yPos = centerY + node.RelativeYOffset - (node.Rectangle.Height / 2);
-                                }
+                                        //' xPos = CenterX + ParentNode.Rectangle.X + Node.RelativeXOffset - (Node.Rectangle.Width / 2) + RandomNumber(0, Node.Rectangle.Width)
+                                        //' yPos = CenterY + ParentNode.Rectangle.Y + Node.RelativeYOffset - (Node.Rectangle.Height / 2) + RandomNumber(0, Node.Rectangle.Height)
+                                    }
+                                    else
+                                    {
+                                        xPos = centerX + node.RelativeXOffset - (node.Rectangle.Width / 2);
+                                        yPos = centerY + node.RelativeYOffset - (node.Rectangle.Height / 2);
+                                    }
 
-                                if (xPos < 0)
-                                {
-                                    Game.Log("Check Relative offset X, calculated to a negative position " + xPos);
-                                    Failed = true;
-                                }
+                                    if (xPos < 0)
+                                    {
+                                        Game.Log("Check Relative offset X, calculated to a negative position " + xPos);
+                                        Failed = true;
+                                    }
 
-                                if (yPos < 0)
-                                {
-                                    Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
-                                    Failed = true;
+                                    if (yPos < 0)
+                                    {
+                                        Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
+                                        Failed = true;
+                                    }
                                 }
                             }
 
@@ -232,31 +234,51 @@ namespace AppTestStudio
 
                             break;
                         case Mode.ClickDragRelease:
-                            int ex = xPos + node.Rectangle.Width;
-                            int ey = yPos + node.Rectangle.Height;
+                            // xPos = X Start Position
+                            // yPos = Y Start Position
+ 
+
+                            // node.Rectangle.Width = direction relative to xPosition to move.
+                            // node.Rectangle.Height = direction relative to the yPosition to move.
+
+                            Debug.WriteLine(node.Rectangle.ToString());
+                            
+                            int XEndPosition = xPos + node.Rectangle.Width;
+                            int YEndPosition = yPos + node.Rectangle.Height;
                             Failed = false;
 
-                            if (node.Rectangle.Width <= 0)
+                            if (XEndPosition <= 0)
                             {
-                                Game.Log(node.GameNodeName + " has width of " + node.Rectangle.Width + " please redraw");
+                                Game.Log(node.GameNodeName + " has a horizontal start positon of " + xPos + " and a calculated end positon of " + XEndPosition + " please redraw, unable to drag to negative position.  Aborting.");
                                 Failed = true;
                             }
 
-                            if (node.Rectangle.Height <= 0)
+                            if (YEndPosition <= 0)
                             {
-                                Game.Log(node.GameNodeName + " has Height of " + node.Rectangle.Height + " please redraw");
+                                Game.Log(node.GameNodeName + " has a vertical start positon of " + yPos + " and a calculated end positon of " + YEndPosition + " please redraw, unable to drag to negative position.  Aborting.");
                                 Failed = true;
                             }
 
-                            ex = xPos - (node.Rectangle.Width / 2) + Utils.RandomNumber(0, node.Rectangle.Width);
-                            ey = yPos - (node.Rectangle.Height / 2) + Utils.RandomNumber(0, node.Rectangle.Height);
+                            // NO this is dumb.
+                            //XEndPosition = xPos - (node.Rectangle.Width / 2) + Utils.RandomNumber(0, node.Rectangle.Width);
+                            //YendPosition = yPos - (node.Rectangle.Height / 2) + Utils.RandomNumber(0, node.Rectangle.Height);
 
-                            Parent = node.Parent as GameNode;
-                            if (Parent is GameNodeAction)
+
+                            if (node.IsParentObjectSearch())
                             {
-                                GameNodeAction ParentNode = Parent as GameNodeAction;
-                                xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2) + Utils.RandomNumber(0, node.Rectangle.Width);
-                                yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2) + Utils.RandomNumber(0, node.Rectangle.Height);
+                                if (Parent.IsSomething())
+                                {
+                                    GameNodeAction ParentNode = Parent as GameNodeAction;
+
+                                    // centerX is Object search center position
+                                    // centerY is Object search center position
+
+                                    //ParentNode.Rectangle.X is the mask start X position.
+                                    //ParentNode.Rectangle.Y is the mask start Y position.
+
+                                    xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset;
+                                    yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset;
+                                }
                             }
 
                             if (xPos < 0)
@@ -271,8 +293,8 @@ namespace AppTestStudio
                                 Failed = true;
                             }
 
-                            ex = node.Rectangle.X + node.Rectangle.Width / 2;
-                            ey = node.Rectangle.Y + node.Rectangle.Height / 2;
+                            //XEndPosition = node.Rectangle.X + node.Rectangle.Width / 2;
+                            //YEndPosition = node.Rectangle.Y + node.Rectangle.Height / 2;
 
 
                             if (Failed)
@@ -281,8 +303,8 @@ namespace AppTestStudio
                             }
                             else
                             {
-                                Game.Log("Swipe from ( x=" + xPos + ",y = " + yPos + " to x=" + ex + ",y=" + ey + ")");
-                                Utils.ClickDragRelease(WindowHandle, xPos, yPos, ex, ey);
+                                Game.Log("Swipe from ( x=" + xPos + ",y = " + yPos + " to x=" + XEndPosition + ",y=" + YEndPosition + ")");
+                                Utils.ClickDragRelease(WindowHandle, xPos, yPos, XEndPosition, YEndPosition);
                                 ThreadManager.IncrementClickDragRelease();
                                 //'if (UseThreadBitmap ) {
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)
