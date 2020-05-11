@@ -217,7 +217,7 @@ namespace AppTestStudio
         }
 
 
-        public static void ClickOnWindow(IntPtr windowHandle, short xTarget, short yTarget)
+        public static void ClickOnWindow(IntPtr windowHandle, short xTarget, short yTarget, int MouseUpDelay)
         {
             int WM_SETCURSOR = 0x20;
             int HTCLIENT = 0x1;
@@ -234,8 +234,10 @@ namespace AppTestStudio
             //'sendmessage(hwnd, WM_SETCURSOR, WM_MOUSEMOVE, MakeLParam(1, WM_MOUSEMOVE))
 
             API.PostMessage(windowHandle, WM_LBUTTONDOWN, (int)WM_LBUTTONDOWN, Utils.HiLoWord(xTarget, yTarget));
-            //'Thread.Sleep(25)
-            Thread.Sleep(25);
+            if (MouseUpDelay > 0)
+            {
+                Thread.Sleep(MouseUpDelay);
+            }
             API.PostMessage(windowHandle, WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
 
         }

@@ -77,7 +77,7 @@ namespace AppTestStudio
                             int RNGH = Utils.RandomNumber(0, Node.Rectangle.Height);
                             int x = Parent.Rectangle.X + CenterX - (Node.Rectangle.Width / 2) + Node.RelativeXOffset + RNGW;
                             int y = Parent.Rectangle.Y + CenterY - (Node.Rectangle.Height / 2) + Node.RelativeYOffset + RNGH;
-                            Utils.ClickOnWindow(MainWindowHandle, (short)x, (short)y);
+                            Utils.ClickOnWindow(MainWindowHandle, (short)x, (short)y, Node.ClickSpeed);
                             frm.Log("Click attempt: x=" + x + ",Y = " + y);
                             Debug.WriteLine("Click attempt: x=" + x + ",Y = " + y);
                             break;

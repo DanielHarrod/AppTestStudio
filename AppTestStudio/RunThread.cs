@@ -228,7 +228,7 @@ namespace AppTestStudio
                                 short yTarget = (short)(yPos + RandomY);
 
                                 Game.Log(node.Name + " Click(" + xTarget + "," + yTarget + ")");
-                                Utils.ClickOnWindow(WindowHandle, xTarget, yTarget);
+                                Utils.ClickOnWindow(WindowHandle, xTarget, yTarget, node.ClickSpeed);
                                 ThreadManager.IncrementClickCount();
                             }
 

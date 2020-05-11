@@ -2507,7 +2507,7 @@ namespace AppTestStudio
                             {
                                 short x = (short)ActionNode.Rectangle.Left;
                                 short y = (short)ActionNode.Rectangle.Top;
-                                Utils.ClickOnWindow(MainWindowHandle, x, y);
+                                Utils.ClickOnWindow(MainWindowHandle, x, y, ActionNode.ClickSpeed);
                                 Log("Click attempt: x=" + x + ",Y = " + y);
                                 ThreadManager.IncrementSingleTestClick();
                             }
