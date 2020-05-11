@@ -99,6 +99,7 @@ namespace AppTestStudio
         private int InitialPanelRightLogicHeight;
         private int InitialPanelRightCustomLogicHeight;
         private int InitialPanelRightPointGridHeight;
+        private int InitialPanelRightClickPropertiesHeight;
 
         public frmMain()
         {
@@ -126,6 +127,7 @@ namespace AppTestStudio
             InitialPanelRightLogicHeight = panelRightLogic.Height;
             InitialPanelRightCustomLogicHeight = panelRightCustomLogic.Height;
             InitialPanelRightPointGridHeight = panelRightCustomLogic.Height;
+            InitialPanelRightClickPropertiesHeight = panelRightClickProperties.Height;
 
             Timer1.Enabled = true;
             //'Debug.Assert(false, "Fix")
@@ -435,6 +437,8 @@ namespace AppTestStudio
 
             toolStripButtonSaveScript.Enabled = false;
 
+            panelRightClickProperties.Visible = false;
+
             DisableSecondToolbarButtons();
 
             if (Node.IsNothing())
@@ -533,7 +537,7 @@ namespace AppTestStudio
                             toolTest.Enabled = true;
                             break;
                         case ActionType.Action:
-
+                            
                             //second toolbar
                             toolAddRNG.Enabled = true;
                             toolAddEvent.Enabled = true;
@@ -543,13 +547,25 @@ namespace AppTestStudio
                             if ( Action.IsParentObjectSearch())
                             {
                                 panelRightOffset.Visible = true;
-
                                 if (Action.Mode == Mode.ClickDragRelease)
                                 {
                                     panelRightDragMode.Visible = true;
                                 }
                             }
-                            
+
+                            switch (Action.Mode)
+                            {   
+                                case Mode.RangeClick:
+                                    panelRightClickProperties.Visible = true;
+                                    break;
+                                case Mode.ClickDragRelease:
+                                    // do nothing
+                                    break;
+                                default:
+                                    // do nothing
+                                    break;
+                            }
+
                             break;
                         default:
                             break;
@@ -733,6 +749,8 @@ namespace AppTestStudio
             cboDelayH.Text = GameNode.DelayH.ToString();
             cboDelayM.Text = GameNode.DelayM.ToString();
 
+            NumericClickSpeed.Value = GameNode.ClickSpeed;
+
             if (GameNode.IsColorPoint)
             {
                 rdoColorPoint.Checked = true;
@@ -842,6 +860,7 @@ namespace AppTestStudio
                     //'             }
                     lblRHSColor.Visible = true;
                     lblRHSXY.Visible = true;
+                    
                     break;
                 case AppTestStudio.ActionType.Event:
                     rdoColorPoint.Checked = GameNode.IsColorPoint;
@@ -919,6 +938,7 @@ namespace AppTestStudio
 
                     //'do nothing
                     LoadObjectNodeSection();
+
                     break;
                 case AppTestStudio.ActionType.RNG:
                     grpEventMode.Visible = false;
@@ -4059,8 +4079,12 @@ namespace AppTestStudio
         {
             GameNode OriginalNode = tv.SelectedNode as GameNode;
             GameNodeAction GameNodeAction = new GameNodeAction("Click " + tv.SelectedNode.Text, ActionType.Action);
+            
             OriginalNode.Nodes.Add(GameNodeAction);
             tv.SelectedNode = GameNodeAction;
+
+            // must be after Node is added to tree.
+            GameNodeAction.ClickSpeed = GameNodeAction.GetGameNodeGame().DefaultClickSpeed;
 
             SetPanel(PanelMode.PanelColorEvent);
 
@@ -5599,6 +5623,31 @@ namespace AppTestStudio
             if (Game.IsSomething())
             {
                 Game.DefaultClickSpeed = Convert.ToInt32( numericApplicationDefaultClickSpeed.Value);
+            }
+        }
+
+        private void cmdRightClickProperties_Click(object sender, EventArgs e)
+        {
+            if (panelRightClickProperties.Height == InitialPanelRightClickPropertiesHeight)
+            {
+                panelRightClickProperties.Height = cmdRightClickProperties.Height;
+
+                cmdRightLogic.ImageIndex = IconNames.LeftChevron();
+            }
+            else
+            {
+                panelRightClickProperties.Height = InitialPanelRightClickPropertiesHeight;
+
+                cmdRightLogic.ImageIndex = IconNames.DownChevron();
+            }
+        }
+
+        private void NumericClickSpeed_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.ClickSpeed = Convert.ToInt32( NumericClickSpeed.Value );
             }
         }
     }

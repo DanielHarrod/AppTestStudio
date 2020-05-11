@@ -328,6 +328,8 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
                         Writer.WriteAttributeString("Mode", Activites.Mode.ToString());
 
+                        Writer.WriteAttributeString("ClickSpeed", Activites.ClickSpeed.ToString());
+
                         Writer.WriteAttributeString("RelativeXOffset", Activites.RelativeXOffset.ToString());
                         Writer.WriteAttributeString("RelativeYOffset", Activites.RelativeYOffset.ToString());
 
@@ -433,7 +435,7 @@ namespace AppTestStudio
 
                         Writer.WriteAttributeString("UseParentPicture", Activites.UseParentPicture.ToString());
                         //'Writer.WriteAttributeString("DelayMS", Activites.DelayMS)
-                        Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
+                        Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());                        
 
                         Writer.WriteAttributeString("IsLimited", Activites.IsLimited.ToString());
                         Writer.WriteAttributeString("IsWaitFirst", Activites.IsWaitFirst.ToString());
@@ -1108,6 +1110,13 @@ namespace AppTestStudio
                         break;
                 }
             }
+
+            if (actionNode.Attributes.GetNamedItem("ClickSpeed").IsSomething())
+            {
+                int ClickSpeed = Convert.ToInt32(actionNode.Attributes["ClickSpeed"].Value);
+                treeActionNode.ClickSpeed = ClickSpeed;
+            }
+
 
             if (actionNode.Attributes.GetNamedItem("IsLimited").IsSomething())
             {

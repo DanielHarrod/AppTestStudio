@@ -36,6 +36,7 @@ namespace AppTestStudio
             ObjectThreshold = 70;
             DragTargetMode = DragTargetMode.Absolute;
             ClickList = new List<SingleClick>();
+            ClickSpeed = 0;
 
             Channel = "";
             Utils.SetIcons(this);
@@ -116,6 +117,11 @@ namespace AppTestStudio
                 Utils.SetIcons(this);
             }
         }
+
+        /// <summary>
+        /// The delay between the mouse going down and the mouse going up in a click event.
+        /// </summary>
+        public int ClickSpeed { get; set; }
 
         public ActionType ActionType { get; set; }
 
@@ -273,6 +279,7 @@ namespace AppTestStudio
             Action.Channel = Channel;
             Action.IsColorPoint = IsColorPoint;  //must be set after Mode
             Action.CustomLogic = CustomLogic;
+            Action.ClickSpeed = ClickSpeed;
 
             foreach (GameNodeAction ChildAction in Nodes)
             {
