@@ -100,6 +100,7 @@ namespace AppTestStudio
         private int InitialPanelRightCustomLogicHeight;
         private int InitialPanelRightPointGridHeight;
         private int InitialPanelRightClickPropertiesHeight;
+        private int InitialPanelRightSwipePropertiesHeight;
 
         public frmMain()
         {
@@ -128,6 +129,7 @@ namespace AppTestStudio
             InitialPanelRightCustomLogicHeight = panelRightCustomLogic.Height;
             InitialPanelRightPointGridHeight = panelRightCustomLogic.Height;
             InitialPanelRightClickPropertiesHeight = panelRightClickProperties.Height;
+            InitialPanelRightSwipePropertiesHeight = panelRightSwipeProperties.Height;
 
             Timer1.Enabled = true;
             //'Debug.Assert(false, "Fix")
@@ -438,6 +440,7 @@ namespace AppTestStudio
             toolStripButtonSaveScript.Enabled = false;
 
             panelRightClickProperties.Visible = false;
+            panelRightSwipeProperties.Visible = false;
 
             DisableSecondToolbarButtons();
 
@@ -559,6 +562,7 @@ namespace AppTestStudio
                                     panelRightClickProperties.Visible = true;
                                     break;
                                 case Mode.ClickDragRelease:
+                                    panelRightSwipeProperties.Visible = true;
                                     // do nothing
                                     break;
                                 default:
@@ -5648,6 +5652,24 @@ namespace AppTestStudio
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.ClickSpeed = Convert.ToInt32( NumericClickSpeed.Value );
+            }
+        }
+
+        private void cmdRightSwipeProperties_Click(object sender, EventArgs e)
+        {
+            
+
+            if (panelRightSwipeProperties.Height == InitialPanelRightSwipePropertiesHeight)
+            {
+                panelRightSwipeProperties.Height = cmdRightSwipeProperties.Height;
+
+                cmdRightLogic.ImageIndex = IconNames.LeftChevron();
+            }
+            else
+            {
+                panelRightSwipeProperties.Height = InitialPanelRightSwipePropertiesHeight;
+
+                cmdRightLogic.ImageIndex = IconNames.DownChevron();
             }
         }
     }
