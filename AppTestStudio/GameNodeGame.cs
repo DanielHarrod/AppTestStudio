@@ -468,8 +468,24 @@ namespace AppTestStudio
                         }
 
                         Writer.WriteAttributeString("IsColorPoint", Activites.IsColorPoint.ToString());
-                        Writer.WriteAttributeString("Repeats", Activites.RepeatsUntilFalse.ToString());
-                        Writer.WriteAttributeString("RepeatsLimit", Activites.RepeatsUntilFalseLimit.ToString());
+                        if (Activites.RepeatsUntilFalse)
+                        {
+                            Writer.WriteAttributeString("Repeats", Activites.RepeatsUntilFalse.ToString());
+                            Writer.WriteAttributeString("RepeatsLimit", Activites.RepeatsUntilFalseLimit.ToString());
+                        }
+                        else 
+                        { 
+                            // only display when not the default
+                            if (Activites.RepeatsUntilFalseLimit == 0)
+                            {
+                                // do nothing
+                            }
+                            else
+                            {
+                                Writer.WriteAttributeString("RepeatsLimit", Activites.RepeatsUntilFalseLimit.ToString());
+                            }
+                        }
+                        
 
                         Writer.WriteStartElement("Delay");
                         Writer.WriteAttributeString("MilliSeconds", Activites.DelayMS.ToString());
@@ -782,7 +798,17 @@ namespace AppTestStudio
 
         private static void LoadEvent(XmlNode eventNode, GameNodeGame gameNode, GameNodeAction newEvent, List<GameNodeAction> lst, bool loadBitmaps)
         {
-            String EventName = eventNode.Attributes["Name"].Value;
+            String EventName = "";
+
+            if (eventNode.Attributes.GetNamedItem("Name").IsSomething())
+            {
+                EventName = eventNode.Attributes["Name"].Value;
+            }
+
+            if (eventNode.Attributes.GetNamedItem("IsEnabled").IsSomething())
+            {
+                newEvent.Enabled = Convert.ToBoolean(eventNode.Attributes["IsEnabled"].Value);
+            }
 
             if (EventName == "White X")
             {
@@ -903,6 +929,26 @@ namespace AppTestStudio
                     default:
                         break;
                 }
+            }
+
+            if (eventNode.Attributes.GetNamedItem("Repeats").IsSomething())
+            {
+                Boolean Repeats = Convert.ToBoolean(eventNode.Attributes["Repeats"].Value);
+                newEvent.RepeatsUntilFalse = Repeats;
+            }
+
+            if (eventNode.Attributes.GetNamedItem("RepeatsLimit").IsSomething())
+            {
+                try
+                {
+                    int RepeatsLimit = Convert.ToInt32(eventNode.Attributes["RepeatsLimit"].Value);
+                    newEvent.RepeatsUntilFalseLimit = RepeatsLimit;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+
             }
 
             foreach (XmlNode childNode in eventNode.ChildNodes)
@@ -1051,9 +1097,12 @@ namespace AppTestStudio
             {
                 ActionName = actionNode.Attributes["Name"].Value;
             }
+            treeActionNode.GameNodeName = ActionName;
 
-
-
+            if (actionNode.Attributes.GetNamedItem("IsEnabled").IsSomething())
+            {
+                treeActionNode.Enabled = Convert.ToBoolean(actionNode.Attributes["IsEnabled"].Value);
+            }
 
             Boolean UseParentPicture = false;
             if (actionNode.Attributes.GetNamedItem("UseParentPicture").IsSomething())
@@ -1191,7 +1240,7 @@ namespace AppTestStudio
             }
             treeActionNode.AutoBalance = AutoBalanceAttribue;
 
-            treeActionNode.GameNodeName = ActionName;
+
 
             treeActionNode.UseParentPicture = UseParentPicture;
 
