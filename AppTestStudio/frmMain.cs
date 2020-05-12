@@ -941,6 +941,8 @@ namespace AppTestStudio
                     panelRightProperties.Height = 129;
 
                     chkPropertiesRepeatsUntilFalse.Checked = GameNode.RepeatsUntilFalse;
+                    chkPropertiesRepeatsUntilFalse_CheckedChanged(null, null); // lazy - enable/disable code is on the change event.
+
                     numericPropertiesRepeatsUntilFalse.Value = GameNode.RepeatsUntilFalseLimit;
 
                     rdoColorPoint.Checked = GameNode.IsColorPoint;
@@ -5845,7 +5847,6 @@ namespace AppTestStudio
                 numericPropertiesRepeatsUntilFalse.Enabled = false;
                 lblPropertiesRepeatsUntilFalse.Enabled = false;
             }
-
         }
 
         private void numericPropertiesRepeatsUntilFalse_ValueChanged(object sender, EventArgs e)
@@ -5855,6 +5856,7 @@ namespace AppTestStudio
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.RepeatsUntilFalseLimit = Convert.ToInt32( numericPropertiesRepeatsUntilFalse.Value );
             }
+
         }
     }
 }
