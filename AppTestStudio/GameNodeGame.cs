@@ -1374,6 +1374,11 @@ namespace AppTestStudio
                     case "RNG":
                         GameNodeAction rngAction = new GameNodeAction("", ActionType.RNG);
                         rngAction.Percentage = ActionNodeChildNode.Attributes["Percentage"].Value.ToInt();
+                        if (ActionNodeChildNode.Attributes.GetNamedItem("IsEnabled").IsSomething())
+                        {
+                            rngAction.Enabled = Convert.ToBoolean( ActionNodeChildNode.Attributes["IsEnabled"].Value);
+                        }
+
                         treeActionNode.Nodes.Add(rngAction);
 
                         LoadEvents(ActionNodeChildNode.FirstChild, gameNode, rngAction, lst, loadBitmaps);
