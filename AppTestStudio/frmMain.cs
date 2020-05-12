@@ -843,6 +843,10 @@ namespace AppTestStudio
             switch (GameNode.ActionType)
             {
                 case AppTestStudio.ActionType.Action:
+                    chkPropertiesRepeatsUntilFalse.Visible = false;
+                    grpPropertiesRepeatsUntilFalse.Visible = false;
+                    panelRightProperties.Height = 73;  // hiding repeats so remove the space they are taking up.
+
                     grpEventMode.Visible = false;
                     grpMode.Visible = true;
                     panelRightObject.Visible = false;
@@ -932,6 +936,9 @@ namespace AppTestStudio
 
                     break;
                 case AppTestStudio.ActionType.Event:
+                    chkPropertiesRepeatsUntilFalse.Visible = true;
+                    grpPropertiesRepeatsUntilFalse.Visible = true;
+                    panelRightProperties.Height = 129;
 
                     chkPropertiesRepeatsUntilFalse.Checked = GameNode.RepeatsUntilFalse;
                     numericPropertiesRepeatsUntilFalse.Value = GameNode.RepeatsUntilFalseLimit;
@@ -5827,6 +5834,18 @@ namespace AppTestStudio
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.RepeatsUntilFalse = chkPropertiesRepeatsUntilFalse.Checked;
             }
+
+            if (chkPropertiesRepeatsUntilFalse.Checked)
+            {
+                numericPropertiesRepeatsUntilFalse.Enabled = true;
+                lblPropertiesRepeatsUntilFalse.Enabled = true;
+            }
+            else
+            {
+                numericPropertiesRepeatsUntilFalse.Enabled = false;
+                lblPropertiesRepeatsUntilFalse.Enabled = false;
+            }
+
         }
 
         private void numericPropertiesRepeatsUntilFalse_ValueChanged(object sender, EventArgs e)
