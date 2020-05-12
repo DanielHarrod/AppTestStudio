@@ -557,12 +557,22 @@ namespace AppTestStudio
                             }
 
                             switch (Action.Mode)
-                            {   
+                            {
                                 case Mode.RangeClick:
                                     panelRightClickProperties.Visible = true;
                                     break;
                                 case Mode.ClickDragRelease:
                                     panelRightSwipeProperties.Visible = true;
+
+                                    if (Action.IsParentObjectSearch())
+                                    {
+                                        groupBoxClickDragReleaseObjectSearch.Enabled = true;
+                                    }
+                                    else
+                                    {
+                                        groupBoxClickDragReleaseObjectSearch.Enabled = false;
+                                        rdoObjectSearchNone.Checked = true;
+                                    }
                                     // do nothing
                                     break;
                                 default:
@@ -4063,7 +4073,12 @@ namespace AppTestStudio
                 ArchaicSave();
             }
             Utils.SetIcons(PanelLoadNode);
-            panelRightDragMode.Visible = rdoModeClickDragRelease.Checked;
+
+            if (rdoModeRangeClick.Checked)
+            {
+                panelRightSwipeProperties.Visible = false;
+            }
+            
         }
 
         private void rdoModeClickDragRelease_CheckedChanged(object sender, EventArgs e)
@@ -4074,7 +4089,31 @@ namespace AppTestStudio
                 ArchaicSave();
             }
             Utils.SetIcons(PanelLoadNode);
-            panelRightDragMode.Visible = rdoModeClickDragRelease.Checked;
+
+            if (rdoModeClickDragRelease.Checked )
+            {
+                if (IsPanelLoading == false)
+                {
+                    panelRightSwipeProperties.Visible = true;
+                    GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                    if (ActionNode.IsParentObjectSearch())
+                    {
+                        groupBoxClickDragReleaseObjectSearch.Enabled = true;
+                        ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.Start;
+                        rdoObjectSearchStart.Checked = true;
+                    }
+                    else
+                    {
+                        groupBoxClickDragReleaseObjectSearch.Enabled = false;
+                        ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.None;
+                    }
+                    
+                }
+                panelRightClickProperties.Visible = false;
+            }
+
+
+
         }
 
         private void mnuAddEvent_Click(object sender, EventArgs e)
