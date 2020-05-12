@@ -323,6 +323,10 @@ namespace AppTestStudio
                     case ActionType.Action:
                         Writer.WriteStartElement("Action");
                         Writer.WriteAttributeString("Name", Activites.Name);
+                        if (Activites.Enabled == false)
+                        {
+                            Writer.WriteAttributeString("IsEnabled", "False");
+                        }
 
                         //' Writer.WriteAttributeString("ActionType", Activites.ActionType)
                         Writer.WriteAttributeString("UseParentPicture", Activites.UseParentPicture.ToString());
@@ -426,6 +430,10 @@ namespace AppTestStudio
                     case ActionType.Event:
                         Writer.WriteStartElement("Event");
                         Writer.WriteAttributeString("Name", Activites.Name);
+                        if (Activites.Enabled == false)
+                        {
+                            Writer.WriteAttributeString("IsEnabled", "False");
+                        }
 
                         Writer.WriteAttributeString("LogicChoice", Activites.LogicChoice);
 
@@ -460,7 +468,8 @@ namespace AppTestStudio
                         }
 
                         Writer.WriteAttributeString("IsColorPoint", Activites.IsColorPoint.ToString());
-
+                        Writer.WriteAttributeString("Repeats", Activites.RepeatsUntilFalse.ToString());
+                        Writer.WriteAttributeString("RepeatsLimit", Activites.RepeatsUntilFalseLimit.ToString());
 
                         Writer.WriteStartElement("Delay");
                         Writer.WriteAttributeString("MilliSeconds", Activites.DelayMS.ToString());
@@ -586,9 +595,16 @@ namespace AppTestStudio
                         Writer.WriteEndElement();
                         break;
                     case ActionType.RNG:
+                        // Not done here, see RNGContainer for loop
                         break;
                     case ActionType.RNGContainer:
                         Writer.WriteStartElement("RNG-Container");
+
+                        if (Activites.Enabled == false)
+                        {
+                            Writer.WriteAttributeString("IsEnabled", "False");
+                        }
+                        
                         Writer.WriteAttributeString("AutoBalance", Activites.AutoBalance.ToString());
                         Writer.WriteAttributeString("Name", Activites.Name.ToString());
 
@@ -615,6 +631,11 @@ namespace AppTestStudio
                         foreach (GameNodeAction RNGNode in Activites.Nodes)
                         {
                             Writer.WriteStartElement("RNG");
+                            if (RNGNode.Enabled == false)
+                            {
+                                Writer.WriteAttributeString("IsEnabled", "False");
+                            }
+
                             Writer.WriteAttributeString("Percentage", RNGNode.Percentage.ToString());
                             SaveEvents(Writer, Workspace, Game, RNGNode, Directory, UseMinimalSavingMethods, PictureListExtract);
                             Writer.WriteEndElement();
