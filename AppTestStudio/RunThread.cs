@@ -152,6 +152,10 @@ namespace AppTestStudio
 
         private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY)
         {
+            if (node.Enabled == false)
+            {
+                return AfterCompletionType.Continue;
+            }
 
             ThreadManager.IncrementGoChild();
             switch (node.ActionType)
@@ -670,8 +674,6 @@ namespace AppTestStudio
 
         public void Run()
         {
-
-
             foreach (GameNodeAction node in Game.Events.Nodes)
             {
                 InitializeChildren(node);
