@@ -122,7 +122,7 @@ namespace AppTestStudio
             InitialPanelRightLimitHeight = panelRightLimit.Height;
             InitialPanelRightOffsetHeight = panelRightOffset.Height;
             InitialPanelRightDragModeHeight = panelRightDragMode.Height;
-            InitialPanelRightResolutionHeight = panelRightResolution.Height;
+            InitialPanelRightResolutionHeight = panelRightProperties.Height;
             InitialPanelRightAfterCompletionHeight = panelRightAfterCompletion.Height;
             InitialPanelRightObjectHeight = panelRightObject.Height;
             InitialPanelRightLogicHeight = panelRightLogic.Height;
@@ -838,6 +838,8 @@ namespace AppTestStudio
                 rdoModeClickDragRelease.Checked = true;
             }
 
+            chkPropertiesEnabled.Checked = GameNode.Enabled;
+
             switch (GameNode.ActionType)
             {
                 case AppTestStudio.ActionType.Action:
@@ -913,7 +915,6 @@ namespace AppTestStudio
                         Log("Swipe End Width(" + GameNode.ClickDragReleaseVelocity + ") is invalid setting to 500");
                     }
 
-
                     switch (GameNode.ClickDragReleaseMode)
                     {
                         case ClickDragReleaseMode.Start:
@@ -931,6 +932,10 @@ namespace AppTestStudio
 
                     break;
                 case AppTestStudio.ActionType.Event:
+
+                    chkPropertiesRepeatsUntilFalse.Checked = GameNode.RepeatsUntilFalse;
+                    numericPropertiesRepeatsUntilFalse.Value = GameNode.RepeatsUntilFalseLimit;
+
                     rdoColorPoint.Checked = GameNode.IsColorPoint;
                     grpMode.Visible = false;
                     grpEventMode.Visible = true;
@@ -5804,6 +5809,33 @@ namespace AppTestStudio
         private void rdoObjectSearchNone_CheckedChanged(object sender, EventArgs e)
         {
             ObjectSearchChanged();
+        }
+
+        private void chkPropertiesEnabled_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.Enabled = chkPropertiesEnabled.Checked;
+            }
+        }
+
+        private void chkPropertiesRepeatsUntilFalse_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.RepeatsUntilFalse = chkPropertiesRepeatsUntilFalse.Checked;
+            }
+        }
+
+        private void numericPropertiesRepeatsUntilFalse_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.RepeatsUntilFalseLimit = Convert.ToInt32( numericPropertiesRepeatsUntilFalse.Value );
+            }
         }
     }
 }

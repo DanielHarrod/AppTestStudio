@@ -39,6 +39,10 @@ namespace AppTestStudio
             ClickDragReleaseVelocity = 500;
             ClickDragReleaseMode = ClickDragReleaseMode.None;
 
+            Enabled = true;
+            RepeatsUntilFalse = false;
+            RepeatsUntilFalseLimit = 0;
+
             Channel = "";
             Utils.SetIcons(this);
 
@@ -123,6 +127,11 @@ namespace AppTestStudio
         /// The delay between the mouse going down and the mouse going up in a click event.
         /// </summary>
         public int ClickSpeed { get; set; }
+
+        public Boolean Enabled { get; set; }
+
+        public Boolean RepeatsUntilFalse { get; set; }
+        public int RepeatsUntilFalseLimit { get; set; }
 
         public ActionType ActionType { get; set; }
 
@@ -297,6 +306,10 @@ namespace AppTestStudio
             Action.ClickDragReleaseStartHeight = ClickDragReleaseStartHeight;
             Action.ClickDragReleaseStartWidth = ClickDragReleaseStartWidth;
             Action.ClickDragReleaseVelocity = ClickDragReleaseVelocity;
+
+            Action.Enabled = Enabled;
+            Action.RepeatsUntilFalse = RepeatsUntilFalse;
+            Action.RepeatsUntilFalseLimit = RepeatsUntilFalseLimit;
 
             foreach (GameNodeAction ChildAction in Nodes)
             {
