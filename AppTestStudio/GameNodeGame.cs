@@ -333,17 +333,6 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("RelativeXOffset", Activites.RelativeXOffset.ToString());
                         Writer.WriteAttributeString("RelativeYOffset", Activites.RelativeYOffset.ToString());
 
-                        switch (Activites.DragTargetMode)
-                        {
-                            case AppTestStudio.DragTargetMode.Relative:
-                                Writer.WriteAttributeString("DragTargetMode", "Relative");
-                                break;
-                            case AppTestStudio.DragTargetMode.Absolute:
-                                Writer.WriteAttributeString("DragTargetMode", "Absolute");
-                                break;
-                            default:
-                                break;
-                        }
 
                         Writer.WriteStartElement("Delay");
                         Writer.WriteAttributeString("MilliSeconds", Activites.DelayMS.ToString());
@@ -1063,23 +1052,6 @@ namespace AppTestStudio
             else
             {
                 treeActionNode.AfterCompletionType = AfterCompletionType.Continue;
-            }
-
-            if (actionNode.Attributes.GetNamedItem("DragTargetMode").IsSomething())
-            {
-                String DragTargetMode = actionNode.Attributes["DragTargetMode"].Value;
-                switch (DragTargetMode)
-                {
-                    case "Absolute":
-                        treeActionNode.DragTargetMode = AppTestStudio.DragTargetMode.Absolute;
-                        break;
-                    case "Relative":
-                        treeActionNode.DragTargetMode = AppTestStudio.DragTargetMode.Relative;
-                        break;
-                    default:
-                        Debug.WriteLine("Unexpected GameNodeGame.LoadAction.DragTargetMode {0}", actionNode.Attributes["DragTargetMode"].Value);
-                        break;
-                }
             }
 
             if (actionNode.Attributes.GetNamedItem("RelativeXOffset").IsSomething())

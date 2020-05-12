@@ -34,7 +34,6 @@ namespace AppTestStudio
             IsColorPoint = true;
             ObjectName = "";
             ObjectThreshold = 70;
-            DragTargetMode = DragTargetMode.Absolute;
             ClickList = new List<SingleClick>();
             ClickSpeed = 0;
 
@@ -194,7 +193,6 @@ namespace AppTestStudio
         public long ObjectThreshold { get; set; }
         public int RelativeXOffset { get; set; }
         public int RelativeYOffset { get; set; }
-        public DragTargetMode DragTargetMode { get; set; }
 
         private Bitmap mBitmap;
         public Bitmap Bitmap

@@ -54,12 +54,6 @@ namespace AppTestStudio
         ClickDragRelease
     }
 
-    public enum DragTargetMode
-    {
-        Relative,
-        Absolute                
-    }
-
     public static class IconNames
     {
         public static int VideoGameController()

@@ -802,19 +802,6 @@ namespace AppTestStudio
             numIterations.Value = GameNode.ExecutionLimit;
             chkLimitRepeats.Checked = GameNode.LimitRepeats;
 
-            switch (GameNode.DragTargetMode)
-            {
-                case AppTestStudio.DragTargetMode.Relative:
-                    rdoRelativeTarget.Checked = true;
-                    break;
-                case AppTestStudio.DragTargetMode.Absolute:
-                    rdoAbsoluteTarget.Checked = true;
-                    break;
-                default:
-                    rdoAbsoluteTarget.Checked = true;
-                    break;
-            }
-
             switch (GameNode.WaitType)
             {
                 case AppTestStudio.WaitType.Iteration:
@@ -3817,40 +3804,6 @@ namespace AppTestStudio
                 ActionNode.RelativeYOffset = (int)NumericYOffset.Value;
                 PictureBox1.Invalidate();
             }
-        }
-
-        private void rdoRelativeTarget_CheckedChanged(object sender, EventArgs e)
-        {
-            if (IsPanelLoading == false)
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                if (rdoRelativeTarget.Checked)
-                {
-                    ActionNode.DragTargetMode = DragTargetMode.Relative;
-                }
-                else
-                {
-                    ActionNode.DragTargetMode = DragTargetMode.Absolute;
-                }
-            }
-
-        }
-
-        private void rdoAbsoluteTarget_CheckedChanged(object sender, EventArgs e)
-        {
-            if (IsPanelLoading == false)
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                if (rdoAbsoluteTarget.Checked)
-                {
-                    ActionNode.DragTargetMode = DragTargetMode.Absolute;
-                }
-                else
-                {
-                    ActionNode.DragTargetMode = DragTargetMode.Relative;
-                }
-            }
-
         }
 
         private void cboObject_SelectedIndexChanged(object sender, EventArgs e)
