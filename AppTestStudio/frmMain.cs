@@ -851,7 +851,74 @@ namespace AppTestStudio
                     //'             }
                     lblRHSColor.Visible = true;
                     lblRHSXY.Visible = true;
-                    
+
+                    if (GameNode.ClickDragReleaseStartHeight <= numericSwipeStartHeight.Maximum)
+                    {
+                        numericSwipeStartHeight.Value = GameNode.ClickDragReleaseStartHeight;
+                    }
+                    else
+                    {
+                        numericSwipeStartHeight.Value = 10;
+                        Log("Swipe Start Height(" + GameNode.ClickDragReleaseStartHeight + ") is invalid setting to 10");
+                    }
+
+                    if (GameNode.ClickDragReleaseEndHeight <= numericSwipeEndHeight.Maximum)
+                    {
+                        numericSwipeEndHeight.Value = GameNode.ClickDragReleaseEndHeight;
+                    }
+                    else
+                    {
+                        numericSwipeEndHeight.Value = 10;
+                        Log("Swipe End Height(" + GameNode.ClickDragReleaseEndHeight + ") is invalid setting to 10");
+                    }
+
+                    if (GameNode.ClickDragReleaseStartWidth <= numericSwipeStartWidth.Maximum)
+                    {
+                        numericSwipeStartWidth.Value = GameNode.ClickDragReleaseStartWidth;
+                    }
+                    else
+                    {
+                        numericSwipeStartWidth.Value = 10;
+                        Log("Swipe Start Width(" + GameNode.ClickDragReleaseStartWidth + ") is invalid setting to 10");
+                    }
+
+                    if (GameNode.ClickDragReleaseEndWidth <= numericSwipeEndWidth.Maximum)
+                    {
+                        numericSwipeEndWidth.Value = GameNode.ClickDragReleaseEndWidth;
+                    }
+                    else
+                    {
+                        numericSwipeEndWidth.Value = 10;
+                        Log("Swipe End Width(" + GameNode.ClickDragReleaseEndWidth + ") is invalid setting to 10");
+                    }
+
+
+                    if (GameNode.ClickDragReleaseVelocity <= numericSwipeVelocity.Maximum)
+                    {
+                        numericSwipeVelocity.Value = GameNode.ClickDragReleaseVelocity;
+                    }
+                    else
+                    {
+                        numericSwipeVelocity.Value = 500;
+                        Log("Swipe End Width(" + GameNode.ClickDragReleaseVelocity + ") is invalid setting to 500");
+                    }
+
+
+                    switch (GameNode.ClickDragReleaseMode)
+                    {
+                        case ClickDragReleaseMode.Start:
+                            rdoObjectSearchStart.Checked = true;
+                            break;
+                        case ClickDragReleaseMode.End:
+                            rdoObjectSearchEnd.Checked = true;
+                            break;
+                        case ClickDragReleaseMode.None:
+                            rdoObjectSearchNone.Checked = true;
+                            break;
+                        default:
+                            break;
+                    }
+
                     break;
                 case AppTestStudio.ActionType.Event:
                     rdoColorPoint.Checked = GameNode.IsColorPoint;
@@ -5624,6 +5691,80 @@ namespace AppTestStudio
 
                 cmdRightLogic.ImageIndex = IconNames.DownChevron();
             }
+        }
+
+        private void numericSwipeStartHeight_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.ClickDragReleaseStartHeight = (int)numericSwipeStartHeight.Value;
+            }
+        }
+
+        private void numericSwipeStartWidth_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.ClickDragReleaseStartWidth = (int)numericSwipeStartWidth.Value;
+            }
+
+        }
+
+        private void numericSwipeEndHeight_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.ClickDragReleaseEndHeight = (int)numericSwipeEndHeight.Value;
+            }
+
+        }
+
+        private void numericSwipeVelocity_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.ClickDragReleaseVelocity = (int)numericSwipeVelocity.Value;
+            }
+
+        }
+
+        private void rdoObjectSearchStart_CheckedChanged(object sender, EventArgs e)
+        {
+            ObjectSearchChanged();
+        }
+
+        private void ObjectSearchChanged()
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                if (rdoObjectSearchStart.Checked)
+                {
+                    ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.Start;
+                }
+                else if (rdoObjectSearchEnd.Checked )
+                {
+                    ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.End;
+                }
+                else
+                {
+                    ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.None;
+                }
+            }
+        }
+
+        private void rdoObjectSearchEnd_CheckedChanged(object sender, EventArgs e)
+        {
+            ObjectSearchChanged();
+        }
+
+        private void rdoObjectSearchNone_CheckedChanged(object sender, EventArgs e)
+        {
+            ObjectSearchChanged();
         }
     }
 }

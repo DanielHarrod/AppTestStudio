@@ -97,12 +97,13 @@ namespace AppTestStudio
         public String InstanceToLaunch
         {
             get { return mInstanceToLaunch; }
-            set {
+            set
+            {
                 if (value == "")
                 {
                     value = "0";
                 }
-                mInstanceToLaunch = value; 
+                mInstanceToLaunch = value;
             }
         }
 
@@ -208,7 +209,7 @@ namespace AppTestStudio
                 {
                     Debug.WriteLine(ex.Message);
                     Debug.Assert(false);//shoudl never happen.
-                }                
+                }
             }
 
             if (childNode.Attributes.GetNamedItem("SaveVideo").IsSomething())
@@ -296,7 +297,7 @@ namespace AppTestStudio
 
             GameNode Events = Nodes[0] as GameNode;
 
-            SaveEvents(Writer, WorkspaceNode, this, Events, Directory,UseMinimalSavingMethods, Results.PictureListExtract);
+            SaveEvents(Writer, WorkspaceNode, this, Events, Directory, UseMinimalSavingMethods, Results.PictureListExtract);
             if (Nodes.Count > 1)
             {
                 // Objects is always 1
@@ -333,6 +334,18 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("RelativeXOffset", Activites.RelativeXOffset.ToString());
                         Writer.WriteAttributeString("RelativeYOffset", Activites.RelativeYOffset.ToString());
 
+                        if (Activites.Mode == Mode.ClickDragRelease)
+                        {
+                            Writer.WriteStartElement("ClickDragRelease");
+                            Writer.WriteAttributeString("Mode", Activites.ClickDragReleaseMode.ToString());
+                            Writer.WriteAttributeString("Velocity", Activites.ClickDragReleaseVelocity.ToString());
+                            Writer.WriteAttributeString("StartHeight", Activites.ClickDragReleaseStartHeight.ToString());
+                            Writer.WriteAttributeString("StartWidth", Activites.ClickDragReleaseStartWidth.ToString());
+                            Writer.WriteAttributeString("EndHeight", Activites.ClickDragReleaseEndHeight.ToString());
+                            Writer.WriteAttributeString("EndWidth", Activites.ClickDragReleaseEndWidth.ToString());
+                            //'ClickDragRelease
+                            Writer.WriteEndElement();
+                        }
 
                         Writer.WriteStartElement("Delay");
                         Writer.WriteAttributeString("MilliSeconds", Activites.DelayMS.ToString());
@@ -347,7 +360,6 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("Seconds", Activites.LimitDelayS.ToString());
                         Writer.WriteAttributeString("Minutes", Activites.LimitDelayM.ToString());
                         Writer.WriteAttributeString("Hours", Activites.LimitDelayH.ToString());
-
 
                         //'/LimitDelay
                         Writer.WriteEndElement();
@@ -368,7 +380,7 @@ namespace AppTestStudio
                         {
                             //'Writer.WriteStartElement("Events")
 
-                            SaveEvents(Writer, Workspace, Game, Activites, Directory,UseMinimalSavingMethods,PictureListExtract);
+                            SaveEvents(Writer, Workspace, Game, Activites, Directory, UseMinimalSavingMethods, PictureListExtract);
 
                             //' events
                             //'Writer.WriteEndElement()
@@ -424,7 +436,7 @@ namespace AppTestStudio
 
                         Writer.WriteAttributeString("UseParentPicture", Activites.UseParentPicture.ToString());
                         //'Writer.WriteAttributeString("DelayMS", Activites.DelayMS)
-                        Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());                        
+                        Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
 
                         Writer.WriteAttributeString("IsLimited", Activites.IsLimited.ToString());
                         Writer.WriteAttributeString("IsWaitFirst", Activites.IsWaitFirst.ToString());
@@ -561,7 +573,7 @@ namespace AppTestStudio
                         {
                             //'Writer.WriteStartElement("Events")
 
-                            SaveEvents(Writer, Workspace, Game, Activites, Directory,UseMinimalSavingMethods,PictureListExtract);
+                            SaveEvents(Writer, Workspace, Game, Activites, Directory, UseMinimalSavingMethods, PictureListExtract);
 
                             //' events
                             //'Writer.WriteEndElement()
@@ -604,7 +616,7 @@ namespace AppTestStudio
                         {
                             Writer.WriteStartElement("RNG");
                             Writer.WriteAttributeString("Percentage", RNGNode.Percentage.ToString());
-                            SaveEvents(Writer, Workspace, Game, RNGNode, Directory,UseMinimalSavingMethods,PictureListExtract);
+                            SaveEvents(Writer, Workspace, Game, RNGNode, Directory, UseMinimalSavingMethods, PictureListExtract);
                             Writer.WriteEndElement();
                         }
 
@@ -1020,7 +1032,7 @@ namespace AppTestStudio
             }
 
 
-            
+
 
             Boolean UseParentPicture = false;
             if (actionNode.Attributes.GetNamedItem("UseParentPicture").IsSomething())
@@ -1157,7 +1169,7 @@ namespace AppTestStudio
                 AutoBalanceAttribue = Convert.ToBoolean(actionNode.Attributes["AutoBalance"].Value);
             }
             treeActionNode.AutoBalance = AutoBalanceAttribue;
-            
+
             treeActionNode.GameNodeName = ActionName;
 
             treeActionNode.UseParentPicture = UseParentPicture;
@@ -1166,6 +1178,83 @@ namespace AppTestStudio
             {
                 switch (ActionNodeChildNode.Name.ToUpper())
                 {
+                    case "CLICKDRAGRELEASE":
+                        if (ActionNodeChildNode.Attributes.GetNamedItem("Mode").IsSomething())
+                        {
+                            switch (ActionNodeChildNode.Attributes["Mode"].Value.ToString().Trim().ToUpper())
+                            {
+                                case "NONE":
+                                    treeActionNode.ClickDragReleaseMode = ClickDragReleaseMode.None;
+                                    break;
+                                case "START":
+                                    treeActionNode.ClickDragReleaseMode = ClickDragReleaseMode.Start;
+                                    break;
+                                case "END":
+                                    treeActionNode.ClickDragReleaseMode = ClickDragReleaseMode.End;
+                                    break;
+                                default:
+                                    Debug.WriteLine("Unexpected:" + ActionNodeChildNode.Attributes["Mode"].Value.ToString().Trim().ToUpper());
+                                    break;
+                            }
+                        }
+
+                        if (ActionNodeChildNode.Attributes.GetNamedItem("StartHeight").IsSomething())
+                        {
+                            try
+                            {
+                                treeActionNode.ClickDragReleaseStartHeight = Convert.ToInt32(ActionNodeChildNode.Attributes["StartHeight"].Value);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine("StartHeight:" + ex.Message);
+                            }
+                        }
+                        if (ActionNodeChildNode.Attributes.GetNamedItem("EndHeight").IsSomething())
+                        {
+                            try
+                            {
+                                treeActionNode.ClickDragReleaseEndHeight = Convert.ToInt32(ActionNodeChildNode.Attributes["EndHeight"].Value);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine("EndHeight:" + ex.Message);
+                            }
+                        }
+                        if (ActionNodeChildNode.Attributes.GetNamedItem("StartWidth").IsSomething())
+                        {
+                            try
+                            {
+                                treeActionNode.ClickDragReleaseStartWidth = Convert.ToInt32(ActionNodeChildNode.Attributes["StartWidth"].Value);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine("StartWidth:" + ex.Message);
+                            }
+                        }
+                        if (ActionNodeChildNode.Attributes.GetNamedItem("EndWidth").IsSomething())
+                        {
+                            try
+                            {
+                                treeActionNode.ClickDragReleaseEndWidth = Convert.ToInt32(ActionNodeChildNode.Attributes["EndWidth"].Value);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine("EndWidth:" + ex.Message);
+                            }
+                        }
+                        if (ActionNodeChildNode.Attributes.GetNamedItem("Velocity").IsSomething())
+                        {
+                            try
+                            {
+                                treeActionNode.ClickDragReleaseVelocity = Convert.ToInt32(ActionNodeChildNode.Attributes["Velocity"].Value);
+                            }
+                            catch (Exception ex)
+                            {
+                                Debug.WriteLine("Velocity:" + ex.Message);
+                            }
+                        }
+
+                        break;
                     case "LIMITDELAY":
                         treeActionNode.LimitDelayMS = Convert.ToInt32(ActionNodeChildNode.Attributes["MilliSeconds"].Value);
                         treeActionNode.LimitDelayS = Convert.ToInt32(ActionNodeChildNode.Attributes["Seconds"].Value);

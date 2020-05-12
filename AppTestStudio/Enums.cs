@@ -54,6 +54,13 @@ namespace AppTestStudio
         ClickDragRelease
     }
 
+    public enum ClickDragReleaseMode
+    {
+        Start,
+        End,
+        None
+    }
+
     public static class IconNames
     {
         public static int VideoGameController()

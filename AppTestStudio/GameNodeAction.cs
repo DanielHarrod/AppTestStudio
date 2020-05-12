@@ -36,6 +36,8 @@ namespace AppTestStudio
             ObjectThreshold = 70;
             ClickList = new List<SingleClick>();
             ClickSpeed = 0;
+            ClickDragReleaseVelocity = 500;
+            ClickDragReleaseMode = ClickDragReleaseMode.None;
 
             Channel = "";
             Utils.SetIcons(this);
@@ -183,6 +185,16 @@ namespace AppTestStudio
         
         public int Points { get; set; }
 
+        /// <summary>
+        /// Where to provide X,Y Coordinates Start/End = from object search.
+        /// </summary>
+        public ClickDragReleaseMode ClickDragReleaseMode { get; set; }
+        public int ClickDragReleaseStartHeight { get; set; }
+        public int ClickDragReleaseStartWidth { get; set; }
+        public int ClickDragReleaseEndHeight { get; set; }
+        public int ClickDragReleaseEndWidth { get; set; }
+        public int ClickDragReleaseVelocity { get; set; }
+
         public int ThreadMatchCount { get; set; }
         public Boolean RuntimeOncePerSession { get; set; }
 
@@ -278,6 +290,13 @@ namespace AppTestStudio
             Action.IsColorPoint = IsColorPoint;  //must be set after Mode
             Action.CustomLogic = CustomLogic;
             Action.ClickSpeed = ClickSpeed;
+
+            Action.ClickDragReleaseMode = ClickDragReleaseMode;
+            Action.ClickDragReleaseEndHeight = ClickDragReleaseEndHeight;
+            Action.ClickDragReleaseEndWidth = ClickDragReleaseEndWidth;
+            Action.ClickDragReleaseStartHeight = ClickDragReleaseStartHeight;
+            Action.ClickDragReleaseStartWidth = ClickDragReleaseStartWidth;
+            Action.ClickDragReleaseVelocity = ClickDragReleaseVelocity;
 
             foreach (GameNodeAction ChildAction in Nodes)
             {
