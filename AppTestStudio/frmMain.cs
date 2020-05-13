@@ -3376,8 +3376,32 @@ namespace AppTestStudio
                                 linePen.StartCap = LineCap.RoundAnchor;
                                 linePen.EndCap = LineCap.ArrowAnchor;
                                 linePen.DashStyle = DashStyle.Dot;
-                                Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
-                                e.Graphics.DrawLine(linePen, Node.Rectangle.X, Node.Rectangle.Y, Node.Rectangle.X + Node.Rectangle.Width, Node.Rectangle.Y + Node.Rectangle.Height);
+
+                                int x1 = Node.Rectangle.X;
+                                int y1 = Node.Rectangle.Y;
+                                int x2 = Node.Rectangle.X + Node.Rectangle.Width;
+                                int y2 = Node.Rectangle.Y + Node.Rectangle.Height;
+
+                                Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", x1, y1, x2, y2);
+                                e.Graphics.DrawLine(linePen, x1, y1, x2, y2);
+
+                                using (Pen DashPen = new Pen(Color.WhiteSmoke))
+                                {
+                                    x1 = Node.Rectangle.X - (Node.ClickDragReleaseStartWidth / 2);
+                                    y1 = Node.Rectangle.Y - (Node.ClickDragReleaseStartHeight / 2);
+                                    int Width = Node.ClickDragReleaseStartWidth;
+                                    int Height = Node.ClickDragReleaseStartHeight;
+                                    e.Graphics.DrawRectangle(DashPen, x1, y1, Width, Height);
+                                }
+
+                                using (Pen DashPen = new Pen(Color.FromArgb(226, 68, 47)))
+                                {
+                                    x1 = Node.Rectangle.X + Node.Rectangle.Width - (Node.ClickDragReleaseEndWidth / 2);
+                                    y1 = Node.Rectangle.Y + Node.Rectangle.Height - (Node.ClickDragReleaseEndHeight / 2);
+                                    int Width = Node.ClickDragReleaseStartWidth;
+                                    int Height = Node.ClickDragReleaseStartHeight;
+                                    e.Graphics.DrawRectangle(DashPen, x1, y1, Width, Height);
+                                }
                             }
                             break;
                         default:
@@ -5768,6 +5792,7 @@ namespace AppTestStudio
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.ClickDragReleaseStartHeight = (int)numericSwipeStartHeight.Value;
+                PictureBox1.Invalidate();
             }
         }
 
@@ -5777,6 +5802,7 @@ namespace AppTestStudio
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.ClickDragReleaseStartWidth = (int)numericSwipeStartWidth.Value;
+                PictureBox1.Invalidate();
             }
 
         }
@@ -5787,6 +5813,7 @@ namespace AppTestStudio
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.ClickDragReleaseEndHeight = (int)numericSwipeEndHeight.Value;
+                PictureBox1.Invalidate();
             }
 
         }
@@ -5881,6 +5908,7 @@ namespace AppTestStudio
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.ClickDragReleaseEndWidth = (int)numericSwipeEndWidth.Value;
+                PictureBox1.Invalidate();
             }
         }
     }

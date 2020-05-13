@@ -43,10 +43,10 @@ namespace AppTestStudio
             RepeatsUntilFalse = false;
             RepeatsUntilFalseLimit = 0;
 
-            ClickDragReleaseEndHeight = 10;
-            ClickDragReleaseEndWidth = 10;
-            ClickDragReleaseStartHeight = 10;
-            ClickDragReleaseStartWidth = 10;
+            ClickDragReleaseEndHeight = 25;
+            ClickDragReleaseEndWidth = 25;
+            ClickDragReleaseStartHeight = 25;
+            ClickDragReleaseStartWidth = 25;
 
             Channel = "";
             Utils.SetIcons(this);
