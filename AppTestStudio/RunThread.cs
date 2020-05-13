@@ -152,6 +152,11 @@ namespace AppTestStudio
 
         private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY)
         {
+            while (Game.IsPaused)
+            {
+                Thread.Sleep(1000);
+            }
+
             if (node.Enabled == false)
             {
                 return AfterCompletionType.Continue;
@@ -356,7 +361,14 @@ namespace AppTestStudio
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 case ActionType.Event:
-                    if (node.UseParentPicture == false)
+                    int Offset = 0;
+                    float DetectedThreashold = 0;
+                    int CurrentRepeatsUntilFalseLimit = node.RepeatsUntilFalseLimit;
+
+                    Boolean AlwaysTakeScreenshot = false;
+
+                    RepeatAction:
+                    if (node.UseParentPicture == false || AlwaysTakeScreenshot)
                     {
                         Boolean Success = false;
                         bmp.Dispose();
@@ -374,9 +386,7 @@ namespace AppTestStudio
                         }
                         Game.Log(node.Name + " Taking Screenshot");
                     }
-
-                    int Offset = 0;
-                    float DetectedThreashold = 0;
+                    
                     if (node.IsTrue(bmp, Game, ref centerX, ref centerY, ref Offset, ref DetectedThreashold))
                     {
                         if (node.IsLimited)
@@ -403,6 +413,24 @@ namespace AppTestStudio
                         Game.AbsoluteLastNode = node;
                         Game.ThreadLastNodeEvent = node;
 
+                        if (node.RepeatsUntilFalse )
+                        {
+
+
+                            if ( CurrentRepeatsUntilFalseLimit > 0)
+                            {
+                                AlwaysTakeScreenshot = true;
+
+
+                                // Process children and throw away the result
+                                foreach (GameNodeAction  ChildNode in node.Nodes)
+                                {
+                                    ProcessChildren(bmp, ChildNode as GameNodeAction, centerX, centerY);
+                                }                                
+                                CurrentRepeatsUntilFalseLimit--;
+                                goto RepeatAction;
+                            }                            
+                        }
                         ActionTypeEventResult = true;
                     }
 
