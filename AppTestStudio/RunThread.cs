@@ -158,6 +158,44 @@ namespace AppTestStudio
             }
 
             ThreadManager.IncrementGoChild();
+
+            Boolean PreLimitCheck = false;
+
+            switch (node.ActionType)
+            {
+                case ActionType.Action:
+                    PreLimitCheck = true;
+                    break;
+                case ActionType.Event:
+                    PreLimitCheck = false;  // Events are checked after they are considered true.
+                    break;
+                case ActionType.RNG:
+                    PreLimitCheck = false;  // RNG Nodes are checked in RNGContainer code.
+                    break;
+                case ActionType.RNGContainer:
+                    PreLimitCheck = true;
+                    break;
+                default:
+                    PreLimitCheck = true;
+                    break;
+            }
+
+            if (PreLimitCheck)
+            {
+                if (node.IsLimited)
+                {
+                    AfterCompletionType Result = CheckLimit(node);
+                    switch (Result)
+                    {
+                        case AfterCompletionType.ContinueProcess:
+                            break;
+                        default:
+                            return Result;
+                    }
+                }
+            }
+
+
             switch (node.ActionType)
             {
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -169,18 +207,6 @@ namespace AppTestStudio
 
                     int xPos = node.Rectangle.X;
                     int yPos = node.Rectangle.Y;
-
-                    if (node.IsLimited)
-                    {
-                        AfterCompletionType Result = CheckLimit(node);
-                        switch (Result)
-                        {
-                            case AfterCompletionType.ContinueProcess:
-                                break;
-                            default:
-                                return Result;
-                        }
-                    }
 
                     GameNode Parent = node.Parent as GameNode;
                     switch (node.Mode)
@@ -317,9 +343,6 @@ namespace AppTestStudio
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)
                                 //'}
                             }
-
-
-
                             break;
                         default:
                             break;
@@ -509,18 +532,6 @@ namespace AppTestStudio
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
                 case ActionType.RNGContainer:
-                    if (node.IsLimited)
-                    {
-                        AfterCompletionType Result = CheckLimit(node);
-                        switch (Result)
-                        {
-                            case AfterCompletionType.ContinueProcess:
-                                // do nothing, lets continue;
-                                break;
-                            default:
-                                return Result;
-                        }
-                    }
 
                     ThreadManager.IncrementNewRNGContainer();
 
@@ -593,15 +604,11 @@ namespace AppTestStudio
                     Debug.Assert(false);
                     break;
 
-            }
+            }  // switch (node.ActionType)
 
             ThreadManager.IncrementGoContinue();
             return AfterCompletionType.Continue;
-        }
-
-
-
-
+        } // ProcessChildren
 
         private AfterCompletionType CheckLimit(GameNodeAction node)
         {
