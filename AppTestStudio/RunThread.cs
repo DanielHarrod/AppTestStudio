@@ -195,6 +195,7 @@ namespace AppTestStudio
                 }
             }
 
+            Boolean ActionTypeEventResult = false;
 
             switch (node.ActionType)
             {
@@ -348,63 +349,7 @@ namespace AppTestStudio
                             break;
                     }
 
-                    int DelayCalc = node.DelayMS + (node.DelayS * 1000) + (node.DelayM * 60 * 1000);
 
-                    // Log status to status control.
-                    Game.LogStatus(node.StatusNodeID, DelayCalc);
-
-                    Thread.Sleep(DelayCalc);
-                    ThreadManager.AddWaitLength(DelayCalc);
-
-                    switch (node.AfterCompletionType)
-                    {
-                        case AfterCompletionType.Continue:
-                            ThreadManager.IncrementGoContinue();
-                            Boolean ExitFor = false;
-                            foreach (TreeNode t in node.Nodes)
-                            {
-                                AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY);
-
-                                switch (ACT)
-                                {
-                                    case AfterCompletionType.Home:
-                                        ThreadManager.IncrementGoHome();
-                                        return AfterCompletionType.Home;
-                                    case AfterCompletionType.Parent:
-                                        ThreadManager.IncrementGoParent();
-                                        ExitFor = true;
-                                        break;
-                                    case AfterCompletionType.Stop:
-                                        ThreadManager.IncrementGoStop();
-                                        StopThreadCloseWindow(WindowHandle);
-                                        return AfterCompletionType.Stop;
-                                    case AfterCompletionType.Continue:
-                                        ThreadManager.IncrementGoContinue();
-                                        break;
-                                    default:
-                                        Debug.Assert(false);
-                                        break;
-                                }
-
-                                if (ExitFor)
-                                {
-                                    break;
-                                }
-                            }
-                            break;
-                        case AfterCompletionType.Home:
-                            ThreadManager.IncrementGoHome();
-                            return AfterCompletionType.Home;
-                        case AfterCompletionType.Parent:
-                            ThreadManager.IncrementGoParent();
-                            return AfterCompletionType.Parent;
-                        case AfterCompletionType.Stop:
-                            ThreadManager.IncrementGoStop();
-                            StopThreadCloseWindow(WindowHandle);
-                            return AfterCompletionType.Stop;
-                        default:
-                            break;
-                    }
                     break;
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 ///             Event
@@ -458,72 +403,7 @@ namespace AppTestStudio
                         Game.AbsoluteLastNode = node;
                         Game.ThreadLastNodeEvent = node;
 
-                        //'if (Node.Nodes.Count <> 0 ) {
-                        //'    Game.Log(Node.Name & " Action Match (" & Node.Nodes.Count() & ")")
-                        //'}
-
-                        DelayCalc = node.DelayMS + (node.DelayS * 1000) + (node.DelayM * 60 * 1000);
-
-                        if (DelayCalc > 0)
-                        {
-                            Game.Log(node.Name + " Waiting " + DelayCalc);
-                        }
-
-                        //' show status control
-                        Game.LogStatus(node.StatusNodeID, DelayCalc);
-
-                        Thread.Sleep(DelayCalc);
-                        ThreadManager.AddWaitLength(DelayCalc);
-
-                        switch (node.AfterCompletionType)
-                        {
-                            case AfterCompletionType.Continue:
-
-                                ThreadManager.IncrementGoContinue();
-                                foreach (TreeNode t in node.Nodes)
-                                {
-                                    AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY);
-
-                                    switch (ACT)
-                                    {
-                                        case AfterCompletionType.Continue:
-                                            ThreadManager.IncrementGoContinue();
-                                            break;
-                                        case AfterCompletionType.Home:
-                                            ThreadManager.IncrementGoHome();
-                                            return AfterCompletionType.Home;
-                                        case AfterCompletionType.Parent:
-                                            ThreadManager.IncrementGoParent();
-                                            // do nothing if a child returns a parent;
-                                            break;
-                                        case AfterCompletionType.Stop:
-                                            ThreadManager.IncrementGoStop();
-                                            StopThreadCloseWindow(WindowHandle);
-                                            return AfterCompletionType.Stop;
-                                        case AfterCompletionType.ContinueProcess:
-                                            ThreadManager.IncrementGoContinue();
-                                            break;
-
-                                        default:
-                                            Debug.Assert(false);
-                                            break;
-                                    }
-                                }
-                                break;
-                            case AfterCompletionType.Home:
-                                ThreadManager.IncrementGoHome();
-                                return AfterCompletionType.Home;
-                            case AfterCompletionType.Parent:
-                                ThreadManager.IncrementGoParent();
-                                return AfterCompletionType.Parent;
-                            case AfterCompletionType.Stop:
-                                ThreadManager.IncrementGoStop();
-                                StopThreadCloseWindow(WindowHandle);
-                                return AfterCompletionType.Stop;
-                            default:
-                                Debug.Assert(false);
-                                break;
-                        }
+                        ActionTypeEventResult = true;
                     }
 
                     break;
@@ -545,7 +425,7 @@ namespace AppTestStudio
 
                         Game.Log(node.Name + " RNG (" + RNG + ") Node Index chosen (" + TargetIndex + ")");
 
-                        DelayCalc = node.DelayMS + (node.DelayS * 1000) + (node.DelayM * 60 * 1000);
+                        int DelayCalc = node.DelayMS + (node.DelayS * 1000) + (node.DelayM * 60 * 1000);
 
 
                         if (DelayCalc > 0)
@@ -605,6 +485,67 @@ namespace AppTestStudio
                     break;
 
             }  // switch (node.ActionType)
+
+            if ((node.ActionType == ActionType.Event && ActionTypeEventResult) || node.ActionType == ActionType.Action )
+            {
+                int DelayCalc = node.DelayMS + (node.DelayS * 1000) + (node.DelayM * 60 * 1000);
+
+                // Log status to status control.
+                Game.LogStatus(node.StatusNodeID, DelayCalc);
+
+                Thread.Sleep(DelayCalc);
+                ThreadManager.AddWaitLength(DelayCalc);
+
+                switch (node.AfterCompletionType)
+                {
+                    case AfterCompletionType.Continue:
+                        ThreadManager.IncrementGoContinue();
+                        Boolean ExitFor = false;
+                        foreach (TreeNode t in node.Nodes)
+                        {
+                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY);
+
+                            switch (ACT)
+                            {
+                                case AfterCompletionType.Home:
+                                    ThreadManager.IncrementGoHome();
+                                    return AfterCompletionType.Home;
+                                case AfterCompletionType.Parent:
+                                    ThreadManager.IncrementGoParent();
+                                    ExitFor = true;
+                                    break;
+                                case AfterCompletionType.Stop:
+                                    ThreadManager.IncrementGoStop();
+                                    StopThreadCloseWindow(WindowHandle);
+                                    return AfterCompletionType.Stop;
+                                case AfterCompletionType.Continue:
+                                    ThreadManager.IncrementGoContinue();
+                                    break;
+                                default:
+                                    Debug.Assert(false);
+                                    break;
+                            }
+
+                            if (ExitFor)
+                            {
+                                break;
+                            }
+                        }
+                        break;
+                    case AfterCompletionType.Home:
+                        ThreadManager.IncrementGoHome();
+                        return AfterCompletionType.Home;
+                    case AfterCompletionType.Parent:
+                        ThreadManager.IncrementGoParent();
+                        return AfterCompletionType.Parent;
+                    case AfterCompletionType.Stop:
+                        ThreadManager.IncrementGoStop();
+                        StopThreadCloseWindow(WindowHandle);
+                        return AfterCompletionType.Stop;
+                    default:
+                        break;
+                }
+            }
 
             ThreadManager.IncrementGoContinue();
             return AfterCompletionType.Continue;
