@@ -371,7 +371,7 @@ namespace AppTestStudio
                     if (node.UseParentPicture == false || AlwaysTakeScreenshot)
                     {
                         Boolean Success = false;
-                        bmp.Dispose();
+                        //bmp.Dispose();// not good
                         bmp = GetBitMap(ref Success);
                         if (Success == false)
                         {
