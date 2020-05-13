@@ -2600,7 +2600,7 @@ namespace AppTestStudio
                             {
                                 int x = ActionNode.Rectangle.Left;
                                 int y = ActionNode.Rectangle.Top;
-                                Utils.ClickDragRelease(MainWindowHandle, x, y, x + ActionNode.Rectangle.Width, y + ActionNode.Rectangle.Height);
+                                Utils.ClickDragRelease(MainWindowHandle, x, y, x + ActionNode.Rectangle.Width, y + ActionNode.Rectangle.Height,ActionNode.ClickDragReleaseVelocity);
                                 Log("ClickDragRelease( x=" + x + ",Y = " + y + ", ex=" + (x + ActionNode.Rectangle.Width) + ",ey=" + (y + ActionNode.Rectangle.Height) + ")");
                                 ThreadManager.IncrementSingleTestClickDragRelease();
 

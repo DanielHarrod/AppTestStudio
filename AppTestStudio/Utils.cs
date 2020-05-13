@@ -174,7 +174,7 @@ namespace AppTestStudio
             return Loc;
         }
 
-        public static void ClickDragRelease(IntPtr windowHandle, int startX, int startY, int endX, int endY)
+        public static void ClickDragRelease(IntPtr windowHandle, int startX, int startY, int endX, int endY, int VelocityMS)
         {
             int WM_PARENTNOTIFY = 0x210;
             uint WM_MOUSEMOVE = 0x200;
@@ -199,13 +199,47 @@ namespace AppTestStudio
             API.PostMessage(windowHandle, WM_LBUTTONDOWN, MK_LBUTTON, Utils.HiLoWord((short)CurrentX, (short)CurrentY));
             Thread.Sleep(10);
 
+            int SleepTime = 1;
+            int SkipEvery = 0;
+            if (MaxSteps < VelocityMS)
+            {
+                if (MaxSteps > 0)
+                {
+                    SleepTime = VelocityMS / MaxSteps;
+                }
+            }
+            else
+            {
+                SleepTime = 1;
+                if (VelocityMS > 0)
+                {
+                    SkipEvery = MaxSteps / VelocityMS;
+                }
+            }
+
+            int CurrentSkipEvery = SkipEvery;
 
             //'Send draging
             for (int i = 0; i < MaxSteps; i++)
             {
                 API.PostMessage(windowHandle, WM_MOUSEMOVE, MK_LBUTTON, Utils.HiLoWord((short)CurrentX, (short)CurrentY));
-                Thread.Sleep(1);
 
+                if (SkipEvery > 0)
+                {
+                    if (CurrentSkipEvery == 0)
+                    {
+                        Thread.Sleep(SleepTime);
+                        CurrentSkipEvery = SkipEvery;
+                    }
+                    else if(CurrentSkipEvery > 0)
+                    {
+                        CurrentSkipEvery--;
+                    }
+                }
+                else
+                {
+                    Thread.Sleep(SleepTime);
+                }
                 CurrentX = CurrentX + XIncrement;
                 CurrentY = CurrentY + YIncrement;
             }
@@ -217,7 +251,7 @@ namespace AppTestStudio
         }
 
 
-        public static void ClickOnWindow(IntPtr windowHandle, short xTarget, short yTarget, int MouseUpDelay)
+        public static void ClickOnWindow(IntPtr windowHandle, short xTarget, short yTarget, int MouseUpDelayMS)
         {
             int WM_SETCURSOR = 0x20;
             int HTCLIENT = 0x1;
@@ -234,9 +268,9 @@ namespace AppTestStudio
             //'sendmessage(hwnd, WM_SETCURSOR, WM_MOUSEMOVE, MakeLParam(1, WM_MOUSEMOVE))
 
             API.PostMessage(windowHandle, WM_LBUTTONDOWN, (int)WM_LBUTTONDOWN, Utils.HiLoWord(xTarget, yTarget));
-            if (MouseUpDelay > 0)
+            if (MouseUpDelayMS > 0)
             {
-                Thread.Sleep(MouseUpDelay);
+                Thread.Sleep(MouseUpDelayMS);
             }
             API.PostMessage(windowHandle, WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
 

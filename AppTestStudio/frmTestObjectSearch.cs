@@ -121,7 +121,7 @@ namespace AppTestStudio
                             else
                             {
                                 frm.Log("Swipe from ( x=" + xPos + ",y = " + yPos + " to x=" + ex + ",y=" + ey + ")");
-                                Utils.ClickDragRelease(MainWindowHandle, xPos, yPos, ex, ey);
+                                Utils.ClickDragRelease(MainWindowHandle, xPos, yPos, ex, ey,Node.ClickDragReleaseVelocity);
                             }
                             break;
                         default:

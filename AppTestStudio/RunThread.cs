@@ -343,7 +343,7 @@ namespace AppTestStudio
                             else
                             {
                                 Game.Log("Swipe from ( x=" + xPos + ",y = " + yPos + " to x=" + XEndPosition + ",y=" + YEndPosition + ")");
-                                Utils.ClickDragRelease(WindowHandle, xPos, yPos, XEndPosition, YEndPosition);
+                                Utils.ClickDragRelease(WindowHandle, xPos, yPos, XEndPosition, YEndPosition, node.ClickDragReleaseVelocity);
                                 ThreadManager.IncrementClickDragRelease();
                                 //'if (UseThreadBitmap ) {
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)
