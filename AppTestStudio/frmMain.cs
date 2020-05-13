@@ -5861,5 +5861,14 @@ namespace AppTestStudio
             }
 
         }
+
+        private void numericSwipeEndWidth_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.ClickDragReleaseEndWidth = (int)numericSwipeEndWidth.Value;
+            }
+        }
     }
 }
