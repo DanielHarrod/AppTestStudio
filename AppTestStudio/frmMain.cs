@@ -2600,6 +2600,19 @@ namespace AppTestStudio
                             {
                                 int x = ActionNode.Rectangle.Left;
                                 int y = ActionNode.Rectangle.Top;
+
+                                // Calculate how much to add/remove from the Center  1/2 the distance - random(total) 
+                                short RandomXStart = (short)((ActionNode.ClickDragReleaseStartWidth /2) - Convert.ToInt32(Utils.RandomNumber(0, ActionNode.ClickDragReleaseStartWidth))) ;
+                                short RandomYStart = (short)((ActionNode.ClickDragReleaseStartHeight / 2) - Convert.ToInt32(Utils.RandomNumber(0, ActionNode.ClickDragReleaseStartHeight)));
+                                short RandomXEnd = (short)((ActionNode.ClickDragReleaseEndWidth / 2) - Convert.ToInt32(Utils.RandomNumber(0, ActionNode.ClickDragReleaseEndWidth)));
+                                short RandomYEnd = (short)((ActionNode.ClickDragReleaseEndHeight / 2) - Convert.ToInt32(Utils.RandomNumber(0, ActionNode.ClickDragReleaseEndHeight)));
+
+                                x = x + RandomXStart;
+                                y = y + RandomYStart;
+                                ActionNode.Rectangle.Width = ActionNode.Rectangle.Width + RandomXEnd;
+                                ActionNode.Rectangle.Height = ActionNode.Rectangle.Width + RandomYEnd;
+
+
                                 Utils.ClickDragRelease(MainWindowHandle, x, y, x + ActionNode.Rectangle.Width, y + ActionNode.Rectangle.Height,ActionNode.ClickDragReleaseVelocity);
                                 Log("ClickDragRelease( x=" + x + ",Y = " + y + ", ex=" + (x + ActionNode.Rectangle.Width) + ",ey=" + (y + ActionNode.Rectangle.Height) + ")");
                                 ThreadManager.IncrementSingleTestClickDragRelease();
