@@ -2587,8 +2587,11 @@ namespace AppTestStudio
                         {
                             if (rdoModeRangeClick.Checked)
                             {
-                                short x = (short)ActionNode.Rectangle.Left;
-                                short y = (short)ActionNode.Rectangle.Top;
+                                short RandomX = Utils.RandomNumber(0, ActionNode.Rectangle.Width);
+                                short RandomY = Utils.RandomNumber(0, ActionNode.Rectangle.Height);
+
+                                short x = Convert.ToInt16(ActionNode.Rectangle.Left+ RandomX);
+                                short y = Convert.ToInt16(ActionNode.Rectangle.Top + RandomY);
                                 Utils.ClickOnWindow(MainWindowHandle, x, y, ActionNode.ClickSpeed);
                                 Log("Click attempt: x=" + x + ",Y = " + y);
                                 ThreadManager.IncrementSingleTestClick();
