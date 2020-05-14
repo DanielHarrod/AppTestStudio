@@ -72,57 +72,58 @@ namespace AppTestStudioControls
             Modes = new List<long>();
             Items = new List<string>();
 
-            SolidBrush AquaBrush = new SolidBrush(Color.FromArgb(115, 132, 129));
+            int BrushAlpha = 140;
+            SolidBrush AquaBrush = new SolidBrush(Color.FromArgb(BrushAlpha, 115, 132, 129));
             Pen AquaHighlight = new Pen(Color.FromArgb(92, 107, 105));
 
             Brushes.Add(AquaBrush);
             Pens.Add(AquaHighlight);
 
-            SolidBrush RedBrush = new SolidBrush(Color.FromArgb(121, 58, 58));
+            SolidBrush RedBrush = new SolidBrush(Color.FromArgb(BrushAlpha, 121, 58, 58));
             Pen RedHighlight = new Pen(Color.FromArgb(97, 41, 41));
             Brushes.Add(RedBrush);
             Pens.Add(RedHighlight);
 
-            SolidBrush YellowBrush = new SolidBrush(Color.FromArgb(144, 138, 68));
+            SolidBrush YellowBrush = new SolidBrush(Color.FromArgb(BrushAlpha, 144, 138, 68));
             Pen YellowHighlight = new Pen(Color.FromArgb(118, 113, 50));
             Brushes.Add(YellowBrush);
             Pens.Add(YellowHighlight);
 
-            SolidBrush PinkBrush = new SolidBrush(Color.FromArgb(145, 124, 131));
+            SolidBrush PinkBrush = new SolidBrush(Color.FromArgb(BrushAlpha, 145, 124, 131));
             Pen PinkHighlight = new Pen(Color.FromArgb(119, 100, 106));
             Brushes.Add(PinkBrush);
             Pens.Add(PinkHighlight);
 
             //'lavendar
-            Brushes.Add(new SolidBrush(Color.FromArgb(115, 115, 131)));
+            Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 115, 115, 131)));
             Pens.Add(new Pen(Color.FromArgb(92, 92, 107)));
 
             //'peach
-            Brushes.Add(new SolidBrush(Color.FromArgb(146, 127, 109)));
+            Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 146, 127, 109)));
             Pens.Add(new Pen(Color.FromArgb(120, 103, 87)));
 
             //'sea foam
-            Brushes.Add(new SolidBrush(Color.FromArgb(120, 130, 120)));
+            Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 120, 130, 120)));
             Pens.Add(new Pen(Color.FromArgb(96, 105, 96)));
 
             //'blue
-            Brushes.Add(new SolidBrush(Color.FromArgb(82, 93, 142)));
+            Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 82, 93, 142)));
             Pens.Add(new Pen(Color.FromArgb(62, 72, 117)));
 
             //'green
-            Brushes.Add(new SolidBrush(Color.FromArgb(67, 112, 68)));
+            Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 67, 112, 68)));
             Pens.Add(new Pen(Color.FromArgb(49, 90, 50)));
 
             //'brown
-            Brushes.Add(new SolidBrush(Color.FromArgb(94, 65, 51)));
+            Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 94, 65, 51)));
             Pens.Add(new Pen(Color.FromArgb(73, 47, 35)));
 
             //'cyan
-            Brushes.Add(new SolidBrush(Color.FromArgb(152, 85, 137)));
+            Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 152, 85, 137)));
             Pens.Add(new Pen(Color.FromArgb(126, 65, 112)));
 
             //'sandstone
-            Brushes.Add(new SolidBrush(Color.FromArgb(114, 105, 90)));
+            Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 114, 105, 90)));
             Pens.Add(new Pen(Color.FromArgb(91, 83, 69)));
 
             //'Dim te As New StatusControlItem With {.Index = 8, .Time = 1000}
