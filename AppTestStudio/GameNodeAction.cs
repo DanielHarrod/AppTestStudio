@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
 namespace AppTestStudio
@@ -706,6 +707,8 @@ namespace AppTestStudio
             return false;
         }
 
+
+
         public void PaintNode(Graphics graphics)
         {
             switch (Mode)
@@ -779,9 +782,50 @@ namespace AppTestStudio
                 default:
                     break;
             }
-
         }
 
+        public class RangeClickResult
+        {
+            public int x;
+            public int y;
+        }
 
+        public RangeClickResult CalculateRangeClickResult(int centerX, int centerY)
+        {
+            RangeClickResult Result = new RangeClickResult();
+
+            int xPos = Rectangle.X;
+            int yPos = Rectangle.Y;
+
+            short RandomX = Utils.RandomNumber(0, Rectangle.Width);
+            short RandomY = Utils.RandomNumber(0, Rectangle.Height);
+
+            if (IsParentObjectSearch())
+            {
+                if (Parent.IsSomething())
+                {
+                    if (Parent is GameNodeAction)
+                    {
+                        GameNodeAction ParentNode = Parent as GameNodeAction;
+                        xPos = centerX + ParentNode.Rectangle.X + RelativeXOffset - (Rectangle.Width / 2);
+                        yPos = centerY + ParentNode.Rectangle.Y + RelativeYOffset - (Rectangle.Height / 2);
+                    }
+                    else
+                    {
+                        xPos = centerX + RelativeXOffset - (Rectangle.Width / 2);
+                        yPos = centerY + RelativeYOffset - (Rectangle.Height / 2);
+                    }
+                }
+            }
+            else
+            {
+                xPos = xPos + RandomX;
+                yPos = yPos + RandomY;
+            }
+
+            Result.x = xPos;
+            Result.y = yPos;
+            return Result;
+        }
     }
 }

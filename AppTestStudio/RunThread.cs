@@ -214,42 +214,21 @@ namespace AppTestStudio
                     switch (node.Mode)
                     {
                         case Mode.RangeClick:
-                            short RandomX = Utils.RandomNumber(0, node.Rectangle.Width);
-                            short RandomY = Utils.RandomNumber(0, node.Rectangle.Height);
 
+                            GameNodeAction.RangeClickResult Result = node.CalculateRangeClickResult(centerX, centerY);
+                            
                             Boolean Failed = false;
 
-                            if (node.IsParentObjectSearch())
+                            if (Result.x < 0)
                             {
-                                if (Parent.IsSomething())
-                                {
-                                    if (Parent is GameNodeAction)
-                                    {
-                                        GameNodeAction ParentNode = Parent as GameNodeAction;
-                                        xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset - (node.Rectangle.Width / 2);
-                                        yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset - (node.Rectangle.Height / 2);
+                                Game.Log("Check Relative offset X, calculated to a negative position " + xPos);
+                                Failed = true;
+                            }
 
-                                        //' xPos = CenterX + ParentNode.Rectangle.X + Node.RelativeXOffset - (Node.Rectangle.Width / 2) + RandomNumber(0, Node.Rectangle.Width)
-                                        //' yPos = CenterY + ParentNode.Rectangle.Y + Node.RelativeYOffset - (Node.Rectangle.Height / 2) + RandomNumber(0, Node.Rectangle.Height)
-                                    }
-                                    else
-                                    {
-                                        xPos = centerX + node.RelativeXOffset - (node.Rectangle.Width / 2);
-                                        yPos = centerY + node.RelativeYOffset - (node.Rectangle.Height / 2);
-                                    }
-
-                                    if (xPos < 0)
-                                    {
-                                        Game.Log("Check Relative offset X, calculated to a negative position " + xPos);
-                                        Failed = true;
-                                    }
-
-                                    if (yPos < 0)
-                                    {
-                                        Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
-                                        Failed = true;
-                                    }
-                                }
+                            if (Result.y < 0)
+                            {
+                                Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
+                                Failed = true;
                             }
 
                             if (Failed)
@@ -259,11 +238,8 @@ namespace AppTestStudio
                             }
                             else
                             {
-                                short xTarget = (short)(xPos + RandomX);
-                                short yTarget = (short)(yPos + RandomY);
-
-                                Game.Log(node.Name + " Click(" + xTarget + "," + yTarget + ")");
-                                Utils.ClickOnWindow(WindowHandle, xTarget, yTarget, node.ClickSpeed);
+                                Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
+                                Utils.ClickOnWindow(WindowHandle, (short)Result.x, (short)Result.y, node.ClickSpeed);
                                 ThreadManager.IncrementClickCount();
                             }
 
