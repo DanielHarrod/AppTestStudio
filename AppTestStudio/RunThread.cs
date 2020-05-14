@@ -45,7 +45,7 @@ namespace AppTestStudio
         private Bitmap GetBitMap(ref Boolean Success)
         {
             Success = false;
-            lock (GetBitMapLock)
+          //  lock (GetBitMapLock)
             {
 
                 IntPtr hdcSrc = API.GetWindowDC(WindowHandle);
