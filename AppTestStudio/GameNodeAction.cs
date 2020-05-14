@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Windows.Forms;
 
 namespace AppTestStudio
 {
@@ -703,6 +704,82 @@ namespace AppTestStudio
                 }
             }
             return false;
+        }
+
+        public void PaintNode(Graphics graphics)
+        {
+            switch (Mode)
+            {
+                case Mode.RangeClick:
+                    if (Rectangle.Width > 0 && Rectangle.Height > 0)
+                    {
+                        //Draw a box at 50% transparency to show the click area.
+                        using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
+                        {
+                            graphics.FillRectangle(br, Rectangle);
+                        }
+
+                        // Draw a blue outline around the click area.
+                        using (Pen p = new Pen(Color.Blue, 1))
+                        {
+                            graphics.DrawRectangle(p, Rectangle);
+                        }
+
+                        // Draw a white outline to show the offset window.
+                        if (RelativeXOffset != 0 || RelativeYOffset != 0)
+                        {
+                            using (Pen DashPen = new Pen(Color.WhiteSmoke))
+                            {
+                                Rectangle Outline = Rectangle;
+                                Outline.X = Outline.X + RelativeXOffset;
+                                Outline.Y = Outline.Y + RelativeYOffset;
+                                graphics.DrawRectangle(DashPen, Outline);
+                            }
+                        }
+                    }
+                    break;
+                case Mode.ClickDragRelease:
+                    // Draw Drag Drop Line
+                    using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
+                    {
+                        linePen.StartCap = LineCap.RoundAnchor;
+                        linePen.EndCap = LineCap.ArrowAnchor;
+                        linePen.DashStyle = DashStyle.Dot;
+
+                        int x1 = Rectangle.X;
+                        int y1 = Rectangle.Y;
+                        int x2 = Rectangle.X + Rectangle.Width;
+                        int y2 = Rectangle.Y + Rectangle.Height;
+
+                        // Draw a Dashed line with a Circle for start, and Pointer for end.
+                        Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", x1, y1, x2, y2);
+                        graphics.DrawLine(linePen, x1, y1, x2, y2);
+
+                        // Draw a Box around the start range area.
+                        using (Pen DashPen = new Pen(Color.WhiteSmoke))
+                        {
+                            x1 = Rectangle.X - (ClickDragReleaseStartWidth / 2);
+                            y1 = Rectangle.Y - (ClickDragReleaseStartHeight / 2);
+                            int Width = ClickDragReleaseStartWidth;
+                            int Height = ClickDragReleaseStartHeight;
+                            graphics.DrawRectangle(DashPen, x1, y1, Width, Height);
+                        }
+
+                        // Draw a Box around the end range area.
+                        using (Pen DashPen = new Pen(Color.FromArgb(226, 68, 47)))
+                        {
+                            x1 = Rectangle.X + Rectangle.Width - (ClickDragReleaseEndWidth / 2);
+                            y1 = Rectangle.Y + Rectangle.Height - (ClickDragReleaseEndHeight / 2);
+                            int Width = ClickDragReleaseStartWidth;
+                            int Height = ClickDragReleaseStartHeight;
+                            graphics.DrawRectangle(DashPen, x1, y1, Width, Height);
+                        }
+                    }
+                    break;
+                default:
+                    break;
+            }
+
         }
 
 

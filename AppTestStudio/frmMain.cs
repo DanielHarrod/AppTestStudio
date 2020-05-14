@@ -2609,14 +2609,12 @@ namespace AppTestStudio
 
                                 x = x + RandomXStart;
                                 y = y + RandomYStart;
-                                ActionNode.Rectangle.Width = ActionNode.Rectangle.Width + RandomXEnd;
-                                ActionNode.Rectangle.Height = ActionNode.Rectangle.Width + RandomYEnd;
+                                int x2 = ActionNode.Rectangle.Width + RandomXEnd;
+                                int y2 = ActionNode.Rectangle.Width + RandomYEnd;
 
-
-                                Utils.ClickDragRelease(MainWindowHandle, x, y, x + ActionNode.Rectangle.Width, y + ActionNode.Rectangle.Height,ActionNode.ClickDragReleaseVelocity);
-                                Log("ClickDragRelease( x=" + x + ",Y = " + y + ", ex=" + (x + ActionNode.Rectangle.Width) + ",ey=" + (y + ActionNode.Rectangle.Height) + ")");
+                                Utils.ClickDragRelease(MainWindowHandle, x, y, x + x2, y + y2,ActionNode.ClickDragReleaseVelocity);
+                                Log("ClickDragRelease( x=" + x + ",Y = " + y + ", ex=" + (x + x2) + ",ey=" + (y + y2) + ")");
                                 ThreadManager.IncrementSingleTestClickDragRelease();
-
                             }
                         }
                         break;
@@ -3339,75 +3337,9 @@ namespace AppTestStudio
             switch (Node.ActionType)
             {
                 case ActionType.Action:
-                    switch (Node.Mode)
-                    {
-                        case Mode.RangeClick:
-                            if (Node.Rectangle.Width > 0 && Node.Rectangle.Height > 0)
-                            {
-                                //Draw a box at 50% transparency to show the click area.
-                                using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
-                                {
-                                    e.Graphics.FillRectangle(br, Node.Rectangle);
-                                }
-
-                                // Draw a blue outline around the click area.
-                                using (Pen p = new Pen(Color.Blue, 1))
-                                {
-                                    e.Graphics.DrawRectangle(p, Node.Rectangle);
-                                }
-
-                                // Draw a white outline to show the offset window.
-                                if (Node.RelativeXOffset != 0 || Node.RelativeYOffset != 0)
-                                {
-                                    using (Pen DashPen = new Pen(Color.WhiteSmoke))
-                                    {
-                                        Rectangle Outline = Node.Rectangle;
-                                        Outline.X = Outline.X + Node.RelativeXOffset;
-                                        Outline.Y = Outline.Y + Node.RelativeYOffset;
-                                        e.Graphics.DrawRectangle(DashPen, Outline);
-                                    }
-                                }
-                            }
-                            break;
-                        case Mode.ClickDragRelease:
-                            // Draw Drag Drop Line
-                            using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
-                            {
-                                linePen.StartCap = LineCap.RoundAnchor;
-                                linePen.EndCap = LineCap.ArrowAnchor;
-                                linePen.DashStyle = DashStyle.Dot;
-
-                                int x1 = Node.Rectangle.X;
-                                int y1 = Node.Rectangle.Y;
-                                int x2 = Node.Rectangle.X + Node.Rectangle.Width;
-                                int y2 = Node.Rectangle.Y + Node.Rectangle.Height;
-
-                                Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", x1, y1, x2, y2);
-                                e.Graphics.DrawLine(linePen, x1, y1, x2, y2);
-
-                                using (Pen DashPen = new Pen(Color.WhiteSmoke))
-                                {
-                                    x1 = Node.Rectangle.X - (Node.ClickDragReleaseStartWidth / 2);
-                                    y1 = Node.Rectangle.Y - (Node.ClickDragReleaseStartHeight / 2);
-                                    int Width = Node.ClickDragReleaseStartWidth;
-                                    int Height = Node.ClickDragReleaseStartHeight;
-                                    e.Graphics.DrawRectangle(DashPen, x1, y1, Width, Height);
-                                }
-
-                                using (Pen DashPen = new Pen(Color.FromArgb(226, 68, 47)))
-                                {
-                                    x1 = Node.Rectangle.X + Node.Rectangle.Width - (Node.ClickDragReleaseEndWidth / 2);
-                                    y1 = Node.Rectangle.Y + Node.Rectangle.Height - (Node.ClickDragReleaseEndHeight / 2);
-                                    int Width = Node.ClickDragReleaseStartWidth;
-                                    int Height = Node.ClickDragReleaseStartHeight;
-                                    e.Graphics.DrawRectangle(DashPen, x1, y1, Width, Height);
-                                }
-                            }
-                            break;
-                        default:
-                            break;
-                    }
+                    Node.PaintNode(e.Graphics);
                     break;
+                
                 case ActionType.Event:
                     if (rdoColorPoint.Checked)
                     {

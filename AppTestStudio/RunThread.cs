@@ -45,61 +45,57 @@ namespace AppTestStudio
         private Bitmap GetBitMap(ref Boolean Success)
         {
             Success = false;
-          //  lock (GetBitMapLock)
+
+            IntPtr hdcSrc = API.GetWindowDC(WindowHandle);
+            if (hdcSrc.ToInt32() == 0)
             {
-
-                IntPtr hdcSrc = API.GetWindowDC(WindowHandle);
-                if (hdcSrc.ToInt32() == 0)
-                {
-                    Game.Log("GetWindowDC = 0 " + WindowHandle);
-                    Game.Log("Refetching Window for " + Game.TargetWindow);
-                    WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow);
-
-                }
-                API.RECT WindowRectangle = new API.RECT();
-
-                API.GetWindowRect(WindowHandle, out WindowRectangle);
-
-                int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
-                int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
-
-                if (TargetWindowHeight < 1 || TargetWindowWidth < 1)
-                {
-                    return null;
-                }
-
-                IntPtr hdcDest = API.CreateCompatibleDC(hdcSrc);
-
-                IntPtr hBitmap = API.CreateCompatibleBitmap(hdcSrc, TargetWindowWidth, TargetWindowHeight);
-
-                if (hBitmap.ToInt32() == 0)
-                {
-                    API.DeleteDC(hdcDest);
-                    return null;
-                }
-
-                IntPtr hOld = API.SelectObject(hdcDest, hBitmap);
-
-                //'modAPI.BitBlt(hdcDest, 0, 0, TargetWindowWidth, TargetWindowHeight, hdcSrc, 0, 0, &HCC0020)
-
-                API.PrintWindow(WindowHandle, hdcDest, 2);
-
-                API.SelectObject(hdcDest, hOld);
-                API.DeleteDC(hdcDest);
-                API.ReleaseDC(WindowHandle, hdcSrc);
-
-                Bitmap bmp = Image.FromHbitmap(hBitmap);
-                API.DeleteObject(hBitmap);
-
-                Success = true;
-
-                if (Game.SaveVideo)
-                {
-                    Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
-                }
-
-                return bmp;
+                Game.Log("GetWindowDC = 0 " + WindowHandle);
+                Game.Log("Refetching Window for " + Game.TargetWindow);
+                WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow);
             }
+            API.RECT WindowRectangle = new API.RECT();
+
+            API.GetWindowRect(WindowHandle, out WindowRectangle);
+
+            int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
+            int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
+
+            if (TargetWindowHeight < 1 || TargetWindowWidth < 1)
+            {
+                return null;
+            }
+
+            IntPtr hdcDest = API.CreateCompatibleDC(hdcSrc);
+
+            IntPtr hBitmap = API.CreateCompatibleBitmap(hdcSrc, TargetWindowWidth, TargetWindowHeight);
+
+            if (hBitmap.ToInt32() == 0)
+            {
+                API.DeleteDC(hdcDest);
+                return null;
+            }
+
+            IntPtr hOld = API.SelectObject(hdcDest, hBitmap);
+
+            //'modAPI.BitBlt(hdcDest, 0, 0, TargetWindowWidth, TargetWindowHeight, hdcSrc, 0, 0, &HCC0020)
+
+            API.PrintWindow(WindowHandle, hdcDest, 2);
+
+            API.SelectObject(hdcDest, hOld);
+            API.DeleteDC(hdcDest);
+            API.ReleaseDC(WindowHandle, hdcSrc);
+
+            Bitmap bmp = Image.FromHbitmap(hBitmap);
+            API.DeleteObject(hBitmap);
+
+            Success = true;
+
+            if (Game.SaveVideo)
+            {
+                Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
+            }
+
+            return bmp;
         }
 
 
@@ -275,13 +271,13 @@ namespace AppTestStudio
                         case Mode.ClickDragRelease:
                             // xPos = X Start Position
                             // yPos = Y Start Position
- 
+
 
                             // node.Rectangle.Width = direction relative to xPosition to move.
                             // node.Rectangle.Height = direction relative to the yPosition to move.
 
                             Debug.WriteLine(node.Rectangle.ToString());
-                            
+
                             int XEndPosition = xPos + node.Rectangle.Width;
                             int YEndPosition = yPos + node.Rectangle.Height;
                             Failed = false;
@@ -367,7 +363,7 @@ namespace AppTestStudio
 
                     Boolean AlwaysTakeScreenshot = false;
 
-                    RepeatAction:
+                RepeatAction:
                     if (node.UseParentPicture == false || AlwaysTakeScreenshot)
                     {
                         Boolean Success = false;
@@ -386,7 +382,7 @@ namespace AppTestStudio
                         }
                         Game.Log(node.Name + " Taking Screenshot");
                     }
-                    
+
                     if (node.IsTrue(bmp, Game, ref centerX, ref centerY, ref Offset, ref DetectedThreashold))
                     {
                         if (node.IsLimited)
@@ -413,23 +409,23 @@ namespace AppTestStudio
                         Game.AbsoluteLastNode = node;
                         Game.ThreadLastNodeEvent = node;
 
-                        if (node.RepeatsUntilFalse )
+                        if (node.RepeatsUntilFalse)
                         {
 
 
-                            if ( CurrentRepeatsUntilFalseLimit > 0)
+                            if (CurrentRepeatsUntilFalseLimit > 0)
                             {
                                 AlwaysTakeScreenshot = true;
 
 
                                 // Process children and throw away the result
-                                foreach (GameNodeAction  ChildNode in node.Nodes)
+                                foreach (GameNodeAction ChildNode in node.Nodes)
                                 {
                                     ProcessChildren(bmp, ChildNode as GameNodeAction, centerX, centerY);
-                                }                                
+                                }
                                 CurrentRepeatsUntilFalseLimit--;
                                 goto RepeatAction;
-                            }                            
+                            }
                         }
                         ActionTypeEventResult = true;
                     }
@@ -514,7 +510,7 @@ namespace AppTestStudio
 
             }  // switch (node.ActionType)
 
-            if ((node.ActionType == ActionType.Event && ActionTypeEventResult) || node.ActionType == ActionType.Action )
+            if ((node.ActionType == ActionType.Event && ActionTypeEventResult) || node.ActionType == ActionType.Action)
             {
                 int DelayCalc = node.DelayMS + (node.DelayS * 1000) + (node.DelayM * 60 * 1000);
 
