@@ -69,49 +69,51 @@ namespace AppTestStudio
 
                 if (IsPassed)
                 {
-
                     switch (Node.Mode)
                     {
                         case AppTestStudio.Mode.RangeClick:
-                            int RNGW = Utils.RandomNumber(0, Node.Rectangle.Width);
-                            int RNGH = Utils.RandomNumber(0, Node.Rectangle.Height);
-                            int x = Parent.Rectangle.X + CenterX - (Node.Rectangle.Width / 2) + Node.RelativeXOffset + RNGW;
-                            int y = Parent.Rectangle.Y + CenterY - (Node.Rectangle.Height / 2) + Node.RelativeYOffset + RNGH;
-                            Utils.ClickOnWindow(MainWindowHandle, (short)x, (short)y, Node.ClickSpeed);
-                            frm.Log("Click attempt: x=" + x + ",Y = " + y);
-                            Debug.WriteLine("Click attempt: x=" + x + ",Y = " + y);
+                            GameNodeAction.RangeClickResult RangeClickResult = Node.CalculateRangeClickResult(CenterX, CenterY);
+                            //int RNGW = Utils.RandomNumber(0, Node.Rectangle.Width);
+                            //int RNGH = Utils.RandomNumber(0, Node.Rectangle.Height);
+                            //int x = Parent.Rectangle.X + CenterX - (Node.Rectangle.Width / 2) + Node.RelativeXOffset + RNGW;
+                            //int y = Parent.Rectangle.Y + CenterY - (Node.Rectangle.Height / 2) + Node.RelativeYOffset + RNGH;
+                            frm.Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
+                            Debug.WriteLine("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
+                            Utils.ClickOnWindow(MainWindowHandle, (short)RangeClickResult.x, (short)RangeClickResult.y, Node.ClickSpeed);
                             break;
                         case AppTestStudio.Mode.ClickDragRelease:
-                            int xPos = Node.Rectangle.X;
-                            int yPos = Node.Rectangle.Y;
+                            GameNodeAction.ClickDragReleaseResult ClickDragReleaseResult = Node.CalculateClickDragReleaseResult(CenterX, CenterY);
+                            //int xPos = Node.Rectangle.X;
+                            //int yPos = Node.Rectangle.Y;
 
-                            int ex = xPos + Node.Rectangle.Width;
-                            int ey = yPos + Node.Rectangle.Height;
+                            //int ex = xPos + Node.Rectangle.Width;
+                            //int ey = yPos + Node.Rectangle.Height;
 
                             Boolean Failed = false;
 
-                            GameNode ParentGameNode = Node.Parent as GameNode;
-                            if (ParentGameNode is GameNodeAction)
-                            {
-                                GameNodeAction ParentNode = ParentGameNode as GameNodeAction;
-                                xPos = CenterX + ParentNode.Rectangle.X + Node.RelativeXOffset - (Node.Rectangle.Width / 2) + Utils.RandomNumber(0, Node.Rectangle.Width);
-                                yPos = CenterY + ParentNode.Rectangle.Y + Node.RelativeYOffset - (Node.Rectangle.Height / 2) + Utils.RandomNumber(0, Node.Rectangle.Height);
-                            }
+                            //GameNode ParentGameNode = Node.Parent as GameNode;
+                            //if (ParentGameNode is GameNodeAction)
+                            //{
+                            //    GameNodeAction ParentNode = ParentGameNode as GameNodeAction;
+                            //    xPos = CenterX + ParentNode.Rectangle.X + Node.RelativeXOffset - (Node.ClickDragReleaseStartWidth / 2) + Utils.RandomNumber(0, Node.ClickDragReleaseStartWidth);
+                            //    yPos = CenterY + ParentNode.Rectangle.Y + Node.RelativeYOffset - (Node.ClickDragReleaseStartHeight /2) + Utils.RandomNumber(0, Node.ClickDragReleaseStartHeight);
+                            //}
 
-                            if (xPos < 0)
+
+                            if (ClickDragReleaseResult.StartX < 0)
                             {
-                                frm.Log("Check Relative offset X, calculated to a negative position " + xPos);
+                                frm.Log("Check Relative offset X, calculated to a negative position " + ClickDragReleaseResult.StartX);
                                 Failed = true;
                             }
 
-                            if (yPos < 0)
+                            if (ClickDragReleaseResult.StartY < 0)
                             {
-                                frm.Log("Check Relative offset Y, calculated to a negative position " + yPos);
+                                frm.Log("Check Relative offset Y, calculated to a negative position " + ClickDragReleaseResult.StartY);
                                 Failed = true;
                             }
 
-                            ex = Node.Rectangle.X + Node.Rectangle.Width / 2;
-                            ey = Node.Rectangle.Y + Node.Rectangle.Height / 2;
+                            //ex = Node.Rectangle.X + Node.Rectangle.Width;
+                            //ey = Node.Rectangle.Y + Node.Rectangle.Height ;
 
 
                             if (Failed)
@@ -120,8 +122,8 @@ namespace AppTestStudio
                             }
                             else
                             {
-                                frm.Log("Swipe from ( x=" + xPos + ",y = " + yPos + " to x=" + ex + ",y=" + ey + ")");
-                                Utils.ClickDragRelease(MainWindowHandle, xPos, yPos, ex, ey,Node.ClickDragReleaseVelocity);
+                                frm.Log("Swipe from ( x=" + ClickDragReleaseResult.StartX + ",y = " + ClickDragReleaseResult.StartY + " to x=" + ClickDragReleaseResult.EndX + ",y=" + ClickDragReleaseResult.EndY + ")");
+                                Utils.ClickDragRelease(MainWindowHandle, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity);
                             }
                             break;
                         default:

@@ -6,6 +6,7 @@ using OpenCvSharp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.Runtime.CompilerServices;
@@ -104,8 +105,9 @@ namespace AppTestStudio
         public String LogicChoice
         {
             get { return mLogicChoice; }
-            set {
-                mLogicChoice = value; 
+            set
+            {
+                mLogicChoice = value;
             }
         }
 
@@ -124,7 +126,8 @@ namespace AppTestStudio
         public Boolean IsColorPoint
         {
             get { return mIsColorPoint; }
-            set { 
+            set
+            {
                 mIsColorPoint = value;
                 Utils.SetIcons(this);
             }
@@ -187,18 +190,20 @@ namespace AppTestStudio
         public long ExecutionLimit { get; set; }
 
         private Mode mMode;
-        public Mode Mode {
+        public Mode Mode
+        {
             get { return mMode; }
-            set { 
-                mMode = value; 
+            set
+            {
+                mMode = value;
 
-                if (ActionType == ActionType.Action )
+                if (ActionType == ActionType.Action)
                 {
                     Utils.SetIconsActionTypeAction(this);
                 }
-            } 
+            }
         }
-        
+
         public int Points { get; set; }
 
         /// <summary>
@@ -434,8 +439,8 @@ namespace AppTestStudio
             String OriginalExpression = Expression;
 
             // need to traverse reverse for customlogic
-            
-            for (int i= ClickList.Count-1; i >= 0; i--)
+
+            for (int i = ClickList.Count - 1; i >= 0; i--)
             {
                 SingleClick click = ClickList[i];
 
@@ -667,7 +672,7 @@ namespace AppTestStudio
 
             if (detectedThreashold >= ((float)iObjectThreshold / 100))
             {
-                game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + ( centerX + Rectangle.X ) + "  y =" + (centerY + Rectangle.Y));
+                game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + Rectangle.X) + "  y =" + (centerY + Rectangle.Y));
                 //'TB.AddReturnTrue()
 
                 if (FileName.IsNothing())
@@ -814,18 +819,43 @@ namespace AppTestStudio
             int x2 = Rectangle.Width;
             int y2 = Rectangle.Height;
 
-            if (IsParentObjectSearch())
+            if (IsParentObjectSearch() && (ClickDragReleaseMode != ClickDragReleaseMode.None))
             {
                 GameNodeAction ParentNode = Parent as GameNodeAction;
                 if (ParentNode.IsSomething())
                 {
-                    x = centerX + ParentNode.Rectangle.X + RelativeXOffset;
-                    y = centerY + ParentNode.Rectangle.Y + RelativeYOffset;
+                    if (ClickDragReleaseMode == ClickDragReleaseMode.Start)
+                    {
+                        // Click Drag Release Start at Center + Mask + Relative Offset
+                        x = centerX + ParentNode.Rectangle.X + RelativeXOffset;
+                        y = centerY + ParentNode.Rectangle.Y + RelativeYOffset;
+
+                        // Fixed Target
+                        x2 = Rectangle.Width + Rectangle.X;
+                        y2 = Rectangle.Height + Rectangle.Y;
+                    }
+                    else // == Stop
+                    {
+                        // Click Drag Release Start at Center + Mask + Relative Offset
+                        // Do nothing here already set.
+                        //x = x;
+                        //y = y;
+
+                        // Fixed Target
+                        x2 = centerX + ParentNode.Rectangle.X + RelativeXOffset;
+                        y2 = centerY + ParentNode.Rectangle.Y + RelativeYOffset;
+
+                    }
                 }
                 else
                 {
                     Debug.Assert(false);
                 }
+            }
+            else
+            {
+                x2 = x + x2;
+                y2 = y + y2;
             }
 
             x = x + RandomXStart;
@@ -835,8 +865,8 @@ namespace AppTestStudio
 
             Result.StartX = x;
             Result.StartY = y;
-            Result.EndX = x + x2;
-            Result.EndY = y + y2;
+            Result.EndX = x2;
+            Result.EndY = y2;
 
             return Result;
         }

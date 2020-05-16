@@ -280,7 +280,14 @@ namespace AppTestStudio
 
         public static short RandomNumber(int min, int max)
         {
-            return (short)Generator.Next(min, max);
+            if (max < 0)
+            {
+                return (short)-Generator.Next(min, Math.Abs(max));
+            }
+                else
+            {
+                return (short)Generator.Next(min, max);
+            }            
         }
 
         public class WindowHandles
