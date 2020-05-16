@@ -773,8 +773,8 @@ namespace AppTestStudio
                         {
                             x1 = Rectangle.X + Rectangle.Width - (ClickDragReleaseEndWidth / 2);
                             y1 = Rectangle.Y + Rectangle.Height - (ClickDragReleaseEndHeight / 2);
-                            int Width = ClickDragReleaseStartWidth;
-                            int Height = ClickDragReleaseStartHeight;
+                            int Width = ClickDragReleaseEndWidth;
+                            int Height = ClickDragReleaseEndHeight;
                             graphics.DrawRectangle(DashPen, x1, y1, Width, Height);
                         }
                     }
@@ -790,6 +790,57 @@ namespace AppTestStudio
             public int y;
         }
 
+        public class ClickDragReleaseResult
+        {
+            public int StartX;
+            public int StartY;
+            public int EndX;
+            public int EndY;
+        }
+
+        public ClickDragReleaseResult CalculateClickDragReleaseResult(int centerX, int centerY)
+        {
+            ClickDragReleaseResult Result = new ClickDragReleaseResult();
+
+            // Calculate how much to add/remove from the Center  1/2 the distance - random(total) 
+            short RandomXStart = (short)((ClickDragReleaseStartWidth / 2) - Convert.ToInt32(Utils.RandomNumber(0, ClickDragReleaseStartWidth)));
+            short RandomYStart = (short)((ClickDragReleaseStartHeight / 2) - Convert.ToInt32(Utils.RandomNumber(0, ClickDragReleaseStartHeight)));
+            short RandomXEnd = (short)((ClickDragReleaseEndWidth / 2) - Convert.ToInt32(Utils.RandomNumber(0, ClickDragReleaseEndWidth)));
+            short RandomYEnd = (short)((ClickDragReleaseEndHeight / 2) - Convert.ToInt32(Utils.RandomNumber(0, ClickDragReleaseEndHeight)));
+
+            int x = Rectangle.Left;
+            int y = Rectangle.Top;
+
+            int x2 = Rectangle.Width;
+            int y2 = Rectangle.Height;
+
+            if (IsParentObjectSearch())
+            {
+                GameNodeAction ParentNode = Parent as GameNodeAction;
+                if (ParentNode.IsSomething())
+                {
+                    x = centerX + ParentNode.Rectangle.X + RelativeXOffset;
+                    y = centerY + ParentNode.Rectangle.Y + RelativeYOffset;
+                }
+                else
+                {
+                    Debug.Assert(false);
+                }
+            }
+
+            x = x + RandomXStart;
+            y = y + RandomYStart;
+            x2 = x2 + RandomXEnd;
+            y2 = y2 + RandomYEnd;
+
+            Result.StartX = x;
+            Result.StartY = y;
+            Result.EndX = x + x2;
+            Result.EndY = y + y2;
+
+            return Result;
+        }
+
         public RangeClickResult CalculateRangeClickResult(int centerX, int centerY)
         {
             RangeClickResult Result = new RangeClickResult();
@@ -802,19 +853,16 @@ namespace AppTestStudio
 
             if (IsParentObjectSearch())
             {
-                if (Parent.IsSomething())
+                if (Parent is GameNodeAction)
                 {
-                    if (Parent is GameNodeAction)
-                    {
-                        GameNodeAction ParentNode = Parent as GameNodeAction;
-                        xPos = centerX + ParentNode.Rectangle.X + RelativeXOffset - (Rectangle.Width / 2);
-                        yPos = centerY + ParentNode.Rectangle.Y + RelativeYOffset - (Rectangle.Height / 2);
-                    }
-                    else
-                    {
-                        xPos = centerX + RelativeXOffset - (Rectangle.Width / 2);
-                        yPos = centerY + RelativeYOffset - (Rectangle.Height / 2);
-                    }
+                    GameNodeAction ParentNode = Parent as GameNodeAction;
+                    //     center(reative to mask)  + Mask  + Relative Offset -  1/2 the size of the box to click + random.
+                    xPos = centerX + ParentNode.Rectangle.X + RelativeXOffset - (Rectangle.Width / 2) + RandomX;
+                    yPos = centerY + ParentNode.Rectangle.Y + RelativeYOffset - (Rectangle.Height / 2) + RandomY;
+                }
+                else
+                {
+                    Debug.Assert(false);
                 }
             }
             else

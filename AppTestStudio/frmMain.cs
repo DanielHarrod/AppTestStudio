@@ -2559,7 +2559,6 @@ namespace AppTestStudio
 
             IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(game.TargetWindow);
 
-
             //For Each P As Process In Process.GetProcesses()
             //    if (P.MainWindowTitle.Length() > 0)
             //    {
@@ -2575,7 +2574,6 @@ namespace AppTestStudio
 
                         if (IsObjectSearchParent)
                         {
-
                             frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, Node.Parent as GameNodeAction);
                             frm2.StartPosition = FormStartPosition.CenterParent;
 
@@ -2587,33 +2585,30 @@ namespace AppTestStudio
                         {
                             if (rdoModeRangeClick.Checked)
                             {
-                                short RandomX = Utils.RandomNumber(0, ActionNode.Rectangle.Width);
-                                short RandomY = Utils.RandomNumber(0, ActionNode.Rectangle.Height);
+                                GameNodeAction.RangeClickResult Result = ActionNode.CalculateRangeClickResult(0, 0);
+                                Boolean Failed = false;
+                                if (Result.x < 0)
+                                {
+                                    Log("Check Relative offset X, calculated to a negative position " + Result.x);
+                                    Failed = true;
+                                }
 
-                                short x = Convert.ToInt16(ActionNode.Rectangle.Left+ RandomX);
-                                short y = Convert.ToInt16(ActionNode.Rectangle.Top + RandomY);
-                                Utils.ClickOnWindow(MainWindowHandle, x, y, ActionNode.ClickSpeed);
-                                Log("Click attempt: x=" + x + ",Y = " + y);
+                                if (Result.y < 0)
+                                {
+                                    Log("Check Relative offset Y, calculated to a negative position " + Result.y);
+                                    Failed = true;
+                                }
+
+                                Utils.ClickOnWindow(MainWindowHandle, (short)Result.x, (short)Result.y , ActionNode.ClickSpeed);
+                                Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }
                             else
                             {
-                                int x = ActionNode.Rectangle.Left;
-                                int y = ActionNode.Rectangle.Top;
+                                GameNodeAction.ClickDragReleaseResult Result = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
-                                // Calculate how much to add/remove from the Center  1/2 the distance - random(total) 
-                                short RandomXStart = (short)((ActionNode.ClickDragReleaseStartWidth /2) - Convert.ToInt32(Utils.RandomNumber(0, ActionNode.ClickDragReleaseStartWidth))) ;
-                                short RandomYStart = (short)((ActionNode.ClickDragReleaseStartHeight / 2) - Convert.ToInt32(Utils.RandomNumber(0, ActionNode.ClickDragReleaseStartHeight)));
-                                short RandomXEnd = (short)((ActionNode.ClickDragReleaseEndWidth / 2) - Convert.ToInt32(Utils.RandomNumber(0, ActionNode.ClickDragReleaseEndWidth)));
-                                short RandomYEnd = (short)((ActionNode.ClickDragReleaseEndHeight / 2) - Convert.ToInt32(Utils.RandomNumber(0, ActionNode.ClickDragReleaseEndHeight)));
-
-                                x = x + RandomXStart;
-                                y = y + RandomYStart;
-                                int x2 = ActionNode.Rectangle.Width + RandomXEnd;
-                                int y2 = ActionNode.Rectangle.Width + RandomYEnd;
-
-                                Utils.ClickDragRelease(MainWindowHandle, x, y, x + x2, y + y2,ActionNode.ClickDragReleaseVelocity);
-                                Log("ClickDragRelease( x=" + x + ",Y = " + y + ", ex=" + (x + x2) + ",ey=" + (y + y2) + ")");
+                                Utils.ClickDragRelease(MainWindowHandle, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity);
+                                Log("ClickDragRelease( x=" + Result.StartX + ",Y = " + Result.StartY + ", ex=" + Result.EndX + ",ey=" + Result.EndY + ")");
                                 ThreadManager.IncrementSingleTestClickDragRelease();
                             }
                         }

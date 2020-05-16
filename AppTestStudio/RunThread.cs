@@ -245,6 +245,7 @@ namespace AppTestStudio
 
                             break;
                         case Mode.ClickDragRelease:
+                            GameNodeAction.ClickDragReleaseResult CDRResult = node.CalculateClickDragReleaseResult(centerX, centerY);
                             // xPos = X Start Position
                             // yPos = Y Start Position
 
@@ -252,61 +253,19 @@ namespace AppTestStudio
                             // node.Rectangle.Width = direction relative to xPosition to move.
                             // node.Rectangle.Height = direction relative to the yPosition to move.
 
-                            Debug.WriteLine(node.Rectangle.ToString());
-
-                            int XEndPosition = xPos + node.Rectangle.Width;
-                            int YEndPosition = yPos + node.Rectangle.Height;
                             Failed = false;
 
-                            if (XEndPosition <= 0)
+                            if (CDRResult.StartX < 0 || CDRResult.EndX < 0)
                             {
-                                Game.Log(node.GameNodeName + " has a horizontal start positon of " + xPos + " and a calculated end positon of " + XEndPosition + " please redraw, unable to drag to negative position.  Aborting.");
+                                Game.Log(node.GameNodeName + " has a horizontal start positon of " + CDRResult.StartX + " and a calculated end positon of " + CDRResult.EndX + " please redraw, unable to drag to negative position.  Aborting.");
                                 Failed = true;
                             }
 
-                            if (YEndPosition <= 0)
+                            if (CDRResult.StartY < 0 || CDRResult.EndY < 0)
                             {
-                                Game.Log(node.GameNodeName + " has a vertical start positon of " + yPos + " and a calculated end positon of " + YEndPosition + " please redraw, unable to drag to negative position.  Aborting.");
+                                Game.Log(node.GameNodeName + " has a vertical start positon of " + CDRResult.StartY + " and a calculated end positon of " + CDRResult.EndY + " please redraw, unable to drag to negative position.  Aborting.");
                                 Failed = true;
-                            }
-
-                            // NO this is dumb.
-                            //XEndPosition = xPos - (node.Rectangle.Width / 2) + Utils.RandomNumber(0, node.Rectangle.Width);
-                            //YendPosition = yPos - (node.Rectangle.Height / 2) + Utils.RandomNumber(0, node.Rectangle.Height);
-
-
-                            if (node.IsParentObjectSearch())
-                            {
-                                if (Parent.IsSomething())
-                                {
-                                    GameNodeAction ParentNode = Parent as GameNodeAction;
-
-                                    // centerX is Object search center position
-                                    // centerY is Object search center position
-
-                                    //ParentNode.Rectangle.X is the mask start X position.
-                                    //ParentNode.Rectangle.Y is the mask start Y position.
-
-                                    xPos = centerX + ParentNode.Rectangle.X + node.RelativeXOffset;
-                                    yPos = centerY + ParentNode.Rectangle.Y + node.RelativeYOffset;
-                                }
-                            }
-
-                            if (xPos < 0)
-                            {
-                                Game.Log("Check Relative offset X, calculated to a negative position " + xPos);
-                                Failed = true;
-                            }
-
-                            if (yPos < 0)
-                            {
-                                Game.Log("Check Relative offset Y, calculated to a negative position " + yPos);
-                                Failed = true;
-                            }
-
-                            //XEndPosition = node.Rectangle.X + node.Rectangle.Width / 2;
-                            //YEndPosition = node.Rectangle.Y + node.Rectangle.Height / 2;
-
+                            }   
 
                             if (Failed)
                             {
@@ -314,8 +273,8 @@ namespace AppTestStudio
                             }
                             else
                             {
-                                Game.Log("Swipe from ( x=" + xPos + ",y = " + yPos + " to x=" + XEndPosition + ",y=" + YEndPosition + ")");
-                                Utils.ClickDragRelease(WindowHandle, xPos, yPos, XEndPosition, YEndPosition, node.ClickDragReleaseVelocity);
+                                Game.Log("Swipe from ( x=" + CDRResult.StartX + ",y = " + CDRResult.StartY + " to x=" + CDRResult.EndX + ",y=" + CDRResult.EndY + ")");
+                                Utils.ClickDragRelease(WindowHandle, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity);
                                 ThreadManager.IncrementClickDragRelease();
                                 //'if (UseThreadBitmap ) {
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)
