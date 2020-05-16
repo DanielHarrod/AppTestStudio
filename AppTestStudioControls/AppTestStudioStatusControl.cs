@@ -367,11 +367,11 @@ namespace AppTestStudioControls
                     }
                 }
 
-                using (SolidBrush greyBrush = new SolidBrush(Color.FromArgb(60, 60, 60)))
+                using (SolidBrush GrayBrush = new SolidBrush(Color.FromArgb(60, 60, 60)))
                 {
                     using (Region region = new Region(new Rectangle(HeaderArea, 1, Width - HeaderArea, Height)))
                     {
-                        e.Graphics.FillRegion(greyBrush, region);
+                        e.Graphics.FillRegion(GrayBrush, region);
                     }
                 }
 
@@ -462,13 +462,13 @@ namespace AppTestStudioControls
 
                 using (Font VerandaFont = new Font("Verdana", FontSize, FontStyle.Regular))
                 {
-                    using (SolidBrush lightGreyBrush = new SolidBrush(Color.FromArgb(167, 167, 167)))
+                    using (SolidBrush lightGrayBrush = new SolidBrush(Color.FromArgb(167, 167, 167)))
                     {
 
                         long FontStart = 22;
                         for (int i = 0; i < ActiveItems.Count; i++)
                         {
-                            e.Graphics.DrawString(Items[ActiveItems[i]], VerandaFont, lightGreyBrush, 10, FontStart + (i * Scale));
+                            e.Graphics.DrawString(Items[ActiveItems[i]], VerandaFont, lightGrayBrush, 10, FontStart + (i * Scale));
                         }
 
 

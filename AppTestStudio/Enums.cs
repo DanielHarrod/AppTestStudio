@@ -162,5 +162,35 @@ namespace AppTestStudio
         {
             return 23;
         }
+
+        public static int RNGGray()
+        {
+            return 24;
+        }
+
+        public static int EventGray()
+        {
+            return 25;
+        }
+
+        public static int ButtonClickGray()
+        {
+            return 26;
+        }
+
+        public static int ClickDragReleaseGray()
+        {
+            return 27;
+        }
+
+        public static int RNGContainerGray()
+        {
+            return 28;
+        }
+
+        public static int SearchGray()
+        {
+            return 29;
+        }
     }
 }

@@ -18,6 +18,8 @@ namespace AppTestStudio
     {
         public static void SetIcons(GameNode Node)
         {
+            Color EnabledColor = Color.Black;
+            Color DisabledColor = Color.LightGray;
             switch (Node.GameNodeType)
             {
                 case GameNodeType.Workspace:
@@ -45,22 +47,62 @@ namespace AppTestStudio
                             case ActionType.Event:
                                 if (ActionNode.IsColorPoint)
                                 {
-                                    Node.ImageIndex = IconNames.Event();
-                                    Node.SelectedImageIndex = IconNames.Event();
+                                    if (ActionNode.Enabled)
+                                    {
+                                        Node.ImageIndex = IconNames.Event();
+                                        Node.SelectedImageIndex = IconNames.Event();
+                                        Node.ForeColor = EnabledColor;
+                                    }
+                                    else
+                                    {
+                                        Node.ImageIndex = IconNames.EventGray();
+                                        Node.SelectedImageIndex = IconNames.EventGray();
+                                        Node.ForeColor = DisabledColor;
+                                    }
                                 }
                                 else
                                 {
-                                    Node.ImageIndex = IconNames.SearchAndApps();
-                                    Node.SelectedImageIndex = IconNames.SearchAndApps();
+                                    if (ActionNode.Enabled)
+                                    {
+                                        Node.ImageIndex = IconNames.SearchAndApps();
+                                        Node.SelectedImageIndex = IconNames.SearchAndApps();
+                                        Node.ForeColor = EnabledColor;
+                                    }
+                                    else
+                                    {
+                                        Node.ImageIndex = IconNames.SearchGray();
+                                        Node.SelectedImageIndex = IconNames.SearchGray();
+                                        Node.ForeColor = DisabledColor;
+                                    }
                                 }
                                 break;
                             case ActionType.RNG:
-                                Node.ImageIndex = IconNames.RNG();
-                                Node.SelectedImageIndex = IconNames.RNG();
+                                if (ActionNode.Enabled)
+                                {
+                                    Node.ImageIndex = IconNames.RNG();
+                                    Node.SelectedImageIndex = IconNames.RNG();
+                                    Node.ForeColor = EnabledColor;
+                                }
+                                else
+                                {
+                                    Node.ImageIndex = IconNames.RNG();
+                                    Node.SelectedImageIndex = IconNames.RNG();
+                                    Node.ForeColor = DisabledColor;
+                                }
                                 break;
                             case ActionType.RNGContainer:
-                                Node.ImageIndex = IconNames.RNGContainer();
-                                Node.SelectedImageIndex = IconNames.RNGContainer();
+                                if (ActionNode.Enabled)
+                                {
+                                    Node.ImageIndex = IconNames.RNGContainer();
+                                    Node.SelectedImageIndex = IconNames.RNGContainer();
+                                    Node.ForeColor = EnabledColor;
+                                }
+                                else
+                                {
+                                    Node.ImageIndex = IconNames.RNGContainerGray();
+                                    Node.SelectedImageIndex = IconNames.RNGContainerGray();
+                                    Node.ForeColor = DisabledColor;
+                                }
                                 break;
                             default:
                                 Node.ImageIndex = IconNames.Event();
@@ -94,12 +136,33 @@ namespace AppTestStudio
             switch (Action.Mode)
             {
                 case Mode.RangeClick:
-                    Action.ImageIndex = IconNames.ButtonClick();
-                    Action.SelectedImageIndex = IconNames.ButtonClick();
+                    if (Action.Enabled)
+                    {
+                        Action.ImageIndex = IconNames.ButtonClick();
+                        Action.SelectedImageIndex = IconNames.ButtonClick();
+                        Action.ForeColor = Color.Black;
+                    }
+                    else
+                    {
+                        Action.ImageIndex = IconNames.ButtonClickGray();
+                        Action.SelectedImageIndex = IconNames.ButtonClickGray();
+                        Action.ForeColor = Color.LightGray;
+                    }
                     break;
                 case Mode.ClickDragRelease:
-                    Action.ImageIndex = IconNames.DependencyArrow();
-                    Action.SelectedImageIndex = IconNames.DependencyArrow();
+                    if (Action.Enabled)
+                    {
+                        Action.ImageIndex = IconNames.DependencyArrow();
+                        Action.SelectedImageIndex = IconNames.DependencyArrow();
+                        Action.ForeColor = Color.Black;
+
+                    }
+                    else
+                    {
+                        Action.ImageIndex = IconNames.DependencyArrow();
+                        Action.SelectedImageIndex = IconNames.DependencyArrow();
+                        Action.ForeColor = Color.LightGray;
+                    }
                     break;
                 default:
                     break;
@@ -118,7 +181,7 @@ namespace AppTestStudio
                 else
                 {
                     if (row.Cells[cellColorName + "Red"].Value.IsSomething())
-                    { 
+                    {
                         int R = row.Cells[cellColorName + "Red"].Value.ToString().ToInt();
                         int G = row.Cells[cellColorName + "Green"].Value.ToString().ToInt();
                         int B = row.Cells[cellColorName + "Blue"].Value.ToString().ToInt();
@@ -231,7 +294,7 @@ namespace AppTestStudio
                         Thread.Sleep(SleepTime);
                         CurrentSkipEvery = SkipEvery;
                     }
-                    else if(CurrentSkipEvery > 0)
+                    else if (CurrentSkipEvery > 0)
                     {
                         CurrentSkipEvery--;
                     }
@@ -284,10 +347,10 @@ namespace AppTestStudio
             {
                 return (short)-Generator.Next(min, Math.Abs(max));
             }
-                else
+            else
             {
                 return (short)Generator.Next(min, max);
-            }            
+            }
         }
 
         public class WindowHandles
@@ -414,7 +477,7 @@ namespace AppTestStudio
             Style.BackColor = color;
 
             Single brightness = color.GetBrightness();
-            if ( brightness > 0.80)
+            if (brightness > 0.80)
             {
                 Style.ForeColor = Color.Black;
             }

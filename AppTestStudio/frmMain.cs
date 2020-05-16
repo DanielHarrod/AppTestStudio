@@ -3738,7 +3738,7 @@ namespace AppTestStudio
                 Node.IsLimited = chkUseLimit.Checked;
             }
 
-            // Grey out other controls if not using.
+            // Gray out other controls if not using.
             cboWaitType.Enabled = chkUseLimit.Checked;
             chkWaitFirst.Enabled = chkUseLimit.Checked;
             numIterations.Enabled = chkUseLimit.Checked;
@@ -5804,6 +5804,8 @@ namespace AppTestStudio
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.Enabled = chkPropertiesEnabled.Checked;
+
+                Utils.SetIcons(ActionNode);
             }
         }
 

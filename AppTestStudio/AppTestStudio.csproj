@@ -261,9 +261,15 @@
     <Content Include="Resources\AddEvent.png" />
     <Content Include="Resources\AddRNGContainerP.png" />
     <Content Include="Resources\AddRNGP.png" />
+    <Content Include="Resources\Angular_lightningboltGR.png" />
     <Content Include="Resources\ASX_CollapseChevronDown_grey_16x.png" />
+    <Content Include="Resources\ButtonClick_16xGR.png" />
     <Content Include="Resources\CollapseChevronLeft_16x.png" />
+    <Content Include="Resources\DependencyArrow_16xGR.png" />
     <Content Include="Resources\Patron.png" />
+    <Content Include="Resources\RMG ContainerGR.png" />
+    <Content Include="Resources\RNGGR.png" />
+    <Content Include="Resources\SearchAndApps_16xGR.png" />
     <Content Include="Resources\StartEmmulator.bmp" />
     <Content Include="Resources\Test.png" />
     <Content Include="Resources\TestALLP.png" />
