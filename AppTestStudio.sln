@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTestStudio", "AppTestStu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTestStudioControls", "AppTestStudioControls\AppTestStudioControls.csproj", "{1F7CC8A4-8227-45EB-BEA8-CCC26B3D1F46}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AppTestStudioUnitTest", "AppTestStudioUnitTest\AppTestStudioUnitTest.csproj", "{70F8061B-1AEF-48F6-9161-310CCD0E197B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,14 @@ Global
 		{1F7CC8A4-8227-45EB-BEA8-CCC26B3D1F46}.Release|Any CPU.Build.0 = Release|Any CPU
 		{1F7CC8A4-8227-45EB-BEA8-CCC26B3D1F46}.Release|x64.ActiveCfg = Release|x64
 		{1F7CC8A4-8227-45EB-BEA8-CCC26B3D1F46}.Release|x64.Build.0 = Release|x64
+		{70F8061B-1AEF-48F6-9161-310CCD0E197B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F8061B-1AEF-48F6-9161-310CCD0E197B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F8061B-1AEF-48F6-9161-310CCD0E197B}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{70F8061B-1AEF-48F6-9161-310CCD0E197B}.Debug|x64.Build.0 = Debug|Any CPU
+		{70F8061B-1AEF-48F6-9161-310CCD0E197B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F8061B-1AEF-48F6-9161-310CCD0E197B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70F8061B-1AEF-48F6-9161-310CCD0E197B}.Release|x64.ActiveCfg = Release|Any CPU
+		{70F8061B-1AEF-48F6-9161-310CCD0E197B}.Release|x64.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,4 +48,4 @@ Global
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {69A3CAD9-EE38-4EBF-BF22-4B77792EF9BD}
 	EndGlobalSection
-EndGlobal 
+EndGlobal
