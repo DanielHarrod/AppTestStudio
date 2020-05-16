@@ -1358,7 +1358,7 @@ namespace AppTestStudio
                     gameNode.StatusNodeID = ID;
                     ID = ID + 1;
 
-                    lst.Add(gameNode.Text);
+                    lst.Add("  " + gameNode.Text);
                 }
             }
 
