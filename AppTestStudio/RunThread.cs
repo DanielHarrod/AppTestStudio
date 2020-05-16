@@ -13,6 +13,7 @@ using System.Drawing.Drawing2D;
 using OpenCvSharp;
 using System.Threading;
 using System.Windows.Forms;
+using System.Web.Hosting;
 
 namespace AppTestStudio
 {
@@ -100,7 +101,7 @@ namespace AppTestStudio
 
 
 
-        private void StopThreadCloseWindow(IntPtr windowHandle)
+        private void StopThreadCloseWindow(IntPtr windowHandle, Boolean AbortThread)
         {
             Game.Log("Closing Emmulator");
 
@@ -133,7 +134,6 @@ namespace AppTestStudio
 
             ThreadIsShuttingDown = true;
 
-
             if (Game.SaveVideo)
             {
                 Game.Video.Release();
@@ -142,7 +142,11 @@ namespace AppTestStudio
 
             ThreadManager.RemoveGame(Game);
             Thread.Sleep(3000);
-            Thread.CurrentThread.Abort();
+
+            if (AbortThread)
+            {
+                Thread.CurrentThread.Abort();
+            }
         }
 
 
@@ -216,7 +220,7 @@ namespace AppTestStudio
                         case Mode.RangeClick:
 
                             GameNodeAction.RangeClickResult Result = node.CalculateRangeClickResult(centerX, centerY);
-                            
+
                             Boolean Failed = false;
 
                             if (Result.x < 0)
@@ -265,7 +269,7 @@ namespace AppTestStudio
                             {
                                 Game.Log(node.GameNodeName + " has a vertical start positon of " + CDRResult.StartY + " and a calculated end positon of " + CDRResult.EndY + " please redraw, unable to drag to negative position.  Aborting.");
                                 Failed = true;
-                            }   
+                            }
 
                             if (Failed)
                             {
@@ -284,7 +288,6 @@ namespace AppTestStudio
                         default:
                             break;
                     }
-
 
                     break;
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -431,6 +434,13 @@ namespace AppTestStudio
                                 case AfterCompletionType.Continue:
                                     // do nothing
                                     break;
+                                case AfterCompletionType.Stop:
+                                    ThreadManager.IncrementGoStop();
+                                    StopThreadCloseWindow(WindowHandle, true);
+                                    return AfterCompletionType.Stop;
+                                case AfterCompletionType.Recycle:
+                                    Recycle(node, WindowHandle);
+                                    break;
                                 default:
                                     Debug.Assert(false);
                                     break;
@@ -475,10 +485,13 @@ namespace AppTestStudio
                                     break;
                                 case AfterCompletionType.Stop:
                                     ThreadManager.IncrementGoStop();
-                                    StopThreadCloseWindow(WindowHandle);
+                                    StopThreadCloseWindow(WindowHandle, true);
                                     return AfterCompletionType.Stop;
                                 case AfterCompletionType.Continue:
                                     ThreadManager.IncrementGoContinue();
+                                    break;
+                                case AfterCompletionType.Recycle:
+                                    Recycle(node, WindowHandle);
                                     break;
                                 default:
                                     Debug.Assert(false);
@@ -499,8 +512,11 @@ namespace AppTestStudio
                         return AfterCompletionType.Parent;
                     case AfterCompletionType.Stop:
                         ThreadManager.IncrementGoStop();
-                        StopThreadCloseWindow(WindowHandle);
+                        StopThreadCloseWindow(WindowHandle, true);
                         return AfterCompletionType.Stop;
+                    case AfterCompletionType.Recycle:
+                        Recycle(node, WindowHandle);
+                        break;
                     default:
                         break;
                 }
@@ -509,6 +525,18 @@ namespace AppTestStudio
             ThreadManager.IncrementGoContinue();
             return AfterCompletionType.Continue;
         } // ProcessChildren
+
+        /// <summary>
+        /// Restart of Emmulator Event
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="windowHandle"></param>
+        private void Recycle(GameNodeAction node, IntPtr windowHandle)
+        {
+            StopThreadCloseWindow(WindowHandle, false);
+            GameNodeGame Game = node.GetGameNodeGame();
+            Utils.LaunchInstance("", "", Game.InstanceToLaunch, Game.Resolution);
+        }
 
         private AfterCompletionType CheckLimit(GameNodeAction node)
         {
@@ -671,6 +699,9 @@ namespace AppTestStudio
                             case AppTestStudio.AfterCompletionType.Stop:
                                 ThreadManager.IncrementGoStop();
                                 ExitFor = true;
+                                break;
+                            case AfterCompletionType.Recycle:
+                                Recycle(node as GameNodeAction, WindowHandle);
                                 break;
                             case AppTestStudio.AfterCompletionType.ContinueProcess:
                                 // should not be here?

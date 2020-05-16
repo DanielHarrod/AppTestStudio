@@ -791,6 +791,9 @@ namespace AppTestStudio
                 case AppTestStudio.AfterCompletionType.ContinueProcess:
                     rdoAfterCompletionParent.Checked = true;
                     break;
+                case AfterCompletionType.Recycle:
+                    rdoAfterCompletionRecycle.Checked = true;
+                    break;
                 default:
                     rdoAfterCompletionParent.Checked = true;
                     break;
@@ -3114,6 +3117,11 @@ namespace AppTestStudio
             if (rdoAfterCompletionStop.Checked)
             {
                 ChosenAfterCompletionType = AfterCompletionType.Stop;
+            }
+
+            if (rdoAfterCompletionRecycle.Checked)
+            {
+                ChosenAfterCompletionType = AfterCompletionType.Recycle;
             }
 
             GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
@@ -5836,6 +5844,14 @@ namespace AppTestStudio
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.ClickDragReleaseEndWidth = (int)numericSwipeEndWidth.Value;
                 PictureBox1.Invalidate();
+            }
+        }
+
+        private void rdoAfterCompletionRecycle_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                ArchaicSave();
             }
         }
     }

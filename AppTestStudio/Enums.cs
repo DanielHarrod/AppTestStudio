@@ -30,7 +30,8 @@ namespace AppTestStudio
         Home,
         Parent,
         Stop,
-        ContinueProcess
+        ContinueProcess,
+        Recycle
     }
 
     public enum ActionType

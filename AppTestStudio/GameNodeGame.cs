@@ -852,6 +852,9 @@ namespace AppTestStudio
                     case "STOP":
                         newEvent.AfterCompletionType = AfterCompletionType.Stop;
                         break;
+                    case "RECYCLE":
+                        newEvent.AfterCompletionType = AfterCompletionType.Recycle;
+                        break;
                     default:
                         Debug.WriteLine("Unexpected GameNodeGame.LoadEvent.AfterCompletionType {0}", eventNode.Attributes["AfterCompletionType"].Value);
                         newEvent.AfterCompletionType = AfterCompletionType.Home;
@@ -1112,20 +1115,24 @@ namespace AppTestStudio
 
             if (actionNode.Attributes.GetNamedItem("AfterCompletionType").IsSomething())
             {
-                switch (actionNode.Attributes["AfterCompletionType"].Value)
+                switch (actionNode.Attributes["AfterCompletionType"].Value.ToUpper())
                 {
-                    case "Home":
+                    case "HOME":
                         treeActionNode.AfterCompletionType = AfterCompletionType.Home;
                         break;
-                    case "Continue":
+                    case "CONTINUE":
                         treeActionNode.AfterCompletionType = AfterCompletionType.Continue;
                         break;
-                    case "Parent":
+                    case "PARENT":
                         treeActionNode.AfterCompletionType = AfterCompletionType.Parent;
                         break;
-                    case "Stop":
+                    case "STOP":
                         treeActionNode.AfterCompletionType = AfterCompletionType.Stop;
                         break;
+                    case "RECYCLE":
+                        treeActionNode.AfterCompletionType = AfterCompletionType.Recycle;
+                        break;
+
                     default:
                         Debug.WriteLine("Unexpected GameNodeGame.LoadAction.AfterCompletionType {0}", actionNode.Attributes["AfterCompletionType"].Value);
                         break;
