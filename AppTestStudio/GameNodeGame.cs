@@ -48,17 +48,13 @@ namespace AppTestStudio
         public OpenCvSharp.VideoWriter Video { get; set; }
         public void Log(String s)
         {
-            String Log = DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss.");
-            String Ticks = "000" + Math.Abs(Environment.TickCount % 1000).ToString();
-
             String FormattedLog = String.Format(
                 "{0}{1} {2} [{3}] {4}",
                 DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss."),
-                "000" + Math.Abs(Environment.TickCount % 1000).ToString(),
+                Math.Abs(Environment.TickCount % 1000).ToString().PadLeft(3,'0'),
                 Name,
                 InstanceToLaunch,
                 s);
-
 
             ThreadLog.Enqueue(FormattedLog);
         }
