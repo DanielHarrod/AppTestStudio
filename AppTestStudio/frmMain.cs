@@ -540,14 +540,14 @@ namespace AppTestStudio
                             toolTest.Enabled = true;
                             break;
                         case ActionType.Action:
-                            
+
                             //second toolbar
                             toolAddRNG.Enabled = true;
                             toolAddEvent.Enabled = true;
                             toolAddAction.Enabled = true;
                             toolTest.Enabled = true;
 
-                            if ( Action.IsParentObjectSearch())
+                            if (Action.IsParentObjectSearch())
                             {
                                 panelRightOffset.Visible = true;
                                 if (Action.Mode == Mode.ClickDragRelease)
@@ -2054,16 +2054,10 @@ namespace AppTestStudio
                 int TargetY = e.Y;
 
                 //'center x 
-                if (TargetX > 20)
-                {
-                    TargetX = TargetX - 20;
-                }
+                TargetX = TargetX - 20;
 
                 //'center y
-                if (TargetY > 20)
-                {
-                    TargetY = TargetY - 20;
-                }
+                TargetY = TargetY - 20;
 
                 Rectangle CropRect = new Rectangle(TargetX, TargetY, 40, 40);
                 Bitmap CropImage = new Bitmap(CropRect.Width, CropRect.Height);
@@ -2071,7 +2065,6 @@ namespace AppTestStudio
                 using (Graphics grp = Graphics.FromImage(CropImage))
                 {
                     grp.DrawImage(MyBitmap, new Rectangle(0, 0, CropRect.Width, CropRect.Height), CropRect, GraphicsUnit.Pixel);
-                    //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
 
                     grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
                     grp.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
@@ -2602,7 +2595,7 @@ namespace AppTestStudio
                                     Failed = true;
                                 }
 
-                                Utils.ClickOnWindow(MainWindowHandle, (short)Result.x, (short)Result.y , ActionNode.ClickSpeed);
+                                Utils.ClickOnWindow(MainWindowHandle, (short)Result.x, (short)Result.y, ActionNode.ClickSpeed);
                                 Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }
@@ -3342,7 +3335,7 @@ namespace AppTestStudio
                 case ActionType.Action:
                     Node.PaintNode(e.Graphics);
                     break;
-                
+
                 case ActionType.Event:
                     if (rdoColorPoint.Checked)
                     {
@@ -4067,7 +4060,7 @@ namespace AppTestStudio
             {
                 panelRightSwipeProperties.Visible = false;
             }
-            
+
         }
 
         private void rdoModeClickDragRelease_CheckedChanged(object sender, EventArgs e)
@@ -4079,7 +4072,7 @@ namespace AppTestStudio
             }
             Utils.SetIcons(PanelLoadNode);
 
-            if (rdoModeClickDragRelease.Checked )
+            if (rdoModeClickDragRelease.Checked)
             {
                 if (IsPanelLoading == false)
                 {
@@ -4096,7 +4089,7 @@ namespace AppTestStudio
                         groupBoxClickDragReleaseObjectSearch.Enabled = false;
                         ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.None;
                     }
-                    
+
                 }
                 panelRightClickProperties.Visible = false;
             }
@@ -4131,7 +4124,7 @@ namespace AppTestStudio
         {
             GameNode OriginalNode = tv.SelectedNode as GameNode;
             GameNodeAction GameNodeAction = new GameNodeAction("Click " + tv.SelectedNode.Text, ActionType.Action);
-            
+
             OriginalNode.Nodes.Add(GameNodeAction);
             tv.SelectedNode = GameNodeAction;
 
@@ -5515,7 +5508,7 @@ namespace AppTestStudio
             windowHandles.Add(windowHandle);
             return true;
         }
-          
+
         private void SplitContainer6_Panel2_Resize(object sender, EventArgs e)
         {
             int Height = (SplitContainer6.Panel2.Height / 2) - lblTestWindow.Height - lblReference.Height;
@@ -5674,7 +5667,7 @@ namespace AppTestStudio
             GameNodeGame Game = tv.SelectedNode as GameNodeGame;
             if (Game.IsSomething())
             {
-                Game.DefaultClickSpeed = Convert.ToInt32( numericApplicationDefaultClickSpeed.Value);
+                Game.DefaultClickSpeed = Convert.ToInt32(numericApplicationDefaultClickSpeed.Value);
             }
         }
 
@@ -5699,13 +5692,13 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.ClickSpeed = Convert.ToInt32( NumericClickSpeed.Value );
+                ActionNode.ClickSpeed = Convert.ToInt32(NumericClickSpeed.Value);
             }
         }
 
         private void cmdRightSwipeProperties_Click(object sender, EventArgs e)
         {
-            
+
 
             if (panelRightSwipeProperties.Height == InitialPanelRightSwipePropertiesHeight)
             {
@@ -5777,7 +5770,7 @@ namespace AppTestStudio
                 {
                     ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.Start;
                 }
-                else if (rdoObjectSearchEnd.Checked )
+                else if (rdoObjectSearchEnd.Checked)
                 {
                     ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.End;
                 }
@@ -5834,7 +5827,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.RepeatsUntilFalseLimit = Convert.ToInt32( numericPropertiesRepeatsUntilFalse.Value );
+                ActionNode.RepeatsUntilFalseLimit = Convert.ToInt32(numericPropertiesRepeatsUntilFalse.Value);
             }
 
         }
