@@ -848,7 +848,7 @@ namespace AppTestStudio
                 case AppTestStudio.ActionType.Action:
                     chkPropertiesRepeatsUntilFalse.Visible = false;
                     grpPropertiesRepeatsUntilFalse.Visible = false;
-                    panelRightProperties.Height = 73;  // hiding repeats so remove the space they are taking up.
+                    panelRightProperties.Height = 122;  // hiding repeats so remove the space they are taking up.
 
                     grpEventMode.Visible = false;
                     grpMode.Visible = true;
@@ -941,7 +941,7 @@ namespace AppTestStudio
                 case AppTestStudio.ActionType.Event:
                     chkPropertiesRepeatsUntilFalse.Visible = true;
                     grpPropertiesRepeatsUntilFalse.Visible = true;
-                    panelRightProperties.Height = 129;
+                    panelRightProperties.Height = 170;
 
                     chkPropertiesRepeatsUntilFalse.Checked = GameNode.RepeatsUntilFalse;
                     chkPropertiesRepeatsUntilFalse_CheckedChanged(null, null); // lazy - enable/disable code is on the change event.
