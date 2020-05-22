@@ -576,12 +576,21 @@ namespace AppTestStudio
                 grp.CompositingQuality = CompositingQuality.HighQuality;
 
             }
+            Mat m1 = null;
+            try { 
+            m1 = OpenCvSharp.Extensions.BitmapConverter.ToMat(CropImage);
+        }
+            catch (DllNotFoundException ex)
+            {
+                Debug.Assert(false, "Deleting the BIN folder and rebuilding typically will fix this issue.");
 
-            Mat m1 = OpenCvSharp.Extensions.BitmapConverter.ToMat(CropImage);
+                game.Log(ex.Message);
+                return false;
+            }
 
-            //'213 ms
-            //'Dim Red As Mat = m1.ExtractChannel(2)
-            Mat[] BGR = m1.Split();
+    //'213 ms
+    //'Dim Red As Mat = m1.ExtractChannel(2)
+    Mat[] BGR = m1.Split();
 
             Mat Blue = BGR[0];
             Mat Green = BGR[1];
