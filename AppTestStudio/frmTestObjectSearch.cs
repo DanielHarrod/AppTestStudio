@@ -261,7 +261,15 @@ namespace AppTestStudio
                 grp.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
 
             }
-            m1 = OpenCvSharp.Extensions.BitmapConverter.ToMat(CropImage);
+            try
+            {
+                m1 = OpenCvSharp.Extensions.BitmapConverter.ToMat(CropImage);
+            }
+            catch (DllNotFoundException ex)
+            {
+                Debug.Assert(false, "Deleting the BIN folder and rebuilding typically will fix this issue.");
+                return;
+            }
 
             //'213 ms
             //'Dim Red As Mat = m1.ExtractChannel(2)
