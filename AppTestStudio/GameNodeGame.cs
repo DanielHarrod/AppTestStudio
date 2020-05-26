@@ -33,6 +33,7 @@ namespace AppTestStudio
             InstanceToLaunch = "0";
             VideoFrameLimit = 2000;
             DefaultClickSpeed = 0;
+            DPI = 192;
 
             IsPaused = false;
 
@@ -123,6 +124,8 @@ namespace AppTestStudio
 
         public int DefaultClickSpeed { get; set; }
 
+        public int DPI { get; set; }
+
         public GameNodeGame CloneMe()
         {
             GameNodeGame Target = new GameNodeGame(Name);
@@ -142,6 +145,7 @@ namespace AppTestStudio
             Target.VideoHeight = VideoHeight;
             Target.VideoWidth = VideoWidth;
             Target.DefaultClickSpeed = DefaultClickSpeed;
+            Target.DPI = DPI;
 
             Target.Nodes.Add(TargetEvents);
 
@@ -189,6 +193,7 @@ namespace AppTestStudio
             long VideoFrameLimit = 2000;
             String LaunchInstance = "";
             int DefaultClickSpeed = 0;
+            int DPI = 192;
 
             if (childNode.Attributes.GetNamedItem("PackageName").IsSomething())
             {
@@ -204,7 +209,20 @@ namespace AppTestStudio
                 catch (Exception ex)
                 {
                     Debug.WriteLine(ex.Message);
-                    Debug.Assert(false);//shoudl never happen.
+                    Debug.Assert(false);//should never happen.
+                }
+            }
+
+            if (childNode.Attributes.GetNamedItem("DPI").IsSomething())
+            {
+                try
+                {
+                    DPI = Convert.ToInt32(childNode.Attributes["DPI"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                    Debug.Assert(false);//should never happen.
                 }
             }
 
@@ -244,6 +262,7 @@ namespace AppTestStudio
             Game.SaveVideo = SaveVideo;
             Game.VideoFrameLimit = VideoFrameLimit;
             Game.DefaultClickSpeed = DefaultClickSpeed;
+            Game.DPI = DPI;
 
             GameNodeEvents Events = new GameNodeEvents("Events");
             Game.Nodes.Add(Events);
@@ -289,7 +308,8 @@ namespace AppTestStudio
             Writer.WriteAttributeString("Resolution", Resolution);
             Writer.WriteAttributeString("SaveVideo", SaveVideo.ToString());
             Writer.WriteAttributeString("VideoFrameLimit", VideoFrameLimit.ToString());
-            Writer.WriteAttributeString("DefaultClickSpeed", DefaultClickSpeed.ToString());
+            Writer.WriteAttributeString("DefaultClickSpeed", DefaultClickSpeed.ToString()); 
+            Writer.WriteAttributeString("DPI", DPI.ToString());
 
             GameNode Events = Nodes[0] as GameNode;
 

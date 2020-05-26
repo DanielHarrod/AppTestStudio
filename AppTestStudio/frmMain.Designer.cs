@@ -416,6 +416,9 @@
             this.toolSchedulerRunning = new System.Windows.Forms.ToolStripLabel();
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripLabelCurrentConfiguredInstance = new System.Windows.Forms.ToolStripLabel();
+            this.cboDPI = new System.Windows.Forms.ComboBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.label61 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -539,6 +542,7 @@
             this.mnuObjects.SuspendLayout();
             this.appTestStudioToolStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
+            this.groupBox9.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -549,7 +553,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Padding = new System.Windows.Forms.Padding(4, 1, 0, 1);
-            this.menuStrip1.Size = new System.Drawing.Size(1008, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1284, 24);
             this.menuStrip1.TabIndex = 0;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -658,8 +662,8 @@
             // splitContainerMain.Panel2
             // 
             this.splitContainerMain.Panel2.Controls.Add(this.txtLog);
-            this.splitContainerMain.Size = new System.Drawing.Size(1008, 433);
-            this.splitContainerMain.SplitterDistance = 380;
+            this.splitContainerMain.Size = new System.Drawing.Size(1284, 615);
+            this.splitContainerMain.SplitterDistance = 565;
             this.splitContainerMain.TabIndex = 2;
             // 
             // splitContainerWorkspace
@@ -674,9 +678,9 @@
             // 
             // splitContainerWorkspace.Panel2
             // 
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelThread);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelColorEvent);
-            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelTestAllEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObject);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelSchedule);
@@ -687,8 +691,8 @@
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObjects);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
-            this.splitContainerWorkspace.Size = new System.Drawing.Size(1008, 380);
-            this.splitContainerWorkspace.SplitterDistance = 331;
+            this.splitContainerWorkspace.Size = new System.Drawing.Size(1284, 565);
+            this.splitContainerWorkspace.SplitterDistance = 422;
             this.splitContainerWorkspace.TabIndex = 0;
             // 
             // tabTree
@@ -700,7 +704,7 @@
             this.tabTree.Location = new System.Drawing.Point(0, 0);
             this.tabTree.Name = "tabTree";
             this.tabTree.SelectedIndex = 0;
-            this.tabTree.Size = new System.Drawing.Size(331, 380);
+            this.tabTree.Size = new System.Drawing.Size(422, 565);
             this.tabTree.TabIndex = 0;
             this.tabTree.SelectedIndexChanged += new System.EventHandler(this.tabTree_SelectedIndexChanged);
             // 
@@ -710,7 +714,7 @@
             this.tabDesign.Location = new System.Drawing.Point(4, 22);
             this.tabDesign.Name = "tabDesign";
             this.tabDesign.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
-            this.tabDesign.Size = new System.Drawing.Size(323, 354);
+            this.tabDesign.Size = new System.Drawing.Size(414, 539);
             this.tabDesign.TabIndex = 0;
             this.tabDesign.Text = "Design";
             this.tabDesign.UseVisualStyleBackColor = true;
@@ -731,7 +735,7 @@
             // SplitContainerSearchTreePatron.Panel2
             // 
             this.SplitContainerSearchTreePatron.Panel2.Controls.Add(this.splitContainerTreePatron);
-            this.SplitContainerSearchTreePatron.Size = new System.Drawing.Size(317, 348);
+            this.SplitContainerSearchTreePatron.Size = new System.Drawing.Size(408, 533);
             this.SplitContainerSearchTreePatron.SplitterDistance = 40;
             this.SplitContainerSearchTreePatron.TabIndex = 0;
             // 
@@ -740,7 +744,7 @@
             this.txtFilter.Dock = System.Windows.Forms.DockStyle.Fill;
             this.txtFilter.Location = new System.Drawing.Point(0, 0);
             this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(317, 20);
+            this.txtFilter.Size = new System.Drawing.Size(408, 20);
             this.txtFilter.TabIndex = 0;
             this.txtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
             // 
@@ -761,8 +765,8 @@
             // 
             this.splitContainerTreePatron.Panel2.Controls.Add(this.cmdPatron);
             this.splitContainerTreePatron.Panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.splitContainerTreePatron.Size = new System.Drawing.Size(317, 304);
-            this.splitContainerTreePatron.SplitterDistance = 255;
+            this.splitContainerTreePatron.Size = new System.Drawing.Size(408, 489);
+            this.splitContainerTreePatron.SplitterDistance = 440;
             this.splitContainerTreePatron.TabIndex = 0;
             // 
             // tv
@@ -774,7 +778,7 @@
             this.tv.Location = new System.Drawing.Point(0, 0);
             this.tv.Name = "tv";
             this.tv.SelectedImageIndex = 0;
-            this.tv.Size = new System.Drawing.Size(317, 255);
+            this.tv.Size = new System.Drawing.Size(408, 440);
             this.tv.TabIndex = 0;
             this.tv.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.tv_ItemDrag);
             this.tv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_AfterSelect);
@@ -827,7 +831,7 @@
             this.cmdPatron.Image = global::AppTestStudio.Properties.Resources.Patron;
             this.cmdPatron.Location = new System.Drawing.Point(0, 0);
             this.cmdPatron.Name = "cmdPatron";
-            this.cmdPatron.Size = new System.Drawing.Size(317, 45);
+            this.cmdPatron.Size = new System.Drawing.Size(408, 45);
             this.cmdPatron.TabIndex = 0;
             this.cmdPatron.UseVisualStyleBackColor = false;
             this.cmdPatron.Click += new System.EventHandler(this.cmdPatron_Click);
@@ -3081,13 +3085,14 @@
             this.PanelGame.Controls.Add(this.lblGamePanelGameName);
             this.PanelGame.Controls.Add(this.label18);
             this.PanelGame.Controls.Add(this.label22);
-            this.PanelGame.Location = new System.Drawing.Point(885, 31);
+            this.PanelGame.Location = new System.Drawing.Point(15, 12);
             this.PanelGame.Name = "PanelGame";
             this.PanelGame.Size = new System.Drawing.Size(786, 405);
             this.PanelGame.TabIndex = 13;
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.groupBox9);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Location = new System.Drawing.Point(421, 71);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
@@ -4279,7 +4284,7 @@
             this.PanelEvents.Controls.Add(this.lblEventsPanelTargetWindow);
             this.PanelEvents.Controls.Add(this.label11);
             this.PanelEvents.Controls.Add(this.label10);
-            this.PanelEvents.Location = new System.Drawing.Point(275, 387);
+            this.PanelEvents.Location = new System.Drawing.Point(263, 401);
             this.PanelEvents.Name = "PanelEvents";
             this.PanelEvents.Size = new System.Drawing.Size(511, 203);
             this.PanelEvents.TabIndex = 2;
@@ -4387,7 +4392,7 @@
             this.txtLog.Multiline = true;
             this.txtLog.Name = "txtLog";
             this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(1008, 49);
+            this.txtLog.Size = new System.Drawing.Size(1284, 46);
             this.txtLog.TabIndex = 0;
             // 
             // mnuPopupGames
@@ -4617,7 +4622,7 @@
             this.appTestStudioToolStrip1.Location = new System.Drawing.Point(0, 55);
             this.appTestStudioToolStrip1.Name = "appTestStudioToolStrip1";
             this.appTestStudioToolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.appTestStudioToolStrip1.Size = new System.Drawing.Size(1008, 31);
+            this.appTestStudioToolStrip1.Size = new System.Drawing.Size(1284, 31);
             this.appTestStudioToolStrip1.TabIndex = 5;
             this.appTestStudioToolStrip1.Text = "appTestStudioToolStrip1";
             // 
@@ -4710,7 +4715,7 @@
             this.toolStripMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            this.toolStripMain.Size = new System.Drawing.Size(1008, 31);
+            this.toolStripMain.Size = new System.Drawing.Size(1284, 31);
             this.toolStripMain.TabIndex = 1;
             this.toolStripMain.Text = "toolStripMain";
             // 
@@ -4811,14 +4816,54 @@
             // toolStripLabelCurrentConfiguredInstance
             // 
             this.toolStripLabelCurrentConfiguredInstance.Name = "toolStripLabelCurrentConfiguredInstance";
-            this.toolStripLabelCurrentConfiguredInstance.Size = new System.Drawing.Size(224, 59);
+            this.toolStripLabelCurrentConfiguredInstance.Size = new System.Drawing.Size(224, 28);
             this.toolStripLabelCurrentConfiguredInstance.Text = "toolStripLabelCurrentConfiguredInstance";
+            // 
+            // cboDPI
+            // 
+            this.cboDPI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDPI.FormattingEnabled = true;
+            this.cboDPI.Items.AddRange(new object[] {
+            "96",
+            "120",
+            "144",
+            "192",
+            "240",
+            "288",
+            "384",
+            "480"});
+            this.cboDPI.Location = new System.Drawing.Point(10, 26);
+            this.cboDPI.Name = "cboDPI";
+            this.cboDPI.Size = new System.Drawing.Size(98, 21);
+            this.cboDPI.TabIndex = 35;
+            this.cboDPI.SelectedIndexChanged += new System.EventHandler(this.cboDPI_SelectedIndexChanged);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.label61);
+            this.groupBox9.Controls.Add(this.cboDPI);
+            this.groupBox9.Location = new System.Drawing.Point(12, 79);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(329, 66);
+            this.groupBox9.TabIndex = 36;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "DPI (Dots Per Inch)";
+            // 
+            // label61
+            // 
+            this.label61.Location = new System.Drawing.Point(113, 10);
+            this.label61.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(228, 53);
+            this.label61.TabIndex = 36;
+            this.label61.Text = "DPI: some apps are DPI aware and adjust.  Those apps need consistent dpi for tran" +
+    "sportability.  Most apps do not use this setting.";
             // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 519);
+            this.ClientSize = new System.Drawing.Size(1284, 701);
             this.Controls.Add(this.splitContainerMain);
             this.Controls.Add(this.appTestStudioToolStrip1);
             this.Controls.Add(this.toolStripMain);
@@ -4999,6 +5044,7 @@
             this.appTestStudioToolStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5375,5 +5421,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvY;
         private System.Windows.Forms.DataGridViewButtonColumn dgvScan;
         private System.Windows.Forms.DataGridViewButtonColumn dgvRemove;
+        private System.Windows.Forms.GroupBox groupBox9;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.ComboBox cboDPI;
     }
 }

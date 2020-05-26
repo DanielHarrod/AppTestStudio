@@ -624,6 +624,7 @@ namespace AppTestStudio
             chkSaveVideo.Checked = gameNode.SaveVideo;
             NumericVideoFrameLimit.Value = gameNode.VideoFrameLimit;
             numericApplicationDefaultClickSpeed.Value = gameNode.DefaultClickSpeed;
+            cboDPI.Text = gameNode.DPI.ToString();
         }
 
         private void LoadObject(GameNodeObject node)
@@ -1269,7 +1270,7 @@ namespace AppTestStudio
             if (GameNode.IsSomething())
             {
 
-                Utils.LaunchInstance("", "", GameNode.InstanceToLaunch, GameNode.Resolution);
+                Utils.LaunchInstance("", "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
                 Log("Launching Instance " + GameNode.InstanceToLaunch.Trim());
                 ThreadManager.IncrementInstanceLaunched();
             }
@@ -1280,7 +1281,7 @@ namespace AppTestStudio
             GameNode Node = tv.SelectedNode as GameNode;
             GameNodeGame GameNode = Node.GetGameNodeGame();
 
-            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution);
+            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
         }
 
 
@@ -1289,7 +1290,7 @@ namespace AppTestStudio
             GameNode Node = tv.SelectedNode as GameNode;
             GameNodeGame GameNode = Node.GetGameNodeGame();
 
-            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution);
+            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
 
             LoadInstance(GameNode);
         }
@@ -2219,7 +2220,7 @@ namespace AppTestStudio
 
         private void cmdStartEmmulator_Click(object sender, EventArgs e)
         {
-            Utils.LaunchInstance("", "", txtGamePanelLaunchInstance.Text, cboResolution.Text);
+            Utils.LaunchInstance("", "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
         }
 
         private void cmdRunScript_Click(object sender, EventArgs e)
@@ -2229,12 +2230,12 @@ namespace AppTestStudio
 
         private void cmdStartEmmulatorAndPackage_Click(object sender, EventArgs e)
         {
-            Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text);
+            Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
         }
 
         private void cmdStartEmmulatorPackageAndRunScript_Click(object sender, EventArgs e)
         {
-            Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text);
+            Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
             LoadInstance(tv.SelectedNode as GameNodeGame);
         }
 
@@ -4040,7 +4041,7 @@ namespace AppTestStudio
                 if (Game.IsSomething())
                 {
                     Game.InstanceToLaunch = si.InstanceNumber.ToString();
-                    Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution);
+                    Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution, Game.DPI);
                     LoadInstance(Game);
                 }
             }
@@ -5353,7 +5354,7 @@ namespace AppTestStudio
             LoadInstance(GameNode);
 
             // Load Emmulator and App
-            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution);
+            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
         }
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
@@ -5852,6 +5853,15 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 ArchaicSave();
+            }
+        }
+
+        private void cboDPI_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+            if (Game.IsSomething())
+            {
+                Game.DPI = Convert.ToInt32(cboDPI.Text);
             }
         }
     }

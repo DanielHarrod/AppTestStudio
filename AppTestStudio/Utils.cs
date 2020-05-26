@@ -495,7 +495,7 @@ namespace AppTestStudio
         }
 
 
-        public static void LaunchInstance(string packageName, string targetWindow, string instanceToLaunch, string resolution)
+        public static void LaunchInstance(string packageName, string targetWindow, string instanceToLaunch, string resolution, int DPI)
         {
             ProcessStartInfo info = new ProcessStartInfo();
             NoxRegistry Registry = new NoxRegistry();
@@ -528,7 +528,7 @@ namespace AppTestStudio
 
             Arguments = Arguments + " -resolution:" + resolution;
 
-            Arguments = Arguments + " -dpi:270";
+            Arguments = Arguments + " -dpi:" + DPI.ToString();
 
             //'-clone:Nox_1
             info.Arguments = Arguments;
