@@ -1730,8 +1730,13 @@ namespace AppTestStudio
             if ((delta > tv.Height / 2) && (delta < tv.Height))
             {
                 TreeNode tn = tv.GetNodeAt(pt.X, pt.Y);
-                if (tn.PrevVisibleNode != null)
-                    tn.PrevVisibleNode.EnsureVisible();
+                if (tn.IsSomething())
+                {
+                    if (tn.PrevVisibleNode.IsSomething())
+                    {
+                        tn.PrevVisibleNode.EnsureVisible();
+                    }
+                }
             }
             // /Scrolling
 
