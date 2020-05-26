@@ -528,7 +528,7 @@ namespace AppTestStudio
 
             Arguments = Arguments + " -resolution:" + resolution;
 
-            Arguments = Arguments + " -dpi:96";
+            Arguments = Arguments + " -dpi:270";
 
             //'-clone:Nox_1
             info.Arguments = Arguments;
