@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -62,6 +63,32 @@ namespace AppTestStudio
         None
     }
 
+    /// <summary>
+    /// Usage:
+    /// Options: None or the OR of any Top, Right, Bottom, Left
+    /// </summary>
+    public enum AnchorMode
+    {
+        None = 0,
+        Top = 1,
+        Right = 2,
+        Bottom = 4,
+        Left = 8,
+        Default = Left | Top
+    }
+
+    public static class AnchorModeButtonColors
+    {
+        public static Color EnabledColor()
+        {
+            return SystemColors.ControlDark;
+        }
+
+        public static Color DisabledColor()
+        {
+            return SystemColors.Control;
+        }
+    }
     public static class IconNames
     {
         public static int VideoGameController()

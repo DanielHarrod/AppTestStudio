@@ -91,6 +91,7 @@ namespace AppTestStudio
 
         private int InitialPanelRightColorAtPointerHeight;
         private int InitialPanelRightLimitHeight;
+        private int InitialPanelRightAnchorHeight;
         private int InitialPanelRightOffsetHeight;
         private int InitialPanelRightDragModeHeight;
         private int InitialPanelRightResolutionHeight;
@@ -130,6 +131,7 @@ namespace AppTestStudio
             InitialPanelRightPointGridHeight = panelRightCustomLogic.Height;
             InitialPanelRightClickPropertiesHeight = panelRightClickProperties.Height;
             InitialPanelRightSwipePropertiesHeight = panelRightSwipeProperties.Height;
+            InitialPanelRightAnchorHeight = panelRightAnchor.Height;
 
             Timer1.Enabled = true;
             //'Debug.Assert(false, "Fix")
@@ -735,6 +737,7 @@ namespace AppTestStudio
 
             dgv.Visible = false;
 
+            panelRightAnchor.Visible = false;
             panelRightLogic.Visible = false;
             panelRightCustomLogic.Visible = false;
             panelRightPointGrid.Visible = false;
@@ -844,6 +847,8 @@ namespace AppTestStudio
 
             chkPropertiesEnabled.Checked = GameNode.Enabled;
 
+            AnchorChange(GameNode);
+
             switch (GameNode.ActionType)
             {
                 case AppTestStudio.ActionType.Action:
@@ -922,6 +927,16 @@ namespace AppTestStudio
                         numericSwipeVelocity.Value = 500;
                         Log("Swipe End Width(" + GameNode.ClickDragReleaseVelocity + ") is invalid setting to 500");
                     }
+
+                    if (GameNode.IsParentObjectSearch())
+                    {
+                        panelRightAnchor.Visible = false;
+                    }
+                    else
+                    {
+                        panelRightAnchor.Visible = true;
+                    }
+
 
                     switch (GameNode.ClickDragReleaseMode)
                     {
@@ -2498,6 +2513,7 @@ namespace AppTestStudio
                 }
                 panelRightPointGrid.Visible = true;
                 panelRightObject.Visible = false;
+                panelRightAnchor.Visible = false;
             }
             else
             {
@@ -2505,6 +2521,7 @@ namespace AppTestStudio
                 panelRightCustomLogic.Visible = false;
                 panelRightPointGrid.Visible = false;
                 panelRightObject.Visible = true;
+                panelRightAnchor.Visible = true;
             }
         }
 
@@ -5862,6 +5879,200 @@ namespace AppTestStudio
             if (Game.IsSomething())
             {
                 Game.DPI = Convert.ToInt32(cboDPI.Text);
+            }
+        }
+
+        private void cmdRightAnchor_Click(object sender, EventArgs e)
+        {
+            if (panelRightAnchor.Height == InitialPanelRightAnchorHeight)
+            {
+                panelRightAnchor.Height = cmdRightAnchor.Height;
+                cmdRightAnchor.ImageIndex = IconNames.LeftChevron();
+            }
+            else
+            {
+                panelRightAnchor.Height = InitialPanelRightAnchorHeight;
+                cmdRightAnchor.ImageIndex = IconNames.DownChevron();
+            }
+        }
+
+        private void cmdAnchorTop_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                    if ((Node.Anchor | AnchorMode.Top) > 0)
+                    {
+                        Node.Anchor ^= AnchorMode.Top;
+                    }
+                    else
+                    {
+                        Node.Anchor |= AnchorMode.Top;
+                    }
+
+                    AnchorChange(Node);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+                Debug.WriteLine(ex.Message);
+                Debug.Assert(false);
+            }
+        }
+
+        private void cmdAnchorRight_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                    if ((Node.Anchor | AnchorMode.Right) > 0)
+                    {
+                        Node.Anchor ^= AnchorMode.Right;
+                    }
+                    else
+                    {
+                        Node.Anchor |= AnchorMode.Right;
+                    }
+
+                    AnchorChange(Node);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+                Debug.WriteLine(ex.Message);
+                Debug.Assert(false);
+            }
+        }
+
+        private void cmdAnchorBottom_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                    if ((Node.Anchor | AnchorMode.Bottom) > 0)
+                    {
+                        Node.Anchor ^= AnchorMode.Bottom;
+                    }
+                    else
+                    {
+                        Node.Anchor |= AnchorMode.Bottom;
+                    }
+
+                    AnchorChange(Node);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+                Debug.WriteLine(ex.Message);
+                Debug.Assert(false);
+            }
+        }
+
+        private void cmdAnchorLeft_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                    if ((Node.Anchor | AnchorMode.Left) > 0)
+                    {
+                        Node.Anchor ^= AnchorMode.Left;
+                    }
+                    else
+                    {
+                        Node.Anchor |= AnchorMode.Left;
+                    }
+
+                    AnchorChange(Node);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+                Debug.WriteLine(ex.Message);
+                Debug.Assert(false);
+            }
+        }
+
+        private void cmdAnchorNone_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                    Node.Anchor = AnchorMode.None;
+                    AnchorChange(Node);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+                Debug.WriteLine(ex.Message);
+                Debug.Assert(false);
+            }
+        }
+
+        private void cmdAnchorDefault_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                    Node.Anchor = AnchorMode.Default;
+                    AnchorChange(Node);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+                Debug.WriteLine(ex.Message);
+                Debug.Assert(false);
+            }
+        }
+
+        private void AnchorChange(GameNodeAction action)
+        {
+            cmdAnchorTop.BackColor = AnchorModeButtonColors.DisabledColor();
+            cmdAnchorRight.BackColor = AnchorModeButtonColors.DisabledColor();
+            cmdAnchorBottom.BackColor = AnchorModeButtonColors.DisabledColor();
+            cmdAnchorLeft.BackColor = AnchorModeButtonColors.DisabledColor();
+            cmdAnchorNone.BackColor = AnchorModeButtonColors.DisabledColor();
+
+            if (action.Anchor == AnchorMode.None)
+            {
+                cmdAnchorNone.BackColor = AnchorModeButtonColors.EnabledColor();
+            }
+
+            if ((action.Anchor & AnchorMode.Top) > 0)
+            {
+                cmdAnchorTop.BackColor = AnchorModeButtonColors.EnabledColor();
+            }
+
+            if ((action.Anchor & AnchorMode.Right) > 0)
+            {
+                cmdAnchorRight.BackColor = AnchorModeButtonColors.EnabledColor();
+            }
+
+            if ((action.Anchor & AnchorMode.Bottom) > 0)
+            {
+                cmdAnchorBottom.BackColor = AnchorModeButtonColors.EnabledColor();
+            }
+
+            if ((action.Anchor & AnchorMode.Left) > 0)
+            {
+                cmdAnchorLeft.BackColor = AnchorModeButtonColors.EnabledColor();
             }
         }
     }

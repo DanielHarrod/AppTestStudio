@@ -350,7 +350,15 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("Mode", Activites.Mode.ToString());
 
                         Writer.WriteAttributeString("ClickSpeed", Activites.ClickSpeed.ToString());
-
+                        if ( Activites.Anchor == AnchorMode.Default )
+                        {
+                            // do nothing
+                        }
+                        else
+                        {
+                            Writer.WriteAttributeString("Anchor", GetAnchorString(Activites));
+                        }
+                        
                         Writer.WriteAttributeString("RelativeXOffset", Activites.RelativeXOffset.ToString());
                         Writer.WriteAttributeString("RelativeYOffset", Activites.RelativeYOffset.ToString());
 
@@ -467,6 +475,15 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("ExecutionLimit", Activites.ExecutionLimit.ToString());
                         Writer.WriteAttributeString("LimitRepeats", Activites.LimitRepeats.ToString());
 
+                        if (Activites.Anchor == AnchorMode.Default)
+                        {
+                            // do nothing
+                        }
+                        else
+                        {
+                            Writer.WriteAttributeString("Anchor", GetAnchorString(Activites));
+                        }
+
                         switch (Activites.WaitType)
                         {
                             case AppTestStudio.WaitType.Iteration:
@@ -489,8 +506,8 @@ namespace AppTestStudio
                             Writer.WriteAttributeString("Repeats", Activites.RepeatsUntilFalse.ToString());
                             Writer.WriteAttributeString("RepeatsLimit", Activites.RepeatsUntilFalseLimit.ToString());
                         }
-                        else 
-                        { 
+                        else
+                        {
                             // only display when not the default
                             if (Activites.RepeatsUntilFalseLimit == 0)
                             {
@@ -501,7 +518,7 @@ namespace AppTestStudio
                                 Writer.WriteAttributeString("RepeatsLimit", Activites.RepeatsUntilFalseLimit.ToString());
                             }
                         }
-                        
+
 
                         Writer.WriteStartElement("Delay");
                         Writer.WriteAttributeString("MilliSeconds", Activites.DelayMS.ToString());
@@ -636,7 +653,7 @@ namespace AppTestStudio
                         {
                             Writer.WriteAttributeString("IsEnabled", "False");
                         }
-                        
+
                         Writer.WriteAttributeString("AutoBalance", Activites.AutoBalance.ToString());
                         Writer.WriteAttributeString("Name", Activites.Name.ToString());
 
@@ -682,7 +699,49 @@ namespace AppTestStudio
             }
             //'Events
             Writer.WriteEndElement();
+        }
 
+        private static String GetAnchorString(GameNodeAction Activites)
+        {
+            String Result = "";
+            if ((Activites.Anchor & AnchorMode.Top) > 0)
+            {
+                if (Result.Length > 0)
+                {
+                    Result = Result + ",";
+                }
+                Result = Result + "Top";
+            }
+            if ((Activites.Anchor & AnchorMode.Right) > 0)
+            {
+                if (Result.Length > 0)
+                {
+                    Result = Result + ",";
+                }
+                Result = Result + "Right";
+            }
+            if ((Activites.Anchor & AnchorMode.Bottom) > 0)
+            {
+                if (Result.Length > 0)
+                {
+                    Result = Result + ",";
+                }
+                Result = Result + "Bottom";
+            }
+            if ((Activites.Anchor & AnchorMode.Left) > 0)
+            {
+                if (Result.Length > 0)
+                {
+                    Result = Result + ",";
+                }
+                Result = Result + "Left";
+            }
+
+            if ( Result.Length == 0)
+            {
+                Result = "None";
+            }
+            return Result;
         }
 
         private List<String> SaveObjects(XmlWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNodeObjects objects, string directory)
@@ -954,6 +1013,34 @@ namespace AppTestStudio
             {
                 Boolean Repeats = Convert.ToBoolean(eventNode.Attributes["Repeats"].Value);
                 newEvent.RepeatsUntilFalse = Repeats;
+            }
+
+            if (eventNode.Attributes.GetNamedItem("Anchor").IsSomething())
+            {
+                String AnchorString = eventNode.Attributes["Anchor"].Value.ToUpper().Trim();
+                
+                // Set default and/or NONE.
+                newEvent.Anchor = AnchorMode.None;
+
+                if (AnchorString.Contains("TOP"))
+                {
+                    newEvent.Anchor = newEvent.Anchor | AnchorMode.Top;
+                }
+
+                if (AnchorString.Contains("RIGHT"))
+                {
+                    newEvent.Anchor = newEvent.Anchor | AnchorMode.Right ;
+                }
+
+                if (AnchorString.Contains("BOTTOM"))
+                {
+                    newEvent.Anchor = newEvent.Anchor | AnchorMode.Bottom;
+                }
+
+                if (AnchorString.Contains("LEFT"))
+                {
+                    newEvent.Anchor = newEvent.Anchor | AnchorMode.Left;
+                }
             }
 
             if (eventNode.Attributes.GetNamedItem("RepeatsLimit").IsSomething())

@@ -41,6 +41,7 @@ namespace AppTestStudio
             ClickSpeed = 0;
             ClickDragReleaseVelocity = 500;
             ClickDragReleaseMode = ClickDragReleaseMode.None;
+            
 
             Enabled = true;
             RepeatsUntilFalse = false;
@@ -51,10 +52,14 @@ namespace AppTestStudio
             ClickDragReleaseStartHeight = 25;
             ClickDragReleaseStartWidth = 25;
 
+            Anchor = AnchorMode.Default;
+
             Channel = "";
             Utils.SetIcons(this);
 
         }
+
+        public AnchorMode Anchor { get; set; }
 
         public int DefaultDelayS()
         {
@@ -322,6 +327,8 @@ namespace AppTestStudio
             Action.Enabled = Enabled;
             Action.RepeatsUntilFalse = RepeatsUntilFalse;
             Action.RepeatsUntilFalseLimit = RepeatsUntilFalseLimit;
+
+            Action.Anchor = Anchor;
 
             foreach (GameNodeAction ChildAction in Nodes)
             {
