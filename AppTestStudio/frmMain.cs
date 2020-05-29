@@ -937,7 +937,6 @@ namespace AppTestStudio
                         panelRightAnchor.Visible = true;
                     }
 
-
                     switch (GameNode.ClickDragReleaseMode)
                     {
                         case ClickDragReleaseMode.Start:
