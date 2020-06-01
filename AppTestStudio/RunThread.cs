@@ -535,7 +535,7 @@ namespace AppTestStudio
         {
             StopThreadCloseWindow(WindowHandle, false);
             GameNodeGame Game = node.GetGameNodeGame();
-            Utils.LaunchInstance("", "", Game.InstanceToLaunch, Game.Resolution,Game.DPI);
+            Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution,Game.DPI);
         }
 
         private AfterCompletionType CheckLimit(GameNodeAction node)
