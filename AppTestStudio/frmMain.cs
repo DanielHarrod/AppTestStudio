@@ -3099,6 +3099,7 @@ namespace AppTestStudio
 
                         dgv.Rows[RowIndex].Cells["dgvX"].Value = PictureBox1X;
                         dgv.Rows[RowIndex].Cells["dgvY"].Value = PictureBox1Y;
+                        dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scan";
                         dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
 
                         // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
