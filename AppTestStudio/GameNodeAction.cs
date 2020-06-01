@@ -542,9 +542,80 @@ namespace AppTestStudio
 
         }
 
+        public Rectangle GetAnchorRectangle(Bitmap bmp)
+        {
+            //Copy
+            Rectangle AnchorRectangle = Rectangle;
+
+            // If Anchor Left and Right need to scale the rectangle relative to the resolution.
+            if (((Anchor & AnchorMode.Left) > 0) && ((Anchor & AnchorMode.Right) > 0))
+            {
+                // Calculate the Percentage the existing mask takes up with the refrence resolution.
+                float WidthPercentageOfMask = (float)Rectangle.Width / ResolutionWidth;
+
+                // Calculate the new size of the mask in pixels
+                int WidthVarianceInPixels = Convert.ToInt32(bmp.Width * WidthPercentageOfMask);
+
+                // calculate the percentage of the existing mask left
+                float LeftPercentageOfMask = (float)Rectangle.X / ResolutionWidth;
+
+                // Calculate the new left of the mask in pixels
+                int LeftVarianceInPixels = Convert.ToInt32(bmp.Width * LeftPercentageOfMask);
+
+                AnchorRectangle.X = LeftVarianceInPixels;
+                AnchorRectangle.Width = WidthVarianceInPixels;
+
+            }  // Adjust the Anchor the mask to the right
+            else if ((Anchor & AnchorMode.Right) > 0)
+            {
+                // Number of pixels to the right of the reference mask
+                int ReferencePixelsToTheRightOfMask = ResolutionWidth - Rectangle.X - Rectangle.Width;
+
+                // adjust the mask to that there are the same number of pixels on the right of the mask
+                int NewLeft = bmp.Width - ReferencePixelsToTheRightOfMask - Rectangle.Width;
+
+                AnchorRectangle.X = NewLeft;
+            }
+
+            // If Anchor top and bottom need to scale the rectangle relative to the resolution.
+            if (((Anchor & AnchorMode.Top) > 0) && ((Anchor & AnchorMode.Bottom) > 0))
+            {
+                // Calculate the Percentage the existing mask takes up with the refrence resolution.
+                float HeightPercentageOfMask = (float)Rectangle.Height / ResolutionHeight;
+
+                // Calculate the new size of the mask in pixels
+                int HeightVarianceInPixels = Convert.ToInt32(bmp.Height * HeightPercentageOfMask);
+
+                // calculate the percentage of the existing mask left
+                float TopPercentageOfMask = (float)Rectangle.Y / ResolutionHeight;
+
+                // Calculate the new top of the mask in pixels
+                int TopVarianceInPixels = Convert.ToInt32(bmp.Height * TopPercentageOfMask);
+
+                AnchorRectangle.Y = TopVarianceInPixels;
+                AnchorRectangle.Width = HeightVarianceInPixels;
+
+            }  // Adjust the Anchor the mask to the bottom
+            else if ((Anchor & AnchorMode.Bottom) > 0)
+            {
+                // Number of pixels to the top of the reference mask
+                int ReferencePixelsToTheTopOfMask = ResolutionHeight - Rectangle.Y - Rectangle.Height;
+
+                // adjust the mask to that there are the same number of pixels on the right of the mask
+                int NewTop = bmp.Height - ReferencePixelsToTheTopOfMask - Rectangle.Height;
+
+                AnchorRectangle.Y = NewTop;
+            }
+
+            return AnchorRectangle;
+        }
+
         private bool IsImageSearchTrue(Bitmap bmp, GameNodeGame game, ref int centerX, ref int centerY, ref float detectedThreashold)
         {
-            if (Rectangle.Width <= 0 || Rectangle.Height <= 0)
+            //Copy
+            Rectangle AnchorRectangle = GetAnchorRectangle(bmp);
+
+            if (AnchorRectangle.Width <= 0 || AnchorRectangle.Height <= 0)
             {
                 //'Debug.Assert(False)
                 //'TB.AddReturnFalse()
@@ -571,11 +642,11 @@ namespace AppTestStudio
                 return false;
             }
 
-            Bitmap CropImage = new Bitmap(Rectangle.Width, Rectangle.Height);
+            Bitmap CropImage = new Bitmap(AnchorRectangle.Width, AnchorRectangle.Height);
 
             using (Graphics grp = Graphics.FromImage(CropImage))
             {
-                grp.DrawImage(bmp, new Rectangle(0, 0, Rectangle.Width, Rectangle.Height), Rectangle, GraphicsUnit.Pixel);
+                grp.DrawImage(bmp, new Rectangle(0, 0, AnchorRectangle.Width, AnchorRectangle.Height), AnchorRectangle, GraphicsUnit.Pixel);
                 //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
 
                 grp.InterpolationMode = InterpolationMode.HighQualityBicubic;
@@ -688,7 +759,7 @@ namespace AppTestStudio
 
             if (detectedThreashold >= ((float)iObjectThreshold / 100))
             {
-                game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + Rectangle.X) + "  y =" + (centerY + Rectangle.Y));
+                game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + AnchorRectangle.X) + "  y =" + (centerY + AnchorRectangle.Y));
                 //'TB.AddReturnTrue()
 
                 if (FileName.IsNothing())
@@ -887,7 +958,7 @@ namespace AppTestStudio
             return Result;
         }
 
-        public RangeClickResult CalculateRangeClickResult(int centerX, int centerY)
+        public RangeClickResult CalculateRangeClickResult(Bitmap bmp, int centerX, int centerY)
         {
             RangeClickResult Result = new RangeClickResult();
 
@@ -902,9 +973,12 @@ namespace AppTestStudio
                 if (Parent is GameNodeAction)
                 {
                     GameNodeAction ParentNode = Parent as GameNodeAction;
+
+                    Rectangle AnchorRectangle = ParentNode.GetAnchorRectangle(bmp);
+
                     //     center(reative to mask)  + Mask  + Relative Offset -  1/2 the size of the box to click + random.
-                    xPos = centerX + ParentNode.Rectangle.X + RelativeXOffset - (Rectangle.Width / 2) + RandomX;
-                    yPos = centerY + ParentNode.Rectangle.Y + RelativeYOffset - (Rectangle.Height / 2) + RandomY;
+                    xPos = centerX + AnchorRectangle.X + RelativeXOffset - (Rectangle.Width / 2) + RandomX;
+                    yPos = centerY + AnchorRectangle.Y + RelativeYOffset - (Rectangle.Height / 2) + RandomY;
                 }
                 else
                 {

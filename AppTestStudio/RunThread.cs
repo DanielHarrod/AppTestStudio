@@ -219,7 +219,7 @@ namespace AppTestStudio
                     {
                         case Mode.RangeClick:
 
-                            GameNodeAction.RangeClickResult Result = node.CalculateRangeClickResult(centerX, centerY);
+                            GameNodeAction.RangeClickResult Result = node.CalculateRangeClickResult(bmp, centerX, centerY);
 
                             Boolean Failed = false;
 

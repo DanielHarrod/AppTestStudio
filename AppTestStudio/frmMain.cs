@@ -2603,7 +2603,8 @@ namespace AppTestStudio
                         {
                             if (rdoModeRangeClick.Checked)
                             {
-                                GameNodeAction.RangeClickResult Result = ActionNode.CalculateRangeClickResult(0, 0);
+                                Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+                                GameNodeAction.RangeClickResult Result = ActionNode.CalculateRangeClickResult(bmp, 0, 0);
                                 Boolean Failed = false;
                                 if (Result.x < 0)
                                 {
@@ -4345,6 +4346,7 @@ namespace AppTestStudio
                 // Node it Test All have no purpose so set light gray.
                 Node.ForeColor = Color.LightGray;
             }
+
             foreach (GameNodeAction n in Node.Nodes)
             {
                 CheckEvents(n);

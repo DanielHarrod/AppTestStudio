@@ -72,7 +72,7 @@ namespace AppTestStudio
                     switch (Node.Mode)
                     {
                         case AppTestStudio.Mode.RangeClick:
-                            GameNodeAction.RangeClickResult RangeClickResult = Node.CalculateRangeClickResult(CenterX, CenterY);
+                            GameNodeAction.RangeClickResult RangeClickResult = Node.CalculateRangeClickResult((Bitmap)PictureBoxSearchArea.Image, CenterX, CenterY);
                             //int RNGW = Utils.RandomNumber(0, Node.Rectangle.Width);
                             //int RNGH = Utils.RandomNumber(0, Node.Rectangle.Height);
                             //int x = Parent.Rectangle.X + CenterX - (Node.Rectangle.Width / 2) + Node.RelativeXOffset + RNGW;
