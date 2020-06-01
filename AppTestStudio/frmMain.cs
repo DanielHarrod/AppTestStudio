@@ -2687,17 +2687,28 @@ namespace AppTestStudio
 
         private void Timer1_Tick(object sender, EventArgs e)
         {
-            foreach (GameNodeGame Game in ThreadManager.Games)
+            try
             {
-                if (Game.ThreadLog.Count() > 0)
+                foreach (GameNodeGame Game in ThreadManager.Games)
                 {
-                    String s = "";
-
-                    if (Game.ThreadLog.TryDequeue(out s))
+                    if (Game.ThreadLog.Count() > 0)
                     {
-                        Log(s);
+                        String s = "";
+
+                        if (Game.ThreadLog.TryDequeue(out s))
+                        {
+                            Log(s);
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+
+                Log(ex.Message);
+                Debug.Assert(false);
+
+                ThreadManager.IsDirty = true;
             }
 
             if (ThreadManager.IsDirty)
