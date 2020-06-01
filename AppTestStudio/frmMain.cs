@@ -218,11 +218,24 @@ namespace AppTestStudio
             for (int i = 0; i < NoxInstances; i++)
             {
                 cboGameInstances.Items.Add(i);
+                ToolStripItem Item = toolStripInstances.DropDownItems.Add(i.ToString());
+                Item.Click += new System.EventHandler(this.ToolStripItem_Click);
             }
 
             if (cboGameInstances.Items.Count > 0)
             {
                 cboGameInstances.SelectedIndex = 0;
+                toolStripInstances.Text = "0";
+            }
+        }
+
+        private void ToolStripItem_Click(object sender, EventArgs e)
+        {
+            ToolStripItem Item = sender as ToolStripItem;
+
+            if (Item.IsSomething())
+            {
+                cboGameInstances.Text = Item.Text;
             }
         }
 
@@ -301,7 +314,6 @@ namespace AppTestStudio
             toolStripButtonRunScript.Enabled = false;
             toolStripButtonSaveScript.Enabled = false;
             toolStripButtonRunStartLaunch.Enabled = false;
-            toolStripLabelCurrentConfiguredInstance.Text = "";
             DisableSecondToolbarButtons();
         }
 
@@ -2197,14 +2209,22 @@ namespace AppTestStudio
             GameNodeGame Game = tv.SelectedNode as GameNodeGame;
             if (Game.IsSomething())
             {
-                Game.InstanceToLaunch = txtGamePanelLaunchInstance.Text.Trim();
-                toolStripLabelCurrentConfiguredInstance.Text = "Current Instance " + Game.InstanceToLaunch;
+                int Result = 0;
+                if ( int.TryParse(txtGamePanelLaunchInstance.Text, out Result))
+                {
+                    Game.InstanceToLaunch = Result.ToString();
+                }
+                else
+                {
+                    txtGamePanelLaunchInstance.Text = Game.InstanceToLaunch;
+                }
             }
         }
 
         private void cboGameInstances_SelectedIndexChanged(object sender, EventArgs e)
         {
             txtGamePanelLaunchInstance.Text = cboGameInstances.Text;
+            toolStripInstances.Text = cboGameInstances.Text;
         }
 
         private void txtGamePanelLoopDelay_TextChanged(object sender, EventArgs e)
