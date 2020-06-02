@@ -144,6 +144,13 @@ Repeats will reset the iteration count if limit has already compelted, so it wil
 
 ![Image](https://appteststudio.b-cdn.net/After.png)
 
+#### 5.3 Properties
+
+Enabled: Enable or disable parts of the script from running.  This is useful when you don't want full functionality, or something is not working as desired.
+
+Repeats Until False (with Iteration Limit):  This will repeat until the designated iteration limit is hit OR if the event value is false.  This is usefull when you want to repeat a section of code without going back through the entire loop from the start.
+
+![Image](https://appteststudio.b-cdn.net/Properties.png)
 
 Coming soon, needs an update.
 [AppTestStudio Projects](https://github.com/DanielHarrod/AppTestStudio-Projects/)
