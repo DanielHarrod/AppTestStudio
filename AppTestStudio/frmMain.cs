@@ -4394,183 +4394,192 @@ namespace AppTestStudio
 
         private void tvTestAllEvents_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            Debug.WriteLine("tvTestAllEvents_AfterSelect");
-            lblTestAllCustom.Text = "";
-
-            GameNode GameNode = e.Node as GameNode;
-
-            GameNodeAction Node = null;
-
-            // Make sure that we don't test all actions otherwise it will click/drag everywhere
-            switch (GameNode.GameNodeType)
+            try
             {
-                case GameNodeType.Action:
-                    Node = GameNode as GameNodeAction;
-                    if (Node.ActionType == ActionType.Event)
-                    {
-                        //' do nothing :)
-                    }
-                    else
-                    {
+                Debug.WriteLine("tvTestAllEvents_AfterSelect");
+                lblTestAllCustom.Text = "";
+
+                GameNode GameNode = e.Node as GameNode;
+
+                GameNodeAction Node = null;
+
+                // Make sure that we don't test all actions otherwise it will click/drag everywhere
+                switch (GameNode.GameNodeType)
+                {
+                    case GameNodeType.Action:
+                        Node = GameNode as GameNodeAction;
+                        if (Node.ActionType == ActionType.Event)
+                        {
+                            //' do nothing :)
+                        }
+                        else
+                        {
+                            Log("Please choose an event note");
+                            return;
+                        }
+                        break;
+                    default:
                         Log("Please choose an event note");
                         return;
-                    }
-                    break;
-                default:
-                    Log("Please choose an event note");
-                    return;
-                    break;
-            }
+                        break;
+                }
 
-            // show hide grids depending on node type
-            if (Node.IsColorPoint)
-            {
-                ShowHideTestAllEventsGridsAndLabels(true);
-            }
-            else
-            {
-                // Object Search
-                ShowHideTestAllEventsGridsAndLabels(false);
-            }
-
-
-            // Result is the calculation of true with OR or AND Logic
-            // It does not short circuit on first true for OR or first false for AND.
-            Boolean Result = false;
-
-            // Final result 
-            Boolean FinalResult = false;
-
-            dgvTestAllReference.Rows.Clear();
-            dgvTest.Rows.Clear();
-
-
-            if (Node.LogicChoice == "CUSTOM")
-            {
-                lblTestAllCustom.Text = Node.CustomLogic;
-            }
-
-            foreach (SingleClick Item in Node.ClickList)
-            {
-                int Rowindex = dgvTestAllReference.Rows.Add();
-                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceRed"].Value = Item.Color.R.ToString();
-                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceGreen"].Value = Item.Color.G.ToString();
-                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceBlue"].Value = Item.Color.B.ToString();
-
-
-                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceX"].Value = Item.X;
-                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceY"].Value = Item.Y;
-
-                // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
-                DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Item.Color);
-
-                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceRed"].Style = Style;
-                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceGreen"].Style = Style;
-                dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceBlue"].Style = Style;
-
-                Rowindex = dgvTest.Rows.Add();
-
-                //With dgvTest.Rows[Rowindex];
-                DataGridViewRow Row = dgvTest.Rows[Rowindex];
-                Color TargetColor;
-                if (PictureTestAllReference.Height >= Item.Y && PictureTestAllReference.Width >= Item.X && PictureTestAllTest.Image.Height >= Item.Y && PictureTestAllTest.Image.Width >= Item.X)
+                // show hide grids depending on node type
+                if (Node.IsColorPoint)
                 {
-                    Bitmap bmp = PictureTestAllTest.Image as Bitmap;
-                    TargetColor = bmp.GetPixel(Item.X, Item.Y);
+                    ShowHideTestAllEventsGridsAndLabels(true);
                 }
                 else
                 {
-                    TargetColor = Color.Black;
-                    Style.ForeColor = Color.White;
+                    // Object Search
+                    ShowHideTestAllEventsGridsAndLabels(false);
                 }
 
-                Row.Cells["dgvColorTestRed"].Value = TargetColor.R.ToString();
-                Row.Cells["dgvColorTestGreen"].Value = TargetColor.G.ToString();
-                Row.Cells["dgvColorTestBlue"].Value = TargetColor.B.ToString();
 
-                // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
-                Row.Cells["dgvColorTestRed"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
-                Row.Cells["dgvColorTestGreen"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
-                Row.Cells["dgvColorTestBlue"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
+                // Result is the calculation of true with OR or AND Logic
+                // It does not short circuit on first true for OR or first false for AND.
+                Boolean Result = false;
 
-                Row.Cells["dgvXTest"].Value = Item.X;
-                Row.Cells["dgvYTest"].Value = Item.Y;
+                // Final result 
+                Boolean FinalResult = false;
 
-                // How far of was the test from the target color.
-                int QualifyingPoints = 0;
+                dgvTestAllReference.Rows.Clear();
+                dgvTest.Rows.Clear();
 
-                if (Node.LogicChoice == "AND")
+
+                if (Node.LogicChoice == "CUSTOM")
                 {
-                    if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
+                    lblTestAllCustom.Text = Node.CustomLogic;
+                }
+
+                foreach (SingleClick Item in Node.ClickList)
+                {
+                    int Rowindex = dgvTestAllReference.Rows.Add();
+                    dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceRed"].Value = Item.Color.R.ToString();
+                    dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceGreen"].Value = Item.Color.G.ToString();
+                    dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceBlue"].Value = Item.Color.B.ToString();
+
+
+                    dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceX"].Value = Item.X;
+                    dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceY"].Value = Item.Y;
+
+                    // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
+                    DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Item.Color);
+
+                    dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceRed"].Style = Style;
+                    dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceGreen"].Style = Style;
+                    dgvTestAllReference.Rows[Rowindex].Cells["dgvTestAllReferenceBlue"].Style = Style;
+
+                    Rowindex = dgvTest.Rows.Add();
+
+                    //With dgvTest.Rows[Rowindex];
+                    DataGridViewRow Row = dgvTest.Rows[Rowindex];
+                    Color TargetColor;
+                    if (PictureTestAllReference.Height >= Item.Y && PictureTestAllReference.Width >= Item.X && PictureTestAllTest.Image.Height >= Item.Y && PictureTestAllTest.Image.Width >= Item.X)
                     {
-                        if (FinalResult == false)
+                        Bitmap bmp = PictureTestAllTest.Image as Bitmap;
+                        TargetColor = bmp.GetPixel(Item.X, Item.Y);
+                    }
+                    else
+                    {
+                        TargetColor = Color.Black;
+                        Style.ForeColor = Color.White;
+                    }
+
+                    Row.Cells["dgvColorTestRed"].Value = TargetColor.R.ToString();
+                    Row.Cells["dgvColorTestGreen"].Value = TargetColor.G.ToString();
+                    Row.Cells["dgvColorTestBlue"].Value = TargetColor.B.ToString();
+
+                    // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
+                    Row.Cells["dgvColorTestRed"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
+                    Row.Cells["dgvColorTestGreen"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
+                    Row.Cells["dgvColorTestBlue"].Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);
+
+                    Row.Cells["dgvXTest"].Value = Item.X;
+                    Row.Cells["dgvYTest"].Value = Item.Y;
+
+                    // How far of was the test from the target color.
+                    int QualifyingPoints = 0;
+
+                    if (Node.LogicChoice == "AND")
+                    {
+                        if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
+                        {
+                            if (FinalResult == false)
+                            {
+                                Result = true;
+                            }
+                        }
+                        else
+                        {
+                            Result = false;
+                            FinalResult = true;
+                        }
+                    }
+                    else if (Node.LogicChoice == "OR")
+                    {
+                        if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
                         {
                             Result = true;
                         }
                     }
                     else
                     {
-                        Result = false;
-                        FinalResult = true;
+                        // Do nothing fancy, just show logic.
+                        // Write Custom Logic
+                        //Debug.Assert(false);
                     }
-                }
-                else if (Node.LogicChoice == "OR")
-                {
+
                     if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
                     {
-                        Result = true;
+                        Row.Cells["dgvPassFail"].Value = "Test Passed";
+                        Style = new DataGridViewCellStyle();
+                        Style.BackColor = Color.Green;
+                        Row.Cells["dgvPassFail"].Style = Style;
+
                     }
-                }
-                else
-                {
-                    // Do nothing fancy, just show logic.
-                    // Write Custom Logic
-                    //Debug.Assert(false);
+                    else
+                    {
+                        Row.Cells["dgvPassFail"].Value = "Test Failed";
+                        Style = new DataGridViewCellStyle();
+                        Style.BackColor = Color.Red;
+                        Row.Cells["dgvPassFail"].Style = Style;
+                    }
+
+                    int r = Math.Abs(TargetColor.R - Item.Color.R);
+                    int g = Math.Abs(TargetColor.G - Item.Color.G);
+                    int b = Math.Abs(TargetColor.B - Item.Color.B);
+
+                    int Largest = 0;
+                    if (r > Largest)
+                    {
+                        Largest = r;
+                    }
+                    if (g > Largest)
+                    {
+                        Largest = g;
+                    }
+                    if (b > Largest)
+                    {
+                        Largest = b;
+                    }
+
+                    Row.Cells["dvgRange"].Value = Largest;
+
                 }
 
-                if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
-                {
-                    Row.Cells["dgvPassFail"].Value = "Test Passed";
-                    Style = new DataGridViewCellStyle();
-                    Style.BackColor = Color.Green;
-                    Row.Cells["dgvPassFail"].Style = Style;
+                PictureTestAllReference.Image = Node.Bitmap;
+                lblReferenceWindowResolution.Text = Node.Bitmap.Width + " x " + Node.Bitmap.Height;
 
-                }
-                else
-                {
-                    Row.Cells["dgvPassFail"].Value = "Test Failed";
-                    Style = new DataGridViewCellStyle();
-                    Style.BackColor = Color.Red;
-                    Row.Cells["dgvPassFail"].Style = Style;
-                }
-
-                int r = Math.Abs(TargetColor.R - Item.Color.R);
-                int g = Math.Abs(TargetColor.G - Item.Color.G);
-                int b = Math.Abs(TargetColor.B - Item.Color.B);
-
-                int Largest = 0;
-                if (r > Largest)
-                {
-                    Largest = r;
-                }
-                if (g > Largest)
-                {
-                    Largest = g;
-                }
-                if (b > Largest)
-                {
-                    Largest = b;
-                }
-
-                Row.Cells["dvgRange"].Value = Largest;
+                // Force redraw.
+                PictureTestAllTest.Invalidate();
 
             }
+            catch (Exception ex)
+            {
 
-            PictureTestAllReference.Image = Node.Bitmap;
-            lblReferenceWindowResolution.Text = Node.Bitmap.Width + " x " + Node.Bitmap.Height;
-
-            // Force redraw.
-            PictureTestAllTest.Invalidate();
+                Log(ex.Message);
+            }
 
 
         }
