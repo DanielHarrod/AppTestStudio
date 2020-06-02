@@ -125,8 +125,29 @@ On the Object Search a screenshot will be displayed, draw a mask around the area
 
 ![Image](https://appteststudio.b-cdn.net/EventModeObjectSearch.png)
 
-#### 4.5.3) Make a New Event with Mode: Object Search
+#### 4.5.3) Object properties
+After the Object Search Event mode is set to 'Object Search' object properties appears.
+
+Search Object: Select the object to search.
+
+Color Channel: You can choose to search of Red, Green, or the Blue Channel.  It will compare the object to the search area based on the Red, Green, or Blue colors to determine the location of the object.  This if for fine tuning and in most cases I use Red, but sometimes the other colors provide better results.  
+
+Threshold: Object search will ALWAYS find something, it will ALWAYS locate the closest match and provide a Threshold value.  Adjust the acceptance threshold value so that it performs as expected.  The default threshold is set to 70, a threshold match of 100 would be that the image matches identically.
+
+Mask Size: Shows the size of the mask range, it is recommended to limit the area to search for performance reasons.
+
+Set Mask to Max: Is it time to search the entire area, press the Max button and it's done.
+
+Object:  This shows the object to search for giving you a visual representation.
+
 ![Image](https://appteststudio.b-cdn.net/Object.png)
+
+#### 4.5.3) An Event under Object Search
+So you have build the event, but events don't do anything.  Now an action is needed, place an action under the Object Search.
+
+![Image](https://appteststudio.b-cdn.net/EventUnderObjectSearch.png)
+
+
 
 
 
