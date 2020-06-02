@@ -1021,8 +1021,8 @@ namespace AppTestStudio
                         dgv.Rows[RowIndex].Cells["dgvBlue"].Value = Click.Color.B.ToString();
                         dgv.Rows[RowIndex].Cells["dgvX"].Value = Click.X;
                         dgv.Rows[RowIndex].Cells["dgvY"].Value = Click.Y;
-                        dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
-                        dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scan";
+                        dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Rem";
+                        dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scn";
 
                         // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                         DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(Click.Color);
@@ -3110,8 +3110,8 @@ namespace AppTestStudio
 
                         dgv.Rows[RowIndex].Cells["dgvX"].Value = PictureBox1X;
                         dgv.Rows[RowIndex].Cells["dgvY"].Value = PictureBox1Y;
-                        dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scan";
-                        dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
+                        dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scn";
+                        dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Rem";
 
                         // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                         DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(PictureBox1Color);
@@ -3494,8 +3494,8 @@ namespace AppTestStudio
 
                             dgv.Rows[RowIndex].Cells["dgvX"].Value = X;
                             dgv.Rows[RowIndex].Cells["dgvY"].Value = Y;
-                            dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Remove";
-                            dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scan";
+                            dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Rem";
+                            dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scn";
 
                             // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
                             DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(TargetColor);

@@ -103,7 +103,7 @@ namespace AppTestStudio
                 dgv.Rows[RowIndex].Cells["dgvRed"].Value = R;
                 dgv.Rows[RowIndex].Cells["dgvGreen"].Value = G;
                 dgv.Rows[RowIndex].Cells["dgvBlue"].Value = B;
-                dgv.Rows[RowIndex].Cells["dgvReferenceRemove"].Value = "Remove";
+                dgv.Rows[RowIndex].Cells["dgvReferenceRemove"].Value = "Rem";
 
 
                 Color Targetcolor = Color.FromArgb(R, G, B);
