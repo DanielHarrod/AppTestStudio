@@ -1,5 +1,7 @@
 # AppTestStudio
 
+## Goals
+
 AppTestStudio is a automated development environment, it contains a builder, tester, and can simultaneously run multiple scripts that can simultaneously automate multiple android apps.  
 ![Image](https://appteststudio.b-cdn.net/ATSCircles.png)
 
@@ -90,15 +92,26 @@ The name will automatically have 'Click ' prepended to the parent name.
 Incidate where to click, click and drag a blue box around the area that needs to be clicked.  AppTestStudio will randomly click at a single location inside the box when the application is run or when the application is tested.
 ![Image](https://appteststudio.b-cdn.net/Action.png)
 
-#### 4.4 When the Action note still selected, click 'Test'
+#### 4.4) When the Action note still selected, click 'Test'
 App Test Studio will click inside the box inside the emmulator, which will advance app to the next screen.
 ![Image](https://appteststudio.b-cdn.net/Test.png)
 
-### 5 Continue building 
+### 4.5) Object Search
+Object search enables you to quickly define regions on the screen to search, and quickly define images to locate.
+
+#### 4.5.1) First Define an object.
+To define an object click the 'Create Object' button from an Event Node or Right click on the Objects Tree Node under the application.
+![Image](https://appteststudio.b-cdn.net/CreateObject.png)
+
+#### 4.5.2) First Define an object.
+To define an object click the 'Create Object' button from an Event Node or Right click on the Objects Tree Node under the application.
+![Image](https://appteststudio.b-cdn.net/AddNewObject.png)
+
+### 5.) Continue building 
 
 Continue building more actions and events until the build is complete.
 
-#### 5.1 Using Logical grouping
+#### 5.1) Using Logical grouping
 Use an Event inside another Event.
 
 1.) Organize events inside other events for clarity.
@@ -107,7 +120,7 @@ Use an Event inside another Event.
 
 ![Image](https://appteststudio.b-cdn.net/Groups.png)
 
-#### 5.2 Control what happens after an Event or Action occurs.
+#### 5.2) Control what happens after an Event or Action occurs.
 What needs to occur after a Event Node is true or after an Action node is completed. 
 
 By default Event nodes are set to After Completion: Continue
