@@ -80,8 +80,6 @@ namespace AppTestStudio
         // Logging is stored here and updated on a textbox on a timer.  
         private StringBuilder sb = new StringBuilder();
 
-        private Bitmap UndoScreenshot;
-
         private int PictureBox1X;
         private int PictureBox1Y;
         private Color PictureBox1Color;
@@ -236,6 +234,7 @@ namespace AppTestStudio
             if (Item.IsSomething())
             {
                 cboGameInstances.Text = Item.Text;
+                txtGamePanelLaunchInstance.Text = Item.Text;
             }
         }
 
@@ -817,14 +816,6 @@ namespace AppTestStudio
 
             chkUseParentScreenshot.Checked = GameNode.UseParentPicture;
             txtEventName.Text = GameNode.Text;
-
-
-            cmdUndoScreenshot.Visible = false;
-            if (UndoScreenshot.IsSomething())
-            {
-                //'UndoScreenshot.Dispose()
-                UndoScreenshot = null;
-            }
 
             chkUseLimit.Checked = GameNode.IsLimited;
             chkWaitFirst.Checked = GameNode.IsWaitFirst;
@@ -2396,9 +2387,9 @@ namespace AppTestStudio
             }
         }
 
-        private void LoadParentScreenshotIfNecessary()
+        private void LoadParentScreenshotIfNecessary(Boolean AlwaysPull = false)
         {
-            if (chkUseParentScreenshot.Checked)
+            if (chkUseParentScreenshot.Checked || AlwaysPull)
             {
                 GameNode CurrentParent = PanelLoadNode.Parent as GameNode;
                 Bitmap CurrentBitmap = null;
@@ -2419,29 +2410,29 @@ namespace AppTestStudio
             }
         }
 
-        private void cmdUndoScreenshot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
-        {
-            if (UndoScreenshot.IsSomething())
-            {
-                lblResolution.Text = UndoScreenshot.Width + "x" + UndoScreenshot.Height;
-                PictureBox1.Image = UndoScreenshot;
-                ArchaicSave();
-                cmdUndoScreenshot.Visible = false;
+        //private void cmdUndoScreenshot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        //{
+        //    if (UndoScreenshot.IsSomething())
+        //    {
+        //        lblResolution.Text = UndoScreenshot.Width + "x" + UndoScreenshot.Height;
+        //        PictureBox1.Image = UndoScreenshot;
+        //        ArchaicSave();
+        //        cmdUndoScreenshot.Visible = false;
 
-                if (dgv.Rows.Count > 1)
-                {
-                    if (lblMode.Text == "Event")
-                    {
-                        DialogResult Result = MessageBox.Show("Screenshot Reverted, do you want to re-sample the colors?", "Resample Colors?", MessageBoxButtons.YesNo);
+        //        if (dgv.Rows.Count > 1)
+        //        {
+        //            if (lblMode.Text == "Event")
+        //            {
+        //                DialogResult Result = MessageBox.Show("Screenshot Reverted, do you want to re-sample the colors?", "Resample Colors?", MessageBoxButtons.YesNo);
 
-                        if (Result == DialogResult.Yes)
-                        {
-                            ResampleColors();
-                        }
-                    }
-                }
-            }
-        }
+        //                if (Result == DialogResult.Yes)
+        //                {
+        //                    ResampleColors();
+        //                }
+        //            }
+        //        }
+        //    }
+        //}
 
         private void ResampleColors()
         {
@@ -3625,11 +3616,6 @@ namespace AppTestStudio
                 Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
                 lblResolution.Text = bmp.Width + "x" + bmp.Height;
 
-                if (PictureBox1.Image.IsSomething())
-                {
-                    UndoScreenshot = PictureBox1.Image as Bitmap;
-                    cmdUndoScreenshot.Visible = true;
-                }
                 PictureBox1.Image = bmp;
 
                 if (dgv.Rows.Count > 1)
@@ -4165,7 +4151,8 @@ namespace AppTestStudio
             tv.SelectedNode = Event;
             SetPanel(PanelMode.PanelColorEvent);
             LoadPanelSingleColorAtSingleLocation(Event);
-            LoadParentScreenshotIfNecessary();
+            //LoadParentScreenshotIfNecessary();
+            cmdAddSingleColorAtSingleLocationTakeASceenshot.PerformClick();
             ArchaicSave();
             ThreadManager.IncrementNewEventAdded();
         }
@@ -4189,7 +4176,8 @@ namespace AppTestStudio
             SetPanel(PanelMode.PanelColorEvent);
 
             LoadPanelSingleColorAtSingleLocation(GameNodeAction);
-            LoadParentScreenshotIfNecessary();
+            cmdAddSingleColorAtSingleLocationTakeASceenshot.PerformClick();
+            //LoadParentScreenshotIfNecessary();
 
             InitalizeOffsets();
 
@@ -6107,6 +6095,12 @@ namespace AppTestStudio
             {
                 cmdAnchorLeft.BackColor = AnchorModeButtonColors.EnabledColor();
             }
+        }
+
+        private void cmdTakeParentScreenshot_Click(object sender, EventArgs e)
+        {
+            // Add parent screenshot if one exists.
+            LoadParentScreenshotIfNecessary(true);
         }
     }
 }
