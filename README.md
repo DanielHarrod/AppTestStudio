@@ -103,9 +103,32 @@ Object search enables you to quickly define regions on the screen to search, and
 To define an object click the 'Create Object' button from an Event Node or Right click on the Objects Tree Node under the application.
 ![Image](https://appteststudio.b-cdn.net/CreateObject.png)
 
-#### 4.5.2) First Define an object.
-To define an object click the 'Create Object' button from an Event Node or Right click on the Objects Tree Node under the application.
+#### 4.5.2) Next identify the object to serach for.
+Add New Object will take a screenshot of the current window and allow you to select the object to look for.  
+
+1.) Take a screenshot:  Sometimes a fresh screenshot is needed to get the right image, pressing 'Take a Screenshot' will load a fresh screenshot.
+
+2.) Name: This is the unique name that will be attached to an Object Search Node, Use good naming patterns so it can be easily identfiable.
+
+3.) Draw a box, it will highlight in Blue.
+
+3.1) To improve accuracy look for sections that are unique and distinguishable, sometimes avoiding using the background can improve accuracy.
+
+4.) Make Object (SAVE): Make object will save your selection and add it to the list of objects that can be searched for in the Object Search Event.
+
 ![Image](https://appteststudio.b-cdn.net/AddNewObject.png)
+
+#### 4.5.3) Make a New Event with Mode: Object Search
+Events default to Color/Point change the event mode to 'Object Search'
+
+On the Object Search a screenshot will be displayed, draw a mask around the area to be searched.  Image recognition can significantly slower than the Color/Point implementation, so define a mask to reduce the area that is needed to be searched.  To draw a mask click on the area and draw a box.  If the box is unsuitable, redraw a box.
+
+![Image](https://appteststudio.b-cdn.net/EventModeObjectSearch.png)
+
+#### 4.5.3) Make a New Event with Mode: Object Search
+![Image](https://appteststudio.b-cdn.net/Object.png)
+
+
 
 ### 5.) Continue building 
 
