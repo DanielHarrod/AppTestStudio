@@ -1287,8 +1287,9 @@ namespace AppTestStudio
             if (GameNode.IsSomething())
             {
 
-                Utils.LaunchInstance("", "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
+                String Result = Utils.LaunchInstance("", "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
                 Log("Launching Instance " + GameNode.InstanceToLaunch.Trim());
+                Log(Result);
                 ThreadManager.IncrementInstanceLaunched();
             }
         }
@@ -1298,7 +1299,8 @@ namespace AppTestStudio
             GameNode Node = tv.SelectedNode as GameNode;
             GameNodeGame GameNode = Node.GetGameNodeGame();
 
-            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
+            String Result = Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
+            Log(Result);
         }
 
 
@@ -1307,7 +1309,8 @@ namespace AppTestStudio
             GameNode Node = tv.SelectedNode as GameNode;
             GameNodeGame GameNode = Node.GetGameNodeGame();
 
-            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
+            String Result = Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
+            Log(Result);
 
             LoadInstance(GameNode);
         }
@@ -2201,7 +2204,7 @@ namespace AppTestStudio
             if (Game.IsSomething())
             {
                 int Result = 0;
-                if ( int.TryParse(txtGamePanelLaunchInstance.Text, out Result))
+                if (int.TryParse(txtGamePanelLaunchInstance.Text, out Result))
                 {
                     Game.InstanceToLaunch = Result.ToString();
                 }
@@ -2245,7 +2248,8 @@ namespace AppTestStudio
 
         private void cmdStartEmmulator_Click(object sender, EventArgs e)
         {
-            Utils.LaunchInstance("", "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+            String Result = Utils.LaunchInstance("", "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+            Log(Result);
         }
 
         private void cmdRunScript_Click(object sender, EventArgs e)
@@ -2255,13 +2259,16 @@ namespace AppTestStudio
 
         private void cmdStartEmmulatorAndPackage_Click(object sender, EventArgs e)
         {
-            Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+            String Result = Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+            Log(Result);
         }
 
         private void cmdStartEmmulatorPackageAndRunScript_Click(object sender, EventArgs e)
         {
-            Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+            String Result = Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
             LoadInstance(tv.SelectedNode as GameNodeGame);
+
+            Log(Result);
         }
 
         private void chkSaveVideo_CheckedChanged(object sender, EventArgs e)
@@ -4076,8 +4083,9 @@ namespace AppTestStudio
                 if (Game.IsSomething())
                 {
                     Game.InstanceToLaunch = si.InstanceNumber.ToString();
-                    Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution, Game.DPI);
+                    String Result = Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution, Game.DPI);
                     LoadInstance(Game);
+                    Log(Result);
                 }
             }
             else
@@ -5392,7 +5400,8 @@ namespace AppTestStudio
             LoadInstance(GameNode);
 
             // Load Emmulator and App
-            Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
+            String Result = Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
+            Log(Result);
         }
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)

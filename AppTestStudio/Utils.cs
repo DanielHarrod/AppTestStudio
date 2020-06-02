@@ -495,8 +495,9 @@ namespace AppTestStudio
         }
 
 
-        public static void LaunchInstance(string packageName, string targetWindow, string instanceToLaunch, string resolution, int DPI)
+        public static String LaunchInstance(string packageName, string targetWindow, string instanceToLaunch, string resolution, int DPI)
         {
+            String Result = "";
             ProcessStartInfo info = new ProcessStartInfo();
             NoxRegistry Registry = new NoxRegistry();
 
@@ -532,7 +533,11 @@ namespace AppTestStudio
 
             //'-clone:Nox_1
             info.Arguments = Arguments;
+
+            Result = "Launching: " + info.FileName + " " + info.Arguments;
             Process.Start(info);
+
+            return Result;
         }
 
         public static int HiLoWord(short lo, short hi)
