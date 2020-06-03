@@ -229,10 +229,19 @@ Validate button, pressing the validate button can verify the logic is valid ( Th
 Scan will take a new screenshot and sample the X/Y position if the R,G,B color is not in the list it will be added.  This is useful when used with OR logic on animated points where the colors where there is a limited number of choices that are cycled through in a pattern.
 
 Remove: Removes the color point.
+
 ![Image](https://appteststudio.b-cdn.net/Logic.png)
 
 #### 5.4.1 POINTS
 Points increase the ranges of the RGB color point.
+
+POINTS: Points are added and subtracted on the range of the RGB.
+
+In this example below with the first line R=36, B=30, G=35, X=951, Y=673, and POINTS = 5.  Acceptable range for R would be any color between 36-5 to 36+5, Acceptable range for B would be any color from 30-5 to 30+5, and the acceptable range for G would be an color between 35-5 to 35 + 5.  If the R and G and B are in that range the line would be considered true, this is applied to each line in the calculation. 
+
+Every app is differnet, some apps I have found need at least 5 points on every event, while most others the colors remain the same over time.  I would caution using very large numbers, I have not found a use case to go over 15.
+
+![Image](https://appteststudio.b-cdn.net/Logic.png)
 
 #### 5.4.1 Properties
 
@@ -242,24 +251,81 @@ Repeats Until False (with Iteration Limit):  This will repeat until the designat
 
 ![Image](https://appteststudio.b-cdn.net/Properties.png)
 
+#### 5.4.1 Anchor
+
+Anchor is used to adjust the size of button regions, and mask regions.
+
+Top+Left is the default the regions will stay the same size and not be moved.
+
+None is the same as Top+Left.
+
+Right: will keep the button or mask region sticky to the right side.  Very usedful when handling ADS where the resolution changes but the close is found in the top Right corner.
+
+Left+Right the button and mask region will scale up or down to the percentage between the orginal image and the current image on the X axis.
+
+Top+Bottom the button and mask region will scale up or down to the percentage between the orginal image and the current image on the Y axis.
+
+![Image](https://appteststudio.b-cdn.net/Anchor.png)
+
 ## Testing - Object Search Event
+
 Pressing the Test button on an object search event will:
+
 01.) Take a screenshot and show the screenshot
+
 02.) Show Red Channel
+
 03.) Show Green Channel
+
 04.) Show Blue Channel
+
 05.) Determine if the detected threshold matched the acceptance threshold, With a Green Pass or Red Fail.
+
 06.) Display the Mask in blue to indicate the searchable area.
+
 07.) Display a Yellow box on the closest match, this will always find something which is what is closest to the search object.
+
 08.) Shows the image that was seached for.
+
 09.) Re-Test Current Window - takes a screenshot and re-tests from the current window.
+
 10.) Re-Test From Reference - re-tests from the reference window.
+
 11.) Adjusts the acceptance criteria, often adjusted to meet the particular object and screen that's needed.  It's very dependent on the media and application being used.  Pressing Use this Threshold will save the threshold to the project.
+
 12.) Channel:  Which channel to use, experiment with the different channels can improve accuracy.  Just because an object is RED doesn't mean that red will perform better.  It depends on the colors in the mask and the object being searched.  Sometimes green or blue is a better indicator even though the object is red.  Press the Retest-Current window to rapidly retest the changes to help you find the best match.
+
 13.) Detected Threshold: A mathmatical indication of how close the object matches.  A 100.0 threshold indicates a exact pixel perfect match, what works depends on the object being searched and the colors in the mask.  I have used 65 threshold on some searches while others have been cranked up to 80.  Using minimum necessary masks helps imporve speed and accuracy.
 14.) Point: The center point detected.
+
 15.) Hide and Seek Time: How long it takes to find the object in ms.  Keep in mind that 1000ms = 1 second, use masks and whenever possible use color points to improve performance.
+
 ![Image](https://appteststudio.b-cdn.net/TestObjectSearch.png)
+
+## Testing - Color Point Event
+
+When a color point event is tested the Single Test Dialog is displayed.
+
+1.) Failed/Passed indicator that will indicate if the test was successful.
+
+2.) Resolution information is displayed.
+
+3.) Reference Window is displayed with the colors indicated on the screen with #'s.
+
+4.) Test Window is displayed with the same colors indicated with #'s.
+
+5.) Reference the list of Colors and Points necessary for a true result.  Pressing the Rem button will remove the point from the project, this is useful when colors work the first time, but subsequent tests find that the color/point is unstable.
+
+6.) Test Window Colors - the colors that were found and how many points would be needed to enable a true result.
+
+7.) Re-Test - often the screen changes and the test is retested from a screenshot from a current window.
+
+8.) Points - the number of configued points.
+
+![Image](https://appteststudio.b-cdn.net/EventTest.png)
+
+#### Testing - Click and Scroll events.
+Testing Click and Scroll Events will perform the action on the currently indicated design instance.  This is used for not needing to look at the emmulator designing scripts increasing build speed.
 
 ## Testing - Object Search Event Child Action
 Same as Object Search Event, with the execption that the action is performed on the current instance.  So it will click the button on the indicated location ( If the parent object search is true ).
