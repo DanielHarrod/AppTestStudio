@@ -342,7 +342,14 @@ AppTestStudio will NOT function if the system goes to sleep, Screen Savers are O
 If running overnight makes sure the SCREEN and PC do not go to sleep by modifying the windows settings.  If the Screen goes the sleep the GDI function return black screens.  If the PC is sleeping well then nothing is running.
 ![Image](https://appteststudio.b-cdn.net/PowerSleep.png)
 
-## Runtime Notes
+## Minimal Exports
+File-> Import/Export -> Export -> Minimal Export
+
+AppTestStudio doesn't actually use the reference images to run the scripts, the click locations and points are stored in the project.xml file.  This means that projects can be rebuilt without the need for distribuing the 
+
+![Image](https://appteststudio.b-cdn.net/PowerSleep.png)
+
+## Notes
 AppTestStudio can manage on multiple instances and run them in the background so there's no need to any fancy window management, however there are a few gotchas that are easily manageable.
 
 1.) AppTestStudio can see what windows paints, Windows DOES NOT PAINT area's that are off the monitors view, Dragging the emmulators so that they are below the monitor's view will result in black areas where the emmulator is not shown.  This also includes moving it partially on the Left, Bottom, or Right side.  Running in the background (or forground is fine).  
@@ -357,11 +364,26 @@ AppTestStudio can manage on multiple instances and run them in the background so
 
 6.) Many apps paint a black or white or another color screen between activities.  Be careful keying off those colors alone as they could produce false positives that are very difficult to track down.  For example using color points of all black to trigger an event.  
 
-7.) AppTestStudio does not limit you from bombarding an application with events, keep in mind most applications cannot process 100's of click events per second.  Depending on how the developers (or summer interns :) ) coded the application it may have strange behaviour.
+7.) AppTestStudio does not limit you from bombarding an application with events, keep in mind most applications cannot process 100's of click events per second.  Depending on how the developers (or summer interns :) ) coded the application it may induce strange or corrupted behaviour.
 
 8.) You can run muliple different or the same scripts simulateously in the background, just send them to a different instance.
 
 9.) Avoid dragging a emmulator window at the same time clicks and drags are being sent, it won't hurt anything but it's annoying.
+
+10.) Turn on: [Require password for every purchase](https://support.google.com/googleplay/answer/1626831).  
+
+11.) Don't use with personal accounts.
+
+12.) Sometimes its easier to edit the project file manually, often it's not.
+![Image](https://appteststudio.b-cdn.net/Manual.png)
+
+13.) You can manually code in AppTestStudio XML and run them in AppTestStudio, See #12.
+
+13.) Every time you save a backup project file is made, look in the backup folder.
+
+14.) Try to build each action so that the script can be restarted in any spot in the process.  (Avoid large chains of actions such as using continue after every action - sometimes it's necessary.
+
+15.) Sometimes you need to sleep on it, getting stuck is no fun.  Try and solve the problem from another angle.
 
 Coming soon, needs an update.
 [AppTestStudio Projects](https://github.com/DanielHarrod/AppTestStudio-Projects/)
