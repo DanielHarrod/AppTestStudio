@@ -213,6 +213,9 @@ AND: ALL colors and points must match before the event is considered true.
 OR: Only a single color and point must match before the event is considered true. 
 
 POINTS: Points are added and subtracted on the range of the RGB.
+
+In this example below with the first line R=36, B=30, G=35, X=951, Y=673, and POINTS = 5.  Acceptable range for R would be any color between 36-5 to 36+5, Acceptable range for B would be any color from 30-5 to 30+5, and the acceptable range for G would be an color between 35-5 to 35 + 5.  If the R and G and B are in that range the line would be considered true, this is applied to each line in the calculation. 
+
 ![Image](https://appteststudio.b-cdn.net/Logic.png)
 
 #### 5.4 Logic - Advanced
@@ -222,18 +225,46 @@ CUSTOM:  You can mix and match AND/OR/NOT/(). Acceptable (AND, &, &&) - All are 
 
 Validate button, pressing the validate button can verify the logic is valid ( This isn't perfect but it's very good at checking).
 
+#### 5.4 Logic - Scan / Remove
+Scan will take a new screenshot and sample the X/Y position if the R,G,B color is not in the list it will be added.  This is useful when used with OR logic on animated points where the colors where there is a limited number of choices that are cycled through in a pattern.
+
+Remove: Removes the color point.
+![Image](https://appteststudio.b-cdn.net/Logic.png)
 
 #### 5.4.1 POINTS
 Points increase the ranges of the RGB color point.
 
-
-
+#### 5.4.1 Properties
 
 Enabled: Enable or disable parts of the script from running.  This is useful when you don't want full functionality, or something is not working as desired.
 
 Repeats Until False (with Iteration Limit):  This will repeat until the designated iteration limit is hit OR if the event value is false.  This is usefull when you want to repeat a section of code without going back through the entire loop from the start.
 
 ![Image](https://appteststudio.b-cdn.net/Properties.png)
+
+## Testing - Object Search Event
+Pressing the Test button on an object search event will:
+01.) Take a screenshot and show the screenshot
+02.) Show Red Channel
+03.) Show Green Channel
+04.) Show Blue Channel
+05.) Determine if the detected threshold matched the acceptance threshold, With a Green Pass or Red Fail.
+06.) Display the Mask in blue to indicate the searchable area.
+07.) Display a Yellow box on the closest match, this will always find something which is what is closest to the search object.
+08.) Shows the image that was seached for.
+09.) Re-Test Current Window - takes a screenshot and re-tests from the current window.
+10.) Re-Test From Reference - re-tests from the reference window.
+11.) Adjusts the acceptance criteria, often adjusted to meet the particular object and screen that's needed.  It's very dependent on the media and application being used.  Pressing Use this Threshold will save the threshold to the project.
+12.) Channel:  Which channel to use, experiment with the different channels can improve accuracy.  Just because an object is RED doesn't mean that red will perform better.  It depends on the colors in the mask and the object being searched.  Sometimes green or blue is a better indicator even though the object is red.  Press the Retest-Current window to rapidly retest the changes to help you find the best match.
+13.) Detected Threshold: A mathmatical indication of how close the object matches.  A 100.0 threshold indicates a exact pixel perfect match, what works depends on the object being searched and the colors in the mask.  I have used 65 threshold on some searches while others have been cranked up to 80.  Using minimum necessary masks helps imporve speed and accuracy.
+14.) Point: The center point detected.
+15.) Hide and Seek Time: How long it takes to find the object in ms.  Keep in mind that 1000ms = 1 second, use masks and whenever possible use color points to improve performance.
+![Image](https://appteststudio.b-cdn.net/TestObjectSearch.png)
+
+## Testing - Object Search Event Child Action
+Same as Object Search Event, with the execption that the action is performed on the current instance.  So it will click the button on the indicated location ( If the parent object search is true ).
+
+![Image](https://appteststudio.b-cdn.net/TestObjectSearch.png)
 
 Coming soon, needs an update.
 [AppTestStudio Projects](https://github.com/DanielHarrod/AppTestStudio-Projects/)
