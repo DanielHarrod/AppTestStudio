@@ -110,7 +110,7 @@ Add New Object will take a screenshot of the current window and allow you to sel
 
 3.) Draw a box, it will highlight in Blue.
 
-3.1) To improve accuracy look for sections that are unique and distinguishable, sometimes avoiding using the background can improve accuracy.
+3.1) To improve accuracy look for sections that are unique and distinguishable, sometimes avoiding using the background can improve accuracy.  It is not necessary to search for entire images, just something unique. 
 
 4.) Make Object (SAVE): Make object will save your selection and add it to the list of objects that can be searched for in the Object Search Event.
 
