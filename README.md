@@ -343,7 +343,9 @@ If running overnight makes sure the SCREEN and PC do not go to sleep by modifyin
 ## Minimal Exports
 File-> Import/Export -> Export -> Minimal Export
 
-AppTestStudio doesn't actually use the reference images to run the scripts, the click locations and points are stored in the project.xml file.  This means that projects can be rebuilt without the need for distribuing the 
+AppTestStudio doesn't actually use the reference images to run the scripts, the click locations and points are stored in the project.xml file.  
+
+When run, AppTestStudio will rebuild the reference images whenever an image is true.  Be sure to save your work so that the modifications will be saved.
 
 ![Image](https://appteststudio.b-cdn.net/MinimalExport.png)
 
