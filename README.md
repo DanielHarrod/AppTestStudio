@@ -144,12 +144,9 @@ Object:  This shows the object to search for giving you a visual representation.
 
 #### 4.5.3) An Event under Object Search
 So you have build the event, but events don't do anything.  Now an action is needed, place an action under the Object Search.
-
+Object Search has a hourglass icon when the mode of an evetn is set to 'Object Search'.  When a Click or Drag event is a child of a Object Search, the click or drag event will be positioned at the location of the found object that was found in the object search mask.  
+On the click event draw a box the size of the range you would like searched, when the object is found the box will be centered on the location, then the click or drag will be performed.
 ![Image](https://appteststudio.b-cdn.net/EventUnderObjectSearch.png)
-
-
-
-
 
 ### 5.) Continue building 
 
