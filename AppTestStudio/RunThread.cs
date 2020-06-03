@@ -132,20 +132,29 @@ namespace AppTestStudio
             Process.Start(info);
             //'Game.InstanceToLaunch 
 
+            ShutdownThread(Game, AbortThread);
+        }
+
+        private void ShutdownThread(GameNodeGame game, Boolean abortThread)
+        {            
             ThreadIsShuttingDown = true;
 
             if (Game.SaveVideo)
             {
+
                 Game.Video.Release();
                 Game.Video = null;
             }
 
             ThreadManager.RemoveGame(Game);
-            Thread.Sleep(3000);
-
-            if (AbortThread)
-            {
-                Thread.CurrentThread.Abort();
+            
+            if (abortThread)
+            {                
+                Game.Log("Shutting down thread:" + Game.GameNodeName + " on instance " + Game.InstanceToLaunch);
+                
+                // let the log process
+                Thread.Sleep(3000);
+                Thread.CurrentThread.Abort();                
             }
         }
 
@@ -661,6 +670,8 @@ namespace AppTestStudio
                     {
                         Game.Log("Unable to locate window during startup met timeout limit");
                         Game.Log("Exiting thread");
+                        Thread.Sleep(1000);
+                        ShutdownThread(Game, true);
                     }
 
                     if (WindowHandle.ToInt32() > 0)
