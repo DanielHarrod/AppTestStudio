@@ -345,7 +345,7 @@ File-> Import/Export -> Export -> Minimal Export
 
 AppTestStudio doesn't actually use the reference images to run the scripts, the click locations and points are stored in the project.xml file.  This means that projects can be rebuilt without the need for distribuing the 
 
-![Image](https://appteststudio.b-cdn.net/Manual.png)
+![Image](https://appteststudio.b-cdn.net/MinimalExport.png)
 
 ## Notes
 AppTestStudio can manage on multiple instances and run them in the background so there's no need to any fancy window management, however there are a few gotchas that are easily manageable.
