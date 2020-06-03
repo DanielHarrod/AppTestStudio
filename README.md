@@ -146,6 +146,7 @@ Object:  This shows the object to search for giving you a visual representation.
 So you have build the event, but events don't do anything.  Now an action is needed, place an action under the Object Search.
 Object Search has a hourglass icon when the mode of an evetn is set to 'Object Search'.  When a Click or Drag event is a child of a Object Search, the click or drag event will be positioned at the location of the found object that was found in the object search mask.  
 On the click event draw a box the size of the range you would like searched, when the object is found the box will be centered on the location, then the click or drag will be performed.
+
 ![Image](https://appteststudio.b-cdn.net/EventUnderObjectSearch.png)
 
 ### 5.) Continue building 
@@ -199,6 +200,34 @@ Repeats will reset the iteration count if limit has already compelted, so it wil
 ![Image](https://appteststudio.b-cdn.net/After.png)
 
 #### 5.3 Properties
+
+Enabled: Enable or disable parts of the script from running.  This is useful when you don't want full functionality, or something is not working as desired.
+
+Repeats Until False (with Iteration Limit):  This will repeat until the designated iteration limit is hit OR if the event value is false.  This is usefull when you want to repeat a section of code without going back through the entire loop from the start.
+
+![Image](https://appteststudio.b-cdn.net/Properties.png)
+
+#### 5.4 Logic - Basic
+Logic is how the color points are treated options are:
+AND: ALL colors and points must match before the event is considered true. 
+OR: Only a single color and point must match before the event is considered true. 
+
+POINTS: Points are added and subtracted on the range of the RGB.
+![Image](https://appteststudio.b-cdn.net/Logic.png)
+
+#### 5.4 Logic - Advanced
+CUSTOM:  You can mix and match AND/OR/NOT/(). Acceptable (AND, &, &&) - All are considered logical AND.  Acceptable (OR, |, || ) - all are considered logical OR.  Acceptable (NOT, !) - Are considered logical NOT.
+
+![Image](https://appteststudio.b-cdn.net/Logic2.png)
+
+Validate button, pressing the validate button can verify the logic is valid ( This isn't perfect but it's very good at checking).
+
+
+#### 5.4.1 POINTS
+Points increase the ranges of the RGB color point.
+
+
+
 
 Enabled: Enable or disable parts of the script from running.  This is useful when you don't want full functionality, or something is not working as desired.
 
