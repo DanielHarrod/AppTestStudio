@@ -49,7 +49,7 @@ Interactively: Design, Test, Schedule and Play multiple clients at the same time
 
 1.) The Package Name is used to launch the application when the emmulator starts.  If the Package Name is configured, pressing the "Start Emmulator + Launch App" button will launch the instance of nox player specified in the instance to launch (in 2. below).  Package Name is recommended but not required, if you don't want or have the Package Name, Press the "Start Emmulator"( in 4. below) button instead.  Then run the application from the emmulator manually.  When scheduling a script to run at a later time, the application the Package name is required so that the script can be run, and the applicaion can be loaded.
 
-2.) Instance to launch is the instance number you want to target during testing, launching and running scripts.  This is required, users with a single instance will always choose instance 0.  Multiple apps/accounts can be configured on different instances.  For example, you could run 5 instances with the same account, and automate 5 different apps/games on each instance.  Or you could run a differnet account on each instance, and run 5 separate instances of the same app/game.
+2.) Instance to launch is the instance number you want to target during testing, launching and running scripts.  This is required, users with a single instance will always choose instance 0.  Multiple apps/accounts can be configured on different instances.  For example, you could run 5 instances with the same account, and automate 5 different apps/games on each instance.  Or you could run a different account on each instance, and run 5 separate instances of the same app/game.
 
 3.)  The Start Emmulator + Launch App button will run the Android Emmulator and launch the application on the emmulator.
 
@@ -239,7 +239,7 @@ POINTS: Points are added and subtracted on the range of the RGB.
 
 In this example below with the first line R=36, B=30, G=35, X=951, Y=673, and POINTS = 5.  Acceptable range for R would be any color between 36-5 to 36+5, Acceptable range for B would be any color from 30-5 to 30+5, and the acceptable range for G would be an color between 35-5 to 35 + 5.  If the R and G and B are in that range the line would be considered true, this is applied to each line in the calculation. 
 
-Every app is differnet, some apps I have found need at least 5 points on every event, while most others the colors remain the same over time.  I would caution using very large numbers, I have not found a use case to go over 15.
+Every app is different, some apps I have found need at least 5 points on every event, while most others the colors remain the same over time.  I would caution using very large numbers, I have not found a use case to go over 15.
 
 ![Image](https://appteststudio.b-cdn.net/Logic.png)
 
@@ -325,12 +325,43 @@ When a color point event is tested the Single Test Dialog is displayed.
 ![Image](https://appteststudio.b-cdn.net/EventTest.png)
 
 #### Testing - Click and Scroll events.
-Testing Click and Scroll Events will perform the action on the currently indicated design instance.  This is used for not needing to look at the emmulator designing scripts increasing build speed.
+Testing Click and Scroll Events will perform the action on the currently indicated design instance.  This is commonly used not need to leave the designer increasing build speed.
 
 ## Testing - Object Search Event Child Action
 Same as Object Search Event, with the execption that the action is performed on the current instance.  So it will click the button on the indicated location ( If the parent object search is true ).
 
 ![Image](https://appteststudio.b-cdn.net/TestObjectSearch.png)
+
+## Scheduler
+The scheduler can be used to run a script a a designated time such as every 4.1 hours.  In conjunction with scripting exit events via (After Completion - Stop Thread) can provide high levels of flexibility.
+
+![Image](https://appteststudio.b-cdn.net/scheduler.png)
+
+AppTestStudio will NOT function if the system goes to sleep, Screen Savers are OK, and Lock Screens are OK.
+
+If running overnight makes sure the SCREEN and PC do not go to sleep by modifying the windows settings.  If the Screen goes the sleep the GDI function return black screens.  If the PC is sleeping well then nothing is running.
+![Image](https://appteststudio.b-cdn.net/PowerSleep.png)
+
+## Runtime Notes
+AppTestStudio can manage on multiple instances and run them in the background so there's no need to any fancy window management, however there are a few gotchas that are easily manageable.
+
+1.) AppTestStudio can see what windows paints, Windows DOES NOT PAINT area's that are off the monitors view, Dragging the emmulators so that they are below the monitor's view will result in black areas where the emmulator is not shown.  This also includes moving it partially on the Left, Bottom, or Right side.  Running in the background (or forground is fine).  
+
+2.) Windows does not paint minimized applications so AppTestStudio can't see the windown.  This makes windows efficent, but makes it invisible to AppTestStudio.
+
+3.) Dual monitors is fine, however running them at different resolutions and moving the windows back and forth can cause instability when the DPI settings are different between monitors.
+
+4.) Minimizing AppTestStudio is fine, AppTestStudio does not need to paint on the screen to function.
+
+5.) Each thread runs independently on it's own, the events in the log show the exact time a event or action was completed.  The logging system is setup to Queue so the log is a reflection of the past, but should not be used as an indication of timing.  In most cases it won't be noticiable.
+
+6.) Many apps paint a black or white or another color screen between activities.  Be careful keying off those colors alone as they could produce false positives that are very difficult to track down.  For example using color points of all black to trigger an event.  
+
+7.) AppTestStudio does not limit you from bombarding an application with events, keep in mind most applications cannot process 100's of click events per second.  Depending on how the developers (or summer interns :) ) coded the application it may have strange behaviour.
+
+8.) You can run muliple different or the same scripts simulateously in the background, just send them to a different instance.
+
+9.) Avoid dragging a emmulator window at the same time clicks and drags are being sent, it won't hurt anything but it's annoying.
 
 Coming soon, needs an update.
 [AppTestStudio Projects](https://github.com/DanielHarrod/AppTestStudio-Projects/)
