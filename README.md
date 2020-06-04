@@ -385,5 +385,7 @@ AppTestStudio can manage on multiple instances and run them in the background so
 
 15.) Sometimes you need to sleep on it, getting stuck is no fun.  Try and solve the problem from another angle.
 
+16.) Some apps need button presses to be longer than instant.  Change the default click speed from 0ms to 25ms or more.
+
 Coming soon, needs an update.
 [AppTestStudio Projects](https://github.com/DanielHarrod/AppTestStudio-Projects/)
