@@ -659,6 +659,7 @@ namespace AppTestStudio
             else
             {
                 cmdDeleteObject.Enabled = true;
+                txtObjectReferencedBy.Text = "";
             }
         }
 
