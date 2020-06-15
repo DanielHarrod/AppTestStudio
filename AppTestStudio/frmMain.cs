@@ -233,8 +233,9 @@ namespace AppTestStudio
 
             if (Item.IsSomething())
             {
-                cboGameInstances.Text = Item.Text;
                 txtGamePanelLaunchInstance.Text = Item.Text;
+                cboGameInstances.Text = Item.Text;
+                
             }
         }
 
