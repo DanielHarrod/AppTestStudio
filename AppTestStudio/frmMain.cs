@@ -1443,7 +1443,7 @@ namespace AppTestStudio
             GameNodeGame GameNode = Node.GetGameNodeGame();
             String TargetWindow = GameNode.TargetWindow;
 
-            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
+            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow, Definitions.NoxWorkWindowName);
 
             Debug.Print("cmdObjectScreenshotsTakeAScreenshot_Click TW=" + TargetWindow + " MWH= " + MainWindowHandle);
 
@@ -2594,7 +2594,7 @@ namespace AppTestStudio
                 }
             }
 
-            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(game.TargetWindow);
+            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(game.TargetWindow, Definitions.NoxWorkWindowName);
 
             //For Each P As Process In Process.GetProcesses()
             //    if (P.MainWindowTitle.Length() > 0)
@@ -3537,7 +3537,7 @@ namespace AppTestStudio
 
             String MainWindowTitle = GameNode.TargetWindow;
 
-            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(MainWindowTitle);
+            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(MainWindowTitle, Definitions.NoxWorkWindowName);
 
             if (MainWindowHandle.ToInt32() > 0)
             {
@@ -3615,7 +3615,7 @@ namespace AppTestStudio
 
             String TargetWindow = GameNode.TargetWindow;
 
-            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
+            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow, Definitions.NoxWorkWindowName);
 
             Debug.Print("cmdAddSingleColorAtSingleLocationTakeASceenshot_Click TW=" + TargetWindow + " MWH= " + MainWindowHandle);
 
@@ -4243,7 +4243,7 @@ namespace AppTestStudio
             tvTestAllEvents.ExpandAll();
 
             String TargetWindow = GameNode.TargetWindow;
-            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow);
+            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow, Definitions.NoxWorkWindowName);
 
             if (MainWindowHandle.ToInt32() > 0)
             {
@@ -6120,6 +6120,25 @@ namespace AppTestStudio
         {
             // Add parent screenshot if one exists.
             LoadParentScreenshotIfNecessary(true);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Bitmap bmp = PictureBoxObject.Image as Bitmap;
+
+            for (int i = 0; i < 55; i++)
+            {
+                for (int j = 0; j < 80; j++)
+                {
+                    if (i < bmp.Width )
+                        if ( j < bmp.Height )
+                        {
+                            bmp.SetPixel(i, j, Color.White);
+                        }                   
+                }
+            }
+            PictureBoxObject.Invalidate();
+            
         }
     }
 }

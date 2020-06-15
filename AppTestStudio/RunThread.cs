@@ -52,7 +52,7 @@ namespace AppTestStudio
             {
                 Game.Log("GetWindowDC = 0 " + WindowHandle);
                 Game.Log("Refetching Window for " + Game.TargetWindow);
-                WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow);
+                WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow, Definitions.NoxWorkWindowName);
             }
             API.RECT WindowRectangle = new API.RECT();
 
@@ -640,7 +640,7 @@ namespace AppTestStudio
             long LoopDelay = 0;
             while (ThreadIsShuttingDown == false)
             {
-                WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow);
+                WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow, Definitions.NoxWorkWindowName);
                 while (WindowHandle.ToInt32() == 0)
                 {
                     while (Game.IsPaused)
@@ -663,7 +663,7 @@ namespace AppTestStudio
                         Thread.Sleep((int)LoopDelay);
                     }
 
-                    WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow);
+                    WindowHandle = Utils.GetWindowHandleByWindowName(Game.TargetWindow, Definitions.NoxWorkWindowName);
                     RunTimeWindowTimeout = RunTimeWindowTimeout - 1;
 
                     if (RunTimeWindowTimeout < 0)

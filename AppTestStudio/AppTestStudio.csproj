@@ -123,6 +123,7 @@
     <Compile Include="BooleanParser\TokenEnumerator.cs" />
     <Compile Include="BooleanParser\UnexpectedTokenException.cs" />
     <Compile Include="ColorPoint.cs" />
+    <Compile Include="Definitions.cs" />
     <Compile Include="Enums.cs" />
     <Compile Include="ExportGameResults.cs" />
     <Compile Include="Extensions.cs" />

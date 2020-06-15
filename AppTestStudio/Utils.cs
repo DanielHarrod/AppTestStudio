@@ -356,7 +356,7 @@ namespace AppTestStudio
         public class WindowHandles
         {
             public IntPtr MainWindowHandle;
-            public IntPtr ImageAreaHandle;
+            public IntPtr ChildWindowHandle;
         }
 
         public static string GetText(IntPtr hWnd)
@@ -368,7 +368,7 @@ namespace AppTestStudio
             return sb.ToString();
         }
 
-        public static IntPtr GetWindowHandleByWindowName(String WindowName)
+        public static IntPtr GetWindowHandleByWindowName(String WindowName, String ChildWindowName)
         {
             WindowHandles Handles = new WindowHandles();
             foreach (Process P in Process.GetProcesses())
@@ -385,16 +385,23 @@ namespace AppTestStudio
                         foreach (IntPtr ChildHandle in ChildWindowHandles)
                         {
                             String ChildText = GetText(ChildHandle);
-                            if (ChildText == "ScreenBoardClassWindow")
+                            if (ChildText == ChildWindowName)
                             {
-                                Handles.ImageAreaHandle = ChildHandle;
-                                return Handles.ImageAreaHandle;
+                                Handles.ChildWindowHandle = ChildHandle;
+                                return Handles.ChildWindowHandle;
                             }
                         }
                     }
                 }
             }
-            return Handles.ImageAreaHandle;
+            if (ChildWindowName.Length > 0)
+            {
+                return Handles.ChildWindowHandle;
+            }
+            else
+            {
+                return Handles.MainWindowHandle;
+            }
         }
 
         public static String CalculateDelay(DateTime dt)
