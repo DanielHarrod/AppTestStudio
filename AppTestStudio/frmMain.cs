@@ -1328,6 +1328,7 @@ namespace AppTestStudio
         {
             Log("Starting Instance " + gameNode.GameNodeName);
 
+            // Stop any existing threads that are running on this instance.
             foreach (GameNodeGame RunningThreadGames in ThreadManager.Games)
             {
                 if (RunningThreadGames.ThreadandWindowName == gameNode.ThreadandWindowName)
@@ -1451,7 +1452,7 @@ namespace AppTestStudio
             GameNodeGame GameNode = Node.GetGameNodeGame();
             String TargetWindow = GameNode.TargetWindow;
 
-            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow, Definitions.NoxWorkWindowName);
+            IntPtr MainWindowHandle = GameNode.GetWindowHandleByWindowName();
 
             Debug.Print("cmdObjectScreenshotsTakeAScreenshot_Click TW=" + TargetWindow + " MWH= " + MainWindowHandle);
 
@@ -2644,7 +2645,7 @@ namespace AppTestStudio
                 }
             }
 
-            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(game.TargetWindow, Definitions.NoxWorkWindowName);
+            IntPtr MainWindowHandle = game.GetWindowHandleByWindowName();
 
             //For Each P As Process In Process.GetProcesses()
             //    if (P.MainWindowTitle.Length() > 0)
@@ -3587,7 +3588,7 @@ namespace AppTestStudio
 
             String MainWindowTitle = GameNode.TargetWindow;
 
-            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(MainWindowTitle, Definitions.NoxWorkWindowName);
+            IntPtr MainWindowHandle = GameNode.GetWindowHandleByWindowName();
 
             if (MainWindowHandle.ToInt32() > 0)
             {
@@ -3665,7 +3666,7 @@ namespace AppTestStudio
 
             String TargetWindow = GameNode.TargetWindow;
 
-            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow, Definitions.NoxWorkWindowName);
+            IntPtr MainWindowHandle = GameNode.GetWindowHandleByWindowName();
 
             Debug.Print("cmdAddSingleColorAtSingleLocationTakeASceenshot_Click TW=" + TargetWindow + " MWH= " + MainWindowHandle);
 
@@ -4293,7 +4294,7 @@ namespace AppTestStudio
             tvTestAllEvents.ExpandAll();
 
             String TargetWindow = GameNode.TargetWindow;
-            IntPtr MainWindowHandle = Utils.GetWindowHandleByWindowName(TargetWindow, Definitions.NoxWorkWindowName);
+            IntPtr MainWindowHandle = GameNode.GetWindowHandleByWindowName();
 
             if (MainWindowHandle.ToInt32() > 0)
             {

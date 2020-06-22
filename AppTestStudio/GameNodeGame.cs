@@ -83,9 +83,26 @@ namespace AppTestStudio
         public Boolean IsPaused { get; set; }
 
         public String TargetWindow
-        {
+        {            
             get
             {
+                switch (Platform)
+                {
+                    case Platform.NoxPlayer:
+                        return "ATS" + InstanceToLaunch + "Window";
+                        break;
+                    case Platform.Steam:
+                        return SteamWindowName;
+                        break;
+                    case Platform.Application:
+                        return ApplicationWindowName;
+                        break;
+                    default:
+                        break;
+                }
+
+                // should not come here.
+                Debug.Assert(false);
                 return "ATS" + InstanceToLaunch + "Window";
             }
         }
@@ -1602,6 +1619,29 @@ namespace AppTestStudio
                 }
             }
             return null;
+        }
+
+
+        public IntPtr GetWindowHandleByWindowName()
+        {
+
+            IntPtr Result = IntPtr.Zero;
+            switch (Platform)
+            {
+                case Platform.NoxPlayer:
+                    Result = Utils.GetWindowHandleByWindowName(TargetWindow, Definitions.NoxWorkWindowName);
+                    break;
+                case Platform.Steam:
+                    Result = Utils.GetWindowHandleByWindowName(TargetWindow, "");
+                    break;
+                case Platform.Application:
+                    Result = Utils.GetWindowHandleByWindowName(TargetWindow, "");
+                    break;
+                default:
+                    break;
+            }
+            
+            return Result;
         }
     }
 }
