@@ -12,13 +12,20 @@ using System.Threading.Tasks;
 namespace AppTestStudio
 {
 
+    public enum Platform
+    {
+        NoxPlayer,
+        Steam,
+        Application
+    }
+
     public enum GameNodeType
     {
         Workspace,
         Games,
         Game,
         Events,
-//        Event, - No longer used Moved to Action
+        //        Event, - No longer used Moved to Action
         Action,
         Objects,
         ObjectScreenshot,
@@ -76,6 +83,8 @@ namespace AppTestStudio
         Left = 8,
         Default = Left | Top
     }
+
+
 
     public static class AnchorModeButtonColors
     {

@@ -639,6 +639,11 @@ namespace AppTestStudio
             NumericVideoFrameLimit.Value = gameNode.VideoFrameLimit;
             numericApplicationDefaultClickSpeed.Value = gameNode.DefaultClickSpeed;
             cboDPI.Text = gameNode.DPI.ToString();
+
+            cboPlatform.Text = gameNode.Platform.ToString();
+            txtSteamID.Text = gameNode.SteamID.ToString();
+            txtPathToApplicationExe.Text = gameNode.PathToApplicationEXE;
+            cboPlatform_TextChanged(null, null);
         }
 
         private void LoadObject(GameNodeObject node)
@@ -6140,6 +6145,90 @@ namespace AppTestStudio
             }
             PictureBoxObject.Invalidate();
             
+        }
+
+        private void txtSteamID_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if ( !char.IsNumber(e.KeyChar) )
+            {
+                e.Handled = true;
+            }       
+        }
+
+        private void cboPlatform_TextChanged(object sender, EventArgs e)
+        {
+            grpNox.Visible = false;
+            grpSteam.Visible = false;
+            grpApplication.Visible = false;
+            switch (cboPlatform.Text )
+            {
+                case "NoxPlayer":
+                    grpNox.Visible = true;
+                    break;
+                case "Steam":
+                    grpSteam.Visible = true;
+                    break;
+                case "Application":
+                    grpApplication.Visible = true;
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void cboPlatform_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                switch (cboPlatform.Text)
+                {
+                    case "NoxPlayer":
+                        GameNode.Platform = Platform.NoxPlayer;
+                        break;
+                    case "Application":
+                        GameNode.Platform = Platform.Application;
+                        break;
+                    case "Steam":
+                        GameNode.Platform = Platform.Steam;
+                        break;
+                    default:
+                        GameNode.Platform = Platform.NoxPlayer;
+                        Debug.Assert(false);
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+
+        }
+
+        private void txtSteamID_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                GameNode.SteamID = txtSteamID.Text.ToInt();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void txtPathToApplicationExe_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                GameNode.PathToApplicationEXE = txtPathToApplicationExe.Text;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
         }
     }
 }

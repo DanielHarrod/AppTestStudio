@@ -34,6 +34,7 @@ namespace AppTestStudio
             VideoFrameLimit = 2000;
             DefaultClickSpeed = 0;
             DPI = 192;
+            Platform = Platform.NoxPlayer;
 
             IsPaused = false;
 
@@ -126,6 +127,10 @@ namespace AppTestStudio
 
         public int DPI { get; set; }
 
+        public long SteamID { get; set; }
+        public String PathToApplicationEXE { get; set; }
+        public Platform Platform { get; set; }
+
         public GameNodeGame CloneMe()
         {
             GameNodeGame Target = new GameNodeGame(Name);
@@ -146,6 +151,10 @@ namespace AppTestStudio
             Target.VideoWidth = VideoWidth;
             Target.DefaultClickSpeed = DefaultClickSpeed;
             Target.DPI = DPI;
+
+            Target.Platform = Platform;
+            Target.PathToApplicationEXE = PathToApplicationEXE;
+            Target.SteamID = SteamID;
 
             Target.Nodes.Add(TargetEvents);
 
@@ -194,6 +203,9 @@ namespace AppTestStudio
             String LaunchInstance = "";
             int DefaultClickSpeed = 0;
             int DPI = 192;
+            Platform Platform = Platform.NoxPlayer;
+            long SteamID = 0;
+            String PathToApplicationExe = "";
 
             if (childNode.Attributes.GetNamedItem("PackageName").IsSomething())
             {
@@ -251,6 +263,36 @@ namespace AppTestStudio
                 VideoFrameLimit = Convert.ToInt64(childNode.Attributes["VideoFrameLimit"].Value);
             }
 
+            if (childNode.Attributes.GetNamedItem("Platform").IsSomething())
+            {
+                String PlatformValue = childNode.Attributes["Platform"].Value;
+                switch (PlatformValue.Trim().ToUpper())
+                {
+                    case "NOXPLAYER":
+                        Platform = Platform.NoxPlayer;
+                        break;
+                    case "APPLICATION":
+                        Platform = Platform.Application;
+                        break;
+                    case "STEAM":
+                        Platform = Platform.Steam;
+                        break;
+                    default:
+                        Platform = Platform.NoxPlayer;
+                        break;
+                }
+            }
+
+            if (childNode.Attributes.GetNamedItem("SteamID").IsSomething())
+            {
+                SteamID = Convert.ToInt64(childNode.Attributes["SteamID"].Value);
+            }
+            if (childNode.Attributes.GetNamedItem("PathToApplicationExe").IsSomething())
+            {
+                PathToApplicationExe = childNode.Attributes["PathToApplicationExe"].Value;
+            }
+
+
             GameNodeGame Game = new GameNodeGame(GameName);
             Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
@@ -263,6 +305,9 @@ namespace AppTestStudio
             Game.VideoFrameLimit = VideoFrameLimit;
             Game.DefaultClickSpeed = DefaultClickSpeed;
             Game.DPI = DPI;
+            Game.Platform = Platform;
+            Game.SteamID = SteamID;
+            Game.PathToApplicationEXE = PathToApplicationExe;
 
             GameNodeEvents Events = new GameNodeEvents("Events");
             Game.Nodes.Add(Events);
@@ -310,6 +355,20 @@ namespace AppTestStudio
             Writer.WriteAttributeString("VideoFrameLimit", VideoFrameLimit.ToString());
             Writer.WriteAttributeString("DefaultClickSpeed", DefaultClickSpeed.ToString()); 
             Writer.WriteAttributeString("DPI", DPI.ToString());
+            Writer.WriteAttributeString("Platform", Platform.ToString());
+            switch (Platform)
+            {
+                case Platform.NoxPlayer:
+                    break;
+                case Platform.Steam:
+                    Writer.WriteAttributeString("SteamID", SteamID.ToString());
+                    break;
+                case Platform.Application:
+                    Writer.WriteAttributeString("PathToApplicationExe", PathToApplicationEXE);
+                    break;
+                default:
+                    break;
+            }            
 
             GameNode Events = Nodes[0] as GameNode;
 

@@ -30,23 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle69 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle70 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle81 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle82 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle83 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle84 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle85 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -225,9 +225,6 @@
             this.cmdRightDragMode = new System.Windows.Forms.Button();
             this.PanelGame = new System.Windows.Forms.Panel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.label61 = new System.Windows.Forms.Label();
-            this.cboDPI = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.label42 = new System.Windows.Forms.Label();
             this.numericApplicationDefaultClickSpeed = new System.Windows.Forms.NumericUpDown();
@@ -239,18 +236,7 @@
             this.cmdStartEmmulatorPackageAndRunScript = new System.Windows.Forms.Button();
             this.cmdStartEmmulatorAndPackage = new System.Windows.Forms.Button();
             this.cmdStartEmmulator = new System.Windows.Forms.Button();
-            this.Label26 = new System.Windows.Forms.Label();
-            this.cboGameInstances = new System.Windows.Forms.ComboBox();
-            this.cboResolution = new System.Windows.Forms.ComboBox();
-            this.Label33 = new System.Windows.Forms.Label();
-            this.txtGamePanelLoopDelay = new System.Windows.Forms.TextBox();
-            this.Label30 = new System.Windows.Forms.Label();
-            this.txtGamePanelLaunchInstance = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.Label16 = new System.Windows.Forms.Label();
-            this.txtPackageName = new System.Windows.Forms.TextBox();
             this.txtGamePanelVersion = new System.Windows.Forms.TextBox();
-            this.Label25 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.lblGamePanelGameName = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -429,6 +415,32 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripCurrentDesignInstance = new System.Windows.Forms.ToolStripLabel();
             this.toolStripInstances = new System.Windows.Forms.ToolStripDropDownButton();
+            this.cboPlatform = new System.Windows.Forms.ComboBox();
+            this.label62 = new System.Windows.Forms.Label();
+            this.grpNox = new System.Windows.Forms.GroupBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.cboDPI = new System.Windows.Forms.ComboBox();
+            this.Label26 = new System.Windows.Forms.Label();
+            this.cboGameInstances = new System.Windows.Forms.ComboBox();
+            this.cboResolution = new System.Windows.Forms.ComboBox();
+            this.Label33 = new System.Windows.Forms.Label();
+            this.txtGamePanelLoopDelay = new System.Windows.Forms.TextBox();
+            this.Label30 = new System.Windows.Forms.Label();
+            this.txtGamePanelLaunchInstance = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Label16 = new System.Windows.Forms.Label();
+            this.txtPackageName = new System.Windows.Forms.TextBox();
+            this.Label25 = new System.Windows.Forms.Label();
+            this.label63 = new System.Windows.Forms.Label();
+            this.grpSteam = new System.Windows.Forms.GroupBox();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.txtSteamID = new System.Windows.Forms.TextBox();
+            this.grpApplication = new System.Windows.Forms.GroupBox();
+            this.txtPathToApplicationExe = new System.Windows.Forms.TextBox();
+            this.label69 = new System.Windows.Forms.Label();
+            this.cmdPathToExePicker = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -497,7 +509,6 @@
             this.panelRightDragMode.SuspendLayout();
             this.PanelGame.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.groupBox9.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).BeginInit();
             this.grpVideo.SuspendLayout();
@@ -554,6 +565,9 @@
             this.mnuObjects.SuspendLayout();
             this.appTestStudioToolStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
+            this.grpNox.SuspendLayout();
+            this.grpSteam.SuspendLayout();
+            this.grpApplication.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -586,7 +600,7 @@
             this.wizardRecommendedToolStripMenuItem,
             this.manualToolStripMenuItem});
             this.newToolStripMenuItem.Name = "newToolStripMenuItem";
-            this.newToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
+            this.newToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.newToolStripMenuItem.Text = "New";
             // 
             // wizardRecommendedToolStripMenuItem
@@ -606,7 +620,7 @@
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(224, 6);
+            this.toolStripSeparator1.Size = new System.Drawing.Size(267, 6);
             // 
             // importExportToolStripMenuItem
             // 
@@ -614,7 +628,7 @@
             this.importToolStripMenuItem,
             this.exportToolStripMenuItem});
             this.importExportToolStripMenuItem.Name = "importExportToolStripMenuItem";
-            this.importExportToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
+            this.importExportToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.importExportToolStripMenuItem.Text = "Import/Export";
             // 
             // importToolStripMenuItem
@@ -650,12 +664,12 @@
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(224, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(267, 6);
             // 
             // exitToolStripMenuItem
             // 
             this.exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            this.exitToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
+            this.exitToolStripMenuItem.Size = new System.Drawing.Size(270, 34);
             this.exitToolStripMenuItem.Text = "Exit";
             this.exitToolStripMenuItem.Click += new System.EventHandler(this.exitToolStripMenuItem_Click);
             // 
@@ -904,7 +918,7 @@
             this.PanelObject.Controls.Add(this.txtObjectName);
             this.PanelObject.Controls.Add(this.Label47);
             this.PanelObject.Controls.Add(this.Label46);
-            this.PanelObject.Location = new System.Drawing.Point(32, 19);
+            this.PanelObject.Location = new System.Drawing.Point(1602, 29);
             this.PanelObject.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanelObject.Name = "PanelObject";
             this.PanelObject.Size = new System.Drawing.Size(1407, 758);
@@ -2427,48 +2441,48 @@
             // 
             // dgvID
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvID.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle69.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvID.DefaultCellStyle = dataGridViewCellStyle69;
             this.dgvID.HeaderText = "ID";
             this.dgvID.MinimumWidth = 10;
             this.dgvID.Name = "dgvID";
             // 
             // dgvRed
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle70.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle70;
             this.dgvRed.HeaderText = "R";
             this.dgvRed.MinimumWidth = 10;
             this.dgvRed.Name = "dgvRed";
             // 
             // dgvBlue
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle71;
             this.dgvBlue.HeaderText = "B";
             this.dgvBlue.MinimumWidth = 10;
             this.dgvBlue.Name = "dgvBlue";
             // 
             // dgvGreen
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle72;
             this.dgvGreen.HeaderText = "G";
             this.dgvGreen.MinimumWidth = 10;
             this.dgvGreen.Name = "dgvGreen";
             // 
             // dgvX
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvX.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvX.DefaultCellStyle = dataGridViewCellStyle73;
             this.dgvX.HeaderText = "X";
             this.dgvX.MinimumWidth = 10;
             this.dgvX.Name = "dgvX";
             // 
             // dgvY
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvY.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvY.DefaultCellStyle = dataGridViewCellStyle74;
             this.dgvY.HeaderText = "Y";
             this.dgvY.MinimumWidth = 10;
             this.dgvY.Name = "dgvY";
@@ -2975,86 +2989,37 @@
             // 
             // PanelGame
             // 
+            this.PanelGame.Controls.Add(this.cboPlatform);
             this.PanelGame.Controls.Add(this.groupBox1);
             this.PanelGame.Controls.Add(this.grpVideo);
             this.PanelGame.Controls.Add(this.cmdRunScript);
             this.PanelGame.Controls.Add(this.cmdStartEmmulatorPackageAndRunScript);
             this.PanelGame.Controls.Add(this.cmdStartEmmulatorAndPackage);
             this.PanelGame.Controls.Add(this.cmdStartEmmulator);
-            this.PanelGame.Controls.Add(this.Label26);
-            this.PanelGame.Controls.Add(this.cboGameInstances);
-            this.PanelGame.Controls.Add(this.cboResolution);
-            this.PanelGame.Controls.Add(this.Label33);
-            this.PanelGame.Controls.Add(this.txtGamePanelLoopDelay);
-            this.PanelGame.Controls.Add(this.Label30);
-            this.PanelGame.Controls.Add(this.txtGamePanelLaunchInstance);
-            this.PanelGame.Controls.Add(this.label12);
-            this.PanelGame.Controls.Add(this.Label16);
-            this.PanelGame.Controls.Add(this.txtPackageName);
             this.PanelGame.Controls.Add(this.txtGamePanelVersion);
-            this.PanelGame.Controls.Add(this.Label25);
             this.PanelGame.Controls.Add(this.label17);
             this.PanelGame.Controls.Add(this.lblGamePanelGameName);
+            this.PanelGame.Controls.Add(this.label62);
             this.PanelGame.Controls.Add(this.label18);
             this.PanelGame.Controls.Add(this.label22);
-            this.PanelGame.Location = new System.Drawing.Point(1042, 185);
+            this.PanelGame.Controls.Add(this.grpApplication);
+            this.PanelGame.Controls.Add(this.grpSteam);
+            this.PanelGame.Controls.Add(this.grpNox);
+            this.PanelGame.Location = new System.Drawing.Point(49, 29);
             this.PanelGame.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanelGame.Name = "PanelGame";
-            this.PanelGame.Size = new System.Drawing.Size(1179, 623);
+            this.PanelGame.Size = new System.Drawing.Size(1288, 758);
             this.PanelGame.TabIndex = 13;
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.groupBox9);
             this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(632, 109);
+            this.groupBox1.Location = new System.Drawing.Point(225, 572);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(528, 392);
+            this.groupBox1.Size = new System.Drawing.Size(528, 132);
             this.groupBox1.TabIndex = 33;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Defaults";
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.label61);
-            this.groupBox9.Controls.Add(this.cboDPI);
-            this.groupBox9.Location = new System.Drawing.Point(18, 122);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox9.Size = new System.Drawing.Size(494, 102);
-            this.groupBox9.TabIndex = 36;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "DPI (Dots Per Inch)";
-            // 
-            // label61
-            // 
-            this.label61.Location = new System.Drawing.Point(170, 15);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(342, 82);
-            this.label61.TabIndex = 36;
-            this.label61.Text = "DPI: some apps are DPI aware and adjust.  Those apps need consistent dpi for tran" +
-    "sportability.  Most apps do not use this setting.";
-            // 
-            // cboDPI
-            // 
-            this.cboDPI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDPI.FormattingEnabled = true;
-            this.cboDPI.Items.AddRange(new object[] {
-            "96",
-            "120",
-            "144",
-            "192",
-            "240",
-            "288",
-            "384",
-            "480"});
-            this.cboDPI.Location = new System.Drawing.Point(15, 40);
-            this.cboDPI.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cboDPI.Name = "cboDPI";
-            this.cboDPI.Size = new System.Drawing.Size(145, 28);
-            this.cboDPI.TabIndex = 35;
-            this.cboDPI.SelectedIndexChanged += new System.EventHandler(this.cboDPI_SelectedIndexChanged);
             // 
             // groupBox2
             // 
@@ -3096,11 +3061,11 @@
             this.grpVideo.Controls.Add(this.lblFrameLimit);
             this.grpVideo.Controls.Add(this.NumericVideoFrameLimit);
             this.grpVideo.Controls.Add(this.chkSaveVideo);
-            this.grpVideo.Location = new System.Drawing.Point(225, 414);
+            this.grpVideo.Location = new System.Drawing.Point(225, 418);
             this.grpVideo.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.grpVideo.Name = "grpVideo";
             this.grpVideo.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.grpVideo.Size = new System.Drawing.Size(300, 140);
+            this.grpVideo.Size = new System.Drawing.Size(300, 117);
             this.grpVideo.TabIndex = 32;
             this.grpVideo.TabStop = false;
             this.grpVideo.Text = "Video";
@@ -3144,7 +3109,7 @@
             // 
             // cmdRunScript
             // 
-            this.cmdRunScript.Location = new System.Drawing.Point(220, 277);
+            this.cmdRunScript.Location = new System.Drawing.Point(783, 466);
             this.cmdRunScript.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdRunScript.Name = "cmdRunScript";
             this.cmdRunScript.Size = new System.Drawing.Size(396, 35);
@@ -3155,7 +3120,7 @@
             // 
             // cmdStartEmmulatorPackageAndRunScript
             // 
-            this.cmdStartEmmulatorPackageAndRunScript.Location = new System.Drawing.Point(220, 366);
+            this.cmdStartEmmulatorPackageAndRunScript.Location = new System.Drawing.Point(783, 555);
             this.cmdStartEmmulatorPackageAndRunScript.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdStartEmmulatorPackageAndRunScript.Name = "cmdStartEmmulatorPackageAndRunScript";
             this.cmdStartEmmulatorPackageAndRunScript.Size = new System.Drawing.Size(396, 35);
@@ -3166,7 +3131,7 @@
             // 
             // cmdStartEmmulatorAndPackage
             // 
-            this.cmdStartEmmulatorAndPackage.Location = new System.Drawing.Point(220, 322);
+            this.cmdStartEmmulatorAndPackage.Location = new System.Drawing.Point(783, 511);
             this.cmdStartEmmulatorAndPackage.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdStartEmmulatorAndPackage.Name = "cmdStartEmmulatorAndPackage";
             this.cmdStartEmmulatorAndPackage.Size = new System.Drawing.Size(396, 35);
@@ -3177,7 +3142,7 @@
             // 
             // cmdStartEmmulator
             // 
-            this.cmdStartEmmulator.Location = new System.Drawing.Point(220, 232);
+            this.cmdStartEmmulator.Location = new System.Drawing.Point(783, 421);
             this.cmdStartEmmulator.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.cmdStartEmmulator.Name = "cmdStartEmmulator";
             this.cmdStartEmmulator.Size = new System.Drawing.Size(396, 35);
@@ -3186,137 +3151,20 @@
             this.cmdStartEmmulator.UseVisualStyleBackColor = true;
             this.cmdStartEmmulator.Click += new System.EventHandler(this.cmdStartEmmulator_Click);
             // 
-            // Label26
-            // 
-            this.Label26.AutoSize = true;
-            this.Label26.Location = new System.Drawing.Point(326, 117);
-            this.Label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label26.Name = "Label26";
-            this.Label26.Size = new System.Drawing.Size(143, 20);
-            this.Label26.TabIndex = 20;
-            this.Label26.Text = "Installed Instances";
-            // 
-            // cboGameInstances
-            // 
-            this.cboGameInstances.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboGameInstances.FormattingEnabled = true;
-            this.cboGameInstances.Location = new System.Drawing.Point(470, 109);
-            this.cboGameInstances.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cboGameInstances.Name = "cboGameInstances";
-            this.cboGameInstances.Size = new System.Drawing.Size(145, 28);
-            this.cboGameInstances.TabIndex = 19;
-            this.cboGameInstances.SelectedIndexChanged += new System.EventHandler(this.cboGameInstances_SelectedIndexChanged);
-            // 
-            // cboResolution
-            // 
-            this.cboResolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboResolution.FormattingEnabled = true;
-            this.cboResolution.Items.AddRange(new object[] {
-            "640x360",
-            "667x375",
-            "1024x768",
-            "1280x800"});
-            this.cboResolution.Location = new System.Drawing.Point(220, 191);
-            this.cboResolution.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cboResolution.Name = "cboResolution";
-            this.cboResolution.Size = new System.Drawing.Size(394, 28);
-            this.cboResolution.TabIndex = 18;
-            this.cboResolution.SelectedIndexChanged += new System.EventHandler(this.cboResolution_SelectedIndexChanged);
-            // 
-            // Label33
-            // 
-            this.Label33.AutoSize = true;
-            this.Label33.Location = new System.Drawing.Point(381, 154);
-            this.Label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label33.Name = "Label33";
-            this.Label33.Size = new System.Drawing.Size(129, 20);
-            this.Label33.TabIndex = 15;
-            this.Label33.Text = "1,000 ms = 1 sec";
-            // 
-            // txtGamePanelLoopDelay
-            // 
-            this.txtGamePanelLoopDelay.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGamePanelLoopDelay.Location = new System.Drawing.Point(220, 151);
-            this.txtGamePanelLoopDelay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtGamePanelLoopDelay.Name = "txtGamePanelLoopDelay";
-            this.txtGamePanelLoopDelay.Size = new System.Drawing.Size(148, 26);
-            this.txtGamePanelLoopDelay.TabIndex = 14;
-            this.txtGamePanelLoopDelay.TextChanged += new System.EventHandler(this.txtGamePanelLoopDelay_TextChanged);
-            // 
-            // Label30
-            // 
-            this.Label30.AutoSize = true;
-            this.Label30.Location = new System.Drawing.Point(9, 151);
-            this.Label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label30.Name = "Label30";
-            this.Label30.Size = new System.Drawing.Size(124, 20);
-            this.Label30.TabIndex = 13;
-            this.Label30.Text = "Loop Delay (ms)";
-            // 
-            // txtGamePanelLaunchInstance
-            // 
-            this.txtGamePanelLaunchInstance.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGamePanelLaunchInstance.Location = new System.Drawing.Point(220, 112);
-            this.txtGamePanelLaunchInstance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtGamePanelLaunchInstance.Name = "txtGamePanelLaunchInstance";
-            this.txtGamePanelLaunchInstance.Size = new System.Drawing.Size(94, 26);
-            this.txtGamePanelLaunchInstance.TabIndex = 12;
-            this.txtGamePanelLaunchInstance.TextChanged += new System.EventHandler(this.txtGamePanelLaunchInstance_TextChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(9, 112);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(140, 20);
-            this.label12.TabIndex = 11;
-            this.label12.Text = "Instance to launch";
-            // 
-            // Label16
-            // 
-            this.Label16.AutoSize = true;
-            this.Label16.Location = new System.Drawing.Point(9, 72);
-            this.Label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label16.Name = "Label16";
-            this.Label16.Size = new System.Drawing.Size(117, 20);
-            this.Label16.TabIndex = 11;
-            this.Label16.Text = "Package Name";
-            // 
-            // txtPackageName
-            // 
-            this.txtPackageName.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPackageName.Location = new System.Drawing.Point(220, 72);
-            this.txtPackageName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtPackageName.Name = "txtPackageName";
-            this.txtPackageName.Size = new System.Drawing.Size(712, 26);
-            this.txtPackageName.TabIndex = 10;
-            this.txtPackageName.TextChanged += new System.EventHandler(this.txtPackageName_TextChanged);
-            // 
             // txtGamePanelVersion
             // 
             this.txtGamePanelVersion.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGamePanelVersion.Location = new System.Drawing.Point(902, 160);
+            this.txtGamePanelVersion.Location = new System.Drawing.Point(411, 712);
             this.txtGamePanelVersion.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtGamePanelVersion.Name = "txtGamePanelVersion";
             this.txtGamePanelVersion.Size = new System.Drawing.Size(268, 26);
             this.txtGamePanelVersion.TabIndex = 6;
             this.txtGamePanelVersion.Visible = false;
             // 
-            // Label25
-            // 
-            this.Label25.AutoSize = true;
-            this.Label25.Location = new System.Drawing.Point(9, 195);
-            this.Label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label25.Name = "Label25";
-            this.Label25.Size = new System.Drawing.Size(126, 20);
-            this.Label25.TabIndex = 5;
-            this.Label25.Text = "Initial Resolution";
-            // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(722, 165);
+            this.label17.Location = new System.Drawing.Point(231, 717);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(161, 20);
@@ -3876,14 +3724,14 @@
             // 
             this.dgvTest.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle75.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle75.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle75.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle75.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle75.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle75.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle75;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTestID,
@@ -3894,14 +3742,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle76.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle76.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle76.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle76.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle76.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle76.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle76;
             this.dgvTest.Location = new System.Drawing.Point(949, 348);
             this.dgvTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvTest.Name = "dgvTest";
@@ -3972,14 +3820,14 @@
             // dgvTestAllReference
             // 
             this.dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle77.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle77.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle77.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle77.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle77;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceID,
@@ -3988,14 +3836,14 @@
             this.dgvTestAllReferenceBlue,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle78.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle78.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle78.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle78.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle78.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle78.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle78;
             this.dgvTestAllReference.Location = new System.Drawing.Point(949, 74);
             this.dgvTestAllReference.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
@@ -4268,8 +4116,8 @@
             // 
             // colMon
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colMon.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colMon.DefaultCellStyle = dataGridViewCellStyle79;
             this.colMon.HeaderText = "Mon";
             this.colMon.MaxInputLength = 1;
             this.colMon.MinimumWidth = 37;
@@ -4279,8 +4127,8 @@
             // 
             // colTue
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colTue.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colTue.DefaultCellStyle = dataGridViewCellStyle80;
             this.colTue.HeaderText = "Tue";
             this.colTue.MaxInputLength = 1;
             this.colTue.MinimumWidth = 37;
@@ -4290,8 +4138,8 @@
             // 
             // colWed
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colWed.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle81.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colWed.DefaultCellStyle = dataGridViewCellStyle81;
             this.colWed.HeaderText = "Wed";
             this.colWed.MaxInputLength = 1;
             this.colWed.MinimumWidth = 37;
@@ -4301,8 +4149,8 @@
             // 
             // colThu
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colThu.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle82.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colThu.DefaultCellStyle = dataGridViewCellStyle82;
             this.colThu.HeaderText = "Thu";
             this.colThu.MaxInputLength = 1;
             this.colThu.MinimumWidth = 37;
@@ -4312,8 +4160,8 @@
             // 
             // colFri
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colFri.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle83.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colFri.DefaultCellStyle = dataGridViewCellStyle83;
             this.colFri.HeaderText = "Fri";
             this.colFri.MaxInputLength = 1;
             this.colFri.MinimumWidth = 37;
@@ -4323,8 +4171,8 @@
             // 
             // colSat
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSat.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle84.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSat.DefaultCellStyle = dataGridViewCellStyle84;
             this.colSat.HeaderText = "Sat";
             this.colSat.MaxInputLength = 1;
             this.colSat.MinimumWidth = 37;
@@ -4334,8 +4182,8 @@
             // 
             // colSun
             // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSun.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle85.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSun.DefaultCellStyle = dataGridViewCellStyle85;
             this.colSun.HeaderText = "Sun";
             this.colSun.MaxInputLength = 1;
             this.colSun.MinimumWidth = 37;
@@ -5199,6 +5047,296 @@
             this.toolStripInstances.Size = new System.Drawing.Size(111, 29);
             this.toolStripInstances.Text = "Instance #";
             // 
+            // cboPlatform
+            // 
+            this.cboPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPlatform.FormattingEnabled = true;
+            this.cboPlatform.Items.AddRange(new object[] {
+            "NoxPlayer",
+            "Steam",
+            "Application"});
+            this.cboPlatform.Location = new System.Drawing.Point(220, 70);
+            this.cboPlatform.Name = "cboPlatform";
+            this.cboPlatform.Size = new System.Drawing.Size(345, 28);
+            this.cboPlatform.TabIndex = 37;
+            this.cboPlatform.SelectedIndexChanged += new System.EventHandler(this.cboPlatform_SelectedIndexChanged);
+            this.cboPlatform.TextChanged += new System.EventHandler(this.cboPlatform_TextChanged);
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(9, 78);
+            this.label62.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(68, 20);
+            this.label62.TabIndex = 1;
+            this.label62.Text = "Platform";
+            // 
+            // grpNox
+            // 
+            this.grpNox.Controls.Add(this.label61);
+            this.grpNox.Controls.Add(this.cboDPI);
+            this.grpNox.Controls.Add(this.Label26);
+            this.grpNox.Controls.Add(this.cboGameInstances);
+            this.grpNox.Controls.Add(this.cboResolution);
+            this.grpNox.Controls.Add(this.Label33);
+            this.grpNox.Controls.Add(this.txtGamePanelLoopDelay);
+            this.grpNox.Controls.Add(this.Label30);
+            this.grpNox.Controls.Add(this.txtGamePanelLaunchInstance);
+            this.grpNox.Controls.Add(this.label12);
+            this.grpNox.Controls.Add(this.Label16);
+            this.grpNox.Controls.Add(this.txtPackageName);
+            this.grpNox.Controls.Add(this.label63);
+            this.grpNox.Controls.Add(this.Label25);
+            this.grpNox.Location = new System.Drawing.Point(220, 113);
+            this.grpNox.Name = "grpNox";
+            this.grpNox.Size = new System.Drawing.Size(959, 297);
+            this.grpNox.TabIndex = 38;
+            this.grpNox.TabStop = false;
+            this.grpNox.Text = "Nox Player";
+            // 
+            // label61
+            // 
+            this.label61.Location = new System.Drawing.Point(385, 198);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(342, 82);
+            this.label61.TabIndex = 36;
+            this.label61.Text = "DPI: some apps are DPI aware and adjust.  Those apps need consistent dpi for tran" +
+    "sportability.  Most apps do not use this setting.";
+            // 
+            // cboDPI
+            // 
+            this.cboDPI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDPI.FormattingEnabled = true;
+            this.cboDPI.Items.AddRange(new object[] {
+            "96",
+            "120",
+            "144",
+            "192",
+            "240",
+            "288",
+            "384",
+            "480"});
+            this.cboDPI.Location = new System.Drawing.Point(224, 199);
+            this.cboDPI.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboDPI.Name = "cboDPI";
+            this.cboDPI.Size = new System.Drawing.Size(145, 28);
+            this.cboDPI.TabIndex = 35;
+            // 
+            // Label26
+            // 
+            this.Label26.AutoSize = true;
+            this.Label26.Location = new System.Drawing.Point(330, 79);
+            this.Label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label26.Name = "Label26";
+            this.Label26.Size = new System.Drawing.Size(143, 20);
+            this.Label26.TabIndex = 47;
+            this.Label26.Text = "Installed Instances";
+            // 
+            // cboGameInstances
+            // 
+            this.cboGameInstances.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGameInstances.FormattingEnabled = true;
+            this.cboGameInstances.Location = new System.Drawing.Point(474, 71);
+            this.cboGameInstances.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboGameInstances.Name = "cboGameInstances";
+            this.cboGameInstances.Size = new System.Drawing.Size(145, 28);
+            this.cboGameInstances.TabIndex = 46;
+            // 
+            // cboResolution
+            // 
+            this.cboResolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboResolution.FormattingEnabled = true;
+            this.cboResolution.Items.AddRange(new object[] {
+            "640x360",
+            "667x375",
+            "1024x768",
+            "1280x800"});
+            this.cboResolution.Location = new System.Drawing.Point(224, 153);
+            this.cboResolution.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cboResolution.Name = "cboResolution";
+            this.cboResolution.Size = new System.Drawing.Size(394, 28);
+            this.cboResolution.TabIndex = 45;
+            // 
+            // Label33
+            // 
+            this.Label33.AutoSize = true;
+            this.Label33.Location = new System.Drawing.Point(385, 116);
+            this.Label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label33.Name = "Label33";
+            this.Label33.Size = new System.Drawing.Size(129, 20);
+            this.Label33.TabIndex = 44;
+            this.Label33.Text = "1,000 ms = 1 sec";
+            // 
+            // txtGamePanelLoopDelay
+            // 
+            this.txtGamePanelLoopDelay.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGamePanelLoopDelay.Location = new System.Drawing.Point(224, 113);
+            this.txtGamePanelLoopDelay.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtGamePanelLoopDelay.Name = "txtGamePanelLoopDelay";
+            this.txtGamePanelLoopDelay.Size = new System.Drawing.Size(148, 26);
+            this.txtGamePanelLoopDelay.TabIndex = 43;
+            // 
+            // Label30
+            // 
+            this.Label30.AutoSize = true;
+            this.Label30.Location = new System.Drawing.Point(13, 113);
+            this.Label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label30.Name = "Label30";
+            this.Label30.Size = new System.Drawing.Size(124, 20);
+            this.Label30.TabIndex = 42;
+            this.Label30.Text = "Loop Delay (ms)";
+            // 
+            // txtGamePanelLaunchInstance
+            // 
+            this.txtGamePanelLaunchInstance.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGamePanelLaunchInstance.Location = new System.Drawing.Point(224, 74);
+            this.txtGamePanelLaunchInstance.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtGamePanelLaunchInstance.Name = "txtGamePanelLaunchInstance";
+            this.txtGamePanelLaunchInstance.Size = new System.Drawing.Size(94, 26);
+            this.txtGamePanelLaunchInstance.TabIndex = 41;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(13, 74);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(140, 20);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Instance to launch";
+            // 
+            // Label16
+            // 
+            this.Label16.AutoSize = true;
+            this.Label16.Location = new System.Drawing.Point(13, 33);
+            this.Label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label16.Name = "Label16";
+            this.Label16.Size = new System.Drawing.Size(117, 20);
+            this.Label16.TabIndex = 40;
+            this.Label16.Text = "Package Name";
+            // 
+            // txtPackageName
+            // 
+            this.txtPackageName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPackageName.Location = new System.Drawing.Point(224, 33);
+            this.txtPackageName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtPackageName.Name = "txtPackageName";
+            this.txtPackageName.Size = new System.Drawing.Size(712, 26);
+            this.txtPackageName.TabIndex = 38;
+            // 
+            // Label25
+            // 
+            this.Label25.AutoSize = true;
+            this.Label25.Location = new System.Drawing.Point(13, 157);
+            this.Label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label25.Name = "Label25";
+            this.Label25.Size = new System.Drawing.Size(126, 20);
+            this.Label25.TabIndex = 37;
+            this.Label25.Text = "Initial Resolution";
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(17, 199);
+            this.label63.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(147, 20);
+            this.label63.TabIndex = 37;
+            this.label63.Text = "DPI (Dots Per Inch)";
+            // 
+            // grpSteam
+            // 
+            this.grpSteam.Controls.Add(this.txtSteamID);
+            this.grpSteam.Controls.Add(this.label66);
+            this.grpSteam.Controls.Add(this.label65);
+            this.grpSteam.Controls.Add(this.label64);
+            this.grpSteam.Location = new System.Drawing.Point(220, 113);
+            this.grpSteam.Name = "grpSteam";
+            this.grpSteam.Size = new System.Drawing.Size(959, 297);
+            this.grpSteam.TabIndex = 39;
+            this.grpSteam.TabStop = false;
+            this.grpSteam.Text = "Steam";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(21, 40);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(159, 20);
+            this.label64.TabIndex = 0;
+            this.label64.Text = "Steam Application ID";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(201, 154);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(380, 20);
+            this.label65.TabIndex = 2;
+            this.label65.Text = "Steam ID\'s Look like this: steam://rungameid/285920";
+            // 
+            // label66
+            // 
+            this.label66.Location = new System.Drawing.Point(205, 74);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(329, 71);
+            this.label66.TabIndex = 3;
+            this.label66.Text = "Enter the Steam Game Number Ex.  285920  Right Click a steam app Icon, then go to" +
+    " properties.";
+            // 
+            // txtSteamID
+            // 
+            this.txtSteamID.Location = new System.Drawing.Point(201, 39);
+            this.txtSteamID.Name = "txtSteamID";
+            this.txtSteamID.Size = new System.Drawing.Size(332, 26);
+            this.txtSteamID.TabIndex = 4;
+            this.txtSteamID.TextChanged += new System.EventHandler(this.txtSteamID_TextChanged);
+            this.txtSteamID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSteamID_KeyPress);
+            // 
+            // grpApplication
+            // 
+            this.grpApplication.Controls.Add(this.cmdPathToExePicker);
+            this.grpApplication.Controls.Add(this.txtPathToApplicationExe);
+            this.grpApplication.Controls.Add(this.label69);
+            this.grpApplication.Location = new System.Drawing.Point(218, 116);
+            this.grpApplication.Name = "grpApplication";
+            this.grpApplication.Size = new System.Drawing.Size(959, 297);
+            this.grpApplication.TabIndex = 40;
+            this.grpApplication.TabStop = false;
+            this.grpApplication.Text = "Application";
+            // 
+            // txtPathToApplicationExe
+            // 
+            this.txtPathToApplicationExe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPathToApplicationExe.Location = new System.Drawing.Point(25, 68);
+            this.txtPathToApplicationExe.Name = "txtPathToApplicationExe";
+            this.txtPathToApplicationExe.Size = new System.Drawing.Size(869, 26);
+            this.txtPathToApplicationExe.TabIndex = 4;
+            this.txtPathToApplicationExe.TextChanged += new System.EventHandler(this.txtPathToApplicationExe_TextChanged);
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(21, 40);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(97, 20);
+            this.label69.TabIndex = 0;
+            this.label69.Text = "Path to EXE";
+            // 
+            // cmdPathToExePicker
+            // 
+            this.cmdPathToExePicker.Enabled = false;
+            this.cmdPathToExePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdPathToExePicker.Location = new System.Drawing.Point(900, 65);
+            this.cmdPathToExePicker.Name = "cmdPathToExePicker";
+            this.cmdPathToExePicker.Size = new System.Drawing.Size(49, 30);
+            this.cmdPathToExePicker.TabIndex = 5;
+            this.cmdPathToExePicker.Text = "...";
+            this.cmdPathToExePicker.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.cmdPathToExePicker.UseVisualStyleBackColor = false;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -5310,7 +5448,6 @@
             this.PanelGame.ResumeLayout(false);
             this.PanelGame.PerformLayout();
             this.groupBox1.ResumeLayout(false);
-            this.groupBox9.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).EndInit();
             this.grpVideo.ResumeLayout(false);
@@ -5387,6 +5524,12 @@
             this.appTestStudioToolStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
+            this.grpNox.ResumeLayout(false);
+            this.grpNox.PerformLayout();
+            this.grpSteam.ResumeLayout(false);
+            this.grpSteam.PerformLayout();
+            this.grpApplication.ResumeLayout(false);
+            this.grpApplication.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -5531,18 +5674,7 @@
         internal System.Windows.Forms.Button cmdStartEmmulatorPackageAndRunScript;
         internal System.Windows.Forms.Button cmdStartEmmulatorAndPackage;
         internal System.Windows.Forms.Button cmdStartEmmulator;
-        internal System.Windows.Forms.Label Label26;
-        internal System.Windows.Forms.ComboBox cboGameInstances;
-        internal System.Windows.Forms.ComboBox cboResolution;
-        internal System.Windows.Forms.Label Label33;
-        internal System.Windows.Forms.TextBox txtGamePanelLoopDelay;
-        internal System.Windows.Forms.Label Label30;
-        internal System.Windows.Forms.TextBox txtGamePanelLaunchInstance;
-        internal System.Windows.Forms.Label label12;
-        internal System.Windows.Forms.Label Label16;
-        internal System.Windows.Forms.TextBox txtPackageName;
         internal System.Windows.Forms.TextBox txtGamePanelVersion;
-        internal System.Windows.Forms.Label Label25;
         internal System.Windows.Forms.Label label17;
         internal System.Windows.Forms.Label lblGamePanelGameName;
         internal System.Windows.Forms.Label label18;
@@ -5754,9 +5886,6 @@
         private System.Windows.Forms.GroupBox grpPropertiesRepeatsUntilFalse;
         private System.Windows.Forms.GroupBox groupBox4;
         internal System.Windows.Forms.RadioButton rdoAfterCompletionRecycle;
-        private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.Label label61;
-        private System.Windows.Forms.ComboBox cboDPI;
         private System.Windows.Forms.Panel panelRightAnchor;
         private System.Windows.Forms.Button cmdAnchorLeft;
         private System.Windows.Forms.Button cmdAnchorRight;
@@ -5776,5 +5905,31 @@
         private System.Windows.Forms.DataGridViewButtonColumn dgvScan;
         private System.Windows.Forms.DataGridViewButtonColumn dgvRemove;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ComboBox cboPlatform;
+        private System.Windows.Forms.GroupBox grpNox;
+        private System.Windows.Forms.Label label61;
+        private System.Windows.Forms.ComboBox cboDPI;
+        internal System.Windows.Forms.Label Label26;
+        internal System.Windows.Forms.ComboBox cboGameInstances;
+        internal System.Windows.Forms.ComboBox cboResolution;
+        internal System.Windows.Forms.Label Label33;
+        internal System.Windows.Forms.TextBox txtGamePanelLoopDelay;
+        internal System.Windows.Forms.Label Label30;
+        internal System.Windows.Forms.TextBox txtGamePanelLaunchInstance;
+        internal System.Windows.Forms.Label label12;
+        internal System.Windows.Forms.Label Label16;
+        internal System.Windows.Forms.TextBox txtPackageName;
+        internal System.Windows.Forms.Label label63;
+        internal System.Windows.Forms.Label Label25;
+        internal System.Windows.Forms.Label label62;
+        private System.Windows.Forms.GroupBox grpSteam;
+        private System.Windows.Forms.TextBox txtSteamID;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label65;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.GroupBox grpApplication;
+        private System.Windows.Forms.Button cmdPathToExePicker;
+        private System.Windows.Forms.TextBox txtPathToApplicationExe;
+        private System.Windows.Forms.Label label69;
     }
 }
