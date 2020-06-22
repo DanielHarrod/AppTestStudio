@@ -643,6 +643,8 @@ namespace AppTestStudio
             cboPlatform.Text = gameNode.Platform.ToString();
             txtSteamID.Text = gameNode.SteamID.ToString();
             txtPathToApplicationExe.Text = gameNode.PathToApplicationEXE;
+            txtSteamWindowName.Text = gameNode.SteamWindowName;
+            txtApplicationWindowName.Text = gameNode.ApplicationWindowName;
             cboPlatform_TextChanged(null, null);
         }
 
@@ -2255,7 +2257,21 @@ namespace AppTestStudio
 
         private void cmdStartEmmulator_Click(object sender, EventArgs e)
         {
-            String Result = Utils.LaunchInstance("", "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+            GameNodeGame Game = GetGameNode();
+            String Result = "";
+            switch (Game.Platform)
+            {
+                case Platform.NoxPlayer:
+                    Result = Utils.LaunchInstance("", "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+                    break;
+                case Platform.Steam:
+                    Result = Utils.LaunchSteamInstance(@"C:\Program Files (x86)\Steam\Steam.exe", Game.SteamID);
+                    break;
+                case Platform.Application:
+                    break;
+                default:
+                    break;
+            }
             Log(Result);
         }
 
@@ -2266,16 +2282,44 @@ namespace AppTestStudio
 
         private void cmdStartEmmulatorAndPackage_Click(object sender, EventArgs e)
         {
-            String Result = Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+            GameNodeGame Game = GetGameNode();
+            String Result = "";
+            switch (Game.Platform)
+            {
+                case Platform.NoxPlayer:
+                    Result = Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+                      break;
+                case Platform.Steam:
+                    Result = Utils.LaunchSteamInstance(@"C:\Program Files (x86)\Steam\Steam.exe", Game.SteamID);                   
+                    break;
+                case Platform.Application:
+                    break;
+                default:
+                    break;
+            }
             Log(Result);
         }
 
         private void cmdStartEmmulatorPackageAndRunScript_Click(object sender, EventArgs e)
         {
-            String Result = Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
-            LoadInstance(tv.SelectedNode as GameNodeGame);
-
+            GameNodeGame Game = GetGameNode();
+            String Result = "";
+            switch (Game.Platform)
+            {
+                case Platform.NoxPlayer:
+                    Result = Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+                    break;
+                case Platform.Steam:
+                    Result = Utils.LaunchSteamInstance(@"C:\Program Files (x86)\Steam\Steam.exe", Game.SteamID);
+                    break;
+                case Platform.Application:
+                    break;
+                default:
+                    break;
+            }
             Log(Result);
+            
+            LoadInstance(tv.SelectedNode as GameNodeGame);
         }
 
         private void chkSaveVideo_CheckedChanged(object sender, EventArgs e)
@@ -6224,6 +6268,32 @@ namespace AppTestStudio
             {
                 GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
                 GameNode.PathToApplicationEXE = txtPathToApplicationExe.Text;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void txtApplicationWindowName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                GameNode.ApplicationWindowName = txtApplicationWindowName.Text.Trim();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void txtSteamWindowName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                GameNode.SteamWindowName = txtSteamWindowName.Text.Trim();
             }
             catch (Exception ex)
             {

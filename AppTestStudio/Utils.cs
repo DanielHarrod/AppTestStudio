@@ -501,6 +501,23 @@ namespace AppTestStudio
 
         }
 
+        public static string LaunchSteamInstance(String SteamExePath, long SteamID)
+        {
+            string Result;
+            ProcessStartInfo info = new ProcessStartInfo(SteamExePath);
+            //info.FileName = SteamExePath;
+            info.WorkingDirectory = System.IO.Path.GetDirectoryName(SteamExePath);
+            info.Arguments = @"-applaunch " + SteamID;
+
+            //DOCO -hijack Take control of an existing instance of the game, if any, instead of complaining about already running.
+            // We just want it running, if it's already running that's ok.
+            info.Arguments = @"-applaunch " + SteamID + " -hijack";
+
+            Result = "Launching: " + info.FileName + " " + info.Arguments;
+            Process.Start(info);
+
+            return Result;
+        }
 
         public static String LaunchInstance(string packageName, string targetWindow, string instanceToLaunch, string resolution, int DPI)
         {

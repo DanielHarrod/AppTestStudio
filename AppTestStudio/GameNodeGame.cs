@@ -3,9 +3,11 @@
 // See LICENSE or https://mit-license.org/
 
 using AppTestStudioControls;
+using OpenCvSharp;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -131,6 +133,9 @@ namespace AppTestStudio
         public String PathToApplicationEXE { get; set; }
         public Platform Platform { get; set; }
 
+        public String SteamWindowName { get; set; }
+        public String ApplicationWindowName { get; set; }
+
         public GameNodeGame CloneMe()
         {
             GameNodeGame Target = new GameNodeGame(Name);
@@ -155,6 +160,8 @@ namespace AppTestStudio
             Target.Platform = Platform;
             Target.PathToApplicationEXE = PathToApplicationEXE;
             Target.SteamID = SteamID;
+            Target.SteamWindowName = SteamWindowName;
+            Target.ApplicationWindowName = ApplicationWindowName;
 
             Target.Nodes.Add(TargetEvents);
 
@@ -206,6 +213,7 @@ namespace AppTestStudio
             Platform Platform = Platform.NoxPlayer;
             long SteamID = 0;
             String PathToApplicationExe = "";
+            String WindowName = "";
 
             if (childNode.Attributes.GetNamedItem("PackageName").IsSomething())
             {
@@ -282,6 +290,10 @@ namespace AppTestStudio
                         break;
                 }
             }
+            if (childNode.Attributes.GetNamedItem("WindowName").IsSomething())
+            {
+                WindowName = childNode.Attributes["WindowName"].Value;
+            }
 
             if (childNode.Attributes.GetNamedItem("SteamID").IsSomething())
             {
@@ -308,6 +320,20 @@ namespace AppTestStudio
             Game.Platform = Platform;
             Game.SteamID = SteamID;
             Game.PathToApplicationEXE = PathToApplicationExe;
+
+            switch (Game.Platform)
+            {
+                case AppTestStudio.Platform.NoxPlayer:
+                    break;
+                case AppTestStudio.Platform.Steam:
+                    Game.SteamWindowName = WindowName;
+                    break;
+                case AppTestStudio.Platform.Application:
+                    Game.ApplicationWindowName = WindowName;
+                    break;
+                default:
+                    break;
+            }
 
             GameNodeEvents Events = new GameNodeEvents("Events");
             Game.Nodes.Add(Events);
@@ -362,9 +388,11 @@ namespace AppTestStudio
                     break;
                 case Platform.Steam:
                     Writer.WriteAttributeString("SteamID", SteamID.ToString());
+                    Writer.WriteAttributeString("WindowName", SteamWindowName);
                     break;
                 case Platform.Application:
                     Writer.WriteAttributeString("PathToApplicationExe", PathToApplicationEXE);
+                    Writer.WriteAttributeString("WindowName", ApplicationWindowName);
                     break;
                 default:
                     break;
