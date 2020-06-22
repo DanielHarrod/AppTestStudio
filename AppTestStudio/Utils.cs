@@ -322,6 +322,8 @@ namespace AppTestStudio
             int WM_MOUSEMOVE = 0x200;
             uint WM_LBUTTONDOWN = 0x201;
             uint WM_LBUTTONUP = 0x202;
+
+            int MK_LBUTTON = 0x0001;
             //' PostMessage(WindowHandle, WM_MOUSEMOVE, 0, getHiLoWord(X, Y))
             //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(1, WM_MOUSEMOVE))
             //'Thread.Sleep(25)
@@ -330,7 +332,7 @@ namespace AppTestStudio
 
             //'sendmessage(hwnd, WM_SETCURSOR, WM_MOUSEMOVE, MakeLParam(1, WM_MOUSEMOVE))
 
-            API.PostMessage(windowHandle, WM_LBUTTONDOWN, (int)WM_LBUTTONDOWN, Utils.HiLoWord(xTarget, yTarget));
+            API.PostMessage(windowHandle, WM_LBUTTONDOWN, (int)MK_LBUTTON, Utils.HiLoWord(xTarget, yTarget));
             if (MouseUpDelayMS > 0)
             {
                 Thread.Sleep(MouseUpDelayMS);
