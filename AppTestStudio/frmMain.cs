@@ -100,6 +100,7 @@ namespace AppTestStudio
         private int InitialPanelRightPointGridHeight;
         private int InitialPanelRightClickPropertiesHeight;
         private int InitialPanelRightSwipePropertiesHeight;
+        private int TitleBarHeight;
 
         public frmMain()
         {
@@ -109,13 +110,16 @@ namespace AppTestStudio
             PictureObjectScreenshotRectanble = new Rectangle();
         }
 
-        private void frmMain_Load(object sender, EventArgs e)
-        {
+    private void frmMain_Load(object sender, EventArgs e)
+        {            
             ThreadManager.Load();
             InitializeToolbars();
 
             FirstFormost();
             InitializedInstances();
+
+            int TitleBarHeight = this.RectangleToScreen(this.ClientRectangle).Top - this.Top;
+
             InitialPanelRightColorAtPointerHeight = panelRightColorAtPointer.Height;
 
             InitialPanelRightLimitHeight = panelRightLimit.Height;
@@ -232,9 +236,11 @@ namespace AppTestStudio
             ToolStripItem Item = sender as ToolStripItem;
 
             if (Item.IsSomething())
-            {
-                txtGamePanelLaunchInstance.Text = Item.Text;
+            {                
                 cboGameInstances.Text = Item.Text;
+                txtGamePanelLaunchInstance.Text = Item.Text;
+                toolStripInstances.Text = Item.Text;
+                GetGameNode().InstanceToLaunch = Item.Text;
                 
             }
         }
