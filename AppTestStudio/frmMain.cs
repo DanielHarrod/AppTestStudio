@@ -651,6 +651,8 @@ namespace AppTestStudio
             txtPathToApplicationExe.Text = gameNode.PathToApplicationEXE;
             txtSteamWindowName.Text = gameNode.SteamWindowName;
             txtApplicationWindowName.Text = gameNode.ApplicationWindowName;
+            chkApplicationIsFullScreen.Checked = gameNode.IsFullScreen;
+            chkIsSteamFullScreen.Checked = gameNode.IsFullScreen;
             cboPlatform_TextChanged(null, null);
         }
 
@@ -6301,6 +6303,34 @@ namespace AppTestStudio
             {
                 GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
                 GameNode.SteamWindowName = txtSteamWindowName.Text.Trim();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void chkApplicationIsFullScreen_CheckedChanged(object sender, EventArgs e)
+        {            
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                GameNode.IsFullScreen = chkApplicationIsFullScreen.Checked;
+                chkIsSteamFullScreen.Checked = chkApplicationIsFullScreen.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void chkIsSteamFullScreen_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                GameNode.IsFullScreen = chkIsSteamFullScreen.Checked;
+                chkApplicationIsFullScreen.Checked = chkIsSteamFullScreen.Checked;
             }
             catch (Exception ex)
             {

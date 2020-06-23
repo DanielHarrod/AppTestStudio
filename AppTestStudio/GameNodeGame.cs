@@ -56,7 +56,7 @@ namespace AppTestStudio
             String FormattedLog = String.Format(
                 "{0}{1} {2} [{3}] {4}",
                 DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss."),
-                Math.Abs(Environment.TickCount % 1000).ToString().PadLeft(3,'0'),
+                Math.Abs(Environment.TickCount % 1000).ToString().PadLeft(3, '0'),
                 Name,
                 InstanceToLaunch,
                 s);
@@ -84,7 +84,7 @@ namespace AppTestStudio
         public Boolean IsPaused { get; set; }
 
         public String TargetWindow
-        {            
+        {
             get
             {
                 switch (Platform)
@@ -180,6 +180,7 @@ namespace AppTestStudio
             Target.SteamID = SteamID;
             Target.SteamWindowName = SteamWindowName;
             Target.ApplicationWindowName = ApplicationWindowName;
+            Target.IsFullScreen = IsFullScreen;
 
             Target.Nodes.Add(TargetEvents);
 
@@ -195,7 +196,9 @@ namespace AppTestStudio
         public Boolean SaveVideo { get; set; }
         public int TitleBarHeight { get; set; }
 
-        public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps,int TitleBarHeight)
+        public Boolean IsFullScreen { get; set; }
+
+        public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, int TitleBarHeight)
         {
 
             GameNodeGame Game = null;
@@ -213,13 +216,32 @@ namespace AppTestStudio
 
         public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps, int titleBarHeight)
         {
-            String GameName = childNode.Attributes["Name"].Value;
+            String GameName = "";
+
+            try
+            {
+                GameName = childNode.Attributes["Name"].Value;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+
             if (overrideGameName.Length > 0)
             {
                 GameName = overrideGameName;
             }
 
-            String TargetGameBuild = childNode.Attributes["TargetGameBuild"].Value;
+            String TargetGameBuild = "";
+
+            try
+            {
+                TargetGameBuild = childNode.Attributes["TargetGameBuild"].Value;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
 
             String PackageName = "";
             long LoopDelay = 1000;
@@ -233,10 +255,18 @@ namespace AppTestStudio
             long SteamID = 0;
             String PathToApplicationExe = "";
             String WindowName = "";
+            Boolean IsFullScreen = false;
 
             if (childNode.Attributes.GetNamedItem("PackageName").IsSomething())
             {
-                PackageName = childNode.Attributes["PackageName"].Value;
+                try
+                {
+                    PackageName = childNode.Attributes["PackageName"].Value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);         
+                }
             }
 
             if (childNode.Attributes.GetNamedItem("DefaultClickSpeed").IsSomething())
@@ -267,62 +297,138 @@ namespace AppTestStudio
 
             if (childNode.Attributes.GetNamedItem("SaveVideo").IsSomething())
             {
-                SaveVideo = Convert.ToBoolean(childNode.Attributes["SaveVideo"].Value);
+                try
+                {
+                    SaveVideo = Convert.ToBoolean(childNode.Attributes["SaveVideo"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
 
             if (childNode.Attributes.GetNamedItem("LaunchInstance").IsSomething())
             {
-                LaunchInstance = childNode.Attributes["LaunchInstance"].Value;
+                try
+                {
+                    LaunchInstance = childNode.Attributes["LaunchInstance"].Value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
 
             if (childNode.Attributes.GetNamedItem("LoopDelay").IsSomething())
             {
-                LoopDelay = Convert.ToInt64(childNode.Attributes["LoopDelay"].Value);
+                try
+                {
+                    LoopDelay = Convert.ToInt64(childNode.Attributes["LoopDelay"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
 
             if (childNode.Attributes.GetNamedItem("Resolution").IsSomething())
             {
-                Resolution = childNode.Attributes["Resolution"].Value;
+                try
+                {
+                    Resolution = childNode.Attributes["Resolution"].Value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
 
             if (childNode.Attributes.GetNamedItem("VideoFrameLimit").IsSomething())
             {
-                VideoFrameLimit = Convert.ToInt64(childNode.Attributes["VideoFrameLimit"].Value);
+                try
+                {
+                    VideoFrameLimit = Convert.ToInt64(childNode.Attributes["VideoFrameLimit"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
 
             if (childNode.Attributes.GetNamedItem("Platform").IsSomething())
             {
-                String PlatformValue = childNode.Attributes["Platform"].Value;
-                switch (PlatformValue.Trim().ToUpper())
+                try
                 {
-                    case "NOXPLAYER":
-                        Platform = Platform.NoxPlayer;
-                        break;
-                    case "APPLICATION":
-                        Platform = Platform.Application;
-                        break;
-                    case "STEAM":
-                        Platform = Platform.Steam;
-                        break;
-                    default:
-                        Platform = Platform.NoxPlayer;
-                        break;
+                    String PlatformValue = childNode.Attributes["Platform"].Value;
+                    switch (PlatformValue.Trim().ToUpper())
+                    {
+                        case "NOXPLAYER":
+                            Platform = Platform.NoxPlayer;
+                            break;
+                        case "APPLICATION":
+                            Platform = Platform.Application;
+                            break;
+                        case "STEAM":
+                            Platform = Platform.Steam;
+                            break;
+                        default:
+                            Platform = Platform.NoxPlayer;
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
                 }
             }
+
             if (childNode.Attributes.GetNamedItem("WindowName").IsSomething())
             {
-                WindowName = childNode.Attributes["WindowName"].Value;
+                try
+                {
+                    WindowName = childNode.Attributes["WindowName"].Value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
 
             if (childNode.Attributes.GetNamedItem("SteamID").IsSomething())
             {
-                SteamID = Convert.ToInt64(childNode.Attributes["SteamID"].Value);
+                try
+                {
+                    SteamID = Convert.ToInt64(childNode.Attributes["SteamID"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
             if (childNode.Attributes.GetNamedItem("PathToApplicationExe").IsSomething())
             {
-                PathToApplicationExe = childNode.Attributes["PathToApplicationExe"].Value;
+                try
+                {
+                    PathToApplicationExe = childNode.Attributes["PathToApplicationExe"].Value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
             }
 
+            //IsFullScreen
+            if (childNode.Attributes.GetNamedItem("IsFullScreen").IsSomething())
+            {
+                try
+                {
+                    IsFullScreen = Convert.ToBoolean(childNode.Attributes["IsFullScreen"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
 
             GameNodeGame Game = new GameNodeGame(GameName, titleBarHeight);
             Game.TargetGameBuild = TargetGameBuild;
@@ -339,6 +445,7 @@ namespace AppTestStudio
             Game.Platform = Platform;
             Game.SteamID = SteamID;
             Game.PathToApplicationEXE = PathToApplicationExe;
+            Game.IsFullScreen = IsFullScreen;
 
             switch (Game.Platform)
             {
@@ -398,7 +505,7 @@ namespace AppTestStudio
             Writer.WriteAttributeString("Resolution", Resolution);
             Writer.WriteAttributeString("SaveVideo", SaveVideo.ToString());
             Writer.WriteAttributeString("VideoFrameLimit", VideoFrameLimit.ToString());
-            Writer.WriteAttributeString("DefaultClickSpeed", DefaultClickSpeed.ToString()); 
+            Writer.WriteAttributeString("DefaultClickSpeed", DefaultClickSpeed.ToString());
             Writer.WriteAttributeString("DPI", DPI.ToString());
             Writer.WriteAttributeString("Platform", Platform.ToString());
             switch (Platform)
@@ -408,14 +515,16 @@ namespace AppTestStudio
                 case Platform.Steam:
                     Writer.WriteAttributeString("SteamID", SteamID.ToString());
                     Writer.WriteAttributeString("WindowName", SteamWindowName);
+                    Writer.WriteAttributeString("IsFullScreen", IsFullScreen.ToString());
                     break;
                 case Platform.Application:
                     Writer.WriteAttributeString("PathToApplicationExe", PathToApplicationEXE);
                     Writer.WriteAttributeString("WindowName", ApplicationWindowName);
+                    Writer.WriteAttributeString("IsFullScreen", IsFullScreen.ToString());
                     break;
                 default:
                     break;
-            }            
+            }
 
             GameNode Events = Nodes[0] as GameNode;
 
@@ -456,7 +565,7 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("Mode", Activites.Mode.ToString());
 
                         Writer.WriteAttributeString("ClickSpeed", Activites.ClickSpeed.ToString());
-                        if ( Activites.Anchor == AnchorMode.Default )
+                        if (Activites.Anchor == AnchorMode.Default)
                         {
                             // do nothing
                         }
@@ -464,7 +573,7 @@ namespace AppTestStudio
                         {
                             Writer.WriteAttributeString("Anchor", GetAnchorString(Activites));
                         }
-                        
+
                         Writer.WriteAttributeString("RelativeXOffset", Activites.RelativeXOffset.ToString());
                         Writer.WriteAttributeString("RelativeYOffset", Activites.RelativeYOffset.ToString());
 
@@ -843,7 +952,7 @@ namespace AppTestStudio
                 Result = Result + "Left";
             }
 
-            if ( Result.Length == 0)
+            if (Result.Length == 0)
             {
                 Result = "None";
             }
@@ -1124,7 +1233,7 @@ namespace AppTestStudio
             if (eventNode.Attributes.GetNamedItem("Anchor").IsSomething())
             {
                 String AnchorString = eventNode.Attributes["Anchor"].Value.ToUpper().Trim();
-                
+
                 // Set default and/or NONE.
                 newEvent.Anchor = AnchorMode.None;
 
@@ -1135,7 +1244,7 @@ namespace AppTestStudio
 
                 if (AnchorString.Contains("RIGHT"))
                 {
-                    newEvent.Anchor = newEvent.Anchor | AnchorMode.Right ;
+                    newEvent.Anchor = newEvent.Anchor | AnchorMode.Right;
                 }
 
                 if (AnchorString.Contains("BOTTOM"))
@@ -1592,7 +1701,7 @@ namespace AppTestStudio
                         rngAction.Percentage = ActionNodeChildNode.Attributes["Percentage"].Value.ToInt();
                         if (ActionNodeChildNode.Attributes.GetNamedItem("IsEnabled").IsSomething())
                         {
-                            rngAction.Enabled = Convert.ToBoolean( ActionNodeChildNode.Attributes["IsEnabled"].Value);
+                            rngAction.Enabled = Convert.ToBoolean(ActionNodeChildNode.Attributes["IsEnabled"].Value);
                         }
 
                         treeActionNode.Nodes.Add(rngAction);
@@ -1642,7 +1751,7 @@ namespace AppTestStudio
                 default:
                     break;
             }
-            
+
             return Result;
         }
     }
