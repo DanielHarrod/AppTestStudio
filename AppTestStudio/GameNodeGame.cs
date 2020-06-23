@@ -22,7 +22,7 @@ namespace AppTestStudio
 {
     public class GameNodeGame : GameNode
     {
-        public GameNodeGame(String name) : base(name, GameNodeType.Game)
+        public GameNodeGame(String name, int titleBarHeight) : base(name, GameNodeType.Game)
         {
             ThreadLog = new ConcurrentQueue<string>();
             StatusControl = new ConcurrentQueue<AppTestStudioStatusControlItem>();
@@ -37,6 +37,7 @@ namespace AppTestStudio
             DefaultClickSpeed = 0;
             DPI = 192;
             Platform = Platform.NoxPlayer;
+            TitleBarHeight = titleBarHeight;
 
             IsPaused = false;
 
@@ -155,7 +156,7 @@ namespace AppTestStudio
 
         public GameNodeGame CloneMe()
         {
-            GameNodeGame Target = new GameNodeGame(Name);
+            GameNodeGame Target = new GameNodeGame(Name, TitleBarHeight);
 
             Target.TargetGameBuild = TargetGameBuild;
             Target.LoopDelay = LoopDelay;
@@ -192,8 +193,9 @@ namespace AppTestStudio
         public long ScreenShotsTaken { get; set; }
         public long VideoFrameLimit { get; set; }
         public Boolean SaveVideo { get; set; }
+        public int TitleBarHeight { get; set; }
 
-        public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps)
+        public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps,int TitleBarHeight)
         {
 
             GameNodeGame Game = null;
@@ -203,13 +205,13 @@ namespace AppTestStudio
             if (Document.DocumentElement.SelectSingleNode("//App").IsSomething())
             {
                 XmlNode ChildNode = Document.DocumentElement.SelectSingleNode("//App");
-                Game = LoadGame(ChildNode, fileName, "", loadBitmaps);
+                Game = LoadGame(ChildNode, fileName, "", loadBitmaps, TitleBarHeight);
             }
 
             return Game;
         }
 
-        public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps)
+        public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps, int titleBarHeight)
         {
             String GameName = childNode.Attributes["Name"].Value;
             if (overrideGameName.Length > 0)
@@ -322,7 +324,7 @@ namespace AppTestStudio
             }
 
 
-            GameNodeGame Game = new GameNodeGame(GameName);
+            GameNodeGame Game = new GameNodeGame(GameName, titleBarHeight);
             Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
 
