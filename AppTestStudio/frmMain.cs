@@ -4681,6 +4681,11 @@ namespace AppTestStudio
 
         private void wizardRecommendedToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            MenuLaunchWizard();
+        }
+
+        private void MenuLaunchWizard()
+        { 
             if (tv.Nodes[0].Nodes.Count > 0)
             {
                 frmLoadCheck frmLC = new frmLoadCheck();
@@ -4707,7 +4712,6 @@ namespace AppTestStudio
 
             }
             AddNewGameWizard();
-
         }
 
         private void AddNewGameWizard()
@@ -4785,6 +4789,11 @@ namespace AppTestStudio
         }
 
         private void manualToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuNewManual();
+        }
+
+        private void MenuNewManual()
         {
             if (tv.Nodes[0].Nodes.Count > 0)
             {
@@ -6336,6 +6345,26 @@ namespace AppTestStudio
             {
                 Log(ex.Message);
             }
+        }
+
+        private void wizardRecommendedToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MenuLaunchWizard();
+        }
+
+        private void manualToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            MenuNewManual();
+        }
+
+        private void steamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuNewManual();
+        }
+
+        private void applicationToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuNewManual();
         }
     }
 }
