@@ -756,7 +756,6 @@ namespace AppTestStudio
             centerX = DetectedPoint.X + (ObjectSearchBitmap.Width / 2);
             centerY = DetectedPoint.Y + (ObjectSearchBitmap.Height / 2);
 
-
             if (detectedThreashold >= ((float)iObjectThreshold / 100))
             {
                 game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + AnchorRectangle.X) + "  y =" + (centerY + AnchorRectangle.Y));
@@ -950,6 +949,22 @@ namespace AppTestStudio
             x2 = x2 + RandomXEnd;
             y2 = y2 + RandomYEnd;
 
+            GameNodeGame Game = this.GetGameNodeGame();
+            if (Game.Platform == Platform.Steam || Game.Platform == Platform.Application)
+            {
+                if (Game.IsFullScreen)
+                {
+                    // do nothing
+                }
+                else
+                {
+                    // Subtract off the Window Title height.  
+                    //This won't work very well if the window title height is different than ATS Window title height, as the value comes from ATS.
+                    y = y - Game.TitleBarHeight;
+                    y2 = y2 - Game.TitleBarHeight;
+                }
+            }
+
             Result.StartX = x;
             Result.StartY = y;
             Result.EndX = x2;
@@ -989,6 +1004,21 @@ namespace AppTestStudio
             {
                 xPos = xPos + RandomX;
                 yPos = yPos + RandomY;
+            }
+
+            GameNodeGame Game = this.GetGameNodeGame();
+            if (Game.Platform == Platform.Steam || Game.Platform == Platform.Application)
+            {
+                if (Game.IsFullScreen)
+                {
+                    // do nothing
+                }
+                else
+                {
+                    // Subtract off the Window Title height.  
+                    //This won't work very well if the window title height is different than ATS Window title height, as the value comes from ATS.
+                    yPos = yPos - Game.TitleBarHeight;
+                }
             }
 
             Result.x = xPos;

@@ -232,11 +232,6 @@ namespace AppTestStudio
 
                             Boolean Failed = false;
 
-                            if (Game.Platform == Platform.Steam)
-                            {
-                                Result.y = Result.y - Game.TitleBarHeight;
-                            }
-
                             if (Result.x < 0)
                             {
                                 Game.Log("Check Relative offset X, calculated to a negative position " + xPos);

@@ -118,7 +118,7 @@ namespace AppTestStudio
             FirstFormost();
             InitializedInstances();
 
-            int TitleBarHeight = this.RectangleToScreen(this.ClientRectangle).Top - this.Top;
+            TitleBarHeight = this.RectangleToScreen(this.ClientRectangle).Top - this.Top;
 
             InitialPanelRightColorAtPointerHeight = panelRightColorAtPointer.Height;
 
