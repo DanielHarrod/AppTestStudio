@@ -413,6 +413,7 @@ namespace AppTestStudio
             tv.SelectedNode = game;
             tv_AfterSelect(null, new TreeViewEventArgs(game));
             tabTree.SelectedIndex = 0;
+            toolStripInstances.Text = game.InstanceToLaunch;
 
             Log("Loaded Script: " + game.GameNodeName);
 
@@ -618,6 +619,10 @@ namespace AppTestStudio
                     Debug.Assert(false);
                     break;
             }
+
+            // Resets button labels.
+            cboPlatform_SelectedIndexChanged(null, null);
+
         }
 
         private void DisableSecondToolbarButtons()
@@ -6203,12 +6208,21 @@ namespace AppTestStudio
                 {
                     case "NoxPlayer":
                         GameNode.Platform = Platform.NoxPlayer;
+                        cmdStartEmmulator.Text = "Start Emmulator";
+                        cmdStartEmmulatorAndPackage.Text = "Start Emmulator + Run App";
+                        cmdStartEmmulatorPackageAndRunScript.Text = "Start Emmulator + Run App + Run Script";
                         break;
                     case "Application":
                         GameNode.Platform = Platform.Application;
+                        cmdStartEmmulator.Text = "Start Application";
+                        cmdStartEmmulatorAndPackage.Text = "Start Application + Run App";
+                        cmdStartEmmulatorPackageAndRunScript.Text = "Start Application + Run App + Run Script";
                         break;
                     case "Steam":
                         GameNode.Platform = Platform.Steam;
+                        cmdStartEmmulator.Text = "Start Steam Application";
+                        cmdStartEmmulatorAndPackage.Text = "Start Steam + Run App";
+                        cmdStartEmmulatorPackageAndRunScript.Text = "Start Steam + Run App + Run Script";
                         break;
                     default:
                         GameNode.Platform = Platform.NoxPlayer;
