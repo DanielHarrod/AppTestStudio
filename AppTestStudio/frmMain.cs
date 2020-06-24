@@ -102,6 +102,8 @@ namespace AppTestStudio
         private int InitialPanelRightSwipePropertiesHeight;
         private int TitleBarHeight;
 
+        public SteamRegistry SteamRegistry { get; set; }
+
         public frmMain()
         {
             InitializeComponent();
@@ -309,6 +311,7 @@ namespace AppTestStudio
                 lblEmmulatorInstalled.ForeColor = Color.Red;
             }
 
+            SteamRegistry = new SteamRegistry();
         }
 
         private void InitializeToolbars()
@@ -2271,7 +2274,7 @@ namespace AppTestStudio
                         Result = Utils.LaunchInstance(PackageName, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
                         break;
                     case Platform.Steam:
-                        Result = Utils.LaunchSteamInstance(@"C:\Program Files (x86)\Steam\Steam.exe", Game.SteamID);
+                        Result = Utils.LaunchSteamInstance(SteamRegistry.GetExePath(), Game.SteamID);
                         break;
                     case Platform.Application:
                         Result = Utils.LaunchApplication(Game.PathToApplicationEXE);

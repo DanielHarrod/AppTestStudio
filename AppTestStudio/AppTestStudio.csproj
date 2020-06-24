@@ -196,6 +196,7 @@
     <Compile Include="Schedule.cs" />
     <Compile Include="ScheduleItem.cs" />
     <Compile Include="SingleClick.cs" />
+    <Compile Include="SteamRegistry.cs" />
     <Compile Include="Test.cs" />
     <Compile Include="ThreadManager.cs" />
     <Compile Include="Utils.cs" />

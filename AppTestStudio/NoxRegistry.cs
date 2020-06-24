@@ -5,6 +5,7 @@
 using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,36 +19,48 @@ namespace AppTestStudio
 
         public String WorkingDirectory { get; set; }
 
+        public String ErrorMessage { get; set; }
+
         public Boolean IsNoxInstalled { get; set; }
         public NoxRegistry()
         {
-            IsNoxInstalled = false;
-            ExePath = "";
-            WorkingDirectory = "";
-            Object NoxCommand = Registry.GetValue(@"HKEY_CLASSES_ROOT\Nox\shell\open\command", null, "");
-            String ReadValue = "";
-            if (NoxCommand.IsSomething() )
+            try
             {
-                IsNoxInstalled = true;
-                ReadValue = NoxCommand.ToString();
-            }                
 
-            if (ReadValue.Length > 0)
+                IsNoxInstalled = false;
+                ExePath = "";
+                WorkingDirectory = "";
+                Object NoxCommand = Registry.GetValue(@"HKEY_CLASSES_ROOT\Nox\shell\open\command", null, "");
+                String ReadValue = "";
+                if (NoxCommand.IsSomething())
+                {
+                    IsNoxInstalled = true;
+                    ReadValue = NoxCommand.ToString();
+                }
+
+                if (ReadValue.Length > 0)
+                {
+                    String[] keys = { " %1 " };
+                    String[] Results = ReadValue.Split(keys, 2, StringSplitOptions.None);
+                    if (Results.Length == 2)
+                    {
+                        ExePath = Results[0];
+
+                        WorkingDirectory = ExePath.Replace(@"bin\Nox.exe", "");
+
+                        BigNoxVMSFolder = ExePath.Replace("Nox.exe", "BignoxVMS");
+                    }
+                    else
+                    {
+                        // do nothing
+                    }
+                }
+            }
+            catch (Exception ex)
             {
-                String[] keys = { " %1 " };
-                String[] Results = ReadValue.Split(keys, 2, StringSplitOptions.None);
-                if (Results.Length == 2)
-                {
-                    ExePath = Results[0];
-
-                    WorkingDirectory = ExePath.Replace(@"bin\Nox.exe", "");
-
-                    BigNoxVMSFolder = ExePath.Replace("Nox.exe", "BignoxVMS");
-                }
-                else
-                {
-                    // do nothing
-                }
+                Debug.WriteLine(ex.Message);
+                ErrorMessage = ex.Message;
+                Debug.Assert(false);
             }
         }
     }
