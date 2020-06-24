@@ -6210,7 +6210,7 @@ namespace AppTestStudio
         {
             try
             {
-                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                GameNodeGame GameNode = GetGameNode();
                 switch (cboPlatform.Text)
                 {
                     case "NoxPlayer":
