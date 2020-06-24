@@ -503,6 +503,19 @@ namespace AppTestStudio
 
         }
 
+        public static string LaunchApplication(String SteamExePath)
+        {
+            string Result;
+            ProcessStartInfo info = new ProcessStartInfo(SteamExePath);
+            //info.FileName = SteamExePath;
+            info.WorkingDirectory = System.IO.Path.GetDirectoryName(SteamExePath);
+
+            Result = "Launching: " + info.FileName + " " + info.Arguments;
+            Process.Start(info);
+
+            return Result;
+        }
+
         public static string LaunchSteamInstance(String SteamExePath, long SteamID)
         {
             string Result;
@@ -515,7 +528,7 @@ namespace AppTestStudio
             // We just want it running, if it's already running that's ok.
             info.Arguments = @"-applaunch " + SteamID + " -hijack";
 
-            Result = "Launching: " + info.FileName + " " + info.Arguments;
+            Result = "Launching: " + info.FileName + " " + info.Arguments.Replace(" -hijack","");
             Process.Start(info);
 
             return Result;

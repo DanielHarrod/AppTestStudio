@@ -110,8 +110,8 @@ namespace AppTestStudio
             PictureObjectScreenshotRectanble = new Rectangle();
         }
 
-    private void frmMain_Load(object sender, EventArgs e)
-        {            
+        private void frmMain_Load(object sender, EventArgs e)
+        {
             ThreadManager.Load();
             InitializeToolbars();
 
@@ -236,12 +236,12 @@ namespace AppTestStudio
             ToolStripItem Item = sender as ToolStripItem;
 
             if (Item.IsSomething())
-            {                
+            {
                 cboGameInstances.Text = Item.Text;
                 txtGamePanelLaunchInstance.Text = Item.Text;
                 toolStripInstances.Text = Item.Text;
                 GetGameNode().InstanceToLaunch = Item.Text;
-                
+
             }
         }
 
@@ -394,7 +394,6 @@ namespace AppTestStudio
                     Debug.WriteLine(Ex.Message);
                     Debug.Assert(false);
                 }
-
             }
         }
 
@@ -2262,22 +2261,30 @@ namespace AppTestStudio
 
         private void StartEmmulator(String PackageName)
         {
-            GameNodeGame Game = GetGameNode();
-            String Result = "";
-            switch (Game.Platform)
+            try
             {
-                case Platform.NoxPlayer:
-                    Result = Utils.LaunchInstance(PackageName, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
-                    break;
-                case Platform.Steam:
-                    Result = Utils.LaunchSteamInstance(@"C:\Program Files (x86)\Steam\Steam.exe", Game.SteamID);
-                    break;
-                case Platform.Application:
-                    break;
-                default:
-                    break;
+                GameNodeGame Game = GetGameNode();
+                String Result = "";
+                switch (Game.Platform)
+                {
+                    case Platform.NoxPlayer:
+                        Result = Utils.LaunchInstance(PackageName, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+                        break;
+                    case Platform.Steam:
+                        Result = Utils.LaunchSteamInstance(@"C:\Program Files (x86)\Steam\Steam.exe", Game.SteamID);
+                        break;
+                    case Platform.Application:
+                        Result = Utils.LaunchApplication(Game.PathToApplicationEXE);
+                        break;
+                    default:
+                        break;
+                }
+                Log(Result);
             }
-            Log(Result);
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
         }
 
         private void cmdRunScript_Click(object sender, EventArgs e)
@@ -4651,7 +4658,7 @@ namespace AppTestStudio
         }
 
         private void MenuLaunchWizard()
-        { 
+        {
             if (tv.Nodes[0].Nodes.Count > 0)
             {
                 frmLoadCheck frmLC = new frmLoadCheck();
@@ -4735,7 +4742,7 @@ namespace AppTestStudio
 
         private GameNodeGame AddNewGameToTree(string applicationName, string targetFileName)
         {
-            GameNodeGame NewGame = new GameNodeGame(applicationName,TitleBarHeight);
+            GameNodeGame NewGame = new GameNodeGame(applicationName, TitleBarHeight);
 
             WorkspaceNode.Nodes.Add(NewGame);
             NewGame.FileName = targetFileName;
@@ -4958,7 +4965,7 @@ namespace AppTestStudio
                     XmlDocument doc = new XmlDocument();
                     doc.LoadXml(XMLATS);
 
-                    GameNodeGame Game = GameNodeGame.LoadGame(doc.DocumentElement.SelectSingleNode("//App"), TargetFolder + @"\Default.xml", NewGameName, true, TitleBarHeight );
+                    GameNodeGame Game = GameNodeGame.LoadGame(doc.DocumentElement.SelectSingleNode("//App"), TargetFolder + @"\Default.xml", NewGameName, true, TitleBarHeight);
                     Game.FileName = Utils.GetApplicationFolder() + @"\" + NewGameName + @"\Default.xml";
 
                     Game.GameNodeName = NewGameName;
@@ -5439,7 +5446,7 @@ namespace AppTestStudio
             GameNodeGame Game = GetGameNode();
 
             StartEmmulator(Game.PackageName);
-            
+
             LoadInstance(Game);
         }
 
@@ -6159,23 +6166,23 @@ namespace AppTestStudio
             {
                 for (int j = 0; j < 80; j++)
                 {
-                    if (i < bmp.Width )
-                        if ( j < bmp.Height )
+                    if (i < bmp.Width)
+                        if (j < bmp.Height)
                         {
                             bmp.SetPixel(i, j, Color.White);
-                        }                   
+                        }
                 }
             }
             PictureBoxObject.Invalidate();
-            
+
         }
 
         private void txtSteamID_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ( !char.IsNumber(e.KeyChar) )
+            if (!char.IsNumber(e.KeyChar))
             {
                 e.Handled = true;
-            }       
+            }
         }
 
         private void cboPlatform_TextChanged(object sender, EventArgs e)
@@ -6183,7 +6190,7 @@ namespace AppTestStudio
             grpNox.Visible = false;
             grpSteam.Visible = false;
             grpApplication.Visible = false;
-            switch (cboPlatform.Text )
+            switch (cboPlatform.Text)
             {
                 case "NoxPlayer":
                     grpNox.Visible = true;
@@ -6290,7 +6297,7 @@ namespace AppTestStudio
         }
 
         private void chkApplicationIsFullScreen_CheckedChanged(object sender, EventArgs e)
-        {            
+        {
             try
             {
                 GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
