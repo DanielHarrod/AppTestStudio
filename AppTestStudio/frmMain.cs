@@ -1298,26 +1298,12 @@ namespace AppTestStudio
 
         private void toolStripButtonStartEmmulator_Click(object sender, EventArgs e)
         {
-            GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNodeGame();
-
-            if (GameNode.IsSomething())
-            {
-
-                String Result = Utils.LaunchInstance("", "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
-                Log("Launching Instance " + GameNode.InstanceToLaunch.Trim());
-                Log(Result);
-                ThreadManager.IncrementInstanceLaunched();
-            }
+            StartEmmulator("");
         }
 
         private void toolStripButtonStartEmmulatorLaunchApp_Click(object sender, EventArgs e)
         {
-            GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNodeGame();
-
-            String Result = Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
-            Log(Result);
+            StartEmmulator(GetGameNode().PackageName);
         }
 
 
@@ -2266,12 +2252,17 @@ namespace AppTestStudio
 
         private void cmdStartEmmulator_Click(object sender, EventArgs e)
         {
+            StartEmmulator("");
+        }
+
+        private void StartEmmulator(String PackageName)
+        {
             GameNodeGame Game = GetGameNode();
             String Result = "";
             switch (Game.Platform)
             {
                 case Platform.NoxPlayer:
-                    Result = Utils.LaunchInstance("", "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+                    Result = Utils.LaunchInstance(PackageName, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
                     break;
                 case Platform.Steam:
                     Result = Utils.LaunchSteamInstance(@"C:\Program Files (x86)\Steam\Steam.exe", Game.SteamID);
@@ -2291,44 +2282,14 @@ namespace AppTestStudio
 
         private void cmdStartEmmulatorAndPackage_Click(object sender, EventArgs e)
         {
-            GameNodeGame Game = GetGameNode();
-            String Result = "";
-            switch (Game.Platform)
-            {
-                case Platform.NoxPlayer:
-                    Result = Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
-                      break;
-                case Platform.Steam:
-                    Result = Utils.LaunchSteamInstance(@"C:\Program Files (x86)\Steam\Steam.exe", Game.SteamID);                   
-                    break;
-                case Platform.Application:
-                    break;
-                default:
-                    break;
-            }
-            Log(Result);
+            StartEmmulator(txtPackageName.Text);
         }
 
         private void cmdStartEmmulatorPackageAndRunScript_Click(object sender, EventArgs e)
         {
+            StartEmmulator(txtPackageName.Text);
             GameNodeGame Game = GetGameNode();
-            String Result = "";
-            switch (Game.Platform)
-            {
-                case Platform.NoxPlayer:
-                    Result = Utils.LaunchInstance(txtPackageName.Text, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
-                    break;
-                case Platform.Steam:
-                    Result = Utils.LaunchSteamInstance(@"C:\Program Files (x86)\Steam\Steam.exe", Game.SteamID);
-                    break;
-                case Platform.Application:
-                    break;
-                default:
-                    break;
-            }
-            Log(Result);
-            
-            LoadInstance(tv.SelectedNode as GameNodeGame);
+            LoadInstance(Game);
         }
 
         private void chkSaveVideo_CheckedChanged(object sender, EventArgs e)
@@ -2785,7 +2746,7 @@ namespace AppTestStudio
             {
 
                 Log(ex.Message);
-                Debug.Assert(false);
+                //Debug.Assert(false);
 
                 ThreadManager.IsDirty = true;
             }
@@ -5470,16 +5431,11 @@ namespace AppTestStudio
 
         private void toolStripButtonRunStartLaunch_Click(object sender, EventArgs e)
         {
-            // Get Game Node
-            GameNode Node = tv.SelectedNode as GameNode;
-            GameNodeGame GameNode = Node.GetGameNodeGame();
+            GameNodeGame Game = GetGameNode();
 
-            // Start Thread
-            LoadInstance(GameNode);
-
-            // Load Emmulator and App
-            String Result = Utils.LaunchInstance(GameNode.PackageName, "", GameNode.InstanceToLaunch, GameNode.Resolution, GameNode.DPI);
-            Log(Result);
+            StartEmmulator(Game.PackageName);
+            
+            LoadInstance(Game);
         }
 
         private void testToolStripMenuItem_Click(object sender, EventArgs e)
