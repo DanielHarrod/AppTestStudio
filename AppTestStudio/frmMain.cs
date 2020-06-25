@@ -1305,12 +1305,14 @@ namespace AppTestStudio
 
         private void toolStripButtonStartEmmulator_Click(object sender, EventArgs e)
         {
-            StartEmmulator("");
+            GameNodeGame Game = GetGameNode();
+            StartEmmulator(Game, "", Game.InstanceToLaunch);
         }
 
         private void toolStripButtonStartEmmulatorLaunchApp_Click(object sender, EventArgs e)
         {
-            StartEmmulator(GetGameNode().PackageName);
+            GameNodeGame Game = GetGameNode();
+            StartEmmulator(Game, Game.PackageName, Game.InstanceToLaunch);
         }
 
 
@@ -1338,7 +1340,6 @@ namespace AppTestStudio
                     RunningThreadGames.Thread.Abort();
                     Log("Stopping existing Instance" + RunningThreadGames.GameNodeName);
                     break;
-
                 }
             }
 
@@ -2259,7 +2260,8 @@ namespace AppTestStudio
 
         private void cmdStartEmmulator_Click(object sender, EventArgs e)
         {
-            StartEmmulator("");
+            GameNodeGame Game = GetGameNode();
+            StartEmmulator(Game, "",Game.InstanceToLaunch);
         }
 
         /// <summary>
@@ -2279,17 +2281,16 @@ namespace AppTestStudio
             return false;
         }
 
-        private void StartEmmulator(String PackageName)
+        private void StartEmmulator(GameNodeGame Game, String PackageName, String InstanceToLaunch)
         {
             try
             {
-                GameNodeGame Game = GetGameNode();
                 String Result = "";
                 String ApplicationPath = "";
                 switch (Game.Platform)
                 {
                     case Platform.NoxPlayer:
-                        Result = Utils.LaunchInstance(PackageName, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
+                        Result = Utils.LaunchInstance(PackageName, "", InstanceToLaunch.ToString(), Game.Resolution, Game.DPI);
                         break;
                     case Platform.Steam:
                         ApplicationPath = SteamRegistry.GetExePath();
@@ -2336,13 +2337,14 @@ namespace AppTestStudio
 
         private void cmdStartEmmulatorAndPackage_Click(object sender, EventArgs e)
         {
-            StartEmmulator(txtPackageName.Text);
+            GameNodeGame Game = GetGameNode();
+            StartEmmulator(Game, Game.PackageName, Game.InstanceToLaunch);
         }
 
         private void cmdStartEmmulatorPackageAndRunScript_Click(object sender, EventArgs e)
         {
-            StartEmmulator(txtPackageName.Text);
             GameNodeGame Game = GetGameNode();
+            StartEmmulator(Game, Game.PackageName, Game.InstanceToLaunch);
             LoadInstance(Game);
         }
 
@@ -4158,9 +4160,10 @@ namespace AppTestStudio
                 if (Game.IsSomething())
                 {
                     Game.InstanceToLaunch = si.InstanceNumber.ToString();
-                    String Result = Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution, Game.DPI);
+
+                    StartEmmulator(Game, Game.PackageName, Game.InstanceToLaunch);
+
                     LoadInstance(Game);
-                    Log(Result);
                 }
             }
             else
@@ -5486,7 +5489,7 @@ namespace AppTestStudio
         {
             GameNodeGame Game = GetGameNode();
 
-            StartEmmulator(Game.PackageName);
+            StartEmmulator(Game, Game.PackageName, Game.InstanceToLaunch);
 
             LoadInstance(Game);
         }
