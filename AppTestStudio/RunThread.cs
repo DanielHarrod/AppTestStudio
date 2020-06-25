@@ -346,6 +346,7 @@ namespace AppTestStudio
                             }
                         }
 
+                        // if there's not a filename assigned to the node then we didn't locate a file, so it can be synced since there's a valid event.
                         if (node.FileName.IsNothing())
                         {
                             node.SendBitmapToProject(bmp, Game);
