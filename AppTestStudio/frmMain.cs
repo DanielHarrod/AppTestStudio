@@ -6346,5 +6346,14 @@ namespace AppTestStudio
         {
             MenuNewManual();
         }
+
+        private void cmdPathToExePicker_Click(object sender, EventArgs e)
+        {
+            DialogResult Result = dlgApplicationPicker.ShowDialog();
+            if(Result == DialogResult.OK )
+            {
+                txtPathToApplicationExe.Text = dlgApplicationPicker.FileName;
+            }
+        }
     }
 }
