@@ -503,6 +503,9 @@ namespace AppTestStudio
                                 case AfterCompletionType.Recycle:
                                     Recycle(node, WindowHandle);
                                     break;
+                                case AfterCompletionType.ContinueProcess:
+                                    ThreadManager.IncrementGoContinue();
+                                    break;
                                 default:
                                     Debug.Assert(false);
                                     break;
