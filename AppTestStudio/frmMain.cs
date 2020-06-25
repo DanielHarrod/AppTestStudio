@@ -2310,7 +2310,7 @@ namespace AppTestStudio
 
                         if (IsPathValidForLaunch(ApplicationPath))
                         {
-                            Result = Utils.LaunchApplication(ApplicationPath);
+                            Result = Utils.LaunchApplication(ApplicationPath, Game.ApplicationParameters);
                         }
                         else
                         {

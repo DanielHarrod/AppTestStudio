@@ -154,6 +154,8 @@ namespace AppTestStudio
         public String SteamWindowName { get; set; }
         public String ApplicationWindowName { get; set; }
 
+        public String ApplicationParameters { get; set; }
+
         public GameNodeGame CloneMe()
         {
             GameNodeGame Target = new GameNodeGame(Name, TitleBarHeight);
@@ -181,6 +183,7 @@ namespace AppTestStudio
             Target.SteamWindowName = SteamWindowName;
             Target.ApplicationWindowName = ApplicationWindowName;
             Target.IsFullScreen = IsFullScreen;
+            Target.ApplicationParameters = ApplicationParameters;
 
             Target.Nodes.Add(TargetEvents);
 
@@ -256,6 +259,7 @@ namespace AppTestStudio
             String PathToApplicationExe = "";
             String WindowName = "";
             Boolean IsFullScreen = false;
+            String ApplicationParameters = "";
 
             if (childNode.Attributes.GetNamedItem("PackageName").IsSomething())
             {
@@ -430,6 +434,19 @@ namespace AppTestStudio
                 }
             }
 
+            //ApplicationParameters
+            if (childNode.Attributes.GetNamedItem("ApplicationParameters").IsSomething())
+            {
+                try
+                {
+                    ApplicationParameters = childNode.Attributes["ApplicationParameters"].Value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
             GameNodeGame Game = new GameNodeGame(GameName, titleBarHeight);
             Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
@@ -446,6 +463,7 @@ namespace AppTestStudio
             Game.SteamID = SteamID;
             Game.PathToApplicationEXE = PathToApplicationExe;
             Game.IsFullScreen = IsFullScreen;
+            Game.ApplicationParameters = ApplicationParameters;
 
             switch (Game.Platform)
             {
@@ -521,6 +539,7 @@ namespace AppTestStudio
                     Writer.WriteAttributeString("PathToApplicationExe", PathToApplicationEXE);
                     Writer.WriteAttributeString("WindowName", ApplicationWindowName);
                     Writer.WriteAttributeString("IsFullScreen", IsFullScreen.ToString());
+                    Writer.WriteAttributeString("ApplicationParameters", ApplicationParameters);
                     break;
                 default:
                     break;

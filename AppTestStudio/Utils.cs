@@ -503,12 +503,13 @@ namespace AppTestStudio
 
         }
 
-        public static string LaunchApplication(String SteamExePath)
+        public static string LaunchApplication(String SteamExePath, String Arguments)
         {
             string Result;
             ProcessStartInfo info = new ProcessStartInfo(SteamExePath);
             //info.FileName = SteamExePath;
             info.WorkingDirectory = System.IO.Path.GetDirectoryName(SteamExePath);
+            info.Arguments = Arguments;
 
             Result = "Launching: " + info.FileName + " " + info.Arguments;
             Process.Start(info);
