@@ -2262,22 +2262,61 @@ namespace AppTestStudio
             StartEmmulator("");
         }
 
+        /// <summary>
+        /// Checks is Path exists and that the application ends in .EXE
+        /// </summary>
+        /// <param name="Path"></param>
+        /// <returns>Path is Valid</returns>
+        private Boolean IsPathValidForLaunch(String Path)
+        {
+            if (System.IO.File.Exists(Path))
+            {
+                if (Path.ToUpper().Trim().EndsWith(".EXE"))
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void StartEmmulator(String PackageName)
         {
             try
             {
                 GameNodeGame Game = GetGameNode();
                 String Result = "";
+                String ApplicationPath = "";
                 switch (Game.Platform)
                 {
                     case Platform.NoxPlayer:
                         Result = Utils.LaunchInstance(PackageName, "", txtGamePanelLaunchInstance.Text, cboResolution.Text, cboDPI.Text.ToInt());
                         break;
                     case Platform.Steam:
-                        Result = Utils.LaunchSteamInstance(SteamRegistry.GetExePath(), Game.SteamID);
+                        ApplicationPath = SteamRegistry.GetExePath();
+
+                        if (IsPathValidForLaunch(ApplicationPath))
+                        {
+                            Result = Utils.LaunchSteamInstance(ApplicationPath, Game.SteamID);
+                        }
+                        else
+                        {
+                            Result = ApplicationPath + " is invalid - Launch aborted";
+                            return;
+                        }
+
                         break;
                     case Platform.Application:
-                        Result = Utils.LaunchApplication(Game.PathToApplicationEXE);
+                        ApplicationPath = Game.PathToApplicationEXE;
+
+                        if (IsPathValidForLaunch(ApplicationPath))
+                        {
+                            Result = Utils.LaunchApplication(ApplicationPath);
+                        }
+                        else
+                        {
+                            Result = ApplicationPath + " is invalid - Launch aborted";
+                            return;
+                        }
                         break;
                     default:
                         break;
