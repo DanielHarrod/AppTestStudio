@@ -4764,12 +4764,7 @@ namespace AppTestStudio
 
         }
 
-        private void manualToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            MenuNewManual();
-        }
-
-        private void MenuNewManual()
+        private void MenuNewManual(Platform platform)
         {
             if (tv.Nodes[0].Nodes.Count > 0)
             {
@@ -4797,10 +4792,10 @@ namespace AppTestStudio
                 }
 
             }
-            AddNewGame();
+            AddNewGame(platform);
         }
 
-        private void AddNewGame()
+        private void AddNewGame(Platform platform)
         {
             frmAddNewGame frm = new frmAddNewGame();
 
@@ -4815,11 +4810,15 @@ namespace AppTestStudio
                 String GameName = frm.txtName.Text.Trim();
                 String TargetFileName = frm.TargetFileName;
                 GameNodeGame Game = AddNewGameToTree(GameName, TargetFileName);
+                Game.Platform = platform;
 
                 Game.FileName = frm.TargetFileName;
 
                 toolStripButtonSaveScript_Click(null, null); ;
                 ThreadManager.IncrementNewAppAdded();
+
+                // force a reset of current panel
+                tv_AfterSelect(null, null);
             }
 
         }
@@ -6334,23 +6333,23 @@ namespace AppTestStudio
 
         private void manualToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            MenuNewManual();
+            MenuNewManual(Platform.NoxPlayer);
         }
 
         private void steamToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MenuNewManual();
+            MenuNewManual(Platform.Steam);
         }
 
         private void applicationToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MenuNewManual();
+            MenuNewManual(Platform.Application);
         }
 
         private void cmdPathToExePicker_Click(object sender, EventArgs e)
         {
             DialogResult Result = dlgApplicationPicker.ShowDialog();
-            if(Result == DialogResult.OK )
+            if (Result == DialogResult.OK)
             {
                 txtPathToApplicationExe.Text = dlgApplicationPicker.FileName;
             }

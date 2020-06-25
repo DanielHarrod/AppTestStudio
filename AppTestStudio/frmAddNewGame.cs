@@ -89,5 +89,11 @@ namespace AppTestStudio
 
             Hide();
         }
+
+        private void cmdCancel_Click(object sender, EventArgs e)
+        {
+            IsValid = false;
+            Hide();
+        }
     }
 }
