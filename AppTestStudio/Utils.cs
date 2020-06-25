@@ -528,6 +528,7 @@ namespace AppTestStudio
             // We just want it running, if it's already running that's ok.
             info.Arguments = @"-applaunch " + SteamID + " -hijack";
 
+            // Take hijack off, don't want to scare anyone.
             Result = "Launching: " + info.FileName + " " + info.Arguments.Replace(" -hijack","");
             Process.Start(info);
 
