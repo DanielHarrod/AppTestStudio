@@ -521,7 +521,7 @@ namespace AppTestStudio
         {
             string Result;
             ProcessStartInfo info = new ProcessStartInfo(SteamExePath);
-            //info.FileName = SteamExePath;
+            
             info.WorkingDirectory = System.IO.Path.GetDirectoryName(SteamExePath);
             info.Arguments = @"-applaunch " + SteamID;
 
@@ -529,8 +529,9 @@ namespace AppTestStudio
             // We just want it running, if it's already running that's ok.
             info.Arguments = @"-applaunch " + SteamID + " -hijack";
 
-            // Take hijack off, don't want to scare anyone.
+            // Take hijack off, don't want to scare anyone in the log file.
             Result = "Launching: " + info.FileName + " " + info.Arguments.Replace(" -hijack","");
+
             Process.Start(info);
 
             return Result;
