@@ -3091,7 +3091,9 @@ namespace AppTestStudio
                                     if (game.BitmapClones.Count > 0)
                                     {
                                         Bitmap bmp = game.BitmapClones.First();
-                                        StartNewVideo(game, bmp);
+                                        String FileName = StartNewVideo(game, bmp);
+                                        Log("Starting new video");
+                                        Log(FileName);
                                         bmp = null;
                                         //'don//'t dispose re-reading it later.
                                     }
@@ -3111,7 +3113,9 @@ namespace AppTestStudio
                                         {
                                             game.Video.Release();
                                             game.Video = null;
-                                            StartNewVideo(game, bmp);
+                                            String FileName = StartNewVideo(game, bmp);
+                                            Log("New Video Due to New Resolution:" + bmp.Width + "x" + bmp.Height);
+                                            Log(FileName);
                                         }
                                         OpenCvSharp.Mat mat = OpenCvSharp.Extensions.BitmapConverter.ToMat(bmp);
                                         game.Video.Write(mat);
@@ -3138,7 +3142,7 @@ namespace AppTestStudio
 
         }
 
-        private void StartNewVideo(GameNodeGame game, Bitmap bmp)
+        private String StartNewVideo(GameNodeGame game, Bitmap bmp)
         {
             String MyDocuments = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
             String Directory = System.IO.Path.Combine(MyDocuments, Utils.ApplicationName, game.GameNodeName, "Video");
@@ -3151,11 +3155,12 @@ namespace AppTestStudio
                 System.IO.Directory.CreateDirectory(Directory);
             }
 
-            String Filename = Directory + @"\" + game.GameNodeName + DateTime.Now.ToString("ATS - yyyy - MM - dd - HH - mm - ss") + ".avi";
+            String Filename = Directory + @"\" + game.GameNodeName + DateTime.Now.ToString("ATSyyyyMMddHHmmss") + ".avi";
             game.Video = new OpenCvSharp.VideoWriter(Filename, OpenCvSharp.FourCCValues.DIVX, 1, new OpenCvSharp.Size(bmp.Width, bmp.Height), true);
             game.VideoHeight = bmp.Height;
             game.VideoWidth = bmp.Width;
 
+            return Filename;
         }
 
         private void BitmapChildren(GameNodeAction node, Bitmap bmp)
