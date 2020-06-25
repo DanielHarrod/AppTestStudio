@@ -27,6 +27,7 @@ namespace AppTestStudio
             ThreadLog = new ConcurrentQueue<string>();
             StatusControl = new ConcurrentQueue<AppTestStudioStatusControlItem>();
             MinimalBitmapClones = new ConcurrentQueue<MinimalBitmapNode>();
+            BitmapClones = new ConcurrentQueue<Bitmap>();
 
             StartTime = DateTime.Now;
             TargetGameBuild = "";
@@ -46,8 +47,15 @@ namespace AppTestStudio
         public ConcurrentQueue<String> ThreadLog { get; set; }
         public ConcurrentQueue<AppTestStudioStatusControlItem> StatusControl { get; set; }
 
+        /// <summary>
+        /// BitmapClones are used for Video
+        /// </summary>
         public ConcurrentQueue<Bitmap> BitmapClones { get; set; }
 
+        /// <summary>
+        /// Minimal Bitmap clones are used to to rebuild projects that were exported as Minimal
+        /// ATS doesn't need the bitmaps to run, but they are helpful in the editor to edit scripts.
+        /// </summary>
         public ConcurrentQueue<MinimalBitmapNode> MinimalBitmapClones { get; set; }
 
         public OpenCvSharp.VideoWriter Video { get; set; }

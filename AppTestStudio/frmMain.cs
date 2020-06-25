@@ -3086,12 +3086,15 @@ namespace AppTestStudio
                         {
                             if (game.Video.IsSomething() == false)
                             {
-                                if (game.BitmapClones.Count > 0)
+                                if (game.BitmapClones.IsSomething())
                                 {
-                                    Bitmap bmp = game.BitmapClones.First();
-                                    StartNewVideo(game, bmp);
-                                    bmp = null;
-                                    //'don//'t dispose re-reading it later.
+                                    if (game.BitmapClones.Count > 0)
+                                    {
+                                        Bitmap bmp = game.BitmapClones.First();
+                                        StartNewVideo(game, bmp);
+                                        bmp = null;
+                                        //'don//'t dispose re-reading it later.
+                                    }
                                 }
                             }
 
@@ -3149,8 +3152,7 @@ namespace AppTestStudio
             }
 
             String Filename = Directory + @"\" + game.GameNodeName + DateTime.Now.ToString("ATS - yyyy - MM - dd - HH - mm - ss") + ".avi";
-            //            Game.Video = new OpenCvSharp.VideoWriter(Filename, OpenCvSharp.FourCC.DIVX, 1, new OpenCvSharp.Size(bmp.Width, bmp.Height), true);
-            game.Video = new OpenCvSharp.VideoWriter(Filename, -1, 1, new OpenCvSharp.Size(bmp.Width, bmp.Height), true);
+            game.Video = new OpenCvSharp.VideoWriter(Filename, OpenCvSharp.FourCCValues.DIVX, 1, new OpenCvSharp.Size(bmp.Width, bmp.Height), true);
             game.VideoHeight = bmp.Height;
             game.VideoWidth = bmp.Width;
 
