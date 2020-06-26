@@ -91,11 +91,6 @@ namespace AppTestStudio
 
             Success = true;
 
-            if (Game.SaveVideo)
-            {
-                Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
-            }
-
             return bmp;
         }
 
@@ -158,7 +153,14 @@ namespace AppTestStudio
             }
         }
 
-
+        /// <summary>
+        /// Walks down the tree
+        /// </summary>
+        /// <param name="bmp">This is not always constant through the tree, it may be replaced if the node is marked to not follow parent screenshots so self and children get new screenshots, but siblings don't</param>
+        /// <param name="node"></param>
+        /// <param name="centerX"></param>
+        /// <param name="centerY"></param>
+        /// <returns></returns>
         private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY)
         {
             while (Game.IsPaused)
@@ -255,6 +257,12 @@ namespace AppTestStudio
 
                                 Utils.ClickOnWindow(WindowHandle, (short)Result.x, (short)Result.y, node.ClickSpeed);
                                 ThreadManager.IncrementClickCount();
+
+                                // Draw solution marker
+                                if (Game.SaveVideo)
+                                {
+                                    Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
+                                }
                             }
 
                             break;
@@ -293,6 +301,12 @@ namespace AppTestStudio
                                 //'if (UseThreadBitmap ) {
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)
                                 //'}
+
+                                // Draw solution marker
+                                if (Game.SaveVideo)
+                                {
+                                    Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
+                                }
                             }
                             break;
                         default:
@@ -344,6 +358,18 @@ namespace AppTestStudio
                                 default:
                                     return Result;
                             }
+                        }
+
+                        if (node.IsColorPoint == false)
+                        {
+                            // is Object search.
+                            // Draw solution marker
+                            if (Game.SaveVideo)
+                            {
+
+                                Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
+                            }
+
                         }
 
                         // if there's not a filename assigned to the node then we didn't locate a file, so it can be synced since there's a valid event.
