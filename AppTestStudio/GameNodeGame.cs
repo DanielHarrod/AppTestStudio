@@ -39,6 +39,7 @@ namespace AppTestStudio
             DPI = 192;
             Platform = Platform.NoxPlayer;
             TitleBarHeight = titleBarHeight;
+            PackageName = "";
 
             IsPaused = false;
 
@@ -86,7 +87,19 @@ namespace AppTestStudio
 
         public String ThreadandWindowName
         {
-            get { return Text + " - " + TargetWindow; }
+            get {
+                switch (Platform)
+                {
+                    case Platform.NoxPlayer:
+                        return Text + " - " + TargetWindow;
+                    case Platform.Steam:
+                        return "Steam - " + TargetWindow;
+                    case Platform.Application:
+                        return " Application - " + TargetWindow;
+                    default:
+                        return Text + " - " + TargetWindow;
+                }                
+            }
         }
 
         public Boolean IsPaused { get; set; }
