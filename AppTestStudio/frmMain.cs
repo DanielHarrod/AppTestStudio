@@ -6211,24 +6211,24 @@ namespace AppTestStudio
             LoadParentScreenshotIfNecessary(true);
         }
 
-        private void button1_Click(object sender, EventArgs e)
-        {
-            Bitmap bmp = PictureBoxObject.Image as Bitmap;
+        //private void button1_Click(object sender, EventArgs e)
+        //{
+        //    Bitmap bmp = PictureBoxObject.Image as Bitmap;
 
-            for (int i = 0; i < 55; i++)
-            {
-                for (int j = 0; j < 80; j++)
-                {
-                    if (i < bmp.Width)
-                        if (j < bmp.Height)
-                        {
-                            bmp.SetPixel(i, j, Color.White);
-                        }
-                }
-            }
-            PictureBoxObject.Invalidate();
+        //    for (int i = 0; i < 55; i++)
+        //    {
+        //        for (int j = 0; j < 80; j++)
+        //        {
+        //            if (i < bmp.Width)
+        //                if (j < bmp.Height)
+        //                {
+        //                    bmp.SetPixel(i, j, Color.White);
+        //                }
+        //        }
+        //    }
+        //    PictureBoxObject.Invalidate();
 
-        }
+        //}
 
         private void txtSteamID_KeyPress(object sender, KeyPressEventArgs e)
         {
