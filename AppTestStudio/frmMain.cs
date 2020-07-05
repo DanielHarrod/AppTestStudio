@@ -3648,7 +3648,6 @@ namespace AppTestStudio
             PictureObjectScreenshot.Image = PictureBox1.Image;
 
             PanelLoadNode.BackColor = Color.White;
-
         }
 
         private void toolStripButtonRunScript_Click(object sender, EventArgs e)
@@ -4467,8 +4466,13 @@ namespace AppTestStudio
             PictureObjectScreenshotRectanble = new Rectangle();
 
             //' Take a screenshot
-            cmdObjectScreenshotsTakeAScreenshot_Click(null, null); ;
+            cmdObjectScreenshotsTakeAScreenshot_Click(null, null);
 
+            // Clear the Name box
+            txtObjectScreenshotName.Text = "";
+
+            // set the cursor
+            txtObjectScreenshotName.Focus();
         }
 
         private void ShowHideTestAllEventsGridsAndLabels(Boolean SetVisible)
