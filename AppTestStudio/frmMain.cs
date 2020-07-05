@@ -4785,6 +4785,7 @@ namespace AppTestStudio
 
                 GameNodeGame Game = AddNewGameToTree(ApplicationName, TargetFileName);
                 txtPackageName.Text = frm.lblAppID.Text;
+                Game.PackageName = frm.lblAppID.Text;
 
                 toolStripButtonSaveScript_Click(null, null);
                 ThreadManager.IncrementNewAppAdded();
@@ -5217,7 +5218,7 @@ namespace AppTestStudio
         {
             String git = lstThreads.SelectedItem.ToString();
             String[] KeysIn = { " - " };
-            String[] Keys = git.Split(KeysIn, StringSplitOptions.None);
+            String[] Keys = git.Split(KeysIn, 1, StringSplitOptions.None);
 
             if (Keys.Length == 0)
             {
@@ -5225,13 +5226,14 @@ namespace AppTestStudio
                 Debug.Assert(false);
                 return;
             }
+
             String Token = Keys[Keys.Length - 1];
             Token = Token.Replace("ATS", "").Replace("Window", "");
 
             GameNodeGame GameFound = null;
             foreach (GameNodeGame Game in ThreadManager.Games)
             {
-                if (Game.InstanceToLaunch == Token)
+                if (Game.ThreadandWindowName == git)
                 {
                     GameFound = Game;
                     Game.Thread.Abort();
