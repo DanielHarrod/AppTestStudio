@@ -23,6 +23,8 @@ Interactively: Design, Test, Schedule and Play multiple clients at the same time
 
 4. Install AppTestStudio - Go to the Releases to the right of this information and install the latest version or run the code from Visual Studio.
 
+5. Turn on: [Require password for every purchase](https://support.google.com/googleplay/answer/1626831).  
+
 ## To Create a new project in AppTestStudio use the Wizard.
 
 ### 1.) In AppTestStudio go to File->New->Wizard
