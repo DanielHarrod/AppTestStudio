@@ -131,25 +131,25 @@ namespace AppTestStudio
         }
 
         private void ShutdownThread(GameNodeGame game, Boolean abortThread)
-        {            
-            ThreadIsShuttingDown = true;
-
-            if (Game.SaveVideo)
-            {
-
-                Game.Video.Release();
-                Game.Video = null;
-            }
-
-            ThreadManager.RemoveGame(Game);
-            
+        {
             if (abortThread)
-            {                
+            {
+                ThreadIsShuttingDown = true;
+
+                if (Game.SaveVideo)
+                {
+                    Game.Video.Release();
+                    Game.Video = null;
+                }
+
+                ThreadManager.RemoveGame(Game);
+
+
                 Game.Log("Shutting down thread:" + Game.GameNodeName + " on instance " + Game.InstanceToLaunch);
-                
+
                 // let the log process
                 Thread.Sleep(3000);
-                Thread.CurrentThread.Abort();                
+                Thread.CurrentThread.Abort();
             }
         }
 
@@ -575,7 +575,10 @@ namespace AppTestStudio
         {
             StopThreadCloseWindow(WindowHandle, false);
             GameNodeGame Game = node.GetGameNodeGame();
-            Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution,Game.DPI);
+            Game.Log("Waiting 10 sec... to restart");
+            Thread.Sleep(10000);
+            Game.Log("Restarting: " + Game.TargetWindow);
+            Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution, Game.DPI);
         }
 
         private AfterCompletionType CheckLimit(GameNodeAction node)
