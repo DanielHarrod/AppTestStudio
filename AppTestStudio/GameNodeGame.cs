@@ -915,6 +915,11 @@ namespace AppTestStudio
                         //' Writer.WriteAttributeString("ActionType", Activites.ActionType)
                         Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
 
+                        Writer.WriteAttributeString("IsLimited", Activites.IsLimited.ToString());
+                        Writer.WriteAttributeString("IsWaitFirst", Activites.IsWaitFirst.ToString());
+                        Writer.WriteAttributeString("ExecutionLimit", Activites.ExecutionLimit.ToString());
+                        Writer.WriteAttributeString("LimitRepeats", Activites.LimitRepeats.ToString());
+
                         Writer.WriteStartElement("Delay");
                         Writer.WriteAttributeString("MilliSeconds", Activites.DelayMS.ToString());
                         Writer.WriteAttributeString("Seconds", Activites.DelayS.ToString());
@@ -928,6 +933,7 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("Seconds", Activites.LimitDelayS.ToString());
                         Writer.WriteAttributeString("Minutes", Activites.LimitDelayM.ToString());
                         Writer.WriteAttributeString("Hours", Activites.LimitDelayH.ToString());
+
 
                         //'/LimitDelay
                         Writer.WriteEndElement();
