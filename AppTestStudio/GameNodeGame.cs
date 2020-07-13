@@ -617,6 +617,26 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("RelativeXOffset", Activites.RelativeXOffset.ToString());
                         Writer.WriteAttributeString("RelativeYOffset", Activites.RelativeYOffset.ToString());
 
+                        Writer.WriteAttributeString("IsLimited", Activites.IsLimited.ToString());
+                        Writer.WriteAttributeString("IsWaitFirst", Activites.IsWaitFirst.ToString());
+                        Writer.WriteAttributeString("ExecutionLimit", Activites.ExecutionLimit.ToString());
+                        Writer.WriteAttributeString("LimitRepeats", Activites.LimitRepeats.ToString());
+                        switch (Activites.WaitType)
+                        {
+                            case AppTestStudio.WaitType.Iteration:
+                                Writer.WriteAttributeString("WaitType", "Iteration");
+                                break;
+                            case AppTestStudio.WaitType.Time:
+                                Writer.WriteAttributeString("WaitType", "Time");
+                                break;
+                            case AppTestStudio.WaitType.Session:
+                                Writer.WriteAttributeString("WaitType", "Session");
+                                break;
+                            default:
+                                Writer.WriteAttributeString("WaitType", "Iteration");
+                                break;
+                        }
+
                         if (Activites.Mode == Mode.ClickDragRelease)
                         {
                             Writer.WriteStartElement("ClickDragRelease");
@@ -919,6 +939,21 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("IsWaitFirst", Activites.IsWaitFirst.ToString());
                         Writer.WriteAttributeString("ExecutionLimit", Activites.ExecutionLimit.ToString());
                         Writer.WriteAttributeString("LimitRepeats", Activites.LimitRepeats.ToString());
+                        switch (Activites.WaitType)
+                        {
+                            case AppTestStudio.WaitType.Iteration:
+                                Writer.WriteAttributeString("WaitType", "Iteration");
+                                break;
+                            case AppTestStudio.WaitType.Time:
+                                Writer.WriteAttributeString("WaitType", "Time");
+                                break;
+                            case AppTestStudio.WaitType.Session:
+                                Writer.WriteAttributeString("WaitType", "Session");
+                                break;
+                            default:
+                                Writer.WriteAttributeString("WaitType", "Iteration");
+                                break;
+                        }
 
                         Writer.WriteStartElement("Delay");
                         Writer.WriteAttributeString("MilliSeconds", Activites.DelayMS.ToString());
