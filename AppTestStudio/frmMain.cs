@@ -2233,19 +2233,6 @@ namespace AppTestStudio
             toolStripInstances.Text = cboGameInstances.Text;
         }
 
-        private void txtGamePanelLoopDelay_TextChanged(object sender, EventArgs e)
-        {
-            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
-            if (Game.IsSomething())
-            {
-                if (txtGamePanelLoopDelay.Text.Trim().IsNumeric())
-                {
-                    Game.LoopDelay = Convert.ToInt64(txtGamePanelLoopDelay.Text.Trim());
-                }
-            }
-
-        }
-
         private void cboResolution_SelectedIndexChanged(object sender, EventArgs e)
         {
             GameNodeGame Game = tv.SelectedNode as GameNodeGame;
@@ -6407,6 +6394,18 @@ namespace AppTestStudio
             if (Result == DialogResult.OK)
             {
                 txtPathToApplicationExe.Text = dlgApplicationPicker.FileName;
+            }
+        }
+
+        private void txtGamePanelLoopDelay_TextChanged_1(object sender, EventArgs e)
+        {
+            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+            if (Game.IsSomething())
+            {
+                if (txtGamePanelLoopDelay.Text.Trim().IsNumeric())
+                {
+                    Game.LoopDelay = Convert.ToInt64(txtGamePanelLoopDelay.Text.Trim());
+                }
             }
         }
     }
