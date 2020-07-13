@@ -258,6 +258,7 @@ namespace AppTestStudio
             float XIncrement = (float)(endX - startX) / MaxSteps;
             float YIncrement = (float)(endY - startY) / MaxSteps;
 
+            API.PostMessage(windowHandle, WM_MOUSEMOVE, 0, Utils.HiLoWord((short)CurrentX, (short)CurrentY));
             //'Send Mouse Down
             API.PostMessage(windowHandle, WM_LBUTTONDOWN, MK_LBUTTON, Utils.HiLoWord((short)CurrentX, (short)CurrentY));
             Thread.Sleep(10);
