@@ -6408,5 +6408,112 @@ namespace AppTestStudio
                 }
             }
         }
+
+
+
+        Boolean panelRightPropertiesOriginalVisible;
+        Boolean panelRightAfterCompletionOriginalVisible;
+        Boolean panelRightObjectOriginalVisible;
+        Boolean panelRightSwipePropertiesOriginalVisible;
+        Boolean panelRightClickPropertiesOriginalVisible;
+        Boolean panelRightLogicOriginalVisible;
+        Boolean panelRightCustomLogicOriginalVisible;
+        Boolean panelRightPointGridOriginalVisible;
+
+        private void cmdFlowLayoutPanelColorEvent1_Click(object sender, EventArgs e)
+        {
+            //this.tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
+            //this.tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 290F));
+            if (cmdFlowLayoutPanelColorEvent1.Text == "<<  ")
+            {
+                panelRightPropertiesOriginalVisible = panelRightProperties.Visible;
+                panelRightAfterCompletionOriginalVisible = panelRightAfterCompletion.Visible;
+                panelRightObjectOriginalVisible = panelRightObject.Visible;
+                panelRightSwipePropertiesOriginalVisible = panelRightSwipeProperties.Visible;
+                panelRightClickPropertiesOriginalVisible = panelRightClickProperties.Visible;
+                panelRightLogicOriginalVisible = panelRightLogic.Visible;
+                panelRightCustomLogicOriginalVisible = panelRightCustomLogic.Visible;
+                panelRightPointGridOriginalVisible = panelRightPointGrid.Visible;
+
+                // Hide section
+                cmdFlowLayoutPanelColorEvent1.Text = ">>  ";
+                cmdFlowLayoutPanelColorEvent1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+                tableColorEvent.ColumnStyles[1].Width = 30;
+
+                panelRightProperties.Visible = false;
+                panelRightAfterCompletion.Visible = false;
+                panelRightObject.Visible = false;
+                panelRightSwipeProperties.Visible = false;
+                panelRightClickProperties.Visible = false;
+                panelRightLogic.Visible = false;
+                panelRightCustomLogic.Visible = false;
+                panelRightPointGrid.Visible = false;
+
+            }
+            else
+            {
+                // Show section
+                cmdFlowLayoutPanelColorEvent1.Text = "<<  ";
+                cmdFlowLayoutPanelColorEvent1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+
+                tableColorEvent.ColumnStyles[1].Width = 300;
+
+                 panelRightProperties.Visible  = panelRightPropertiesOriginalVisible;
+                 panelRightAfterCompletion.Visible = panelRightAfterCompletionOriginalVisible ;
+                 panelRightObject.Visible= panelRightObjectOriginalVisible;
+                 panelRightSwipeProperties.Visible= panelRightSwipePropertiesOriginalVisible;
+                 panelRightClickProperties.Visible= panelRightClickPropertiesOriginalVisible;
+                 panelRightLogic.Visible= panelRightLogicOriginalVisible;
+                 panelRightCustomLogic.Visible= panelRightCustomLogicOriginalVisible;
+                 panelRightPointGrid.Visible= panelRightPointGridOriginalVisible;
+            }
+        }
+
+
+        Boolean panelRightColorAtPointerOriginalVisible ;
+        Boolean panelRightLimitOriginalVisible;
+        Boolean panelRightAnchorOriginalVisible;
+        Boolean panelRightOffsetOriginalVisible;
+        Boolean panelRightDragModeOriginalVisible;
+        private void cmdFlowLayoutPanelColorEvent2_Click(object sender, EventArgs e)
+        {
+            // Original Size is 300 first, 290 second.
+            if (cmdFlowLayoutPanelColorEvent2.Text == "<<  ")
+            {    
+                 // Hide section
+                 panelRightColorAtPointerOriginalVisible = panelRightColorAtPointer.Visible;
+                 panelRightLimitOriginalVisible = panelRightLimit.Visible;
+                 panelRightAnchorOriginalVisible = panelRightAnchor.Visible;
+                 panelRightOffsetOriginalVisible = panelRightOffset.Visible;
+                 panelRightDragModeOriginalVisible = panelRightDragMode.Visible;
+ 
+                cmdFlowLayoutPanelColorEvent2.Text = ">>  ";
+                cmdFlowLayoutPanelColorEvent2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+                // Third column
+                tableColorEvent.ColumnStyles[2].Width = 30;
+
+                panelRightColorAtPointer.Visible = false;
+                panelRightLimit.Visible = false;
+                panelRightAnchor.Visible = false;
+                panelRightOffset.Visible = false;
+                panelRightDragMode.Visible = false;
+            }
+            else
+            {
+                cmdFlowLayoutPanelColorEvent2.Text = "<<  ";
+                cmdFlowLayoutPanelColorEvent2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+
+                tableColorEvent.ColumnStyles[2].Width = 300;
+
+                panelRightColorAtPointer.Visible = panelRightColorAtPointerOriginalVisible;
+                panelRightLimit.Visible = panelRightLimitOriginalVisible;
+                panelRightAnchor.Visible = panelRightAnchorOriginalVisible;
+                panelRightOffset.Visible = panelRightOffsetOriginalVisible;
+                panelRightDragMode.Visible = panelRightDragModeOriginalVisible;
+            }
+        }
     }
 }
+
