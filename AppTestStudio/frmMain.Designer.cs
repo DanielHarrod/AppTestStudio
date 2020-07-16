@@ -1272,7 +1272,7 @@
             this.grpApplication.Size = new System.Drawing.Size(699, 193);
             this.grpApplication.TabIndex = 40;
             this.grpApplication.TabStop = false;
-            this.grpApplication.Text = "Application - Experimental";
+            this.grpApplication.Text = "Application - Experimental/In Development/Incomplete";
             // 
             // chkApplicationIsFullScreen
             // 
@@ -1385,7 +1385,7 @@
             this.grpSteam.Size = new System.Drawing.Size(639, 136);
             this.grpSteam.TabIndex = 39;
             this.grpSteam.TabStop = false;
-            this.grpSteam.Text = "Steam - Experimental";
+            this.grpSteam.Text = "Steam - Experimental/In Development/Incomplete";
             // 
             // chkIsSteamFullScreen
             // 
