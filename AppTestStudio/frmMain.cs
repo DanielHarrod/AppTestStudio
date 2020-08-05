@@ -235,15 +235,28 @@ namespace AppTestStudio
 
         private void ToolStripItem_Click(object sender, EventArgs e)
         {
-            ToolStripItem Item = sender as ToolStripItem;
-
-            if (Item.IsSomething())
+            try
             {
-                cboGameInstances.Text = Item.Text;
-                txtGamePanelLaunchInstance.Text = Item.Text;
-                toolStripInstances.Text = Item.Text;
-                GetGameNode().InstanceToLaunch = Item.Text;
+                ToolStripItem Item = sender as ToolStripItem;
 
+                if (Item.IsSomething())
+                {
+                    cboGameInstances.Text = Item.Text;
+                    txtGamePanelLaunchInstance.Text = Item.Text;
+                    toolStripInstances.Text = Item.Text;
+
+                    GameNodeGame Game = GetGameNode();
+                    if ( Game.IsSomething())
+                    {
+                        Game.InstanceToLaunch = Item.Text;
+                    }
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Log("ToolStripItem_Click:" + ex.Message);
             }
         }
 
@@ -707,7 +720,16 @@ namespace AppTestStudio
         {
             if (tv.Nodes.Count > 0)
             {
-                return tv.Nodes[0].Nodes[0] as GameNodeGame;
+                try
+                {
+                    return tv.Nodes[0].Nodes[0] as GameNodeGame;
+                }
+                catch (Exception ex)
+                {
+
+                    Log("GetGameNode:" + ex.Message.ToString());
+                }
+                
             }
             return null;
         }
