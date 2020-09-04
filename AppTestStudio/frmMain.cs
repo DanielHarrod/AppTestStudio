@@ -1779,8 +1779,11 @@ namespace AppTestStudio
             if ((delta < tv.Height / 2) && (delta > 0))
             {
                 TreeNode tn = tv.GetNodeAt(pt.X, pt.Y);
-                if (tn.NextVisibleNode != null)
-                    tn.NextVisibleNode.EnsureVisible();
+                if (tn.IsSomething())
+                {
+                    if (tn.NextVisibleNode != null)
+                        tn.NextVisibleNode.EnsureVisible();
+                }
             }
             if ((delta > tv.Height / 2) && (delta < tv.Height))
             {
