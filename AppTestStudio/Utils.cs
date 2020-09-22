@@ -385,13 +385,16 @@ namespace AppTestStudio
                         WindowHandleInfo hi = new WindowHandleInfo(Handles.MainWindowHandle);
                         List<IntPtr> ChildWindowHandles = hi.GetAllChildHandles();
 
-                        foreach (IntPtr ChildHandle in ChildWindowHandles)
+                        if (ChildWindowName.Length > 0)
                         {
-                            String ChildText = GetText(ChildHandle);
-                            if (ChildText == ChildWindowName)
+                            foreach (IntPtr ChildHandle in ChildWindowHandles)
                             {
-                                Handles.ChildWindowHandle = ChildHandle;
-                                return Handles.ChildWindowHandle;
+                                String ChildText = GetText(ChildHandle);
+                                if (ChildText == ChildWindowName)
+                                {
+                                    Handles.ChildWindowHandle = ChildHandle;
+                                    return Handles.ChildWindowHandle;
+                                }
                             }
                         }
                     }
