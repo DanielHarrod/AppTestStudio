@@ -341,7 +341,7 @@ namespace AppTestStudio
             API.PostMessage(windowHandle, WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
 
         }
-
+  
         static System.Random Generator = new System.Random();
 
         public static short RandomNumber(int min, int max)
@@ -390,7 +390,7 @@ namespace AppTestStudio
                             foreach (IntPtr ChildHandle in ChildWindowHandles)
                             {
                                 String ChildText = GetText(ChildHandle);
-                                if (ChildText == ChildWindowName)
+                                if (ChildText.StartsWith(ChildWindowName))
                                 {
                                     Handles.ChildWindowHandle = ChildHandle;
                                     return Handles.ChildWindowHandle;
