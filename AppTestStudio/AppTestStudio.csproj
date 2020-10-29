@@ -264,6 +264,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Build Notes.txt" />
     <Content Include="Resources\AddActionP.png" />
     <Content Include="Resources\AddEvent.png" />
     <Content Include="Resources\AddRNGContainerP.png" />

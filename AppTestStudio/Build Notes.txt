@@ -1,0 +1,23 @@
+﻿
+        //if (WindowName == "BlueStacks")
+        //{
+        //    ChildWindowName = "BlueStacks Android PluginAndroid";
+        //}
+        //        HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks\Config\PartnerExePath = EXE path.
+
+        //to launch an instance.
+        //"C:\Program Files\BlueStacks\HD-RunApp.exe" -vmname Android_1 -json "{\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
+
+        //Instances: Enumerate: HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks\Guests\ 
+
+        //HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks\Guests\Android_2\Config\DisplayName = Window Name
+
+
+
+        //                        //if (WindowName == "BlueStacks")
+        //                        //{
+        //                        //    ChildWindowName = "BlueStacks Android PluginAndroid";
+        //                        //}
+        //"C:\Program Files\BlueStacks\HD-RunApp.exe" -vmname Android_1 -json "{\"app_icon_url\":\"\",\"app_name\":\"Holyday City\",\"app_url\":\"\",\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
+
+

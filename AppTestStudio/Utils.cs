@@ -374,7 +374,8 @@ namespace AppTestStudio
         public static IntPtr GetWindowHandleByWindowName(String WindowName, String ChildWindowName)
         {
             WindowHandles Handles = new WindowHandles();
-            foreach (Process P in Process.GetProcesses())
+            Process[] Processes = Process.GetProcesses();
+            foreach (Process P in Processes)
             {
                 if (P.MainWindowTitle.Length > 0)
                 {
@@ -384,6 +385,8 @@ namespace AppTestStudio
 
                         WindowHandleInfo hi = new WindowHandleInfo(Handles.MainWindowHandle);
                         List<IntPtr> ChildWindowHandles = hi.GetAllChildHandles();
+
+                       // ChildWindowName = "BlueStacks Android PluginAndroid";
 
                         if (ChildWindowName.Length > 0)
                         {
@@ -397,6 +400,7 @@ namespace AppTestStudio
                                 }
                             }
                         }
+                        break;
                     }
                 }
             }
