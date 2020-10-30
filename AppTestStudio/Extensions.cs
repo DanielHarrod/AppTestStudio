@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -13,6 +14,29 @@ namespace AppTestStudio
 {
     public static class Extensions
     {
+
+        public static String ToEnumString( this WindowNameFilterType filter)
+        {
+            String Result = "";
+            switch (filter)
+            {
+                case WindowNameFilterType.Equals:
+                    Result = "Equals";
+                    break;
+                case WindowNameFilterType.StartsWith:
+                    Result = "StartsWith";
+                    break;
+                case WindowNameFilterType.Contains:
+                    Result = "Contains";
+                    break;
+                default:
+                    Result = "Equals";
+                    break;
+            }
+
+            return Result;
+        }
+
         public static Bitmap CloneMe(this Bitmap bmp)
         {
             return (Bitmap)bmp.Clone();

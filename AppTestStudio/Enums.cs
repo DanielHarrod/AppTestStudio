@@ -19,6 +19,13 @@ namespace AppTestStudio
         Application
     }
 
+    public enum WindowNameFilterType
+    {
+        Equals,
+        StartsWith,
+        Contains
+    }
+
     public enum GameNodeType
     {
         Workspace,

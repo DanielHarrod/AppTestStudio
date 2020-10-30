@@ -669,8 +669,18 @@ namespace AppTestStudio
             cboPlatform.Text = gameNode.Platform.ToString();
             txtSteamID.Text = gameNode.SteamID.ToString();
             txtPathToApplicationExe.Text = gameNode.PathToApplicationEXE;
-            txtSteamWindowName.Text = gameNode.SteamWindowName;
-            txtApplicationWindowName.Text = gameNode.ApplicationWindowName;
+
+            txtSteamPrimaryWindowName.Text = gameNode.SteamPrimaryWindowName;
+            txtSteamSecondaryWindowName.Text = gameNode.SteamSecondaryWindowName;
+            cboSteamPrimaryWindowNameFilter.Text = gameNode.SteamPrimaryWindowFilter.ToEnumString();
+            cboSteamSecondaryWindowNameFilter.Text = gameNode.SteamSecondaryWindowFilter.ToEnumString();
+
+
+            txtApplicationPrimaryWindowName.Text = gameNode.ApplicationPrimaryWindowName;
+            txtApplicationSecondaryWindowName.Text = gameNode.ApplicationSecondaryWindowName;
+            cboApplicationPrimaryWindowNameFilter.Text = gameNode.ApplicationPrimaryWindowFilter.ToEnumString();
+            cboApplicationSecondaryWindowNameFilter.Text = gameNode.ApplicationSecondaryWindowFilter.ToEnumString();
+
             chkApplicationIsFullScreen.Checked = gameNode.IsFullScreen;
             chkIsSteamFullScreen.Checked = gameNode.IsFullScreen;
             cboPlatform_TextChanged(null, null);
@@ -6347,7 +6357,7 @@ namespace AppTestStudio
             try
             {
                 GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-                GameNode.ApplicationWindowName = txtApplicationWindowName.Text.Trim();
+                GameNode.ApplicationPrimaryWindowName = txtApplicationPrimaryWindowName.Text.Trim();
             }
             catch (Exception ex)
             {
@@ -6360,7 +6370,7 @@ namespace AppTestStudio
             try
             {
                 GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-                GameNode.SteamWindowName = txtSteamWindowName.Text.Trim();
+                GameNode.SteamPrimaryWindowName = txtSteamPrimaryWindowName.Text.Trim();
             }
             catch (Exception ex)
             {
@@ -6540,6 +6550,98 @@ namespace AppTestStudio
                 panelRightAnchor.Visible = panelRightAnchorOriginalVisible;
                 panelRightOffset.Visible = panelRightOffsetOriginalVisible;
                 panelRightDragMode.Visible = panelRightDragModeOriginalVisible;
+            }
+        }
+
+        private void txtSteamSecondaryWindowName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                GameNode.SteamSecondaryWindowName = txtSteamSecondaryWindowName.Text.Trim();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void txtApplicationSecondaryWindowName_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                GameNode.ApplicationSecondaryWindowName = txtApplicationSecondaryWindowName.Text.Trim();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+
+
+        private void cboApplicationPrimaryWindowNameFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+
+                WindowNameFilterType FilterType = Utils.GetEnumTypeFromFilterName(cboApplicationPrimaryWindowNameFilter.Text);
+
+                GameNode.ApplicationPrimaryWindowFilter = FilterType;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void cboApplicationSecondaryWindowNameFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+
+                WindowNameFilterType FilterType = Utils.GetEnumTypeFromFilterName(cboApplicationSecondaryWindowNameFilter.Text);
+
+                GameNode.ApplicationSecondaryWindowFilter = FilterType;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void cboSteamPrimaryWindowNameFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+
+                WindowNameFilterType FilterType = Utils.GetEnumTypeFromFilterName(cboSteamPrimaryWindowNameFilter.Text);
+
+                GameNode.SteamPrimaryWindowFilter = FilterType;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void cboSteamSecondaryWindowNameFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+
+                WindowNameFilterType FilterType = Utils.GetEnumTypeFromFilterName(cboSteamSecondaryWindowNameFilter.Text);
+
+                GameNode.SteamSecondaryWindowFilter = FilterType;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
             }
         }
     }

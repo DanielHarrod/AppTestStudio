@@ -41,6 +41,17 @@ namespace AppTestStudio
             TitleBarHeight = titleBarHeight;
             PackageName = "";
 
+            ApplicationPrimaryWindowFilter = WindowNameFilterType.Equals;
+            ApplicationSecondaryWindowFilter = WindowNameFilterType.Equals;
+
+            SteamPrimaryWindowFilter = WindowNameFilterType.Equals;
+            SteamSecondaryWindowFilter = WindowNameFilterType.Equals;
+
+            ApplicationPrimaryWindowName = "";
+            ApplicationSecondaryWindowName = "";
+            SteamPrimaryWindowName = "";
+            SteamSecondaryWindowName = "";
+
             IsPaused = false;
 
         }
@@ -114,10 +125,10 @@ namespace AppTestStudio
                         return "ATS" + InstanceToLaunch + "Window";
                         break;
                     case Platform.Steam:
-                        return SteamWindowName;
+                        return SteamPrimaryWindowName;
                         break;
                     case Platform.Application:
-                        return ApplicationWindowName;
+                        return ApplicationPrimaryWindowName;
                         break;
                     default:
                         break;
@@ -172,8 +183,15 @@ namespace AppTestStudio
         public String PathToApplicationEXE { get; set; }
         public Platform Platform { get; set; }
 
-        public String SteamWindowName { get; set; }
-        public String ApplicationWindowName { get; set; }
+        public String SteamPrimaryWindowName { get; set; }
+        public WindowNameFilterType SteamPrimaryWindowFilter { get; set; }
+        public String SteamSecondaryWindowName { get; set; }
+        public WindowNameFilterType SteamSecondaryWindowFilter { get; set; }
+
+        public String ApplicationPrimaryWindowName { get; set; }
+        public WindowNameFilterType ApplicationPrimaryWindowFilter { get; set; }
+        public String ApplicationSecondaryWindowName { get; set; }
+        public WindowNameFilterType ApplicationSecondaryWindowFilter { get; set; }
 
         public String ApplicationParameters { get; set; }
 
@@ -201,8 +219,8 @@ namespace AppTestStudio
             Target.Platform = Platform;
             Target.PathToApplicationEXE = PathToApplicationEXE;
             Target.SteamID = SteamID;
-            Target.SteamWindowName = SteamWindowName;
-            Target.ApplicationWindowName = ApplicationWindowName;
+            Target.SteamPrimaryWindowName = SteamPrimaryWindowName;
+            Target.ApplicationPrimaryWindowName = ApplicationPrimaryWindowName;
             Target.IsFullScreen = IsFullScreen;
             Target.ApplicationParameters = ApplicationParameters;
 
@@ -278,7 +296,18 @@ namespace AppTestStudio
             Platform Platform = Platform.NoxPlayer;
             long SteamID = 0;
             String PathToApplicationExe = "";
-            String WindowName = "";
+            
+            WindowNameFilterType ApplicationPrimaryWindowFilter = AppTestStudio.WindowNameFilterType.Equals;
+            WindowNameFilterType ApplicationSecondaryWindowFilter = AppTestStudio.WindowNameFilterType.Equals;
+            WindowNameFilterType SteamPrimaryWindowFilter = AppTestStudio.WindowNameFilterType.Equals;
+            WindowNameFilterType SteamSecondaryWindowFilter = AppTestStudio.WindowNameFilterType.Equals;
+
+            String ApplicationPrimaryWindowName = "";
+            String ApplicationSecondaryWindowName = "";
+
+            String SteamPrimaryWindowName = "";
+            String SteamSecondaryWindowName = "";
+
             Boolean IsFullScreen = false;
             String ApplicationParameters = "";
 
@@ -407,11 +436,100 @@ namespace AppTestStudio
                 }
             }
 
-            if (childNode.Attributes.GetNamedItem("WindowName").IsSomething())
+            if (childNode.Attributes.GetNamedItem("ApplicationPrimaryWindowName").IsSomething())
             {
                 try
                 {
-                    WindowName = childNode.Attributes["WindowName"].Value;
+                    ApplicationPrimaryWindowName = childNode.Attributes["ApplicationPrimaryWindowName"].Value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
+            if (childNode.Attributes.GetNamedItem("ApplicationSecondaryWindowName").IsSomething())
+            {
+                try
+                {
+                    ApplicationSecondaryWindowName = childNode.Attributes["ApplicationSecondaryWindowName"].Value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
+            if (childNode.Attributes.GetNamedItem("SteamPrimaryWindowName").IsSomething())
+            {
+                try
+                {
+                    SteamPrimaryWindowName = childNode.Attributes["SteamPrimaryWindowName"].Value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
+            if (childNode.Attributes.GetNamedItem("SteamSecondaryWindowName").IsSomething())
+            {
+                try
+                {
+                    SteamSecondaryWindowName = childNode.Attributes["SteamSecondaryWindowName"].Value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
+
+            if (childNode.Attributes.GetNamedItem("ApplicationPrimaryWindowFilter").IsSomething())
+            {
+                try
+                {
+                    String FilterText = childNode.Attributes["ApplicationPrimaryWindowFilter"].Value;
+                    ApplicationPrimaryWindowFilter = Utils.GetEnumTypeFromFilterName(FilterText);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
+            if (childNode.Attributes.GetNamedItem("ApplicationSecondaryWindowFilter").IsSomething())
+            {
+                try
+                {
+                    String FilterText = childNode.Attributes["ApplicationSecondaryWindowFilter"].Value;
+                    ApplicationSecondaryWindowFilter = Utils.GetEnumTypeFromFilterName(FilterText);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
+            if (childNode.Attributes.GetNamedItem("SteamPrimaryWindowFilter").IsSomething())
+            {
+                try
+                {
+                    String FilterText = childNode.Attributes["SteamPrimaryWindowFilter"].Value;
+                    SteamPrimaryWindowFilter = Utils.GetEnumTypeFromFilterName(FilterText);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
+            if (childNode.Attributes.GetNamedItem("SteamSecondaryWindowFilter").IsSomething())
+            {
+                try
+                {
+                    String FilterText = childNode.Attributes["SteamSecondaryWindowFilter"].Value;
+                    SteamSecondaryWindowFilter = Utils.GetEnumTypeFromFilterName(FilterText);
                 }
                 catch (Exception ex)
                 {
@@ -491,10 +609,16 @@ namespace AppTestStudio
                 case AppTestStudio.Platform.NoxPlayer:
                     break;
                 case AppTestStudio.Platform.Steam:
-                    Game.SteamWindowName = WindowName;
+                    Game.SteamPrimaryWindowName = SteamPrimaryWindowName;
+                    Game.SteamSecondaryWindowName = SteamSecondaryWindowName;
+                    Game.SteamPrimaryWindowFilter = SteamPrimaryWindowFilter;
+                    Game.SteamSecondaryWindowFilter = SteamSecondaryWindowFilter;
                     break;
                 case AppTestStudio.Platform.Application:
-                    Game.ApplicationWindowName = WindowName;
+                    Game.ApplicationPrimaryWindowName = ApplicationPrimaryWindowName;
+                    Game.ApplicationSecondaryWindowName = ApplicationSecondaryWindowName;
+                    Game.ApplicationPrimaryWindowFilter = ApplicationPrimaryWindowFilter;
+                    Game.ApplicationSecondaryWindowFilter = ApplicationSecondaryWindowFilter;
                     break;
                 default:
                     break;
@@ -553,12 +677,18 @@ namespace AppTestStudio
                     break;
                 case Platform.Steam:
                     Writer.WriteAttributeString("SteamID", SteamID.ToString());
-                    Writer.WriteAttributeString("WindowName", SteamWindowName);
+                    Writer.WriteAttributeString("SteamPrimaryWindowName", SteamPrimaryWindowName);
+                    Writer.WriteAttributeString("SteamPrimaryWindowFilter", SteamPrimaryWindowFilter.ToEnumString()) ;
+                    Writer.WriteAttributeString("SteamSecondaryWindowName", SteamSecondaryWindowName);
+                    Writer.WriteAttributeString("SteamSecondaryWindowFilter", SteamSecondaryWindowFilter.ToEnumString());
                     Writer.WriteAttributeString("IsFullScreen", IsFullScreen.ToString());
                     break;
                 case Platform.Application:
                     Writer.WriteAttributeString("PathToApplicationExe", PathToApplicationEXE);
-                    Writer.WriteAttributeString("WindowName", ApplicationWindowName);
+                    Writer.WriteAttributeString("ApplicationPrimaryWindowName", ApplicationPrimaryWindowName);
+                    Writer.WriteAttributeString("ApplicationPrimaryWindowFilter", ApplicationPrimaryWindowFilter.ToEnumString());
+                    Writer.WriteAttributeString("ApplicationSecondaryWindowName", ApplicationSecondaryWindowName);
+                    Writer.WriteAttributeString("ApplicationSecondaryWindowFilter", ApplicationSecondaryWindowFilter.ToEnumString());
                     Writer.WriteAttributeString("IsFullScreen", IsFullScreen.ToString());
                     Writer.WriteAttributeString("ApplicationParameters", ApplicationParameters);
                     break;
@@ -1816,22 +1946,24 @@ namespace AppTestStudio
 
         public IntPtr GetWindowHandleByWindowName()
         {
-
             IntPtr Result = IntPtr.Zero;
-            switch (Platform)
-            {
-                case Platform.NoxPlayer:
-                    Result = Utils.GetWindowHandleByWindowName(TargetWindow, Definitions.NoxWorkWindowName);
-                    break;
-                case Platform.Steam:
-                    Result = Utils.GetWindowHandleByWindowName(TargetWindow, "");
-                    break;
-                case Platform.Application:
-                    Result = Utils.GetWindowHandleByWindowName(TargetWindow, "");
-                    break;
-                default:
-                    break;
-            }
+
+            Result = Utils.GetWindowHandleByWindowName(this);
+
+            //switch (Platform)
+            //{
+            //    case Platform.NoxPlayer:
+            //        Result = Utils.GetWindowHandleByWindowName(TargetWindow, Definitions.NoxWorkWindowName);
+            //        break;
+            //    case Platform.Steam:
+            //        Result = Utils.GetWindowHandleByWindowName(TargetWindow, "");
+            //        break;
+            //    case Platform.Application:
+            //        Result = Utils.GetWindowHandleByWindowName(TargetWindow, "");
+            //        break;
+            //    default:
+            //        break;
+            //}
 
             return Result;
         }

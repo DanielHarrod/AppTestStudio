@@ -11,6 +11,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
+using System.ServiceModel.Security;
 
 namespace AppTestStudio
 {
@@ -371,6 +372,135 @@ namespace AppTestStudio
             return sb.ToString();
         }
 
+        public static IntPtr GetWindowHandleByWindowName(GameNodeGame game)
+        {
+            WindowNameFilterType PrimaryWindowNameFilter = WindowNameFilterType.Equals;
+            WindowNameFilterType SecondaryWindowNameFilter = WindowNameFilterType.Equals;
+            String PrimaryWindowName = "";
+            String SecondaryWindowName = "";
+
+            switch (game.Platform)
+            {
+                case Platform.NoxPlayer:
+                    PrimaryWindowName = game.TargetWindow;
+                    PrimaryWindowNameFilter = WindowNameFilterType.Equals;
+
+                    SecondaryWindowName = Definitions.NoxWorkWindowName;
+                    SecondaryWindowNameFilter = WindowNameFilterType.Equals;
+                    break;
+                case Platform.Steam:
+                    PrimaryWindowName = game.SteamPrimaryWindowName;
+                    SecondaryWindowName = game.SteamSecondaryWindowName;
+                    PrimaryWindowNameFilter = game.SteamPrimaryWindowFilter;
+                    SecondaryWindowNameFilter = game.SteamSecondaryWindowFilter;
+                    break;
+                case Platform.Application:
+                    PrimaryWindowName = game.ApplicationPrimaryWindowName;
+                    SecondaryWindowName = game.ApplicationSecondaryWindowName;
+                    PrimaryWindowNameFilter = game.ApplicationPrimaryWindowFilter;
+                    SecondaryWindowNameFilter = game.ApplicationSecondaryWindowFilter;
+                    break;
+                default:
+                    break;
+            }
+
+            WindowHandles Handles = new WindowHandles();
+            Process[] Processes = Process.GetProcesses();
+            foreach (Process P in Processes)
+            {
+                if (P.MainWindowTitle.Length > 0)
+                {
+                    Boolean IsThisThePrimaryWindow = false;
+
+                    switch (PrimaryWindowNameFilter)
+                    {
+                        case WindowNameFilterType.Equals:
+                            if (P.MainWindowTitle == PrimaryWindowName)
+                            {
+                                IsThisThePrimaryWindow = true;
+                            }
+
+                            break;
+                        case WindowNameFilterType.StartsWith:
+                            if (P.MainWindowTitle.StartsWith(PrimaryWindowName))
+                            {
+                                IsThisThePrimaryWindow = true;
+                            }
+                            break;
+                        case WindowNameFilterType.Contains:
+                            if (P.MainWindowTitle.Contains(PrimaryWindowName))
+                            {
+                                IsThisThePrimaryWindow = true;
+                            }
+                            break;
+                        default:
+                            break;
+                    }
+
+                    if (IsThisThePrimaryWindow)
+                    {
+                        Handles.MainWindowHandle = P.MainWindowHandle;
+
+                        if (SecondaryWindowName.Length > 0)
+                        {
+                            WindowHandleInfo hi = new WindowHandleInfo(Handles.MainWindowHandle);
+                            List<IntPtr> ChildWindowHandles = hi.GetAllChildHandles();
+
+                        // ChildWindowName = "BlueStacks Android PluginAndroid";
+
+                            foreach (IntPtr ChildHandle in ChildWindowHandles)
+                            {
+                                String ChildText = GetText(ChildHandle);
+
+                                Boolean IsThisTheSecondaryWindow = false;
+
+                                switch (SecondaryWindowNameFilter)
+                                {
+                                    case WindowNameFilterType.Equals:
+                                        if (ChildText == SecondaryWindowName)
+                                        {
+                                            IsThisTheSecondaryWindow = true;
+                                        }
+
+                                        break;
+                                    case WindowNameFilterType.StartsWith:
+                                        if (ChildText.StartsWith(SecondaryWindowName))
+                                        {
+                                            IsThisTheSecondaryWindow = true;
+                                        }
+                                        break;
+                                    case WindowNameFilterType.Contains:
+                                        if (ChildText.Contains(SecondaryWindowName))
+                                        {
+                                            IsThisTheSecondaryWindow = true;
+                                        }
+                                        break;
+                                    default:
+                                        break;
+                                }
+
+                                if (IsThisTheSecondaryWindow)
+                                {
+                                    Handles.ChildWindowHandle = ChildHandle;
+                                    return Handles.ChildWindowHandle;
+                                }
+                            }
+                        }
+                        break;
+                    }
+                }
+            }
+            if (SecondaryWindowName.Length > 0)
+            {
+                return Handles.ChildWindowHandle;
+            }
+            else
+            {
+                return Handles.MainWindowHandle;
+            }
+        }
+
+
         public static IntPtr GetWindowHandleByWindowName(String WindowName, String ChildWindowName)
         {
             WindowHandles Handles = new WindowHandles();
@@ -689,6 +819,30 @@ namespace AppTestStudio
         internal static String ExtendCustomLogic(String expression)
         {
             return expression.ToUpper().Replace("AND", " AND ").Replace("OR", " OR ").Replace("NOT", " NOT ").Replace("(", " ( ").Replace(")", " ) ").Replace("||", " OR ").Replace("&&", " AND ").Replace("|", " OR ").Replace("&", " AND ").Replace("!", " NOT ");
+        }
+
+        public static WindowNameFilterType GetEnumTypeFromFilterName(String FilterNameText)
+        {
+            FilterNameText = FilterNameText.Trim().ToUpper();
+            WindowNameFilterType FilterType = WindowNameFilterType.Equals;
+
+            switch (FilterNameText)
+            {
+                case "EQUALS":
+                    FilterType = WindowNameFilterType.Equals;
+                    break;
+                case "STARTS WITH":
+                    FilterType = WindowNameFilterType.StartsWith;
+                    break;
+                case "CONTAINS":
+                    FilterType = WindowNameFilterType.Contains;
+                    break;
+                default:
+                    FilterType = WindowNameFilterType.Equals;
+                    break;
+            }
+
+            return FilterType;
         }
     }
 
