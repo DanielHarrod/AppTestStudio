@@ -6644,6 +6644,18 @@ namespace AppTestStudio
                 Log(ex.Message);
             }
         }
+
+        private void cmdSteamWindowWizard_Click(object sender, EventArgs e)
+        {
+            frmWindowWizard WindowWizard = new frmWindowWizard(txtSteamPrimaryWindowName.Text, txtSteamSecondaryWindowName.Text, cboSteamPrimaryWindowNameFilter.Text, cboSteamSecondaryWindowNameFilter.Text);
+            WindowWizard.StartPosition = FormStartPosition.CenterParent;
+            WindowWizard.ShowDialog();
+
+            if (WindowWizard.UseValues)
+            {
+                txtSteamPrimaryWindowName.Text = WindowWizard.ChosenWindowName;
+            }
+        }
     }
 }
 

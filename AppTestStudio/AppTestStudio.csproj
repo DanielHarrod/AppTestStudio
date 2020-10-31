@@ -185,6 +185,12 @@
     <Compile Include="frmTimeCapture.Designer.cs">
       <DependentUpon>frmTimeCapture.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmWindowWizard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmWindowWizard.Designer.cs">
+      <DependentUpon>frmWindowWizard.cs</DependentUpon>
+    </Compile>
     <Compile Include="GameNode.cs" />
     <Compile Include="GameNodeAction.cs" />
     <Compile Include="GameNodeEvents.cs" />
@@ -231,6 +237,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTimeCapture.resx">
       <DependentUpon>frmTimeCapture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmWindowWizard.resx">
+      <DependentUpon>frmWindowWizard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
