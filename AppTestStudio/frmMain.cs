@@ -113,7 +113,7 @@ namespace AppTestStudio
         }
 
         private void frmMain_Load(object sender, EventArgs e)
-        {
+        {            
             ThreadManager.Load();
             InitializeToolbars();
 

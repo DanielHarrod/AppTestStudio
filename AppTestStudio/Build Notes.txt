@@ -21,3 +21,7 @@
         //"C:\Program Files\BlueStacks\HD-RunApp.exe" -vmname Android_1 -json "{\"app_icon_url\":\"\",\"app_name\":\"Holyday City\",\"app_url\":\"\",\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
 
 
+        "C:\Program Files\BlueStacks\Bluestacks.exe" -vmname Android
+        "C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android
+        "C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android_1
+

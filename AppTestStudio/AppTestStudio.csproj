@@ -122,6 +122,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="API.cs" />
+    <Compile Include="BlueStacksRegistry.cs" />
     <Compile Include="BooleanParser\Parser.cs" />
     <Compile Include="BooleanParser\ParsingHelpers.cs" />
     <Compile Include="BooleanParser\TokenEnumerator.cs" />
