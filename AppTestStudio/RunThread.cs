@@ -41,6 +41,7 @@ namespace AppTestStudio
             this.Game = Game;
             ThreadIsShuttingDown = false;
             RunTimeWindowTimeout = 100;
+            WindowHandle = IntPtr.Zero;
         }
 
         private Bitmap GetBitMap(ref Boolean Success)
@@ -499,7 +500,10 @@ namespace AppTestStudio
                 // Log status to status control.
                 Game.LogStatus(node.StatusNodeID, DelayCalc);
 
-                Thread.Sleep(DelayCalc);
+                if (DelayCalc > 0)
+                {
+                    Thread.Sleep(DelayCalc);
+                }
                 ThreadManager.AddWaitLength(DelayCalc);
 
                 switch (node.AfterCompletionType)
@@ -674,7 +678,11 @@ namespace AppTestStudio
             long LoopDelay = 0;
             while (ThreadIsShuttingDown == false)
             {
-                WindowHandle = Game.GetWindowHandleByWindowName();
+                if (WindowHandle == IntPtr.Zero)
+                {
+                    WindowHandle = Game.GetWindowHandleByWindowName();
+                }
+
                 while (WindowHandle.ToInt32() == 0)
                 {
                     while (Game.IsPaused)
@@ -715,6 +723,7 @@ namespace AppTestStudio
                 }
 
                 Boolean BitMapSuccess = false;
+                
                 Bitmap bmp = GetBitMap(ref BitMapSuccess);
                 if (BitMapSuccess)
                 {
@@ -766,7 +775,8 @@ namespace AppTestStudio
                 }
                 else
                 {
-                    Game.Log("Lost window");
+                    Game.Log("Lost window #" + WindowHandle.ToInt32());
+                    WindowHandle = IntPtr.Zero;
                 }
 
                 LoopDelay = Game.LoopDelay;
