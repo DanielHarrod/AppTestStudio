@@ -219,10 +219,23 @@ namespace AppTestStudio
             Target.Platform = Platform;
             Target.PathToApplicationEXE = PathToApplicationEXE;
             Target.SteamID = SteamID;
-            Target.SteamPrimaryWindowName = SteamPrimaryWindowName;
-            Target.ApplicationPrimaryWindowName = ApplicationPrimaryWindowName;
+
+
+
             Target.IsFullScreen = IsFullScreen;
             Target.ApplicationParameters = ApplicationParameters;
+
+            Target.SteamPrimaryWindowName = SteamPrimaryWindowName;
+            Target.SteamPrimaryWindowFilter = SteamPrimaryWindowFilter;
+            Target.SteamSecondaryWindowName = SteamSecondaryWindowName;
+            Target.SteamSecondaryWindowFilter = SteamSecondaryWindowFilter;
+
+            Target.ApplicationPrimaryWindowName = ApplicationPrimaryWindowName;
+            Target.ApplicationPrimaryWindowFilter = ApplicationPrimaryWindowFilter;
+            Target.ApplicationSecondaryWindowName = ApplicationSecondaryWindowName;
+            Target.ApplicationSecondaryWindowFilter = ApplicationSecondaryWindowFilter;
+
+
 
             Target.Nodes.Add(TargetEvents);
 

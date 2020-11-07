@@ -404,6 +404,9 @@ namespace AppTestStudio
                     break;
             }
 
+            PrimaryWindowName = PrimaryWindowName.ToUpper();
+            SecondaryWindowName = SecondaryWindowName.ToUpper();
+
             WindowHandles Handles = new WindowHandles();
             Process[] Processes = Process.GetProcesses();
             foreach (Process P in Processes)
@@ -415,20 +418,20 @@ namespace AppTestStudio
                     switch (PrimaryWindowNameFilter)
                     {
                         case WindowNameFilterType.Equals:
-                            if (P.MainWindowTitle == PrimaryWindowName)
+                            if (P.MainWindowTitle.ToUpper() == PrimaryWindowName)
                             {
                                 IsThisThePrimaryWindow = true;
                             }
 
                             break;
                         case WindowNameFilterType.StartsWith:
-                            if (P.MainWindowTitle.StartsWith(PrimaryWindowName))
+                            if (P.MainWindowTitle.ToUpper().StartsWith(PrimaryWindowName))
                             {
                                 IsThisThePrimaryWindow = true;
                             }
                             break;
                         case WindowNameFilterType.Contains:
-                            if (P.MainWindowTitle.Contains(PrimaryWindowName))
+                            if (P.MainWindowTitle.ToUpper().Contains(PrimaryWindowName))
                             {
                                 IsThisThePrimaryWindow = true;
                             }
@@ -450,7 +453,7 @@ namespace AppTestStudio
 
                             foreach (IntPtr ChildHandle in ChildWindowHandles)
                             {
-                                String ChildText = GetText(ChildHandle);
+                                String ChildText = GetText(ChildHandle).ToUpper();
 
                                 Boolean IsThisTheSecondaryWindow = false;
 

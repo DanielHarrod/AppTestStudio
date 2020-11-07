@@ -6653,7 +6653,25 @@ namespace AppTestStudio
 
             if (WindowWizard.UseValues)
             {
-                txtSteamPrimaryWindowName.Text = WindowWizard.ChosenWindowName;
+                txtSteamPrimaryWindowName.Text = WindowWizard.lblChangePrimaryWindowName.Text;
+                txtSteamSecondaryWindowName.Text = WindowWizard.lblChangeSecondaryWindowName.Text;
+                cboSteamPrimaryWindowNameFilter.Text = WindowWizard.lblChangePrimaryWindowFilter.Text;
+                cboSteamSecondaryWindowNameFilter.Text = WindowWizard.lblChangeSecondaryWindowFilter.Text;
+            }
+        }
+
+        private void cmdApplicationWindowWizard_Click(object sender, EventArgs e)
+        {
+            frmWindowWizard WindowWizard = new frmWindowWizard(txtApplicationPrimaryWindowName.Text, txtApplicationSecondaryWindowName.Text, cboApplicationPrimaryWindowNameFilter.Text, cboApplicationSecondaryWindowNameFilter.Text);
+            WindowWizard.StartPosition = FormStartPosition.CenterParent;
+            WindowWizard.ShowDialog();
+
+            if (WindowWizard.UseValues)
+            {
+                txtApplicationPrimaryWindowName.Text = WindowWizard.lblChangePrimaryWindowName.Text;
+                txtApplicationSecondaryWindowName.Text = WindowWizard.lblChangeSecondaryWindowName.Text;
+                cboApplicationPrimaryWindowNameFilter.Text = WindowWizard.lblChangePrimaryWindowFilter.Text;
+                cboApplicationSecondaryWindowNameFilter.Text = WindowWizard.lblChangeSecondaryWindowFilter.Text;
             }
         }
     }

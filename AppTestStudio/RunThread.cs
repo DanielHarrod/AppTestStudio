@@ -90,7 +90,7 @@ namespace AppTestStudio
             API.DeleteObject(hBitmap);
 
             Success = true;
-
+            //bmp.Save(@"C:\Users\djhar\Videos\kEEP\test.bmp");
             return bmp;
         }
 
