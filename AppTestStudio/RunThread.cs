@@ -577,8 +577,10 @@ namespace AppTestStudio
         /// <param name="windowHandle"></param>
         private void Recycle(GameNodeAction node, IntPtr    windowHandle)
         {
-            StopThreadCloseWindow(WindowHandle, false);
             GameNodeGame Game = node.GetGameNodeGame();
+            Game.Log(node.GameNodeName + " Recycle");
+            StopThreadCloseWindow(WindowHandle, false);
+            
             Game.Log("Waiting 15 sec... to restart");
             Thread.Sleep(15000);
             Game.Log("Restarting: " + Game.TargetWindow);
