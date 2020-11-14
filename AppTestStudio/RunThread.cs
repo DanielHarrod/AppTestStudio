@@ -575,7 +575,7 @@ namespace AppTestStudio
         /// </summary>
         /// <param name="node"></param>
         /// <param name="windowHandle"></param>
-        private void Recycle(GameNodeAction node, IntPtr    windowHandle)
+        private void Recycle(GameNodeAction node, IntPtr windowHandle)
         {
             GameNodeGame Game = node.GetGameNodeGame();
             Game.Log(node.GameNodeName + " Recycle");

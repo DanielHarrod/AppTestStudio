@@ -41,7 +41,7 @@ namespace AppTestStudio
             ClickSpeed = 0;
             ClickDragReleaseVelocity = 500;
             ClickDragReleaseMode = ClickDragReleaseMode.None;
-            
+
 
             Enabled = true;
             RepeatsUntilFalse = false;
@@ -612,164 +612,174 @@ namespace AppTestStudio
 
         private bool IsImageSearchTrue(Bitmap bmp, GameNodeGame game, ref int centerX, ref int centerY, ref float detectedThreashold)
         {
-            //Copy
-            Rectangle AnchorRectangle = GetAnchorRectangle(bmp);
-
-            if (AnchorRectangle.Width <= 0 || AnchorRectangle.Height <= 0)
-            {
-                //'Debug.Assert(False)
-                //'TB.AddReturnFalse()
-                return false;
-            }
-
-            //' False if no object to search
-            if (ObjectName == "")
-            {
-                //' TB.AddReturnFalse()
-                return false;
-            }
-
-            if (Channel == "")
-            {
-                //' TB.AddReturnFalse()
-                return false;
-            }
-
-            if (ObjectSearchBitmap.IsNothing())
-            {
-                game.Log(GameNodeName + " configuration is invalid Search Object Not Configured.");
-                //' TB.AddReturnFalse()
-                return false;
-            }
-
-            Bitmap CropImage = new Bitmap(AnchorRectangle.Width, AnchorRectangle.Height);
-
-            using (Graphics grp = Graphics.FromImage(CropImage))
-            {
-                grp.DrawImage(bmp, new Rectangle(0, 0, AnchorRectangle.Width, AnchorRectangle.Height), AnchorRectangle, GraphicsUnit.Pixel);
-                //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
-
-                grp.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                grp.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                grp.CompositingQuality = CompositingQuality.HighQuality;
-
-            }
-            Mat m1 = null;
-            try { 
-            m1 = OpenCvSharp.Extensions.BitmapConverter.ToMat(CropImage);
-        }
-            catch (DllNotFoundException ex)
-            {
-                Debug.Assert(false, "Deleting the BIN folder and rebuilding typically will fix this issue.");
-
-                game.Log(ex.Message);
-                return false;
-            }
-
-    //'213 ms
-    //'Dim Red As Mat = m1.ExtractChannel(2)
-    Mat[] BGR = m1.Split();
-
-            Mat Blue = BGR[0];
-            Mat Green = BGR[1];
-            Mat Red = BGR[2];
-
-            Mat m2 = OpenCvSharp.Extensions.BitmapConverter.ToMat(ObjectSearchBitmap);
-            BGR = m2.Split();
-            Mat BlueTarget = BGR[0];
-            Mat GreenTarget = BGR[1];
-            Mat RedTarget = BGR[2];
-
-            double Percent = 0;
-            if (ObjectThreshold == 0)
-            {
-                Percent = 99;
-            }
-            else
-            {
-                Percent = ObjectThreshold / 100;
-            }
-
-            int Rows = Red.Rows - RedTarget.Rows + 1;
-            int Cols = Red.Cols - RedTarget.Cols + 1;
-
-            if (Rows < 1)
-            {
-                game.Log(Name + " search item height " + RedTarget.Rows + "px is larger than the height of the mask of " + Red.Rows + "px, Please increase the mask size so the search image can be searched.");
-                return false;
-            }
-
-            if (Cols < 1)
-            {
-                game.Log(Name + " search item width is " + RedTarget.Cols + "px is larger than the width of the mask of " + Red.Cols + "px, Please increase the mask size so the search image can be searched.");
-                return false;
-            }
-
-            Mat res = new Mat(Rows, Cols, MatType.CV_8U);
-            //'Cv2.CvtColor(m1, m2, ColorConversionCodes.)
-
-            Mat SearchTarget = null;
-            Mat ObjectTarget = null;
-            switch (Channel.ToUpper())
-            {
-                case "RED":
-                    SearchTarget = Red;
-                    ObjectTarget = RedTarget;
-                    break;
-                case "GREEN":
-                    SearchTarget = Green;
-                    ObjectTarget = GreenTarget;
-                    break;
-                case "BLUE":
-                    SearchTarget = Blue;
-                    ObjectTarget = BlueTarget;
-                    break;
-                default:
-                    game.Log(Name + " missing Channel using Red");
-                    SearchTarget = Red;
-                    ObjectTarget = RedTarget;
-                    break;
-            }
             try
             {
-                Cv2.MatchTemplate(SearchTarget, ObjectTarget, res, TemplateMatchModes.CCoeffNormed);
-            }
-            catch (Exception)
-            {
-                game.Log("Search Failure, possible resolution mismatch");
-                return false;
-            }
 
-            OpenCvSharp.Point p = new OpenCvSharp.Point();
-            OpenCvSharp.Point DetectedPoint = new OpenCvSharp.Point();
-            Cv2.MinMaxLoc(res, out p, out DetectedPoint);
+                //Copy
+                Rectangle AnchorRectangle = GetAnchorRectangle(bmp);
 
-            Mat.Indexer<Single> indexer = res.GetGenericIndexer<Single>();
-            detectedThreashold = indexer[DetectedPoint.Y, DetectedPoint.X];
-
-            long iObjectThreshold = ObjectThreshold;
-            if (iObjectThreshold == 0)
-            {
-                iObjectThreshold = 100;
-            }
-
-            centerX = DetectedPoint.X + (ObjectSearchBitmap.Width / 2);
-            centerY = DetectedPoint.Y + (ObjectSearchBitmap.Height / 2);
-
-            if (detectedThreashold >= ((float)iObjectThreshold / 100))
-            {
-                game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + AnchorRectangle.X) + "  y =" + (centerY + AnchorRectangle.Y));
-                //'TB.AddReturnTrue()
-
-                if (FileName.IsNothing())
+                if (AnchorRectangle.Width <= 0 || AnchorRectangle.Height <= 0)
                 {
-                    SendBitmapToProject(bmp, game);
+                    //'Debug.Assert(False)
+                    //'TB.AddReturnFalse()
+                    return false;
                 }
-                return true;
+
+                //' False if no object to search
+                if (ObjectName == "")
+                {
+                    //' TB.AddReturnFalse()
+                    return false;
+                }
+
+                if (Channel == "")
+                {
+                    //' TB.AddReturnFalse()
+                    return false;
+                }
+
+                if (ObjectSearchBitmap.IsNothing())
+                {
+                    game.Log(GameNodeName + " configuration is invalid Search Object Not Configured.");
+                    //' TB.AddReturnFalse()
+                    return false;
+                }
+
+                Bitmap CropImage = new Bitmap(AnchorRectangle.Width, AnchorRectangle.Height);
+
+                using (Graphics grp = Graphics.FromImage(CropImage))
+                {
+                    grp.DrawImage(bmp, new Rectangle(0, 0, AnchorRectangle.Width, AnchorRectangle.Height), AnchorRectangle, GraphicsUnit.Pixel);
+                    //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
+
+                    grp.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    grp.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                    grp.CompositingQuality = CompositingQuality.HighQuality;
+
+                }
+                Mat m1 = null;
+                try
+                {
+                    m1 = OpenCvSharp.Extensions.BitmapConverter.ToMat(CropImage);
+                }
+                catch (DllNotFoundException ex)
+                {
+                    Debug.Assert(false, "Deleting the BIN folder and rebuilding typically will fix this issue.");
+
+                    game.Log(ex.Message);
+                    return false;
+                }
+
+                //'213 ms
+                //'Dim Red As Mat = m1.ExtractChannel(2)
+                Mat[] BGR = m1.Split();
+
+                Mat Blue = BGR[0];
+                Mat Green = BGR[1];
+                Mat Red = BGR[2];
+
+                Mat m2 = OpenCvSharp.Extensions.BitmapConverter.ToMat(ObjectSearchBitmap);
+                BGR = m2.Split();
+                Mat BlueTarget = BGR[0];
+                Mat GreenTarget = BGR[1];
+                Mat RedTarget = BGR[2];
+
+                double Percent = 0;
+                if (ObjectThreshold == 0)
+                {
+                    Percent = 99;
+                }
+                else
+                {
+                    Percent = ObjectThreshold / 100;
+                }
+
+                int Rows = Red.Rows - RedTarget.Rows + 1;
+                int Cols = Red.Cols - RedTarget.Cols + 1;
+
+                if (Rows < 1)
+                {
+                    game.Log(Name + " search item height " + RedTarget.Rows + "px is larger than the height of the mask of " + Red.Rows + "px, Please increase the mask size so the search image can be searched.");
+                    return false;
+                }
+
+                if (Cols < 1)
+                {
+                    game.Log(Name + " search item width is " + RedTarget.Cols + "px is larger than the width of the mask of " + Red.Cols + "px, Please increase the mask size so the search image can be searched.");
+                    return false;
+                }
+
+                Mat res = new Mat(Rows, Cols, MatType.CV_8U);
+                //'Cv2.CvtColor(m1, m2, ColorConversionCodes.)
+
+                Mat SearchTarget = null;
+                Mat ObjectTarget = null;
+                switch (Channel.ToUpper())
+                {
+                    case "RED":
+                        SearchTarget = Red;
+                        ObjectTarget = RedTarget;
+                        break;
+                    case "GREEN":
+                        SearchTarget = Green;
+                        ObjectTarget = GreenTarget;
+                        break;
+                    case "BLUE":
+                        SearchTarget = Blue;
+                        ObjectTarget = BlueTarget;
+                        break;
+                    default:
+                        game.Log(Name + " missing Channel using Red");
+                        SearchTarget = Red;
+                        ObjectTarget = RedTarget;
+                        break;
+                }
+                try
+                {
+                    Cv2.MatchTemplate(SearchTarget, ObjectTarget, res, TemplateMatchModes.CCoeffNormed);
+                }
+                catch (Exception)
+                {
+                    game.Log("Search Failure, possible resolution mismatch");
+                    return false;
+                }
+
+                OpenCvSharp.Point p = new OpenCvSharp.Point();
+                OpenCvSharp.Point DetectedPoint = new OpenCvSharp.Point();
+                Cv2.MinMaxLoc(res, out p, out DetectedPoint);
+
+                Mat.Indexer<Single> indexer = res.GetGenericIndexer<Single>();
+                detectedThreashold = indexer[DetectedPoint.Y, DetectedPoint.X];
+
+                long iObjectThreshold = ObjectThreshold;
+                if (iObjectThreshold == 0)
+                {
+                    iObjectThreshold = 100;
+                }
+
+                centerX = DetectedPoint.X + (ObjectSearchBitmap.Width / 2);
+                centerY = DetectedPoint.Y + (ObjectSearchBitmap.Height / 2);
+
+                if (detectedThreashold >= ((float)iObjectThreshold / 100))
+                {
+                    game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + AnchorRectangle.X) + "  y =" + (centerY + AnchorRectangle.Y));
+                    //'TB.AddReturnTrue()
+
+                    if (FileName.IsNothing())
+                    {
+                        SendBitmapToProject(bmp, game);
+                    }
+                    return true;
+                }
+                else
+                {
+                    //'TB.AddReturnFalse()
+                    return false;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                //'TB.AddReturnFalse()
+                game.Log(ex.Message);
                 return false;
             }
         }
