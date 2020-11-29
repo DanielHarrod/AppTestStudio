@@ -778,7 +778,6 @@ namespace AppTestStudio
         {
             try
             {
-
                 if (pictureBox1.Image.IsSomething())
                 {
                     if (pictureBox1Rectangle.Width > 0 && pictureBox1Rectangle.Height > 0)
@@ -797,17 +796,18 @@ namespace AppTestStudio
                             int StartOfMaskX = pictureBox1Rectangle.X;
                             int RightOfMaskX = pictureBox1Rectangle.Width + pictureBox1Rectangle.X;
 
+                            Font Arial = new Font("Arial", 16);
 
+                            SizeF WidthTextSize = e.Graphics.MeasureString(pictureBox1Rectangle.Width.ToString(), Arial);
+                            SizeF HeightTextSize = e.Graphics.MeasureString(pictureBox1Rectangle.Height.ToString(), Arial);
 
-                            Font stringFont = new Font("Arial", 16);
-
-                            SizeF TextSize = e.Graphics.MeasureString("Testing123", stringFont);
-
+                            int MiddleOfTextWidth =(int) (WidthTextSize.Width / 2);
+                            int MiddleOfTextHeight = (int)(WidthTextSize.Height / 2);
 
                             Debug.WriteLine("Node.Anchor" + Node.Anchor);
                             Debug.WriteLine("pictureBox1Rectangle: " + pictureBox1Rectangle);
                             Debug.WriteLine("Width:" + TargetWidth + " Height:" + TargetHeight);
-                            Debug.WriteLine("TS:" + TextSize.Width + "," + TextSize.Height);
+                            Debug.WriteLine("TS:" + WidthTextSize.Width + "," + WidthTextSize.Height);
 
                             // Draw Blue Line from Top to Center of the Top of the Mask
                             e.Graphics.DrawLine(p, CenterX, 0, CenterX, TopOfMaskY);
@@ -818,21 +818,44 @@ namespace AppTestStudio
                             // Draw Blue Line from 0 to Middle of the Right Mask.
                             e.Graphics.DrawLine(p, 0, CenterY, StartOfMaskX, CenterY);
 
-
                             // Draw Blue Line from Right of Mask to the right of the image
                             e.Graphics.DrawLine(p, RightOfMaskX, CenterY, TargetWidth, CenterY);
+
+                            // Draw the width inside the mask at the top.
+                            // Use Blue with 200 opacity
+                            using (SolidBrush br = new SolidBrush(Color.FromArgb(200, 0, 0, 255)))
+                            {
+                                // Only draw the text if it will display inside the Mask.
+                                if (WidthTextSize.Width + 2 < pictureBox1Rectangle.Width)
+                                {
+                                    // Draw the Width Text
+                                    e.Graphics.DrawString(pictureBox1Rectangle.Width.ToString(), Arial, br, CenterX - MiddleOfTextWidth, TopOfMaskY);
+                                }
+                            }
+
+                            // Draw the height inside the mask at the right center of the Mask.
+                            // Use Blue with 200 opacity
+                            using (SolidBrush br = new SolidBrush(Color.FromArgb(200, 0, 0, 255)))
+                            {
+                                // Only draw the text if it will display inside the Mask.
+                                if (HeightTextSize.Height + 2 < pictureBox1Rectangle.Height)
+                                {
+                                    // Draw the Height Text
+                                    e.Graphics.DrawString(pictureBox1Rectangle.Height.ToString(), Arial, br, StartOfMaskX, CenterY - MiddleOfTextHeight);
+                                }
+                            }
+
+
                         }
                     }
                 }
+                DrawMask(pictureBox1, pictureBox1Rectangle, e);
             }
             catch (Exception ex)
             {
 
                 Debug.WriteLine("DrawMask:" + ex.Message);
             }
-
-
-            DrawMask(pictureBox1, pictureBox1Rectangle, e);
         }
 
         internal static void DrawMask(PictureBox pictureBox1, Rectangle pictureBox1Rectangle, PaintEventArgs e)
