@@ -342,7 +342,7 @@ namespace AppTestStudio
             API.PostMessage(windowHandle, WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
 
         }
-  
+
         static System.Random Generator = new System.Random();
 
         public static short RandomNumber(int min, int max)
@@ -449,7 +449,7 @@ namespace AppTestStudio
                             WindowHandleInfo hi = new WindowHandleInfo(Handles.MainWindowHandle);
                             List<IntPtr> ChildWindowHandles = hi.GetAllChildHandles();
 
-                        // ChildWindowName = "BlueStacks Android PluginAndroid";
+                            // ChildWindowName = "BlueStacks Android PluginAndroid";
 
                             foreach (IntPtr ChildHandle in ChildWindowHandles)
                             {
@@ -519,7 +519,7 @@ namespace AppTestStudio
                         WindowHandleInfo hi = new WindowHandleInfo(Handles.MainWindowHandle);
                         List<IntPtr> ChildWindowHandles = hi.GetAllChildHandles();
 
-                       // ChildWindowName = "BlueStacks Android PluginAndroid";
+                        // ChildWindowName = "BlueStacks Android PluginAndroid";
 
                         if (ChildWindowName.Length > 0)
                         {
@@ -662,7 +662,7 @@ namespace AppTestStudio
         {
             string Result;
             ProcessStartInfo info = new ProcessStartInfo(SteamExePath);
-            
+
             info.WorkingDirectory = System.IO.Path.GetDirectoryName(SteamExePath);
             info.Arguments = @"-applaunch " + SteamID;
 
@@ -671,7 +671,7 @@ namespace AppTestStudio
             info.Arguments = @"-applaunch " + SteamID + " -hijack";
 
             // Take hijack off, don't want to scare anyone in the log file.
-            Result = "Launching: " + info.FileName + " " + info.Arguments.Replace(" -hijack","");
+            Result = "Launching: " + info.FileName + " " + info.Arguments.Replace(" -hijack", "");
 
             Process.Start(info);
 
@@ -772,6 +772,67 @@ namespace AppTestStudio
                 return "0 ms";
             }
             return Time;
+        }
+
+        internal static void DrawMask(GameNodeAction Node, PictureBox pictureBox1, Rectangle pictureBox1Rectangle, PaintEventArgs e)
+        {
+            try
+            {
+
+                if (pictureBox1.Image.IsSomething())
+                {
+                    if (pictureBox1Rectangle.Width > 0 && pictureBox1Rectangle.Height > 0)
+                    {
+                        using (Pen p = new Pen(Color.FromArgb(0, 0, 255)))
+                        {
+                            int TargetWidth = pictureBox1.Width;
+                            int TargetHeight = pictureBox1.Height;
+
+                            int CenterX = pictureBox1Rectangle.X + (pictureBox1Rectangle.Width / 2);
+                            int CenterY = pictureBox1Rectangle.Y + (pictureBox1Rectangle.Height / 2);
+
+                            int TopOfMaskY = pictureBox1Rectangle.Y;
+                            int BottomOfMaskY = pictureBox1Rectangle.Height + pictureBox1Rectangle.Y;
+
+                            int StartOfMaskX = pictureBox1Rectangle.X;
+                            int RightOfMaskX = pictureBox1Rectangle.Width + pictureBox1Rectangle.X;
+
+
+
+                            Font stringFont = new Font("Arial", 16);
+
+                            SizeF TextSize = e.Graphics.MeasureString("Testing123", stringFont);
+
+
+                            Debug.WriteLine("Node.Anchor" + Node.Anchor);
+                            Debug.WriteLine("pictureBox1Rectangle: " + pictureBox1Rectangle);
+                            Debug.WriteLine("Width:" + TargetWidth + " Height:" + TargetHeight);
+                            Debug.WriteLine("TS:" + TextSize.Width + "," + TextSize.Height);
+
+                            // Draw Blue Line from Top to Center of the Top of the Mask
+                            e.Graphics.DrawLine(p, CenterX, 0, CenterX, TopOfMaskY);
+
+                            // Draw Blue Line from Center of the Bottom of the Mask to the bottom of the image
+                            e.Graphics.DrawLine(p, CenterX, BottomOfMaskY, CenterX, TargetHeight);
+
+                            // Draw Blue Line from 0 to Middle of the Right Mask.
+                            e.Graphics.DrawLine(p, 0, CenterY, StartOfMaskX, CenterY);
+
+
+                            // Draw Blue Line from Right of Mask to the right of the image
+                            e.Graphics.DrawLine(p, RightOfMaskX, CenterY, TargetWidth, CenterY);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine("DrawMask:" + ex.Message);
+            }
+
+
+            DrawMask(pictureBox1, pictureBox1Rectangle, e);
         }
 
         internal static void DrawMask(PictureBox pictureBox1, Rectangle pictureBox1Rectangle, PaintEventArgs e)

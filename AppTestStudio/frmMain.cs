@@ -3485,8 +3485,15 @@ namespace AppTestStudio
             }
         }
 
+        /// <summary>
+        /// Draws masks on the main image display
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void PictureBox1_Paint(object sender, PaintEventArgs e)
         {
+            // Node.Rectangle contains the mask when rdocolorpoint.checked == false
+
             GameNodeAction Node = tv.SelectedNode as GameNodeAction;
 
             switch (Node.ActionType)
@@ -3506,7 +3513,7 @@ namespace AppTestStudio
                         {
                             Node.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
                         }
-                        Utils.DrawMask(PictureBox1, Node.Rectangle, e);
+                        Utils.DrawMask(Node, PictureBox1, Node.Rectangle, e);
 
                         UpdateMaskSize();
                     }
