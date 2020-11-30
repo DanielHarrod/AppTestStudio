@@ -184,6 +184,8 @@ namespace AppTestStudio
             // Hide Custom Logic controls
             panelRightCustomLogic.Visible = false;
 
+            // Instructions for minimal export 
+            lblPictureMissing.Text = "This node did not include the reference picture - typically from a minimal export. \n\n If this node is true during a Run, a screenshot will automatically be linked.  \n\nYou can also manually press 'take a screenshot'.  \n\nWhen minimal exports are matched during a 'Run', a link message will be displayed in the log.  If images are linked, don't forget to save the project so the images can be loaded and managed.";
         }
 
         private void LoadSchedule()
@@ -1112,16 +1114,30 @@ namespace AppTestStudio
                     break;
             }
 
-
-
             PictureBox1.Image = GameNode.Bitmap;
             PictureBox1.Refresh();
+
+            ShowHidePictureMissingMessage();
 
             InitalizeOffsets();
 
             lblResolution.Text = GameNode.ResolutionWidth + "x" + GameNode.ResolutionHeight;
             IsPanelLoading = false;
 
+        }
+
+        // Bitmap can be missing when a minimal export is loaded, minimal export does not include reference images.
+        // ATS doesn't need the reference images to function, ATS will attempt to rebuild the project when the node receives a true event.
+        private void ShowHidePictureMissingMessage()
+        {
+            if (PictureBox1.Image.IsNothing())
+            {
+                lblPictureMissing.Visible = true;
+            }
+            else
+            {
+                lblPictureMissing.Visible = false;
+            }
         }
 
         private void InitalizeOffsets()
@@ -2506,14 +2522,18 @@ namespace AppTestStudio
                     GameNodeAction Action = CurrentParent as GameNodeAction;
                     if (Action.Bitmap.IsSomething())
                     {
-                        PictureBox1.Image = Action.Bitmap;
+                        PictureBox1.Image = Action.Bitmap.Clone() as Bitmap;
+                        ShowHidePictureMissingMessage();
                         return;
                     }
                     CurrentParent = CurrentParent.Parent as GameNode;
                 }
 
-                cmdAddSingleColorAtSingleLocationTakeASceenshot.PerformClick();
+                cmdAddSingleColorAtSingleLocationTakeASceenshot.PerformClick();                
             }
+
+            
+            
         }
 
         //private void cmdUndoScreenshot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -3737,6 +3757,8 @@ namespace AppTestStudio
 
                 PictureBox1.Image = bmp;
 
+                ShowHidePictureMissingMessage();
+
                 if (dgv.Rows.Count > 1)
                 {
                     if (lblMode.Text == "Event")
@@ -3755,11 +3777,14 @@ namespace AppTestStudio
                     ArchaicSave();
 
                 }
+
             }
             else
             {
                 Log("Unable to locate window: " + TargetWindow);
             }
+
+            
 
         }
 
@@ -6242,6 +6267,7 @@ namespace AppTestStudio
         {
             // Add parent screenshot if one exists.
             LoadParentScreenshotIfNecessary(true);
+
         }
 
         //private void button1_Click(object sender, EventArgs e)
