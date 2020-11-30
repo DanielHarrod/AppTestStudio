@@ -796,7 +796,7 @@ namespace AppTestStudio
                             int StartOfMaskX = pictureBox1Rectangle.X;
                             int RightOfMaskX = pictureBox1Rectangle.Width + pictureBox1Rectangle.X;
 
-                            Font Arial = new Font("Arial", 16);
+                            Font Arial = new Font("Arial", 16, FontStyle.Bold);
 
                             SizeF WidthTextSize = e.Graphics.MeasureString(pictureBox1Rectangle.Width.ToString(), Arial);
                             SizeF HeightTextSize = e.Graphics.MeasureString(pictureBox1Rectangle.Height.ToString(), Arial);
@@ -844,8 +844,6 @@ namespace AppTestStudio
                                     e.Graphics.DrawString(pictureBox1Rectangle.Height.ToString(), Arial, br, StartOfMaskX, CenterY - MiddleOfTextHeight);
                                 }
                             }
-
-
                         }
                     }
                 }
@@ -866,6 +864,7 @@ namespace AppTestStudio
                 {
                     using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
                     {
+                        // Draw a blue 50% Mask on Top 1/2 above the mask.
                         Rectangle Top = new Rectangle();
                         Top.X = 0;
                         Top.Y = 0;
@@ -873,6 +872,7 @@ namespace AppTestStudio
                         Top.Width = pictureBox1.Image.Width;
                         e.Graphics.FillRectangle(br, Top);
 
+                        // Draw a blue 50% Mask on Bottom 1/2 Below the mask.
                         Rectangle Bottom = new Rectangle();
                         Bottom.X = 0;
                         Bottom.Y = pictureBox1Rectangle.Y + pictureBox1Rectangle.Height;
@@ -880,6 +880,7 @@ namespace AppTestStudio
                         Bottom.Width = pictureBox1.Image.Width;
                         e.Graphics.FillRectangle(br, Bottom);
 
+                        // Draw a blue 50% Mask on left side of the mask.
                         Rectangle Left = new Rectangle();
                         Left.Y = pictureBox1Rectangle.Y;
                         Left.X = 0;
@@ -887,12 +888,33 @@ namespace AppTestStudio
                         Left.Width = pictureBox1Rectangle.X;
                         e.Graphics.FillRectangle(br, Left);
 
+                        // Draw a blue 50% Mask on Right side of the mask.
                         Rectangle Right = new Rectangle();
                         Right.Y = pictureBox1Rectangle.Y;
                         Right.X = pictureBox1Rectangle.X + pictureBox1Rectangle.Width;
                         Right.Height = pictureBox1Rectangle.Height;
                         Right.Width = pictureBox1.Image.Width - Right.X;
                         e.Graphics.FillRectangle(br, Right);
+
+                        Font Arial = new Font("Arial", 16, FontStyle.Bold);
+
+                        String TopLeftXY = "(" + pictureBox1Rectangle.X + "," + pictureBox1Rectangle.Y + ")";
+                        SizeF TopLeftTextSize = e.Graphics.MeasureString(TopLeftXY, Arial);
+
+                        String BottomRightXY = "(" + (pictureBox1Rectangle.X + pictureBox1Rectangle.Width) + "," + (pictureBox1Rectangle.Y + pictureBox1Rectangle.Height) + ")";
+                        SizeF BottomRightTextSize = e.Graphics.MeasureString(TopLeftXY, Arial);
+
+                        using (SolidBrush RedBrush = new SolidBrush(Color.FromArgb(128, 255, 0, 0)))
+                        {
+                            // Draw TopLeft Coordinates right above the mask.
+                            e.Graphics.DrawString(TopLeftXY, Arial, RedBrush, pictureBox1Rectangle.X, pictureBox1Rectangle.Y - TopLeftTextSize.Height - 1);
+
+                            // Draw Bottom Right Coordinates below the mask.
+                            e.Graphics.DrawString(BottomRightXY, Arial, RedBrush, pictureBox1Rectangle.X + pictureBox1Rectangle.Width, pictureBox1Rectangle.Y + pictureBox1Rectangle.Height + 1);
+
+                        }
+
+
                     }
 
                     using (Pen p = new Pen(Color.Blue, 1))
