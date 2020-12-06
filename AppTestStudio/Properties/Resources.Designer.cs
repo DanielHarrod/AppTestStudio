@@ -153,6 +153,16 @@ namespace AppTestStudio.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap PSGreenCheck {
+            get {
+                object obj = ResourceManager.GetObject("PSGreenCheck", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Save_16x_24 {
             get {
                 object obj = ResourceManager.GetObject("Save_16x_24", resourceCulture);

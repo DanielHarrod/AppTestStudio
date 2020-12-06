@@ -285,6 +285,7 @@
     <Content Include="Resources\CollapseChevronLeft_16x.png" />
     <Content Include="Resources\DependencyArrow_16xGR.png" />
     <Content Include="Resources\Patron.png" />
+    <Content Include="Resources\PSGreenCheck.png" />
     <Content Include="Resources\RMG ContainerGR.png" />
     <Content Include="Resources\RNGGR.png" />
     <Content Include="Resources\SearchAndApps_16xGR.png" />

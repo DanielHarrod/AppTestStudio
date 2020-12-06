@@ -2079,6 +2079,7 @@ namespace AppTestStudio
             PictureObjectScreenshotRectanble = new Rectangle();
             PictureObjectScreenshotRectanble.X = e.X;
             PictureObjectScreenshotRectanble.Y = e.Y;
+            PictureObjectScreenshot.Invalidate();
 
         }
 
@@ -2089,8 +2090,14 @@ namespace AppTestStudio
             int y = 0;
             Color color = new Color();
             ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown, ref PictureObjectScreenshotRectanble);
-            cmdMakeObject.Enabled = IsCreateScreenshotReadyToCreate();
-            cmdMakeObjectAndUse.Enabled = IsCreateScreenshotReadyToCreate() && IsMakeObjectAndUseAbleToBeUsed();
+
+            Boolean ReadyToSave = IsCreateScreenshotReadyToCreate();
+
+            cmdMakeObject.Enabled = ReadyToSave;
+            cmdMakeObjectAndUse.Enabled = ReadyToSave && IsMakeObjectAndUseAbleToBeUsed();
+
+            pictureCreateNewObjectMaskDrawnCheckBox.Visible = IsCreateScreenshotMarked();
+
         }
 
         
@@ -2212,17 +2219,20 @@ namespace AppTestStudio
 
         }
 
-        private bool IsCreateScreenshotReadyToCreate()
+        private bool IsCreateScreenshotNamed()
         {
             if (txtObjectScreenshotName.Text.Trim().Length > 0)
             {
-                //' Do nothing
+                return true;
             }
             else
             {
                 return false;
             }
+        }
 
+        private bool IsCreateScreenshotMarked()
+        {
             if (PictureObjectScreenshotRectanble.IsEmpty)
             {
                 return false;
@@ -2234,7 +2244,20 @@ namespace AppTestStudio
             }
 
             return true;
+        }
+        private bool IsCreateScreenshotReadyToCreate()
+        {
+            if (IsCreateScreenshotNamed())
+          
+            {
+                //' Do nothing
+            }
+            else
+            {
+                return false;
+            }
 
+            return IsCreateScreenshotMarked();
         }
 
         private void PictureObjectScreenshot_MouseUp(object sender, MouseEventArgs e)
@@ -2260,8 +2283,10 @@ namespace AppTestStudio
 
         private void txtObjectScreenshotName_TextChanged(object sender, EventArgs e)
         {
-            cmdMakeObject.Enabled = IsCreateScreenshotReadyToCreate();
-            cmdMakeObjectAndUse.Enabled = IsCreateScreenshotReadyToCreate() && IsMakeObjectAndUseAbleToBeUsed();
+            Boolean ReadyToSave = IsCreateScreenshotReadyToCreate();
+            cmdMakeObject.Enabled = ReadyToSave;
+            cmdMakeObjectAndUse.Enabled = ReadyToSave && IsMakeObjectAndUseAbleToBeUsed();
+            pictureCreateNewObjectNamedCheckBox.Visible = IsCreateScreenshotNamed();
         }
 
         private void txtPackageName_TextChanged(object sender, EventArgs e)
@@ -3712,6 +3737,9 @@ namespace AppTestStudio
             PictureObjectScreenshot.Image = PictureBox1.Image;
 
             PanelLoadNode.BackColor = Color.White;
+
+            pictureCreateNewObjectMaskDrawnCheckBox.Visible = false;
+            pictureCreateNewObjectNamedCheckBox.Visible = false;
         }
 
         private void toolStripButtonRunScript_Click(object sender, EventArgs e)
