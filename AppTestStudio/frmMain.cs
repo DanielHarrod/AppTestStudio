@@ -1530,6 +1530,11 @@ namespace AppTestStudio
 
         private void cmdMakeObject_Click(object sender, EventArgs e)
         {
+            MakeObject();
+        }
+
+        private void MakeObject()
+        {
             GameNodeObjects ObjectsNode = GetObjectsNode();
 
             foreach (GameNodeObject obj in ObjectsNode.Nodes)
@@ -2078,7 +2083,13 @@ namespace AppTestStudio
             Color color = new Color();
             ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown, ref PictureObjectScreenshotRectanble);
             cmdMakeObject.Enabled = IsCreateScreenshotReadyToCreate();
+            cmdMakeObjectAndUse.Enabled = IsCreateScreenshotReadyToCreate() && IsMakeObjectAndUseAbleToBeUsed();
+        }
 
+        
+        private bool IsMakeObjectAndUseAbleToBeUsed()
+        {
+            return LastNodeAddObjectWasUsedFrom.IsSomething();
         }
 
         // Zoom and Crop/Mask
@@ -2243,6 +2254,7 @@ namespace AppTestStudio
         private void txtObjectScreenshotName_TextChanged(object sender, EventArgs e)
         {
             cmdMakeObject.Enabled = IsCreateScreenshotReadyToCreate();
+            cmdMakeObjectAndUse.Enabled = IsCreateScreenshotReadyToCreate() && IsMakeObjectAndUseAbleToBeUsed();
         }
 
         private void txtPackageName_TextChanged(object sender, EventArgs e)
@@ -3675,8 +3687,11 @@ namespace AppTestStudio
             return Color.Empty;
         }
 
+        private GameNodeAction LastNodeAddObjectWasUsedFrom = null;
         private void cmdAddObject2_Click(object sender, EventArgs e)
         {
+            LastNodeAddObjectWasUsedFrom = tv.SelectedNode as GameNodeAction;
+
             //' Change the Panel to Object Screenshot
             SetPanel(PanelMode.ObjectScreenshot);
 
@@ -4506,8 +4521,11 @@ namespace AppTestStudio
             //' Change the Panel to Object Screenshot
             SetPanel(PanelMode.ObjectScreenshot);
 
-            //' Hide the Make object buttone because the name is not long enough
+            //' Hide the Make object button because the name is not long enough
             cmdMakeObject.Enabled = false;
+
+            //' Hide the Make object and Use button because the name is not long enough
+            cmdMakeObjectAndUse.Enabled = false;
 
             //' Reset the Rectangle in case it//'s already being used.
             PictureObjectScreenshotRectanble = new Rectangle();
@@ -6699,6 +6717,40 @@ namespace AppTestStudio
                 cboApplicationPrimaryWindowNameFilter.Text = WindowWizard.lblChangePrimaryWindowFilter.Text;
                 cboApplicationSecondaryWindowNameFilter.Text = WindowWizard.lblChangeSecondaryWindowFilter.Text;
             }
+        }
+
+        private void cmdMakeObjectAndUse_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MakeObject();
+
+                // if this was called from create object button on event form.
+                if (LastNodeAddObjectWasUsedFrom.IsSomething())
+                {
+                    // set the Node
+                    tv.SelectedNode = LastNodeAddObjectWasUsedFrom;
+
+                    // Set Object Search if it's not already est.
+                    if (rdoObjectSearch.Checked == false)
+                    {
+                        rdoObjectSearch.Checked = true;
+                    }
+
+                    // Set Node in Ojbect Search 
+                    cboObject.Text = txtObjectScreenshotName.Text;
+
+                    // Clear out so that going back to make object will not be available.
+                    LastNodeAddObjectWasUsedFrom = null;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("cmdMakeObjectAndUse_Click:" + ex.Message);
+            }
+            
+
+
         }
     }
 }
