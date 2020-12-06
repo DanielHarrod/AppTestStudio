@@ -1533,15 +1533,22 @@ namespace AppTestStudio
             MakeObject();
         }
 
+        /// <summary>
+        /// Make Object creates searchable images used for Object Search Events
+        /// Called from buttons on Create New Object Panels.
+        /// </summary>
         private void MakeObject()
         {
             GameNodeObjects ObjectsNode = GetObjectsNode();
 
+            String OriginalName = txtObjectScreenshotName.Text.Trim();
             foreach (GameNodeObject obj in ObjectsNode.Nodes)
             {
                 if (obj.GameNodeName.ToUpper() == txtObjectScreenshotName.Text.Trim().ToUpper())
                 {
                     txtObjectScreenshotName.Text = FindNextObjectNameIncrement(txtObjectScreenshotName.Text);
+
+                    Log("Create Object: Object with this name [" + OriginalName + "] already exists and must be unique, auto-increment-named to: " + txtObjectScreenshotName.Text);
                     break;
                 }
             }
