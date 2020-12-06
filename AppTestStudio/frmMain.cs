@@ -167,13 +167,6 @@ namespace AppTestStudio
             LoadSchedule();
             ReloadScheduleView();
 
-            //'GamesTreeNode = New OctoGameNode("Apps", OctoGameNodeType.Games)
-            //'WorkspaceNode.Nodes.Add(GamesTreeNode)
-
-            //'   AddNewGameToTree("Holy Day City")
-
-            //'LoadDefaultProject()
-
             tv.ExpandAll();
 
             LoadRanges();
