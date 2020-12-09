@@ -392,7 +392,7 @@ namespace AppTestStudio
                 try
                 {
                     String FileName = openDLG.FileName;
-                    GameNodeGame Game = GameNodeGame.LoadGameFromFile(FileName, true, TitleBarHeight);
+                    GameNodeGame Game = GameNodeGame.LoadGameFromFile(FileName, true, TitleBarHeight, ThreadManager);
 
                     if (Game.IsSomething())
                     {
@@ -2864,16 +2864,13 @@ namespace AppTestStudio
         {
             try
             {
-                foreach (GameNodeGame Game in ThreadManager.Games)
+                if (ThreadManager.ThreadLog.Count() > 0)
                 {
-                    if (Game.ThreadLog.Count() > 0)
-                    {
-                        String s = "";
+                    String s = "";
 
-                        if (Game.ThreadLog.TryDequeue(out s))
-                        {
-                            Log(s);
-                        }
+                    if (ThreadManager.ThreadLog.TryDequeue(out s))
+                    {
+                        Log(s);
                     }
                 }
             }
@@ -4258,7 +4255,7 @@ namespace AppTestStudio
 
             if (System.IO.File.Exists(si.AppPath))
             {
-                GameNodeGame Game = GameNodeGame.LoadGameFromFile(si.AppPath, false, TitleBarHeight);
+                GameNodeGame Game = GameNodeGame.LoadGameFromFile(si.AppPath, false, TitleBarHeight, ThreadManager);
 
                 if (Game.IsSomething())
                 {
@@ -4899,7 +4896,7 @@ namespace AppTestStudio
 
         private GameNodeGame AddNewGameToTree(string applicationName, string targetFileName)
         {
-            GameNodeGame NewGame = new GameNodeGame(applicationName, TitleBarHeight);
+            GameNodeGame NewGame = new GameNodeGame(applicationName, TitleBarHeight, ThreadManager);
 
             WorkspaceNode.Nodes.Add(NewGame);
             NewGame.FileName = targetFileName;
@@ -5121,7 +5118,7 @@ namespace AppTestStudio
                     XmlDocument doc = new XmlDocument();
                     doc.LoadXml(XMLATS);
 
-                    GameNodeGame Game = GameNodeGame.LoadGame(doc.DocumentElement.SelectSingleNode("//App"), TargetFolder + @"\Default.xml", NewGameName, true, TitleBarHeight);
+                    GameNodeGame Game = GameNodeGame.LoadGame(doc.DocumentElement.SelectSingleNode("//App"), TargetFolder + @"\Default.xml", NewGameName, true, TitleBarHeight, ThreadManager);
                     Game.FileName = Utils.GetApplicationFolder() + @"\" + NewGameName + @"\Default.xml";
 
                     Game.GameNodeName = NewGameName;

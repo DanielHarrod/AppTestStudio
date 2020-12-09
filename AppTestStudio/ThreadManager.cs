@@ -3,6 +3,7 @@
 // See LICENSE or https://mit-license.org/
 
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -22,7 +23,9 @@ namespace AppTestStudio
         {
             Games = new List<GameNodeGame>();
             RemoveGameLock = new object();
-        }
+			ThreadLog = new ConcurrentQueue<String>();
+
+		}
         [XmlIgnore] public List<GameNodeGame> Games { get; set; }
 
         // Store Stats from last run.
@@ -37,7 +40,9 @@ namespace AppTestStudio
 
         [XmlIgnore] public Boolean IsDirty { get; set; }
 
-        public void RemoveGame(GameNodeGame Game )
+		[XmlIgnore] public ConcurrentQueue<String> ThreadLog { get; set; }
+
+		public void RemoveGame(GameNodeGame Game )
         {
             lock(RemoveGameLock)
             {
@@ -418,5 +423,9 @@ namespace AppTestStudio
 		{
 			return Interlocked.Increment(ref mSingleEventTest);
 		}
+
+
+
+
 	}
 }

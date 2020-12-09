@@ -97,9 +97,10 @@ namespace AppTestStudio
 
 
 
-        private void StopThreadCloseWindow(IntPtr windowHandle, Boolean AbortThread)
+        private void StopThreadCloseWindow(GameNode node, IntPtr windowHandle, Boolean AbortThread)
         {
-            Game.Log("Closing Emmulator");
+            Game.Log(node.GameNodeName + ":" + "Stop Thread");
+            Game.Log("Closing Emmulator #" + Game.InstanceToLaunch);
 
             NoxRegistry Registry = new NoxRegistry();
 
@@ -145,11 +146,9 @@ namespace AppTestStudio
 
                 ThreadManager.RemoveGame(Game);
 
-
                 Game.Log("Shutting down thread:" + Game.GameNodeName + " on instance " + Game.InstanceToLaunch);
+                //Debug.WriteLine("Shutting down thread:" + Game.GameNodeName + " on instance " + Game.InstanceToLaunch);
 
-                // let the log process
-                Thread.Sleep(3000);
                 Thread.CurrentThread.Abort();
             }
         }
@@ -474,7 +473,7 @@ namespace AppTestStudio
                                     break;
                                 case AfterCompletionType.Stop:
                                     ThreadManager.IncrementGoStop();
-                                    StopThreadCloseWindow(WindowHandle, true);
+                                    StopThreadCloseWindow(t as GameNode, WindowHandle, true);
                                     return AfterCompletionType.Stop;
                                 case AfterCompletionType.Recycle:
                                     Recycle(node, WindowHandle);
@@ -526,7 +525,7 @@ namespace AppTestStudio
                                     break;
                                 case AfterCompletionType.Stop:
                                     ThreadManager.IncrementGoStop();
-                                    StopThreadCloseWindow(WindowHandle, true);
+                                    StopThreadCloseWindow(t as GameNode, WindowHandle, true);
                                     return AfterCompletionType.Stop;
                                 case AfterCompletionType.Continue:
                                     ThreadManager.IncrementGoContinue();
@@ -556,7 +555,7 @@ namespace AppTestStudio
                         return AfterCompletionType.Parent;
                     case AfterCompletionType.Stop:
                         ThreadManager.IncrementGoStop();
-                        StopThreadCloseWindow(WindowHandle, true);
+                        StopThreadCloseWindow(node as GameNode, WindowHandle, true);
                         return AfterCompletionType.Stop;
                     case AfterCompletionType.Recycle:
                         Recycle(node, WindowHandle);
@@ -579,7 +578,7 @@ namespace AppTestStudio
         {
             GameNodeGame Game = node.GetGameNodeGame();
             Game.Log(node.GameNodeName + " Recycle");
-            StopThreadCloseWindow(WindowHandle, false);
+            StopThreadCloseWindow(node as GameNode, WindowHandle, false);
             
             Game.Log("Waiting 15 sec... to restart");
             Thread.Sleep(15000);

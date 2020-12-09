@@ -22,9 +22,8 @@ namespace AppTestStudio
 {
     public class GameNodeGame : GameNode
     {
-        public GameNodeGame(String name, int titleBarHeight) : base(name, GameNodeType.Game)
-        {
-            ThreadLog = new ConcurrentQueue<string>();
+        public GameNodeGame(String name, int titleBarHeight, ThreadManager threadManager) : base(name, GameNodeType.Game)
+        {            
             StatusControl = new ConcurrentQueue<AppTestStudioStatusControlItem>();
             MinimalBitmapClones = new ConcurrentQueue<MinimalBitmapNode>();
             BitmapClones = new ConcurrentQueue<Bitmap>();
@@ -52,11 +51,14 @@ namespace AppTestStudio
             SteamPrimaryWindowName = "";
             SteamSecondaryWindowName = "";
 
+            ThreadManager = threadManager;
+
             IsPaused = false;
 
         }
 
-        public ConcurrentQueue<String> ThreadLog { get; set; }
+        public ThreadManager ThreadManager{ get; set; }
+
         public ConcurrentQueue<AppTestStudioStatusControlItem> StatusControl { get; set; }
 
         /// <summary>
@@ -73,15 +75,16 @@ namespace AppTestStudio
         public OpenCvSharp.VideoWriter Video { get; set; }
         public void Log(String s)
         {
-            String FormattedLog = String.Format(
+                String FormattedLog = String.Format(
                 "{0}{1} {2} [{3}] {4}",
                 DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss."),
                 Math.Abs(Environment.TickCount % 1000).ToString().PadLeft(3, '0'),
                 Name,
                 InstanceToLaunch,
-                s);
+                s);            
 
-            ThreadLog.Enqueue(FormattedLog);
+            
+            ThreadManager.ThreadLog.Enqueue(FormattedLog);
         }
 
         public void LogStatus(int item, long time)
@@ -197,7 +200,7 @@ namespace AppTestStudio
 
         public GameNodeGame CloneMe()
         {
-            GameNodeGame Target = new GameNodeGame(Name, TitleBarHeight);
+            GameNodeGame Target = new GameNodeGame(Name, TitleBarHeight, ThreadManager);
 
             Target.TargetGameBuild = TargetGameBuild;
             Target.LoopDelay = LoopDelay;
@@ -235,8 +238,6 @@ namespace AppTestStudio
             Target.ApplicationSecondaryWindowName = ApplicationSecondaryWindowName;
             Target.ApplicationSecondaryWindowFilter = ApplicationSecondaryWindowFilter;
 
-
-
             Target.Nodes.Add(TargetEvents);
 
             return Target;
@@ -253,7 +254,7 @@ namespace AppTestStudio
 
         public Boolean IsFullScreen { get; set; }
 
-        public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, int TitleBarHeight)
+        public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, int TitleBarHeight, ThreadManager threadManager)
         {
 
             GameNodeGame Game = null;
@@ -263,13 +264,13 @@ namespace AppTestStudio
             if (Document.DocumentElement.SelectSingleNode("//App").IsSomething())
             {
                 XmlNode ChildNode = Document.DocumentElement.SelectSingleNode("//App");
-                Game = LoadGame(ChildNode, fileName, "", loadBitmaps, TitleBarHeight);
+                Game = LoadGame(ChildNode, fileName, "", loadBitmaps, TitleBarHeight, threadManager);
             }
 
             return Game;
         }
 
-        public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps, int titleBarHeight)
+        public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps, int titleBarHeight, ThreadManager threadManager)
         {
             String GameName = "";
 
@@ -599,7 +600,7 @@ namespace AppTestStudio
                 }
             }
 
-            GameNodeGame Game = new GameNodeGame(GameName, titleBarHeight);
+            GameNodeGame Game = new GameNodeGame(GameName, titleBarHeight, threadManager);
             Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
 
