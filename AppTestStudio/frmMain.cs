@@ -104,6 +104,8 @@ namespace AppTestStudio
 
         public SteamRegistry SteamRegistry { get; set; }
 
+        public BlueRegistry BlueRegistry { get; set; }
+
         public frmMain()
         {
             InitializeComponent();
@@ -317,6 +319,51 @@ namespace AppTestStudio
             {
                 lblEmmulatorInstalled.Text = "No";
                 lblEmmulatorInstalled.ForeColor = Color.Red;
+            }
+
+            BlueRegistry = new BlueRegistry();
+
+            if (BlueRegistry.IsValid)
+            {
+                if (BlueRegistry.ExePath.Length > 0)
+                {
+                    if (System.IO.File.Exists(BlueRegistry.ExePath))
+                    {
+                        lblBlueEmmulatorInstalled32.Text = "Yes";
+                        lblBlueEmmulatorInstalled32.ForeColor = Color.Green;
+                    }
+                    else
+                    {
+                        lblBlueEmmulatorInstalled32.Text = "No";
+                        lblBlueEmmulatorInstalled32.ForeColor = Color.Red;
+                    }
+                }
+                if (BlueRegistry.ExePath64.Length > 0)
+                {
+                    if (System.IO.File.Exists(BlueRegistry.ExePath64))
+                    {
+                        lblBlueEmmulatorInstalled64.Text = "Yes";
+                        lblBlueEmmulatorInstalled64.ForeColor = Color.Green;
+                    }
+                    else
+                    {
+                        lblBlueEmmulatorInstalled64.Text = "No";
+                        lblBlueEmmulatorInstalled64.ForeColor = Color.Red;
+                    }
+                }
+
+                lblBlueInstancesFound32.Text = BlueRegistry.InstanceName.Count().ToString();
+                lblBlueInstancesFound64.Text = BlueRegistry.InstanceName64.Count().ToString();
+
+            }
+            else
+            {
+                lblBlueEmmulatorInstalled32.Text = "No";
+                lblBlueEmmulatorInstalled32.ForeColor = Color.Red;
+                lblBlueEmmulatorInstalled64.Text = "No";
+                lblBlueEmmulatorInstalled64.ForeColor = Color.Red;
+                lblBlueInstancesFound32.Text = "0";
+                lblBlueInstancesFound64.Text = "0";
             }
 
             SteamRegistry = new SteamRegistry();

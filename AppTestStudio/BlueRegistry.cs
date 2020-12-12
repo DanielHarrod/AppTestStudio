@@ -11,7 +11,7 @@ namespace AppTestStudio
         //"C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android
         //"C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android_1
         //"C:\Program Files\BlueStacks\HD-RunApp.exe" -vmname Android_1 -json "{\"app_icon_url\":\"\",\"app_name\":\"Holyday City\",\"app_url\":\"\",\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
-    public class BlueStacksRegistry
+    public class BlueRegistry
     {
         //Computer\HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks\Config\PartnerExePath
         public String ExePath { get; set; }
@@ -25,9 +25,18 @@ namespace AppTestStudio
 
         public String ExceptionMessage { get; set; }
 
-        public BlueStacksRegistry()
+        public Boolean IsValid { get; set; }
+
+        public BlueRegistry()
         {
+            IsValid = false;
             ExceptionMessage = "";
+            ExePath = "";
+            ExePath64 = "";
+            InstanceName64 = new List<string>();
+            InstanceName = new List<string>();
+
+
             try
             {
                 Object PartnerExePath = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks\Config", "PartnerExePath", "");
@@ -53,6 +62,8 @@ namespace AppTestStudio
                 {
                     InstanceName64 = Guests64.GetSubKeyNames().ToList<String>();
                 }
+
+                IsValid = true;
             }
             catch (Exception ex)
             {
