@@ -115,7 +115,7 @@ namespace AppTestStudio
         }
 
         private void frmMain_Load(object sender, EventArgs e)
-        {            
+        {
             ThreadManager.Load();
             InitializeToolbars();
 
@@ -243,7 +243,7 @@ namespace AppTestStudio
                     toolStripInstances.Text = Item.Text;
 
                     GameNodeGame Game = GetGameNode();
-                    if ( Game.IsSomething())
+                    if (Game.IsSomething())
                     {
                         Game.InstanceToLaunch = Item.Text;
                     }
@@ -323,46 +323,30 @@ namespace AppTestStudio
 
             BlueRegistry = new BlueRegistry();
 
-            if (BlueRegistry.IsValid)
+            if (BlueRegistry.IsValid32)
             {
-                if (BlueRegistry.ExePath.Length > 0)
-                {
-                    if (System.IO.File.Exists(BlueRegistry.ExePath))
-                    {
-                        lblBlueEmmulatorInstalled32.Text = "Yes";
-                        lblBlueEmmulatorInstalled32.ForeColor = Color.Green;
-                    }
-                    else
-                    {
-                        lblBlueEmmulatorInstalled32.Text = "No";
-                        lblBlueEmmulatorInstalled32.ForeColor = Color.Red;
-                    }
-                }
-                if (BlueRegistry.ExePath64.Length > 0)
-                {
-                    if (System.IO.File.Exists(BlueRegistry.ExePath64))
-                    {
-                        lblBlueEmmulatorInstalled64.Text = "Yes";
-                        lblBlueEmmulatorInstalled64.ForeColor = Color.Green;
-                    }
-                    else
-                    {
-                        lblBlueEmmulatorInstalled64.Text = "No";
-                        lblBlueEmmulatorInstalled64.ForeColor = Color.Red;
-                    }
-                }
-
+                lblBlueEmmulatorInstalled32.Text = "Yes";
+                lblBlueEmmulatorInstalled32.ForeColor = Color.Green;
                 lblBlueInstancesFound32.Text = BlueRegistry.InstanceName.Count().ToString();
-                lblBlueInstancesFound64.Text = BlueRegistry.InstanceName64.Count().ToString();
-
             }
             else
             {
+                lblBlueInstancesFound32.Text = "0";
                 lblBlueEmmulatorInstalled32.Text = "No";
                 lblBlueEmmulatorInstalled32.ForeColor = Color.Red;
+
+            }
+
+            if (BlueRegistry.IsValid64)
+            {
+                lblBlueEmmulatorInstalled64.Text = "Yes";
+                lblBlueEmmulatorInstalled64.ForeColor = Color.Green;
+                lblBlueInstancesFound64.Text = BlueRegistry.InstanceName64.Count().ToString();
+            }
+            else
+            {
                 lblBlueEmmulatorInstalled64.Text = "No";
                 lblBlueEmmulatorInstalled64.ForeColor = Color.Red;
-                lblBlueInstancesFound32.Text = "0";
                 lblBlueInstancesFound64.Text = "0";
             }
 
@@ -781,7 +765,7 @@ namespace AppTestStudio
 
                     Log("GetGameNode:" + ex.Message.ToString());
                 }
-                
+
             }
             return null;
         }
@@ -2147,7 +2131,7 @@ namespace AppTestStudio
 
         }
 
-        
+
         private bool IsMakeObjectAndUseAbleToBeUsed()
         {
             return LastNodeAddObjectWasUsedFrom.IsSomething();
@@ -2295,7 +2279,7 @@ namespace AppTestStudio
         private bool IsCreateScreenshotReadyToCreate()
         {
             if (IsCreateScreenshotNamed())
-          
+
             {
                 //' Do nothing
             }
@@ -2383,7 +2367,7 @@ namespace AppTestStudio
         private void cmdStartEmmulator_Click(object sender, EventArgs e)
         {
             GameNodeGame Game = GetGameNode();
-            StartEmmulator(Game, "",Game.InstanceToLaunch);
+            StartEmmulator(Game, "", Game.InstanceToLaunch);
         }
 
         /// <summary>
@@ -2613,11 +2597,11 @@ namespace AppTestStudio
                     CurrentParent = CurrentParent.Parent as GameNode;
                 }
 
-                cmdAddSingleColorAtSingleLocationTakeASceenshot.PerformClick();                
+                cmdAddSingleColorAtSingleLocationTakeASceenshot.PerformClick();
             }
 
-            
-            
+
+
         }
 
         //private void cmdUndoScreenshot_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -3871,7 +3855,7 @@ namespace AppTestStudio
                 Log("Unable to locate window: " + TargetWindow);
             }
 
-            
+
 
         }
 
@@ -6620,19 +6604,19 @@ namespace AppTestStudio
 
                 tableColorEvent.ColumnStyles[1].Width = 300;
 
-                 panelRightProperties.Visible  = panelRightPropertiesOriginalVisible;
-                 panelRightAfterCompletion.Visible = panelRightAfterCompletionOriginalVisible ;
-                 panelRightObject.Visible= panelRightObjectOriginalVisible;
-                 panelRightSwipeProperties.Visible= panelRightSwipePropertiesOriginalVisible;
-                 panelRightClickProperties.Visible= panelRightClickPropertiesOriginalVisible;
-                 panelRightLogic.Visible= panelRightLogicOriginalVisible;
-                 panelRightCustomLogic.Visible= panelRightCustomLogicOriginalVisible;
-                 panelRightPointGrid.Visible= panelRightPointGridOriginalVisible;
+                panelRightProperties.Visible = panelRightPropertiesOriginalVisible;
+                panelRightAfterCompletion.Visible = panelRightAfterCompletionOriginalVisible;
+                panelRightObject.Visible = panelRightObjectOriginalVisible;
+                panelRightSwipeProperties.Visible = panelRightSwipePropertiesOriginalVisible;
+                panelRightClickProperties.Visible = panelRightClickPropertiesOriginalVisible;
+                panelRightLogic.Visible = panelRightLogicOriginalVisible;
+                panelRightCustomLogic.Visible = panelRightCustomLogicOriginalVisible;
+                panelRightPointGrid.Visible = panelRightPointGridOriginalVisible;
             }
         }
 
 
-        Boolean panelRightColorAtPointerOriginalVisible ;
+        Boolean panelRightColorAtPointerOriginalVisible;
         Boolean panelRightLimitOriginalVisible;
         Boolean panelRightAnchorOriginalVisible;
         Boolean panelRightOffsetOriginalVisible;
@@ -6641,14 +6625,14 @@ namespace AppTestStudio
         {
             // Original Size is 300 first, 290 second.
             if (cmdFlowLayoutPanelColorEvent2.Text == "<<  ")
-            {    
-                 // Hide section
-                 panelRightColorAtPointerOriginalVisible = panelRightColorAtPointer.Visible;
-                 panelRightLimitOriginalVisible = panelRightLimit.Visible;
-                 panelRightAnchorOriginalVisible = panelRightAnchor.Visible;
-                 panelRightOffsetOriginalVisible = panelRightOffset.Visible;
-                 panelRightDragModeOriginalVisible = panelRightDragMode.Visible;
- 
+            {
+                // Hide section
+                panelRightColorAtPointerOriginalVisible = panelRightColorAtPointer.Visible;
+                panelRightLimitOriginalVisible = panelRightLimit.Visible;
+                panelRightAnchorOriginalVisible = panelRightAnchor.Visible;
+                panelRightOffsetOriginalVisible = panelRightOffset.Visible;
+                panelRightDragModeOriginalVisible = panelRightDragMode.Visible;
+
                 cmdFlowLayoutPanelColorEvent2.Text = ">>  ";
                 cmdFlowLayoutPanelColorEvent2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
 
@@ -6827,7 +6811,7 @@ namespace AppTestStudio
             {
                 Log("cmdMakeObjectAndUse_Click:" + ex.Message);
             }
-            
+
 
 
         }

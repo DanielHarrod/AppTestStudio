@@ -25,11 +25,14 @@ namespace AppTestStudio
 
         public String ExceptionMessage { get; set; }
 
-        public Boolean IsValid { get; set; }
+        public Boolean IsValid32 { get; set; }
+        public Boolean IsValid64 { get; set; }
+
 
         public BlueRegistry()
         {
-            IsValid = false;
+            IsValid32 = false;
+            IsValid64 = false;
             ExceptionMessage = "";
             ExePath = "";
             ExePath64 = "";
@@ -43,12 +46,20 @@ namespace AppTestStudio
                 if (PartnerExePath.IsSomething())
                 {
                     ExePath = PartnerExePath.ToString();
+                    if (System.IO.File.Exists(ExePath))
+                    {
+                        IsValid32 = true;
+                    }
                 }
 
                 Object PartnerExePath64 = Registry.GetValue(@"HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks_bgp64\Config", "PartnerExePath", "");
                 if (PartnerExePath64.IsSomething())
                 {
                     ExePath64 = PartnerExePath64.ToString();
+                    if (System.IO.File.Exists(ExePath64))
+                    {
+                        IsValid64 = true;
+                    }
                 }
 
                 RegistryKey Guests = Registry.LocalMachine.OpenSubKey(@"SOFTWARE\BlueStacks\Guests\");
@@ -62,8 +73,6 @@ namespace AppTestStudio
                 {
                     InstanceName64 = Guests64.GetSubKeyNames().ToList<String>();
                 }
-
-                IsValid = true;
             }
             catch (Exception ex)
             {
