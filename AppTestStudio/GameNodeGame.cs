@@ -53,8 +53,9 @@ namespace AppTestStudio
 
             ThreadManager = threadManager;
 
-            IsPaused = false;
+            BlueStacksWindowName = "";
 
+            IsPaused = false;
         }
 
         public ThreadManager ThreadManager{ get; set; }
@@ -198,6 +199,10 @@ namespace AppTestStudio
 
         public String ApplicationParameters { get; set; }
 
+        // BlueStacks section
+        public Boolean IsBlueStacks64Bit { get; set; }
+        public String BlueStacksWindowName { get; set; }
+
         public GameNodeGame CloneMe()
         {
             GameNodeGame Target = new GameNodeGame(Name, TitleBarHeight, ThreadManager);
@@ -223,8 +228,6 @@ namespace AppTestStudio
             Target.PathToApplicationEXE = PathToApplicationEXE;
             Target.SteamID = SteamID;
 
-
-
             Target.IsFullScreen = IsFullScreen;
             Target.ApplicationParameters = ApplicationParameters;
 
@@ -237,6 +240,9 @@ namespace AppTestStudio
             Target.ApplicationPrimaryWindowFilter = ApplicationPrimaryWindowFilter;
             Target.ApplicationSecondaryWindowName = ApplicationSecondaryWindowName;
             Target.ApplicationSecondaryWindowFilter = ApplicationSecondaryWindowFilter;
+
+            Target.BlueStacksWindowName = BlueStacksWindowName;
+            Target.IsBlueStacks64Bit = IsBlueStacks64Bit;
 
             Target.Nodes.Add(TargetEvents);
 
@@ -324,6 +330,9 @@ namespace AppTestStudio
 
             Boolean IsFullScreen = false;
             String ApplicationParameters = "";
+
+            Boolean IsBlueStacks64Bit = false;
+            String BlueStacksWindowName = "";
 
             if (childNode.Attributes.GetNamedItem("PackageName").IsSomething())
             {
@@ -430,6 +439,9 @@ namespace AppTestStudio
                     String PlatformValue = childNode.Attributes["Platform"].Value;
                     switch (PlatformValue.Trim().ToUpper())
                     {
+                        case "BLUESTACKS":
+                            Platform = Platform.BlueStacks;
+                            break;
                         case "NOXPLAYER":
                             Platform = Platform.NoxPlayer;
                             break;
@@ -600,6 +612,32 @@ namespace AppTestStudio
                 }
             }
 
+            //IsBlueStacks64Bit
+            if (childNode.Attributes.GetNamedItem("IsBlueStacks64Bit").IsSomething())
+            {
+                try
+                {
+                    IsFullScreen = Convert.ToBoolean(childNode.Attributes["IsBlueStacks64Bit"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
+            //BlueStacksWindowName
+            if (childNode.Attributes.GetNamedItem("BlueStacksWindowName").IsSomething())
+            {
+                try
+                {
+                    BlueStacksWindowName = childNode.Attributes["BlueStacksWindowName"].Value;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
             GameNodeGame Game = new GameNodeGame(GameName, titleBarHeight, threadManager);
             Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
@@ -620,15 +658,19 @@ namespace AppTestStudio
 
             switch (Game.Platform)
             {
-                case AppTestStudio.Platform.NoxPlayer:
+                case Platform.BlueStacks:
+                    Game.IsBlueStacks64Bit = IsBlueStacks64Bit;
+                    Game.BlueStacksWindowName = BlueStacksWindowName;
                     break;
-                case AppTestStudio.Platform.Steam:
+                case Platform.NoxPlayer:
+                    break;
+                case Platform.Steam:
                     Game.SteamPrimaryWindowName = SteamPrimaryWindowName;
                     Game.SteamSecondaryWindowName = SteamSecondaryWindowName;
                     Game.SteamPrimaryWindowFilter = SteamPrimaryWindowFilter;
                     Game.SteamSecondaryWindowFilter = SteamSecondaryWindowFilter;
                     break;
-                case AppTestStudio.Platform.Application:
+                case Platform.Application:
                     Game.ApplicationPrimaryWindowName = ApplicationPrimaryWindowName;
                     Game.ApplicationSecondaryWindowName = ApplicationSecondaryWindowName;
                     Game.ApplicationPrimaryWindowFilter = ApplicationPrimaryWindowFilter;
@@ -687,6 +729,10 @@ namespace AppTestStudio
             Writer.WriteAttributeString("Platform", Platform.ToString());
             switch (Platform)
             {
+                case Platform.BlueStacks:
+                    Writer.WriteAttributeString("BlueStacksWindowName", BlueStacksWindowName);
+                    Writer.WriteAttributeString("IsBlueStacks64Bit", IsBlueStacks64Bit.ToString());
+                    break;
                 case Platform.NoxPlayer:
                     break;
                 case Platform.Steam:
