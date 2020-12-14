@@ -9,5 +9,6 @@ namespace AppTestStudio
     public static class Definitions
     {
         public static String NoxWorkWindowName = "ScreenBoardClassWindow";
+        public static String BlueStacksSecondaryWindowNameFilter = "BlueStacks";
     }
 }

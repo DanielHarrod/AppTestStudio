@@ -2395,6 +2395,9 @@ namespace AppTestStudio
                 String ApplicationPath = "";
                 switch (Game.Platform)
                 {
+                    case Platform.BlueStacks:
+                        Debug.Assert(false);//todo
+                        break;
                     case Platform.NoxPlayer:
                         Result = Utils.LaunchInstance(PackageName, "", InstanceToLaunch.ToString(), Game.Resolution, Game.DPI);
                         break;
@@ -4985,7 +4988,6 @@ namespace AppTestStudio
 
             if (frm.IsValid)
             {
-
                 //'assumed already saved, lets clear the other apps.
                 tv.Nodes[0].Nodes.Clear();
 
@@ -6401,6 +6403,12 @@ namespace AppTestStudio
                 {
                     switch (cboPlatform.Text)
                     {
+                        case "BlueStacks":
+                            GameNode.Platform = Platform.BlueStacks;
+                            cmdStartEmmulator.Text = "Start Emmulator";
+                            cmdStartEmmulatorAndPackage.Text = "Start Emmulator + Run App";
+                            cmdStartEmmulatorPackageAndRunScript.Text = "Start Emmulator + Run App + Run Script";
+                            break;
                         case "NoxPlayer":
                             GameNode.Platform = Platform.NoxPlayer;
                             cmdStartEmmulator.Text = "Start Emmulator";

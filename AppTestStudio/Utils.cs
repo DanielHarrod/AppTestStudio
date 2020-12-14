@@ -381,6 +381,13 @@ namespace AppTestStudio
 
             switch (game.Platform)
             {
+                case Platform.BlueStacks:
+                    PrimaryWindowName = game.BlueStacksWindowName;
+                    PrimaryWindowNameFilter = WindowNameFilterType.Equals;
+
+                    SecondaryWindowName = Definitions.BlueStacksSecondaryWindowNameFilter;
+                    SecondaryWindowNameFilter = WindowNameFilterType.StartsWith;
+                    break;
                 case Platform.NoxPlayer:
                     PrimaryWindowName = game.TargetWindow;
                     PrimaryWindowNameFilter = WindowNameFilterType.Equals;

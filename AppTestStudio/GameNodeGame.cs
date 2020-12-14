@@ -105,6 +105,20 @@ namespace AppTestStudio
             get {
                 switch (Platform)
                 {
+                    case Platform.BlueStacks:
+                        String BlueStacksName = "";
+                        if ( IsBlueStacks64Bit )
+                        {
+                            BlueStacksName = "64bit Blue - ";
+                        }
+                        else
+                        {
+                            BlueStacksName = "32bit Blue - ";
+                        }
+
+                        BlueStacksName = BlueStacksName + Text + " - " + TargetWindow;
+
+                        return BlueStacksName;
                     case Platform.NoxPlayer:
                         return Text + " - " + TargetWindow;
                     case Platform.Steam:
@@ -262,7 +276,6 @@ namespace AppTestStudio
 
         public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, int TitleBarHeight, ThreadManager threadManager)
         {
-
             GameNodeGame Game = null;
             XmlDocument Document = new XmlDocument();
             Document.Load(fileName);
