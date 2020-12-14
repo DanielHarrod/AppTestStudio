@@ -327,7 +327,7 @@ namespace AppTestStudio
             {
                 lblBlueEmmulatorInstalled32.Text = "Yes";
                 lblBlueEmmulatorInstalled32.ForeColor = Color.Green;
-                lblBlueInstancesFound32.Text = BlueRegistry.InstanceName.Count().ToString();
+                lblBlueInstancesFound32.Text = BlueRegistry.InstanceNames.Count().ToString();
             }
             else
             {
@@ -341,7 +341,7 @@ namespace AppTestStudio
             {
                 lblBlueEmmulatorInstalled64.Text = "Yes";
                 lblBlueEmmulatorInstalled64.ForeColor = Color.Green;
-                lblBlueInstancesFound64.Text = BlueRegistry.InstanceName64.Count().ToString();
+                lblBlueInstancesFound64.Text = BlueRegistry.InstanceName64s.Count().ToString();
             }
             else
             {

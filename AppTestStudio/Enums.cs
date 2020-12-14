@@ -15,6 +15,7 @@ namespace AppTestStudio
     public enum Platform
     {
         NoxPlayer,
+        BlueStacks,
         Steam,
         Application
     }
@@ -90,8 +91,6 @@ namespace AppTestStudio
         Left = 8,
         Default = Left | Top
     }
-
-
 
     public static class AnchorModeButtonColors
     {
