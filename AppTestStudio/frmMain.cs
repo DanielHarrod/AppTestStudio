@@ -2399,7 +2399,7 @@ namespace AppTestStudio
                         Debug.Assert(false);//todo
                         break;
                     case Platform.NoxPlayer:
-                        Result = Utils.LaunchInstance(PackageName, "", InstanceToLaunch.ToString(), Game.Resolution, Game.DPI);
+                        Result = Utils.LaunchInstance( PackageName, "", InstanceToLaunch.ToString(), Game.Resolution, Game.DPI);
                         break;
                     case Platform.Steam:
                         ApplicationPath = SteamRegistry.GetExePath();

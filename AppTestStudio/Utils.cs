@@ -685,6 +685,80 @@ namespace AppTestStudio
             return Result;
         }
 
+
+        //"C:\Program Files\BlueStacks\Bluestacks.exe" -vmname Android
+        //"C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android
+        //"C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android_1
+        //Don't use - "C:\Program Files\BlueStacks\HD-RunApp.exe" -vmname Android_1 -json "{\"app_icon_url\":\"\",\"app_name\":\"Holyday City\",\"app_url\":\"\",\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
+        //"C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android_1 -json "{\"app_icon_url\":\"\",\"app_name\":\"Holyday City\",\"app_url\":\"\",\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
+        //Don't use - "C:\Program Files\BlueStacks\HD-RunApp.exe" -vmname Android_1 -json "{\"app_icon_url\":\"\",\"app_name\":\"Holyday City\",\"app_url\":\"\",\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
+
+        public static String LaunchBlueStacksInstance(string packageName, string targetWindow, Boolean Is64Bit)
+        {
+            String Result = "";
+            BlueRegistry blueRegistry = new BlueRegistry();
+            BlueGuest guest = null;
+
+            if (Is64Bit)
+            {
+                foreach (BlueGuest blueGuest in blueRegistry.GuestList64)
+                {
+                    if (blueGuest.KeyName == targetWindow)
+                    {
+                        guest = blueGuest;
+                        break;
+                    }
+                }
+            }
+            else
+            {
+                foreach (BlueGuest blueGuest in blueRegistry.GuestList32)
+                {
+                    if (blueGuest.KeyName == targetWindow)
+                    {
+                        guest = blueGuest;
+                        break;
+                    }
+                }
+            }
+
+            if (guest.IsSomething())
+            {
+                ProcessStartInfo info = new ProcessStartInfo();
+
+                info.FileName = guest.ExePath;
+                System.IO.Path.GetDirectoryName(guest.ExePath);
+                info.WorkingDirectory = System.IO.Path.GetDirectoryName(guest.ExePath);
+
+                String Arguments = "";
+
+                Arguments = Arguments + "-vname " + guest.KeyName;
+
+                if (packageName.Trim().Length > 0)
+                {
+                    Arguments = @"-json ""{\""app_icon_url\"":\""\"",\""app_name\"":\""Application Name\"",\""app_url\"":\""\"",\""app_pkg\"":\""" + packageName + @"\""}""";
+                }
+
+                info.Arguments = Arguments;
+
+                Result = "Launching: " + info.FileName + " " + info.Arguments;
+                Process.Start(info);
+            }
+            else
+            {
+                if (Is64Bit)
+                {
+                    Result = Result + "Failed to find BlueStacks 64bit Emmulator installed with Key " + guest.KeyName;
+                }
+                else
+                {
+                    Result = Result + "Failed to find BlueStacks 32bit Emmulator installed with Key " + guest.KeyName;
+                }
+            }
+
+            return Result;
+        }
+
         public static String LaunchInstance(string packageName, string targetWindow, string instanceToLaunch, string resolution, int DPI)
         {
             String Result = "";
@@ -808,7 +882,7 @@ namespace AppTestStudio
                             SizeF WidthTextSize = e.Graphics.MeasureString(pictureBox1Rectangle.Width.ToString(), Arial);
                             SizeF HeightTextSize = e.Graphics.MeasureString(pictureBox1Rectangle.Height.ToString(), Arial);
 
-                            int MiddleOfTextWidth =(int) (WidthTextSize.Width / 2);
+                            int MiddleOfTextWidth = (int)(WidthTextSize.Width / 2);
                             int MiddleOfTextHeight = (int)(WidthTextSize.Height / 2);
 
                             Debug.WriteLine("Node.Anchor" + Node.Anchor);

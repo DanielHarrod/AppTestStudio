@@ -7,14 +7,7 @@ using System.Threading.Tasks;
 
 namespace AppTestStudio
 {
-    //"C:\Program Files\BlueStacks\Bluestacks.exe" -vmname Android
-    //"C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android
-    //"C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android_1
-    //Don't use - "C:\Program Files\BlueStacks\HD-RunApp.exe" -vmname Android_1 -json "{\"app_icon_url\":\"\",\"app_name\":\"Holyday City\",\"app_url\":\"\",\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
-
-    //"C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android_1 -json "{\"app_icon_url\":\"\",\"app_name\":\"Holyday City\",\"app_url\":\"\",\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
-    //Don't use - "C:\Program Files\BlueStacks\HD-RunApp.exe" -vmname Android_1 -json "{\"app_icon_url\":\"\",\"app_name\":\"Holyday City\",\"app_url\":\"\",\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
-    public class BlueRegistry
+   public class BlueRegistry
     {
         //Computer\HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks\Config\PartnerExePath
         public String ExePath { get; set; }
@@ -40,6 +33,9 @@ namespace AppTestStudio
             ExePath64 = "";
             InstanceName64s = new List<string>();
             InstanceNames = new List<string>();
+
+            GuestList32 = new List<BlueGuest>();
+            GuestList64 = new List<BlueGuest>();
 
             try
             {
@@ -87,6 +83,7 @@ namespace AppTestStudio
                                 guest.WindowTitle = DisplayNameRegistry.ToString();
                             }
                         }
+                        GuestList32.Add(guest);
                     }
                 }
 
@@ -114,6 +111,7 @@ namespace AppTestStudio
                                 guest.WindowTitle = DisplayNameRegistry.ToString();
                             }
                         }
+                        GuestList64.Add(guest);
                     }
 
                 }
@@ -123,5 +121,10 @@ namespace AppTestStudio
                 ExceptionMessage = ex.Message;
             }
         }
+
+        public List<BlueGuest> GuestList32 { get; set; }
+        public List<BlueGuest> GuestList64 { get; set; }
+
+
     }
 }
