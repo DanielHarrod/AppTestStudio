@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmAddNewGameWizard));
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
             this.splitContainerMainVertical = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanelLeftNav = new System.Windows.Forms.TableLayoutPanel();
@@ -63,7 +64,6 @@
             this.txtName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.panelWorkspacePicker = new System.Windows.Forms.Panel();
-            this.SplitContainer1 = new System.Windows.Forms.SplitContainer();
             this.label10 = new System.Windows.Forms.Label();
             this.GroupBox2 = new System.Windows.Forms.GroupBox();
             this.label6 = new System.Windows.Forms.Label();
@@ -72,13 +72,6 @@
             this.cmdHome = new System.Windows.Forms.Button();
             this.cmdBack = new System.Windows.Forms.Button();
             this.cmdForward = new System.Windows.Forms.Button();
-            this.GroupBox1 = new System.Windows.Forms.GroupBox();
-            this.Label5 = new System.Windows.Forms.Label();
-            this.Label4 = new System.Windows.Forms.Label();
-            this.Label3 = new System.Windows.Forms.Label();
-            this.lblSafeName = new System.Windows.Forms.Label();
-            this.lblAppName = new System.Windows.Forms.Label();
-            this.lblAppID = new System.Windows.Forms.Label();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panelWorkspacePlatform = new System.Windows.Forms.Panel();
             this.groupBoxAutomationConsiderations = new System.Windows.Forms.GroupBox();
@@ -96,6 +89,19 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
             this.lblDetectable = new System.Windows.Forms.Label();
+            this.lblBlueStacksVersion = new System.Windows.Forms.Label();
+            this.cboBlueStacksVersion = new System.Windows.Forms.ComboBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.lblAppID = new System.Windows.Forms.Label();
+            this.lblAppName = new System.Windows.Forms.Label();
+            this.lblSafeName = new System.Windows.Forms.Label();
+            this.Label3 = new System.Windows.Forms.Label();
+            this.Label4 = new System.Windows.Forms.Label();
+            this.Label5 = new System.Windows.Forms.Label();
+            this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMainVertical)).BeginInit();
             this.splitContainerMainVertical.Panel1.SuspendLayout();
             this.splitContainerMainVertical.Panel2.SuspendLayout();
@@ -111,15 +117,14 @@
             this.panelWorkspace.SuspendLayout();
             this.panelWorkspaceNaming.SuspendLayout();
             this.panelWorkspacePicker.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer1)).BeginInit();
-            this.SplitContainer1.Panel1.SuspendLayout();
-            this.SplitContainer1.Panel2.SuspendLayout();
-            this.SplitContainer1.SuspendLayout();
             this.GroupBox2.SuspendLayout();
-            this.GroupBox1.SuspendLayout();
             this.panelWorkspacePlatform.SuspendLayout();
             this.groupBoxAutomationConsiderations.SuspendLayout();
             this.panelWorkspaceStart.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.GroupBox1.SuspendLayout();
+            this.panel3.SuspendLayout();
+            this.panel4.SuspendLayout();
             this.SuspendLayout();
             // 
             // Timer1
@@ -383,8 +388,8 @@
             // panelWorkspace
             // 
             this.panelWorkspace.Controls.Add(this.panelWorkspacePlatform);
-            this.panelWorkspace.Controls.Add(this.panelWorkspaceNaming);
             this.panelWorkspace.Controls.Add(this.panelWorkspacePicker);
+            this.panelWorkspace.Controls.Add(this.panelWorkspaceNaming);
             this.panelWorkspace.Controls.Add(this.panelWorkspaceStart);
             this.panelWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelWorkspace.Location = new System.Drawing.Point(3, 103);
@@ -501,33 +506,11 @@
             // 
             // panelWorkspacePicker
             // 
-            this.panelWorkspacePicker.Controls.Add(this.SplitContainer1);
-            this.panelWorkspacePicker.Location = new System.Drawing.Point(400, 208);
+            this.panelWorkspacePicker.Controls.Add(this.tableLayoutPanel1);
+            this.panelWorkspacePicker.Location = new System.Drawing.Point(499, 103);
             this.panelWorkspacePicker.Name = "panelWorkspacePicker";
             this.panelWorkspacePicker.Size = new System.Drawing.Size(1314, 767);
             this.panelWorkspacePicker.TabIndex = 2;
-            // 
-            // SplitContainer1
-            // 
-            this.SplitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.SplitContainer1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.SplitContainer1.Name = "SplitContainer1";
-            this.SplitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // SplitContainer1.Panel1
-            // 
-            this.SplitContainer1.Panel1.Controls.Add(this.label10);
-            this.SplitContainer1.Panel1.Controls.Add(this.GroupBox2);
-            this.SplitContainer1.Panel1.Controls.Add(this.GroupBox1);
-            // 
-            // SplitContainer1.Panel2
-            // 
-            this.SplitContainer1.Panel2.Controls.Add(this.webBrowser1);
-            this.SplitContainer1.Size = new System.Drawing.Size(1314, 767);
-            this.SplitContainer1.SplitterDistance = 195;
-            this.SplitContainer1.SplitterWidth = 6;
-            this.SplitContainer1.TabIndex = 1;
             // 
             // label10
             // 
@@ -547,7 +530,7 @@
             this.GroupBox2.Controls.Add(this.cmdHome);
             this.GroupBox2.Controls.Add(this.cmdBack);
             this.GroupBox2.Controls.Add(this.cmdForward);
-            this.GroupBox2.Location = new System.Drawing.Point(13, 103);
+            this.GroupBox2.Location = new System.Drawing.Point(9, 113);
             this.GroupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GroupBox2.Name = "GroupBox2";
             this.GroupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -619,85 +602,6 @@
             this.cmdForward.UseVisualStyleBackColor = true;
             this.cmdForward.Click += new System.EventHandler(this.cmdForward_Click);
             // 
-            // GroupBox1
-            // 
-            this.GroupBox1.Controls.Add(this.Label5);
-            this.GroupBox1.Controls.Add(this.Label4);
-            this.GroupBox1.Controls.Add(this.Label3);
-            this.GroupBox1.Controls.Add(this.lblSafeName);
-            this.GroupBox1.Controls.Add(this.lblAppName);
-            this.GroupBox1.Controls.Add(this.lblAppID);
-            this.GroupBox1.Location = new System.Drawing.Point(116, 5);
-            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.GroupBox1.Size = new System.Drawing.Size(819, 88);
-            this.GroupBox1.TabIndex = 4;
-            this.GroupBox1.TabStop = false;
-            this.GroupBox1.Text = "Detected Info";
-            // 
-            // Label5
-            // 
-            this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(635, 13);
-            this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(93, 20);
-            this.Label5.TabIndex = 1;
-            this.Label5.Text = "Safe Name:";
-            this.Label5.Visible = false;
-            // 
-            // Label4
-            // 
-            this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(10, 58);
-            this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(88, 20);
-            this.Label4.TabIndex = 1;
-            this.Label4.Text = "App Name:";
-            // 
-            // Label3
-            // 
-            this.Label3.AutoSize = true;
-            this.Label3.Location = new System.Drawing.Point(10, 31);
-            this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(55, 20);
-            this.Label3.TabIndex = 1;
-            this.Label3.Text = "AppID";
-            // 
-            // lblSafeName
-            // 
-            this.lblSafeName.AutoSize = true;
-            this.lblSafeName.Location = new System.Drawing.Point(638, 31);
-            this.lblSafeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSafeName.Name = "lblSafeName";
-            this.lblSafeName.Size = new System.Drawing.Size(100, 20);
-            this.lblSafeName.TabIndex = 0;
-            this.lblSafeName.Text = "lblSafeName";
-            this.lblSafeName.Visible = false;
-            // 
-            // lblAppName
-            // 
-            this.lblAppName.AutoSize = true;
-            this.lblAppName.Location = new System.Drawing.Point(118, 58);
-            this.lblAppName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAppName.Name = "lblAppName";
-            this.lblAppName.Size = new System.Drawing.Size(95, 20);
-            this.lblAppName.TabIndex = 0;
-            this.lblAppName.Text = "lblAppName";
-            // 
-            // lblAppID
-            // 
-            this.lblAppID.AutoSize = true;
-            this.lblAppID.Location = new System.Drawing.Point(118, 31);
-            this.lblAppID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAppID.Name = "lblAppID";
-            this.lblAppID.Size = new System.Drawing.Size(70, 20);
-            this.lblAppID.TabIndex = 0;
-            this.lblAppID.Text = "lblAppID";
-            // 
             // webBrowser1
             // 
             this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -706,18 +610,21 @@
             this.webBrowser1.MinimumSize = new System.Drawing.Size(30, 31);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(1314, 566);
+            this.webBrowser1.Size = new System.Drawing.Size(1308, 561);
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
             // 
             // panelWorkspacePlatform
             // 
+            this.panelWorkspacePlatform.Controls.Add(this.label21);
+            this.panelWorkspacePlatform.Controls.Add(this.lblBlueStacksVersion);
             this.panelWorkspacePlatform.Controls.Add(this.groupBoxAutomationConsiderations);
+            this.panelWorkspacePlatform.Controls.Add(this.cboBlueStacksVersion);
             this.panelWorkspacePlatform.Controls.Add(this.cboPlatform);
             this.panelWorkspacePlatform.Controls.Add(this.label2);
-            this.panelWorkspacePlatform.Location = new System.Drawing.Point(165, 78);
+            this.panelWorkspacePlatform.Location = new System.Drawing.Point(350, 202);
             this.panelWorkspacePlatform.Name = "panelWorkspacePlatform";
-            this.panelWorkspacePlatform.Size = new System.Drawing.Size(1075, 480);
+            this.panelWorkspacePlatform.Size = new System.Drawing.Size(1075, 621);
             this.panelWorkspacePlatform.TabIndex = 4;
             // 
             // groupBoxAutomationConsiderations
@@ -868,6 +775,152 @@
             this.lblDetectable.TabIndex = 3;
             this.lblDetectable.Text = "lblDetectable";
             // 
+            // lblBlueStacksVersion
+            // 
+            this.lblBlueStacksVersion.AutoSize = true;
+            this.lblBlueStacksVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBlueStacksVersion.Location = new System.Drawing.Point(3, 62);
+            this.lblBlueStacksVersion.Name = "lblBlueStacksVersion";
+            this.lblBlueStacksVersion.Size = new System.Drawing.Size(112, 32);
+            this.lblBlueStacksVersion.TabIndex = 6;
+            this.lblBlueStacksVersion.Text = "Version";
+            // 
+            // cboBlueStacksVersion
+            // 
+            this.cboBlueStacksVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBlueStacksVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboBlueStacksVersion.FormattingEnabled = true;
+            this.cboBlueStacksVersion.Items.AddRange(new object[] {
+            "32-bit",
+            "64-bit"});
+            this.cboBlueStacksVersion.Location = new System.Drawing.Point(130, 57);
+            this.cboBlueStacksVersion.Name = "cboBlueStacksVersion";
+            this.cboBlueStacksVersion.Size = new System.Drawing.Size(330, 37);
+            this.cboBlueStacksVersion.TabIndex = 1;
+            this.cboBlueStacksVersion.SelectedIndexChanged += new System.EventHandler(this.cboPlatform_SelectedIndexChanged);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1314, 767);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // lblAppID
+            // 
+            this.lblAppID.AutoSize = true;
+            this.lblAppID.Location = new System.Drawing.Point(118, 31);
+            this.lblAppID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAppID.Name = "lblAppID";
+            this.lblAppID.Size = new System.Drawing.Size(70, 20);
+            this.lblAppID.TabIndex = 0;
+            this.lblAppID.Text = "lblAppID";
+            // 
+            // lblAppName
+            // 
+            this.lblAppName.AutoSize = true;
+            this.lblAppName.Location = new System.Drawing.Point(118, 58);
+            this.lblAppName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAppName.Name = "lblAppName";
+            this.lblAppName.Size = new System.Drawing.Size(95, 20);
+            this.lblAppName.TabIndex = 0;
+            this.lblAppName.Text = "lblAppName";
+            // 
+            // lblSafeName
+            // 
+            this.lblSafeName.AutoSize = true;
+            this.lblSafeName.Location = new System.Drawing.Point(638, 31);
+            this.lblSafeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSafeName.Name = "lblSafeName";
+            this.lblSafeName.Size = new System.Drawing.Size(100, 20);
+            this.lblSafeName.TabIndex = 0;
+            this.lblSafeName.Text = "lblSafeName";
+            this.lblSafeName.Visible = false;
+            // 
+            // Label3
+            // 
+            this.Label3.AutoSize = true;
+            this.Label3.Location = new System.Drawing.Point(10, 31);
+            this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(55, 20);
+            this.Label3.TabIndex = 1;
+            this.Label3.Text = "AppID";
+            // 
+            // Label4
+            // 
+            this.Label4.AutoSize = true;
+            this.Label4.Location = new System.Drawing.Point(10, 58);
+            this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new System.Drawing.Size(88, 20);
+            this.Label4.TabIndex = 1;
+            this.Label4.Text = "App Name:";
+            // 
+            // Label5
+            // 
+            this.Label5.AutoSize = true;
+            this.Label5.Location = new System.Drawing.Point(635, 13);
+            this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new System.Drawing.Size(93, 20);
+            this.Label5.TabIndex = 1;
+            this.Label5.Text = "Safe Name:";
+            this.Label5.Visible = false;
+            // 
+            // GroupBox1
+            // 
+            this.GroupBox1.Controls.Add(this.Label5);
+            this.GroupBox1.Controls.Add(this.Label4);
+            this.GroupBox1.Controls.Add(this.Label3);
+            this.GroupBox1.Controls.Add(this.lblSafeName);
+            this.GroupBox1.Controls.Add(this.lblAppName);
+            this.GroupBox1.Controls.Add(this.lblAppID);
+            this.GroupBox1.Location = new System.Drawing.Point(450, 15);
+            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GroupBox1.Name = "GroupBox1";
+            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GroupBox1.Size = new System.Drawing.Size(819, 88);
+            this.GroupBox1.TabIndex = 4;
+            this.GroupBox1.TabStop = false;
+            this.GroupBox1.Text = "Detected Info";
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.GroupBox2);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.GroupBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1308, 194);
+            this.panel3.TabIndex = 0;
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.webBrowser1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 203);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1308, 561);
+            this.panel4.TabIndex = 1;
+            // 
+            // label21
+            // 
+            this.label21.Location = new System.Drawing.Point(23, 246);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(998, 341);
+            this.label21.TabIndex = 7;
+            this.label21.Text = resources.GetString("label21.Text");
+            // 
             // frmAddNewGameWizard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -896,21 +949,20 @@
             this.panelWorkspaceNaming.ResumeLayout(false);
             this.panelWorkspaceNaming.PerformLayout();
             this.panelWorkspacePicker.ResumeLayout(false);
-            this.SplitContainer1.Panel1.ResumeLayout(false);
-            this.SplitContainer1.Panel1.PerformLayout();
-            this.SplitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainer1)).EndInit();
-            this.SplitContainer1.ResumeLayout(false);
             this.GroupBox2.ResumeLayout(false);
             this.GroupBox2.PerformLayout();
-            this.GroupBox1.ResumeLayout(false);
-            this.GroupBox1.PerformLayout();
             this.panelWorkspacePlatform.ResumeLayout(false);
             this.panelWorkspacePlatform.PerformLayout();
             this.groupBoxAutomationConsiderations.ResumeLayout(false);
             this.groupBoxAutomationConsiderations.PerformLayout();
             this.panelWorkspaceStart.ResumeLayout(false);
             this.panelWorkspaceStart.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.GroupBox1.ResumeLayout(false);
+            this.GroupBox1.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
+            this.panel4.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -947,7 +999,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panelWorkspacePicker;
         private System.Windows.Forms.Label label10;
-        internal System.Windows.Forms.SplitContainer SplitContainer1;
         internal System.Windows.Forms.GroupBox GroupBox2;
         private System.Windows.Forms.Label label6;
         internal System.Windows.Forms.Button cmdSearch;
@@ -955,13 +1006,6 @@
         internal System.Windows.Forms.Button cmdHome;
         internal System.Windows.Forms.Button cmdBack;
         internal System.Windows.Forms.Button cmdForward;
-        internal System.Windows.Forms.GroupBox GroupBox1;
-        internal System.Windows.Forms.Label Label5;
-        internal System.Windows.Forms.Label Label4;
-        internal System.Windows.Forms.Label Label3;
-        internal System.Windows.Forms.Label lblSafeName;
-        internal System.Windows.Forms.Label lblAppName;
-        internal System.Windows.Forms.Label lblAppID;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.ComboBox cboPlatform;
         private System.Windows.Forms.GroupBox groupBoxAutomationConsiderations;
@@ -984,5 +1028,18 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblDetectable;
+        private System.Windows.Forms.Label lblBlueStacksVersion;
+        private System.Windows.Forms.ComboBox cboBlueStacksVersion;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.Panel panel3;
+        internal System.Windows.Forms.GroupBox GroupBox1;
+        internal System.Windows.Forms.Label Label5;
+        internal System.Windows.Forms.Label Label4;
+        internal System.Windows.Forms.Label Label3;
+        internal System.Windows.Forms.Label lblSafeName;
+        internal System.Windows.Forms.Label lblAppName;
+        internal System.Windows.Forms.Label lblAppID;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.Label label21;
     }
 }

@@ -120,4 +120,17 @@
   <metadata name="Timer1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
+  <data name="label21.Text" xml:space="preserve">
+    <value>Automatic - Window Size and DPI Control enables scripts to be built on one device and run different devices even when differnet workstations run at different resolutions.  
+
+Automatic - App Installation - the application does not need to be installed first.
+
+Script Behavior - Detectable - The targeted application may not be able to determine if automation is being used, unless the script is configured to perform operations that are not normal such as repetitive perfection, or actively running 24/7.  There are many tools in AppTestStudio you can use to simulate normal activities such as Waiting, RNG, and Scheduling.  There are also design decisions that can also contribute to normal activities such as scripting imperfectly.
+
+Script Behavior - Possible - Some apps care, others do not.  AppTestStudio is not currently configured to hide or mask; automation behaviors at the System Level.  Actions such as sending clicks to apps in the background, or sending 100's of clicks per second; allow AppTestStudio to run multiple-concurrent clients, but these actions are not normally possible and can be easily detected.
+
+Status - Recommended - Millions of test cases have been run.
+Status - Caution - Limited number of test cases have been run.
+Status - Experimental - Development in progress.</value>
+  </data>
 </root>

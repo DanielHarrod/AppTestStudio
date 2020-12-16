@@ -121,20 +121,21 @@ namespace AppTestStudio
             panelWorkspaceStart.Dock = DockStyle.Fill;
             lblNameIsInvalid.Text = "";
 
-            ShowPanel();
-
-
-            txtSearch.Focus();
-            lblAppID.Text = "";
-            lblAppName.Text = "";
-            lblSafeName.Text = "";
-
             foreach (Platform platform in Enum.GetValues(typeof(Platform)))
             {
                 cboPlatform.Items.Add(platform.ToString());
             }
 
             cboPlatform.SelectedIndex = 0;
+
+            cboBlueStacksVersion.SelectedIndex = 1;
+
+            ShowPanel();
+
+            txtSearch.Focus();
+            lblAppID.Text = "";
+            lblAppName.Text = "";
+            lblSafeName.Text = "";
 
             cmdHome_Click(null, null);
         }
@@ -197,6 +198,7 @@ namespace AppTestStudio
             cmdFinish.Enabled = false;
             txtName.Text = "";
             txtFinishAppID.Text = "";
+            cboBlueStacksVersion.SelectedIndex = 1;
             cmdHome_Click(null, null);
 
 
@@ -272,6 +274,8 @@ namespace AppTestStudio
             lblAppInstallation.ForeColor = SystemColors.ControlText;
             lblStatus.ForeColor = SystemColors.ControlText;
             lblSelectedPlatform.Text = cboPlatform.SelectedItem.ToString();
+            lblBlueStacksVersion.Visible = false;
+            cboBlueStacksVersion.Visible = false;
             switch ((Platform)cboPlatform.SelectedIndex)
             {
                 // Nox
@@ -305,6 +309,9 @@ namespace AppTestStudio
 
                     // Show Picker
                     tableLayoutPanelLeftNav.RowStyles[2].Height = 40;
+
+                    lblBlueStacksVersion.Visible = true;
+                    cboBlueStacksVersion.Visible = true;
 
                     break;
                 case Platform.Application:
