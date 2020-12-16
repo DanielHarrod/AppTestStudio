@@ -13,6 +13,9 @@ namespace AppTestStudio
 {
     public partial class frmAddNewGameWizard : Form
     {
+        //Which workspace panel are we on?
+        public long CurrentPanel = 0;
+
         public List<string> HistoryStack { get; set; }
         public int HistoryStackIndex { get; set; }
 
@@ -27,13 +30,6 @@ namespace AppTestStudio
 
         private void cmdCreateProject_Click(object sender, EventArgs e)
         {
-            IsReadyToCreate = true;
-            Close();
-        }
-
-        private void cmdCancel_Click(object sender, EventArgs e)
-        {
-            Close();
         }
 
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
@@ -60,9 +56,10 @@ namespace AppTestStudio
                 {
                     if (webBrowser1.DocumentTitle.Contains("-"))
                     {
+                        Debug.WriteLine(webBrowser1.DocumentTitle);
                         String AppName = webBrowser1.DocumentTitle.Replace(" - Apps on Google Play", "");
+                        AppName = AppName.Replace(" - Android Apps on Google Play", "");
                         lblAppName.Text = AppName;
-                        cmdCreateProject.Enabled = true;
 
                         foreach (char c in System.IO.Path.GetInvalidFileNameChars())
                         {
@@ -80,7 +77,6 @@ namespace AppTestStudio
         private void webBrowser1_Navigated(object sender, WebBrowserNavigatedEventArgs e)
         {
             Debug.WriteLine("WebBrowser1_Navigated");
-            cmdCreateProject.Enabled = false;
             if (e.Url.Query.Contains("?id="))
             {
                 lblAppID.Text = e.Url.Query.Replace("?id=", "");
@@ -119,10 +115,257 @@ namespace AppTestStudio
 
         private void frmAddNewGameWizard_Load(object sender, EventArgs e)
         {
+            panelWorkspaceNaming.Dock = DockStyle.Fill;
+            panelWorkspacePicker.Dock = DockStyle.Fill;
+            panelWorkspacePlatform.Dock = DockStyle.Fill;
+            panelWorkspaceStart.Dock = DockStyle.Fill;
+            lblNameIsInvalid.Text = "";
+
+            ShowPanel();
+
+
             txtSearch.Focus();
             lblAppID.Text = "";
             lblAppName.Text = "";
             lblSafeName.Text = "";
+
+            foreach (Platform platform in Enum.GetValues(typeof(Platform)))
+            {
+                cboPlatform.Items.Add(platform.ToString());
+            }
+
+            cboPlatform.SelectedIndex = 0;
+
+            cmdHome_Click(null, null);
+        }
+
+        private void ShowPanel()
+        {
+            panelWorkspaceNaming.Visible = false;
+            panelWorkspacePicker.Visible = false;
+            panelWorkspacePlatform.Visible = false;
+            panelWorkspaceStart.Visible = false;
+            cmdPrevious.Enabled = true;
+            cmdNext.Enabled = true;
+
+            pictureBoxNaming.Visible = false;
+            pictureBoxPicker.Visible = false;
+            pictureBoxPlatform.Visible = false;
+            pictureBoxStart.Visible = false;
+
+            switch (CurrentPanel)
+            {
+                case 0:
+                    panelWorkspaceStart.Visible = true;
+                    pictureBoxStart.Visible = true;
+                    cmdPrevious.Enabled = false;
+                    lblTitle.Text = "Start";
+                    lblSubTitle.Text = "An easy way to setup a new project.";
+                    break;
+                case 1:
+                    panelWorkspacePlatform.Visible = true;
+                    pictureBoxPlatform.Visible = true;
+                    lblTitle.Text = "Choose a platform";
+                    lblSubTitle.Text = "Which platform did you want to use?";
+                    break;
+                case 2:
+                    panelWorkspacePicker.Visible = true;
+                    pictureBoxPicker.Visible = true;
+                    lblTitle.Text = "Browse to locate application ID";
+                    lblSubTitle.Text = "Locate the ApplicationID in the store by browsing to the app, the appid and name will be automatically selected.";
+                    txtSearch.Focus();
+                    break;
+                case 3:
+                    panelWorkspaceNaming.Visible = true;
+                    pictureBoxNaming.Visible = true;
+                    cmdNext.Enabled = false;
+                    lblTitle.Text = "Project Folder";
+                    lblSubTitle.Text = "What folder should the project files be saved to?";
+                    txtName_TextChanged(null, null);
+                    break;
+                default:
+                    // shouldn't be here.
+                    Debug.Assert(false);
+                    break;
+            }
+        }
+
+        private void cmdStartOver_Click(object sender, EventArgs e)
+        {
+            CurrentPanel = 0;
+            cboPlatform.SelectedIndex = (int)Platform.NoxPlayer;
+            cmdFinish.Enabled = false;
+            txtName.Text = "";
+            txtFinishAppID.Text = "";
+            cmdHome_Click(null, null);
+
+
+            ShowPanel();
+        }
+
+        private void cmdPrevious_Click(object sender, EventArgs e)
+        {
+            if (
+                    (Platform)cboPlatform.SelectedIndex == Platform.Application
+                ||
+                    (Platform)cboPlatform.SelectedIndex == Platform.Steam
+            )
+            {
+                if (CurrentPanel == 3)
+                {
+                    // skip picker.
+                    CurrentPanel = CurrentPanel - 1;
+                }
+            }
+
+            CurrentPanel = CurrentPanel - 1;
+            ShowPanel();
+        }
+
+        private void cmdNext_Click(object sender, EventArgs e)
+        {
+            // On panel 2?
+            if (CurrentPanel == 2)
+            {
+                txtName.Text = lblSafeName.Text;
+                txtFinishAppID.Text = lblAppID.Text;
+            }
+
+            if (CurrentPanel == 1)
+            {
+                if (
+                    (Platform)cboPlatform.SelectedIndex == Platform.Application
+                ||
+                    (Platform)cboPlatform.SelectedIndex == Platform.Steam
+                )
+                { 
+                    // skip picker.
+                    CurrentPanel = CurrentPanel + 1;
+                }
+            }
+
+            CurrentPanel = CurrentPanel + 1;
+
+            // Now on the last panel
+            if (CurrentPanel == 3)
+            {                
+                txtName_TextChanged(null, null);
+            }
+                        
+            ShowPanel();
+        }
+
+        private void cmdWizardCancel_Click(object sender, EventArgs e)
+        {
+            Hide();
+        }
+        
+        //NoxPlayer,
+        //BlueStacks,
+        //Steam,
+        //Application
+
+        private void cboPlatform_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblSizeControl.ForeColor = SystemColors.ControlText;
+            lblDPIControl.ForeColor = SystemColors.ControlText;
+            lblAppInstallation.ForeColor = SystemColors.ControlText;
+            lblSelectedPlatform.Text = cboPlatform.SelectedItem.ToString();
+            switch ((Platform)cboPlatform.SelectedIndex)
+            {
+                // Nox
+                case Platform.NoxPlayer:
+                    lblSizeControl.Text = "Automated";
+                    lblSizeControl.ForeColor = Color.Green;
+                    lblDPIControl.Text = "Automated";
+                    lblDPIControl.ForeColor = Color.Green;
+                    lblAppInstallation.Text = "Manual";
+                    lblStatus.Text = "Recommended";
+                    lblDetectable.Text = "Script Behaviour";
+
+                    lblFinishAppID.Visible = true;
+                    txtFinishAppID.Visible = true;
+
+                    // Show Picker
+                    tableLayoutPanelLeftNav.RowStyles[2].Height = 40;
+
+                    break;
+                case Platform.BlueStacks:
+                    lblSizeControl.Text = "End User Defined";
+                    lblDPIControl.Text = "End User Defined";
+                    lblAppInstallation.Text = "Automated";
+                    lblAppInstallation.ForeColor = Color.Green;
+                    lblStatus.Text = "Caution";
+                    lblDetectable.Text = "Script Behaviour";
+
+                    lblFinishAppID.Visible = true;
+                    txtFinishAppID.Visible = true;
+
+                    // Show Picker
+                    tableLayoutPanelLeftNav.RowStyles[2].Height = 40;
+
+                    break;
+                case Platform.Application:
+                    lblSizeControl.Text = "End User Defined";
+                    lblDPIControl.Text = "End User Defined";
+                    lblAppInstallation.Text = "Manual";
+                    lblStatus.Text = "Experimental";
+                    lblDetectable.Text = "Possible";
+
+                    lblFinishAppID.Visible = false;
+                    txtFinishAppID.Visible = false;
+
+                    // Hide Picker
+                    tableLayoutPanelLeftNav.RowStyles[2].Height = 0;
+
+                    break;
+                case Platform.Steam:
+                    lblSizeControl.Text = "End User Defined";
+                    lblDPIControl.Text = "End User Defined";
+                    lblAppInstallation.Text = "Manual";
+                    lblStatus.Text = "Experimental";
+                    lblDetectable.Text = "Possible";
+
+                    lblFinishAppID.Visible = false;
+                    txtFinishAppID.Visible = false;
+
+                    // Hide Picker
+                    tableLayoutPanelLeftNav.RowStyles[2].Height = 0;
+
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void txtName_TextChanged(object sender, EventArgs e)
+        {
+            cmdFinish.Enabled = true;
+            int IndexOfInvalidCharacter = txtName.Text.IndexOfAny(System.IO.Path.GetInvalidFileNameChars());
+            if (IndexOfInvalidCharacter == -1)
+            {
+                if (txtName.Text.Trim().Length == 0)
+                {
+                    cmdFinish.Enabled = false;
+                }
+                else
+                {
+                    lblNameIsInvalid.Text = "";
+                }
+            }
+            else
+            {
+
+                String BadCharacter = txtName.Text.Substring(IndexOfInvalidCharacter, 1);
+                lblNameIsInvalid.Text = "Name has invalid character: " + BadCharacter;
+                cmdFinish.Enabled = false;
+            }
+        }
+
+        private void cmdFinish_Click(object sender, EventArgs e)
+        {
+            IsReadyToCreate = true;
+            Close();
         }
     }
 }
