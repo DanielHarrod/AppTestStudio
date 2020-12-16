@@ -270,6 +270,7 @@ namespace AppTestStudio
             lblSizeControl.ForeColor = SystemColors.ControlText;
             lblDPIControl.ForeColor = SystemColors.ControlText;
             lblAppInstallation.ForeColor = SystemColors.ControlText;
+            lblStatus.ForeColor = SystemColors.ControlText;
             lblSelectedPlatform.Text = cboPlatform.SelectedItem.ToString();
             switch ((Platform)cboPlatform.SelectedIndex)
             {
@@ -281,6 +282,7 @@ namespace AppTestStudio
                     lblDPIControl.ForeColor = Color.Green;
                     lblAppInstallation.Text = "Manual";
                     lblStatus.Text = "Recommended";
+                    lblStatus.ForeColor = Color.Green;
                     lblDetectable.Text = "Script Behaviour";
 
                     lblFinishAppID.Visible = true;
