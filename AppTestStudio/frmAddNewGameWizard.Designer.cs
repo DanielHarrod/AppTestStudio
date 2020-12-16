@@ -324,9 +324,10 @@
             // cmdWizardCancel
             // 
             this.cmdWizardCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdWizardCancel.Location = new System.Drawing.Point(1295, 11);
+            this.cmdWizardCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdWizardCancel.Location = new System.Drawing.Point(1260, 7);
             this.cmdWizardCancel.Name = "cmdWizardCancel";
-            this.cmdWizardCancel.Size = new System.Drawing.Size(75, 30);
+            this.cmdWizardCancel.Size = new System.Drawing.Size(112, 42);
             this.cmdWizardCancel.TabIndex = 1;
             this.cmdWizardCancel.Text = "Cancel";
             this.cmdWizardCancel.UseVisualStyleBackColor = true;
@@ -335,9 +336,10 @@
             // cmdFinish
             // 
             this.cmdFinish.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdFinish.Location = new System.Drawing.Point(1213, 11);
+            this.cmdFinish.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdFinish.Location = new System.Drawing.Point(1142, 7);
             this.cmdFinish.Name = "cmdFinish";
-            this.cmdFinish.Size = new System.Drawing.Size(75, 30);
+            this.cmdFinish.Size = new System.Drawing.Size(112, 42);
             this.cmdFinish.TabIndex = 1;
             this.cmdFinish.Text = "Finish";
             this.cmdFinish.UseVisualStyleBackColor = true;
@@ -346,9 +348,10 @@
             // cmdNext
             // 
             this.cmdNext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdNext.Location = new System.Drawing.Point(1131, 11);
+            this.cmdNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdNext.Location = new System.Drawing.Point(1024, 7);
             this.cmdNext.Name = "cmdNext";
-            this.cmdNext.Size = new System.Drawing.Size(75, 30);
+            this.cmdNext.Size = new System.Drawing.Size(112, 42);
             this.cmdNext.TabIndex = 1;
             this.cmdNext.Text = "Next >";
             this.cmdNext.UseVisualStyleBackColor = true;
@@ -357,9 +360,10 @@
             // cmdPrevious
             // 
             this.cmdPrevious.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdPrevious.Location = new System.Drawing.Point(1049, 11);
+            this.cmdPrevious.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdPrevious.Location = new System.Drawing.Point(906, 7);
             this.cmdPrevious.Name = "cmdPrevious";
-            this.cmdPrevious.Size = new System.Drawing.Size(75, 30);
+            this.cmdPrevious.Size = new System.Drawing.Size(112, 42);
             this.cmdPrevious.TabIndex = 1;
             this.cmdPrevious.Text = "< Prev";
             this.cmdPrevious.UseVisualStyleBackColor = true;
@@ -367,9 +371,10 @@
             // 
             // cmdStartOver
             // 
-            this.cmdStartOver.Location = new System.Drawing.Point(14, 11);
+            this.cmdStartOver.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdStartOver.Location = new System.Drawing.Point(14, 7);
             this.cmdStartOver.Name = "cmdStartOver";
-            this.cmdStartOver.Size = new System.Drawing.Size(126, 30);
+            this.cmdStartOver.Size = new System.Drawing.Size(176, 42);
             this.cmdStartOver.TabIndex = 0;
             this.cmdStartOver.Text = "<< Start Over";
             this.cmdStartOver.UseVisualStyleBackColor = true;
