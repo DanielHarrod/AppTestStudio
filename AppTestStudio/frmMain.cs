@@ -6823,6 +6823,11 @@ namespace AppTestStudio
 
 
         }
+
+        private void newToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MenuLaunchWizard();
+        }
     }
 }
 

@@ -376,5 +376,29 @@ namespace AppTestStudio
             IsReadyToCreate = true;
             Close();
         }
+
+        private void lblAppID_TextChanged(object sender, EventArgs e)
+        {
+            if (lblAppID.Text.Length > 0)
+            {
+                pictureBoxAppID.Visible = true;
+            }
+            else
+            {
+                pictureBoxAppID.Visible = false;
+            }
+        }
+
+        private void lblAppName_TextChanged(object sender, EventArgs e)
+        {
+            if (lblAppName.Text.Length > 0)
+            {
+                pictureBoxAppName.Visible = true;
+            }
+            else
+            {
+                pictureBoxAppName.Visible = false;
+            }
+        }
     }
 }

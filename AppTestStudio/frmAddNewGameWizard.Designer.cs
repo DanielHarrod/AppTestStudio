@@ -102,6 +102,8 @@
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
+            this.pictureBoxAppID = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAppName = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMainVertical)).BeginInit();
             this.splitContainerMainVertical.Panel1.SuspendLayout();
             this.splitContainerMainVertical.Panel2.SuspendLayout();
@@ -125,6 +127,8 @@
             this.GroupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
             this.panel4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppID)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppName)).BeginInit();
             this.SuspendLayout();
             // 
             // Timer1
@@ -507,7 +511,7 @@
             // panelWorkspacePicker
             // 
             this.panelWorkspacePicker.Controls.Add(this.tableLayoutPanel1);
-            this.panelWorkspacePicker.Location = new System.Drawing.Point(499, 103);
+            this.panelWorkspacePicker.Location = new System.Drawing.Point(111, 67);
             this.panelWorkspacePicker.Name = "panelWorkspacePicker";
             this.panelWorkspacePicker.Size = new System.Drawing.Size(1314, 767);
             this.panelWorkspacePicker.TabIndex = 2;
@@ -823,6 +827,7 @@
             this.lblAppID.Size = new System.Drawing.Size(70, 20);
             this.lblAppID.TabIndex = 0;
             this.lblAppID.Text = "lblAppID";
+            this.lblAppID.TextChanged += new System.EventHandler(this.lblAppID_TextChanged);
             // 
             // lblAppName
             // 
@@ -833,6 +838,7 @@
             this.lblAppName.Size = new System.Drawing.Size(95, 20);
             this.lblAppName.TabIndex = 0;
             this.lblAppName.Text = "lblAppName";
+            this.lblAppName.TextChanged += new System.EventHandler(this.lblAppName_TextChanged);
             // 
             // lblSafeName
             // 
@@ -878,13 +884,15 @@
             // 
             // GroupBox1
             // 
+            this.GroupBox1.Controls.Add(this.pictureBoxAppName);
+            this.GroupBox1.Controls.Add(this.pictureBoxAppID);
             this.GroupBox1.Controls.Add(this.Label5);
             this.GroupBox1.Controls.Add(this.Label4);
             this.GroupBox1.Controls.Add(this.Label3);
             this.GroupBox1.Controls.Add(this.lblSafeName);
             this.GroupBox1.Controls.Add(this.lblAppName);
             this.GroupBox1.Controls.Add(this.lblAppID);
-            this.GroupBox1.Location = new System.Drawing.Point(450, 15);
+            this.GroupBox1.Location = new System.Drawing.Point(103, 15);
             this.GroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.GroupBox1.Name = "GroupBox1";
             this.GroupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -920,6 +928,28 @@
             this.label21.Size = new System.Drawing.Size(998, 341);
             this.label21.TabIndex = 7;
             this.label21.Text = resources.GetString("label21.Text");
+            // 
+            // pictureBoxAppID
+            // 
+            this.pictureBoxAppID.Image = global::AppTestStudio.Properties.Resources.PSGreenCheck;
+            this.pictureBoxAppID.Location = new System.Drawing.Point(91, 31);
+            this.pictureBoxAppID.Name = "pictureBoxAppID";
+            this.pictureBoxAppID.Size = new System.Drawing.Size(29, 24);
+            this.pictureBoxAppID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAppID.TabIndex = 2;
+            this.pictureBoxAppID.TabStop = false;
+            this.pictureBoxAppID.Visible = false;
+            // 
+            // pictureBoxAppName
+            // 
+            this.pictureBoxAppName.Image = global::AppTestStudio.Properties.Resources.PSGreenCheck;
+            this.pictureBoxAppName.Location = new System.Drawing.Point(91, 56);
+            this.pictureBoxAppName.Name = "pictureBoxAppName";
+            this.pictureBoxAppName.Size = new System.Drawing.Size(29, 24);
+            this.pictureBoxAppName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAppName.TabIndex = 2;
+            this.pictureBoxAppName.TabStop = false;
+            this.pictureBoxAppName.Visible = false;
             // 
             // frmAddNewGameWizard
             // 
@@ -963,6 +993,8 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.panel4.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppID)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppName)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1041,5 +1073,7 @@
         internal System.Windows.Forms.Label lblAppID;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.PictureBox pictureBoxAppName;
+        private System.Windows.Forms.PictureBox pictureBoxAppID;
     }
 }
