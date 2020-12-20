@@ -14,9 +14,14 @@ namespace AppTestStudio
 {
     public static class Extensions
     {
+        public static T ParseEnum<T>(this string text)
+        {
+            return (T)Enum.Parse(typeof(T), text);
+        }
 
         public static String ToEnumString( this WindowNameFilterType filter)
         {
+            // could have called filter.ToString() - need to test before using.
             String Result = "";
             switch (filter)
             {

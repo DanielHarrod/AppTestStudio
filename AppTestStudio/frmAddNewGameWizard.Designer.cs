@@ -1060,19 +1060,15 @@
         private System.Windows.Forms.Label lblAppInstallation;
         private System.Windows.Forms.Label lblDPIControl;
         private System.Windows.Forms.Label lblSizeControl;
-        internal System.Windows.Forms.TextBox txtName;
         private System.Windows.Forms.Label label13;
         internal System.Windows.Forms.Label lblNameIsInvalid;
-        private System.Windows.Forms.TextBox txtFinishAppID;
         private System.Windows.Forms.Label lblFinishAppID;
-        private System.Windows.Forms.Label lblSelectedPlatform;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Label lblDetectable;
         private System.Windows.Forms.Label lblBlueStacksVersion;
-        private System.Windows.Forms.ComboBox cboBlueStacksVersion;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel3;
         internal System.Windows.Forms.GroupBox GroupBox1;
@@ -1087,5 +1083,9 @@
         private System.Windows.Forms.PictureBox pictureBoxAppName;
         private System.Windows.Forms.PictureBox pictureBoxAppID;
         private System.Windows.Forms.Label lblBlueStacksVersionLabel;
+        public System.Windows.Forms.TextBox txtName;
+        public System.Windows.Forms.TextBox txtFinishAppID;
+        public System.Windows.Forms.Label lblSelectedPlatform;
+        public System.Windows.Forms.ComboBox cboBlueStacksVersion;
     }
 }

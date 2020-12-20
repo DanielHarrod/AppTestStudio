@@ -12,6 +12,8 @@ using System.Threading.Tasks;
 namespace AppTestStudio
 {
 
+
+
     public enum Platform
     {
         NoxPlayer,

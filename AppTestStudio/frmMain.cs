@@ -4882,7 +4882,10 @@ namespace AppTestStudio
 
             if (frm.IsReadyToCreate)
             {
-                String ApplicationName = frm.lblSafeName.Text;
+                String ApplicationName = frm.txtName.Text;
+                Platform platform = frm.lblSelectedPlatform.Text.ParseEnum<Platform>();
+                String AppID = frm.txtFinishAppID.Text;
+                String BlueStacksBits = frm.cboBlueStacksVersion.Text;
 
                 String ApplicationFolder = Utils.GetApplicationFolder();
                 String ProjectFolder = System.IO.Path.Combine(ApplicationFolder, ApplicationName);
@@ -4914,21 +4917,35 @@ namespace AppTestStudio
 
                 String TargetFileName = System.IO.Path.Combine(ProjectFolder, "Default.xml");
 
-
                 //'assumed already saved, lets clear the other apps.
                 tv.Nodes[0].Nodes.Clear();
 
-                GameNodeGame Game = AddNewGameToTree(ApplicationName, TargetFileName);
-                txtPackageName.Text = frm.lblAppID.Text;
-                Game.PackageName = frm.lblAppID.Text;
-
+                GameNodeGame Game = AddNewGameToTree(ApplicationName, TargetFileName, platform);
+                cboPlatform.Text = platform.ToString();
+                switch (platform)
+                {
+                    case Platform.NoxPlayer:
+                        txtPackageName.Text = AppID;
+                        Game.PackageName = AppID;
+                        break;
+                    case Platform.BlueStacks:
+                        txtPackageName.Text = AppID;
+                        Game.PackageName = AppID;
+                        break;
+                    case Platform.Steam:
+                        break;
+                    case Platform.Application:
+                        break;
+                    default:
+                        break;
+                }
+                
                 toolStripButtonSaveScript_Click(null, null);
                 ThreadManager.IncrementNewAppAdded();
             }
-
         }
 
-        private GameNodeGame AddNewGameToTree(string applicationName, string targetFileName)
+        private GameNodeGame AddNewGameToTree(string applicationName, string targetFileName, Platform platform)
         {
             GameNodeGame NewGame = new GameNodeGame(applicationName, TitleBarHeight, ThreadManager);
 
@@ -4993,8 +5010,9 @@ namespace AppTestStudio
 
                 String GameName = frm.txtName.Text.Trim();
                 String TargetFileName = frm.TargetFileName;
-                GameNodeGame Game = AddNewGameToTree(GameName, TargetFileName);
+                GameNodeGame Game = AddNewGameToTree(GameName, TargetFileName, platform);
                 Game.Platform = platform;
+                cboPlatform.Text = platform.ToString();
 
                 Game.FileName = frm.TargetFileName;
 
@@ -6819,9 +6837,6 @@ namespace AppTestStudio
             {
                 Log("cmdMakeObjectAndUse_Click:" + ex.Message);
             }
-
-
-
         }
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
