@@ -682,10 +682,17 @@ namespace AppTestStudio
             toolTestAll.Enabled = false;
         }
 
+        private void SetPackageNameControls(String PackageName)
+        {
+            txtPackageName.Text = PackageName;
+            txtBluePackageName.Text = PackageName;
+        }
+
         private void LoadGamePanel(GameNodeGame gameNode)
         {
             txtGamePanelVersion.Text = gameNode.TargetGameBuild;
-            txtPackageName.Text = gameNode.PackageName;
+
+            SetPackageNameControls(gameNode.PackageName);
 
             txtGamePanelLaunchInstance.Text = gameNode.InstanceToLaunch;
             txtGamePanelLaunchInstance.Enabled = true;
@@ -4930,11 +4937,11 @@ namespace AppTestStudio
                 switch (platform)
                 {
                     case Platform.NoxPlayer:
-                        txtPackageName.Text = AppID;
+                        SetPackageNameControls(AppID);
                         Game.PackageName = AppID;
                         break;
                     case Platform.BlueStacks:
-                        txtPackageName.Text = AppID;
+                        SetPackageNameControls(AppID);
                         Game.PackageName = AppID;
                         break;
                     case Platform.Steam:
@@ -6412,6 +6419,9 @@ namespace AppTestStudio
                 case "Application":
                     grpApplication.Visible = true;
                     break;
+                case "BlueStacks":
+                    grpBlue.Visible = true;
+                    break;
                 default:
                     break;
             }
@@ -6847,6 +6857,15 @@ namespace AppTestStudio
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
             MenuLaunchWizard();
+        }
+
+        private void txtBluePackageName_TextChanged(object sender, EventArgs e)
+        {
+            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+            if (Game.IsSomething())
+            {
+                Game.PackageName = txtBluePackageName.Text.Trim();
+            }
         }
     }
 }

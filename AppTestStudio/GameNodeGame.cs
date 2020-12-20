@@ -159,6 +159,8 @@ namespace AppTestStudio
         }
 
         public String TargetGameBuild { get; set; }
+
+        // Shared by Nox and Blue
         public String PackageName { get; set; }
 
         private String mInstanceToLaunch;
