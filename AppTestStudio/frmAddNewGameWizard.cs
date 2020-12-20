@@ -276,6 +276,8 @@ namespace AppTestStudio
             lblSelectedPlatform.Text = cboPlatform.SelectedItem.ToString();
             lblBlueStacksVersion.Visible = false;
             cboBlueStacksVersion.Visible = false;
+            lblBlueStacksVersionLabel.Visible = false;
+
             switch ((Platform)cboPlatform.SelectedIndex)
             {
                 // Nox
@@ -312,6 +314,7 @@ namespace AppTestStudio
 
                     lblBlueStacksVersion.Visible = true;
                     cboBlueStacksVersion.Visible = true;
+                    lblBlueStacksVersionLabel.Visible = true;
 
                     break;
                 case Platform.Application:
@@ -399,6 +402,11 @@ namespace AppTestStudio
             {
                 pictureBoxAppName.Visible = false;
             }
+        }
+
+        private void cboBlueStacksVersion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            lblBlueStacksVersionLabel.Text = "Blue Stacks Version: " + cboBlueStacksVersion.Text;
         }
     }
 }

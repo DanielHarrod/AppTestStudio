@@ -52,6 +52,45 @@
             this.cmdPrevious = new System.Windows.Forms.Button();
             this.cmdStartOver = new System.Windows.Forms.Button();
             this.panelWorkspace = new System.Windows.Forms.Panel();
+            this.panelWorkspacePlatform = new System.Windows.Forms.Panel();
+            this.label21 = new System.Windows.Forms.Label();
+            this.lblBlueStacksVersion = new System.Windows.Forms.Label();
+            this.groupBoxAutomationConsiderations = new System.Windows.Forms.GroupBox();
+            this.label20 = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
+            this.lblDetectable = new System.Windows.Forms.Label();
+            this.lblStatus = new System.Windows.Forms.Label();
+            this.lblAppInstallation = new System.Windows.Forms.Label();
+            this.lblDPIControl = new System.Windows.Forms.Label();
+            this.lblSizeControl = new System.Windows.Forms.Label();
+            this.cboBlueStacksVersion = new System.Windows.Forms.ComboBox();
+            this.cboPlatform = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.panelWorkspacePicker = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.GroupBox2 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.cmdSearch = new System.Windows.Forms.Button();
+            this.txtSearch = new System.Windows.Forms.TextBox();
+            this.cmdHome = new System.Windows.Forms.Button();
+            this.cmdBack = new System.Windows.Forms.Button();
+            this.cmdForward = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.GroupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBoxAppName = new System.Windows.Forms.PictureBox();
+            this.pictureBoxAppID = new System.Windows.Forms.PictureBox();
+            this.Label5 = new System.Windows.Forms.Label();
+            this.Label4 = new System.Windows.Forms.Label();
+            this.Label3 = new System.Windows.Forms.Label();
+            this.lblSafeName = new System.Windows.Forms.Label();
+            this.lblAppName = new System.Windows.Forms.Label();
+            this.lblAppID = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.panelWorkspaceNaming = new System.Windows.Forms.Panel();
             this.label19 = new System.Windows.Forms.Label();
             this.txtFinishAppID = new System.Windows.Forms.TextBox();
@@ -63,47 +102,9 @@
             this.lblNameIsInvalid = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
-            this.panelWorkspacePicker = new System.Windows.Forms.Panel();
-            this.label10 = new System.Windows.Forms.Label();
-            this.GroupBox2 = new System.Windows.Forms.GroupBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.cmdSearch = new System.Windows.Forms.Button();
-            this.txtSearch = new System.Windows.Forms.TextBox();
-            this.cmdHome = new System.Windows.Forms.Button();
-            this.cmdBack = new System.Windows.Forms.Button();
-            this.cmdForward = new System.Windows.Forms.Button();
-            this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.panelWorkspacePlatform = new System.Windows.Forms.Panel();
-            this.groupBoxAutomationConsiderations = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.lblStatus = new System.Windows.Forms.Label();
-            this.lblAppInstallation = new System.Windows.Forms.Label();
-            this.lblDPIControl = new System.Windows.Forms.Label();
-            this.lblSizeControl = new System.Windows.Forms.Label();
-            this.cboPlatform = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.panelWorkspaceStart = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lblDetectable = new System.Windows.Forms.Label();
-            this.lblBlueStacksVersion = new System.Windows.Forms.Label();
-            this.cboBlueStacksVersion = new System.Windows.Forms.ComboBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.lblAppID = new System.Windows.Forms.Label();
-            this.lblAppName = new System.Windows.Forms.Label();
-            this.lblSafeName = new System.Windows.Forms.Label();
-            this.Label3 = new System.Windows.Forms.Label();
-            this.Label4 = new System.Windows.Forms.Label();
-            this.Label5 = new System.Windows.Forms.Label();
-            this.GroupBox1 = new System.Windows.Forms.GroupBox();
-            this.panel3 = new System.Windows.Forms.Panel();
-            this.panel4 = new System.Windows.Forms.Panel();
-            this.label21 = new System.Windows.Forms.Label();
-            this.pictureBoxAppID = new System.Windows.Forms.PictureBox();
-            this.pictureBoxAppName = new System.Windows.Forms.PictureBox();
+            this.lblBlueStacksVersionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMainVertical)).BeginInit();
             this.splitContainerMainVertical.Panel1.SuspendLayout();
             this.splitContainerMainVertical.Panel2.SuspendLayout();
@@ -117,18 +118,18 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelWorkspace.SuspendLayout();
-            this.panelWorkspaceNaming.SuspendLayout();
-            this.panelWorkspacePicker.SuspendLayout();
-            this.GroupBox2.SuspendLayout();
             this.panelWorkspacePlatform.SuspendLayout();
             this.groupBoxAutomationConsiderations.SuspendLayout();
-            this.panelWorkspaceStart.SuspendLayout();
+            this.panelWorkspacePicker.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.GroupBox1.SuspendLayout();
             this.panel3.SuspendLayout();
-            this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppID)).BeginInit();
+            this.GroupBox2.SuspendLayout();
+            this.GroupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppID)).BeginInit();
+            this.panel4.SuspendLayout();
+            this.panelWorkspaceNaming.SuspendLayout();
+            this.panelWorkspaceStart.SuspendLayout();
             this.SuspendLayout();
             // 
             // Timer1
@@ -391,9 +392,9 @@
             // 
             // panelWorkspace
             // 
+            this.panelWorkspace.Controls.Add(this.panelWorkspaceNaming);
             this.panelWorkspace.Controls.Add(this.panelWorkspacePlatform);
             this.panelWorkspace.Controls.Add(this.panelWorkspacePicker);
-            this.panelWorkspace.Controls.Add(this.panelWorkspaceNaming);
             this.panelWorkspace.Controls.Add(this.panelWorkspaceStart);
             this.panelWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelWorkspace.Location = new System.Drawing.Point(3, 103);
@@ -401,8 +402,434 @@
             this.panelWorkspace.Size = new System.Drawing.Size(1379, 912);
             this.panelWorkspace.TabIndex = 2;
             // 
+            // panelWorkspacePlatform
+            // 
+            this.panelWorkspacePlatform.Controls.Add(this.label21);
+            this.panelWorkspacePlatform.Controls.Add(this.lblBlueStacksVersion);
+            this.panelWorkspacePlatform.Controls.Add(this.groupBoxAutomationConsiderations);
+            this.panelWorkspacePlatform.Controls.Add(this.cboBlueStacksVersion);
+            this.panelWorkspacePlatform.Controls.Add(this.cboPlatform);
+            this.panelWorkspacePlatform.Controls.Add(this.label2);
+            this.panelWorkspacePlatform.Location = new System.Drawing.Point(350, 202);
+            this.panelWorkspacePlatform.Name = "panelWorkspacePlatform";
+            this.panelWorkspacePlatform.Size = new System.Drawing.Size(1075, 621);
+            this.panelWorkspacePlatform.TabIndex = 4;
+            // 
+            // label21
+            // 
+            this.label21.Location = new System.Drawing.Point(23, 246);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(998, 341);
+            this.label21.TabIndex = 7;
+            this.label21.Text = resources.GetString("label21.Text");
+            // 
+            // lblBlueStacksVersion
+            // 
+            this.lblBlueStacksVersion.AutoSize = true;
+            this.lblBlueStacksVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblBlueStacksVersion.Location = new System.Drawing.Point(3, 62);
+            this.lblBlueStacksVersion.Name = "lblBlueStacksVersion";
+            this.lblBlueStacksVersion.Size = new System.Drawing.Size(112, 32);
+            this.lblBlueStacksVersion.TabIndex = 6;
+            this.lblBlueStacksVersion.Text = "Version";
+            // 
+            // groupBoxAutomationConsiderations
+            // 
+            this.groupBoxAutomationConsiderations.Controls.Add(this.label20);
+            this.groupBoxAutomationConsiderations.Controls.Add(this.label16);
+            this.groupBoxAutomationConsiderations.Controls.Add(this.label15);
+            this.groupBoxAutomationConsiderations.Controls.Add(this.label14);
+            this.groupBoxAutomationConsiderations.Controls.Add(this.label12);
+            this.groupBoxAutomationConsiderations.Controls.Add(this.lblDetectable);
+            this.groupBoxAutomationConsiderations.Controls.Add(this.lblStatus);
+            this.groupBoxAutomationConsiderations.Controls.Add(this.lblAppInstallation);
+            this.groupBoxAutomationConsiderations.Controls.Add(this.lblDPIControl);
+            this.groupBoxAutomationConsiderations.Controls.Add(this.lblSizeControl);
+            this.groupBoxAutomationConsiderations.Location = new System.Drawing.Point(569, 19);
+            this.groupBoxAutomationConsiderations.Name = "groupBoxAutomationConsiderations";
+            this.groupBoxAutomationConsiderations.Size = new System.Drawing.Size(443, 216);
+            this.groupBoxAutomationConsiderations.TabIndex = 4;
+            this.groupBoxAutomationConsiderations.TabStop = false;
+            this.groupBoxAutomationConsiderations.Text = "Automation Considerations";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(16, 129);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(87, 20);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Detectable";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(16, 161);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(56, 20);
+            this.label16.TabIndex = 2;
+            this.label16.Text = "Status";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(16, 98);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(119, 20);
+            this.label15.TabIndex = 2;
+            this.label15.Text = "App Installation";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 64);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(91, 20);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "DPI Control";
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(16, 32);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(155, 20);
+            this.label12.TabIndex = 2;
+            this.label12.Text = "Window Size Control";
+            // 
+            // lblDetectable
+            // 
+            this.lblDetectable.AutoSize = true;
+            this.lblDetectable.Location = new System.Drawing.Point(184, 129);
+            this.lblDetectable.Name = "lblDetectable";
+            this.lblDetectable.Size = new System.Drawing.Size(102, 20);
+            this.lblDetectable.TabIndex = 3;
+            this.lblDetectable.Text = "lblDetectable";
+            // 
+            // lblStatus
+            // 
+            this.lblStatus.AutoSize = true;
+            this.lblStatus.Location = new System.Drawing.Point(184, 161);
+            this.lblStatus.Name = "lblStatus";
+            this.lblStatus.Size = new System.Drawing.Size(71, 20);
+            this.lblStatus.TabIndex = 3;
+            this.lblStatus.Text = "lblStatus";
+            // 
+            // lblAppInstallation
+            // 
+            this.lblAppInstallation.AutoSize = true;
+            this.lblAppInstallation.Location = new System.Drawing.Point(184, 98);
+            this.lblAppInstallation.Name = "lblAppInstallation";
+            this.lblAppInstallation.Size = new System.Drawing.Size(130, 20);
+            this.lblAppInstallation.TabIndex = 3;
+            this.lblAppInstallation.Text = "lblAppInstallation";
+            // 
+            // lblDPIControl
+            // 
+            this.lblDPIControl.AutoSize = true;
+            this.lblDPIControl.Location = new System.Drawing.Point(184, 64);
+            this.lblDPIControl.Name = "lblDPIControl";
+            this.lblDPIControl.Size = new System.Drawing.Size(102, 20);
+            this.lblDPIControl.TabIndex = 3;
+            this.lblDPIControl.Text = "lblDPIControl";
+            // 
+            // lblSizeControl
+            // 
+            this.lblSizeControl.AutoSize = true;
+            this.lblSizeControl.Location = new System.Drawing.Point(184, 32);
+            this.lblSizeControl.Name = "lblSizeControl";
+            this.lblSizeControl.Size = new System.Drawing.Size(106, 20);
+            this.lblSizeControl.TabIndex = 3;
+            this.lblSizeControl.Text = "lblSizeControl";
+            // 
+            // cboBlueStacksVersion
+            // 
+            this.cboBlueStacksVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBlueStacksVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboBlueStacksVersion.FormattingEnabled = true;
+            this.cboBlueStacksVersion.Items.AddRange(new object[] {
+            "32-bit",
+            "64-bit"});
+            this.cboBlueStacksVersion.Location = new System.Drawing.Point(130, 57);
+            this.cboBlueStacksVersion.Name = "cboBlueStacksVersion";
+            this.cboBlueStacksVersion.Size = new System.Drawing.Size(330, 37);
+            this.cboBlueStacksVersion.TabIndex = 1;
+            this.cboBlueStacksVersion.SelectedIndexChanged += new System.EventHandler(this.cboBlueStacksVersion_SelectedIndexChanged);
+            // 
+            // cboPlatform
+            // 
+            this.cboPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPlatform.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboPlatform.FormattingEnabled = true;
+            this.cboPlatform.Location = new System.Drawing.Point(130, 3);
+            this.cboPlatform.Name = "cboPlatform";
+            this.cboPlatform.Size = new System.Drawing.Size(330, 37);
+            this.cboPlatform.TabIndex = 1;
+            this.cboPlatform.SelectedIndexChanged += new System.EventHandler(this.cboPlatform_SelectedIndexChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(3, 3);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(121, 32);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Platform";
+            // 
+            // panelWorkspacePicker
+            // 
+            this.panelWorkspacePicker.Controls.Add(this.tableLayoutPanel1);
+            this.panelWorkspacePicker.Location = new System.Drawing.Point(578, 71);
+            this.panelWorkspacePicker.Name = "panelWorkspacePicker";
+            this.panelWorkspacePicker.Size = new System.Drawing.Size(1314, 767);
+            this.panelWorkspacePicker.TabIndex = 2;
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1314, 767);
+            this.tableLayoutPanel1.TabIndex = 2;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.GroupBox2);
+            this.panel3.Controls.Add(this.label10);
+            this.panel3.Controls.Add(this.GroupBox1);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(1308, 194);
+            this.panel3.TabIndex = 0;
+            // 
+            // GroupBox2
+            // 
+            this.GroupBox2.Controls.Add(this.label6);
+            this.GroupBox2.Controls.Add(this.cmdSearch);
+            this.GroupBox2.Controls.Add(this.txtSearch);
+            this.GroupBox2.Controls.Add(this.cmdHome);
+            this.GroupBox2.Controls.Add(this.cmdBack);
+            this.GroupBox2.Controls.Add(this.cmdForward);
+            this.GroupBox2.Location = new System.Drawing.Point(9, 113);
+            this.GroupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GroupBox2.Name = "GroupBox2";
+            this.GroupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GroupBox2.Size = new System.Drawing.Size(1314, 88);
+            this.GroupBox2.TabIndex = 5;
+            this.GroupBox2.TabStop = false;
+            this.GroupBox2.Text = "Browser Navigator Controls";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(400, 23);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(336, 20);
+            this.label6.TabIndex = 6;
+            this.label6.Text = "Enter Search information to search for an app.";
+            // 
+            // cmdSearch
+            // 
+            this.cmdSearch.Location = new System.Drawing.Point(842, 45);
+            this.cmdSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdSearch.Name = "cmdSearch";
+            this.cmdSearch.Size = new System.Drawing.Size(112, 35);
+            this.cmdSearch.TabIndex = 5;
+            this.cmdSearch.Text = "Search";
+            this.cmdSearch.UseVisualStyleBackColor = true;
+            this.cmdSearch.Click += new System.EventHandler(this.cmdSearch_Click);
+            // 
+            // txtSearch
+            // 
+            this.txtSearch.Location = new System.Drawing.Point(405, 48);
+            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSearch.Name = "txtSearch";
+            this.txtSearch.Size = new System.Drawing.Size(426, 26);
+            this.txtSearch.TabIndex = 1;
+            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
+            // 
+            // cmdHome
+            // 
+            this.cmdHome.Location = new System.Drawing.Point(9, 29);
+            this.cmdHome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdHome.Name = "cmdHome";
+            this.cmdHome.Size = new System.Drawing.Size(112, 35);
+            this.cmdHome.TabIndex = 1;
+            this.cmdHome.Text = "Home";
+            this.cmdHome.UseVisualStyleBackColor = true;
+            this.cmdHome.Click += new System.EventHandler(this.cmdHome_Click);
+            // 
+            // cmdBack
+            // 
+            this.cmdBack.Location = new System.Drawing.Point(130, 29);
+            this.cmdBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdBack.Name = "cmdBack";
+            this.cmdBack.Size = new System.Drawing.Size(112, 35);
+            this.cmdBack.TabIndex = 2;
+            this.cmdBack.Text = "Back";
+            this.cmdBack.UseVisualStyleBackColor = true;
+            this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
+            // 
+            // cmdForward
+            // 
+            this.cmdForward.Location = new System.Drawing.Point(252, 29);
+            this.cmdForward.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdForward.Name = "cmdForward";
+            this.cmdForward.Size = new System.Drawing.Size(112, 35);
+            this.cmdForward.TabIndex = 3;
+            this.cmdForward.Text = "Forward";
+            this.cmdForward.UseVisualStyleBackColor = true;
+            this.cmdForward.Click += new System.EventHandler(this.cmdForward_Click);
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label10.Location = new System.Drawing.Point(3, 3);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(94, 32);
+            this.label10.TabIndex = 2;
+            this.label10.Text = "Picker";
+            // 
+            // GroupBox1
+            // 
+            this.GroupBox1.Controls.Add(this.pictureBoxAppName);
+            this.GroupBox1.Controls.Add(this.pictureBoxAppID);
+            this.GroupBox1.Controls.Add(this.Label5);
+            this.GroupBox1.Controls.Add(this.Label4);
+            this.GroupBox1.Controls.Add(this.Label3);
+            this.GroupBox1.Controls.Add(this.lblSafeName);
+            this.GroupBox1.Controls.Add(this.lblAppName);
+            this.GroupBox1.Controls.Add(this.lblAppID);
+            this.GroupBox1.Location = new System.Drawing.Point(103, 15);
+            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GroupBox1.Name = "GroupBox1";
+            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.GroupBox1.Size = new System.Drawing.Size(819, 88);
+            this.GroupBox1.TabIndex = 4;
+            this.GroupBox1.TabStop = false;
+            this.GroupBox1.Text = "Detected Info";
+            // 
+            // pictureBoxAppName
+            // 
+            this.pictureBoxAppName.Image = global::AppTestStudio.Properties.Resources.PSGreenCheck;
+            this.pictureBoxAppName.Location = new System.Drawing.Point(91, 56);
+            this.pictureBoxAppName.Name = "pictureBoxAppName";
+            this.pictureBoxAppName.Size = new System.Drawing.Size(29, 24);
+            this.pictureBoxAppName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAppName.TabIndex = 2;
+            this.pictureBoxAppName.TabStop = false;
+            this.pictureBoxAppName.Visible = false;
+            // 
+            // pictureBoxAppID
+            // 
+            this.pictureBoxAppID.Image = global::AppTestStudio.Properties.Resources.PSGreenCheck;
+            this.pictureBoxAppID.Location = new System.Drawing.Point(91, 31);
+            this.pictureBoxAppID.Name = "pictureBoxAppID";
+            this.pictureBoxAppID.Size = new System.Drawing.Size(29, 24);
+            this.pictureBoxAppID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxAppID.TabIndex = 2;
+            this.pictureBoxAppID.TabStop = false;
+            this.pictureBoxAppID.Visible = false;
+            // 
+            // Label5
+            // 
+            this.Label5.AutoSize = true;
+            this.Label5.Location = new System.Drawing.Point(635, 13);
+            this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label5.Name = "Label5";
+            this.Label5.Size = new System.Drawing.Size(93, 20);
+            this.Label5.TabIndex = 1;
+            this.Label5.Text = "Safe Name:";
+            this.Label5.Visible = false;
+            // 
+            // Label4
+            // 
+            this.Label4.AutoSize = true;
+            this.Label4.Location = new System.Drawing.Point(10, 58);
+            this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label4.Name = "Label4";
+            this.Label4.Size = new System.Drawing.Size(88, 20);
+            this.Label4.TabIndex = 1;
+            this.Label4.Text = "App Name:";
+            // 
+            // Label3
+            // 
+            this.Label3.AutoSize = true;
+            this.Label3.Location = new System.Drawing.Point(10, 31);
+            this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.Label3.Name = "Label3";
+            this.Label3.Size = new System.Drawing.Size(55, 20);
+            this.Label3.TabIndex = 1;
+            this.Label3.Text = "AppID";
+            // 
+            // lblSafeName
+            // 
+            this.lblSafeName.AutoSize = true;
+            this.lblSafeName.Location = new System.Drawing.Point(638, 31);
+            this.lblSafeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblSafeName.Name = "lblSafeName";
+            this.lblSafeName.Size = new System.Drawing.Size(100, 20);
+            this.lblSafeName.TabIndex = 0;
+            this.lblSafeName.Text = "lblSafeName";
+            this.lblSafeName.Visible = false;
+            // 
+            // lblAppName
+            // 
+            this.lblAppName.AutoSize = true;
+            this.lblAppName.Location = new System.Drawing.Point(118, 58);
+            this.lblAppName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAppName.Name = "lblAppName";
+            this.lblAppName.Size = new System.Drawing.Size(95, 20);
+            this.lblAppName.TabIndex = 0;
+            this.lblAppName.Text = "lblAppName";
+            this.lblAppName.TextChanged += new System.EventHandler(this.lblAppName_TextChanged);
+            // 
+            // lblAppID
+            // 
+            this.lblAppID.AutoSize = true;
+            this.lblAppID.Location = new System.Drawing.Point(118, 31);
+            this.lblAppID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAppID.Name = "lblAppID";
+            this.lblAppID.Size = new System.Drawing.Size(70, 20);
+            this.lblAppID.TabIndex = 0;
+            this.lblAppID.Text = "lblAppID";
+            this.lblAppID.TextChanged += new System.EventHandler(this.lblAppID_TextChanged);
+            // 
+            // panel4
+            // 
+            this.panel4.Controls.Add(this.webBrowser1);
+            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel4.Location = new System.Drawing.Point(3, 203);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(1308, 561);
+            this.panel4.TabIndex = 1;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(30, 31);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.ScriptErrorsSuppressed = true;
+            this.webBrowser1.Size = new System.Drawing.Size(1308, 561);
+            this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
+            // 
             // panelWorkspaceNaming
             // 
+            this.panelWorkspaceNaming.Controls.Add(this.lblBlueStacksVersionLabel);
             this.panelWorkspaceNaming.Controls.Add(this.label19);
             this.panelWorkspaceNaming.Controls.Add(this.txtFinishAppID);
             this.panelWorkspaceNaming.Controls.Add(this.lblFinishAppID);
@@ -413,7 +840,7 @@
             this.panelWorkspaceNaming.Controls.Add(this.lblNameIsInvalid);
             this.panelWorkspaceNaming.Controls.Add(this.txtName);
             this.panelWorkspaceNaming.Controls.Add(this.label11);
-            this.panelWorkspaceNaming.Location = new System.Drawing.Point(52, 546);
+            this.panelWorkspaceNaming.Location = new System.Drawing.Point(64, 465);
             this.panelWorkspaceNaming.Name = "panelWorkspaceNaming";
             this.panelWorkspaceNaming.Size = new System.Drawing.Size(1125, 324);
             this.panelWorkspaceNaming.TabIndex = 5;
@@ -508,241 +935,6 @@
             this.label11.TabIndex = 0;
             this.label11.Text = "Finish";
             // 
-            // panelWorkspacePicker
-            // 
-            this.panelWorkspacePicker.Controls.Add(this.tableLayoutPanel1);
-            this.panelWorkspacePicker.Location = new System.Drawing.Point(111, 67);
-            this.panelWorkspacePicker.Name = "panelWorkspacePicker";
-            this.panelWorkspacePicker.Size = new System.Drawing.Size(1314, 767);
-            this.panelWorkspacePicker.TabIndex = 2;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.Location = new System.Drawing.Point(3, 3);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(94, 32);
-            this.label10.TabIndex = 2;
-            this.label10.Text = "Picker";
-            // 
-            // GroupBox2
-            // 
-            this.GroupBox2.Controls.Add(this.label6);
-            this.GroupBox2.Controls.Add(this.cmdSearch);
-            this.GroupBox2.Controls.Add(this.txtSearch);
-            this.GroupBox2.Controls.Add(this.cmdHome);
-            this.GroupBox2.Controls.Add(this.cmdBack);
-            this.GroupBox2.Controls.Add(this.cmdForward);
-            this.GroupBox2.Location = new System.Drawing.Point(9, 113);
-            this.GroupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.GroupBox2.Name = "GroupBox2";
-            this.GroupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.GroupBox2.Size = new System.Drawing.Size(1314, 88);
-            this.GroupBox2.TabIndex = 5;
-            this.GroupBox2.TabStop = false;
-            this.GroupBox2.Text = "Browser Navigator Controls";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(400, 23);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(336, 20);
-            this.label6.TabIndex = 6;
-            this.label6.Text = "Enter Search information to search for an app.";
-            // 
-            // cmdSearch
-            // 
-            this.cmdSearch.Location = new System.Drawing.Point(842, 45);
-            this.cmdSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdSearch.Name = "cmdSearch";
-            this.cmdSearch.Size = new System.Drawing.Size(112, 35);
-            this.cmdSearch.TabIndex = 5;
-            this.cmdSearch.Text = "Search";
-            this.cmdSearch.UseVisualStyleBackColor = true;
-            this.cmdSearch.Click += new System.EventHandler(this.cmdSearch_Click);
-            // 
-            // txtSearch
-            // 
-            this.txtSearch.Location = new System.Drawing.Point(405, 48);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(426, 26);
-            this.txtSearch.TabIndex = 1;
-            this.txtSearch.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyDown);
-            // 
-            // cmdHome
-            // 
-            this.cmdHome.Location = new System.Drawing.Point(9, 29);
-            this.cmdHome.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdHome.Name = "cmdHome";
-            this.cmdHome.Size = new System.Drawing.Size(112, 35);
-            this.cmdHome.TabIndex = 1;
-            this.cmdHome.Text = "Home";
-            this.cmdHome.UseVisualStyleBackColor = true;
-            this.cmdHome.Click += new System.EventHandler(this.cmdHome_Click);
-            // 
-            // cmdBack
-            // 
-            this.cmdBack.Location = new System.Drawing.Point(130, 29);
-            this.cmdBack.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdBack.Name = "cmdBack";
-            this.cmdBack.Size = new System.Drawing.Size(112, 35);
-            this.cmdBack.TabIndex = 2;
-            this.cmdBack.Text = "Back";
-            this.cmdBack.UseVisualStyleBackColor = true;
-            this.cmdBack.Click += new System.EventHandler(this.cmdBack_Click);
-            // 
-            // cmdForward
-            // 
-            this.cmdForward.Location = new System.Drawing.Point(252, 29);
-            this.cmdForward.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.cmdForward.Name = "cmdForward";
-            this.cmdForward.Size = new System.Drawing.Size(112, 35);
-            this.cmdForward.TabIndex = 3;
-            this.cmdForward.Text = "Forward";
-            this.cmdForward.UseVisualStyleBackColor = true;
-            this.cmdForward.Click += new System.EventHandler(this.cmdForward_Click);
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(30, 31);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(1308, 561);
-            this.webBrowser1.TabIndex = 0;
-            this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
-            // 
-            // panelWorkspacePlatform
-            // 
-            this.panelWorkspacePlatform.Controls.Add(this.label21);
-            this.panelWorkspacePlatform.Controls.Add(this.lblBlueStacksVersion);
-            this.panelWorkspacePlatform.Controls.Add(this.groupBoxAutomationConsiderations);
-            this.panelWorkspacePlatform.Controls.Add(this.cboBlueStacksVersion);
-            this.panelWorkspacePlatform.Controls.Add(this.cboPlatform);
-            this.panelWorkspacePlatform.Controls.Add(this.label2);
-            this.panelWorkspacePlatform.Location = new System.Drawing.Point(350, 202);
-            this.panelWorkspacePlatform.Name = "panelWorkspacePlatform";
-            this.panelWorkspacePlatform.Size = new System.Drawing.Size(1075, 621);
-            this.panelWorkspacePlatform.TabIndex = 4;
-            // 
-            // groupBoxAutomationConsiderations
-            // 
-            this.groupBoxAutomationConsiderations.Controls.Add(this.label20);
-            this.groupBoxAutomationConsiderations.Controls.Add(this.label16);
-            this.groupBoxAutomationConsiderations.Controls.Add(this.label15);
-            this.groupBoxAutomationConsiderations.Controls.Add(this.label14);
-            this.groupBoxAutomationConsiderations.Controls.Add(this.label12);
-            this.groupBoxAutomationConsiderations.Controls.Add(this.lblDetectable);
-            this.groupBoxAutomationConsiderations.Controls.Add(this.lblStatus);
-            this.groupBoxAutomationConsiderations.Controls.Add(this.lblAppInstallation);
-            this.groupBoxAutomationConsiderations.Controls.Add(this.lblDPIControl);
-            this.groupBoxAutomationConsiderations.Controls.Add(this.lblSizeControl);
-            this.groupBoxAutomationConsiderations.Location = new System.Drawing.Point(569, 19);
-            this.groupBoxAutomationConsiderations.Name = "groupBoxAutomationConsiderations";
-            this.groupBoxAutomationConsiderations.Size = new System.Drawing.Size(443, 216);
-            this.groupBoxAutomationConsiderations.TabIndex = 4;
-            this.groupBoxAutomationConsiderations.TabStop = false;
-            this.groupBoxAutomationConsiderations.Text = "Automation Considerations";
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(16, 161);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(56, 20);
-            this.label16.TabIndex = 2;
-            this.label16.Text = "Status";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(16, 98);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(119, 20);
-            this.label15.TabIndex = 2;
-            this.label15.Text = "App Installation";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 64);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(91, 20);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "DPI Control";
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(16, 32);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(155, 20);
-            this.label12.TabIndex = 2;
-            this.label12.Text = "Window Size Control";
-            // 
-            // lblStatus
-            // 
-            this.lblStatus.AutoSize = true;
-            this.lblStatus.Location = new System.Drawing.Point(184, 161);
-            this.lblStatus.Name = "lblStatus";
-            this.lblStatus.Size = new System.Drawing.Size(71, 20);
-            this.lblStatus.TabIndex = 3;
-            this.lblStatus.Text = "lblStatus";
-            // 
-            // lblAppInstallation
-            // 
-            this.lblAppInstallation.AutoSize = true;
-            this.lblAppInstallation.Location = new System.Drawing.Point(184, 98);
-            this.lblAppInstallation.Name = "lblAppInstallation";
-            this.lblAppInstallation.Size = new System.Drawing.Size(130, 20);
-            this.lblAppInstallation.TabIndex = 3;
-            this.lblAppInstallation.Text = "lblAppInstallation";
-            // 
-            // lblDPIControl
-            // 
-            this.lblDPIControl.AutoSize = true;
-            this.lblDPIControl.Location = new System.Drawing.Point(184, 64);
-            this.lblDPIControl.Name = "lblDPIControl";
-            this.lblDPIControl.Size = new System.Drawing.Size(102, 20);
-            this.lblDPIControl.TabIndex = 3;
-            this.lblDPIControl.Text = "lblDPIControl";
-            // 
-            // lblSizeControl
-            // 
-            this.lblSizeControl.AutoSize = true;
-            this.lblSizeControl.Location = new System.Drawing.Point(184, 32);
-            this.lblSizeControl.Name = "lblSizeControl";
-            this.lblSizeControl.Size = new System.Drawing.Size(106, 20);
-            this.lblSizeControl.TabIndex = 3;
-            this.lblSizeControl.Text = "lblSizeControl";
-            // 
-            // cboPlatform
-            // 
-            this.cboPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPlatform.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboPlatform.FormattingEnabled = true;
-            this.cboPlatform.Location = new System.Drawing.Point(130, 3);
-            this.cboPlatform.Name = "cboPlatform";
-            this.cboPlatform.Size = new System.Drawing.Size(330, 37);
-            this.cboPlatform.TabIndex = 1;
-            this.cboPlatform.SelectedIndexChanged += new System.EventHandler(this.cboPlatform_SelectedIndexChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 3);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 32);
-            this.label2.TabIndex = 0;
-            this.label2.Text = "Platform";
-            // 
             // panelWorkspaceStart
             // 
             this.panelWorkspaceStart.Controls.Add(this.label1);
@@ -761,195 +953,14 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Start";
             // 
-            // label20
+            // lblBlueStacksVersionLabel
             // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(16, 129);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(87, 20);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "Detectable";
-            // 
-            // lblDetectable
-            // 
-            this.lblDetectable.AutoSize = true;
-            this.lblDetectable.Location = new System.Drawing.Point(184, 129);
-            this.lblDetectable.Name = "lblDetectable";
-            this.lblDetectable.Size = new System.Drawing.Size(102, 20);
-            this.lblDetectable.TabIndex = 3;
-            this.lblDetectable.Text = "lblDetectable";
-            // 
-            // lblBlueStacksVersion
-            // 
-            this.lblBlueStacksVersion.AutoSize = true;
-            this.lblBlueStacksVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblBlueStacksVersion.Location = new System.Drawing.Point(3, 62);
-            this.lblBlueStacksVersion.Name = "lblBlueStacksVersion";
-            this.lblBlueStacksVersion.Size = new System.Drawing.Size(112, 32);
-            this.lblBlueStacksVersion.TabIndex = 6;
-            this.lblBlueStacksVersion.Text = "Version";
-            // 
-            // cboBlueStacksVersion
-            // 
-            this.cboBlueStacksVersion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBlueStacksVersion.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cboBlueStacksVersion.FormattingEnabled = true;
-            this.cboBlueStacksVersion.Items.AddRange(new object[] {
-            "32-bit",
-            "64-bit"});
-            this.cboBlueStacksVersion.Location = new System.Drawing.Point(130, 57);
-            this.cboBlueStacksVersion.Name = "cboBlueStacksVersion";
-            this.cboBlueStacksVersion.Size = new System.Drawing.Size(330, 37);
-            this.cboBlueStacksVersion.TabIndex = 1;
-            this.cboBlueStacksVersion.SelectedIndexChanged += new System.EventHandler(this.cboPlatform_SelectedIndexChanged);
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 1;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Controls.Add(this.panel3, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.panel4, 0, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 200F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1314, 767);
-            this.tableLayoutPanel1.TabIndex = 2;
-            // 
-            // lblAppID
-            // 
-            this.lblAppID.AutoSize = true;
-            this.lblAppID.Location = new System.Drawing.Point(118, 31);
-            this.lblAppID.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAppID.Name = "lblAppID";
-            this.lblAppID.Size = new System.Drawing.Size(70, 20);
-            this.lblAppID.TabIndex = 0;
-            this.lblAppID.Text = "lblAppID";
-            this.lblAppID.TextChanged += new System.EventHandler(this.lblAppID_TextChanged);
-            // 
-            // lblAppName
-            // 
-            this.lblAppName.AutoSize = true;
-            this.lblAppName.Location = new System.Drawing.Point(118, 58);
-            this.lblAppName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblAppName.Name = "lblAppName";
-            this.lblAppName.Size = new System.Drawing.Size(95, 20);
-            this.lblAppName.TabIndex = 0;
-            this.lblAppName.Text = "lblAppName";
-            this.lblAppName.TextChanged += new System.EventHandler(this.lblAppName_TextChanged);
-            // 
-            // lblSafeName
-            // 
-            this.lblSafeName.AutoSize = true;
-            this.lblSafeName.Location = new System.Drawing.Point(638, 31);
-            this.lblSafeName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblSafeName.Name = "lblSafeName";
-            this.lblSafeName.Size = new System.Drawing.Size(100, 20);
-            this.lblSafeName.TabIndex = 0;
-            this.lblSafeName.Text = "lblSafeName";
-            this.lblSafeName.Visible = false;
-            // 
-            // Label3
-            // 
-            this.Label3.AutoSize = true;
-            this.Label3.Location = new System.Drawing.Point(10, 31);
-            this.Label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label3.Name = "Label3";
-            this.Label3.Size = new System.Drawing.Size(55, 20);
-            this.Label3.TabIndex = 1;
-            this.Label3.Text = "AppID";
-            // 
-            // Label4
-            // 
-            this.Label4.AutoSize = true;
-            this.Label4.Location = new System.Drawing.Point(10, 58);
-            this.Label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label4.Name = "Label4";
-            this.Label4.Size = new System.Drawing.Size(88, 20);
-            this.Label4.TabIndex = 1;
-            this.Label4.Text = "App Name:";
-            // 
-            // Label5
-            // 
-            this.Label5.AutoSize = true;
-            this.Label5.Location = new System.Drawing.Point(635, 13);
-            this.Label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.Label5.Name = "Label5";
-            this.Label5.Size = new System.Drawing.Size(93, 20);
-            this.Label5.TabIndex = 1;
-            this.Label5.Text = "Safe Name:";
-            this.Label5.Visible = false;
-            // 
-            // GroupBox1
-            // 
-            this.GroupBox1.Controls.Add(this.pictureBoxAppName);
-            this.GroupBox1.Controls.Add(this.pictureBoxAppID);
-            this.GroupBox1.Controls.Add(this.Label5);
-            this.GroupBox1.Controls.Add(this.Label4);
-            this.GroupBox1.Controls.Add(this.Label3);
-            this.GroupBox1.Controls.Add(this.lblSafeName);
-            this.GroupBox1.Controls.Add(this.lblAppName);
-            this.GroupBox1.Controls.Add(this.lblAppID);
-            this.GroupBox1.Location = new System.Drawing.Point(103, 15);
-            this.GroupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.GroupBox1.Name = "GroupBox1";
-            this.GroupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.GroupBox1.Size = new System.Drawing.Size(819, 88);
-            this.GroupBox1.TabIndex = 4;
-            this.GroupBox1.TabStop = false;
-            this.GroupBox1.Text = "Detected Info";
-            // 
-            // panel3
-            // 
-            this.panel3.Controls.Add(this.GroupBox2);
-            this.panel3.Controls.Add(this.label10);
-            this.panel3.Controls.Add(this.GroupBox1);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(3, 3);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(1308, 194);
-            this.panel3.TabIndex = 0;
-            // 
-            // panel4
-            // 
-            this.panel4.Controls.Add(this.webBrowser1);
-            this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel4.Location = new System.Drawing.Point(3, 203);
-            this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1308, 561);
-            this.panel4.TabIndex = 1;
-            // 
-            // label21
-            // 
-            this.label21.Location = new System.Drawing.Point(23, 246);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(998, 341);
-            this.label21.TabIndex = 7;
-            this.label21.Text = resources.GetString("label21.Text");
-            // 
-            // pictureBoxAppID
-            // 
-            this.pictureBoxAppID.Image = global::AppTestStudio.Properties.Resources.PSGreenCheck;
-            this.pictureBoxAppID.Location = new System.Drawing.Point(91, 31);
-            this.pictureBoxAppID.Name = "pictureBoxAppID";
-            this.pictureBoxAppID.Size = new System.Drawing.Size(29, 24);
-            this.pictureBoxAppID.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxAppID.TabIndex = 2;
-            this.pictureBoxAppID.TabStop = false;
-            this.pictureBoxAppID.Visible = false;
-            // 
-            // pictureBoxAppName
-            // 
-            this.pictureBoxAppName.Image = global::AppTestStudio.Properties.Resources.PSGreenCheck;
-            this.pictureBoxAppName.Location = new System.Drawing.Point(91, 56);
-            this.pictureBoxAppName.Name = "pictureBoxAppName";
-            this.pictureBoxAppName.Size = new System.Drawing.Size(29, 24);
-            this.pictureBoxAppName.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxAppName.TabIndex = 2;
-            this.pictureBoxAppName.TabStop = false;
-            this.pictureBoxAppName.Visible = false;
+            this.lblBlueStacksVersionLabel.AutoSize = true;
+            this.lblBlueStacksVersionLabel.Location = new System.Drawing.Point(161, 175);
+            this.lblBlueStacksVersionLabel.Name = "lblBlueStacksVersionLabel";
+            this.lblBlueStacksVersionLabel.Size = new System.Drawing.Size(152, 20);
+            this.lblBlueStacksVersionLabel.TabIndex = 15;
+            this.lblBlueStacksVersionLabel.Text = "Blue Stacks Version";
             // 
             // frmAddNewGameWizard
             // 
@@ -976,25 +987,25 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panelWorkspace.ResumeLayout(false);
-            this.panelWorkspaceNaming.ResumeLayout(false);
-            this.panelWorkspaceNaming.PerformLayout();
-            this.panelWorkspacePicker.ResumeLayout(false);
-            this.GroupBox2.ResumeLayout(false);
-            this.GroupBox2.PerformLayout();
             this.panelWorkspacePlatform.ResumeLayout(false);
             this.panelWorkspacePlatform.PerformLayout();
             this.groupBoxAutomationConsiderations.ResumeLayout(false);
             this.groupBoxAutomationConsiderations.PerformLayout();
-            this.panelWorkspaceStart.ResumeLayout(false);
-            this.panelWorkspaceStart.PerformLayout();
+            this.panelWorkspacePicker.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.GroupBox1.ResumeLayout(false);
-            this.GroupBox1.PerformLayout();
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
-            this.panel4.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppID)).EndInit();
+            this.GroupBox2.ResumeLayout(false);
+            this.GroupBox2.PerformLayout();
+            this.GroupBox1.ResumeLayout(false);
+            this.GroupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppID)).EndInit();
+            this.panel4.ResumeLayout(false);
+            this.panelWorkspaceNaming.ResumeLayout(false);
+            this.panelWorkspaceNaming.PerformLayout();
+            this.panelWorkspaceStart.ResumeLayout(false);
+            this.panelWorkspaceStart.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -1075,5 +1086,6 @@
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.PictureBox pictureBoxAppName;
         private System.Windows.Forms.PictureBox pictureBoxAppID;
+        private System.Windows.Forms.Label lblBlueStacksVersionLabel;
     }
 }
