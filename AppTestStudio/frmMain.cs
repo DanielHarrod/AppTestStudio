@@ -122,6 +122,11 @@ namespace AppTestStudio
             FirstFormost();
             InitializedInstances();
 
+            foreach (Platform platform in Enum.GetValues(typeof(Platform)))
+            {
+                cboPlatform.Items.Add(platform.ToString());
+            }
+
             TitleBarHeight = this.RectangleToScreen(this.ClientRectangle).Top - this.Top;
 
             InitialPanelRightColorAtPointerHeight = panelRightColorAtPointer.Height;
