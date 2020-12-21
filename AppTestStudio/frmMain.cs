@@ -357,7 +357,7 @@ namespace AppTestStudio
 
             foreach (BlueGuest  Guest in BlueRegistry.GuestList )
             {
-                cboBlueInstance.Items.Add(Guest.DisplayKeyName);
+                cboBlueInstance.Items.Add(Guest.BitDashDisplayName);
             }
 
             if (cboBlueInstance.Items.Count > 0)
@@ -736,7 +736,7 @@ namespace AppTestStudio
             {
                 if ( guest.DisplayName  == gameNode.BlueStacksWindowName )
                 {
-                    cboBlueInstance.Text = guest.DisplayKeyName;
+                    cboBlueInstance.Text = guest.BitDashDisplayName;
                     break;
                 }
             }
@@ -2429,7 +2429,8 @@ namespace AppTestStudio
                 switch (Game.Platform)
                 {
                     case Platform.BlueStacks:
-                        Debug.Assert(false);//todo
+
+                        Result = Utils.LaunchBlueStacksInstance(PackageName, Game.BlueGuest);
                         break;
                     case Platform.NoxPlayer:
                         Result = Utils.LaunchInstance( PackageName, "", InstanceToLaunch.ToString(), Game.Resolution, Game.DPI);
@@ -6871,7 +6872,7 @@ namespace AppTestStudio
             {
                 foreach (BlueGuest Guest in BlueRegistry.GuestList)
                 {
-                    if (cboBlueInstance.Text == Guest.DisplayKeyName)
+                    if (cboBlueInstance.Text == Guest.BitDashDisplayName)
                     {
                         Game.BlueGuest = Guest.CloneMe();
                         Game.BlueStacksWindowName = Guest.DisplayName;

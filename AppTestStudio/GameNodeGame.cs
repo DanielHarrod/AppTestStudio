@@ -148,7 +148,7 @@ namespace AppTestStudio
                     case Platform.BlueStacks:
                         if (BlueGuest.IsSomething())
                         {
-                            return BlueGuest.DisplayKeyName;
+                            return BlueGuest.WindowTitle;
                         }
                         break;
                     default:

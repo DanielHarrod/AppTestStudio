@@ -98,7 +98,7 @@ namespace AppTestStudio
                     foreach (String InstanceName in InstanceName64s)
                     {
                         BlueGuest guest = new BlueGuest();
-                        guest.ExePath = PartnerExePath.ToString();
+                        guest.ExePath = PartnerExePath64.ToString();
                         guest.Is32Bit = false;
                         guest.KeyName = InstanceName;
 

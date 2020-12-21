@@ -500,8 +500,9 @@ namespace AppTestStudio
                     }
                 }
             }
-            if (SecondaryWindowName.Length > 0)
+            if (SecondaryWindowName.Length > 0 && Handles.ChildWindowHandle != IntPtr.Zero)
             {
+
                 return Handles.ChildWindowHandle;
             }
             else
@@ -693,34 +694,34 @@ namespace AppTestStudio
         //"C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android_1 -json "{\"app_icon_url\":\"\",\"app_name\":\"Holyday City\",\"app_url\":\"\",\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
         //Don't use - "C:\Program Files\BlueStacks\HD-RunApp.exe" -vmname Android_1 -json "{\"app_icon_url\":\"\",\"app_name\":\"Holyday City\",\"app_url\":\"\",\"app_pkg\":\"com.HolydayStudios.HolydayCityTycoon1\"}"
 
-        public static String LaunchBlueStacksInstance(string packageName, string targetWindow, Boolean Is64Bit)
+        public static String LaunchBlueStacksInstance(string packageName, BlueGuest guest)
         {
             String Result = "";
             BlueRegistry blueRegistry = new BlueRegistry();
-            BlueGuest guest = null;
+            //BlueGuest guest = null;
 
-            if (Is64Bit)
-            {
-                foreach (BlueGuest blueGuest in blueRegistry.GuestList64)
-                {
-                    if (blueGuest.KeyName == targetWindow)
-                    {
-                        guest = blueGuest;
-                        break;
-                    }
-                }
-            }
-            else
-            {
-                foreach (BlueGuest blueGuest in blueRegistry.GuestList32)
-                {
-                    if (blueGuest.KeyName == targetWindow)
-                    {
-                        guest = blueGuest;
-                        break;
-                    }
-                }
-            }
+            //if (Is64Bit)
+            //{
+            //    foreach (BlueGuest blueGuest in blueRegistry.GuestList64)
+            //    {
+            //        if (blueGuest.KeyName == targetWindow)
+            //        {
+            //            guest = blueGuest;
+            //            break;
+            //        }
+            //    }
+            //}
+            //else
+            //{
+            //    foreach (BlueGuest blueGuest in blueRegistry.GuestList32)
+            //    {
+            //        if (blueGuest.KeyName == targetWindow)
+            //        {
+            //            guest = blueGuest;
+            //            break;
+            //        }
+            //    }
+            //}
 
             if (guest.IsSomething())
             {
@@ -746,14 +747,7 @@ namespace AppTestStudio
             }
             else
             {
-                if (Is64Bit)
-                {
-                    Result = Result + "Failed to find BlueStacks 64bit Emmulator installed with Key " + guest.KeyName;
-                }
-                else
-                {
-                    Result = Result + "Failed to find BlueStacks 32bit Emmulator installed with Key " + guest.KeyName;
-                }
+                    Result = Result + "Failed to find BlueStacks Instance";
             }
 
             return Result;

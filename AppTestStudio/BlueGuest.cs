@@ -23,14 +23,14 @@ namespace AppTestStudio
         // Key[1*] Computer\HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks_bgp64\Guests\Key[1+]\Config\DisplayName
         public String WindowTitle { get; set; }
 
-        //Computer\HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks_bgp64\Guests\Key[1 +]\Config\DisplayName
+        //Computer\HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks_bgp64\Guests\Key\Config\DisplayName
         public String DisplayName { get; set; }
 
         public Boolean Is32Bit { get; set; }
 
         public String ExePath { get; set; }
 
-        public String DisplayKeyName
+        public String BitDashDisplayName
         {
             get { 
                 if (Is32Bit)
@@ -51,6 +51,7 @@ namespace AppTestStudio
             Guest.Is32Bit = Is32Bit;
             Guest.WindowTitle = WindowTitle;
             Guest.KeyName = KeyName;
+            Guest.DisplayName = DisplayName;
             return Guest;
         }
     }
