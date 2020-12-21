@@ -107,14 +107,6 @@ namespace AppTestStudio
                 {
                     case Platform.BlueStacks:
                         String BlueStacksName = "";
-                        if ( IsBlueStacks64Bit )
-                        {
-                            BlueStacksName = "64bit Blue - ";
-                        }
-                        else
-                        {
-                            BlueStacksName = "32bit Blue - ";
-                        }
 
                         BlueStacksName = BlueStacksName + Text + " - " + TargetWindow;
 
