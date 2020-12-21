@@ -36,6 +36,7 @@ namespace AppTestStudio
 
             GuestList32 = new List<BlueGuest>();
             GuestList64 = new List<BlueGuest>();
+            GuestList = new List<BlueGuest>();
 
             try
             {
@@ -82,8 +83,10 @@ namespace AppTestStudio
                             {
                                 guest.WindowTitle = DisplayNameRegistry.ToString();
                             }
+                            guest.DisplayName = DisplayNameRegistry.ToString();
                         }
                         GuestList32.Add(guest);
+                        GuestList.Add(guest);
                     }
                 }
 
@@ -110,8 +113,10 @@ namespace AppTestStudio
                             {
                                 guest.WindowTitle = DisplayNameRegistry.ToString();
                             }
+                            guest.DisplayName = DisplayNameRegistry.ToString();
                         }
                         GuestList64.Add(guest);
+                        GuestList.Add(guest);
                     }
 
                 }
@@ -125,6 +130,7 @@ namespace AppTestStudio
         public List<BlueGuest> GuestList32 { get; set; }
         public List<BlueGuest> GuestList64 { get; set; }
 
-
+        // Combined Guest 32/64, these share the pointer to blueguest with the 32/64 versions.
+        public List<BlueGuest> GuestList { get; set; }
     }
 }

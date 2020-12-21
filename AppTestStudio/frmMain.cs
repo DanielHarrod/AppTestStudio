@@ -355,6 +355,16 @@ namespace AppTestStudio
                 lblBlueInstancesFound64.Text = "0";
             }
 
+            foreach (BlueGuest  Guest in BlueRegistry.GuestList )
+            {
+                cboBlueInstance.Items.Add(Guest.DisplayKeyName);
+            }
+
+            if (cboBlueInstance.Items.Count > 0)
+            {
+                cboBlueInstance.SelectedIndex = cboBlueInstance.Items.Count-1;
+            }
+
             SteamRegistry = new SteamRegistry();
         }
 
@@ -721,7 +731,18 @@ namespace AppTestStudio
 
             chkApplicationIsFullScreen.Checked = gameNode.IsFullScreen;
             chkIsSteamFullScreen.Checked = gameNode.IsFullScreen;
+
+            foreach (BlueGuest guest in BlueRegistry.GuestList)
+            {
+                if ( guest.DisplayName  == gameNode.BlueStacksWindowName )
+                {
+                    cboBlueInstance.Text = guest.DisplayKeyName;
+                    break;
+                }
+            }
+
             cboPlatform_TextChanged(null, null);
+
         }
 
         private void LoadObject(GameNodeObject node)
@@ -6840,6 +6861,22 @@ namespace AppTestStudio
             if (Game.IsSomething())
             {
                 Game.PackageName = txtBluePackageName.Text.Trim();
+            }
+        }
+
+        private void cboBlueInstance_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+            if (Game.IsSomething())
+            {
+                foreach (BlueGuest Guest in BlueRegistry.GuestList)
+                {
+                    if (cboBlueInstance.Text == Guest.DisplayKeyName)
+                    {
+                        Game.BlueGuest = Guest.CloneMe();
+                        Game.BlueStacksWindowName = Guest.DisplayName;
+                    }
+                }
             }
         }
     }

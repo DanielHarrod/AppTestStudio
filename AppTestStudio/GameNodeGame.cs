@@ -141,12 +141,15 @@ namespace AppTestStudio
                 {
                     case Platform.NoxPlayer:
                         return "ATS" + InstanceToLaunch + "Window";
-                        break;
                     case Platform.Steam:
                         return SteamPrimaryWindowName;
-                        break;
                     case Platform.Application:
                         return ApplicationPrimaryWindowName;
+                    case Platform.BlueStacks:
+                        if (BlueGuest.IsSomething())
+                        {
+                            return BlueGuest.DisplayKeyName;
+                        }
                         break;
                     default:
                         break;
@@ -219,6 +222,8 @@ namespace AppTestStudio
         public Boolean IsBlueStacks64Bit { get; set; }
         public String BlueStacksWindowName { get; set; }
 
+        public BlueGuest BlueGuest { get; set; }
+
         public GameNodeGame CloneMe()
         {
             GameNodeGame Target = new GameNodeGame(Name, TitleBarHeight, ThreadManager);
@@ -259,6 +264,11 @@ namespace AppTestStudio
 
             Target.BlueStacksWindowName = BlueStacksWindowName;
             Target.IsBlueStacks64Bit = IsBlueStacks64Bit;
+
+            if (BlueGuest.IsSomething())
+            {
+                Target.BlueGuest = BlueGuest.CloneMe();
+            }
 
             Target.Nodes.Add(TargetEvents);
 
@@ -676,6 +686,18 @@ namespace AppTestStudio
                 case Platform.BlueStacks:
                     Game.IsBlueStacks64Bit = IsBlueStacks64Bit;
                     Game.BlueStacksWindowName = BlueStacksWindowName;
+
+                    BlueRegistry Registry = new BlueRegistry();
+
+                    foreach (BlueGuest Guest in Registry.GuestList)
+                    {
+                        if (Guest.DisplayName == BlueStacksWindowName)
+                        {
+                            Game.BlueGuest = Guest.CloneMe();
+                            break;
+                        }
+                    }
+
                     break;
                 case Platform.NoxPlayer:
                     break;
