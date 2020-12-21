@@ -382,7 +382,7 @@ namespace AppTestStudio
             switch (game.Platform)
             {
                 case Platform.BlueStacks:
-                    PrimaryWindowName = game.BlueStacksWindowName;
+                    PrimaryWindowName = game.BlueGuest.WindowTitle;
                     PrimaryWindowNameFilter = WindowNameFilterType.Equals;
 
                     SecondaryWindowName = Definitions.BlueStacksSecondaryWindowNameFilter;
@@ -420,6 +420,7 @@ namespace AppTestStudio
             {
                 if (P.MainWindowTitle.Length > 0)
                 {
+                    Debug.WriteLine(P.MainWindowTitle);
                     Boolean IsThisThePrimaryWindow = false;
 
                     switch (PrimaryWindowNameFilter)
@@ -733,11 +734,11 @@ namespace AppTestStudio
 
                 String Arguments = "";
 
-                Arguments = Arguments + "-vname " + guest.KeyName;
+                Arguments = Arguments + "-vmname " + guest.KeyName;
 
                 if (packageName.Trim().Length > 0)
                 {
-                    Arguments = @"-json ""{\""app_icon_url\"":\""\"",\""app_name\"":\""Application Name\"",\""app_url\"":\""\"",\""app_pkg\"":\""" + packageName + @"\""}""";
+                    Arguments = Arguments + @" -json ""{\""app_icon_url\"":\""\"",\""app_name\"":\""Application Name\"",\""app_url\"":\""\"",\""app_pkg\"":\""" + packageName + @"\""}""";
                 }
 
                 info.Arguments = Arguments;
