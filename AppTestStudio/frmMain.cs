@@ -469,7 +469,7 @@ namespace AppTestStudio
                 try
                 {
                     String FileName = openDLG.FileName;
-                    GameNodeGame Game = GameNodeGame.LoadGameFromFile(FileName, true, TitleBarHeight, ThreadManager);
+                    GameNodeGame Game = GameNodeGame.LoadGameFromFile(FileName, false, TitleBarHeight, ThreadManager);
 
                     if (Game.IsSomething())
                     {
@@ -1134,6 +1134,21 @@ namespace AppTestStudio
                     //'             }
                     lblRHSColor.Visible = true;
                     lblRHSXY.Visible = true;
+
+
+                    if (GameNode.Bitmap.IsNothing())
+                    {
+                        if (GameNode.FileName.Length > 0)
+                        {
+                            String Folder = Path.GetDirectoryName(GameNode.GetGameNodeGame().FileName);
+                            String PictureFullPath = Path.Combine(Folder, "Pictures", GameNode.FileName); ;
+
+                            if (System.IO.File.Exists(PictureFullPath))
+                            {
+                                GameNode.Bitmap = Bitmap.FromFile(PictureFullPath) as Bitmap;
+                            }
+                        }
+                    }
 
                     //'load existing
                     PictureBox1.Image = GameNode.Bitmap;
@@ -5657,7 +5672,6 @@ namespace AppTestStudio
                 // it is a known that this will exception if Terms of Use, cancel is clicked.  May not be worth adding wrappers to prevent.
                 Debug.WriteLine(ex.Message);
             }
-
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
