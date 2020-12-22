@@ -420,7 +420,7 @@ namespace AppTestStudio
             {
                 if (P.MainWindowTitle.Length > 0)
                 {
-                    Debug.WriteLine(P.MainWindowTitle);
+                    //Debug.WriteLine(P.MainWindowTitle);
                     Boolean IsThisThePrimaryWindow = false;
 
                     switch (PrimaryWindowNameFilter)

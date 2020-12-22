@@ -2359,6 +2359,17 @@ namespace AppTestStudio
             if (Game.IsSomething())
             {
                 Game.PackageName = txtPackageName.Text.Trim();
+
+                if (Game.PackageName.Length > 0)
+                {
+                    toolStripButtonRunStartLaunch.Enabled = true;
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                }
+                else
+                {
+                    toolStripButtonRunStartLaunch.Enabled = false;
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
+                }
             }
         }
 
@@ -6477,12 +6488,16 @@ namespace AppTestStudio
                             cmdStartEmmulator.Text = "Start Application";
                             cmdStartEmmulatorAndPackage.Text = "Start Application + Run App";
                             cmdStartEmmulatorPackageAndRunScript.Text = "Start Application + Run App + Run Script";
+                            toolStripButtonRunStartLaunch.Enabled = false;
+                            toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
                             break;
                         case "Steam":
                             GameNode.Platform = Platform.Steam;
                             cmdStartEmmulator.Text = "Start Steam Application";
                             cmdStartEmmulatorAndPackage.Text = "Start Steam + Run App";
                             cmdStartEmmulatorPackageAndRunScript.Text = "Start Steam + Run App + Run Script";
+                            toolStripButtonRunStartLaunch.Enabled = false;
+                            toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
                             break;
                         default:
                             GameNode.Platform = Platform.NoxPlayer;
@@ -6869,6 +6884,16 @@ namespace AppTestStudio
             if (Game.IsSomething())
             {
                 Game.PackageName = txtBluePackageName.Text.Trim();
+                if (Game.PackageName.Length > 0)
+                {
+                    toolStripButtonRunStartLaunch.Enabled = true;
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                }
+                else
+                {
+                    toolStripButtonRunStartLaunch.Enabled = false;
+                    toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
+                }
             }
         }
 
