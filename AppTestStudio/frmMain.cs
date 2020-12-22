@@ -6448,6 +6448,9 @@ namespace AppTestStudio
         {
             try
             {
+                toolStripInstances.Visible = false;
+                toolStripCurrentDesignInstance.Visible = false;
+
                 GameNodeGame GameNode = GetGameNode();
                 if (GameNode.IsSomething())
                 {
@@ -6464,6 +6467,10 @@ namespace AppTestStudio
                             cmdStartEmmulator.Text = "Start Emmulator";
                             cmdStartEmmulatorAndPackage.Text = "Start Emmulator + Run App";
                             cmdStartEmmulatorPackageAndRunScript.Text = "Start Emmulator + Run App + Run Script";
+
+                            // Show toolbar fast switch instances.
+                            toolStripInstances.Visible = true;
+                            toolStripCurrentDesignInstance.Visible = true;
                             break;
                         case "Application":
                             GameNode.Platform = Platform.Application;
