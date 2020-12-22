@@ -77,6 +77,7 @@ namespace AppTestStudio
 			catch (Exception ex)
 			{
 				Debug.WriteLine("threadManager.Load:" + ex.Message);
+				LoadThreadManager = new ThreadManager();
 			} 
         }
 

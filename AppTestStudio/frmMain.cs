@@ -3,6 +3,7 @@
 // See LICENSE or https://mit-license.org/
 
 using AppTestStudioControls;
+using Microsoft.Win32;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -116,6 +117,9 @@ namespace AppTestStudio
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+
+            ShowTermsOfServiceIfNecessary();
+
             ThreadManager.Load();
             InitializeToolbars();
 
@@ -186,6 +190,33 @@ namespace AppTestStudio
 
             // Instructions for minimal export 
             lblPictureMissing.Text = "This node did not include the reference picture - typically from a minimal export. \n\n If this node is true during a Run, a screenshot will automatically be linked.  \n\nYou can also manually press 'take a screenshot'.  \n\nWhen minimal exports are matched during a 'Run', a link message will be displayed in the log.  If images are linked, don't forget to save the project so the images can be loaded and managed.";
+        }
+
+        private void ShowTermsOfServiceIfNecessary()
+        {
+            String RegistryKey = @"HKEY_CURRENT_USER\SOFTWARE\App Test Studio\";
+            String RegistryValue = "TermsDate";
+            Object TermsDate = Registry.GetValue(RegistryKey, RegistryValue, "");
+            if (TermsDate.IsSomething())
+            {
+                DateTime Value = DateTime.MinValue;
+                if (DateTime.TryParse(TermsDate.ToString(), out Value))                    
+                {
+                    return;
+                }
+            }
+
+            frmTerms terms = new frmTerms();
+            terms.ShowDialog();
+
+            if (terms.IsAgree )
+            {
+                Registry.SetValue(RegistryKey, RegistryValue, DateTime.Now.ToString());
+            }
+            else
+            {
+                Application.Exit();
+            }
         }
 
         private void LoadSchedule()
@@ -5608,16 +5639,25 @@ namespace AppTestStudio
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Visible = false;
-            Timer1.Enabled = false;
-            foreach (GameNodeGame Game in ThreadManager.Games)
+            try
             {
-                Game.Thread.Abort();
-            }
-            Thread.Sleep(100);
+                Visible = false;
+                Timer1.Enabled = false;
+                foreach (GameNodeGame Game in ThreadManager.Games)
+                {
+                    Game.Thread.Abort();
+                }
+                Thread.Sleep(100);
 
-            // threads must be turned off off during saving.
-            ThreadManager.Save();
+                // threads must be turned off off during saving.
+                ThreadManager.Save();
+            }
+            catch (Exception ex)
+            {
+                // it is a known that this will exception if Terms of Use, cancel is clicked.  May not be worth adding wrappers to prevent.
+                Debug.WriteLine(ex.Message);
+            }
+
         }
 
         private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
