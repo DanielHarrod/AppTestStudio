@@ -91,7 +91,7 @@ namespace AppTestStudio
             API.DeleteObject(hBitmap);
 
             Success = true;
-            //bmp.Save(@"C:\Users\djhar\Videos\kEEP\test.bmp");
+            
             return bmp;
         }
 
@@ -161,11 +161,12 @@ namespace AppTestStudio
         /// <param name="centerX"></param>
         /// <param name="centerY"></param>
         /// <returns></returns>
-        private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY)
+        private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS)
         {
             while (Game.IsPaused)
             {
                 Thread.Sleep(1000);
+                ChildSleepTimeMS = ChildSleepTimeMS + 1000;
             }
 
             if (node.Enabled == false)
@@ -396,7 +397,7 @@ namespace AppTestStudio
                                 // Process children and throw away the result
                                 foreach (GameNodeAction ChildNode in node.Nodes)
                                 {
-                                    ProcessChildren(bmp, ChildNode as GameNodeAction, centerX, centerY);
+                                    ProcessChildren(bmp, ChildNode as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS);
                                 }
                                 CurrentRepeatsUntilFalseLimit--;
                                 goto RepeatAction;
@@ -432,6 +433,7 @@ namespace AppTestStudio
                             Game.Log(node.Name + " Waiting " + DelayCalc);
                         }
                         Thread.Sleep(DelayCalc);
+                        ChildSleepTimeMS = ChildSleepTimeMS + DelayCalc;
 
                         ThreadManager.IncrementWaitLength();
 
@@ -457,7 +459,7 @@ namespace AppTestStudio
 
                         foreach (TreeNode t in RNGNode.Nodes)
                         {
-                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY);
+                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS);
 
                             switch (ACT)
                             {
@@ -502,6 +504,7 @@ namespace AppTestStudio
                 if (DelayCalc > 0)
                 {
                     Thread.Sleep(DelayCalc);
+                    ChildSleepTimeMS = ChildSleepTimeMS + DelayCalc;
                 }
                 ThreadManager.AddWaitLength(DelayCalc);
 
@@ -512,7 +515,7 @@ namespace AppTestStudio
                         Boolean ExitFor = false;
                         foreach (TreeNode t in node.Nodes)
                         {
-                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY);
+                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS);
 
                             switch (ACT)
                             {
@@ -679,6 +682,7 @@ namespace AppTestStudio
             long LoopDelay = 0;
             while (ThreadIsShuttingDown == false)
             {
+                long ChildSleepTimeMS = 0;
                 if (WindowHandle == IntPtr.Zero)
                 {
                     WindowHandle = Game.GetWindowHandleByWindowName();
@@ -724,7 +728,9 @@ namespace AppTestStudio
                 }
 
                 Boolean BitMapSuccess = false;
-                
+
+                Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
+
                 Bitmap bmp = GetBitMap(ref BitMapSuccess);
                 if (BitMapSuccess)
                 {
@@ -737,7 +743,7 @@ namespace AppTestStudio
 
                     foreach (TreeNode node in Game.Events.Nodes)
                     {
-                        AfterCompletionType ACT = ProcessChildren(bmp, node as GameNodeAction, CenterX, CenterY);
+                        AfterCompletionType ACT = ProcessChildren(bmp, node as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS);
                         Boolean ExitFor = false;
                         switch (ACT)
                         {
@@ -780,6 +786,12 @@ namespace AppTestStudio
                     WindowHandle = IntPtr.Zero;
                 }
 
+                Watch.Stop();
+                long ProcessingTimeMS = Watch.ElapsedMilliseconds - ChildSleepTimeMS;
+                //Debug.WriteLine("Main Loop ms: " + Watch.ElapsedMilliseconds);
+                //Debug.WriteLine("Child Sleep Time ms:" + ChildSleepTimeMS);
+                //Debug.WriteLine("Processing Time ms:" + ProcessingTimeMS);
+
                 LoopDelay = Game.LoopDelay;
                 while (LoopDelay > 1000)
                 {
@@ -803,7 +815,10 @@ namespace AppTestStudio
                 {
                     Thread.Sleep(1000);
                 }
+                
+                
 
+                // Clean up Screenshot
                 if (bmp.IsNothing())
                 {
                     //'do nothing
@@ -813,8 +828,8 @@ namespace AppTestStudio
                     bmp.Dispose();
                 }
                 bmp = null;
-            }
-        }
+            }  // ThreadIsShuttingDown == false
+        }  // Run()
 
         // Initialize runtime values
         private void InitializeChildren(GameNodeAction node)
