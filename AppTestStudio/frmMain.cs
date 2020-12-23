@@ -1216,7 +1216,19 @@ namespace AppTestStudio
                     Debug.Assert(false);
                     break;
             }
+            if (GameNode.Bitmap.IsNothing())
+            {
+                if (GameNode.FileName.Length > 0)
+                {
+                    String Folder = Path.GetDirectoryName(GameNode.GetGameNodeGame().FileName);
+                    String PictureFullPath = Path.Combine(Folder, "Pictures", GameNode.FileName); ;
 
+                    if (System.IO.File.Exists(PictureFullPath))
+                    {
+                        GameNode.Bitmap = Bitmap.FromFile(PictureFullPath) as Bitmap;
+                    }
+                }
+            }
             PictureBox1.Image = GameNode.Bitmap;
             PictureBox1.Refresh();
 
