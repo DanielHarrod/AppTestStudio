@@ -9,6 +9,7 @@ using System.Diagnostics;
 using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
@@ -55,6 +56,7 @@ namespace AppTestStudio
             Anchor = AnchorMode.Default;
 
             Channel = "";
+            FileName = "";
             Utils.SetIcons(this);
 
         }
@@ -232,10 +234,29 @@ namespace AppTestStudio
         public int RelativeXOffset { get; set; }
         public int RelativeYOffset { get; set; }
 
+        public void LoadBitmapFromDisk()
+        {
+            if (mBitmap.IsNothing())
+            {
+                if (FileName.Length > 0)
+                {
+                    String Folder = Path.GetDirectoryName(GetGameNodeGame().FileName);
+                    String PictureFullPath = Path.Combine(Folder, "Pictures", FileName); ;
+
+                    if (System.IO.File.Exists(PictureFullPath))
+                    {
+                        mBitmap = Bitmap.FromFile(PictureFullPath) as Bitmap;
+                    }
+                }
+            }            
+        }
+
         private Bitmap mBitmap;
         public Bitmap Bitmap
         {
-            get { return mBitmap; }
+            get {
+                return mBitmap; 
+            }
             set
             {
                 mBitmap = value;

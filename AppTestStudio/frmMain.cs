@@ -863,7 +863,6 @@ namespace AppTestStudio
             return null;
         }
 
-
         private void LoadPanelSingleColorAtSingleLocation(GameNodeAction GameNode)
         {
             IsPanelLoading = true;
@@ -1138,19 +1137,9 @@ namespace AppTestStudio
                     lblRHSColor.Visible = true;
                     lblRHSXY.Visible = true;
 
-
                     if (GameNode.Bitmap.IsNothing())
                     {
-                        if (GameNode.FileName.Length > 0)
-                        {
-                            String Folder = Path.GetDirectoryName(GameNode.GetGameNodeGame().FileName);
-                            String PictureFullPath = Path.Combine(Folder, "Pictures", GameNode.FileName); ;
-
-                            if (System.IO.File.Exists(PictureFullPath))
-                            {
-                                GameNode.Bitmap = Bitmap.FromFile(PictureFullPath) as Bitmap;
-                            }
-                        }
+                        GameNode.LoadBitmapFromDisk();
                     }
 
                     //'load existing
@@ -1221,16 +1210,7 @@ namespace AppTestStudio
             }
             if (GameNode.Bitmap.IsNothing())
             {
-                if (GameNode.FileName.Length > 0)
-                {
-                    String Folder = Path.GetDirectoryName(GameNode.GetGameNodeGame().FileName);
-                    String PictureFullPath = Path.Combine(Folder, "Pictures", GameNode.FileName); ;
-
-                    if (System.IO.File.Exists(PictureFullPath))
-                    {
-                        GameNode.Bitmap = Bitmap.FromFile(PictureFullPath) as Bitmap;
-                    }
-                }
+                GameNode.LoadBitmapFromDisk();
             }
             PictureBox1.Image = GameNode.Bitmap;
             PictureBox1.Refresh();
@@ -4572,7 +4552,10 @@ namespace AppTestStudio
             GameNodeEvents EventsNode = GameNode.GetEventsNode();
 
             tvTestAllEvents.Nodes.Clear();
-            tvTestAllEvents.Nodes.Add(EventsNode.CloneMe());
+            GameNodeGame TestAllEventsGameNode = GameNode.CloneMe();
+
+
+            tvTestAllEvents.Nodes.Add(TestAllEventsGameNode);
             tvTestAllEvents.ExpandAll();
 
             String TargetWindow = GameNode.TargetWindow;
@@ -4908,6 +4891,11 @@ namespace AppTestStudio
 
                     Row.Cells["dvgRange"].Value = Largest;
 
+                }
+
+                if (Node.Bitmap.IsNothing())
+                {
+                    Node.LoadBitmapFromDisk();
                 }
 
                 PictureTestAllReference.Image = Node.Bitmap;
