@@ -71,7 +71,7 @@ namespace AppTestStudio
         /// This shows all the times for the day for all the schedules.
         /// </summary>
         /// <returns></returns>
-        public List<ScheduleItem> GenerateRuntimeSchedule()
+        public List<ScheduleItem> GenerateRuntimeSchedule(DateTime DayToStart)
         {
             List<ScheduleItem> RuntimeSchedule = new List<ScheduleItem>();
 
@@ -83,7 +83,7 @@ namespace AppTestStudio
 
                     // ScheduleTemplate.StartsAt contains the date + time it was scheduled.  We only care about the time.  
                     // Add Current Day + time from ScheduleTemplate.StartsAt
-                    FirstScheduledItem.NextRun = DateTime.Today.Add(ScheduleTemplate.StartsAt.TimeOfDay);
+                    FirstScheduledItem.NextRun = DayToStart.Date.Add(ScheduleTemplate.StartsAt.TimeOfDay);
 
                     RuntimeSchedule.Add(FirstScheduledItem);
 
@@ -93,7 +93,7 @@ namespace AppTestStudio
                         DateTime NextPotentialDateTime = FirstScheduledItem.NextRun;
                         NextPotentialDateTime = NextPotentialDateTime.AddMinutes(ScheduleTemplate.RepeatsEvery);
 
-                        while ( NextPotentialDateTime < DateTime.Today.AddDays(1) )
+                        while ( NextPotentialDateTime < DayToStart.Date.AddDays(1) )
                         {
                             ScheduleItem NextItem = ScheduleTemplate.CloneMe();
                             NextItem.NextRun = NextPotentialDateTime;
