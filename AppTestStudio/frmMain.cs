@@ -4542,6 +4542,25 @@ namespace AppTestStudio
             TestAllEvents();
         }
 
+        private void DisableEventNodesInTree(GameNode node)
+        {
+            foreach (GameNode gameNode in node.Nodes)
+            {
+                Debug.WriteLine(gameNode.GameNodeType);
+                if ( gameNode.GameNodeType == GameNodeType.Action)
+                {
+                    GameNodeAction Action = gameNode as GameNodeAction;
+                    if ( Action.ActionType == ActionType.Action )
+                    {
+                        Action.Enabled = false;
+                        Action.Text = Action.Text + " - (Disabled)";
+                        Action.ForeColor = Color.LightGray;
+                    }
+                }
+                DisableEventNodesInTree(gameNode);
+            }
+        }
+
         private void TestAllEvents()
         {
             SetPanel(PanelMode.TestAllEvents);
@@ -4549,11 +4568,10 @@ namespace AppTestStudio
             //'walk to Event//'s node
             GameNode Node = tv.SelectedNode as GameNode;
             GameNodeGame GameNode = Node.GetGameNodeGame();
-            GameNodeEvents EventsNode = GameNode.GetEventsNode();
-
             tvTestAllEvents.Nodes.Clear();
             GameNodeGame TestAllEventsGameNode = GameNode.CloneMe();
 
+            DisableEventNodesInTree(TestAllEventsGameNode);
 
             tvTestAllEvents.Nodes.Add(TestAllEventsGameNode);
             tvTestAllEvents.ExpandAll();
@@ -4578,7 +4596,8 @@ namespace AppTestStudio
             }
 
             // Calculate each node for true or false
-            foreach (GameNodeEvents nodeEvents in tvTestAllEvents.Nodes)
+
+            foreach (GameNodeEvents nodeEvents in tvTestAllEvents.Nodes[0].Nodes)
             {
                 foreach (GameNodeAction action in nodeEvents.Nodes)
                 {
