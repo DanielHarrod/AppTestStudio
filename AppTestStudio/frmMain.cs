@@ -1418,6 +1418,7 @@ namespace AppTestStudio
                 else
                 {
                     System.IO.Directory.CreateDirectory(Directory);
+                    Log("Creating Directory: " + Directory);
                 }
 
                 // Make a Backup file if necessary.
@@ -1432,6 +1433,7 @@ namespace AppTestStudio
                     else
                     {
                         System.IO.File.Copy(GameNode.FileName, NewFileName);
+                        Log("Saving Backup File: " + NewFileName);
                     }
                 }
 
@@ -1446,6 +1448,7 @@ namespace AppTestStudio
                 Writer.WriteEndElement();
                 Writer.WriteEndDocument();
                 Writer.Close();
+                Log("Saving New File: " + GameNode.FileName);
             }
         }
 
