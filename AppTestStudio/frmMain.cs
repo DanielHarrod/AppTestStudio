@@ -238,6 +238,9 @@ namespace AppTestStudio
             {
                 Schedule = new Schedule();
             }
+
+            Schedule.RuntimeSchedule = Schedule.GenerateRuntimeSchedule();
+            Schedule.RemoveHistoricalScheduleItems();
         }
 
         private void LoadRanges()
@@ -4325,55 +4328,70 @@ namespace AppTestStudio
             }
         }
 
-        //This could use some work, 
-        // Attempts to determine the next event and displays the time.
-        // Also launches a new thread if it's time to run.
+
         private void timerScheduler_Tick(object sender, EventArgs e)
         {
             DateTime LowestNextRun = DateTime.MinValue;
 
-            foreach (ScheduleItem si in Schedule.ScheduleList)
+            // go backwards
+            for (int i = Schedule.RuntimeSchedule.Count - 1; i >= 0; i--)
             {
-
-                if (si.IsEnabled)
+                if (Schedule.RuntimeSchedule[i].NextRun < DateTime.Now)
                 {
-                    DateTime StartsTodayAt = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy ") + si.StartsAt.ToString("HH:mm"));
-
-                    if (si.CurrentRun == DateTime.MinValue)
+                    LaunchScheduledGame(Schedule.RuntimeSchedule[i]);
+                    Schedule.RuntimeSchedule.RemoveAt(i);
+                }
+                else
+                {
+                    if (Schedule.RuntimeSchedule[i].NextRun < LowestNextRun || LowestNextRun == DateTime.MinValue )
                     {
-                        if (StartsTodayAt.Hour == DateTime.Now.Hour && StartsTodayAt.Minute == DateTime.Now.Minute)
-                        {
-                            LaunchScheduledGame(si);
-                        }
-                    }
-                    else
-                    {
-                        if (si.NextRun.Day == DateTime.Now.Day && si.NextRun.Hour == DateTime.Now.Hour && si.NextRun.Minute == DateTime.Now.Minute)
-                        {
-                            LaunchScheduledGame(si);
-                        }
-
-                    }
-
-                    DateTime CalcNextRun = si.CalculateNextRun();
-
-                    //' Is First Run
-                    if (LowestNextRun == DateTime.MinValue)
-                    {
-                        LowestNextRun = CalcNextRun;
-                    }
-                    else
-                    {
-
-                        if (LowestNextRun > CalcNextRun)
-                        {
-                            LowestNextRun = CalcNextRun;
-                        }
-
+                        LowestNextRun = Schedule.RuntimeSchedule[i].NextRun;
                     }
                 }
-
             }
+
+            //foreach (ScheduleItem si in Schedule.ScheduleList)
+            //{
+
+            //    if (si.IsEnabled)
+            //    {
+            //        DateTime StartsTodayAt = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy ") + si.StartsAt.ToString("HH:mm"));
+
+            //        if (si.CurrentRun == DateTime.MinValue)
+            //        {
+            //            if (StartsTodayAt.Hour == DateTime.Now.Hour && StartsTodayAt.Minute == DateTime.Now.Minute)
+            //            {
+            //                LaunchScheduledGame(si);
+            //            }
+            //        }
+            //        else
+            //        {
+            //            if (si.NextRun.Day == DateTime.Now.Day && si.NextRun.Hour == DateTime.Now.Hour && si.NextRun.Minute == DateTime.Now.Minute)
+            //            {
+            //                LaunchScheduledGame(si);
+            //            }
+
+            //        }
+
+            //        DateTime CalcNextRun = si.CalculateNextRun();
+
+            //        //' Is First Run
+            //        if (LowestNextRun == DateTime.MinValue)
+            //        {
+            //            LowestNextRun = CalcNextRun;
+            //        }
+            //        else
+            //        {
+
+            //            if (LowestNextRun > CalcNextRun)
+            //            {
+            //                LowestNextRun = CalcNextRun;
+            //            }
+
+            //        }
+            //    }
+
+            //}
             if (LowestNextRun == DateTime.MaxValue || LowestNextRun == DateTime.MinValue)
             {
                 toolSchedulerRunning.Text = "Scheduler running, but no Schedules enabled.";

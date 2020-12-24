@@ -11,7 +11,7 @@ using System.Xml.Serialization;
 
 namespace AppTestStudio
 {
-    public class ScheduleItem
+    public class ScheduleItem 
     {
         public ScheduleItem()
         {
@@ -21,7 +21,7 @@ namespace AppTestStudio
         public String AppPath { get; set; }
         public String WindowName { get; set; }
         public int InstanceNumber { get; set; }
-        public DateTime  StartsAt { get; set; }
+        public DateTime StartsAt { get; set; }
         public Boolean Monday { get; set; }
         public Boolean Tuesday { get; set; }
         public Boolean Wednesday { get; set; }
@@ -41,10 +41,33 @@ namespace AppTestStudio
             set { mIsEnabld = value; }
         }
 
-
+        public ScheduleItem CloneMe()
+        {
+            ScheduleItem si = new ScheduleItem();
+            si.InstanceNumber = InstanceNumber;
+            si.AppPath = AppPath;
+            si.CurrentRun = CurrentRun;
+            si.Friday = Friday;
+            si.IsEnabled = IsEnabled;
+            si.Monday = Monday;
+            si.Name = Name;
+            si.NextRun = NextRun;
+            si.Repeats = Repeats;
+            si.RepeatsEvery = RepeatsEvery;
+            si.Running = Running;
+            si.Saturday = Saturday;
+            si.StartsAt = StartsAt;
+            si.StopsAfter = StopsAfter;
+            si.Sunday = Sunday;
+            si.Thursday = Thursday;
+            si.Tuesday = Tuesday; 
+            si.Wednesday = Wednesday;
+            si.WindowName = WindowName;
+            return si;
+        }
 
         // Runtime Property
-        [XmlIgnore] public Boolean  Running { get; set; }
+        [XmlIgnore] public Boolean Running { get; set; }
         [XmlIgnore] public DateTime NextRun { get; set; }
         [XmlIgnore] public DateTime CurrentRun { get; set; }
 
@@ -59,14 +82,14 @@ namespace AppTestStudio
             if (IsEnabled == false)
             {
                 return DateTime.MaxValue;
-             }
+            }
             int Hour = DateTime.Now.Hour;
             int Minute = DateTime.Now.Minute;
             DateTime NR = DateTime.MinValue;
-        if (Repeats && CurrentRun != DateTime.MinValue )
-                {
+            if (Repeats && CurrentRun != DateTime.MinValue)
+            {
                 NR = CurrentRun.AddMinutes(RepeatsEvery);
-        }
+            }
             else
             {
                 if (CurrentRun == DateTime.MinValue)
@@ -85,13 +108,13 @@ namespace AppTestStudio
                             }
                             else
                             {
-                                NR = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy ")+ StartsAt.ToString("HH:mm")).AddDays(1);
-                          }
+                                NR = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy ") + StartsAt.ToString("HH:mm")).AddDays(1);
+                            }
                         }
                         else
                         {
-                            NR = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy ")+ StartsAt.ToString("HH:mm")).AddDays(1);
-                      }
+                            NR = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy ") + StartsAt.ToString("HH:mm")).AddDays(1);
+                        }
                     }
                     //'do nothing
 
@@ -114,7 +137,7 @@ namespace AppTestStudio
                             else
                             {
                                 NR = CurrentRun.AddDays(1);
-                          }
+                            }
                         }
                     }
                 }
