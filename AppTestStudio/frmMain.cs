@@ -414,8 +414,8 @@ namespace AppTestStudio
             DisableSecondToolbarButtons();
         }
 
-        const String PauseScript = "Pause Script";
-        const String UnPauseScript = "Un-Pause Scripts";
+        const String PauseScript = "Pause Scripts";
+        const String UnPauseScript = "Resume Scripts";
         private void toolStripButtonToggleScript_Click(object sender, EventArgs e)
         {
             Boolean IsPaused = false;
@@ -1569,11 +1569,11 @@ namespace AppTestStudio
                 Game.IsPaused = isPaused;
                 if (isPaused)
                 {
-                    Log("Un-Pausing Thread " + Game.ThreadandWindowName);
+                    Log("Pausing Thread " + Game.ThreadandWindowName);
                 }
                 else
                 {
-                    Log("Pausing Thread " + Game.ThreadandWindowName);
+                    Log("Resuming Thread " + Game.ThreadandWindowName);
                 }
             }
 
@@ -1586,7 +1586,7 @@ namespace AppTestStudio
             }
             else
             {
-                toolStripButtonToggleScript.Text = "Pause Script";
+                toolStripButtonToggleScript.Text = PauseScript;
                 toolStripButtonToggleScript.Image = AppTestStudio.Properties.Resources.Pause_64x_64;
             }
 
