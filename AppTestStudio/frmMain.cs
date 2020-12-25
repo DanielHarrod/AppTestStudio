@@ -49,7 +49,7 @@ namespace AppTestStudio
         private GameNodeWorkspace WorkspaceNode { get; set; }
         private GameNode LastNode { get; set; }
         private Boolean IsPictureObjectScreenshotMouseDown = false;
-        private Rectangle PictureObjectScreenshotRectanble = new Rectangle();
+        private Rectangle PictureObjectScreenshotRectangle = new Rectangle();
 
         private Boolean IsPanelLoading = false;
         private Boolean IsLoadingSchedule = false;
@@ -112,7 +112,7 @@ namespace AppTestStudio
             InitializeComponent();
             ThreadManager = new ThreadManager();
             sb = new StringBuilder();
-            PictureObjectScreenshotRectanble = new Rectangle();
+            PictureObjectScreenshotRectangle = new Rectangle();
         }
 
         private void frmMain_Load(object sender, EventArgs e)
@@ -1661,14 +1661,14 @@ namespace AppTestStudio
                 }
             }
 
-            if (PictureObjectScreenshotRectanble.Width <= 0 || PictureObjectScreenshotRectanble.Height <= 0)
+            if (PictureObjectScreenshotRectangle.Width <= 0 || PictureObjectScreenshotRectangle.Height <= 0)
             {
                 return;
             }
-            Bitmap CropImage = new Bitmap(PictureObjectScreenshotRectanble.Width, PictureObjectScreenshotRectanble.Height);
+            Bitmap CropImage = new Bitmap(PictureObjectScreenshotRectangle.Width, PictureObjectScreenshotRectangle.Height);
             using (Graphics grp = Graphics.FromImage(CropImage))
             {
-                grp.DrawImage(PictureObjectScreenshot.Image, new Rectangle(0, 0, PictureObjectScreenshotRectanble.Width, PictureObjectScreenshotRectanble.Height), PictureObjectScreenshotRectanble, GraphicsUnit.Pixel);
+                grp.DrawImage(PictureObjectScreenshot.Image, new Rectangle(0, 0, PictureObjectScreenshotRectangle.Width, PictureObjectScreenshotRectangle.Height), PictureObjectScreenshotRectangle, GraphicsUnit.Pixel);
                 //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
 
                 grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
@@ -2184,9 +2184,9 @@ namespace AppTestStudio
         {
             Debug.WriteLine("PictureObjectScreenshot_MouseDown");
             IsPictureObjectScreenshotMouseDown = true;
-            PictureObjectScreenshotRectanble = new Rectangle();
-            PictureObjectScreenshotRectanble.X = e.X;
-            PictureObjectScreenshotRectanble.Y = e.Y;
+            PictureObjectScreenshotRectangle = new Rectangle();
+            PictureObjectScreenshotRectangle.X = e.X;
+            PictureObjectScreenshotRectangle.Y = e.Y;
             PictureObjectScreenshot.Invalidate();
 
         }
@@ -2197,7 +2197,7 @@ namespace AppTestStudio
             int x = 1;
             int y = 0;
             Color color = new Color();
-            ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown, ref PictureObjectScreenshotRectanble);
+            ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown, ref PictureObjectScreenshotRectangle);
 
             Boolean ReadyToSave = IsCreateScreenshotReadyToCreate();
 
@@ -2341,12 +2341,12 @@ namespace AppTestStudio
 
         private bool IsCreateScreenshotMarked()
         {
-            if (PictureObjectScreenshotRectanble.IsEmpty)
+            if (PictureObjectScreenshotRectangle.IsEmpty)
             {
                 return false;
             }
 
-            if (PictureObjectScreenshotRectanble.Width <= 0 || PictureObjectScreenshotRectanble.Height <= 0)
+            if (PictureObjectScreenshotRectangle.Width <= 0 || PictureObjectScreenshotRectangle.Height <= 0)
             {
                 return false;
             }
@@ -2375,16 +2375,16 @@ namespace AppTestStudio
 
         private void PictureObjectScreenshot_Paint(object sender, PaintEventArgs e)
         {
-            if (PictureObjectScreenshotRectanble.Width > 0 && PictureObjectScreenshotRectanble.Height > 0)
+            if (PictureObjectScreenshotRectangle.Width > 0 && PictureObjectScreenshotRectangle.Height > 0)
             {
                 using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
                 {
-                    e.Graphics.FillRectangle(br, PictureObjectScreenshotRectanble);
+                    e.Graphics.FillRectangle(br, PictureObjectScreenshotRectangle);
                 }
 
                 using (Pen p = new Pen(Color.Blue, 1))
                 {
-                    e.Graphics.DrawRectangle(p, PictureObjectScreenshotRectanble);
+                    e.Graphics.DrawRectangle(p, PictureObjectScreenshotRectangle);
                 }
             }
         }
@@ -3851,7 +3851,7 @@ namespace AppTestStudio
             cmdMakeObject.Enabled = false;
 
             //' Reset the Rectangle in case it//'s already being used.
-            PictureObjectScreenshotRectanble = new Rectangle();
+            PictureObjectScreenshotRectangle = new Rectangle();
 
             //' Set the current image.
             PictureObjectScreenshot.Image = PictureBox1.Image;
@@ -4721,7 +4721,7 @@ namespace AppTestStudio
             cmdMakeObjectAndUse.Enabled = false;
 
             //' Reset the Rectangle in case it//'s already being used.
-            PictureObjectScreenshotRectanble = new Rectangle();
+            PictureObjectScreenshotRectangle = new Rectangle();
 
             //' Take a screenshot
             cmdObjectScreenshotsTakeAScreenshot_Click(null, null);
@@ -6499,25 +6499,6 @@ namespace AppTestStudio
 
         }
 
-        //private void button1_Click(object sender, EventArgs e)
-        //{
-        //    Bitmap bmp = PictureBoxObject.Image as Bitmap;
-
-        //    for (int i = 0; i < 55; i++)
-        //    {
-        //        for (int j = 0; j < 80; j++)
-        //        {
-        //            if (i < bmp.Width)
-        //                if (j < bmp.Height)
-        //                {
-        //                    bmp.SetPixel(i, j, Color.White);
-        //                }
-        //        }
-        //    }
-        //    PictureBoxObject.Invalidate();
-
-        //}
-
         private void txtSteamID_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsNumber(e.KeyChar))
@@ -6957,6 +6938,16 @@ namespace AppTestStudio
 
                     // Set Node in Ojbect Search 
                     cboObject.Text = txtObjectScreenshotName.Text;
+
+                    LastNodeAddObjectWasUsedFrom.Text = "Find " + txtObjectScreenshotName.Text;
+
+                    // Add Child Click Event the size of the origin picture.
+                    GameNodeAction ClickEvent = new GameNodeAction("Click " + txtObjectScreenshotName.Text, ActionType.Action);
+                    ClickEvent.Bitmap = LastNodeAddObjectWasUsedFrom.Bitmap.CloneMe();
+                    ClickEvent.ResolutionHeight = LastNodeAddObjectWasUsedFrom.ResolutionHeight;
+                    ClickEvent.ResolutionWidth = LastNodeAddObjectWasUsedFrom.ResolutionWidth;
+                    ClickEvent.Rectangle = PictureObjectScreenshotRectangle;
+                    tv.SelectedNode.Nodes.Add(ClickEvent);
 
                     // Clear out so that going back to make object will not be available.
                     LastNodeAddObjectWasUsedFrom = null;

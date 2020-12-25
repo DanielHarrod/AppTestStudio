@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.Timer1 = new System.Windows.Forms.Timer(this.components);
-            this.Button1 = new System.Windows.Forms.Button();
+            this.cmdReTestFromReference = new System.Windows.Forms.Button();
             this.GroupBox4 = new System.Windows.Forms.GroupBox();
             this.PictureBoxObject = new System.Windows.Forms.PictureBox();
             this.GroupBox3 = new System.Windows.Forms.GroupBox();
@@ -89,17 +89,17 @@
             this.Timer1.Enabled = true;
             this.Timer1.Interval = 500;
             // 
-            // Button1
+            // cmdReTestFromReference
             // 
-            this.Button1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.Button1.Location = new System.Drawing.Point(1214, 105);
-            this.Button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Button1.Name = "Button1";
-            this.Button1.Size = new System.Drawing.Size(333, 37);
-            this.Button1.TabIndex = 53;
-            this.Button1.Text = "Re-Test From Reference";
-            this.Button1.UseVisualStyleBackColor = true;
-            this.Button1.Click += new System.EventHandler(this.Button1_Click);
+            this.cmdReTestFromReference.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdReTestFromReference.Location = new System.Drawing.Point(1214, 105);
+            this.cmdReTestFromReference.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.cmdReTestFromReference.Name = "cmdReTestFromReference";
+            this.cmdReTestFromReference.Size = new System.Drawing.Size(333, 37);
+            this.cmdReTestFromReference.TabIndex = 53;
+            this.cmdReTestFromReference.Text = "Re-Test From Reference";
+            this.cmdReTestFromReference.UseVisualStyleBackColor = true;
+            this.cmdReTestFromReference.Click += new System.EventHandler(this.cmdReTestFromReference_Click);
             // 
             // GroupBox4
             // 
@@ -495,7 +495,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1564, 966);
-            this.Controls.Add(this.Button1);
+            this.Controls.Add(this.cmdReTestFromReference);
             this.Controls.Add(this.GroupBox4);
             this.Controls.Add(this.GroupBox3);
             this.Controls.Add(this.GroupBox2);
@@ -540,7 +540,7 @@
 
         #endregion
         internal System.Windows.Forms.Timer Timer1;
-        internal System.Windows.Forms.Button Button1;
+        internal System.Windows.Forms.Button cmdReTestFromReference;
         internal System.Windows.Forms.GroupBox GroupBox4;
         internal System.Windows.Forms.PictureBox PictureBoxObject;
         internal System.Windows.Forms.GroupBox GroupBox3;

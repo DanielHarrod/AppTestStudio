@@ -50,7 +50,16 @@ namespace AppTestStudio
 
         private void cmdUpdateScreenshot_Click(object sender, EventArgs e)
         {
-            RunFullTest();
+            try
+            {
+                RunFullTest();
+            }
+            catch (Exception ex)
+            {
+
+                Debug.WriteLine("cmdUpdateScreenshot_Click:" + ex.Message);
+            }
+            
         }
 
         private void RunFullTest(Boolean UseCurrentWindow = true)
@@ -357,13 +366,14 @@ namespace AppTestStudio
                         break;
                 }
             }
-            RunFullTest();
-
-        }
-
-        private void Button1_Click(object sender, EventArgs e)
-        {
-            RunFullTest(false);
+            try
+            {
+                RunFullTest();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("frmTestObjectSearch_Load:" + ex.Message);
+            }
         }
 
         private void PictureBoxSearchArea_Paint(object sender, PaintEventArgs e)
@@ -469,6 +479,18 @@ namespace AppTestStudio
         private void cmdChannel_Click(object sender, EventArgs e)
         {
             frm.cboChannel.Text = cboChannel.Text;
+        }
+
+        private void cmdReTestFromReference_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                RunFullTest();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("frmTestObjectSearch_Load:" + ex.Message);
+            }
         }
     }
 }
