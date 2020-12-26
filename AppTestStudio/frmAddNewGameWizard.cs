@@ -376,6 +376,7 @@ namespace AppTestStudio
 
         private void cmdFinish_Click(object sender, EventArgs e)
         {
+
             IsReadyToCreate = true;
             Close();
         }
@@ -407,6 +408,11 @@ namespace AppTestStudio
         private void cboBlueStacksVersion_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblBlueStacksVersionLabel.Text = "Blue Stacks Version: " + cboBlueStacksVersion.Text;
+        }
+
+        private void frmAddNewGameWizard_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            Timer1.Enabled = false;
         }
     }
 }

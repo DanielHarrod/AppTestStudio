@@ -52,6 +52,18 @@
             this.cmdPrevious = new System.Windows.Forms.Button();
             this.cmdStartOver = new System.Windows.Forms.Button();
             this.panelWorkspace = new System.Windows.Forms.Panel();
+            this.panelWorkspaceNaming = new System.Windows.Forms.Panel();
+            this.lblBlueStacksVersionLabel = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.txtFinishAppID = new System.Windows.Forms.TextBox();
+            this.lblFinishAppID = new System.Windows.Forms.Label();
+            this.lblSelectedPlatform = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblNameIsInvalid = new System.Windows.Forms.Label();
+            this.txtName = new System.Windows.Forms.TextBox();
+            this.label11 = new System.Windows.Forms.Label();
             this.panelWorkspacePlatform = new System.Windows.Forms.Panel();
             this.label21 = new System.Windows.Forms.Label();
             this.lblBlueStacksVersion = new System.Windows.Forms.Label();
@@ -91,20 +103,8 @@
             this.lblAppID = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
-            this.panelWorkspaceNaming = new System.Windows.Forms.Panel();
-            this.label19 = new System.Windows.Forms.Label();
-            this.txtFinishAppID = new System.Windows.Forms.TextBox();
-            this.lblFinishAppID = new System.Windows.Forms.Label();
-            this.lblSelectedPlatform = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lblNameIsInvalid = new System.Windows.Forms.Label();
-            this.txtName = new System.Windows.Forms.TextBox();
-            this.label11 = new System.Windows.Forms.Label();
             this.panelWorkspaceStart = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblBlueStacksVersionLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMainVertical)).BeginInit();
             this.splitContainerMainVertical.Panel1.SuspendLayout();
             this.splitContainerMainVertical.Panel2.SuspendLayout();
@@ -118,6 +118,7 @@
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panelWorkspace.SuspendLayout();
+            this.panelWorkspaceNaming.SuspendLayout();
             this.panelWorkspacePlatform.SuspendLayout();
             this.groupBoxAutomationConsiderations.SuspendLayout();
             this.panelWorkspacePicker.SuspendLayout();
@@ -128,7 +129,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppID)).BeginInit();
             this.panel4.SuspendLayout();
-            this.panelWorkspaceNaming.SuspendLayout();
             this.panelWorkspaceStart.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -401,6 +401,123 @@
             this.panelWorkspace.Name = "panelWorkspace";
             this.panelWorkspace.Size = new System.Drawing.Size(1379, 912);
             this.panelWorkspace.TabIndex = 2;
+            // 
+            // panelWorkspaceNaming
+            // 
+            this.panelWorkspaceNaming.Controls.Add(this.lblBlueStacksVersionLabel);
+            this.panelWorkspaceNaming.Controls.Add(this.label19);
+            this.panelWorkspaceNaming.Controls.Add(this.txtFinishAppID);
+            this.panelWorkspaceNaming.Controls.Add(this.lblFinishAppID);
+            this.panelWorkspaceNaming.Controls.Add(this.lblSelectedPlatform);
+            this.panelWorkspaceNaming.Controls.Add(this.label18);
+            this.panelWorkspaceNaming.Controls.Add(this.label17);
+            this.panelWorkspaceNaming.Controls.Add(this.label13);
+            this.panelWorkspaceNaming.Controls.Add(this.lblNameIsInvalid);
+            this.panelWorkspaceNaming.Controls.Add(this.txtName);
+            this.panelWorkspaceNaming.Controls.Add(this.label11);
+            this.panelWorkspaceNaming.Location = new System.Drawing.Point(64, 465);
+            this.panelWorkspaceNaming.Name = "panelWorkspaceNaming";
+            this.panelWorkspaceNaming.Size = new System.Drawing.Size(1125, 324);
+            this.panelWorkspaceNaming.TabIndex = 5;
+            // 
+            // lblBlueStacksVersionLabel
+            // 
+            this.lblBlueStacksVersionLabel.AutoSize = true;
+            this.lblBlueStacksVersionLabel.Location = new System.Drawing.Point(161, 175);
+            this.lblBlueStacksVersionLabel.Name = "lblBlueStacksVersionLabel";
+            this.lblBlueStacksVersionLabel.Size = new System.Drawing.Size(152, 20);
+            this.lblBlueStacksVersionLabel.TabIndex = 15;
+            this.lblBlueStacksVersionLabel.Text = "Blue Stacks Version";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(699, 161);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(261, 20);
+            this.label19.TabIndex = 14;
+            this.label19.Text = "Press the Finish button when ready.";
+            // 
+            // txtFinishAppID
+            // 
+            this.txtFinishAppID.Location = new System.Drawing.Point(165, 125);
+            this.txtFinishAppID.Name = "txtFinishAppID";
+            this.txtFinishAppID.Size = new System.Drawing.Size(524, 26);
+            this.txtFinishAppID.TabIndex = 13;
+            // 
+            // lblFinishAppID
+            // 
+            this.lblFinishAppID.AutoSize = true;
+            this.lblFinishAppID.Location = new System.Drawing.Point(24, 125);
+            this.lblFinishAppID.Name = "lblFinishAppID";
+            this.lblFinishAppID.Size = new System.Drawing.Size(55, 20);
+            this.lblFinishAppID.TabIndex = 12;
+            this.lblFinishAppID.Text = "AppID";
+            // 
+            // lblSelectedPlatform
+            // 
+            this.lblSelectedPlatform.AutoSize = true;
+            this.lblSelectedPlatform.Location = new System.Drawing.Point(161, 39);
+            this.lblSelectedPlatform.Name = "lblSelectedPlatform";
+            this.lblSelectedPlatform.Size = new System.Drawing.Size(146, 20);
+            this.lblSelectedPlatform.TabIndex = 11;
+            this.lblSelectedPlatform.Text = "lblSelectedPlatform";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(20, 39);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(135, 20);
+            this.label18.TabIndex = 10;
+            this.label18.Text = "Selected Platform";
+            // 
+            // label17
+            // 
+            this.label17.Location = new System.Drawing.Point(698, 70);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(384, 101);
+            this.label17.TabIndex = 9;
+            this.label17.Text = "Setting the project and folder name, names need to have characters that can be us" +
+    "ed in folder names.";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(23, 67);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(104, 20);
+            this.label13.TabIndex = 8;
+            this.label13.Text = "Project Name";
+            // 
+            // lblNameIsInvalid
+            // 
+            this.lblNameIsInvalid.AutoSize = true;
+            this.lblNameIsInvalid.Location = new System.Drawing.Point(161, 98);
+            this.lblNameIsInvalid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNameIsInvalid.Name = "lblNameIsInvalid";
+            this.lblNameIsInvalid.Size = new System.Drawing.Size(211, 20);
+            this.lblNameIsInvalid.TabIndex = 7;
+            this.lblNameIsInvalid.Text = "Name has invalid characters ";
+            // 
+            // txtName
+            // 
+            this.txtName.Location = new System.Drawing.Point(165, 67);
+            this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtName.Name = "txtName";
+            this.txtName.Size = new System.Drawing.Size(524, 26);
+            this.txtName.TabIndex = 1;
+            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(3, 3);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(92, 32);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Finish";
             // 
             // panelWorkspacePlatform
             // 
@@ -827,114 +944,6 @@
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.Navigated += new System.Windows.Forms.WebBrowserNavigatedEventHandler(this.webBrowser1_Navigated);
             // 
-            // panelWorkspaceNaming
-            // 
-            this.panelWorkspaceNaming.Controls.Add(this.lblBlueStacksVersionLabel);
-            this.panelWorkspaceNaming.Controls.Add(this.label19);
-            this.panelWorkspaceNaming.Controls.Add(this.txtFinishAppID);
-            this.panelWorkspaceNaming.Controls.Add(this.lblFinishAppID);
-            this.panelWorkspaceNaming.Controls.Add(this.lblSelectedPlatform);
-            this.panelWorkspaceNaming.Controls.Add(this.label18);
-            this.panelWorkspaceNaming.Controls.Add(this.label17);
-            this.panelWorkspaceNaming.Controls.Add(this.label13);
-            this.panelWorkspaceNaming.Controls.Add(this.lblNameIsInvalid);
-            this.panelWorkspaceNaming.Controls.Add(this.txtName);
-            this.panelWorkspaceNaming.Controls.Add(this.label11);
-            this.panelWorkspaceNaming.Location = new System.Drawing.Point(64, 465);
-            this.panelWorkspaceNaming.Name = "panelWorkspaceNaming";
-            this.panelWorkspaceNaming.Size = new System.Drawing.Size(1125, 324);
-            this.panelWorkspaceNaming.TabIndex = 5;
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(699, 161);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(261, 20);
-            this.label19.TabIndex = 14;
-            this.label19.Text = "Press the Finish button when ready.";
-            // 
-            // txtFinishAppID
-            // 
-            this.txtFinishAppID.Location = new System.Drawing.Point(165, 125);
-            this.txtFinishAppID.Name = "txtFinishAppID";
-            this.txtFinishAppID.Size = new System.Drawing.Size(524, 26);
-            this.txtFinishAppID.TabIndex = 13;
-            // 
-            // lblFinishAppID
-            // 
-            this.lblFinishAppID.AutoSize = true;
-            this.lblFinishAppID.Location = new System.Drawing.Point(24, 125);
-            this.lblFinishAppID.Name = "lblFinishAppID";
-            this.lblFinishAppID.Size = new System.Drawing.Size(55, 20);
-            this.lblFinishAppID.TabIndex = 12;
-            this.lblFinishAppID.Text = "AppID";
-            // 
-            // lblSelectedPlatform
-            // 
-            this.lblSelectedPlatform.AutoSize = true;
-            this.lblSelectedPlatform.Location = new System.Drawing.Point(161, 39);
-            this.lblSelectedPlatform.Name = "lblSelectedPlatform";
-            this.lblSelectedPlatform.Size = new System.Drawing.Size(146, 20);
-            this.lblSelectedPlatform.TabIndex = 11;
-            this.lblSelectedPlatform.Text = "lblSelectedPlatform";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(20, 39);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(135, 20);
-            this.label18.TabIndex = 10;
-            this.label18.Text = "Selected Platform";
-            // 
-            // label17
-            // 
-            this.label17.Location = new System.Drawing.Point(698, 70);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(384, 101);
-            this.label17.TabIndex = 9;
-            this.label17.Text = "Setting the project and folder name, names need to have characters that can be us" +
-    "ed in folder names.";
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(23, 67);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(104, 20);
-            this.label13.TabIndex = 8;
-            this.label13.Text = "Project Name";
-            // 
-            // lblNameIsInvalid
-            // 
-            this.lblNameIsInvalid.AutoSize = true;
-            this.lblNameIsInvalid.Location = new System.Drawing.Point(161, 98);
-            this.lblNameIsInvalid.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblNameIsInvalid.Name = "lblNameIsInvalid";
-            this.lblNameIsInvalid.Size = new System.Drawing.Size(211, 20);
-            this.lblNameIsInvalid.TabIndex = 7;
-            this.lblNameIsInvalid.Text = "Name has invalid characters ";
-            // 
-            // txtName
-            // 
-            this.txtName.Location = new System.Drawing.Point(165, 67);
-            this.txtName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtName.Name = "txtName";
-            this.txtName.Size = new System.Drawing.Size(524, 26);
-            this.txtName.TabIndex = 1;
-            this.txtName.TextChanged += new System.EventHandler(this.txtName_TextChanged);
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(3, 3);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(92, 32);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Finish";
-            // 
             // panelWorkspaceStart
             // 
             this.panelWorkspaceStart.Controls.Add(this.label1);
@@ -953,15 +962,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Start";
             // 
-            // lblBlueStacksVersionLabel
-            // 
-            this.lblBlueStacksVersionLabel.AutoSize = true;
-            this.lblBlueStacksVersionLabel.Location = new System.Drawing.Point(161, 175);
-            this.lblBlueStacksVersionLabel.Name = "lblBlueStacksVersionLabel";
-            this.lblBlueStacksVersionLabel.Size = new System.Drawing.Size(152, 20);
-            this.lblBlueStacksVersionLabel.TabIndex = 15;
-            this.lblBlueStacksVersionLabel.Text = "Blue Stacks Version";
-            // 
             // frmAddNewGameWizard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -971,6 +971,7 @@
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "frmAddNewGameWizard";
             this.Text = "Add New App Wizard";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmAddNewGameWizard_FormClosed);
             this.Load += new System.EventHandler(this.frmAddNewGameWizard_Load);
             this.splitContainerMainVertical.Panel1.ResumeLayout(false);
             this.splitContainerMainVertical.Panel2.ResumeLayout(false);
@@ -987,6 +988,8 @@
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panelWorkspace.ResumeLayout(false);
+            this.panelWorkspaceNaming.ResumeLayout(false);
+            this.panelWorkspaceNaming.PerformLayout();
             this.panelWorkspacePlatform.ResumeLayout(false);
             this.panelWorkspacePlatform.PerformLayout();
             this.groupBoxAutomationConsiderations.ResumeLayout(false);
@@ -1002,8 +1005,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxAppID)).EndInit();
             this.panel4.ResumeLayout(false);
-            this.panelWorkspaceNaming.ResumeLayout(false);
-            this.panelWorkspaceNaming.PerformLayout();
             this.panelWorkspaceStart.ResumeLayout(false);
             this.panelWorkspaceStart.PerformLayout();
             this.ResumeLayout(false);
