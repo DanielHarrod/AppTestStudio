@@ -3339,6 +3339,8 @@ namespace AppTestStudio
                 }
             }
 
+
+
         }
 
         private String StartNewVideo(GameNodeGame game, Bitmap bmp)
@@ -6512,6 +6514,7 @@ namespace AppTestStudio
             grpNox.Visible = false;
             grpSteam.Visible = false;
             grpApplication.Visible = false;
+            grpBlue.Visible = false;
             switch (cboPlatform.Text)
             {
                 case "NoxPlayer":
