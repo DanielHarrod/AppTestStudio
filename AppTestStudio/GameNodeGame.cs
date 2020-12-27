@@ -60,6 +60,9 @@ namespace AppTestStudio
 
         public ThreadManager ThreadManager{ get; set; }
 
+        /// <summary>
+        /// Data for the runtime display.
+        /// </summary>
         public ConcurrentQueue<AppTestStudioStatusControlItem> StatusControl { get; set; }
 
         /// <summary>
@@ -74,16 +77,16 @@ namespace AppTestStudio
         public ConcurrentQueue<MinimalBitmapNode> MinimalBitmapClones { get; set; }
 
         public OpenCvSharp.VideoWriter Video { get; set; }
+
         public void Log(String s)
         {
-                String FormattedLog = String.Format(
-                "{0}{1} {2} [{3}] {4}",
-                DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss."),
-                Math.Abs(Environment.TickCount % 1000).ToString().PadLeft(3, '0'),
-                Name,
-                InstanceToLaunch,
-                s);            
-
+            String FormattedLog = String.Format(
+            "{0}{1} {2} [{3}] {4}",
+            DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss."),
+            Math.Abs(Environment.TickCount % 1000).ToString().PadLeft(3, '0'),
+            Name,
+            InstanceToLaunch,
+            s);
             
             ThreadManager.ThreadLog.Enqueue(FormattedLog);
         }
@@ -106,11 +109,7 @@ namespace AppTestStudio
                 switch (Platform)
                 {
                     case Platform.BlueStacks:
-                        String BlueStacksName = "";
-
-                        BlueStacksName = BlueStacksName + Text + " - " + TargetWindow;
-
-                        return BlueStacksName;
+                        return Text + " - " + TargetWindow;
                     case Platform.NoxPlayer:
                         return Text + " - " + TargetWindow;
                     case Platform.Steam:
