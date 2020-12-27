@@ -256,7 +256,14 @@ namespace AppTestStudio
                             {
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
 
-                                Utils.ClickOnWindow(WindowHandle, (short)Result.x, (short)Result.y, node.ClickSpeed);
+                                short TargetX = (short)Result.x;
+                                short TargetY = (short)Result.y;
+
+                                Utils.ClickOnWindow(WindowHandle, Game.MouseX, Game.MouseY, TargetX, TargetY, node.ClickSpeed);
+
+                                Game.MouseX = TargetX;
+                                Game.MouseY = TargetY;
+
                                 ThreadManager.IncrementClickCount();
 
                                 // Draw solution marker
@@ -737,6 +744,20 @@ namespace AppTestStudio
                     ThreadManager.IncrementScreenShots();
                     Game.ScreenShotsTaken++;
                     Game.GameLoops++;
+
+                    if (Game.GameLoops == 0)
+                    {
+                        // Initialized Mouse Center
+                        if (bmp.Width > 0)
+                        {
+                            Game.MouseX = (short)(bmp.Width / 2);
+                        }
+
+                        if (bmp.Height > 0 )
+                        {
+                            Game.MouseY = (short)(bmp.Height / 2);
+                        }
+                    }
 
                     int CenterX = 0;
                     int CenterY = 0;

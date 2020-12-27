@@ -88,7 +88,10 @@ namespace AppTestStudio
                             //int y = Parent.Rectangle.Y + CenterY - (Node.Rectangle.Height / 2) + Node.RelativeYOffset + RNGH;
                             frm.Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             Debug.WriteLine("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
-                            Utils.ClickOnWindow(MainWindowHandle, (short)RangeClickResult.x, (short)RangeClickResult.y, Node.ClickSpeed);
+
+                            short xMouseStart = (short)( PictureBoxSearchArea.Image.Width / 2);
+                            short yMouseStart = (short)(PictureBoxSearchArea.Image.Height / 2);
+                            Utils.ClickOnWindow(MainWindowHandle, xMouseStart, yMouseStart, (short)RangeClickResult.x, (short)RangeClickResult.y, Node.ClickSpeed);
                             break;
                         case AppTestStudio.Mode.ClickDragRelease:
                             GameNodeAction.ClickDragReleaseResult ClickDragReleaseResult = Node.CalculateClickDragReleaseResult(CenterX, CenterY);

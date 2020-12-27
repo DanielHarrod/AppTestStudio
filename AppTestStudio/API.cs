@@ -44,6 +44,21 @@ namespace AppTestStudio
                 return new Point(p.X, p.Y);
             }
         }
+        internal struct MouseInput
+        {
+            public int X;
+            public int Y;
+            public uint MouseData;
+            public uint Flags;
+            public uint Time;
+            public IntPtr ExtraInfo;
+        }
+
+        internal struct Input
+        {
+            public int Type;
+            public MouseInput MouseInput;
+        }
 
         [DllImport("user32.dll", EntryPoint = "GetDC")]
         public static extern IntPtr GetDC(IntPtr ptr);
@@ -84,6 +99,11 @@ namespace AppTestStudio
         [DllImport("user32.dll")]
         public static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
 
+        public static bool PostMessage(IntPtr hwnd, int Msg, int wParam, int lParam)
+        {
+           return PostMessage(hwnd, (uint)Msg, wParam, lParam);
+        }
+
         public delegate bool EnumWindowsProc(IntPtr hWnd, ref IntPtr lParam);
 
         [DllImport("user32")]
@@ -107,6 +127,9 @@ namespace AppTestStudio
 
         [DllImport("user32.dll", SetLastError = true)]
         public static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int Width, int Height, bool Repaint);
+
+        [DllImport("user32.dll")]
+        internal static extern uint SendInput(uint nInputs, [MarshalAs(UnmanagedType.LPArray), In] Input[] pInputs, int cbSize);
 
     }
 }

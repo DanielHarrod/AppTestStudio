@@ -2915,7 +2915,10 @@ namespace AppTestStudio
                                     Failed = true;
                                 }
 
-                                Utils.ClickOnWindow(MainWindowHandle, (short)Result.x, (short)Result.y, ActionNode.ClickSpeed);
+                                short xStart = (short)(bmp.Width / 2);
+                                short yStart = (short)(bmp.Height / 2);
+
+                                Utils.ClickOnWindow(MainWindowHandle, xStart, yStart, (short)Result.x, (short)Result.y, ActionNode.ClickSpeed);
                                 Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }

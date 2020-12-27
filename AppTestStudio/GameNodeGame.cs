@@ -171,7 +171,6 @@ namespace AppTestStudio
             }
         }
 
-
         public GameNodeEvents Events
         {
             get
@@ -211,9 +210,22 @@ namespace AppTestStudio
 
         // BlueStacks section
         public Boolean IsBlueStacks64Bit { get; set; }
+
         public String BlueStacksWindowName { get; set; }
 
         public BlueGuest BlueGuest { get; set; }
+
+        /// <summary>
+        /// Run Time: Mouse X Position.
+        /// Design Time: Not Used.
+        /// </summary>
+        public short MouseX { get; set; }
+
+        /// <summary>
+        /// Run Time: Mouse Y Position.
+        /// Design Time: Not Used.
+        /// </summary>
+        public short MouseY { get; set; }
 
         public GameNodeGame CloneMe()
         {

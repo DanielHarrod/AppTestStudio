@@ -6,12 +6,9 @@ using System;
 using System.Diagnostics;
 using System.Collections.Generic;
 using System.Drawing;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Threading;
-using System.ServiceModel.Security;
 
 namespace AppTestStudio
 {
@@ -229,7 +226,6 @@ namespace AppTestStudio
             }
         }
 
-
         public static PointF Center(RectangleF r)
         {
             PointF Loc = r.Location;
@@ -239,30 +235,37 @@ namespace AppTestStudio
         }
 
         public static void ClickDragRelease(IntPtr windowHandle, int startX, int startY, int endX, int endY, int VelocityMS)
+        {         
+            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, 0, Utils.HiLoWord(startX, startY));
+
+            //'Send Mouse Down
+            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(startX, startY));
+
+            MoveMouse(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, VelocityMS);
+
+            //' Send mouse Up
+            API.SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, 0, Utils.HiLoWordIntptr(endX, endY));
+        }
+
+        public static void MoveMouse(IntPtr windowHandle, int MouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int VelocityMS)
         {
-            int WM_PARENTNOTIFY = 0x210;
-            uint WM_MOUSEMOVE = 0x200;
-            uint WM_LBUTTONDOWN = 0x201;
-            int WM_LBUTTONUP = 0x202;
-            int MK_LBUTTON = 0x1;
+            MoveMouse(windowHandle, MouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)VelocityMS);
+        }
 
-            float CurrentX = (short)startX;
-            float CurrentY = (short)startY;
+        public static void MoveMouse(IntPtr windowHandle, int MouseKeyState, short xStart, short yStart, short xTarget, short yTarget, int VelocityMS)
+        {
+            float CurrentX = (short)xStart;
+            float CurrentY = (short)yStart;
 
-            int MaxSteps = Math.Abs(endX - startX);
+            int MaxSteps = Math.Abs(xTarget - xStart);
 
-            if (Math.Abs(endY - startY) > MaxSteps)
+            if (Math.Abs(yTarget - yStart) > MaxSteps)
             {
-                MaxSteps = Math.Abs(endY - startY);
+                MaxSteps = Math.Abs(yTarget - yStart);
             }
 
-            float XIncrement = (float)(endX - startX) / MaxSteps;
-            float YIncrement = (float)(endY - startY) / MaxSteps;
-
-            API.PostMessage(windowHandle, WM_MOUSEMOVE, 0, Utils.HiLoWord((short)CurrentX, (short)CurrentY));
-            //'Send Mouse Down
-            API.PostMessage(windowHandle, WM_LBUTTONDOWN, MK_LBUTTON, Utils.HiLoWord((short)CurrentX, (short)CurrentY));
-            Thread.Sleep(10);
+            float XIncrement = (float)(xTarget - xStart) / MaxSteps;
+            float YIncrement = (float)(yTarget - yStart) / MaxSteps;
 
             int SleepTime = 1;
             int SkipEvery = 0;
@@ -284,11 +287,9 @@ namespace AppTestStudio
 
             int CurrentSkipEvery = SkipEvery;
 
-            //'Send draging
-            for (int i = 0; i < MaxSteps; i++)
+            for (int i = 0; i < MaxSteps-1; i++)
             {
-                API.PostMessage(windowHandle, WM_MOUSEMOVE, MK_LBUTTON, Utils.HiLoWord((short)CurrentX, (short)CurrentY));
-
+                API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, MouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
                 if (SkipEvery > 0)
                 {
                     if (CurrentSkipEvery == 0)
@@ -308,38 +309,40 @@ namespace AppTestStudio
                 CurrentX = CurrentX + XIncrement;
                 CurrentY = CurrentY + YIncrement;
             }
+            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, MouseKeyState, Utils.HiLoWord(xTarget, yTarget));
+        }
 
-            Thread.Sleep(10);
+        public static void ClickOnWindow(IntPtr windowHandle, short xStart, short yStart, short xTarget, short yTarget, int MouseUpDelayMS)
+        {
 
-            //' Send mouse Up
-            API.SendMessage(windowHandle, WM_LBUTTONUP, 0, Utils.HiLoWordIntptr((short)CurrentX, (short)CurrentY));
+            //' PostMessage(WindowHandle, Definitions.WM_MOUSEMOVE, 0, getHiLoWord(X, Y))
+            //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(1, Definitions.WM_MOUSEMOVE))
+            //'Thread.Sleep(25)
+
+            //'SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(1, WM_LBUTTONDOWN))
+
+            MoveMouse(windowHandle, Definitions.MouseKeyStates.MK_NONE, xStart, yStart, xTarget, yTarget, 0);
+
+            ClickOnWindow(windowHandle, xTarget, yTarget, MouseUpDelayMS);
         }
 
 
         public static void ClickOnWindow(IntPtr windowHandle, short xTarget, short yTarget, int MouseUpDelayMS)
         {
-            int WM_SETCURSOR = 0x20;
-            int HTCLIENT = 0x1;
-
-            uint WM_MOUSEMOVE = 0x200;
-            uint WM_LBUTTONDOWN = 0x201;
-            uint WM_LBUTTONUP = 0x202;
-
-            int MK_LBUTTON = 0x0001;
-            //' PostMessage(WindowHandle, WM_MOUSEMOVE, 0, getHiLoWord(X, Y))
-            //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(1, WM_MOUSEMOVE))
+            //' PostMessage(WindowHandle, Definitions.WM_MOUSEMOVE, 0, getHiLoWord(X, Y))
+            //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(HTCLIENT, Definitions.WM_MOUSEMOVE))
             //'Thread.Sleep(25)
+            //IntPtr lParam = Utils.HiLoWordIntptr(HTCLIENT, WM_LBUTTONDOWN);
+            // API.SendMessage(windowHandle, WM_SETCURSOR, windowHandle.ToInt32(), lParam);
 
-            //'SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(1, WM_LBUTTONDOWN))
+            //API.PostMessage(windowHandle, Definitions.WM_MOUSEMOVE, 0, Utils.HiLoWord(xTarget, yTarget));
 
-            API.PostMessage(windowHandle, WM_MOUSEMOVE, 0, Utils.HiLoWord(xTarget, yTarget));
-
-            API.PostMessage(windowHandle, WM_LBUTTONDOWN, (int)MK_LBUTTON, Utils.HiLoWord(xTarget, yTarget));
+            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(xTarget, yTarget));
             if (MouseUpDelayMS > 0)
             {
                 Thread.Sleep(MouseUpDelayMS);
             }
-            API.PostMessage(windowHandle, WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
+            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
 
         }
 
@@ -807,9 +810,24 @@ namespace AppTestStudio
             return hi2;
         }
 
+        public static int HiLoWord(int lo, int hi)
+        {
+            return HiLoWord((short)lo,(short)hi);
+        }
+
+        public static int HiLoWord(float lo, float hi)
+        {
+            return HiLoWord((short)lo, (short)hi);
+        }
+
         public static IntPtr HiLoWordIntptr(short lo, short hi)
         {
             return new IntPtr(HiLoWord(lo, hi));
+        }
+
+        public static IntPtr HiLoWordIntptr(int lo, int hi)
+        {
+            return new IntPtr(HiLoWord((short)lo, (short)hi));
         }
 
         public static String CalculateDelay(int hour, int minute, int second, int ms)
