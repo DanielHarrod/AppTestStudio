@@ -40,6 +40,7 @@
             this.txtTerms.Location = new System.Drawing.Point(13, 13);
             this.txtTerms.Multiline = true;
             this.txtTerms.Name = "txtTerms";
+            this.txtTerms.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.txtTerms.Size = new System.Drawing.Size(1320, 722);
             this.txtTerms.TabIndex = 0;
             this.txtTerms.Text = resources.GetString("txtTerms.Text");
