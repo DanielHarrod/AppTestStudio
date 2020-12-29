@@ -116,7 +116,8 @@ namespace AppTestStudio
         XUp = 0x0100,
         Wheel = 0x0800,
         VirtualDesk = 0x4000,
-        Absolute = 0x8000
+        Absolute = 0x8000,
+        Blank = 0x0
     }
  
     public static class AnchorModeButtonColors

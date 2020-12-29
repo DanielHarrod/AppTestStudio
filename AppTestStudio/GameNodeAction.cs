@@ -981,20 +981,6 @@ namespace AppTestStudio
             y2 = y2 + RandomYEnd;
 
             GameNodeGame Game = this.GetGameNodeGame();
-            if (Game.Platform == Platform.Steam || Game.Platform == Platform.Application)
-            {
-                if (Game.IsFullScreen)
-                {
-                    // do nothing
-                }
-                else
-                {
-                    // Subtract off the Window Title height.  
-                    //This won't work very well if the window title height is different than ATS Window title height, as the value comes from ATS.
-                    y = y - Game.TitleBarHeight;
-                    y2 = y2 - Game.TitleBarHeight;
-                }
-            }
 
             Result.StartX = x;
             Result.StartY = y;
@@ -1038,19 +1024,6 @@ namespace AppTestStudio
             }
 
             GameNodeGame Game = this.GetGameNodeGame();
-            if (Game.Platform == Platform.Steam || Game.Platform == Platform.Application)
-            {
-                if (Game.IsFullScreen)
-                {
-                    // do nothing
-                }
-                else
-                {
-                    // Subtract off the Window Title height.  
-                    //This won't work very well if the window title height is different than ATS Window title height, as the value comes from ATS.
-                    yPos = yPos - Game.TitleBarHeight;
-                }
-            }
 
             Result.x = xPos;
             Result.y = yPos;

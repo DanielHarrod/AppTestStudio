@@ -61,17 +61,31 @@ namespace AppTestStudioUnitTest
         {
             IntPtr x = AppTestStudio.API.GetForegroundWindow();
 
-            int Count = AppTestStudio.Utils.MoveMouse(x, WindowsActionType.Passive, 0, 3843, 746, 1927, 784, 485);  // needs to be ~150
-            int Count2 = AppTestStudio.Utils.MoveMouse(x, WindowsActionType.Passive, 0, 1934, 784, 1927, 3848, 125);  // needs to be ~20
-            int Count3 = AppTestStudio.Utils.MoveMouse(x, WindowsActionType.Passive, 0, 1934, 784, 1927, 3848, 0);  // needs to be ~2
+            int Count = AppTestStudio.Utils.MoveMousePassive(x, 0, 3843, 746, 1927, 784, 485);  // needs to be ~150
+            int Count2 = AppTestStudio.Utils.MoveMousePassive(x, 0, 1934, 784, 1927, 3848, 125);  // needs to be ~20
+            int Count3 = AppTestStudio.Utils.MoveMousePassive(x, 0, 1934, 784, 1927, 3848, 0);  // needs to be ~2
 
         }
+
+
+
+        [TestMethod]
+        public void MouseMoveActive()
+        {
+            IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("ATS2Window", "");
+
+            int Count = AppTestStudio.Utils.MoveMouseActive(x, MouseEventFlags.Blank, 10, 10, 0);
+
+        }
+
+
+
 
 
         [TestMethod]
         public void MouseMoveTesting()
         {
-            int Count = AppTestStudio.Utils.MoveMouse(new IntPtr(0x1650a2e), WindowsActionType.Passive, 1, 740, 337, 59, 336, 500);
+            int Count = AppTestStudio.Utils.MoveMousePassive(new IntPtr(0x1650a2e), 1, 740, 337, 59, 336, 500);
 
         }
 

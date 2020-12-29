@@ -252,7 +252,6 @@ namespace AppTestStudio
             Target.PathToApplicationEXE = PathToApplicationEXE;
             Target.SteamID = SteamID;
 
-            Target.IsFullScreen = IsFullScreen;
             Target.ApplicationParameters = ApplicationParameters;
 
             Target.SteamPrimaryWindowName = SteamPrimaryWindowName;
@@ -286,8 +285,6 @@ namespace AppTestStudio
         public long VideoFrameLimit { get; set; }
         public Boolean SaveVideo { get; set; }
         public int TitleBarHeight { get; set; }
-
-        public Boolean IsFullScreen { get; set; }
 
         public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, int TitleBarHeight, ThreadManager threadManager)
         {
@@ -356,7 +353,6 @@ namespace AppTestStudio
             String SteamPrimaryWindowName = "";
             String SteamSecondaryWindowName = "";
 
-            Boolean IsFullScreen = false;
             String ApplicationParameters = "";
 
             Boolean IsBlueStacks64Bit = false;
@@ -614,19 +610,6 @@ namespace AppTestStudio
                 }
             }
 
-            //IsFullScreen
-            if (childNode.Attributes.GetNamedItem("IsFullScreen").IsSomething())
-            {
-                try
-                {
-                    IsFullScreen = Convert.ToBoolean(childNode.Attributes["IsFullScreen"].Value);
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.Message);
-                }
-            }
-
             //ApplicationParameters
             if (childNode.Attributes.GetNamedItem("ApplicationParameters").IsSomething())
             {
@@ -645,7 +628,7 @@ namespace AppTestStudio
             {
                 try
                 {
-                    IsFullScreen = Convert.ToBoolean(childNode.Attributes["IsBlueStacks64Bit"].Value);
+                    IsBlueStacks64Bit = Convert.ToBoolean(childNode.Attributes["IsBlueStacks64Bit"].Value);
                 }
                 catch (Exception ex)
                 {
@@ -681,7 +664,6 @@ namespace AppTestStudio
             Game.Platform = Platform;
             Game.SteamID = SteamID;
             Game.PathToApplicationEXE = PathToApplicationExe;
-            Game.IsFullScreen = IsFullScreen;
             Game.ApplicationParameters = ApplicationParameters;
 
             switch (Game.Platform)
@@ -781,7 +763,6 @@ namespace AppTestStudio
                     Writer.WriteAttributeString("SteamPrimaryWindowFilter", SteamPrimaryWindowFilter.ToEnumString()) ;
                     Writer.WriteAttributeString("SteamSecondaryWindowName", SteamSecondaryWindowName);
                     Writer.WriteAttributeString("SteamSecondaryWindowFilter", SteamSecondaryWindowFilter.ToEnumString());
-                    Writer.WriteAttributeString("IsFullScreen", IsFullScreen.ToString());
                     break;
                 case Platform.Application:
                     Writer.WriteAttributeString("PathToApplicationExe", PathToApplicationEXE);
@@ -789,7 +770,6 @@ namespace AppTestStudio
                     Writer.WriteAttributeString("ApplicationPrimaryWindowFilter", ApplicationPrimaryWindowFilter.ToEnumString());
                     Writer.WriteAttributeString("ApplicationSecondaryWindowName", ApplicationSecondaryWindowName);
                     Writer.WriteAttributeString("ApplicationSecondaryWindowFilter", ApplicationSecondaryWindowFilter.ToEnumString());
-                    Writer.WriteAttributeString("IsFullScreen", IsFullScreen.ToString());
                     Writer.WriteAttributeString("ApplicationParameters", ApplicationParameters);
                     break;
                 default:

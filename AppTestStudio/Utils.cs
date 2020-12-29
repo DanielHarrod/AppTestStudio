@@ -12,8 +12,11 @@ using System.Threading;
 using static AppTestStudio.API;
 using System.Runtime.InteropServices;
 
+
+
 namespace AppTestStudio
 {
+
     public static class Utils
     {
         public static void SetIcons(GameNode Node)
@@ -237,34 +240,134 @@ namespace AppTestStudio
         }
 
         public static void ClickDragRelease(IntPtr windowHandle, int startX, int startY, int endX, int endY, int VelocityMS)
-        {         
+        {
             API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, 0, Utils.HiLoWord(startX, startY));
 
             //'Send Mouse Down
             API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(startX, startY));
 
-            MoveMouse(windowHandle, WindowsActionType.Passive, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, VelocityMS);
+            MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, VelocityMS);
 
             //' Send mouse Up
             API.SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, 0, Utils.HiLoWordIntptr(endX, endY));
         }
 
-        public static int MoveMouse(IntPtr windowHandle, WindowsActionType actionType, int mouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int velocityMS)
+
+        public static int MoveMousePassive(IntPtr windowHandle, int mouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int velocityMS)
         {
-            switch (actionType)
-            {
-                case WindowsActionType.Passive:
-                    return MoveMousePassive(windowHandle, actionType, mouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)velocityMS);
-                case WindowsActionType.Active:
-                    return MoveMousePassive(windowHandle, actionType, mouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)velocityMS);
-                default:
-                    return MoveMousePassive(windowHandle, actionType, mouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)velocityMS);
-            }            
+            return MoveMousePassive(windowHandle, mouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)velocityMS);            
         }
 
-        public static int MoveMousePassive(IntPtr windowHandle, WindowsActionType actionType, int mouseKeyState, short xStart, short yStart, short xTarget, short yTarget, int velocityMS)
+        public static int MoveMouseActive(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int velocityMS)
         {
-            //Debug.WriteLine("AppTestStudio.Utils.MouseMove(new IntPtr(" + windowHandle.ToInt32() + ")," + MouseKeyState + "," + xStart + "," + yStart + "," + xTarget + "," + yTarget + "," + VelocityMS + ");");
+            //windowHandle = GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
+            API.RECT TargetWindowRectangle;
+            Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
+
+            //Debug.WriteLine("xClientTarget:" + xClientTarget);
+            //Debug.WriteLine("yClientTarget:" + yClientTarget);
+            //Debug.WriteLine("Right:" + TargetWindowRectangle.Right);
+            //Debug.WriteLine("Left:" + TargetWindowRectangle.Left);
+
+            RECT WindowFrame;
+
+            int Result = API.DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
+
+            RECT ClientRect;
+            API.GetClientRect(windowHandle, out ClientRect);
+
+            short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);
+
+            //short ySystemTarget = (short)(yClientTarget + WindowFrame.Bottom - ClientRect.Bottom);
+            short ySystemTarget = (short)(yClientTarget + +TargetWindowRectangle.Top);
+
+            GetCursorPos(out API.Point point);
+            int xStart = point.X;
+            int yStart = point.Y;
+
+            int PostCount = 0;
+            int PostEveryMS = 5;
+
+            float CurrentX = xStart;
+            float CurrentY = yStart;
+
+            int NumberOfActions = velocityMS / PostEveryMS;
+
+            int AbsoluteX = 0;
+            int AbsoluteY = 0;
+            int INPUT_MOUSE = 0;
+
+            Input MouseMove = new Input();
+
+
+            // Don't post the Start move if there's a 0ms delay
+            if (velocityMS > 0)
+            {
+
+                AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
+                AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
+
+                MouseMove.Type = INPUT_MOUSE;
+                MouseMove.u.MouseInput.X = AbsoluteX;
+                MouseMove.u.MouseInput.Y = AbsoluteY;
+                MouseMove.u.MouseInput.MouseData = 0;
+                MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
+
+                Input[] InputInitial = { MouseMove };
+                SendInput((uint)InputInitial.Length, InputInitial, Marshal.SizeOf(typeof(Input)));
+
+                PostCount++;
+            }
+
+            if (NumberOfActions > 0)
+            {
+                float XIncrement = (float)(xSystemTarget - xStart) / NumberOfActions;
+                float YIncrement = (float)(ySystemTarget - yStart) / NumberOfActions;
+                int CurrentAction = 0;
+                for (CurrentAction = 0; CurrentAction < NumberOfActions; CurrentAction++)
+                {
+                    AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
+                    AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
+
+                    MouseMove.Type = INPUT_MOUSE;
+                    MouseMove.u.MouseInput.X = AbsoluteX;
+                    MouseMove.u.MouseInput.Y = AbsoluteY;
+                    MouseMove.u.MouseInput.MouseData = 0;
+                    MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
+
+                    Input[] InputMove = { MouseMove };
+                    SendInput((uint)InputMove.Length, InputMove, Marshal.SizeOf(typeof(Input)));
+
+                    PostCount++;
+
+                    Thread.Sleep(PostEveryMS);
+
+                    CurrentX = CurrentX + XIncrement;
+                    CurrentY = CurrentY + YIncrement;
+                }
+            }
+
+            AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
+            AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
+
+            MouseMove.Type = INPUT_MOUSE;
+            MouseMove.u.MouseInput.X = AbsoluteX;
+            MouseMove.u.MouseInput.Y = AbsoluteY;
+            MouseMove.u.MouseInput.MouseData = 0;
+            MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
+
+            Input[] InputEnd = { MouseMove };
+            SendInput((uint)InputEnd.Length, InputEnd, Marshal.SizeOf(typeof(Input)));
+
+            PostCount++;
+
+            return PostCount;
+        }
+
+
+        public static int MoveMousePassive(IntPtr windowHandle, int mouseKeyState, short xStart, short yStart, short xTarget, short yTarget, int velocityMS)
+        {
+            //Debug.WriteLine("AppTestStudio.Utils.MoveMousePassive(new IntPtr(" + windowHandle.ToInt32() + ")," + actionType + "," + MouseKeyState + "," + xStart + "," + yStart + "," + xTarget + "," + yTarget + "," + VelocityMS + ");");
             int PostCount = 0;
             int PostEveryMS = 5;
 
@@ -324,12 +427,22 @@ namespace AppTestStudio
             }
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
+        static int CalculateAbsoluteCoordinateX(float x)
+        {
+            return CalculateAbsoluteCoordinateX((int)x);
+        }
         static int CalculateAbsoluteCoordinateX(int x)
         {
             int XScreen = GetSystemMetrics(SystemMetric.SM_CXSCREEN);
             return (x * 65536) / XScreen;
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
+        static int CalculateAbsoluteCoordinateY(float y)
+        {
+            return CalculateAbsoluteCoordinateY((int)y);
+        }
         static int CalculateAbsoluteCoordinateY(int y)
         {
             int YScreen = GetSystemMetrics(SystemMetric.SM_CYSCREEN);
@@ -338,10 +451,6 @@ namespace AppTestStudio
 
         public static void ClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS)
         {
-            GetCursorPos(out API.Point point);
-            Debug.WriteLine(point.X);
-            Debug.WriteLine(point.Y);
-
             API.RECT TargetWindowRectangle;
             Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
 
@@ -359,7 +468,7 @@ namespace AppTestStudio
 
             short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);
 
-            short ySystemTarget = (short)(yClientTarget + WindowFrame.Bottom - ClientRect.Bottom);
+            short ySystemTarget = (short)(yClientTarget + TargetWindowRectangle.Top);
 
             int AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
             int AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
@@ -387,7 +496,7 @@ namespace AppTestStudio
             LeftUp.u.MouseInput.Flags = (uint)(MouseEventFlags.LeftUp);
 
             Input[] Inputs = { MouseMove, LeftDown, LeftUp };
-                
+
             SendInput((uint)Inputs.Length, Inputs, Marshal.SizeOf(typeof(Input)));
         }
 
@@ -816,7 +925,7 @@ namespace AppTestStudio
             }
             else
             {
-                    Result = Result + "Failed to find BlueStacks Instance";
+                Result = Result + "Failed to find BlueStacks Instance";
             }
 
             return Result;
@@ -867,6 +976,7 @@ namespace AppTestStudio
             return Result;
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
         public static int HiLoWord(short lo, short hi)
         {
             int hi2 = hi << 16;
@@ -875,21 +985,25 @@ namespace AppTestStudio
             return hi2;
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
         public static int HiLoWord(int lo, int hi)
         {
-            return HiLoWord((short)lo,(short)hi);
+            return HiLoWord((short)lo, (short)hi);
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
         public static int HiLoWord(float lo, float hi)
         {
             return HiLoWord((short)lo, (short)hi);
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
         public static IntPtr HiLoWordIntptr(short lo, short hi)
         {
             return new IntPtr(HiLoWord(lo, hi));
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
         public static IntPtr HiLoWordIntptr(int lo, int hi)
         {
             return new IntPtr(HiLoWord((short)lo, (short)hi));
@@ -1113,5 +1227,4 @@ namespace AppTestStudio
             return FilterType;
         }
     }
-
 }

@@ -760,9 +760,6 @@ namespace AppTestStudio
             cboApplicationPrimaryWindowNameFilter.Text = gameNode.ApplicationPrimaryWindowFilter.ToEnumString();
             cboApplicationSecondaryWindowNameFilter.Text = gameNode.ApplicationSecondaryWindowFilter.ToEnumString();
 
-            chkApplicationIsFullScreen.Checked = gameNode.IsFullScreen;
-            chkIsSteamFullScreen.Checked = gameNode.IsFullScreen;
-
             foreach (BlueGuest guest in BlueRegistry.GuestList)
             {
                 if ( guest.DisplayName  == gameNode.BlueStacksWindowName )
@@ -6634,34 +6631,6 @@ namespace AppTestStudio
             {
                 GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
                 GameNode.SteamPrimaryWindowName = txtSteamPrimaryWindowName.Text.Trim();
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void chkApplicationIsFullScreen_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-                GameNode.IsFullScreen = chkApplicationIsFullScreen.Checked;
-                chkIsSteamFullScreen.Checked = chkApplicationIsFullScreen.Checked;
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void chkIsSteamFullScreen_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-                GameNode.IsFullScreen = chkIsSteamFullScreen.Checked;
-                chkApplicationIsFullScreen.Checked = chkIsSteamFullScreen.Checked;
             }
             catch (Exception ex)
             {
