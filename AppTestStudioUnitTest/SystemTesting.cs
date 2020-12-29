@@ -2,6 +2,7 @@
 using System.Diagnostics;
 using AppTestStudio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System.Runtime.InteropServices;
 using static AppTestStudio.API;
 
 namespace AppTestStudioUnitTest
@@ -9,8 +10,33 @@ namespace AppTestStudioUnitTest
     [TestClass]
     public class SystemTesting
     {
+
         [TestMethod]
-        public void TestMethod1()
+        public void SystemParametersInfoSPI_GETMOUSESPEED()
+        {
+                const int SPI_GETMOUSESPEED = 0x0070;
+
+            //int speed=0;
+            //    API.SystemParametersInfo(
+            //        SPI_GETMOUSESPEED,
+            //        0,
+            //        new IntPtr(speed),
+            //        0);
+            //    Debug.WriteLine(speed
+
+            int x=0;
+            IntPtr y = new IntPtr(x);
+
+        //Retrieves the current mouse speed.The mouse speed determines how far the pointer will move based on the distance the mouse moves.
+        //The pvParam parameter must point to an integer that receives a value which ranges between 1(slowest) and 20(fastest).
+//            A value of 10 is the default.
+  //              The value can be set by an end - user using the mouse control panel application or by an application using SPI_SETMOUSESPEED.
+        API.SystemParametersInfo(SPI_GETMOUSESPEED, 0, ref x, 0);
+
+        }
+
+        [TestMethod]
+        public void RunEveryGetSystemMetricsForLocalDebugWatch()
         {
             /*
              *         

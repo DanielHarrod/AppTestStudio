@@ -117,7 +117,7 @@ namespace AppTestStudio
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         public static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, IntPtr lParam);
-        
+
         [DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
         public static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
 
@@ -129,7 +129,7 @@ namespace AppTestStudio
 
         public static bool PostMessage(IntPtr hwnd, int Msg, int wParam, int lParam)
         {
-           return PostMessage(hwnd, (uint)Msg, wParam, lParam);
+            return PostMessage(hwnd, (uint)Msg, wParam, lParam);
         }
 
         public delegate bool EnumWindowsProc(IntPtr hWnd, ref IntPtr lParam);
@@ -202,6 +202,9 @@ namespace AppTestStudio
 
         [DllImport("dwmapi.dll")]
         public static extern int DwmGetWindowAttribute(IntPtr hwnd, DWMWINDOWATTRIBUTE dwAttribute, out RECT pvAttribute, int cbAttribute);
+
+        [DllImport("User32.dll")]
+         public static extern bool SystemParametersInfo(int uiAction, int uiParam, ref int ipParam, int fWinIni);
 
     }
 }

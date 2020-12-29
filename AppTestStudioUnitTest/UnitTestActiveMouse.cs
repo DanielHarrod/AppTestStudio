@@ -51,5 +51,92 @@ namespace AppTestStudioUnitTest
 
 
         }
+
+        [TestMethod]
+        public void MouseMove()
+        {
+            IntPtr x = AppTestStudio.API.GetForegroundWindow();
+
+            int Count = AppTestStudio.Utils.MoveMouse(x, 0, 3843, 746, 1927, 784, 485);  // needs to be ~150
+            int Count2 = AppTestStudio.Utils.MoveMouse(x, 0, 1934, 784, 1927, 3848, 125);  // needs to be ~20
+            int Count3 = AppTestStudio.Utils.MoveMouse(x, 0, 1934, 784, 1927, 3848, 0);  // needs to be ~2
+
+        }
+
+
+        [TestMethod]
+        public void MouseMoveTesting()
+        {
+            int Count = AppTestStudio.Utils.MoveMouse(new IntPtr(0x1650a2e), 1, 740, 337, 59, 336, 500);
+
+        }
+
+        [TestMethod]
+
+        public void DoIncrementalMouseMove_AutoITVersion()
+        {
+            int aX1 = 3843;
+            int aY1 = 746;
+            int aX2 = 1746;
+            int aY2 = 784;
+            int aSpeed = 32;  //(0 to 100)
+
+            int delta;
+            int INCR_MOUSE_MIN_SPEED = 32;
+            int Iterations = 0;
+            while (aX1 != aX2 || aY1 != aY2)
+            {
+                Iterations++;
+                if (aX1 < aX2)
+                {
+                    delta = (aX2 - aX1) / aSpeed;
+                    if (delta == 0 || delta < INCR_MOUSE_MIN_SPEED)
+                        delta = INCR_MOUSE_MIN_SPEED;
+                    if ((aX1 + delta) > aX2)
+                        aX1 = aX2;
+                    else
+                        aX1 += delta;
+                }
+                else
+                    if (aX1 > aX2)
+                {
+                    delta = (aX1 - aX2) / aSpeed;
+                    if (delta == 0 || delta < INCR_MOUSE_MIN_SPEED)
+                        delta = INCR_MOUSE_MIN_SPEED;
+                    if ((aX1 - delta) < aX2)
+                        aX1 = aX2;
+                    else
+                        aX1 -= delta;
+                }
+
+                if (aY1 < aY2)
+                {
+                    delta = (aY2 - aY1) / aSpeed;
+                    if (delta == 0 || delta < INCR_MOUSE_MIN_SPEED)
+                        delta = INCR_MOUSE_MIN_SPEED;
+                    if ((aY1 + delta) > aY2)
+                        aY1 = aY2;
+                    else
+                        aY1 += delta;
+                }
+                else
+                    if (aY1 > aY2)
+                {
+                    delta = (aY1 - aY2) / aSpeed;
+                    if (delta == 0 || delta < INCR_MOUSE_MIN_SPEED)
+                        delta = INCR_MOUSE_MIN_SPEED;
+                    if ((aY1 - delta) < aY2)
+                        aY1 = aY2;
+                    else
+                        aY1 -= delta;
+                }
+
+                Debug.WriteLine(Iterations + " MouseEvent(MOUSEEVENTF_MOVE | MOUSEEVENTF_ABSOLUTE, 0, " + aX1 + ", " + aY1 + ");");
+
+            }
+        }
+
+
+
     }
 }

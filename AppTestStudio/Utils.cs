@@ -249,69 +249,49 @@ namespace AppTestStudio
             API.SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, 0, Utils.HiLoWordIntptr(endX, endY));
         }
 
-        public static void MoveMouse(IntPtr windowHandle, int MouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int VelocityMS)
+        public static int MoveMouse(IntPtr windowHandle, int MouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int VelocityMS)
         {
-            MoveMouse(windowHandle, MouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)VelocityMS);
+            return MoveMouse(windowHandle, MouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)VelocityMS);
         }
 
-        public static void MoveMouse(IntPtr windowHandle, int MouseKeyState, short xStart, short yStart, short xTarget, short yTarget, int VelocityMS)
+        public static int MoveMouse(IntPtr windowHandle, int MouseKeyState, short xStart, short yStart, short xTarget, short yTarget, int VelocityMS)
         {
-            float CurrentX = (short)xStart;
-            float CurrentY = (short)yStart;
+            //Debug.WriteLine("AppTestStudio.Utils.MouseMove(new IntPtr(" + windowHandle.ToInt32() + ")," + MouseKeyState + "," + xStart + "," + yStart + "," + xTarget + "," + yTarget + "," + VelocityMS + ");");
+            int PostCount = 0;
+            int PostEveryMS = 5;
 
-            int MaxSteps = Math.Abs(xTarget - xStart);
+            float CurrentX = xStart;
+            float CurrentY = yStart;
 
-            if (Math.Abs(yTarget - yStart) > MaxSteps)
-            {
-                MaxSteps = Math.Abs(yTarget - yStart);
-            }
+            int NumberOfActions = VelocityMS / PostEveryMS;
 
-            float XIncrement = (float)(xTarget - xStart) / MaxSteps;
-            float YIncrement = (float)(yTarget - yStart) / MaxSteps;
-
-            int SleepTime = 1;
-            int SkipEvery = 0;
-            if (MaxSteps < VelocityMS)
-            {
-                if (MaxSteps > 0)
-                {
-                    SleepTime = VelocityMS / MaxSteps;
-                }
-            }
-            else
-            {
-                SleepTime = 1;
-                if (VelocityMS > 0)
-                {
-                    SkipEvery = MaxSteps / VelocityMS;
-                }
-            }
-
-            int CurrentSkipEvery = SkipEvery;
-
-            for (int i = 0; i < MaxSteps-1; i++)
+            // Don't post the Start move if there's a 0ms delay
+            if (VelocityMS > 0)
             {
                 API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, MouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
-                if (SkipEvery > 0)
-                {
-                    if (CurrentSkipEvery == 0)
-                    {
-                        Thread.Sleep(SleepTime);
-                        CurrentSkipEvery = SkipEvery;
-                    }
-                    else if (CurrentSkipEvery > 0)
-                    {
-                        CurrentSkipEvery--;
-                    }
-                }
-                else
-                {
-                    Thread.Sleep(SleepTime);
-                }
-                CurrentX = CurrentX + XIncrement;
-                CurrentY = CurrentY + YIncrement;
+                PostCount++;
             }
+
+            if (NumberOfActions > 0)
+            {
+                float XIncrement = (float)(xTarget - xStart) / NumberOfActions;
+                float YIncrement = (float)(yTarget - yStart) / NumberOfActions;
+                int CurrentAction = 0;
+                for (CurrentAction = 0; CurrentAction < NumberOfActions; CurrentAction++)
+                {
+                    API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, MouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
+                    PostCount++;
+
+                    Thread.Sleep(PostEveryMS);
+
+                    CurrentX = CurrentX + XIncrement;
+                    CurrentY = CurrentY + YIncrement;
+                }
+            }
+
             API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, MouseKeyState, Utils.HiLoWord(xTarget, yTarget));
+            PostCount++;
+            return PostCount;
         }
 
         public static void ClickOnWindow(IntPtr windowHandle, WindowsActionType actionType, int xTarget, int yTarget, int mouseUpDelayMS)
