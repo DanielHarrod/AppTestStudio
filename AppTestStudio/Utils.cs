@@ -243,18 +243,26 @@ namespace AppTestStudio
             //'Send Mouse Down
             API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(startX, startY));
 
-            MoveMouse(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, VelocityMS);
+            MoveMouse(windowHandle, WindowsActionType.Passive, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, VelocityMS);
 
             //' Send mouse Up
             API.SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, 0, Utils.HiLoWordIntptr(endX, endY));
         }
 
-        public static int MoveMouse(IntPtr windowHandle, int MouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int VelocityMS)
+        public static int MoveMouse(IntPtr windowHandle, WindowsActionType actionType, int mouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int velocityMS)
         {
-            return MoveMouse(windowHandle, MouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)VelocityMS);
+            switch (actionType)
+            {
+                case WindowsActionType.Passive:
+                    return MoveMousePassive(windowHandle, actionType, mouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)velocityMS);
+                case WindowsActionType.Active:
+                    return MoveMousePassive(windowHandle, actionType, mouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)velocityMS);
+                default:
+                    return MoveMousePassive(windowHandle, actionType, mouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)velocityMS);
+            }            
         }
 
-        public static int MoveMouse(IntPtr windowHandle, int MouseKeyState, short xStart, short yStart, short xTarget, short yTarget, int VelocityMS)
+        public static int MoveMousePassive(IntPtr windowHandle, WindowsActionType actionType, int mouseKeyState, short xStart, short yStart, short xTarget, short yTarget, int velocityMS)
         {
             //Debug.WriteLine("AppTestStudio.Utils.MouseMove(new IntPtr(" + windowHandle.ToInt32() + ")," + MouseKeyState + "," + xStart + "," + yStart + "," + xTarget + "," + yTarget + "," + VelocityMS + ");");
             int PostCount = 0;
@@ -263,12 +271,12 @@ namespace AppTestStudio
             float CurrentX = xStart;
             float CurrentY = yStart;
 
-            int NumberOfActions = VelocityMS / PostEveryMS;
+            int NumberOfActions = velocityMS / PostEveryMS;
 
             // Don't post the Start move if there's a 0ms delay
-            if (VelocityMS > 0)
+            if (velocityMS > 0)
             {
-                API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, MouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
+                API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
                 PostCount++;
             }
 
@@ -279,7 +287,7 @@ namespace AppTestStudio
                 int CurrentAction = 0;
                 for (CurrentAction = 0; CurrentAction < NumberOfActions; CurrentAction++)
                 {
-                    API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, MouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
+                    API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
                     PostCount++;
 
                     Thread.Sleep(PostEveryMS);
@@ -289,11 +297,12 @@ namespace AppTestStudio
                 }
             }
 
-            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, MouseKeyState, Utils.HiLoWord(xTarget, yTarget));
+            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(xTarget, yTarget));
             PostCount++;
             return PostCount;
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
         public static void ClickOnWindow(IntPtr windowHandle, WindowsActionType actionType, int xTarget, int yTarget, int mouseUpDelayMS)
         {
             ClickOnWindow(windowHandle, actionType, (short)xTarget, (short)yTarget, mouseUpDelayMS);
