@@ -89,9 +89,7 @@ namespace AppTestStudio
                             frm.Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             Debug.WriteLine("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
 
-                            short xMouseStart = (short)( PictureBoxSearchArea.Image.Width / 2);
-                            short yMouseStart = (short)(PictureBoxSearchArea.Image.Height / 2);
-                            Utils.ClickOnWindow(MainWindowHandle, xMouseStart, yMouseStart, (short)RangeClickResult.x, (short)RangeClickResult.y, Node.ClickSpeed);
+                            Utils.ClickOnWindow(MainWindowHandle, WindowsActionType.Passive, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed);
                             break;
                         case AppTestStudio.Mode.ClickDragRelease:
                             GameNodeAction.ClickDragReleaseResult ClickDragReleaseResult = Node.CalculateClickDragReleaseResult(CenterX, CenterY);

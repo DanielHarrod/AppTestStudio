@@ -25,3 +25,15 @@
         "C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android
         "C:\Program Files\BlueStacks_bgp64\Bluestacks.exe" -vmname Android_1
 
+        Variations on MouseInput
+        https://stackoverflow.com/questions/33319485/how-to-simulate-a-mouse-click-without-interfering-with-actual-mouse-in-python
+        https://myprogrammingnotes.com/simulate-mouse-click-using-sendinput.html
+        https://gist.github.com/Harmek/1263705
+        https://stackoverflow.com/questions/8021954/sendinput-doesnt-perform-click-mouse-button-unless-i-move-cursor
+        https://www.codeproject.com/Articles/5264831/How-to-Send-Inputs-using-Csharp
+
+        Interesting License
+        https://www.codeproject.com/info/cpol10.aspx
+
+        May be suffering from this
+        https://stackoverflow.com/questions/34139450/getwindowrect-returns-a-size-including-invisible-borders

@@ -9,6 +9,8 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
+using static AppTestStudio.API;
+using System.Runtime.InteropServices;
 
 namespace AppTestStudio
 {
@@ -312,22 +314,96 @@ namespace AppTestStudio
             API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, MouseKeyState, Utils.HiLoWord(xTarget, yTarget));
         }
 
-        public static void ClickOnWindow(IntPtr windowHandle, short xStart, short yStart, short xTarget, short yTarget, int MouseUpDelayMS)
+        public static void ClickOnWindow(IntPtr windowHandle, WindowsActionType actionType, int xTarget, int yTarget, int mouseUpDelayMS)
         {
+            ClickOnWindow(windowHandle, actionType, (short)xTarget, (short)yTarget, mouseUpDelayMS);
+        }
+        public static void ClickOnWindow(IntPtr windowHandle, WindowsActionType windowsActionType, short xTarget, short yTarget, int mouseUpDelayMS)
+        {
+            windowsActionType = WindowsActionType.Passive;
+            switch (windowsActionType)
+            {
+                case WindowsActionType.Passive:
+                    ClickOnWindowPassiveMode(windowHandle, xTarget, yTarget, mouseUpDelayMS);
+                    break;
+                case WindowsActionType.Active:
+                    ClickOnWindowActiveMode(windowHandle, xTarget, yTarget, mouseUpDelayMS);
+                    break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+        }
 
-            //' PostMessage(WindowHandle, Definitions.WM_MOUSEMOVE, 0, getHiLoWord(X, Y))
-            //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(1, Definitions.WM_MOUSEMOVE))
-            //'Thread.Sleep(25)
+        static int CalculateAbsoluteCoordinateX(int x)
+        {
+            int XScreen = GetSystemMetrics(SystemMetric.SM_CXSCREEN);
+            return (x * 65536) / XScreen;
+        }
 
-            //'SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(1, WM_LBUTTONDOWN))
+        static int CalculateAbsoluteCoordinateY(int y)
+        {
+            int YScreen = GetSystemMetrics(SystemMetric.SM_CYSCREEN);
+            return (y * 65536) / YScreen;
+        }
 
-            MoveMouse(windowHandle, Definitions.MouseKeyStates.MK_NONE, xStart, yStart, xTarget, yTarget, 0);
+        public static void ClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS)
+        {
+            GetCursorPos(out API.Point point);
+            Debug.WriteLine(point.X);
+            Debug.WriteLine(point.Y);
 
-            ClickOnWindow(windowHandle, xTarget, yTarget, MouseUpDelayMS);
+            API.RECT TargetWindowRectangle;
+            Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
+
+            Debug.WriteLine("xClientTarget:" + xClientTarget);
+            Debug.WriteLine("yClientTarget:" + yClientTarget);
+            Debug.WriteLine("Right:" + TargetWindowRectangle.Right);
+            Debug.WriteLine("Left:" + TargetWindowRectangle.Left);
+
+            RECT WindowFrame;
+
+            int Result = API.DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
+
+            RECT ClientRect;
+            API.GetClientRect(windowHandle, out ClientRect);
+
+            short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);
+
+            short ySystemTarget = (short)(yClientTarget + WindowFrame.Bottom - ClientRect.Bottom);
+
+            int AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
+            int AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
+
+            int INPUT_MOUSE = 0;
+            Input MouseMove = new Input();
+            MouseMove.Type = INPUT_MOUSE;
+            MouseMove.u.MouseInput.X = AbsoluteX;
+            MouseMove.u.MouseInput.Y = AbsoluteY;
+            MouseMove.u.MouseInput.MouseData = 0;
+            MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute);
+
+            Input LeftDown = new Input();
+            LeftDown.Type = INPUT_MOUSE;
+            LeftDown.u.MouseInput.X = AbsoluteX;
+            LeftDown.u.MouseInput.Y = AbsoluteY;
+            LeftDown.u.MouseInput.MouseData = 0;
+            LeftDown.u.MouseInput.Flags = (uint)(MouseEventFlags.LeftDown);
+
+            Input LeftUp = new Input();
+            LeftUp.Type = INPUT_MOUSE;
+            LeftUp.u.MouseInput.X = AbsoluteX;
+            LeftUp.u.MouseInput.Y = AbsoluteY;
+            LeftUp.u.MouseInput.MouseData = 0;
+            LeftUp.u.MouseInput.Flags = (uint)(MouseEventFlags.LeftUp);
+
+            Input[] Inputs = { MouseMove, LeftDown, LeftUp };
+                
+            SendInput((uint)Inputs.Length, Inputs, Marshal.SizeOf(typeof(Input)));
         }
 
 
-        public static void ClickOnWindow(IntPtr windowHandle, short xTarget, short yTarget, int MouseUpDelayMS)
+        public static void ClickOnWindowPassiveMode(IntPtr windowHandle, short xTarget, short yTarget, int mouseUpDelayMS)
         {
             //' PostMessage(WindowHandle, Definitions.WM_MOUSEMOVE, 0, getHiLoWord(X, Y))
             //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(HTCLIENT, Definitions.WM_MOUSEMOVE))
@@ -335,12 +411,12 @@ namespace AppTestStudio
             //IntPtr lParam = Utils.HiLoWordIntptr(HTCLIENT, WM_LBUTTONDOWN);
             // API.SendMessage(windowHandle, WM_SETCURSOR, windowHandle.ToInt32(), lParam);
 
-            //API.PostMessage(windowHandle, Definitions.WM_MOUSEMOVE, 0, Utils.HiLoWord(xTarget, yTarget));
+            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, 0, Utils.HiLoWord(xTarget, yTarget));
 
             API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(xTarget, yTarget));
-            if (MouseUpDelayMS > 0)
+            if (mouseUpDelayMS > 0)
             {
-                Thread.Sleep(MouseUpDelayMS);
+                Thread.Sleep(mouseUpDelayMS);
             }
             API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
 

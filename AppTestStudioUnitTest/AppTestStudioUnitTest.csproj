@@ -54,6 +54,7 @@
     <Compile Include="ClickDragRelease.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SystemTesting.cs" />
+    <Compile Include="UnitTestActiveMouse.cs" />
     <Compile Include="UnitTestSodaDungeon.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -194,29 +194,26 @@ namespace AppTestStudio
 
         private void ShowTermsOfServiceIfNecessary()
         {
-            String RegistryKey = @"HKEY_CURRENT_USER\SOFTWARE\App Test Studio\";
-            String RegistryValue = "TermsDate";
-            Object TermsDate = Registry.GetValue(RegistryKey, RegistryValue, "");
-            if (TermsDate.IsSomething())
-            {
-                DateTime Value = DateTime.MinValue;
-                if (DateTime.TryParse(TermsDate.ToString(), out Value))                    
-                {
-                    return;
-                }
-            }
+            //String RegistryKey = @"HKEY_CURRENT_USER\SOFTWARE\App Test Studio\";
+            //String RegistryValue = "TermsDate";
+            //Object TermsDate = Registry.GetValue(RegistryKey, RegistryValue, "");
+            //if (TermsDate.IsSomething())
+            //{
+            //    DateTime Value = DateTime.MinValue;
+            //    if (DateTime.TryParse(TermsDate.ToString(), out Value))                    
+            //    {
+            //        return;
+            //    }
+            //}
 
-            frmTerms terms = new frmTerms();
-            terms.ShowDialog();
-
-            if (terms.IsAgree )
-            {
-                Registry.SetValue(RegistryKey, RegistryValue, DateTime.Now.ToString());
-            }
-            else
-            {
-                Application.Exit();
-            }
+            //if (terms.IsAgree )
+            //{
+            //    Registry.SetValue(RegistryKey, RegistryValue, DateTime.Now.ToString());
+            //}
+            //else
+            //{
+            //    Application.Exit();
+            //}
         }
 
         private void LoadSchedule()
@@ -2915,10 +2912,7 @@ namespace AppTestStudio
                                     Failed = true;
                                 }
 
-                                short xStart = (short)(bmp.Width / 2);
-                                short yStart = (short)(bmp.Height / 2);
-
-                                Utils.ClickOnWindow(MainWindowHandle, xStart, yStart, (short)Result.x, (short)Result.y, ActionNode.ClickSpeed);
+                                Utils.ClickOnWindow(MainWindowHandle, WindowsActionType.Passive, (short)Result.x, (short)Result.y, ActionNode.ClickSpeed);
                                 Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }

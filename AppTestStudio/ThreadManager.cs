@@ -83,23 +83,26 @@ namespace AppTestStudio
 
         public void Save()
         {
-            String FileName = GetFileName();
+			if (LoadThreadManager.IsSomething())
+			{
+				String FileName = GetFileName();
 
-            StreamWriter SR = new StreamWriter(FileName);
-            XmlSerializer Serializer = new XmlSerializer(this.GetType());
+				StreamWriter SR = new StreamWriter(FileName);
+				XmlSerializer Serializer = new XmlSerializer(this.GetType());
 
-			ClickCount += LoadThreadManager.ClickCount;
-			WaitLength += LoadThreadManager.WaitLength;
-			ScreenShots += LoadThreadManager.ScreenShots;
-			GoHome += LoadThreadManager.GoHome;
-			GoContinue += LoadThreadManager.GoContinue;
-			GoChild += LoadThreadManager.GoChild;
-			RNG += LoadThreadManager.RNG;
-			AppLaunches += LoadThreadManager.AppLaunches;			
+				ClickCount += LoadThreadManager.ClickCount;
+				WaitLength += LoadThreadManager.WaitLength;
+				ScreenShots += LoadThreadManager.ScreenShots;
+				GoHome += LoadThreadManager.GoHome;
+				GoContinue += LoadThreadManager.GoContinue;
+				GoChild += LoadThreadManager.GoChild;
+				RNG += LoadThreadManager.RNG;
+				AppLaunches += LoadThreadManager.AppLaunches;
 
-            Serializer.Serialize(SR, this);
-            SR.Close();
-			SR.Dispose();
+				Serializer.Serialize(SR, this);
+				SR.Close();
+				SR.Dispose();
+			}
         }
 		
 		private long mClickCount;

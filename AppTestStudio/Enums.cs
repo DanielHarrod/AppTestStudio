@@ -6,13 +6,13 @@ using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Caching;
 
 namespace AppTestStudio
 {
-
-
 
     public enum Platform
     {
@@ -20,6 +20,13 @@ namespace AppTestStudio
         BlueStacks,
         Steam,
         Application
+    }
+
+
+    public enum WindowsActionType
+    {
+        Passive,
+        Active
     }
 
     public enum WindowNameFilterType
@@ -94,6 +101,24 @@ namespace AppTestStudio
         Default = Left | Top
     }
 
+
+    [Flags]
+    public enum MouseEventFlags : uint
+    {
+        Move = 0x0001,
+        LeftDown = 0x0002,
+        LeftUp = 0x0004,
+        RightDown = 0x0008,
+        RightUp = 0x0010,
+        MiddleDown = 0x0020,
+        MiddleUp = 0x0040,
+        XDown = 0x0080,
+        XUp = 0x0100,
+        Wheel = 0x0800,
+        VirtualDesk = 0x4000,
+        Absolute = 0x8000
+    }
+ 
     public static class AnchorModeButtonColors
     {
         public static Color EnabledColor()

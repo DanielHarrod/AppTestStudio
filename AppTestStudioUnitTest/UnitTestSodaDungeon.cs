@@ -15,7 +15,7 @@ namespace AppTestStudioUnitTest
 
             Bitmap b = AppTestStudio.Utils.GetBitmapFromWindowHandle(k);
 
-            AppTestStudio.Utils.ClickOnWindow(k, 100, 100, 0);
+            AppTestStudio.Utils.ClickOnWindowPassiveMode(k, 100, 100, 0);
         }
 
 
