@@ -11,8 +11,7 @@ using System.Windows.Forms;
 using System.Threading;
 using static AppTestStudio.API;
 using System.Runtime.InteropServices;
-
-
+using System.Threading.Tasks;
 
 namespace AppTestStudio
 {
@@ -1225,6 +1224,21 @@ namespace AppTestStudio
             }
 
             return FilterType;
+        }
+
+        public async static void ShowInactiveTopmostFormCenterScreen(Form frm)
+        {
+            const int SW_SHOWNOACTIVATE = 4;
+            const int HWND_TOPMOST = -1;
+            const uint SWP_NOACTIVATE = 0x0010;
+            API.ShowWindow(frm.Handle, SW_SHOWNOACTIVATE);
+            int Left = (Screen.PrimaryScreen.WorkingArea.Width - frm.Width) / 2;
+            int Top = (Screen.PrimaryScreen.WorkingArea.Height - frm.Height) / 2;
+
+            API.SetWindowPos(frm.Handle, new IntPtr(HWND_TOPMOST), Left, Top, frm.Width, frm.Height, SWP_NOACTIVATE);
+            await Task.Run(() => 
+                Thread.Sleep(1000)
+            );
         }
     }
 }

@@ -3,6 +3,7 @@
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudioControls;
+using Gma.System.MouseKeyHook;
 using Microsoft.Win32;
 using System;
 using System.Collections;
@@ -15,6 +16,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading;
@@ -118,11 +120,12 @@ namespace AppTestStudio
         private void frmMain_Load(object sender, EventArgs e)
         {
 
+
             ShowTermsOfServiceIfNecessary();
 
             ThreadManager.Load();
             InitializeToolbars();
-
+            SubscribeGlobalMouseKeyHook();
             FirstFormost();
             InitializedInstances();
 
@@ -5691,6 +5694,7 @@ namespace AppTestStudio
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
+            UnsubscribeGlobalMouseKeyHook();
             try
             {
                 Visible = false;
@@ -6966,6 +6970,85 @@ namespace AppTestStudio
                     }
                 }
             }
+        }
+
+        private IKeyboardMouseEvents GlobalMouseKeyHook;
+
+        public void SubscribeGlobalMouseKeyHook()
+        {
+            // Note: for the application hook, use the Hook.AppEvents() instead
+            GlobalMouseKeyHook = Hook.GlobalEvents();
+
+            // GlobalMouseKeyHook.MouseDownExt += GlobalHookMouseDownExt;
+            //GlobalMouseKeyHook.KeyPress += GlobalMouseKeyHook_KeyPress;
+            GlobalMouseKeyHook.KeyDown += GlobalMouseKeyHook_KeyDown;
+            //GlobalMouseKeyHook.KeyUp += GlobalMouseKeyHook_KeyUp;
+        }
+
+        //private void GlobalMouseKeyHook_KeyPress(object sender, KeyPressEventArgs e)
+        //{
+        //    Debug.WriteLine("GlobalMouseKeyHook_KeyPress:"+ e.KeyChar);
+        //}
+
+        //private void GlobalMouseKeyHook_KeyUp(object sender, KeyEventArgs e)
+        //{
+        //    Debug.WriteLine("GlobalMouseKeyHook_KeyUp:" + e.ToString());
+        //}
+
+
+        Boolean IsNotifying = false;
+
+        frmNotify frmNotify;
+        private void GlobalMouseKeyHook_KeyDown(object sender, KeyEventArgs e)
+        {
+            if  ( e.KeyData.HasFlag( Keys.Control | Keys.Shift | Keys.Alt | Keys.Escape ))
+            {
+                Debug.WriteLine("The Claw + Escape");
+                e.Handled = true;
+
+                if (IsNotifying == false)
+                {
+                    IsNotifying = true;
+
+                    frmNotify = new frmNotify();
+                    frmNotify.LetsQuit += FrmNotify_LetsQuit;
+                    
+                    Utils.ShowInactiveTopmostFormCenterScreen(frmNotify);
+                }
+            }
+            //Debug.WriteLine("GlobalMouseKeyHook_KeyDown:" + e.KeyData);
+        }
+
+        private void FrmNotify_LetsQuit(object sender, EventArgs e)
+        {
+            frmNotify.Dispose();
+            frmNotify = null;
+            IsNotifying = false;
+        }
+
+        private void Notify_threadDone(object sender, EventArgs e)
+        {
+            IsNotifying = false;
+            Debug.WriteLine("Notify_threadDone");
+        }
+
+        //private void GlobalHookMouseDownExt(object sender, MouseEventExtArgs e)
+        //{
+        //    Debug.WriteLine("MouseDown: \t{0}; \t System Timestamp: \t{1}", e.Button, e.Timestamp);
+
+        //    // uncommenting the following line will suppress the middle mouse button click
+        //    // if (e.Buttons == MouseButtons.Middle) { e.Handled = true; }
+        //}
+
+        public void UnsubscribeGlobalMouseKeyHook()
+        {
+            //GlobalMouseKeyHook.MouseDownExt -= GlobalHookMouseDownExt;
+            //GlobalMouseKeyHook.KeyPress -= GlobalMouseKeyHook_KeyPress;
+            GlobalMouseKeyHook.KeyDown += GlobalMouseKeyHook_KeyDown;
+            //GlobalMouseKeyHook.KeyUp += GlobalMouseKeyHook_KeyUp;
+
+            //It is recommened to dispose it
+            GlobalMouseKeyHook.Dispose();
         }
     }
 }

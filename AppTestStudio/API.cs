@@ -205,7 +205,13 @@ namespace AppTestStudio
         public static extern int DwmGetWindowAttribute(IntPtr hwnd, DWMWINDOWATTRIBUTE dwAttribute, out RECT pvAttribute, int cbAttribute);
 
         [DllImport("User32.dll")]
-         public static extern bool SystemParametersInfo(int uiAction, int uiParam, ref int ipParam, int fWinIni);
+        public static extern bool SystemParametersInfo(int uiAction, int uiParam, ref int ipParam, int fWinIni);
+
+        [DllImport("user32.dll")]
+        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
+        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
     }
 }

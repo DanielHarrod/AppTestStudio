@@ -13,7 +13,6 @@ using System.Web.Caching;
 
 namespace AppTestStudio
 {
-
     public enum Platform
     {
         NoxPlayer,
@@ -21,7 +20,6 @@ namespace AppTestStudio
         Steam,
         Application
     }
-
 
     public enum WindowsActionType
     {

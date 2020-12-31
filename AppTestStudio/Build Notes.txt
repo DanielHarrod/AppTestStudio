@@ -38,6 +38,18 @@
 
         Interesting License
         https://www.codeproject.com/info/cpol10.aspx
+        It appears I can't use anything using with this license as it has restrictions.
 
         May be suffering from this
         https://stackoverflow.com/questions/34139450/getwindowrect-returns-a-size-including-invisible-borders
+
+        Threaded stuff
+        https://stackoverflow.com/questions/1584062/how-can-i-wait-for-a-thread-to-finish-with-net
+
+        MultiForm
+        https://stackoverflow.com/questions/9462592/best-practices-for-multi-form-applications-to-show-and-hide-forms
+        https://docs.microsoft.com/en-us/dotnet/api/system.windows.forms.applicationcontext?redirectedfrom=MSDN&view=net-5.0
+
+
+        https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-publish-events-that-conform-to-net-framework-guidelines
+
