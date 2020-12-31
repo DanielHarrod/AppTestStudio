@@ -134,8 +134,12 @@ namespace AppTestStudio
                 cboPlatform.Items.Add(platform.ToString());
             }
 
-            TitleBarHeight = this.RectangleToScreen(this.ClientRectangle).Top - this.Top;
+            foreach (ClickMode clickMode in Enum.GetValues(typeof(ClickMode)))
+            {
+                cboClickMode.Items.Add(clickMode.ToString());
+            }
 
+            TitleBarHeight = this.RectangleToScreen(this.ClientRectangle).Top - this.Top;
             InitialPanelRightColorAtPointerHeight = panelRightColorAtPointer.Height;
 
             InitialPanelRightLimitHeight = panelRightLimit.Height;
@@ -472,7 +476,8 @@ namespace AppTestStudio
                 try
                 {
                     String FileName = openDLG.FileName;
-                    GameNodeGame Game = GameNodeGame.LoadGameFromFile(FileName, false, TitleBarHeight, ThreadManager);
+                    const Boolean LoadBitmaps = false;
+                    GameNodeGame Game = GameNodeGame.LoadGameFromFile(FileName, LoadBitmaps, ThreadManager);
 
                     if (Game.IsSomething())
                     {
@@ -491,10 +496,9 @@ namespace AppTestStudio
         private void LoadGameToTree(GameNodeGame game)
         {
             ThreadManager.IncrementTestLoaded();
+
             GameNode gt = WorkspaceNode;
-
             gt.Nodes.Clear();
-
             gt.Nodes.Add(game);
 
             game.EnsureVisible();
@@ -762,6 +766,8 @@ namespace AppTestStudio
             txtApplicationSecondaryWindowName.Text = gameNode.ApplicationSecondaryWindowName;
             cboApplicationPrimaryWindowNameFilter.Text = gameNode.ApplicationPrimaryWindowFilter.ToEnumString();
             cboApplicationSecondaryWindowNameFilter.Text = gameNode.ApplicationSecondaryWindowFilter.ToEnumString();
+
+            cboClickMode.Text = gameNode.ClickMode.ToString();
 
             foreach (BlueGuest guest in BlueRegistry.GuestList)
             {
@@ -2913,7 +2919,7 @@ namespace AppTestStudio
                                     Failed = true;
                                 }
 
-                                Utils.ClickOnWindow(MainWindowHandle, WindowsActionType.Passive, (short)Result.x, (short)Result.y, ActionNode.ClickSpeed);
+                                Utils.ClickOnWindow(MainWindowHandle, ClickMode.Passive, (short)Result.x, (short)Result.y, ActionNode.ClickSpeed);
                                 Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }
@@ -4394,7 +4400,8 @@ namespace AppTestStudio
 
             if (System.IO.File.Exists(si.AppPath))
             {
-                GameNodeGame Game = GameNodeGame.LoadGameFromFile(si.AppPath, false, TitleBarHeight, ThreadManager);
+                const Boolean LoadBitmaps = false;
+                GameNodeGame Game = GameNodeGame.LoadGameFromFile(si.AppPath, LoadBitmaps, ThreadManager);
 
                 if (Game.IsSomething())
                 {
@@ -5074,7 +5081,7 @@ namespace AppTestStudio
 
         private GameNodeGame AddNewGameToTree(string applicationName, string targetFileName, Platform platform)
         {
-            GameNodeGame NewGame = new GameNodeGame(applicationName, TitleBarHeight, ThreadManager);
+            GameNodeGame NewGame = new GameNodeGame(applicationName, ThreadManager);
 
             WorkspaceNode.Nodes.Add(NewGame);
             NewGame.FileName = targetFileName;
@@ -5296,7 +5303,8 @@ namespace AppTestStudio
                     XmlDocument doc = new XmlDocument();
                     doc.LoadXml(XMLATS);
 
-                    GameNodeGame Game = GameNodeGame.LoadGame(doc.DocumentElement.SelectSingleNode("//App"), TargetFolder + @"\Default.xml", NewGameName, true, TitleBarHeight, ThreadManager);
+                    const Boolean LoadBitmaps = true;
+                    GameNodeGame Game = GameNodeGame.LoadGame(doc.DocumentElement.SelectSingleNode("//App"), TargetFolder + @"\Default.xml", NewGameName, LoadBitmaps, ThreadManager);
                     Game.FileName = Utils.GetApplicationFolder() + @"\" + NewGameName + @"\Default.xml";
 
                     Game.GameNodeName = NewGameName;
@@ -5308,7 +5316,8 @@ namespace AppTestStudio
 
                     Writer.WriteStartElement("AppTestStudio");  // Root.
 
-                    Game.SaveGame(Writer, ThreadManager, tv, false);
+                    Boolean UseMinimalSavingMethods = false;
+                    Game.SaveGame(Writer, ThreadManager, tv, UseMinimalSavingMethods);
                     Writer.WriteEndElement();
                     Writer.WriteEndDocument();
                     Writer.Close();
@@ -7112,6 +7121,30 @@ namespace AppTestStudio
 
             //It is recommened to dispose it
             GlobalMouseKeyHook.Dispose();
+        }
+
+        private void cboClickMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                switch (cboClickMode.Text)
+                {
+                    case "Active":
+                        GameNode.ClickMode = ClickMode.Active;
+                        break;
+                    case "Passive":
+                        GameNode.ClickMode = ClickMode.Passive;
+                        break;
+                    default:
+                        GameNode.ClickMode = ClickMode.Passive;
+                        break;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
         }
     }
 }

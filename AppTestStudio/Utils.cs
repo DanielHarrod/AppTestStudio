@@ -15,7 +15,6 @@ using System.Threading.Tasks;
 
 namespace AppTestStudio
 {
-
     public static class Utils
     {
         public static void SetIcons(GameNode Node)
@@ -405,19 +404,19 @@ namespace AppTestStudio
         }
 
         [System.Diagnostics.DebuggerStepThrough]
-        public static void ClickOnWindow(IntPtr windowHandle, WindowsActionType actionType, int xTarget, int yTarget, int mouseUpDelayMS)
+        public static void ClickOnWindow(IntPtr windowHandle, ClickMode actionType, int xTarget, int yTarget, int mouseUpDelayMS)
         {
             ClickOnWindow(windowHandle, actionType, (short)xTarget, (short)yTarget, mouseUpDelayMS);
         }
-        public static void ClickOnWindow(IntPtr windowHandle, WindowsActionType windowsActionType, short xTarget, short yTarget, int mouseUpDelayMS)
+        public static void ClickOnWindow(IntPtr windowHandle, ClickMode windowsActionType, short xTarget, short yTarget, int mouseUpDelayMS)
         {
-            windowsActionType = WindowsActionType.Passive;
+            windowsActionType = ClickMode.Passive;
             switch (windowsActionType)
             {
-                case WindowsActionType.Passive:
+                case ClickMode.Passive:
                     ClickOnWindowPassiveMode(windowHandle, xTarget, yTarget, mouseUpDelayMS);
                     break;
-                case WindowsActionType.Active:
+                case ClickMode.Active:
                     ClickOnWindowActiveMode(windowHandle, xTarget, yTarget, mouseUpDelayMS);
                     break;
                 default:

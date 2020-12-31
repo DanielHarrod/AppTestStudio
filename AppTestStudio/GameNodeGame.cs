@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -22,7 +23,7 @@ namespace AppTestStudio
 {
     public class GameNodeGame : GameNode
     {
-        public GameNodeGame(String name, int titleBarHeight, ThreadManager threadManager) : base(name, GameNodeType.Game)
+        public GameNodeGame(String name, ThreadManager threadManager) : base(name, GameNodeType.Game)
         {            
             StatusControl = new ConcurrentQueue<AppTestStudioStatusControlItem>();
             MinimalBitmapClones = new ConcurrentQueue<MinimalBitmapNode>();
@@ -37,7 +38,6 @@ namespace AppTestStudio
             DefaultClickSpeed = 0;
             DPI = 192;
             Platform = Platform.NoxPlayer;
-            TitleBarHeight = titleBarHeight;
             PackageName = "";
 
             ApplicationPrimaryWindowFilter = WindowNameFilterType.Equals;
@@ -54,6 +54,8 @@ namespace AppTestStudio
             ThreadManager = threadManager;
 
             BlueStacksWindowName = "";
+
+
 
             IsPaused = false;
         }
@@ -229,7 +231,7 @@ namespace AppTestStudio
 
         public GameNodeGame CloneMe()
         {
-            GameNodeGame Target = new GameNodeGame(Name, TitleBarHeight, ThreadManager);
+            GameNodeGame Target = new GameNodeGame(Name, ThreadManager);
 
             Target.TargetGameBuild = TargetGameBuild;
             Target.LoopDelay = LoopDelay;
@@ -267,6 +269,8 @@ namespace AppTestStudio
             Target.BlueStacksWindowName = BlueStacksWindowName;
             Target.IsBlueStacks64Bit = IsBlueStacks64Bit;
 
+            Target.ClickMode = ClickMode;
+
             if (BlueGuest.IsSomething())
             {
                 Target.BlueGuest = BlueGuest.CloneMe();
@@ -284,9 +288,10 @@ namespace AppTestStudio
         public long ScreenShotsTaken { get; set; }
         public long VideoFrameLimit { get; set; }
         public Boolean SaveVideo { get; set; }
-        public int TitleBarHeight { get; set; }
 
-        public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, int TitleBarHeight, ThreadManager threadManager)
+        public ClickMode ClickMode { get; set; }
+
+        public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, ThreadManager threadManager)
         {
             GameNodeGame Game = null;
             XmlDocument Document = new XmlDocument();
@@ -295,13 +300,13 @@ namespace AppTestStudio
             if (Document.DocumentElement.SelectSingleNode("//App").IsSomething())
             {
                 XmlNode ChildNode = Document.DocumentElement.SelectSingleNode("//App");
-                Game = LoadGame(ChildNode, fileName, "", loadBitmaps, TitleBarHeight, threadManager);
+                Game = LoadGame(ChildNode, fileName, "", loadBitmaps, threadManager);
             }
 
             return Game;
         }
 
-        public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps, int titleBarHeight, ThreadManager threadManager)
+        public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps, ThreadManager threadManager)
         {
             String GameName = "";
 
@@ -341,6 +346,8 @@ namespace AppTestStudio
             Platform Platform = Platform.NoxPlayer;
             long SteamID = 0;
             String PathToApplicationExe = "";
+
+            ClickMode ClickMode = ClickMode.Passive;
             
             WindowNameFilterType ApplicationPrimaryWindowFilter = AppTestStudio.WindowNameFilterType.Equals;
             WindowNameFilterType ApplicationSecondaryWindowFilter = AppTestStudio.WindowNameFilterType.Equals;
@@ -649,7 +656,31 @@ namespace AppTestStudio
                 }
             }
 
-            GameNodeGame Game = new GameNodeGame(GameName, titleBarHeight, threadManager);
+            if (childNode.Attributes.GetNamedItem("ClickMode").IsSomething())
+            {
+                try
+                {
+                    String ClickModeValue = childNode.Attributes["ClickMode"].Value;
+                    switch (ClickModeValue.Trim().ToUpper())
+                    {
+                        case "ACTIVE":
+                            ClickMode = ClickMode.Active;
+                            break;
+                        case "PASSIVE":
+                            ClickMode = ClickMode.Passive;
+                            break;           
+                        default:
+                            ClickMode = ClickMode.Passive;
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
+            GameNodeGame Game = new GameNodeGame(GameName, threadManager);
             Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
 
@@ -665,6 +696,7 @@ namespace AppTestStudio
             Game.SteamID = SteamID;
             Game.PathToApplicationEXE = PathToApplicationExe;
             Game.ApplicationParameters = ApplicationParameters;
+            Game.ClickMode = ClickMode;
 
             switch (Game.Platform)
             {
@@ -749,6 +781,7 @@ namespace AppTestStudio
             Writer.WriteAttributeString("DefaultClickSpeed", DefaultClickSpeed.ToString());
             Writer.WriteAttributeString("DPI", DPI.ToString());
             Writer.WriteAttributeString("Platform", Platform.ToString());
+            Writer.WriteAttributeString("ClickMode", ClickMode.ToString());
             switch (Platform)
             {
                 case Platform.BlueStacks:

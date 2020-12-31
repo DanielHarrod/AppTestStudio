@@ -256,7 +256,7 @@ namespace AppTestStudio
                             {
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
 
-                                Utils.ClickOnWindow(WindowHandle, WindowsActionType.Passive, Result.x, Result.y, node.ClickSpeed);
+                                Utils.ClickOnWindow(WindowHandle, ClickMode.Passive, Result.x, Result.y, node.ClickSpeed);
 
                                 ThreadManager.IncrementClickCount();
 

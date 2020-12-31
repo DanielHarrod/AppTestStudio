@@ -21,7 +21,7 @@ namespace AppTestStudio
         Application
     }
 
-    public enum WindowsActionType
+    public enum ClickMode
     {
         Passive,
         Active
