@@ -6004,12 +6004,12 @@ namespace AppTestStudio
             if (panelRightColorAtPointer.Height == InitialPanelRightColorAtPointerHeight)
             {
                 panelRightColorAtPointer.Height = cmdRightColorAtPointer.Height;
-                cmdRightColorAtPointer.ImageIndex = IconNames.LeftChevron();
+                cmdRightColorAtPointer.ImageIndex = IconNames.LeftChevron;
             }
             else
             {
                 panelRightColorAtPointer.Height = InitialPanelRightColorAtPointerHeight;
-                cmdRightColorAtPointer.ImageIndex = IconNames.DownChevron();
+                cmdRightColorAtPointer.ImageIndex = IconNames.DownChevron;
             }
         }
 
@@ -6028,12 +6028,12 @@ namespace AppTestStudio
             if (panelRightLimit.Height == InitialPanelRightLimitHeight)
             {
                 panelRightLimit.Height = cmdRightLimit.Height;
-                cmdRightLimit.ImageIndex = IconNames.LeftChevron();
+                cmdRightLimit.ImageIndex = IconNames.LeftChevron;
             }
             else
             {
                 panelRightLimit.Height = InitialPanelRightLimitHeight;
-                cmdRightLimit.ImageIndex = IconNames.DownChevron();
+                cmdRightLimit.ImageIndex = IconNames.DownChevron;
             }
         }
 
@@ -6042,12 +6042,12 @@ namespace AppTestStudio
             if (panelRightOffset.Height == InitialPanelRightOffsetHeight)
             {
                 panelRightOffset.Height = cmdRightOffset.Height;
-                cmdRightOffset.ImageIndex = IconNames.LeftChevron();
+                cmdRightOffset.ImageIndex = IconNames.LeftChevron;
             }
             else
             {
                 panelRightOffset.Height = InitialPanelRightOffsetHeight;
-                cmdRightOffset.ImageIndex = IconNames.DownChevron();
+                cmdRightOffset.ImageIndex = IconNames.DownChevron;
             }
         }
 
@@ -6056,12 +6056,12 @@ namespace AppTestStudio
             if (panelRightDragMode.Height == InitialPanelRightDragModeHeight)
             {
                 panelRightDragMode.Height = cmdRightDragMode.Height;
-                cmdRightDragMode.ImageIndex = IconNames.LeftChevron();
+                cmdRightDragMode.ImageIndex = IconNames.LeftChevron;
             }
             else
             {
                 panelRightDragMode.Height = InitialPanelRightDragModeHeight;
-                cmdRightDragMode.ImageIndex = IconNames.DownChevron();
+                cmdRightDragMode.ImageIndex = IconNames.DownChevron;
             }
         }
 
@@ -6070,12 +6070,12 @@ namespace AppTestStudio
             if (panelRightAfterCompletion.Height == InitialPanelRightAfterCompletionHeight)
             {
                 panelRightAfterCompletion.Height = cmdRightAfterCompletion.Height;
-                cmdRightAfterCompletion.ImageIndex = IconNames.LeftChevron();
+                cmdRightAfterCompletion.ImageIndex = IconNames.LeftChevron;
             }
             else
             {
                 panelRightAfterCompletion.Height = InitialPanelRightAfterCompletionHeight;
-                cmdRightAfterCompletion.ImageIndex = IconNames.DownChevron();
+                cmdRightAfterCompletion.ImageIndex = IconNames.DownChevron;
             }
         }
 
@@ -6084,12 +6084,12 @@ namespace AppTestStudio
             if (panelRightObject.Height == InitialPanelRightObjectHeight)
             {
                 panelRightObject.Height = cmdRightObject.Height;
-                cmdRightObject.ImageIndex = IconNames.LeftChevron();
+                cmdRightObject.ImageIndex = IconNames.LeftChevron;
             }
             else
             {
                 panelRightObject.Height = InitialPanelRightObjectHeight;
-                cmdRightObject.ImageIndex = IconNames.DownChevron();
+                cmdRightObject.ImageIndex = IconNames.DownChevron;
             }
         }
 
@@ -6100,14 +6100,14 @@ namespace AppTestStudio
                 panelRightLogic.Height = cmdRightLogic.Height;
                 panelRightCustomLogic.Visible = false;
                 panelRightPointGrid.Visible = false;
-                cmdRightLogic.ImageIndex = IconNames.LeftChevron();
+                cmdRightLogic.ImageIndex = IconNames.LeftChevron;
             }
             else
             {
                 panelRightLogic.Height = InitialPanelRightLogicHeight;
                 panelRightCustomLogic.Visible = true;
                 panelRightPointGrid.Visible = true;
-                cmdRightLogic.ImageIndex = IconNames.DownChevron();
+                cmdRightLogic.ImageIndex = IconNames.DownChevron;
             }
         }
 
@@ -6126,13 +6126,13 @@ namespace AppTestStudio
             {
                 panelRightClickProperties.Height = cmdRightClickProperties.Height;
 
-                cmdRightLogic.ImageIndex = IconNames.LeftChevron();
+                cmdRightLogic.ImageIndex = IconNames.LeftChevron;
             }
             else
             {
                 panelRightClickProperties.Height = InitialPanelRightClickPropertiesHeight;
 
-                cmdRightLogic.ImageIndex = IconNames.DownChevron();
+                cmdRightLogic.ImageIndex = IconNames.DownChevron;
             }
         }
 
@@ -6153,13 +6153,13 @@ namespace AppTestStudio
             {
                 panelRightSwipeProperties.Height = cmdRightSwipeProperties.Height;
 
-                cmdRightLogic.ImageIndex = IconNames.LeftChevron();
+                cmdRightLogic.ImageIndex = IconNames.LeftChevron;
             }
             else
             {
                 panelRightSwipeProperties.Height = InitialPanelRightSwipePropertiesHeight;
 
-                cmdRightLogic.ImageIndex = IconNames.DownChevron();
+                cmdRightLogic.ImageIndex = IconNames.DownChevron;
             }
         }
 
@@ -6313,12 +6313,12 @@ namespace AppTestStudio
             if (panelRightAnchor.Height == InitialPanelRightAnchorHeight)
             {
                 panelRightAnchor.Height = cmdRightAnchor.Height;
-                cmdRightAnchor.ImageIndex = IconNames.LeftChevron();
+                cmdRightAnchor.ImageIndex = IconNames.LeftChevron;
             }
             else
             {
                 panelRightAnchor.Height = InitialPanelRightAnchorHeight;
-                cmdRightAnchor.ImageIndex = IconNames.DownChevron();
+                cmdRightAnchor.ImageIndex = IconNames.DownChevron;
             }
         }
 

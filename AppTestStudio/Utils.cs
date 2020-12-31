@@ -24,8 +24,8 @@ namespace AppTestStudio
             switch (Node.GameNodeType)
             {
                 case GameNodeType.Workspace:
-                    Node.ImageIndex = IconNames.AppRoot();
-                    Node.SelectedImageIndex = IconNames.AppRoot();
+                    Node.ImageIndex = IconNames.AppRoot;
+                    Node.SelectedImageIndex = IconNames.AppRoot;
 
                     break;
                 case GameNodeType.Games:
@@ -33,8 +33,8 @@ namespace AppTestStudio
                 case GameNodeType.Game:
                     break;
                 case GameNodeType.Events:
-                    Node.ImageIndex = IconNames.Home();
-                    Node.SelectedImageIndex = IconNames.Home();
+                    Node.ImageIndex = IconNames.Home;
+                    Node.SelectedImageIndex = IconNames.Home;
                     break;
                 case GameNodeType.Action:
                     GameNodeAction ActionNode = Node as GameNodeAction;
@@ -50,14 +50,14 @@ namespace AppTestStudio
                                 {
                                     if (ActionNode.Enabled)
                                     {
-                                        Node.ImageIndex = IconNames.Event();
-                                        Node.SelectedImageIndex = IconNames.Event();
+                                        Node.ImageIndex = IconNames.Event;
+                                        Node.SelectedImageIndex = IconNames.Event;
                                         Node.ForeColor = EnabledColor;
                                     }
                                     else
                                     {
-                                        Node.ImageIndex = IconNames.EventGray();
-                                        Node.SelectedImageIndex = IconNames.EventGray();
+                                        Node.ImageIndex = IconNames.EventGray;
+                                        Node.SelectedImageIndex = IconNames.EventGray;
                                         Node.ForeColor = DisabledColor;
                                     }
                                 }
@@ -65,14 +65,14 @@ namespace AppTestStudio
                                 {
                                     if (ActionNode.Enabled)
                                     {
-                                        Node.ImageIndex = IconNames.SearchAndApps();
-                                        Node.SelectedImageIndex = IconNames.SearchAndApps();
+                                        Node.ImageIndex = IconNames.SearchAndApps;
+                                        Node.SelectedImageIndex = IconNames.SearchAndApps;
                                         Node.ForeColor = EnabledColor;
                                     }
                                     else
                                     {
-                                        Node.ImageIndex = IconNames.SearchGray();
-                                        Node.SelectedImageIndex = IconNames.SearchGray();
+                                        Node.ImageIndex = IconNames.SearchGray;
+                                        Node.SelectedImageIndex = IconNames.SearchGray;
                                         Node.ForeColor = DisabledColor;
                                     }
                                 }
@@ -80,53 +80,53 @@ namespace AppTestStudio
                             case ActionType.RNG:
                                 if (ActionNode.Enabled)
                                 {
-                                    Node.ImageIndex = IconNames.RNG();
-                                    Node.SelectedImageIndex = IconNames.RNG();
+                                    Node.ImageIndex = IconNames.RNG;
+                                    Node.SelectedImageIndex = IconNames.RNG;
                                     Node.ForeColor = EnabledColor;
                                 }
                                 else
                                 {
-                                    Node.ImageIndex = IconNames.RNG();
-                                    Node.SelectedImageIndex = IconNames.RNG();
+                                    Node.ImageIndex = IconNames.RNG;
+                                    Node.SelectedImageIndex = IconNames.RNG;
                                     Node.ForeColor = DisabledColor;
                                 }
                                 break;
                             case ActionType.RNGContainer:
                                 if (ActionNode.Enabled)
                                 {
-                                    Node.ImageIndex = IconNames.RNGContainer();
-                                    Node.SelectedImageIndex = IconNames.RNGContainer();
+                                    Node.ImageIndex = IconNames.RNGContainer;
+                                    Node.SelectedImageIndex = IconNames.RNGContainer;
                                     Node.ForeColor = EnabledColor;
                                 }
                                 else
                                 {
-                                    Node.ImageIndex = IconNames.RNGContainerGray();
-                                    Node.SelectedImageIndex = IconNames.RNGContainerGray();
+                                    Node.ImageIndex = IconNames.RNGContainerGray;
+                                    Node.SelectedImageIndex = IconNames.RNGContainerGray;
                                     Node.ForeColor = DisabledColor;
                                 }
                                 break;
                             default:
-                                Node.ImageIndex = IconNames.Event();
-                                Node.SelectedImageIndex = IconNames.Event();
+                                Node.ImageIndex = IconNames.Event;
+                                Node.SelectedImageIndex = IconNames.Event;
                                 break;
                         }
                     }
                     break;
                 case GameNodeType.Objects:
-                    Node.ImageIndex = IconNames.EditMulitpleObjects();
-                    Node.SelectedImageIndex = IconNames.EditMulitpleObjects();
+                    Node.ImageIndex = IconNames.EditMulitpleObjects;
+                    Node.SelectedImageIndex = IconNames.EditMulitpleObjects;
                     break;
                 case GameNodeType.ObjectScreenshot:
-                    Node.ImageIndex = IconNames.RectangularScreenshot();
-                    Node.SelectedImageIndex = IconNames.RectangularScreenshot();
+                    Node.ImageIndex = IconNames.RectangularScreenshot;
+                    Node.SelectedImageIndex = IconNames.RectangularScreenshot;
                     break;
                 case GameNodeType.Object:
-                    Node.ImageIndex = IconNames.RectangularSelection();
-                    Node.SelectedImageIndex = IconNames.RectangularSelection();
+                    Node.ImageIndex = IconNames.RectangularSelection;
+                    Node.SelectedImageIndex = IconNames.RectangularSelection;
                     break;
                 default:
-                    Node.ImageIndex = IconNames.VideoGameController();
-                    Node.SelectedImageIndex = IconNames.VideoGameController();
+                    Node.ImageIndex = IconNames.VideoGameController;
+                    Node.SelectedImageIndex = IconNames.VideoGameController;
                     break;
             }
 
@@ -139,29 +139,29 @@ namespace AppTestStudio
                 case Mode.RangeClick:
                     if (Action.Enabled)
                     {
-                        Action.ImageIndex = IconNames.ButtonClick();
-                        Action.SelectedImageIndex = IconNames.ButtonClick();
+                        Action.ImageIndex = IconNames.ButtonClick;
+                        Action.SelectedImageIndex = IconNames.ButtonClick;
                         Action.ForeColor = Color.Black;
                     }
                     else
                     {
-                        Action.ImageIndex = IconNames.ButtonClickGray();
-                        Action.SelectedImageIndex = IconNames.ButtonClickGray();
+                        Action.ImageIndex = IconNames.ButtonClickGray;
+                        Action.SelectedImageIndex = IconNames.ButtonClickGray;
                         Action.ForeColor = Color.LightGray;
                     }
                     break;
                 case Mode.ClickDragRelease:
                     if (Action.Enabled)
                     {
-                        Action.ImageIndex = IconNames.DependencyArrow();
-                        Action.SelectedImageIndex = IconNames.DependencyArrow();
+                        Action.ImageIndex = IconNames.DependencyArrow;
+                        Action.SelectedImageIndex = IconNames.DependencyArrow;
                         Action.ForeColor = Color.Black;
 
                     }
                     else
                     {
-                        Action.ImageIndex = IconNames.DependencyArrow();
-                        Action.SelectedImageIndex = IconNames.DependencyArrow();
+                        Action.ImageIndex = IconNames.DependencyArrow;
+                        Action.SelectedImageIndex = IconNames.DependencyArrow;
                         Action.ForeColor = Color.LightGray;
                     }
                     break;
@@ -430,6 +430,7 @@ namespace AppTestStudio
         {
             return CalculateAbsoluteCoordinateX((int)x);
         }
+
         static int CalculateAbsoluteCoordinateX(int x)
         {
             int XScreen = GetSystemMetrics(SystemMetric.SM_CXSCREEN);
@@ -459,9 +460,12 @@ namespace AppTestStudio
 
             RECT WindowFrame;
 
+            //Retrieves the current value of a specified Desktop Window Manager(DWM) attribute applied to a window.
+            //Retrieves the extended frame bounds rectangle in screen space.
             int Result = API.DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
 
             RECT ClientRect;
+            //Retrieves the coordinates of a window's client area.
             API.GetClientRect(windowHandle, out ClientRect);
 
             short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);

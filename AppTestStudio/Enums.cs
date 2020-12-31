@@ -117,7 +117,7 @@ namespace AppTestStudio
         Absolute = 0x8000,
         Blank = 0x0
     }
- 
+
     public static class AnchorModeButtonColors
     {
         public static Color EnabledColor()
@@ -130,136 +130,39 @@ namespace AppTestStudio
             return SystemColors.Control;
         }
     }
-    public static class IconNames
+
+    public static class IconNames 
     {
-        public static int VideoGameController()
-        {
-            return 0;
-        }
-        public static int OrangeComputer()
-        {
-            return 1;
-        }
-        public static int AngularLightningBolt()
-        {
-            return 2;
-        }
-        public static int ArrowToCircle()
-        {
-            return 3;
-        }
-        public static int RNGContainer()
-        {
-            return 4;
-        }
-        public static int RNG()
-        {
-            return 5;
-        }
-        public static int AngularLightningBoltNo()
-        {
-            return 6;
-        }
-        public static int AngularLightningBoltYes()
-        {
-            return 7;
-        }
-        public static int HelpIcon()
-        {
-            return 8;
-        }
-        public static int Mobile()
-        {
-            return 9;
-        }
-        public static int Mobiles()
-        {
-            return 10;
-        }
-        public static int EncapsulateField()
-        {
-            return 11;
-        }
-        public static int EditMulitpleObjects()
-        {
-            return 12;
-        }
-        public static int RectangularScreenshot()
-        {
-            return 13;
-        }
-        public static int RectangularSelection()
-        {
-            return 14;
-        }
-        public static int Event()
-        {
-            return 15;
-        }
-        public static int ButtonClick()
-        {
-            return 16;
-        }
-        public static int Home()
-        {
-            return 17;
-        }
-        public static int Application()
-        {
-            return 18;
-        }
-        public static int AppRoot()
-        {
-            return 19;
-        }
-        public static int SearchAndApps()
-        {
-            return 20;
-        }
-        public static int DependencyArrow()
-        {
-            return 21;
-        }
-
-        public static int DownChevron()
-        {
-            return 22;
-        }
-
-        public static int LeftChevron()
-        {
-            return 23;
-        }
-
-        public static int RNGGray()
-        {
-            return 24;
-        }
-
-        public static int EventGray()
-        {
-            return 25;
-        }
-
-        public static int ButtonClickGray()
-        {
-            return 26;
-        }
-
-        public static int ClickDragReleaseGray()
-        {
-            return 27;
-        }
-
-        public static int RNGContainerGray()
-        {
-            return 28;
-        }
-
-        public static int SearchGray()
-        {
-            return 29;
-        }
+        public const int VideoGameController = 0;
+        public const int OrangeComputer = 1;
+        public const int AngularLightningBolt = 2;
+        public const int ArrowToCircle = 3;
+        public const int RNGContainer = 4;
+        public const int RNG = 5;
+        public const int AngularLightningBoltNo = 6;
+        public const int AngularLightningBoltYes = 7;
+        public const int HelpIcon = 8;
+        public const int Mobile = 9;
+        public const int Mobiles = 10;
+        public const int EncapsulateField = 11;
+        public const int EditMulitpleObjects = 12;
+        public const int RectangularScreenshot = 13;
+        public const int RectangularSelection = 14;
+        public const int Event = 15;
+        public const int ButtonClick = 16;
+        public const int Home = 17;
+        public const int Application = 18;
+        public const int AppRoot = 19;
+        public const int SearchAndApps = 20;
+        public const int DependencyArrow = 21;
+        public const int DownChevron = 22;
+        public const int LeftChevron = 23;
+        public const int RNGGray = 24;
+        public const int EventGray = 25;
+        public const int ButtonClickGray = 26;
+        public const int ClickDragReleaseGray = 27;
+        public const int RNGContainerGray = 28;
+        public const int SearchGray = 29;
     }
 
     public enum SystemMetric
