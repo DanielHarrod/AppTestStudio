@@ -1561,6 +1561,7 @@ namespace AppTestStudio
 
         private void SetThreadPauseState(Boolean isPaused)
         {
+            //Debug.WriteLine("SetThreadPauseState:" + isPaused);
             foreach (GameNodeGame Game in ThreadManager.Games)
             {
                 Game.IsPaused = isPaused;
@@ -7001,22 +7002,84 @@ namespace AppTestStudio
         frmNotify frmNotify;
         private void GlobalMouseKeyHook_KeyDown(object sender, KeyEventArgs e)
         {
-            if  ( e.KeyData.HasFlag( Keys.Control | Keys.Shift | Keys.Alt | Keys.Escape ))
+            if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.Escape))
             {
-                Debug.WriteLine("The Claw + Escape");
+                Log("The Claw[Ctrl+Alt+Shift] + Escape - Pressed");
                 e.Handled = true;
 
-                if (IsNotifying == false)
-                {
-                    IsNotifying = true;
+                Boolean RunningThreadDetected = false;
 
-                    frmNotify = new frmNotify();
-                    frmNotify.LetsQuit += FrmNotify_LetsQuit;
-                    
-                    Utils.ShowInactiveTopmostFormCenterScreen(frmNotify);
+                foreach (GameNodeGame Game in ThreadManager.Games)
+                {
+                    if (Game.IsPaused == false)
+                    {
+                        RunningThreadDetected = true;
+
+                        // if any thread is running then pause them all
+                        SetThreadPauseState(true);
+
+                        // since we paused all threads we can stop checking.
+                        break;
+                    }
+                }
+
+                if (RunningThreadDetected)
+                {
+                    // We aren't already notifying.
+                    if (IsNotifying == false)
+                    {
+                        // prevent reentry until completed
+                        IsNotifying = true;
+
+                        // show a center screen popup to notify that we shutdown.
+                        frmNotify = new frmNotify(3000);
+                        frmNotify.LetsQuit += FrmNotify_LetsQuit;
+
+                        Utils.ShowInactiveTopmostFormCenterScreen(frmNotify);
+                    }
+                }
+                else
+                {
+                    Log("There was not any threads that were running.");
                 }
             }
-            //Debug.WriteLine("GlobalMouseKeyHook_KeyDown:" + e.KeyData);
+
+            if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.F5))
+            {
+                Log("The Claw[Ctrl+Alt+Shift] + F5 - Pressed");
+                e.Handled = true;
+
+                Boolean IsThereAnyThreadsRunning = false;
+                foreach (GameNodeGame Game in ThreadManager.Games)
+                {
+                    if (Game.IsPaused == false)
+                    {
+                        IsThereAnyThreadsRunning = true;
+
+                        // since we detected one we can stop checking.
+                        break;
+                    }
+                }
+                
+                // Only toggle if there's something to toggle.
+                if (ThreadManager.Games.Count() > 0)
+                {
+                    if (IsThereAnyThreadsRunning)
+                    {
+                        // Pause all threads
+                        SetThreadPauseState(true);
+                    }
+                    else
+                    {
+                        // Resume all threads
+                        SetThreadPauseState(false);
+                    }
+                }
+                else
+                {
+                    Log("There were not any threads active to toggle.");
+                }
+            }
         }
 
         private void FrmNotify_LetsQuit(object sender, EventArgs e)

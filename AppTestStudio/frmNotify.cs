@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,9 +13,12 @@ namespace AppTestStudio
 {
     public partial class frmNotify : Form
     {
-        public frmNotify()
+        // there is not _Load event so the Timeout will need to be long enough for the window to show.
+        public frmNotify(int TimeoutMS)
         {
             InitializeComponent();
+            timer1.Interval = TimeoutMS;
+            timer1.Enabled = true;
         }
 
         public event EventHandler<EventArgs> LetsQuit;
@@ -27,6 +31,12 @@ namespace AppTestStudio
             EventHandler<EventArgs> raiseEvent = LetsQuit;
             raiseEvent(this, new EventArgs());
 
+        }
+
+        private void frmNotify_Load(object sender, EventArgs e)
+        {
+            // Just a note 
+            //this doesn't ever get called due to the way the window is being shown.
         }
     }
 }

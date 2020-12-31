@@ -56,8 +56,7 @@
             // 
             // timer1
             // 
-            this.timer1.Enabled = true;
-            this.timer1.Interval = 1500;
+            this.timer1.Interval = 2000;
             this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // frmNotify
@@ -71,6 +70,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frmNotify";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.frmNotify_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -1183,10 +1183,7 @@ namespace AppTestStudio
 
                             // Draw Bottom Right Coordinates below the mask.
                             e.Graphics.DrawString(BottomRightXY, Arial, RedBrush, pictureBox1Rectangle.X + pictureBox1Rectangle.Width, pictureBox1Rectangle.Y + pictureBox1Rectangle.Height + 1);
-
                         }
-
-
                     }
 
                     using (Pen p = new Pen(Color.Blue, 1))
@@ -1226,7 +1223,7 @@ namespace AppTestStudio
             return FilterType;
         }
 
-        public async static void ShowInactiveTopmostFormCenterScreen(Form frm)
+        public static void ShowInactiveTopmostFormCenterScreen(Form frm)
         {
             const int SW_SHOWNOACTIVATE = 4;
             const int HWND_TOPMOST = -1;
@@ -1236,9 +1233,7 @@ namespace AppTestStudio
             int Top = (Screen.PrimaryScreen.WorkingArea.Height - frm.Height) / 2;
 
             API.SetWindowPos(frm.Handle, new IntPtr(HWND_TOPMOST), Left, Top, frm.Width, frm.Height, SWP_NOACTIVATE);
-            await Task.Run(() => 
-                Thread.Sleep(1000)
-            );
+            Thread.Sleep(1000);
         }
     }
 }
