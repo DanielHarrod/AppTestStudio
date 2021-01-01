@@ -404,14 +404,14 @@ namespace AppTestStudio
         }
 
         [System.Diagnostics.DebuggerStepThrough]
-        public static void ClickOnWindow(IntPtr windowHandle, ClickMode actionType, int xTarget, int yTarget, int mouseUpDelayMS)
+        public static void ClickOnWindow(IntPtr windowHandle, ClickMode clickMode, int xTarget, int yTarget, int mouseUpDelayMS)
         {
-            ClickOnWindow(windowHandle, actionType, (short)xTarget, (short)yTarget, mouseUpDelayMS);
+            ClickOnWindow(windowHandle, clickMode, (short)xTarget, (short)yTarget, mouseUpDelayMS);
         }
-        public static void ClickOnWindow(IntPtr windowHandle, ClickMode windowsActionType, short xTarget, short yTarget, int mouseUpDelayMS)
+        public static void ClickOnWindow(IntPtr windowHandle, ClickMode clickMode, short xTarget, short yTarget, int mouseUpDelayMS)
         {
-            windowsActionType = ClickMode.Passive;
-            switch (windowsActionType)
+            clickMode = ClickMode.Passive;
+            switch (clickMode)
             {
                 case ClickMode.Passive:
                     ClickOnWindowPassiveMode(windowHandle, xTarget, yTarget, mouseUpDelayMS);
