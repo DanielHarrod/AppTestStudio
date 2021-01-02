@@ -410,7 +410,6 @@ namespace AppTestStudio
         }
         public static void ClickOnWindow(IntPtr windowHandle, ClickMode clickMode, short xTarget, short yTarget, int mouseUpDelayMS)
         {
-            clickMode = ClickMode.Passive;
             switch (clickMode)
             {
                 case ClickMode.Passive:
