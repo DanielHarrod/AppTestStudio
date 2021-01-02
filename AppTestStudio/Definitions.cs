@@ -46,7 +46,6 @@ namespace AppTestStudio
             public static int WM_LBUTTONDOWN = 0x201;
 
             public static int WM_LBUTTONUP = 0x202;
-
         }
     }
 }

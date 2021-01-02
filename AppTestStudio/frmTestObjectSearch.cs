@@ -76,6 +76,8 @@ namespace AppTestStudio
                 LoadData(Parent, Parent.Rectangle);
                 Search(Parent, ref CenterX, ref CenterY, ref IsPassed);
 
+                GameNodeGame Game = Node.GetGameNodeGame();
+
                 if (IsPassed)
                 {
                     switch (Node.Mode)
@@ -89,7 +91,7 @@ namespace AppTestStudio
                             frm.Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             Debug.WriteLine("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
 
-                            Utils.ClickOnWindow(MainWindowHandle, Node.MouseMode, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed);
+                            Utils.ClickOnWindow(MainWindowHandle, Node.MouseMode, Node.MoveMouseBeforeClicking, Game.MouseX, Game.MouseY, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed);
                             break;
                         case AppTestStudio.Mode.ClickDragRelease:
                             GameNodeAction.ClickDragReleaseResult ClickDragReleaseResult = Node.CalculateClickDragReleaseResult(CenterX, CenterY);
@@ -133,7 +135,7 @@ namespace AppTestStudio
                             else
                             {
                                 frm.Log("Swipe from ( x=" + ClickDragReleaseResult.StartX + ",y = " + ClickDragReleaseResult.StartY + " to x=" + ClickDragReleaseResult.EndX + ",y=" + ClickDragReleaseResult.EndY + ")");
-                                Utils.ClickDragRelease(MainWindowHandle, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity);
+                                Utils.ClickDragReleasePassive(MainWindowHandle, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity);
                             }
                             break;
                         default:

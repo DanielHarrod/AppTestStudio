@@ -38,5 +38,10 @@ namespace AppTestStudio
             // Just a note 
             //this doesn't ever get called due to the way the window is being shown.
         }
+
+        private void frmNotify_Paint(object sender, PaintEventArgs e)
+        {
+            Debug.WriteLine("frmNotify_Paint");
+        }
     }
 }

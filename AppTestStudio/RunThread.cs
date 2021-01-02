@@ -256,7 +256,9 @@ namespace AppTestStudio
                             {
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
 
-                                Utils.ClickOnWindow(WindowHandle, node.MouseMode, Result.x, Result.y, node.ClickSpeed);
+                                Utils.ClickOnWindow(WindowHandle, node.MouseMode, node.MoveMouseBeforeClicking, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed);
+                                Game.MouseX = (short)Result.x;
+                                Game.MouseY = (short)Result.y;
 
                                 ThreadManager.IncrementClickCount();
 
@@ -298,7 +300,9 @@ namespace AppTestStudio
                             else
                             {
                                 Game.Log("Swipe from ( x=" + CDRResult.StartX + ",y = " + CDRResult.StartY + " to x=" + CDRResult.EndX + ",y=" + CDRResult.EndY + ")");
-                                Utils.ClickDragRelease(WindowHandle, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity);
+                                Utils.ClickDragReleasePassive(WindowHandle, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity);
+                                Game.MouseX = (short)CDRResult.EndX;
+                                Game.MouseY = (short)CDRResult.EndY;
                                 ThreadManager.IncrementClickDragRelease();
                                 //'if (UseThreadBitmap ) {
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)

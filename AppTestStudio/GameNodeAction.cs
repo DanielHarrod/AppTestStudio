@@ -59,7 +59,7 @@ namespace AppTestStudio
             FileName = "";
             MouseMode = MouseMode.Passive;
 
-            MoveFirst = true;
+            MoveMouseBeforeClicking = true;
             Utils.SetIcons(this);
 
         }
@@ -239,7 +239,7 @@ namespace AppTestStudio
         
         public MouseMode MouseMode { get; set; }
 
-        public Boolean MoveFirst { get; set; }
+        public Boolean MoveMouseBeforeClicking { get; set; }
 
         public void LoadBitmapFromDisk()
         {
@@ -359,7 +359,7 @@ namespace AppTestStudio
             Action.Anchor = Anchor;
 
             Action.MouseMode = MouseMode;
-            Action.MoveFirst = MoveFirst;
+            Action.MoveMouseBeforeClicking = MoveMouseBeforeClicking;
 
 
             foreach (GameNodeAction ChildAction in Nodes)

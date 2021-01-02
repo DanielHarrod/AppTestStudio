@@ -1014,11 +1014,11 @@ namespace AppTestStudio
                     
                     lblMouseMode.Visible = true;
                     cboActionMouseMode.Visible = true;
-                    chkMouseModeMoveFirst.Visible = true;
+                    chkMoveMouseBeforeClicking.Visible = true;
 
                     cboActionMouseMode.Text = GameNode.MouseMode.ToString();
                     cboActionClickMode_SelectedIndexChanged(null, null);  // run the show/hide code for the Move First checkbox.
-                    chkMouseModeMoveFirst.Checked = GameNode.MoveFirst;
+                    chkMoveMouseBeforeClicking.Checked = GameNode.MoveMouseBeforeClicking;
 
                     //End - Properties Group
 
@@ -1128,7 +1128,7 @@ namespace AppTestStudio
 
                     lblMouseMode.Visible = false;
                     cboActionMouseMode.Visible = false;
-                    chkMouseModeMoveFirst.Visible = false;
+                    chkMoveMouseBeforeClicking.Visible = false;
 
 
                     chkPropertiesRepeatsUntilFalse.Checked = GameNode.RepeatsUntilFalse;
@@ -2938,7 +2938,7 @@ namespace AppTestStudio
                                     Failed = true;
                                 }
 
-                                Utils.ClickOnWindow(MainWindowHandle, ActionNode.MouseMode, Result.x, Result.y, ActionNode.ClickSpeed);
+                                Utils.ClickOnWindow(MainWindowHandle, ActionNode.MouseMode, ActionNode.MoveMouseBeforeClicking, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed);
                                 Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }
@@ -2946,7 +2946,7 @@ namespace AppTestStudio
                             {
                                 GameNodeAction.ClickDragReleaseResult Result = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
-                                Utils.ClickDragRelease(MainWindowHandle, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity);
+                                Utils.ClickDragReleasePassive(MainWindowHandle, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity);
                                 Log("ClickDragRelease( x=" + Result.StartX + ",Y = " + Result.StartY + ", ex=" + Result.EndX + ",ey=" + Result.EndY + ")");
                                 ThreadManager.IncrementSingleTestClickDragRelease();
                             }
@@ -7200,27 +7200,14 @@ namespace AppTestStudio
                         break;
                 }
             }
-
-            switch (cboActionMouseMode.Text)
-            {
-                case "Passive":
-                    chkMouseModeMoveFirst.Visible = false;
-                    break;
-                case "Active":
-                    chkMouseModeMoveFirst.Visible = true;
-                    break;
-                default:
-                    Debug.Assert(false);
-                    break;
-            }
         }
 
-        private void chkClickModeMoveFirst_CheckedChanged(object sender, EventArgs e)
+        private void chkClickModeMoveMouseBeforeClicking_CheckedChanged(object sender, EventArgs e)
         {
             if (IsPanelLoading == false)
             {
                 GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-                Node.MoveFirst = chkMouseModeMoveFirst.Checked;
+                Node.MoveMouseBeforeClicking = chkMoveMouseBeforeClicking.Checked;
             }
         }
     }
