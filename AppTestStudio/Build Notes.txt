@@ -53,3 +53,7 @@
 
         https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-publish-events-that-conform-to-net-framework-guidelines
 
+        MouseMovements
+        https://securityboulevard.com/2020/12/bot-or-not-can-you-spot-the-automated-mouse-movements/
+        https://rllabmcgill.github.io/COMP-652/project-reports/2018/report.gavin.mccracken.pdf
+

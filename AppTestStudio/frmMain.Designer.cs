@@ -30,23 +30,23 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -71,103 +71,6 @@
             this.tabRun = new System.Windows.Forms.TabPage();
             this.lstThreads = new System.Windows.Forms.ListBox();
             this.tabSchedule = new System.Windows.Forms.TabPage();
-            this.PanelWorkspace = new System.Windows.Forms.Panel();
-            this.groupBox15 = new System.Windows.Forms.GroupBox();
-            this.label86 = new System.Windows.Forms.Label();
-            this.label85 = new System.Windows.Forms.Label();
-            this.groupBox12 = new System.Windows.Forms.GroupBox();
-            this.lblBlueInstancesFound64 = new System.Windows.Forms.Label();
-            this.lblBlueEmmulatorInstalled64 = new System.Windows.Forms.Label();
-            this.lblBlueInstancesFound32 = new System.Windows.Forms.Label();
-            this.label81 = new System.Windows.Forms.Label();
-            this.lblBlueEmmulatorInstalled32 = new System.Windows.Forms.Label();
-            this.label80 = new System.Windows.Forms.Label();
-            this.label68 = new System.Windows.Forms.Label();
-            this.label65 = new System.Windows.Forms.Label();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblEmmulatorInstancesFound = new System.Windows.Forms.Label();
-            this.lblEmmulatorInstalled = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.PanelGame = new System.Windows.Forms.Panel();
-            this.label70 = new System.Windows.Forms.Label();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.grpApplication = new System.Windows.Forms.GroupBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label69 = new System.Windows.Forms.Label();
-            this.txtPathToApplicationExe = new System.Windows.Forms.TextBox();
-            this.txtApplicationParameters = new System.Windows.Forms.TextBox();
-            this.cmdPathToExePicker = new System.Windows.Forms.Button();
-            this.label72 = new System.Windows.Forms.Label();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.cmdApplicationWindowWizard = new System.Windows.Forms.Button();
-            this.cboApplicationSecondaryWindowNameFilter = new System.Windows.Forms.ComboBox();
-            this.txtApplicationSecondaryWindowName = new System.Windows.Forms.TextBox();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.cboApplicationPrimaryWindowNameFilter = new System.Windows.Forms.ComboBox();
-            this.txtApplicationPrimaryWindowName = new System.Windows.Forms.TextBox();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label79 = new System.Windows.Forms.Label();
-            this.grpNox = new System.Windows.Forms.GroupBox();
-            this.label61 = new System.Windows.Forms.Label();
-            this.cboDPI = new System.Windows.Forms.ComboBox();
-            this.Label26 = new System.Windows.Forms.Label();
-            this.cboGameInstances = new System.Windows.Forms.ComboBox();
-            this.cboResolution = new System.Windows.Forms.ComboBox();
-            this.txtGamePanelLaunchInstance = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.Label16 = new System.Windows.Forms.Label();
-            this.txtPackageName = new System.Windows.Forms.TextBox();
-            this.label63 = new System.Windows.Forms.Label();
-            this.Label25 = new System.Windows.Forms.Label();
-            this.grpSteam = new System.Windows.Forms.GroupBox();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.label84 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.txtSteamID = new System.Windows.Forms.TextBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.cmdSteamWindowWizard = new System.Windows.Forms.Button();
-            this.cboSteamSecondaryWindowNameFilter = new System.Windows.Forms.ComboBox();
-            this.txtSteamSecondaryWindowName = new System.Windows.Forms.TextBox();
-            this.label74 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
-            this.cboSteamPrimaryWindowNameFilter = new System.Windows.Forms.ComboBox();
-            this.txtSteamPrimaryWindowName = new System.Windows.Forms.TextBox();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.grpBlue = new System.Windows.Forms.GroupBox();
-            this.cboBlueInstance = new System.Windows.Forms.ComboBox();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
-            this.txtBluePackageName = new System.Windows.Forms.TextBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.grpVideo = new System.Windows.Forms.GroupBox();
-            this.lblFrameLimit = new System.Windows.Forms.Label();
-            this.NumericVideoFrameLimit = new System.Windows.Forms.NumericUpDown();
-            this.chkSaveVideo = new System.Windows.Forms.CheckBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.Label33 = new System.Windows.Forms.Label();
-            this.txtGamePanelVersion = new System.Windows.Forms.TextBox();
-            this.cmdStartEmmulatorAndPackage = new System.Windows.Forms.Button();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.numericApplicationDefaultClickSpeed = new System.Windows.Forms.NumericUpDown();
-            this.cmdStartEmmulatorPackageAndRunScript = new System.Windows.Forms.Button();
-            this.cmdStartEmmulator = new System.Windows.Forms.Button();
-            this.txtGamePanelLoopDelay = new System.Windows.Forms.TextBox();
-            this.Label30 = new System.Windows.Forms.Label();
-            this.cmdRunScript = new System.Windows.Forms.Button();
-            this.cboMouseMode = new System.Windows.Forms.ComboBox();
-            this.cboPlatform = new System.Windows.Forms.ComboBox();
-            this.lblGamePanelGameName = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
             this.PanelColorEvent = new System.Windows.Forms.Panel();
             this.tableColorEvent = new System.Windows.Forms.TableLayoutPanel();
             this.panelColorEventChild1 = new System.Windows.Forms.Panel();
@@ -314,6 +217,103 @@
             this.cmdRightOffset = new System.Windows.Forms.Button();
             this.panelRightDragMode = new System.Windows.Forms.Panel();
             this.cmdRightDragMode = new System.Windows.Forms.Button();
+            this.PanelWorkspace = new System.Windows.Forms.Panel();
+            this.groupBox15 = new System.Windows.Forms.GroupBox();
+            this.label86 = new System.Windows.Forms.Label();
+            this.label85 = new System.Windows.Forms.Label();
+            this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.lblBlueInstancesFound64 = new System.Windows.Forms.Label();
+            this.lblBlueEmmulatorInstalled64 = new System.Windows.Forms.Label();
+            this.lblBlueInstancesFound32 = new System.Windows.Forms.Label();
+            this.label81 = new System.Windows.Forms.Label();
+            this.lblBlueEmmulatorInstalled32 = new System.Windows.Forms.Label();
+            this.label80 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label65 = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblEmmulatorInstancesFound = new System.Windows.Forms.Label();
+            this.lblEmmulatorInstalled = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.PanelGame = new System.Windows.Forms.Panel();
+            this.label70 = new System.Windows.Forms.Label();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.grpApplication = new System.Windows.Forms.GroupBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.txtPathToApplicationExe = new System.Windows.Forms.TextBox();
+            this.txtApplicationParameters = new System.Windows.Forms.TextBox();
+            this.cmdPathToExePicker = new System.Windows.Forms.Button();
+            this.label72 = new System.Windows.Forms.Label();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.cmdApplicationWindowWizard = new System.Windows.Forms.Button();
+            this.cboApplicationSecondaryWindowNameFilter = new System.Windows.Forms.ComboBox();
+            this.txtApplicationSecondaryWindowName = new System.Windows.Forms.TextBox();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.cboApplicationPrimaryWindowNameFilter = new System.Windows.Forms.ComboBox();
+            this.txtApplicationPrimaryWindowName = new System.Windows.Forms.TextBox();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.grpNox = new System.Windows.Forms.GroupBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.cboDPI = new System.Windows.Forms.ComboBox();
+            this.Label26 = new System.Windows.Forms.Label();
+            this.cboGameInstances = new System.Windows.Forms.ComboBox();
+            this.cboResolution = new System.Windows.Forms.ComboBox();
+            this.txtGamePanelLaunchInstance = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Label16 = new System.Windows.Forms.Label();
+            this.txtPackageName = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.Label25 = new System.Windows.Forms.Label();
+            this.grpSteam = new System.Windows.Forms.GroupBox();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.txtSteamID = new System.Windows.Forms.TextBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.cmdSteamWindowWizard = new System.Windows.Forms.Button();
+            this.cboSteamSecondaryWindowNameFilter = new System.Windows.Forms.ComboBox();
+            this.txtSteamSecondaryWindowName = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.cboSteamPrimaryWindowNameFilter = new System.Windows.Forms.ComboBox();
+            this.txtSteamPrimaryWindowName = new System.Windows.Forms.TextBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.grpBlue = new System.Windows.Forms.GroupBox();
+            this.cboBlueInstance = new System.Windows.Forms.ComboBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
+            this.txtBluePackageName = new System.Windows.Forms.TextBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.grpVideo = new System.Windows.Forms.GroupBox();
+            this.lblFrameLimit = new System.Windows.Forms.Label();
+            this.NumericVideoFrameLimit = new System.Windows.Forms.NumericUpDown();
+            this.chkSaveVideo = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Label33 = new System.Windows.Forms.Label();
+            this.txtGamePanelVersion = new System.Windows.Forms.TextBox();
+            this.cmdStartEmmulatorAndPackage = new System.Windows.Forms.Button();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.numericApplicationDefaultClickSpeed = new System.Windows.Forms.NumericUpDown();
+            this.cmdStartEmmulatorPackageAndRunScript = new System.Windows.Forms.Button();
+            this.cmdStartEmmulator = new System.Windows.Forms.Button();
+            this.txtGamePanelLoopDelay = new System.Windows.Forms.TextBox();
+            this.Label30 = new System.Windows.Forms.Label();
+            this.cmdRunScript = new System.Windows.Forms.Button();
+            this.cboMouseMode = new System.Windows.Forms.ComboBox();
+            this.cboPlatform = new System.Windows.Forms.ComboBox();
+            this.lblGamePanelGameName = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
             this.PanelObject = new System.Windows.Forms.Panel();
             this.cmdDeleteObject = new System.Windows.Forms.Button();
             this.label36 = new System.Windows.Forms.Label();
@@ -515,26 +515,6 @@
             this.splitContainerTreePatron.Panel2.SuspendLayout();
             this.splitContainerTreePatron.SuspendLayout();
             this.tabRun.SuspendLayout();
-            this.PanelWorkspace.SuspendLayout();
-            this.groupBox15.SuspendLayout();
-            this.groupBox12.SuspendLayout();
-            this.groupBox3.SuspendLayout();
-            this.PanelGame.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.grpApplication.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.grpNox.SuspendLayout();
-            this.grpSteam.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.grpBlue.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.grpVideo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericVideoFrameLimit)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).BeginInit();
             this.PanelColorEvent.SuspendLayout();
             this.tableColorEvent.SuspendLayout();
             this.panelColorEventChild1.SuspendLayout();
@@ -578,6 +558,26 @@
             ((System.ComponentModel.ISupportInitialize)(this.NumericYOffset)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericXOffset)).BeginInit();
             this.panelRightDragMode.SuspendLayout();
+            this.PanelWorkspace.SuspendLayout();
+            this.groupBox15.SuspendLayout();
+            this.groupBox12.SuspendLayout();
+            this.groupBox3.SuspendLayout();
+            this.PanelGame.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.grpApplication.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.grpNox.SuspendLayout();
+            this.grpSteam.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.grpBlue.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.grpVideo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericVideoFrameLimit)).BeginInit();
+            this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).BeginInit();
             this.PanelObject.SuspendLayout();
             this.Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).BeginInit();
@@ -939,1085 +939,6 @@
             this.tabSchedule.TabIndex = 2;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
-            // 
-            // PanelWorkspace
-            // 
-            this.PanelWorkspace.Controls.Add(this.groupBox15);
-            this.PanelWorkspace.Controls.Add(this.groupBox12);
-            this.PanelWorkspace.Controls.Add(this.groupBox3);
-            this.PanelWorkspace.Controls.Add(this.label4);
-            this.PanelWorkspace.Location = new System.Drawing.Point(153, 508);
-            this.PanelWorkspace.Name = "PanelWorkspace";
-            this.PanelWorkspace.Size = new System.Drawing.Size(953, 570);
-            this.PanelWorkspace.TabIndex = 1;
-            // 
-            // groupBox15
-            // 
-            this.groupBox15.Controls.Add(this.label86);
-            this.groupBox15.Controls.Add(this.label85);
-            this.groupBox15.Location = new System.Drawing.Point(401, 31);
-            this.groupBox15.Name = "groupBox15";
-            this.groupBox15.Size = new System.Drawing.Size(405, 139);
-            this.groupBox15.TabIndex = 4;
-            this.groupBox15.TabStop = false;
-            this.groupBox15.Text = "Keyboard Shortcuts";
-            // 
-            // label86
-            // 
-            this.label86.AutoSize = true;
-            this.label86.Location = new System.Drawing.Point(6, 50);
-            this.label86.Name = "label86";
-            this.label86.Size = new System.Drawing.Size(219, 13);
-            this.label86.TabIndex = 3;
-            this.label86.Text = "Ctrl + Alt + Shift + F5 = Toggle Scripts On/Off";
-            // 
-            // label85
-            // 
-            this.label85.AutoSize = true;
-            this.label85.Location = new System.Drawing.Point(6, 23);
-            this.label85.Name = "label85";
-            this.label85.Size = new System.Drawing.Size(232, 13);
-            this.label85.TabIndex = 3;
-            this.label85.Text = "Ctrl + Alt + Shift + ESC = Pause Running Scripts";
-            // 
-            // groupBox12
-            // 
-            this.groupBox12.Controls.Add(this.lblBlueInstancesFound64);
-            this.groupBox12.Controls.Add(this.lblBlueEmmulatorInstalled64);
-            this.groupBox12.Controls.Add(this.lblBlueInstancesFound32);
-            this.groupBox12.Controls.Add(this.label81);
-            this.groupBox12.Controls.Add(this.lblBlueEmmulatorInstalled32);
-            this.groupBox12.Controls.Add(this.label80);
-            this.groupBox12.Controls.Add(this.label68);
-            this.groupBox12.Controls.Add(this.label65);
-            this.groupBox12.Location = new System.Drawing.Point(7, 105);
-            this.groupBox12.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox12.Size = new System.Drawing.Size(387, 127);
-            this.groupBox12.TabIndex = 2;
-            this.groupBox12.TabStop = false;
-            this.groupBox12.Text = "Blue Check List - Not Required";
-            // 
-            // lblBlueInstancesFound64
-            // 
-            this.lblBlueInstancesFound64.AutoSize = true;
-            this.lblBlueInstancesFound64.Location = new System.Drawing.Point(177, 88);
-            this.lblBlueInstancesFound64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblBlueInstancesFound64.Name = "lblBlueInstancesFound64";
-            this.lblBlueInstancesFound64.Size = new System.Drawing.Size(126, 13);
-            this.lblBlueInstancesFound64.TabIndex = 2;
-            this.lblBlueInstancesFound64.Text = "lblBlueInstancesFound64";
-            // 
-            // lblBlueEmmulatorInstalled64
-            // 
-            this.lblBlueEmmulatorInstalled64.AutoSize = true;
-            this.lblBlueEmmulatorInstalled64.Location = new System.Drawing.Point(177, 64);
-            this.lblBlueEmmulatorInstalled64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblBlueEmmulatorInstalled64.Name = "lblBlueEmmulatorInstalled64";
-            this.lblBlueEmmulatorInstalled64.Size = new System.Drawing.Size(138, 13);
-            this.lblBlueEmmulatorInstalled64.TabIndex = 2;
-            this.lblBlueEmmulatorInstalled64.Text = "lblBlueEmmulatorInstalled64";
-            // 
-            // lblBlueInstancesFound32
-            // 
-            this.lblBlueInstancesFound32.AutoSize = true;
-            this.lblBlueInstancesFound32.Location = new System.Drawing.Point(177, 44);
-            this.lblBlueInstancesFound32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblBlueInstancesFound32.Name = "lblBlueInstancesFound32";
-            this.lblBlueInstancesFound32.Size = new System.Drawing.Size(126, 13);
-            this.lblBlueInstancesFound32.TabIndex = 2;
-            this.lblBlueInstancesFound32.Text = "lblBlueInstancesFound32";
-            // 
-            // label81
-            // 
-            this.label81.AutoSize = true;
-            this.label81.Location = new System.Drawing.Point(9, 88);
-            this.label81.Name = "label81";
-            this.label81.Size = new System.Drawing.Size(164, 13);
-            this.label81.TabIndex = 1;
-            this.label81.Text = "Emmulator Instances Found 64bit";
-            // 
-            // lblBlueEmmulatorInstalled32
-            // 
-            this.lblBlueEmmulatorInstalled32.AutoSize = true;
-            this.lblBlueEmmulatorInstalled32.Location = new System.Drawing.Point(177, 19);
-            this.lblBlueEmmulatorInstalled32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.lblBlueEmmulatorInstalled32.Name = "lblBlueEmmulatorInstalled32";
-            this.lblBlueEmmulatorInstalled32.Size = new System.Drawing.Size(138, 13);
-            this.lblBlueEmmulatorInstalled32.TabIndex = 2;
-            this.lblBlueEmmulatorInstalled32.Text = "lblBlueEmmulatorInstalled32";
-            // 
-            // label80
-            // 
-            this.label80.AutoSize = true;
-            this.label80.Location = new System.Drawing.Point(9, 66);
-            this.label80.Name = "label80";
-            this.label80.Size = new System.Drawing.Size(124, 13);
-            this.label80.TabIndex = 0;
-            this.label80.Text = "Emmulator Installed 64bit";
-            // 
-            // label68
-            // 
-            this.label68.AutoSize = true;
-            this.label68.Location = new System.Drawing.Point(9, 44);
-            this.label68.Name = "label68";
-            this.label68.Size = new System.Drawing.Size(164, 13);
-            this.label68.TabIndex = 1;
-            this.label68.Text = "Emmulator Instances Found 32bit";
-            // 
-            // label65
-            // 
-            this.label65.AutoSize = true;
-            this.label65.Location = new System.Drawing.Point(9, 21);
-            this.label65.Name = "label65";
-            this.label65.Size = new System.Drawing.Size(124, 13);
-            this.label65.TabIndex = 0;
-            this.label65.Text = "Emmulator Installed 32bit";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.lblEmmulatorInstancesFound);
-            this.groupBox3.Controls.Add(this.lblEmmulatorInstalled);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(7, 25);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(388, 69);
-            this.groupBox3.TabIndex = 1;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Nox Check List - Not Required";
-            // 
-            // lblEmmulatorInstancesFound
-            // 
-            this.lblEmmulatorInstancesFound.AutoSize = true;
-            this.lblEmmulatorInstancesFound.Location = new System.Drawing.Point(153, 43);
-            this.lblEmmulatorInstancesFound.Name = "lblEmmulatorInstancesFound";
-            this.lblEmmulatorInstancesFound.Size = new System.Drawing.Size(142, 13);
-            this.lblEmmulatorInstancesFound.TabIndex = 3;
-            this.lblEmmulatorInstancesFound.Text = "lblEmmulatorInstancesFound";
-            // 
-            // lblEmmulatorInstalled
-            // 
-            this.lblEmmulatorInstalled.AutoSize = true;
-            this.lblEmmulatorInstalled.Location = new System.Drawing.Point(153, 20);
-            this.lblEmmulatorInstalled.Name = "lblEmmulatorInstalled";
-            this.lblEmmulatorInstalled.Size = new System.Drawing.Size(105, 13);
-            this.lblEmmulatorInstalled.TabIndex = 2;
-            this.lblEmmulatorInstalled.Text = "lblEmmulatorInstalled";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(7, 43);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(138, 13);
-            this.label6.TabIndex = 1;
-            this.label6.Text = "Emmulator Instances Found";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 20);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 13);
-            this.label5.TabIndex = 0;
-            this.label5.Text = "Emmulator Installed";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(4, 4);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(85, 18);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Workspace";
-            // 
-            // PanelGame
-            // 
-            this.PanelGame.Controls.Add(this.label70);
-            this.PanelGame.Controls.Add(this.flowLayoutPanel1);
-            this.PanelGame.Controls.Add(this.cboMouseMode);
-            this.PanelGame.Controls.Add(this.cboPlatform);
-            this.PanelGame.Controls.Add(this.lblGamePanelGameName);
-            this.PanelGame.Controls.Add(this.label62);
-            this.PanelGame.Controls.Add(this.label18);
-            this.PanelGame.Controls.Add(this.label22);
-            this.PanelGame.Location = new System.Drawing.Point(348, 322);
-            this.PanelGame.Name = "PanelGame";
-            this.PanelGame.Size = new System.Drawing.Size(859, 600);
-            this.PanelGame.TabIndex = 13;
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(11, 73);
-            this.label70.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(69, 13);
-            this.label70.TabIndex = 46;
-            this.label70.Text = "Mouse Mode";
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.grpApplication);
-            this.flowLayoutPanel1.Controls.Add(this.grpNox);
-            this.flowLayoutPanel1.Controls.Add(this.grpSteam);
-            this.flowLayoutPanel1.Controls.Add(this.grpBlue);
-            this.flowLayoutPanel1.Controls.Add(this.groupBox11);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(9, 94);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(847, 521);
-            this.flowLayoutPanel1.TabIndex = 45;
-            this.flowLayoutPanel1.WrapContents = false;
-            // 
-            // grpApplication
-            // 
-            this.grpApplication.Controls.Add(this.groupBox13);
-            this.grpApplication.Controls.Add(this.groupBox10);
-            this.grpApplication.Location = new System.Drawing.Point(2, 2);
-            this.grpApplication.Margin = new System.Windows.Forms.Padding(2);
-            this.grpApplication.Name = "grpApplication";
-            this.grpApplication.Padding = new System.Windows.Forms.Padding(2);
-            this.grpApplication.Size = new System.Drawing.Size(700, 294);
-            this.grpApplication.TabIndex = 40;
-            this.grpApplication.TabStop = false;
-            this.grpApplication.Text = "Application";
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.label71);
-            this.groupBox13.Controls.Add(this.label69);
-            this.groupBox13.Controls.Add(this.txtPathToApplicationExe);
-            this.groupBox13.Controls.Add(this.txtApplicationParameters);
-            this.groupBox13.Controls.Add(this.cmdPathToExePicker);
-            this.groupBox13.Controls.Add(this.label72);
-            this.groupBox13.Location = new System.Drawing.Point(5, 144);
-            this.groupBox13.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox13.Size = new System.Drawing.Size(690, 140);
-            this.groupBox13.TabIndex = 11;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Start Configuration - Not Required";
-            // 
-            // label71
-            // 
-            this.label71.Location = new System.Drawing.Point(393, 88);
-            this.label71.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(268, 44);
-            this.label71.TabIndex = 8;
-            this.label71.Text = "Used to automatically launch application when scheduler is used, or Toolbar \"Star" +
-    "t\" buttons.";
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(7, 16);
-            this.label69.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(65, 13);
-            this.label69.TabIndex = 0;
-            this.label69.Text = "Path to EXE";
-            // 
-            // txtPathToApplicationExe
-            // 
-            this.txtPathToApplicationExe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPathToApplicationExe.Location = new System.Drawing.Point(12, 32);
-            this.txtPathToApplicationExe.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPathToApplicationExe.Name = "txtPathToApplicationExe";
-            this.txtPathToApplicationExe.Size = new System.Drawing.Size(636, 20);
-            this.txtPathToApplicationExe.TabIndex = 4;
-            this.txtPathToApplicationExe.TextChanged += new System.EventHandler(this.txtPathToApplicationExe_TextChanged);
-            // 
-            // txtApplicationParameters
-            // 
-            this.txtApplicationParameters.Location = new System.Drawing.Point(12, 79);
-            this.txtApplicationParameters.Margin = new System.Windows.Forms.Padding(2);
-            this.txtApplicationParameters.Name = "txtApplicationParameters";
-            this.txtApplicationParameters.Size = new System.Drawing.Size(273, 20);
-            this.txtApplicationParameters.TabIndex = 7;
-            this.txtApplicationParameters.TextChanged += new System.EventHandler(this.txtApplicationWindowName_TextChanged);
-            // 
-            // cmdPathToExePicker
-            // 
-            this.cmdPathToExePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdPathToExePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdPathToExePicker.Location = new System.Drawing.Point(649, 29);
-            this.cmdPathToExePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.cmdPathToExePicker.Name = "cmdPathToExePicker";
-            this.cmdPathToExePicker.Size = new System.Drawing.Size(35, 26);
-            this.cmdPathToExePicker.TabIndex = 5;
-            this.cmdPathToExePicker.Text = "...";
-            this.cmdPathToExePicker.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.cmdPathToExePicker.UseVisualStyleBackColor = false;
-            this.cmdPathToExePicker.Click += new System.EventHandler(this.cmdPathToExePicker_Click);
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(7, 58);
-            this.label72.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(60, 13);
-            this.label72.TabIndex = 6;
-            this.label72.Text = "Parameters";
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.cmdApplicationWindowWizard);
-            this.groupBox10.Controls.Add(this.cboApplicationSecondaryWindowNameFilter);
-            this.groupBox10.Controls.Add(this.txtApplicationSecondaryWindowName);
-            this.groupBox10.Controls.Add(this.label76);
-            this.groupBox10.Controls.Add(this.label77);
-            this.groupBox10.Controls.Add(this.cboApplicationPrimaryWindowNameFilter);
-            this.groupBox10.Controls.Add(this.txtApplicationPrimaryWindowName);
-            this.groupBox10.Controls.Add(this.label78);
-            this.groupBox10.Controls.Add(this.label79);
-            this.groupBox10.Location = new System.Drawing.Point(5, 18);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(476, 119);
-            this.groupBox10.TabIndex = 10;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Window";
-            // 
-            // cmdApplicationWindowWizard
-            // 
-            this.cmdApplicationWindowWizard.Location = new System.Drawing.Point(392, 10);
-            this.cmdApplicationWindowWizard.Name = "cmdApplicationWindowWizard";
-            this.cmdApplicationWindowWizard.Size = new System.Drawing.Size(75, 23);
-            this.cmdApplicationWindowWizard.TabIndex = 12;
-            this.cmdApplicationWindowWizard.Text = "Wizard";
-            this.cmdApplicationWindowWizard.UseVisualStyleBackColor = true;
-            this.cmdApplicationWindowWizard.Click += new System.EventHandler(this.cmdApplicationWindowWizard_Click);
-            // 
-            // cboApplicationSecondaryWindowNameFilter
-            // 
-            this.cboApplicationSecondaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboApplicationSecondaryWindowNameFilter.FormattingEnabled = true;
-            this.cboApplicationSecondaryWindowNameFilter.Items.AddRange(new object[] {
-            "Equals",
-            "Starts With",
-            "Contains"});
-            this.cboApplicationSecondaryWindowNameFilter.Location = new System.Drawing.Point(139, 67);
-            this.cboApplicationSecondaryWindowNameFilter.Name = "cboApplicationSecondaryWindowNameFilter";
-            this.cboApplicationSecondaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
-            this.cboApplicationSecondaryWindowNameFilter.TabIndex = 11;
-            this.cboApplicationSecondaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboApplicationSecondaryWindowNameFilter_SelectedIndexChanged);
-            // 
-            // txtApplicationSecondaryWindowName
-            // 
-            this.txtApplicationSecondaryWindowName.Location = new System.Drawing.Point(139, 93);
-            this.txtApplicationSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtApplicationSecondaryWindowName.Name = "txtApplicationSecondaryWindowName";
-            this.txtApplicationSecondaryWindowName.Size = new System.Drawing.Size(329, 20);
-            this.txtApplicationSecondaryWindowName.TabIndex = 10;
-            this.txtApplicationSecondaryWindowName.TextChanged += new System.EventHandler(this.txtApplicationSecondaryWindowName_TextChanged);
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(5, 98);
-            this.label76.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(131, 13);
-            this.label76.TabIndex = 8;
-            this.label76.Text = "Secondary Window Name";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(5, 72);
-            this.label77.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(125, 13);
-            this.label77.TabIndex = 9;
-            this.label77.Text = "Secondary Window Filter";
-            // 
-            // cboApplicationPrimaryWindowNameFilter
-            // 
-            this.cboApplicationPrimaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboApplicationPrimaryWindowNameFilter.FormattingEnabled = true;
-            this.cboApplicationPrimaryWindowNameFilter.Items.AddRange(new object[] {
-            "Equals",
-            "Starts With",
-            "Contains"});
-            this.cboApplicationPrimaryWindowNameFilter.Location = new System.Drawing.Point(139, 15);
-            this.cboApplicationPrimaryWindowNameFilter.Name = "cboApplicationPrimaryWindowNameFilter";
-            this.cboApplicationPrimaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
-            this.cboApplicationPrimaryWindowNameFilter.TabIndex = 7;
-            this.cboApplicationPrimaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboApplicationPrimaryWindowNameFilter_SelectedIndexChanged);
-            // 
-            // txtApplicationPrimaryWindowName
-            // 
-            this.txtApplicationPrimaryWindowName.Location = new System.Drawing.Point(139, 42);
-            this.txtApplicationPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtApplicationPrimaryWindowName.Name = "txtApplicationPrimaryWindowName";
-            this.txtApplicationPrimaryWindowName.Size = new System.Drawing.Size(329, 20);
-            this.txtApplicationPrimaryWindowName.TabIndex = 7;
-            this.txtApplicationPrimaryWindowName.TextChanged += new System.EventHandler(this.txtApplicationWindowName_TextChanged);
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(5, 46);
-            this.label78.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(114, 13);
-            this.label78.TabIndex = 0;
-            this.label78.Text = "Primary Window Name";
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(5, 20);
-            this.label79.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(108, 13);
-            this.label79.TabIndex = 0;
-            this.label79.Text = "Primary Window Filter";
-            // 
-            // grpNox
-            // 
-            this.grpNox.Controls.Add(this.label61);
-            this.grpNox.Controls.Add(this.cboDPI);
-            this.grpNox.Controls.Add(this.Label26);
-            this.grpNox.Controls.Add(this.cboGameInstances);
-            this.grpNox.Controls.Add(this.cboResolution);
-            this.grpNox.Controls.Add(this.txtGamePanelLaunchInstance);
-            this.grpNox.Controls.Add(this.label12);
-            this.grpNox.Controls.Add(this.Label16);
-            this.grpNox.Controls.Add(this.txtPackageName);
-            this.grpNox.Controls.Add(this.label63);
-            this.grpNox.Controls.Add(this.Label25);
-            this.grpNox.Location = new System.Drawing.Point(2, 300);
-            this.grpNox.Margin = new System.Windows.Forms.Padding(2);
-            this.grpNox.Name = "grpNox";
-            this.grpNox.Padding = new System.Windows.Forms.Padding(2);
-            this.grpNox.Size = new System.Drawing.Size(700, 134);
-            this.grpNox.TabIndex = 38;
-            this.grpNox.TabStop = false;
-            this.grpNox.Text = "Nox Player";
-            // 
-            // label61
-            // 
-            this.label61.Location = new System.Drawing.Point(257, 104);
-            this.label61.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(335, 32);
-            this.label61.TabIndex = 36;
-            this.label61.Text = "DPI: some apps are DPI aware and adjust.  Those apps need consistent dpi for tran" +
-    "sportability.  Most apps do not use this setting.";
-            // 
-            // cboDPI
-            // 
-            this.cboDPI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDPI.FormattingEnabled = true;
-            this.cboDPI.Items.AddRange(new object[] {
-            "96",
-            "120",
-            "144",
-            "192",
-            "240",
-            "288",
-            "384",
-            "480"});
-            this.cboDPI.Location = new System.Drawing.Point(149, 104);
-            this.cboDPI.Name = "cboDPI";
-            this.cboDPI.Size = new System.Drawing.Size(98, 21);
-            this.cboDPI.TabIndex = 35;
-            this.cboDPI.SelectedIndexChanged += new System.EventHandler(this.cboDPI_SelectedIndexChanged);
-            // 
-            // Label26
-            // 
-            this.Label26.AutoSize = true;
-            this.Label26.Location = new System.Drawing.Point(220, 51);
-            this.Label26.Name = "Label26";
-            this.Label26.Size = new System.Drawing.Size(95, 13);
-            this.Label26.TabIndex = 47;
-            this.Label26.Text = "Installed Instances";
-            // 
-            // cboGameInstances
-            // 
-            this.cboGameInstances.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboGameInstances.FormattingEnabled = true;
-            this.cboGameInstances.Location = new System.Drawing.Point(316, 46);
-            this.cboGameInstances.Name = "cboGameInstances";
-            this.cboGameInstances.Size = new System.Drawing.Size(98, 21);
-            this.cboGameInstances.TabIndex = 46;
-            this.cboGameInstances.SelectedIndexChanged += new System.EventHandler(this.cboGameInstances_SelectedIndexChanged);
-            // 
-            // cboResolution
-            // 
-            this.cboResolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboResolution.FormattingEnabled = true;
-            this.cboResolution.Items.AddRange(new object[] {
-            "640x360",
-            "667x375",
-            "1024x768",
-            "1280x800"});
-            this.cboResolution.Location = new System.Drawing.Point(149, 74);
-            this.cboResolution.Name = "cboResolution";
-            this.cboResolution.Size = new System.Drawing.Size(264, 21);
-            this.cboResolution.TabIndex = 45;
-            this.cboResolution.SelectedIndexChanged += new System.EventHandler(this.cboResolution_SelectedIndexChanged);
-            // 
-            // txtGamePanelLaunchInstance
-            // 
-            this.txtGamePanelLaunchInstance.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGamePanelLaunchInstance.Location = new System.Drawing.Point(149, 48);
-            this.txtGamePanelLaunchInstance.Name = "txtGamePanelLaunchInstance";
-            this.txtGamePanelLaunchInstance.Size = new System.Drawing.Size(64, 20);
-            this.txtGamePanelLaunchInstance.TabIndex = 41;
-            this.txtGamePanelLaunchInstance.TextChanged += new System.EventHandler(this.txtGamePanelLaunchInstance_TextChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(9, 48);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 13);
-            this.label12.TabIndex = 39;
-            this.label12.Text = "Instance to launch";
-            // 
-            // Label16
-            // 
-            this.Label16.AutoSize = true;
-            this.Label16.Location = new System.Drawing.Point(9, 21);
-            this.Label16.Name = "Label16";
-            this.Label16.Size = new System.Drawing.Size(81, 13);
-            this.Label16.TabIndex = 40;
-            this.Label16.Text = "Package Name";
-            // 
-            // txtPackageName
-            // 
-            this.txtPackageName.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPackageName.Location = new System.Drawing.Point(149, 21);
-            this.txtPackageName.Name = "txtPackageName";
-            this.txtPackageName.Size = new System.Drawing.Size(476, 20);
-            this.txtPackageName.TabIndex = 38;
-            this.txtPackageName.TextChanged += new System.EventHandler(this.txtPackageName_TextChanged);
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(11, 104);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(99, 13);
-            this.label63.TabIndex = 37;
-            this.label63.Text = "DPI (Dots Per Inch)";
-            // 
-            // Label25
-            // 
-            this.Label25.AutoSize = true;
-            this.Label25.Location = new System.Drawing.Point(9, 77);
-            this.Label25.Name = "Label25";
-            this.Label25.Size = new System.Drawing.Size(84, 13);
-            this.Label25.TabIndex = 37;
-            this.Label25.Text = "Initial Resolution";
-            // 
-            // grpSteam
-            // 
-            this.grpSteam.Controls.Add(this.groupBox14);
-            this.grpSteam.Controls.Add(this.groupBox9);
-            this.grpSteam.Location = new System.Drawing.Point(2, 438);
-            this.grpSteam.Margin = new System.Windows.Forms.Padding(2);
-            this.grpSteam.Name = "grpSteam";
-            this.grpSteam.Padding = new System.Windows.Forms.Padding(2);
-            this.grpSteam.Size = new System.Drawing.Size(700, 257);
-            this.grpSteam.TabIndex = 39;
-            this.grpSteam.TabStop = false;
-            this.grpSteam.Text = "Steam - Experimental/In Development/Incomplete";
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.label84);
-            this.groupBox14.Controls.Add(this.label64);
-            this.groupBox14.Controls.Add(this.label66);
-            this.groupBox14.Controls.Add(this.txtSteamID);
-            this.groupBox14.Location = new System.Drawing.Point(5, 144);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(684, 101);
-            this.groupBox14.TabIndex = 9;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Start Configuration - Not Required";
-            // 
-            // label84
-            // 
-            this.label84.Location = new System.Drawing.Point(9, 48);
-            this.label84.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(268, 44);
-            this.label84.TabIndex = 9;
-            this.label84.Text = "Used to automatically launch application when scheduler is used, or Toolbar \"Star" +
-    "t\" buttons.";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(7, 20);
-            this.label64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(106, 13);
-            this.label64.TabIndex = 0;
-            this.label64.Text = "Steam Application ID";
-            // 
-            // label66
-            // 
-            this.label66.Location = new System.Drawing.Point(352, 18);
-            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(327, 63);
-            this.label66.TabIndex = 3;
-            this.label66.Text = "Enter the Steam Game Number Ex.  285920  Right Click a steam app Icon, then go to" +
-    " properties.  Steam ID\'s Look like this: steam://rungameid/285920";
-            // 
-            // txtSteamID
-            // 
-            this.txtSteamID.Location = new System.Drawing.Point(127, 19);
-            this.txtSteamID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSteamID.Name = "txtSteamID";
-            this.txtSteamID.Size = new System.Drawing.Size(223, 20);
-            this.txtSteamID.TabIndex = 4;
-            this.txtSteamID.TextChanged += new System.EventHandler(this.txtSteamID_TextChanged);
-            this.txtSteamID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSteamID_KeyPress);
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.cmdSteamWindowWizard);
-            this.groupBox9.Controls.Add(this.cboSteamSecondaryWindowNameFilter);
-            this.groupBox9.Controls.Add(this.txtSteamSecondaryWindowName);
-            this.groupBox9.Controls.Add(this.label74);
-            this.groupBox9.Controls.Add(this.label75);
-            this.groupBox9.Controls.Add(this.cboSteamPrimaryWindowNameFilter);
-            this.groupBox9.Controls.Add(this.txtSteamPrimaryWindowName);
-            this.groupBox9.Controls.Add(this.label73);
-            this.groupBox9.Controls.Add(this.label67);
-            this.groupBox9.Location = new System.Drawing.Point(5, 18);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(501, 119);
-            this.groupBox9.TabIndex = 8;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Window";
-            // 
-            // cmdSteamWindowWizard
-            // 
-            this.cmdSteamWindowWizard.Location = new System.Drawing.Point(378, 15);
-            this.cmdSteamWindowWizard.Name = "cmdSteamWindowWizard";
-            this.cmdSteamWindowWizard.Size = new System.Drawing.Size(112, 23);
-            this.cmdSteamWindowWizard.TabIndex = 9;
-            this.cmdSteamWindowWizard.Text = "Window Wizard";
-            this.cmdSteamWindowWizard.UseVisualStyleBackColor = true;
-            this.cmdSteamWindowWizard.Click += new System.EventHandler(this.cmdSteamWindowWizard_Click);
-            // 
-            // cboSteamSecondaryWindowNameFilter
-            // 
-            this.cboSteamSecondaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSteamSecondaryWindowNameFilter.FormattingEnabled = true;
-            this.cboSteamSecondaryWindowNameFilter.Items.AddRange(new object[] {
-            "Equals",
-            "Starts With",
-            "Contains"});
-            this.cboSteamSecondaryWindowNameFilter.Location = new System.Drawing.Point(139, 67);
-            this.cboSteamSecondaryWindowNameFilter.Name = "cboSteamSecondaryWindowNameFilter";
-            this.cboSteamSecondaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
-            this.cboSteamSecondaryWindowNameFilter.TabIndex = 11;
-            this.cboSteamSecondaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboSteamSecondaryWindowNameFilter_SelectedIndexChanged);
-            // 
-            // txtSteamSecondaryWindowName
-            // 
-            this.txtSteamSecondaryWindowName.Location = new System.Drawing.Point(139, 93);
-            this.txtSteamSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSteamSecondaryWindowName.Name = "txtSteamSecondaryWindowName";
-            this.txtSteamSecondaryWindowName.Size = new System.Drawing.Size(351, 20);
-            this.txtSteamSecondaryWindowName.TabIndex = 10;
-            this.txtSteamSecondaryWindowName.TextChanged += new System.EventHandler(this.txtSteamSecondaryWindowName_TextChanged);
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(5, 98);
-            this.label74.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(131, 13);
-            this.label74.TabIndex = 8;
-            this.label74.Text = "Secondary Window Name";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(5, 72);
-            this.label75.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(125, 13);
-            this.label75.TabIndex = 9;
-            this.label75.Text = "Secondary Window Filter";
-            // 
-            // cboSteamPrimaryWindowNameFilter
-            // 
-            this.cboSteamPrimaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSteamPrimaryWindowNameFilter.FormattingEnabled = true;
-            this.cboSteamPrimaryWindowNameFilter.Items.AddRange(new object[] {
-            "Equals",
-            "Starts With",
-            "Contains"});
-            this.cboSteamPrimaryWindowNameFilter.Location = new System.Drawing.Point(139, 15);
-            this.cboSteamPrimaryWindowNameFilter.Name = "cboSteamPrimaryWindowNameFilter";
-            this.cboSteamPrimaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
-            this.cboSteamPrimaryWindowNameFilter.TabIndex = 7;
-            this.cboSteamPrimaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboSteamPrimaryWindowNameFilter_SelectedIndexChanged);
-            // 
-            // txtSteamPrimaryWindowName
-            // 
-            this.txtSteamPrimaryWindowName.Location = new System.Drawing.Point(139, 41);
-            this.txtSteamPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSteamPrimaryWindowName.Name = "txtSteamPrimaryWindowName";
-            this.txtSteamPrimaryWindowName.Size = new System.Drawing.Size(351, 20);
-            this.txtSteamPrimaryWindowName.TabIndex = 5;
-            this.txtSteamPrimaryWindowName.TextChanged += new System.EventHandler(this.txtSteamWindowName_TextChanged);
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(5, 46);
-            this.label73.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(114, 13);
-            this.label73.TabIndex = 0;
-            this.label73.Text = "Primary Window Name";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(5, 20);
-            this.label67.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(108, 13);
-            this.label67.TabIndex = 0;
-            this.label67.Text = "Primary Window Filter";
-            // 
-            // grpBlue
-            // 
-            this.grpBlue.Controls.Add(this.cboBlueInstance);
-            this.grpBlue.Controls.Add(this.label83);
-            this.grpBlue.Controls.Add(this.label82);
-            this.grpBlue.Controls.Add(this.txtBluePackageName);
-            this.grpBlue.Location = new System.Drawing.Point(2, 699);
-            this.grpBlue.Margin = new System.Windows.Forms.Padding(2);
-            this.grpBlue.Name = "grpBlue";
-            this.grpBlue.Padding = new System.Windows.Forms.Padding(2);
-            this.grpBlue.Size = new System.Drawing.Size(701, 65);
-            this.grpBlue.TabIndex = 48;
-            this.grpBlue.TabStop = false;
-            this.grpBlue.Text = "BlueStacks";
-            // 
-            // cboBlueInstance
-            // 
-            this.cboBlueInstance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBlueInstance.FormattingEnabled = true;
-            this.cboBlueInstance.Location = new System.Drawing.Point(183, 45);
-            this.cboBlueInstance.Margin = new System.Windows.Forms.Padding(2);
-            this.cboBlueInstance.Name = "cboBlueInstance";
-            this.cboBlueInstance.Size = new System.Drawing.Size(293, 21);
-            this.cboBlueInstance.TabIndex = 43;
-            this.cboBlueInstance.SelectedIndexChanged += new System.EventHandler(this.cboBlueInstance_SelectedIndexChanged);
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(46, 44);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(48, 13);
-            this.label83.TabIndex = 42;
-            this.label83.Text = "Instance";
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(43, 24);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(81, 13);
-            this.label82.TabIndex = 42;
-            this.label82.Text = "Package Name";
-            // 
-            // txtBluePackageName
-            // 
-            this.txtBluePackageName.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBluePackageName.Location = new System.Drawing.Point(183, 24);
-            this.txtBluePackageName.Name = "txtBluePackageName";
-            this.txtBluePackageName.Size = new System.Drawing.Size(476, 20);
-            this.txtBluePackageName.TabIndex = 41;
-            this.txtBluePackageName.TextChanged += new System.EventHandler(this.txtBluePackageName_TextChanged);
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.grpVideo);
-            this.groupBox11.Controls.Add(this.label17);
-            this.groupBox11.Controls.Add(this.Label33);
-            this.groupBox11.Controls.Add(this.txtGamePanelVersion);
-            this.groupBox11.Controls.Add(this.cmdStartEmmulatorAndPackage);
-            this.groupBox11.Controls.Add(this.groupBox1);
-            this.groupBox11.Controls.Add(this.cmdStartEmmulatorPackageAndRunScript);
-            this.groupBox11.Controls.Add(this.cmdStartEmmulator);
-            this.groupBox11.Controls.Add(this.txtGamePanelLoopDelay);
-            this.groupBox11.Controls.Add(this.Label30);
-            this.groupBox11.Controls.Add(this.cmdRunScript);
-            this.groupBox11.Location = new System.Drawing.Point(3, 769);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(700, 252);
-            this.groupBox11.TabIndex = 47;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "General";
-            // 
-            // grpVideo
-            // 
-            this.grpVideo.Controls.Add(this.lblFrameLimit);
-            this.grpVideo.Controls.Add(this.NumericVideoFrameLimit);
-            this.grpVideo.Controls.Add(this.chkSaveVideo);
-            this.grpVideo.Location = new System.Drawing.Point(12, 37);
-            this.grpVideo.Name = "grpVideo";
-            this.grpVideo.Size = new System.Drawing.Size(200, 76);
-            this.grpVideo.TabIndex = 32;
-            this.grpVideo.TabStop = false;
-            this.grpVideo.Text = "Video";
-            // 
-            // lblFrameLimit
-            // 
-            this.lblFrameLimit.AutoSize = true;
-            this.lblFrameLimit.Location = new System.Drawing.Point(9, 43);
-            this.lblFrameLimit.Name = "lblFrameLimit";
-            this.lblFrameLimit.Size = new System.Drawing.Size(60, 13);
-            this.lblFrameLimit.TabIndex = 33;
-            this.lblFrameLimit.Text = "Frame Limit";
-            // 
-            // NumericVideoFrameLimit
-            // 
-            this.NumericVideoFrameLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumericVideoFrameLimit.Location = new System.Drawing.Point(76, 35);
-            this.NumericVideoFrameLimit.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.NumericVideoFrameLimit.Name = "NumericVideoFrameLimit";
-            this.NumericVideoFrameLimit.Size = new System.Drawing.Size(94, 30);
-            this.NumericVideoFrameLimit.TabIndex = 32;
-            this.NumericVideoFrameLimit.ValueChanged += new System.EventHandler(this.NumericVideoFrameLimit_ValueChanged);
-            // 
-            // chkSaveVideo
-            // 
-            this.chkSaveVideo.AutoSize = true;
-            this.chkSaveVideo.Location = new System.Drawing.Point(9, 15);
-            this.chkSaveVideo.Name = "chkSaveVideo";
-            this.chkSaveVideo.Size = new System.Drawing.Size(81, 17);
-            this.chkSaveVideo.TabIndex = 31;
-            this.chkSaveVideo.Text = "Save Video";
-            this.chkSaveVideo.UseVisualStyleBackColor = true;
-            this.chkSaveVideo.CheckedChanged += new System.EventHandler(this.chkSaveVideo_CheckedChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(17, 209);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(107, 13);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Target Game Version";
-            this.label17.Visible = false;
-            // 
-            // Label33
-            // 
-            this.Label33.AutoSize = true;
-            this.Label33.Location = new System.Drawing.Point(261, 19);
-            this.Label33.Name = "Label33";
-            this.Label33.Size = new System.Drawing.Size(88, 13);
-            this.Label33.TabIndex = 44;
-            this.Label33.Text = "1,000 ms = 1 sec";
-            // 
-            // txtGamePanelVersion
-            // 
-            this.txtGamePanelVersion.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGamePanelVersion.Location = new System.Drawing.Point(137, 206);
-            this.txtGamePanelVersion.Name = "txtGamePanelVersion";
-            this.txtGamePanelVersion.Size = new System.Drawing.Size(180, 20);
-            this.txtGamePanelVersion.TabIndex = 6;
-            this.txtGamePanelVersion.Visible = false;
-            // 
-            // cmdStartEmmulatorAndPackage
-            // 
-            this.cmdStartEmmulatorAndPackage.Location = new System.Drawing.Point(385, 75);
-            this.cmdStartEmmulatorAndPackage.Name = "cmdStartEmmulatorAndPackage";
-            this.cmdStartEmmulatorAndPackage.Size = new System.Drawing.Size(264, 23);
-            this.cmdStartEmmulatorAndPackage.TabIndex = 21;
-            this.cmdStartEmmulatorAndPackage.Text = "Start Emmulator + Run App";
-            this.cmdStartEmmulatorAndPackage.UseVisualStyleBackColor = true;
-            this.cmdStartEmmulatorAndPackage.Click += new System.EventHandler(this.cmdStartEmmulatorAndPackage_Click);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.groupBox2);
-            this.groupBox1.Location = new System.Drawing.Point(13, 115);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(352, 86);
-            this.groupBox1.TabIndex = 33;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Defaults";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label42);
-            this.groupBox2.Controls.Add(this.numericApplicationDefaultClickSpeed);
-            this.groupBox2.Location = new System.Drawing.Point(12, 16);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(331, 57);
-            this.groupBox2.TabIndex = 34;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Default Click Speed (ms)";
-            // 
-            // label42
-            // 
-            this.label42.Location = new System.Drawing.Point(119, 14);
-            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(209, 39);
-            this.label42.TabIndex = 34;
-            this.label42.Text = "How long to hold the mouse down during a click event.  Some applications do not r" +
-    "espond to 0ms.";
-            // 
-            // numericApplicationDefaultClickSpeed
-            // 
-            this.numericApplicationDefaultClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericApplicationDefaultClickSpeed.Location = new System.Drawing.Point(12, 18);
-            this.numericApplicationDefaultClickSpeed.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.numericApplicationDefaultClickSpeed.Name = "numericApplicationDefaultClickSpeed";
-            this.numericApplicationDefaultClickSpeed.Size = new System.Drawing.Size(94, 30);
-            this.numericApplicationDefaultClickSpeed.TabIndex = 33;
-            this.numericApplicationDefaultClickSpeed.ValueChanged += new System.EventHandler(this.numericApplicationDefaultClickSpeed_ValueChanged);
-            // 
-            // cmdStartEmmulatorPackageAndRunScript
-            // 
-            this.cmdStartEmmulatorPackageAndRunScript.Location = new System.Drawing.Point(385, 104);
-            this.cmdStartEmmulatorPackageAndRunScript.Name = "cmdStartEmmulatorPackageAndRunScript";
-            this.cmdStartEmmulatorPackageAndRunScript.Size = new System.Drawing.Size(264, 23);
-            this.cmdStartEmmulatorPackageAndRunScript.TabIndex = 21;
-            this.cmdStartEmmulatorPackageAndRunScript.Text = "Start Emmulator + Run App + Run Script";
-            this.cmdStartEmmulatorPackageAndRunScript.UseVisualStyleBackColor = true;
-            this.cmdStartEmmulatorPackageAndRunScript.Click += new System.EventHandler(this.cmdStartEmmulatorPackageAndRunScript_Click);
-            // 
-            // cmdStartEmmulator
-            // 
-            this.cmdStartEmmulator.Location = new System.Drawing.Point(385, 17);
-            this.cmdStartEmmulator.Name = "cmdStartEmmulator";
-            this.cmdStartEmmulator.Size = new System.Drawing.Size(264, 23);
-            this.cmdStartEmmulator.TabIndex = 21;
-            this.cmdStartEmmulator.Text = "Start Emmulator";
-            this.cmdStartEmmulator.UseVisualStyleBackColor = true;
-            this.cmdStartEmmulator.Click += new System.EventHandler(this.cmdStartEmmulator_Click);
-            // 
-            // txtGamePanelLoopDelay
-            // 
-            this.txtGamePanelLoopDelay.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGamePanelLoopDelay.Location = new System.Drawing.Point(153, 17);
-            this.txtGamePanelLoopDelay.Name = "txtGamePanelLoopDelay";
-            this.txtGamePanelLoopDelay.Size = new System.Drawing.Size(100, 20);
-            this.txtGamePanelLoopDelay.TabIndex = 43;
-            this.txtGamePanelLoopDelay.TextChanged += new System.EventHandler(this.txtGamePanelLoopDelay_TextChanged_1);
-            // 
-            // Label30
-            // 
-            this.Label30.AutoSize = true;
-            this.Label30.Location = new System.Drawing.Point(13, 17);
-            this.Label30.Name = "Label30";
-            this.Label30.Size = new System.Drawing.Size(83, 13);
-            this.Label30.TabIndex = 42;
-            this.Label30.Text = "Loop Delay (ms)";
-            // 
-            // cmdRunScript
-            // 
-            this.cmdRunScript.Location = new System.Drawing.Point(385, 46);
-            this.cmdRunScript.Name = "cmdRunScript";
-            this.cmdRunScript.Size = new System.Drawing.Size(264, 23);
-            this.cmdRunScript.TabIndex = 22;
-            this.cmdRunScript.Text = "Run Script";
-            this.cmdRunScript.UseVisualStyleBackColor = true;
-            this.cmdRunScript.Click += new System.EventHandler(this.cmdRunScript_Click);
-            // 
-            // cboMouseMode
-            // 
-            this.cboMouseMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMouseMode.FormattingEnabled = true;
-            this.cboMouseMode.Location = new System.Drawing.Point(105, 70);
-            this.cboMouseMode.Margin = new System.Windows.Forms.Padding(2);
-            this.cboMouseMode.Name = "cboMouseMode";
-            this.cboMouseMode.Size = new System.Drawing.Size(231, 21);
-            this.cboMouseMode.TabIndex = 37;
-            this.cboMouseMode.SelectedIndexChanged += new System.EventHandler(this.cboClickMode_SelectedIndexChanged);
-            this.cboMouseMode.TextChanged += new System.EventHandler(this.cboPlatform_TextChanged);
-            // 
-            // cboPlatform
-            // 
-            this.cboPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPlatform.FormattingEnabled = true;
-            this.cboPlatform.Location = new System.Drawing.Point(104, 45);
-            this.cboPlatform.Margin = new System.Windows.Forms.Padding(2);
-            this.cboPlatform.Name = "cboPlatform";
-            this.cboPlatform.Size = new System.Drawing.Size(231, 21);
-            this.cboPlatform.TabIndex = 37;
-            this.cboPlatform.SelectedIndexChanged += new System.EventHandler(this.cboPlatform_SelectedIndexChanged);
-            this.cboPlatform.TextChanged += new System.EventHandler(this.cboPlatform_TextChanged);
-            // 
-            // lblGamePanelGameName
-            // 
-            this.lblGamePanelGameName.AutoSize = true;
-            this.lblGamePanelGameName.Location = new System.Drawing.Point(101, 28);
-            this.lblGamePanelGameName.Name = "lblGamePanelGameName";
-            this.lblGamePanelGameName.Size = new System.Drawing.Size(134, 13);
-            this.lblGamePanelGameName.TabIndex = 2;
-            this.lblGamePanelGameName.Text = "[lblGamePanelGameName]";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(11, 48);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(45, 13);
-            this.label62.TabIndex = 1;
-            this.label62.Text = "Platform";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(11, 27);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(57, 13);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "App Name";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(3, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(74, 18);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "App Panel";
             // 
             // PanelColorEvent
             // 
@@ -3464,48 +2385,48 @@
             // 
             // dgvID
             // 
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvID.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvID.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvID.HeaderText = "ID";
             this.dgvID.MinimumWidth = 10;
             this.dgvID.Name = "dgvID";
             // 
             // dgvRed
             // 
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRed.HeaderText = "R";
             this.dgvRed.MinimumWidth = 10;
             this.dgvRed.Name = "dgvRed";
             // 
             // dgvBlue
             // 
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBlue.HeaderText = "B";
             this.dgvBlue.MinimumWidth = 10;
             this.dgvBlue.Name = "dgvBlue";
             // 
             // dgvGreen
             // 
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGreen.HeaderText = "G";
             this.dgvGreen.MinimumWidth = 10;
             this.dgvGreen.Name = "dgvGreen";
             // 
             // dgvX
             // 
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvX.DefaultCellStyle = dataGridViewCellStyle22;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvX.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvX.HeaderText = "X";
             this.dgvX.MinimumWidth = 10;
             this.dgvX.Name = "dgvX";
             // 
             // dgvY
             // 
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvY.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvY.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvY.HeaderText = "Y";
             this.dgvY.MinimumWidth = 10;
             this.dgvY.Name = "dgvY";
@@ -3995,6 +2916,1085 @@
             this.cmdRightDragMode.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.cmdRightDragMode.UseVisualStyleBackColor = false;
             this.cmdRightDragMode.Click += new System.EventHandler(this.cmdRightDragMode_Click);
+            // 
+            // PanelWorkspace
+            // 
+            this.PanelWorkspace.Controls.Add(this.groupBox15);
+            this.PanelWorkspace.Controls.Add(this.groupBox12);
+            this.PanelWorkspace.Controls.Add(this.groupBox3);
+            this.PanelWorkspace.Controls.Add(this.label4);
+            this.PanelWorkspace.Location = new System.Drawing.Point(153, 508);
+            this.PanelWorkspace.Name = "PanelWorkspace";
+            this.PanelWorkspace.Size = new System.Drawing.Size(953, 570);
+            this.PanelWorkspace.TabIndex = 1;
+            // 
+            // groupBox15
+            // 
+            this.groupBox15.Controls.Add(this.label86);
+            this.groupBox15.Controls.Add(this.label85);
+            this.groupBox15.Location = new System.Drawing.Point(401, 31);
+            this.groupBox15.Name = "groupBox15";
+            this.groupBox15.Size = new System.Drawing.Size(405, 139);
+            this.groupBox15.TabIndex = 4;
+            this.groupBox15.TabStop = false;
+            this.groupBox15.Text = "Keyboard Shortcuts";
+            // 
+            // label86
+            // 
+            this.label86.AutoSize = true;
+            this.label86.Location = new System.Drawing.Point(6, 50);
+            this.label86.Name = "label86";
+            this.label86.Size = new System.Drawing.Size(219, 13);
+            this.label86.TabIndex = 3;
+            this.label86.Text = "Ctrl + Alt + Shift + F5 = Toggle Scripts On/Off";
+            // 
+            // label85
+            // 
+            this.label85.AutoSize = true;
+            this.label85.Location = new System.Drawing.Point(6, 23);
+            this.label85.Name = "label85";
+            this.label85.Size = new System.Drawing.Size(232, 13);
+            this.label85.TabIndex = 3;
+            this.label85.Text = "Ctrl + Alt + Shift + ESC = Pause Running Scripts";
+            // 
+            // groupBox12
+            // 
+            this.groupBox12.Controls.Add(this.lblBlueInstancesFound64);
+            this.groupBox12.Controls.Add(this.lblBlueEmmulatorInstalled64);
+            this.groupBox12.Controls.Add(this.lblBlueInstancesFound32);
+            this.groupBox12.Controls.Add(this.label81);
+            this.groupBox12.Controls.Add(this.lblBlueEmmulatorInstalled32);
+            this.groupBox12.Controls.Add(this.label80);
+            this.groupBox12.Controls.Add(this.label68);
+            this.groupBox12.Controls.Add(this.label65);
+            this.groupBox12.Location = new System.Drawing.Point(7, 105);
+            this.groupBox12.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox12.Name = "groupBox12";
+            this.groupBox12.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox12.Size = new System.Drawing.Size(387, 127);
+            this.groupBox12.TabIndex = 2;
+            this.groupBox12.TabStop = false;
+            this.groupBox12.Text = "Blue Check List - Not Required";
+            // 
+            // lblBlueInstancesFound64
+            // 
+            this.lblBlueInstancesFound64.AutoSize = true;
+            this.lblBlueInstancesFound64.Location = new System.Drawing.Point(177, 88);
+            this.lblBlueInstancesFound64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBlueInstancesFound64.Name = "lblBlueInstancesFound64";
+            this.lblBlueInstancesFound64.Size = new System.Drawing.Size(126, 13);
+            this.lblBlueInstancesFound64.TabIndex = 2;
+            this.lblBlueInstancesFound64.Text = "lblBlueInstancesFound64";
+            // 
+            // lblBlueEmmulatorInstalled64
+            // 
+            this.lblBlueEmmulatorInstalled64.AutoSize = true;
+            this.lblBlueEmmulatorInstalled64.Location = new System.Drawing.Point(177, 64);
+            this.lblBlueEmmulatorInstalled64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBlueEmmulatorInstalled64.Name = "lblBlueEmmulatorInstalled64";
+            this.lblBlueEmmulatorInstalled64.Size = new System.Drawing.Size(138, 13);
+            this.lblBlueEmmulatorInstalled64.TabIndex = 2;
+            this.lblBlueEmmulatorInstalled64.Text = "lblBlueEmmulatorInstalled64";
+            // 
+            // lblBlueInstancesFound32
+            // 
+            this.lblBlueInstancesFound32.AutoSize = true;
+            this.lblBlueInstancesFound32.Location = new System.Drawing.Point(177, 44);
+            this.lblBlueInstancesFound32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBlueInstancesFound32.Name = "lblBlueInstancesFound32";
+            this.lblBlueInstancesFound32.Size = new System.Drawing.Size(126, 13);
+            this.lblBlueInstancesFound32.TabIndex = 2;
+            this.lblBlueInstancesFound32.Text = "lblBlueInstancesFound32";
+            // 
+            // label81
+            // 
+            this.label81.AutoSize = true;
+            this.label81.Location = new System.Drawing.Point(9, 88);
+            this.label81.Name = "label81";
+            this.label81.Size = new System.Drawing.Size(164, 13);
+            this.label81.TabIndex = 1;
+            this.label81.Text = "Emmulator Instances Found 64bit";
+            // 
+            // lblBlueEmmulatorInstalled32
+            // 
+            this.lblBlueEmmulatorInstalled32.AutoSize = true;
+            this.lblBlueEmmulatorInstalled32.Location = new System.Drawing.Point(177, 19);
+            this.lblBlueEmmulatorInstalled32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblBlueEmmulatorInstalled32.Name = "lblBlueEmmulatorInstalled32";
+            this.lblBlueEmmulatorInstalled32.Size = new System.Drawing.Size(138, 13);
+            this.lblBlueEmmulatorInstalled32.TabIndex = 2;
+            this.lblBlueEmmulatorInstalled32.Text = "lblBlueEmmulatorInstalled32";
+            // 
+            // label80
+            // 
+            this.label80.AutoSize = true;
+            this.label80.Location = new System.Drawing.Point(9, 66);
+            this.label80.Name = "label80";
+            this.label80.Size = new System.Drawing.Size(124, 13);
+            this.label80.TabIndex = 0;
+            this.label80.Text = "Emmulator Installed 64bit";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Location = new System.Drawing.Point(9, 44);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(164, 13);
+            this.label68.TabIndex = 1;
+            this.label68.Text = "Emmulator Instances Found 32bit";
+            // 
+            // label65
+            // 
+            this.label65.AutoSize = true;
+            this.label65.Location = new System.Drawing.Point(9, 21);
+            this.label65.Name = "label65";
+            this.label65.Size = new System.Drawing.Size(124, 13);
+            this.label65.TabIndex = 0;
+            this.label65.Text = "Emmulator Installed 32bit";
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.lblEmmulatorInstancesFound);
+            this.groupBox3.Controls.Add(this.lblEmmulatorInstalled);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Location = new System.Drawing.Point(7, 25);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(388, 69);
+            this.groupBox3.TabIndex = 1;
+            this.groupBox3.TabStop = false;
+            this.groupBox3.Text = "Nox Check List - Not Required";
+            // 
+            // lblEmmulatorInstancesFound
+            // 
+            this.lblEmmulatorInstancesFound.AutoSize = true;
+            this.lblEmmulatorInstancesFound.Location = new System.Drawing.Point(153, 43);
+            this.lblEmmulatorInstancesFound.Name = "lblEmmulatorInstancesFound";
+            this.lblEmmulatorInstancesFound.Size = new System.Drawing.Size(142, 13);
+            this.lblEmmulatorInstancesFound.TabIndex = 3;
+            this.lblEmmulatorInstancesFound.Text = "lblEmmulatorInstancesFound";
+            // 
+            // lblEmmulatorInstalled
+            // 
+            this.lblEmmulatorInstalled.AutoSize = true;
+            this.lblEmmulatorInstalled.Location = new System.Drawing.Point(153, 20);
+            this.lblEmmulatorInstalled.Name = "lblEmmulatorInstalled";
+            this.lblEmmulatorInstalled.Size = new System.Drawing.Size(105, 13);
+            this.lblEmmulatorInstalled.TabIndex = 2;
+            this.lblEmmulatorInstalled.Text = "lblEmmulatorInstalled";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(7, 43);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(138, 13);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Emmulator Instances Found";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(7, 20);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(98, 13);
+            this.label5.TabIndex = 0;
+            this.label5.Text = "Emmulator Installed";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(4, 4);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(85, 18);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Workspace";
+            // 
+            // PanelGame
+            // 
+            this.PanelGame.Controls.Add(this.label70);
+            this.PanelGame.Controls.Add(this.flowLayoutPanel1);
+            this.PanelGame.Controls.Add(this.cboMouseMode);
+            this.PanelGame.Controls.Add(this.cboPlatform);
+            this.PanelGame.Controls.Add(this.lblGamePanelGameName);
+            this.PanelGame.Controls.Add(this.label62);
+            this.PanelGame.Controls.Add(this.label18);
+            this.PanelGame.Controls.Add(this.label22);
+            this.PanelGame.Location = new System.Drawing.Point(348, 322);
+            this.PanelGame.Name = "PanelGame";
+            this.PanelGame.Size = new System.Drawing.Size(859, 600);
+            this.PanelGame.TabIndex = 13;
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(11, 73);
+            this.label70.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(69, 13);
+            this.label70.TabIndex = 46;
+            this.label70.Text = "Mouse Mode";
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.grpApplication);
+            this.flowLayoutPanel1.Controls.Add(this.grpNox);
+            this.flowLayoutPanel1.Controls.Add(this.grpSteam);
+            this.flowLayoutPanel1.Controls.Add(this.grpBlue);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox11);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(9, 94);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(847, 521);
+            this.flowLayoutPanel1.TabIndex = 45;
+            this.flowLayoutPanel1.WrapContents = false;
+            // 
+            // grpApplication
+            // 
+            this.grpApplication.Controls.Add(this.groupBox13);
+            this.grpApplication.Controls.Add(this.groupBox10);
+            this.grpApplication.Location = new System.Drawing.Point(2, 2);
+            this.grpApplication.Margin = new System.Windows.Forms.Padding(2);
+            this.grpApplication.Name = "grpApplication";
+            this.grpApplication.Padding = new System.Windows.Forms.Padding(2);
+            this.grpApplication.Size = new System.Drawing.Size(700, 294);
+            this.grpApplication.TabIndex = 40;
+            this.grpApplication.TabStop = false;
+            this.grpApplication.Text = "Application";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.label71);
+            this.groupBox13.Controls.Add(this.label69);
+            this.groupBox13.Controls.Add(this.txtPathToApplicationExe);
+            this.groupBox13.Controls.Add(this.txtApplicationParameters);
+            this.groupBox13.Controls.Add(this.cmdPathToExePicker);
+            this.groupBox13.Controls.Add(this.label72);
+            this.groupBox13.Location = new System.Drawing.Point(5, 144);
+            this.groupBox13.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox13.Size = new System.Drawing.Size(690, 140);
+            this.groupBox13.TabIndex = 11;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Start Configuration - Not Required";
+            // 
+            // label71
+            // 
+            this.label71.Location = new System.Drawing.Point(393, 88);
+            this.label71.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(268, 44);
+            this.label71.TabIndex = 8;
+            this.label71.Text = "Used to automatically launch application when scheduler is used, or Toolbar \"Star" +
+    "t\" buttons.";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(7, 16);
+            this.label69.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(65, 13);
+            this.label69.TabIndex = 0;
+            this.label69.Text = "Path to EXE";
+            // 
+            // txtPathToApplicationExe
+            // 
+            this.txtPathToApplicationExe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPathToApplicationExe.Location = new System.Drawing.Point(12, 32);
+            this.txtPathToApplicationExe.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPathToApplicationExe.Name = "txtPathToApplicationExe";
+            this.txtPathToApplicationExe.Size = new System.Drawing.Size(636, 20);
+            this.txtPathToApplicationExe.TabIndex = 4;
+            this.txtPathToApplicationExe.TextChanged += new System.EventHandler(this.txtPathToApplicationExe_TextChanged);
+            // 
+            // txtApplicationParameters
+            // 
+            this.txtApplicationParameters.Location = new System.Drawing.Point(12, 79);
+            this.txtApplicationParameters.Margin = new System.Windows.Forms.Padding(2);
+            this.txtApplicationParameters.Name = "txtApplicationParameters";
+            this.txtApplicationParameters.Size = new System.Drawing.Size(273, 20);
+            this.txtApplicationParameters.TabIndex = 7;
+            this.txtApplicationParameters.TextChanged += new System.EventHandler(this.txtApplicationWindowName_TextChanged);
+            // 
+            // cmdPathToExePicker
+            // 
+            this.cmdPathToExePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdPathToExePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdPathToExePicker.Location = new System.Drawing.Point(649, 29);
+            this.cmdPathToExePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdPathToExePicker.Name = "cmdPathToExePicker";
+            this.cmdPathToExePicker.Size = new System.Drawing.Size(35, 26);
+            this.cmdPathToExePicker.TabIndex = 5;
+            this.cmdPathToExePicker.Text = "...";
+            this.cmdPathToExePicker.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.cmdPathToExePicker.UseVisualStyleBackColor = false;
+            this.cmdPathToExePicker.Click += new System.EventHandler(this.cmdPathToExePicker_Click);
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(7, 58);
+            this.label72.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(60, 13);
+            this.label72.TabIndex = 6;
+            this.label72.Text = "Parameters";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.cmdApplicationWindowWizard);
+            this.groupBox10.Controls.Add(this.cboApplicationSecondaryWindowNameFilter);
+            this.groupBox10.Controls.Add(this.txtApplicationSecondaryWindowName);
+            this.groupBox10.Controls.Add(this.label76);
+            this.groupBox10.Controls.Add(this.label77);
+            this.groupBox10.Controls.Add(this.cboApplicationPrimaryWindowNameFilter);
+            this.groupBox10.Controls.Add(this.txtApplicationPrimaryWindowName);
+            this.groupBox10.Controls.Add(this.label78);
+            this.groupBox10.Controls.Add(this.label79);
+            this.groupBox10.Location = new System.Drawing.Point(5, 18);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(476, 119);
+            this.groupBox10.TabIndex = 10;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Window";
+            // 
+            // cmdApplicationWindowWizard
+            // 
+            this.cmdApplicationWindowWizard.Location = new System.Drawing.Point(392, 10);
+            this.cmdApplicationWindowWizard.Name = "cmdApplicationWindowWizard";
+            this.cmdApplicationWindowWizard.Size = new System.Drawing.Size(75, 23);
+            this.cmdApplicationWindowWizard.TabIndex = 12;
+            this.cmdApplicationWindowWizard.Text = "Wizard";
+            this.cmdApplicationWindowWizard.UseVisualStyleBackColor = true;
+            this.cmdApplicationWindowWizard.Click += new System.EventHandler(this.cmdApplicationWindowWizard_Click);
+            // 
+            // cboApplicationSecondaryWindowNameFilter
+            // 
+            this.cboApplicationSecondaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboApplicationSecondaryWindowNameFilter.FormattingEnabled = true;
+            this.cboApplicationSecondaryWindowNameFilter.Items.AddRange(new object[] {
+            "Equals",
+            "Starts With",
+            "Contains"});
+            this.cboApplicationSecondaryWindowNameFilter.Location = new System.Drawing.Point(139, 67);
+            this.cboApplicationSecondaryWindowNameFilter.Name = "cboApplicationSecondaryWindowNameFilter";
+            this.cboApplicationSecondaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
+            this.cboApplicationSecondaryWindowNameFilter.TabIndex = 11;
+            this.cboApplicationSecondaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboApplicationSecondaryWindowNameFilter_SelectedIndexChanged);
+            // 
+            // txtApplicationSecondaryWindowName
+            // 
+            this.txtApplicationSecondaryWindowName.Location = new System.Drawing.Point(139, 93);
+            this.txtApplicationSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtApplicationSecondaryWindowName.Name = "txtApplicationSecondaryWindowName";
+            this.txtApplicationSecondaryWindowName.Size = new System.Drawing.Size(329, 20);
+            this.txtApplicationSecondaryWindowName.TabIndex = 10;
+            this.txtApplicationSecondaryWindowName.TextChanged += new System.EventHandler(this.txtApplicationSecondaryWindowName_TextChanged);
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(5, 98);
+            this.label76.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(131, 13);
+            this.label76.TabIndex = 8;
+            this.label76.Text = "Secondary Window Name";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(5, 72);
+            this.label77.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(125, 13);
+            this.label77.TabIndex = 9;
+            this.label77.Text = "Secondary Window Filter";
+            // 
+            // cboApplicationPrimaryWindowNameFilter
+            // 
+            this.cboApplicationPrimaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboApplicationPrimaryWindowNameFilter.FormattingEnabled = true;
+            this.cboApplicationPrimaryWindowNameFilter.Items.AddRange(new object[] {
+            "Equals",
+            "Starts With",
+            "Contains"});
+            this.cboApplicationPrimaryWindowNameFilter.Location = new System.Drawing.Point(139, 15);
+            this.cboApplicationPrimaryWindowNameFilter.Name = "cboApplicationPrimaryWindowNameFilter";
+            this.cboApplicationPrimaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
+            this.cboApplicationPrimaryWindowNameFilter.TabIndex = 7;
+            this.cboApplicationPrimaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboApplicationPrimaryWindowNameFilter_SelectedIndexChanged);
+            // 
+            // txtApplicationPrimaryWindowName
+            // 
+            this.txtApplicationPrimaryWindowName.Location = new System.Drawing.Point(139, 42);
+            this.txtApplicationPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtApplicationPrimaryWindowName.Name = "txtApplicationPrimaryWindowName";
+            this.txtApplicationPrimaryWindowName.Size = new System.Drawing.Size(329, 20);
+            this.txtApplicationPrimaryWindowName.TabIndex = 7;
+            this.txtApplicationPrimaryWindowName.TextChanged += new System.EventHandler(this.txtApplicationWindowName_TextChanged);
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(5, 46);
+            this.label78.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(114, 13);
+            this.label78.TabIndex = 0;
+            this.label78.Text = "Primary Window Name";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(5, 20);
+            this.label79.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(108, 13);
+            this.label79.TabIndex = 0;
+            this.label79.Text = "Primary Window Filter";
+            // 
+            // grpNox
+            // 
+            this.grpNox.Controls.Add(this.label61);
+            this.grpNox.Controls.Add(this.cboDPI);
+            this.grpNox.Controls.Add(this.Label26);
+            this.grpNox.Controls.Add(this.cboGameInstances);
+            this.grpNox.Controls.Add(this.cboResolution);
+            this.grpNox.Controls.Add(this.txtGamePanelLaunchInstance);
+            this.grpNox.Controls.Add(this.label12);
+            this.grpNox.Controls.Add(this.Label16);
+            this.grpNox.Controls.Add(this.txtPackageName);
+            this.grpNox.Controls.Add(this.label63);
+            this.grpNox.Controls.Add(this.Label25);
+            this.grpNox.Location = new System.Drawing.Point(2, 300);
+            this.grpNox.Margin = new System.Windows.Forms.Padding(2);
+            this.grpNox.Name = "grpNox";
+            this.grpNox.Padding = new System.Windows.Forms.Padding(2);
+            this.grpNox.Size = new System.Drawing.Size(700, 134);
+            this.grpNox.TabIndex = 38;
+            this.grpNox.TabStop = false;
+            this.grpNox.Text = "Nox Player";
+            // 
+            // label61
+            // 
+            this.label61.Location = new System.Drawing.Point(257, 104);
+            this.label61.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(335, 32);
+            this.label61.TabIndex = 36;
+            this.label61.Text = "DPI: some apps are DPI aware and adjust.  Those apps need consistent dpi for tran" +
+    "sportability.  Most apps do not use this setting.";
+            // 
+            // cboDPI
+            // 
+            this.cboDPI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDPI.FormattingEnabled = true;
+            this.cboDPI.Items.AddRange(new object[] {
+            "96",
+            "120",
+            "144",
+            "192",
+            "240",
+            "288",
+            "384",
+            "480"});
+            this.cboDPI.Location = new System.Drawing.Point(149, 104);
+            this.cboDPI.Name = "cboDPI";
+            this.cboDPI.Size = new System.Drawing.Size(98, 21);
+            this.cboDPI.TabIndex = 35;
+            this.cboDPI.SelectedIndexChanged += new System.EventHandler(this.cboDPI_SelectedIndexChanged);
+            // 
+            // Label26
+            // 
+            this.Label26.AutoSize = true;
+            this.Label26.Location = new System.Drawing.Point(220, 51);
+            this.Label26.Name = "Label26";
+            this.Label26.Size = new System.Drawing.Size(95, 13);
+            this.Label26.TabIndex = 47;
+            this.Label26.Text = "Installed Instances";
+            // 
+            // cboGameInstances
+            // 
+            this.cboGameInstances.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGameInstances.FormattingEnabled = true;
+            this.cboGameInstances.Location = new System.Drawing.Point(316, 46);
+            this.cboGameInstances.Name = "cboGameInstances";
+            this.cboGameInstances.Size = new System.Drawing.Size(98, 21);
+            this.cboGameInstances.TabIndex = 46;
+            this.cboGameInstances.SelectedIndexChanged += new System.EventHandler(this.cboGameInstances_SelectedIndexChanged);
+            // 
+            // cboResolution
+            // 
+            this.cboResolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboResolution.FormattingEnabled = true;
+            this.cboResolution.Items.AddRange(new object[] {
+            "640x360",
+            "667x375",
+            "1024x768",
+            "1280x800"});
+            this.cboResolution.Location = new System.Drawing.Point(149, 74);
+            this.cboResolution.Name = "cboResolution";
+            this.cboResolution.Size = new System.Drawing.Size(264, 21);
+            this.cboResolution.TabIndex = 45;
+            this.cboResolution.SelectedIndexChanged += new System.EventHandler(this.cboResolution_SelectedIndexChanged);
+            // 
+            // txtGamePanelLaunchInstance
+            // 
+            this.txtGamePanelLaunchInstance.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGamePanelLaunchInstance.Location = new System.Drawing.Point(149, 48);
+            this.txtGamePanelLaunchInstance.Name = "txtGamePanelLaunchInstance";
+            this.txtGamePanelLaunchInstance.Size = new System.Drawing.Size(64, 20);
+            this.txtGamePanelLaunchInstance.TabIndex = 41;
+            this.txtGamePanelLaunchInstance.TextChanged += new System.EventHandler(this.txtGamePanelLaunchInstance_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(9, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(95, 13);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Instance to launch";
+            // 
+            // Label16
+            // 
+            this.Label16.AutoSize = true;
+            this.Label16.Location = new System.Drawing.Point(9, 21);
+            this.Label16.Name = "Label16";
+            this.Label16.Size = new System.Drawing.Size(81, 13);
+            this.Label16.TabIndex = 40;
+            this.Label16.Text = "Package Name";
+            // 
+            // txtPackageName
+            // 
+            this.txtPackageName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPackageName.Location = new System.Drawing.Point(149, 21);
+            this.txtPackageName.Name = "txtPackageName";
+            this.txtPackageName.Size = new System.Drawing.Size(476, 20);
+            this.txtPackageName.TabIndex = 38;
+            this.txtPackageName.TextChanged += new System.EventHandler(this.txtPackageName_TextChanged);
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(11, 104);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(99, 13);
+            this.label63.TabIndex = 37;
+            this.label63.Text = "DPI (Dots Per Inch)";
+            // 
+            // Label25
+            // 
+            this.Label25.AutoSize = true;
+            this.Label25.Location = new System.Drawing.Point(9, 77);
+            this.Label25.Name = "Label25";
+            this.Label25.Size = new System.Drawing.Size(84, 13);
+            this.Label25.TabIndex = 37;
+            this.Label25.Text = "Initial Resolution";
+            // 
+            // grpSteam
+            // 
+            this.grpSteam.Controls.Add(this.groupBox14);
+            this.grpSteam.Controls.Add(this.groupBox9);
+            this.grpSteam.Location = new System.Drawing.Point(2, 438);
+            this.grpSteam.Margin = new System.Windows.Forms.Padding(2);
+            this.grpSteam.Name = "grpSteam";
+            this.grpSteam.Padding = new System.Windows.Forms.Padding(2);
+            this.grpSteam.Size = new System.Drawing.Size(700, 257);
+            this.grpSteam.TabIndex = 39;
+            this.grpSteam.TabStop = false;
+            this.grpSteam.Text = "Steam - Experimental/In Development/Incomplete";
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.label84);
+            this.groupBox14.Controls.Add(this.label64);
+            this.groupBox14.Controls.Add(this.label66);
+            this.groupBox14.Controls.Add(this.txtSteamID);
+            this.groupBox14.Location = new System.Drawing.Point(5, 144);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(684, 101);
+            this.groupBox14.TabIndex = 9;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Start Configuration - Not Required";
+            // 
+            // label84
+            // 
+            this.label84.Location = new System.Drawing.Point(9, 48);
+            this.label84.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(268, 44);
+            this.label84.TabIndex = 9;
+            this.label84.Text = "Used to automatically launch application when scheduler is used, or Toolbar \"Star" +
+    "t\" buttons.";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(7, 20);
+            this.label64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(106, 13);
+            this.label64.TabIndex = 0;
+            this.label64.Text = "Steam Application ID";
+            // 
+            // label66
+            // 
+            this.label66.Location = new System.Drawing.Point(352, 18);
+            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(327, 63);
+            this.label66.TabIndex = 3;
+            this.label66.Text = "Enter the Steam Game Number Ex.  285920  Right Click a steam app Icon, then go to" +
+    " properties.  Steam ID\'s Look like this: steam://rungameid/285920";
+            // 
+            // txtSteamID
+            // 
+            this.txtSteamID.Location = new System.Drawing.Point(127, 19);
+            this.txtSteamID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSteamID.Name = "txtSteamID";
+            this.txtSteamID.Size = new System.Drawing.Size(223, 20);
+            this.txtSteamID.TabIndex = 4;
+            this.txtSteamID.TextChanged += new System.EventHandler(this.txtSteamID_TextChanged);
+            this.txtSteamID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSteamID_KeyPress);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.cmdSteamWindowWizard);
+            this.groupBox9.Controls.Add(this.cboSteamSecondaryWindowNameFilter);
+            this.groupBox9.Controls.Add(this.txtSteamSecondaryWindowName);
+            this.groupBox9.Controls.Add(this.label74);
+            this.groupBox9.Controls.Add(this.label75);
+            this.groupBox9.Controls.Add(this.cboSteamPrimaryWindowNameFilter);
+            this.groupBox9.Controls.Add(this.txtSteamPrimaryWindowName);
+            this.groupBox9.Controls.Add(this.label73);
+            this.groupBox9.Controls.Add(this.label67);
+            this.groupBox9.Location = new System.Drawing.Point(5, 18);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(501, 119);
+            this.groupBox9.TabIndex = 8;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Window";
+            // 
+            // cmdSteamWindowWizard
+            // 
+            this.cmdSteamWindowWizard.Location = new System.Drawing.Point(378, 15);
+            this.cmdSteamWindowWizard.Name = "cmdSteamWindowWizard";
+            this.cmdSteamWindowWizard.Size = new System.Drawing.Size(112, 23);
+            this.cmdSteamWindowWizard.TabIndex = 9;
+            this.cmdSteamWindowWizard.Text = "Window Wizard";
+            this.cmdSteamWindowWizard.UseVisualStyleBackColor = true;
+            this.cmdSteamWindowWizard.Click += new System.EventHandler(this.cmdSteamWindowWizard_Click);
+            // 
+            // cboSteamSecondaryWindowNameFilter
+            // 
+            this.cboSteamSecondaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSteamSecondaryWindowNameFilter.FormattingEnabled = true;
+            this.cboSteamSecondaryWindowNameFilter.Items.AddRange(new object[] {
+            "Equals",
+            "Starts With",
+            "Contains"});
+            this.cboSteamSecondaryWindowNameFilter.Location = new System.Drawing.Point(139, 67);
+            this.cboSteamSecondaryWindowNameFilter.Name = "cboSteamSecondaryWindowNameFilter";
+            this.cboSteamSecondaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
+            this.cboSteamSecondaryWindowNameFilter.TabIndex = 11;
+            this.cboSteamSecondaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboSteamSecondaryWindowNameFilter_SelectedIndexChanged);
+            // 
+            // txtSteamSecondaryWindowName
+            // 
+            this.txtSteamSecondaryWindowName.Location = new System.Drawing.Point(139, 93);
+            this.txtSteamSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSteamSecondaryWindowName.Name = "txtSteamSecondaryWindowName";
+            this.txtSteamSecondaryWindowName.Size = new System.Drawing.Size(351, 20);
+            this.txtSteamSecondaryWindowName.TabIndex = 10;
+            this.txtSteamSecondaryWindowName.TextChanged += new System.EventHandler(this.txtSteamSecondaryWindowName_TextChanged);
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(5, 98);
+            this.label74.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(131, 13);
+            this.label74.TabIndex = 8;
+            this.label74.Text = "Secondary Window Name";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(5, 72);
+            this.label75.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(125, 13);
+            this.label75.TabIndex = 9;
+            this.label75.Text = "Secondary Window Filter";
+            // 
+            // cboSteamPrimaryWindowNameFilter
+            // 
+            this.cboSteamPrimaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSteamPrimaryWindowNameFilter.FormattingEnabled = true;
+            this.cboSteamPrimaryWindowNameFilter.Items.AddRange(new object[] {
+            "Equals",
+            "Starts With",
+            "Contains"});
+            this.cboSteamPrimaryWindowNameFilter.Location = new System.Drawing.Point(139, 15);
+            this.cboSteamPrimaryWindowNameFilter.Name = "cboSteamPrimaryWindowNameFilter";
+            this.cboSteamPrimaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
+            this.cboSteamPrimaryWindowNameFilter.TabIndex = 7;
+            this.cboSteamPrimaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboSteamPrimaryWindowNameFilter_SelectedIndexChanged);
+            // 
+            // txtSteamPrimaryWindowName
+            // 
+            this.txtSteamPrimaryWindowName.Location = new System.Drawing.Point(139, 41);
+            this.txtSteamPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSteamPrimaryWindowName.Name = "txtSteamPrimaryWindowName";
+            this.txtSteamPrimaryWindowName.Size = new System.Drawing.Size(351, 20);
+            this.txtSteamPrimaryWindowName.TabIndex = 5;
+            this.txtSteamPrimaryWindowName.TextChanged += new System.EventHandler(this.txtSteamWindowName_TextChanged);
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(5, 46);
+            this.label73.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(114, 13);
+            this.label73.TabIndex = 0;
+            this.label73.Text = "Primary Window Name";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(5, 20);
+            this.label67.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(108, 13);
+            this.label67.TabIndex = 0;
+            this.label67.Text = "Primary Window Filter";
+            // 
+            // grpBlue
+            // 
+            this.grpBlue.Controls.Add(this.cboBlueInstance);
+            this.grpBlue.Controls.Add(this.label83);
+            this.grpBlue.Controls.Add(this.label82);
+            this.grpBlue.Controls.Add(this.txtBluePackageName);
+            this.grpBlue.Location = new System.Drawing.Point(2, 699);
+            this.grpBlue.Margin = new System.Windows.Forms.Padding(2);
+            this.grpBlue.Name = "grpBlue";
+            this.grpBlue.Padding = new System.Windows.Forms.Padding(2);
+            this.grpBlue.Size = new System.Drawing.Size(701, 65);
+            this.grpBlue.TabIndex = 48;
+            this.grpBlue.TabStop = false;
+            this.grpBlue.Text = "BlueStacks";
+            // 
+            // cboBlueInstance
+            // 
+            this.cboBlueInstance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBlueInstance.FormattingEnabled = true;
+            this.cboBlueInstance.Location = new System.Drawing.Point(183, 45);
+            this.cboBlueInstance.Margin = new System.Windows.Forms.Padding(2);
+            this.cboBlueInstance.Name = "cboBlueInstance";
+            this.cboBlueInstance.Size = new System.Drawing.Size(293, 21);
+            this.cboBlueInstance.TabIndex = 43;
+            this.cboBlueInstance.SelectedIndexChanged += new System.EventHandler(this.cboBlueInstance_SelectedIndexChanged);
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(46, 44);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(48, 13);
+            this.label83.TabIndex = 42;
+            this.label83.Text = "Instance";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(43, 24);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(81, 13);
+            this.label82.TabIndex = 42;
+            this.label82.Text = "Package Name";
+            // 
+            // txtBluePackageName
+            // 
+            this.txtBluePackageName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBluePackageName.Location = new System.Drawing.Point(183, 24);
+            this.txtBluePackageName.Name = "txtBluePackageName";
+            this.txtBluePackageName.Size = new System.Drawing.Size(476, 20);
+            this.txtBluePackageName.TabIndex = 41;
+            this.txtBluePackageName.TextChanged += new System.EventHandler(this.txtBluePackageName_TextChanged);
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.grpVideo);
+            this.groupBox11.Controls.Add(this.label17);
+            this.groupBox11.Controls.Add(this.Label33);
+            this.groupBox11.Controls.Add(this.txtGamePanelVersion);
+            this.groupBox11.Controls.Add(this.cmdStartEmmulatorAndPackage);
+            this.groupBox11.Controls.Add(this.groupBox1);
+            this.groupBox11.Controls.Add(this.cmdStartEmmulatorPackageAndRunScript);
+            this.groupBox11.Controls.Add(this.cmdStartEmmulator);
+            this.groupBox11.Controls.Add(this.txtGamePanelLoopDelay);
+            this.groupBox11.Controls.Add(this.Label30);
+            this.groupBox11.Controls.Add(this.cmdRunScript);
+            this.groupBox11.Location = new System.Drawing.Point(3, 769);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(700, 252);
+            this.groupBox11.TabIndex = 47;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "General";
+            // 
+            // grpVideo
+            // 
+            this.grpVideo.Controls.Add(this.lblFrameLimit);
+            this.grpVideo.Controls.Add(this.NumericVideoFrameLimit);
+            this.grpVideo.Controls.Add(this.chkSaveVideo);
+            this.grpVideo.Location = new System.Drawing.Point(12, 37);
+            this.grpVideo.Name = "grpVideo";
+            this.grpVideo.Size = new System.Drawing.Size(200, 76);
+            this.grpVideo.TabIndex = 32;
+            this.grpVideo.TabStop = false;
+            this.grpVideo.Text = "Video";
+            // 
+            // lblFrameLimit
+            // 
+            this.lblFrameLimit.AutoSize = true;
+            this.lblFrameLimit.Location = new System.Drawing.Point(9, 43);
+            this.lblFrameLimit.Name = "lblFrameLimit";
+            this.lblFrameLimit.Size = new System.Drawing.Size(60, 13);
+            this.lblFrameLimit.TabIndex = 33;
+            this.lblFrameLimit.Text = "Frame Limit";
+            // 
+            // NumericVideoFrameLimit
+            // 
+            this.NumericVideoFrameLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumericVideoFrameLimit.Location = new System.Drawing.Point(76, 35);
+            this.NumericVideoFrameLimit.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.NumericVideoFrameLimit.Name = "NumericVideoFrameLimit";
+            this.NumericVideoFrameLimit.Size = new System.Drawing.Size(94, 30);
+            this.NumericVideoFrameLimit.TabIndex = 32;
+            this.NumericVideoFrameLimit.ValueChanged += new System.EventHandler(this.NumericVideoFrameLimit_ValueChanged);
+            // 
+            // chkSaveVideo
+            // 
+            this.chkSaveVideo.AutoSize = true;
+            this.chkSaveVideo.Location = new System.Drawing.Point(9, 15);
+            this.chkSaveVideo.Name = "chkSaveVideo";
+            this.chkSaveVideo.Size = new System.Drawing.Size(81, 17);
+            this.chkSaveVideo.TabIndex = 31;
+            this.chkSaveVideo.Text = "Save Video";
+            this.chkSaveVideo.UseVisualStyleBackColor = true;
+            this.chkSaveVideo.CheckedChanged += new System.EventHandler(this.chkSaveVideo_CheckedChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(17, 209);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(107, 13);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Target Game Version";
+            this.label17.Visible = false;
+            // 
+            // Label33
+            // 
+            this.Label33.AutoSize = true;
+            this.Label33.Location = new System.Drawing.Point(261, 19);
+            this.Label33.Name = "Label33";
+            this.Label33.Size = new System.Drawing.Size(88, 13);
+            this.Label33.TabIndex = 44;
+            this.Label33.Text = "1,000 ms = 1 sec";
+            // 
+            // txtGamePanelVersion
+            // 
+            this.txtGamePanelVersion.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGamePanelVersion.Location = new System.Drawing.Point(137, 206);
+            this.txtGamePanelVersion.Name = "txtGamePanelVersion";
+            this.txtGamePanelVersion.Size = new System.Drawing.Size(180, 20);
+            this.txtGamePanelVersion.TabIndex = 6;
+            this.txtGamePanelVersion.Visible = false;
+            // 
+            // cmdStartEmmulatorAndPackage
+            // 
+            this.cmdStartEmmulatorAndPackage.Location = new System.Drawing.Point(385, 75);
+            this.cmdStartEmmulatorAndPackage.Name = "cmdStartEmmulatorAndPackage";
+            this.cmdStartEmmulatorAndPackage.Size = new System.Drawing.Size(264, 23);
+            this.cmdStartEmmulatorAndPackage.TabIndex = 21;
+            this.cmdStartEmmulatorAndPackage.Text = "Start Emmulator + Run App";
+            this.cmdStartEmmulatorAndPackage.UseVisualStyleBackColor = true;
+            this.cmdStartEmmulatorAndPackage.Click += new System.EventHandler(this.cmdStartEmmulatorAndPackage_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Location = new System.Drawing.Point(13, 115);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(352, 86);
+            this.groupBox1.TabIndex = 33;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Defaults";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label42);
+            this.groupBox2.Controls.Add(this.numericApplicationDefaultClickSpeed);
+            this.groupBox2.Location = new System.Drawing.Point(12, 16);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(331, 57);
+            this.groupBox2.TabIndex = 34;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Default Click Speed (ms)";
+            // 
+            // label42
+            // 
+            this.label42.Location = new System.Drawing.Point(119, 14);
+            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(209, 39);
+            this.label42.TabIndex = 34;
+            this.label42.Text = "How long to hold the mouse down during a click event.  Some applications do not r" +
+    "espond to 0ms.";
+            // 
+            // numericApplicationDefaultClickSpeed
+            // 
+            this.numericApplicationDefaultClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericApplicationDefaultClickSpeed.Location = new System.Drawing.Point(12, 18);
+            this.numericApplicationDefaultClickSpeed.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericApplicationDefaultClickSpeed.Name = "numericApplicationDefaultClickSpeed";
+            this.numericApplicationDefaultClickSpeed.Size = new System.Drawing.Size(94, 30);
+            this.numericApplicationDefaultClickSpeed.TabIndex = 33;
+            this.numericApplicationDefaultClickSpeed.ValueChanged += new System.EventHandler(this.numericApplicationDefaultClickSpeed_ValueChanged);
+            // 
+            // cmdStartEmmulatorPackageAndRunScript
+            // 
+            this.cmdStartEmmulatorPackageAndRunScript.Location = new System.Drawing.Point(385, 104);
+            this.cmdStartEmmulatorPackageAndRunScript.Name = "cmdStartEmmulatorPackageAndRunScript";
+            this.cmdStartEmmulatorPackageAndRunScript.Size = new System.Drawing.Size(264, 23);
+            this.cmdStartEmmulatorPackageAndRunScript.TabIndex = 21;
+            this.cmdStartEmmulatorPackageAndRunScript.Text = "Start Emmulator + Run App + Run Script";
+            this.cmdStartEmmulatorPackageAndRunScript.UseVisualStyleBackColor = true;
+            this.cmdStartEmmulatorPackageAndRunScript.Click += new System.EventHandler(this.cmdStartEmmulatorPackageAndRunScript_Click);
+            // 
+            // cmdStartEmmulator
+            // 
+            this.cmdStartEmmulator.Location = new System.Drawing.Point(385, 17);
+            this.cmdStartEmmulator.Name = "cmdStartEmmulator";
+            this.cmdStartEmmulator.Size = new System.Drawing.Size(264, 23);
+            this.cmdStartEmmulator.TabIndex = 21;
+            this.cmdStartEmmulator.Text = "Start Emmulator";
+            this.cmdStartEmmulator.UseVisualStyleBackColor = true;
+            this.cmdStartEmmulator.Click += new System.EventHandler(this.cmdStartEmmulator_Click);
+            // 
+            // txtGamePanelLoopDelay
+            // 
+            this.txtGamePanelLoopDelay.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGamePanelLoopDelay.Location = new System.Drawing.Point(153, 17);
+            this.txtGamePanelLoopDelay.Name = "txtGamePanelLoopDelay";
+            this.txtGamePanelLoopDelay.Size = new System.Drawing.Size(100, 20);
+            this.txtGamePanelLoopDelay.TabIndex = 43;
+            this.txtGamePanelLoopDelay.TextChanged += new System.EventHandler(this.txtGamePanelLoopDelay_TextChanged_1);
+            // 
+            // Label30
+            // 
+            this.Label30.AutoSize = true;
+            this.Label30.Location = new System.Drawing.Point(13, 17);
+            this.Label30.Name = "Label30";
+            this.Label30.Size = new System.Drawing.Size(83, 13);
+            this.Label30.TabIndex = 42;
+            this.Label30.Text = "Loop Delay (ms)";
+            // 
+            // cmdRunScript
+            // 
+            this.cmdRunScript.Location = new System.Drawing.Point(385, 46);
+            this.cmdRunScript.Name = "cmdRunScript";
+            this.cmdRunScript.Size = new System.Drawing.Size(264, 23);
+            this.cmdRunScript.TabIndex = 22;
+            this.cmdRunScript.Text = "Run Script";
+            this.cmdRunScript.UseVisualStyleBackColor = true;
+            this.cmdRunScript.Click += new System.EventHandler(this.cmdRunScript_Click);
+            // 
+            // cboMouseMode
+            // 
+            this.cboMouseMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMouseMode.FormattingEnabled = true;
+            this.cboMouseMode.Location = new System.Drawing.Point(105, 70);
+            this.cboMouseMode.Margin = new System.Windows.Forms.Padding(2);
+            this.cboMouseMode.Name = "cboMouseMode";
+            this.cboMouseMode.Size = new System.Drawing.Size(231, 21);
+            this.cboMouseMode.TabIndex = 37;
+            this.cboMouseMode.SelectedIndexChanged += new System.EventHandler(this.cboClickMode_SelectedIndexChanged);
+            this.cboMouseMode.TextChanged += new System.EventHandler(this.cboPlatform_TextChanged);
+            // 
+            // cboPlatform
+            // 
+            this.cboPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPlatform.FormattingEnabled = true;
+            this.cboPlatform.Location = new System.Drawing.Point(104, 45);
+            this.cboPlatform.Margin = new System.Windows.Forms.Padding(2);
+            this.cboPlatform.Name = "cboPlatform";
+            this.cboPlatform.Size = new System.Drawing.Size(231, 21);
+            this.cboPlatform.TabIndex = 37;
+            this.cboPlatform.SelectedIndexChanged += new System.EventHandler(this.cboPlatform_SelectedIndexChanged);
+            this.cboPlatform.TextChanged += new System.EventHandler(this.cboPlatform_TextChanged);
+            // 
+            // lblGamePanelGameName
+            // 
+            this.lblGamePanelGameName.AutoSize = true;
+            this.lblGamePanelGameName.Location = new System.Drawing.Point(101, 28);
+            this.lblGamePanelGameName.Name = "lblGamePanelGameName";
+            this.lblGamePanelGameName.Size = new System.Drawing.Size(134, 13);
+            this.lblGamePanelGameName.TabIndex = 2;
+            this.lblGamePanelGameName.Text = "[lblGamePanelGameName]";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(11, 48);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(45, 13);
+            this.label62.TabIndex = 1;
+            this.label62.Text = "Platform";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(11, 27);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(57, 13);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "App Name";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(3, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(74, 18);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "App Panel";
             // 
             // PanelObject
             // 
@@ -4564,14 +4564,14 @@
             // 
             this.dgvTest.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTestID,
@@ -4582,14 +4582,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle25.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle25.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle25;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvTest.Location = new System.Drawing.Point(627, 226);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.RowHeadersWidth = 62;
@@ -4659,14 +4659,14 @@
             // dgvTestAllReference
             // 
             this.dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle26.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle26.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle26;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceID,
@@ -4675,14 +4675,14 @@
             this.dgvTestAllReferenceBlue,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle27.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle27.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle27.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle27;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvTestAllReference.Location = new System.Drawing.Point(627, 48);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.RowHeadersWidth = 62;
@@ -4940,8 +4940,8 @@
             // 
             // colMon
             // 
-            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colMon.DefaultCellStyle = dataGridViewCellStyle28;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colMon.DefaultCellStyle = dataGridViewCellStyle11;
             this.colMon.HeaderText = "Mon";
             this.colMon.MaxInputLength = 1;
             this.colMon.MinimumWidth = 37;
@@ -4951,8 +4951,8 @@
             // 
             // colTue
             // 
-            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colTue.DefaultCellStyle = dataGridViewCellStyle29;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colTue.DefaultCellStyle = dataGridViewCellStyle12;
             this.colTue.HeaderText = "Tue";
             this.colTue.MaxInputLength = 1;
             this.colTue.MinimumWidth = 37;
@@ -4962,8 +4962,8 @@
             // 
             // colWed
             // 
-            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colWed.DefaultCellStyle = dataGridViewCellStyle30;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colWed.DefaultCellStyle = dataGridViewCellStyle13;
             this.colWed.HeaderText = "Wed";
             this.colWed.MaxInputLength = 1;
             this.colWed.MinimumWidth = 37;
@@ -4973,8 +4973,8 @@
             // 
             // colThu
             // 
-            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colThu.DefaultCellStyle = dataGridViewCellStyle31;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colThu.DefaultCellStyle = dataGridViewCellStyle14;
             this.colThu.HeaderText = "Thu";
             this.colThu.MaxInputLength = 1;
             this.colThu.MinimumWidth = 37;
@@ -4984,8 +4984,8 @@
             // 
             // colFri
             // 
-            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colFri.DefaultCellStyle = dataGridViewCellStyle32;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colFri.DefaultCellStyle = dataGridViewCellStyle15;
             this.colFri.HeaderText = "Fri";
             this.colFri.MaxInputLength = 1;
             this.colFri.MinimumWidth = 37;
@@ -4995,8 +4995,8 @@
             // 
             // colSat
             // 
-            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSat.DefaultCellStyle = dataGridViewCellStyle33;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSat.DefaultCellStyle = dataGridViewCellStyle16;
             this.colSat.HeaderText = "Sat";
             this.colSat.MaxInputLength = 1;
             this.colSat.MinimumWidth = 37;
@@ -5006,8 +5006,8 @@
             // 
             // colSun
             // 
-            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSun.DefaultCellStyle = dataGridViewCellStyle34;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.colSun.DefaultCellStyle = dataGridViewCellStyle17;
             this.colSun.HeaderText = "Sun";
             this.colSun.MaxInputLength = 1;
             this.colSun.MinimumWidth = 37;
@@ -5855,39 +5855,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreePatron)).EndInit();
             this.splitContainerTreePatron.ResumeLayout(false);
             this.tabRun.ResumeLayout(false);
-            this.PanelWorkspace.ResumeLayout(false);
-            this.PanelWorkspace.PerformLayout();
-            this.groupBox15.ResumeLayout(false);
-            this.groupBox15.PerformLayout();
-            this.groupBox12.ResumeLayout(false);
-            this.groupBox12.PerformLayout();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
-            this.PanelGame.ResumeLayout(false);
-            this.PanelGame.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.grpApplication.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.grpNox.ResumeLayout(false);
-            this.grpNox.PerformLayout();
-            this.grpSteam.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            this.grpBlue.ResumeLayout(false);
-            this.grpBlue.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.grpVideo.ResumeLayout(false);
-            this.grpVideo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericVideoFrameLimit)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).EndInit();
             this.PanelColorEvent.ResumeLayout(false);
             this.tableColorEvent.ResumeLayout(false);
             this.panelColorEventChild1.ResumeLayout(false);
@@ -5951,6 +5918,39 @@
             ((System.ComponentModel.ISupportInitialize)(this.NumericYOffset)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.NumericXOffset)).EndInit();
             this.panelRightDragMode.ResumeLayout(false);
+            this.PanelWorkspace.ResumeLayout(false);
+            this.PanelWorkspace.PerformLayout();
+            this.groupBox15.ResumeLayout(false);
+            this.groupBox15.PerformLayout();
+            this.groupBox12.ResumeLayout(false);
+            this.groupBox12.PerformLayout();
+            this.groupBox3.ResumeLayout(false);
+            this.groupBox3.PerformLayout();
+            this.PanelGame.ResumeLayout(false);
+            this.PanelGame.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.grpApplication.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.grpNox.ResumeLayout(false);
+            this.grpNox.PerformLayout();
+            this.grpSteam.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.grpBlue.ResumeLayout(false);
+            this.grpBlue.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.grpVideo.ResumeLayout(false);
+            this.grpVideo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericVideoFrameLimit)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).EndInit();
             this.PanelObject.ResumeLayout(false);
             this.PanelObject.PerformLayout();
             this.Panel5.ResumeLayout(false);

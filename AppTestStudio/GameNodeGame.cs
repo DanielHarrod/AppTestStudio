@@ -55,7 +55,9 @@ namespace AppTestStudio
 
             BlueStacksWindowName = "";
 
-
+            MouseSpeedPixelsPerSecond = 3000;
+            MouseSpeedVelocityVariantPercentMax = 10;
+            MouseSpeedVelocityVariantPercentMin = -10;
 
             IsPaused = false;
         }
@@ -228,6 +230,21 @@ namespace AppTestStudio
         /// Design Time: Not Used.
         /// </summary>
         public short MouseY { get; set; }
+
+        /// <summary>
+        /// How Fast to move the mouse
+        /// </summary>
+        public int MouseSpeedPixelsPerSecond { get; set; }
+        
+        /// <summary>
+        /// Maximum Random Velocity above default speed.
+        /// </summary>
+        public int MouseSpeedVelocityVariantPercentMax { get; set; }
+
+        /// <summary>
+        /// Minimum Random Velocity below defautl speed.
+        /// </summary>
+        public int MouseSpeedVelocityVariantPercentMin { get; set; }
 
         public GameNodeGame CloneMe()
         {
@@ -680,6 +697,46 @@ namespace AppTestStudio
                 }
             }
 
+            int MouseSpeedPixelsPerSecond = 3000;
+            int MouseSpeedVelocityVariantPercentMax = 10;
+            int MouseSpeedVelocityVariantPercentMin = -10;
+
+            if (childNode.Attributes.GetNamedItem("MouseSpeedPixelsPerSecond").IsSomething())
+            {
+                try
+                {
+                    MouseSpeedPixelsPerSecond = Convert.ToInt32(childNode.Attributes["MouseSpeedPixelsPerSecond"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("MouseSpeedPixelsPerSecond:" + ex.Message);
+                }
+            }
+
+            if (childNode.Attributes.GetNamedItem("MouseSpeedVelocityVariantPercentMax").IsSomething())
+            {
+                try
+                {
+                    MouseSpeedVelocityVariantPercentMax = Convert.ToInt32(childNode.Attributes["MouseSpeedVelocityVariantPercentMax"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("MouseSpeedVelocityVariantPercentMax:" + ex.Message);
+                }
+            }
+
+            if (childNode.Attributes.GetNamedItem("MouseSpeedVelocityVariantPercentMin").IsSomething())
+            {
+                try
+                {
+                    MouseSpeedVelocityVariantPercentMin = Convert.ToInt32(childNode.Attributes["MouseSpeedVelocityVariantPercentMin"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("MouseSpeedVelocityVariantPercentMin:" + ex.Message);
+                }
+            }
+
             GameNodeGame Game = new GameNodeGame(GameName, threadManager);
             Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
@@ -697,6 +754,9 @@ namespace AppTestStudio
             Game.PathToApplicationEXE = PathToApplicationExe;
             Game.ApplicationParameters = ApplicationParameters;
             Game.ClickMode = ClickMode;
+            Game.MouseSpeedPixelsPerSecond = MouseSpeedPixelsPerSecond;
+            Game.MouseSpeedVelocityVariantPercentMax = MouseSpeedVelocityVariantPercentMax;
+            Game.MouseSpeedVelocityVariantPercentMin = MouseSpeedVelocityVariantPercentMin;
 
             switch (Game.Platform)
             {
@@ -782,6 +842,11 @@ namespace AppTestStudio
             Writer.WriteAttributeString("DPI", DPI.ToString());
             Writer.WriteAttributeString("Platform", Platform.ToString());
             Writer.WriteAttributeString("ClickMode", ClickMode.ToString());
+
+            Writer.WriteAttributeString("MouseSpeedPixelsPerSecond", MouseSpeedPixelsPerSecond.ToString());
+            Writer.WriteAttributeString("MouseSpeedVelocityVariantPercentMax", MouseSpeedVelocityVariantPercentMax.ToString());
+            Writer.WriteAttributeString("MouseSpeedVelocityVariantPercentMin", MouseSpeedVelocityVariantPercentMin.ToString());
+
             switch (Platform)
             {
                 case Platform.BlueStacks:
@@ -1738,7 +1803,6 @@ namespace AppTestStudio
             }
         }
 
-
         private static void LoadAction(XmlNode actionNode, GameNodeGame gameNode, GameNodeAction treeActionNode, List<GameNodeAction> lst, Boolean loadBitmaps)
         {
             String ActionName = "";
@@ -1759,6 +1823,7 @@ namespace AppTestStudio
             {
                 UseParentPicture = Convert.ToBoolean(actionNode.Attributes["UseParentPicture"].Value);
             }
+            treeActionNode.UseParentPicture = UseParentPicture;
 
             if (actionNode.Attributes.GetNamedItem("AfterCompletionType").IsSomething())
             {
@@ -1935,9 +2000,6 @@ namespace AppTestStudio
                 }
             }
 
-
-
-            treeActionNode.UseParentPicture = UseParentPicture;
 
             foreach (XmlNode ActionNodeChildNode in actionNode.ChildNodes)
             {
