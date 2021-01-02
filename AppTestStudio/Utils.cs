@@ -1079,10 +1079,10 @@ namespace AppTestStudio
                             int MiddleOfTextWidth = (int)(WidthTextSize.Width / 2);
                             int MiddleOfTextHeight = (int)(WidthTextSize.Height / 2);
 
-                            Debug.WriteLine("Node.Anchor" + Node.Anchor);
-                            Debug.WriteLine("pictureBox1Rectangle: " + pictureBox1Rectangle);
-                            Debug.WriteLine("Width:" + TargetWidth + " Height:" + TargetHeight);
-                            Debug.WriteLine("TS:" + WidthTextSize.Width + "," + WidthTextSize.Height);
+                            //Debug.WriteLine("Node.Anchor" + Node.Anchor);
+                            //Debug.WriteLine("pictureBox1Rectangle: " + pictureBox1Rectangle);
+                            //Debug.WriteLine("Width:" + TargetWidth + " Height:" + TargetHeight);
+                            //Debug.WriteLine("TS:" + WidthTextSize.Width + "," + WidthTextSize.Height);
 
                             // Draw Blue Line from Top to Center of the Top of the Mask
                             e.Graphics.DrawLine(p, CenterX, 0, CenterX, TopOfMaskY);

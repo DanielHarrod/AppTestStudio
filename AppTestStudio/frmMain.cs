@@ -137,6 +137,7 @@ namespace AppTestStudio
             foreach (ClickMode clickMode in Enum.GetValues(typeof(ClickMode)))
             {
                 cboClickMode.Items.Add(clickMode.ToString());
+                cboActionClickMode.Items.Add(clickMode.ToString());
             }
 
             TitleBarHeight = this.RectangleToScreen(this.ClientRectangle).Top - this.Top;
@@ -1006,9 +1007,21 @@ namespace AppTestStudio
             switch (GameNode.ActionType)
             {
                 case AppTestStudio.ActionType.Action:
+
+                    //Properties Group
                     chkPropertiesRepeatsUntilFalse.Visible = false;
                     grpPropertiesRepeatsUntilFalse.Visible = false;
-                    panelRightProperties.Height = 122;  // hiding repeats so remove the space they are taking up.
+                    
+                    lblClickMode.Visible = true;
+                    cboActionClickMode.Visible = true;
+                    chkClickModeMoveFirst.Visible = true;
+
+                    cboActionClickMode.Text = GameNode.ClickMode.ToString();
+                    cboActionClickMode_SelectedIndexChanged(null, null);  // run the show/hide code for the Move First checkbox.
+                    chkClickModeMoveFirst.Checked = GameNode.MoveFirst;
+
+                    //End - Properties Group
+
 
                     grpEventMode.Visible = false;
                     grpMode.Visible = true;
@@ -1108,9 +1121,15 @@ namespace AppTestStudio
 
                     break;
                 case AppTestStudio.ActionType.Event:
+
+                    //Properties Group
                     chkPropertiesRepeatsUntilFalse.Visible = true;
                     grpPropertiesRepeatsUntilFalse.Visible = true;
-                    panelRightProperties.Height = 170;
+
+                    lblClickMode.Visible = false;
+                    cboActionClickMode.Visible = false;
+                    chkClickModeMoveFirst.Visible = false;
+
 
                     chkPropertiesRepeatsUntilFalse.Checked = GameNode.RepeatsUntilFalse;
                     chkPropertiesRepeatsUntilFalse_CheckedChanged(null, null); // lazy - enable/disable code is on the change event.
@@ -4481,6 +4500,7 @@ namespace AppTestStudio
             GameNodeAction Event = new GameNodeAction("New Event", ActionType.Event);
             tv.SelectedNode.Nodes.Add(Event);
             tv.SelectedNode = Event;
+
             SetPanel(PanelMode.PanelColorEvent);
             LoadPanelSingleColorAtSingleLocation(Event);
             //LoadParentScreenshotIfNecessary();
@@ -4502,8 +4522,13 @@ namespace AppTestStudio
             OriginalNode.Nodes.Add(GameNodeAction);
             tv.SelectedNode = GameNodeAction;
 
-            // must be after Node is added to tree.
-            GameNodeAction.ClickSpeed = GameNodeAction.GetGameNodeGame().DefaultClickSpeed;
+            // Initialize Children with Parent Defaults
+            GameNodeGame Game = GameNodeAction.GetGameNodeGame();
+            if ( Game.IsSomething() )
+            {
+                GameNodeAction.ClickMode = Game.ClickMode;
+                GameNodeAction.ClickSpeed = Game.DefaultClickSpeed;
+            }
 
             SetPanel(PanelMode.PanelColorEvent);
 
@@ -6684,8 +6709,13 @@ namespace AppTestStudio
         Boolean panelRightCustomLogicOriginalVisible;
         Boolean panelRightPointGridOriginalVisible;
 
+        int FlowLayoutPanelColorEvent1OriginWidth = 0;
         private void cmdFlowLayoutPanelColorEvent1_Click(object sender, EventArgs e)
         {
+            if (FlowLayoutPanelColorEvent1OriginWidth == 0)
+            {
+                FlowLayoutPanelColorEvent1OriginWidth = cmdFlowLayoutPanelColorEvent1.Width;
+            }
             //this.tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 300F));
             //this.tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 290F));
             if (cmdFlowLayoutPanelColorEvent1.Text == "<<  ")
@@ -6721,7 +6751,7 @@ namespace AppTestStudio
                 cmdFlowLayoutPanelColorEvent1.Text = "<<  ";
                 cmdFlowLayoutPanelColorEvent1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 
-                tableColorEvent.ColumnStyles[1].Width = 300;
+                tableColorEvent.ColumnStyles[1].Width = FlowLayoutPanelColorEvent1OriginWidth;
 
                 panelRightProperties.Visible = panelRightPropertiesOriginalVisible;
                 panelRightAfterCompletion.Visible = panelRightAfterCompletionOriginalVisible;
@@ -6740,8 +6770,13 @@ namespace AppTestStudio
         Boolean panelRightAnchorOriginalVisible;
         Boolean panelRightOffsetOriginalVisible;
         Boolean panelRightDragModeOriginalVisible;
+        int FlowLayoutPanelColorEvent2OriginWidth = 0;
         private void cmdFlowLayoutPanelColorEvent2_Click(object sender, EventArgs e)
         {
+            if (FlowLayoutPanelColorEvent2OriginWidth == 0)
+            {
+                FlowLayoutPanelColorEvent2OriginWidth = cmdFlowLayoutPanelColorEvent2.Width;
+            }
             // Original Size is 300 first, 290 second.
             if (cmdFlowLayoutPanelColorEvent2.Text == "<<  ")
             {
@@ -6769,7 +6804,7 @@ namespace AppTestStudio
                 cmdFlowLayoutPanelColorEvent2.Text = "<<  ";
                 cmdFlowLayoutPanelColorEvent2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
 
-                tableColorEvent.ColumnStyles[2].Width = 300;
+                tableColorEvent.ColumnStyles[2].Width = FlowLayoutPanelColorEvent2OriginWidth;
 
                 panelRightColorAtPointer.Visible = panelRightColorAtPointerOriginalVisible;
                 panelRightLimit.Visible = panelRightLimitOriginalVisible;
@@ -7144,6 +7179,48 @@ namespace AppTestStudio
             catch (Exception ex)
             {
                 Log(ex.Message);
+            }
+        }
+
+        private void cboActionClickMode_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                switch (cboActionClickMode.Text)
+                {
+                    case "Active":
+                        ActionNode.ClickMode = ClickMode.Active;
+                        break;
+                    case "Passive":
+                        ActionNode.ClickMode = ClickMode.Passive;
+                        break;
+                    default:
+                        ActionNode.ClickMode = ClickMode.Passive;
+                        break;
+                }
+            }
+
+            switch (cboActionClickMode.Text)
+            {
+                case "Passive":
+                    chkClickModeMoveFirst.Visible = false;
+                    break;
+                case "Active":
+                    chkClickModeMoveFirst.Visible = true;
+                    break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+        }
+
+        private void chkClickModeMoveFirst_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                Node.MoveFirst = chkClickModeMoveFirst.Checked;
             }
         }
     }

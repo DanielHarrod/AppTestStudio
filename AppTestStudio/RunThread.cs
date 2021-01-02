@@ -375,7 +375,7 @@ namespace AppTestStudio
                         }
 
                         // if there's not a filename assigned to the node then we didn't locate a file, so it can be synced since there's a valid event.
-                        if (node.FileName.IsNothing())
+                        if (node.FileName.Length == 0)
                         {
                             node.SendBitmapToProject(bmp, Game);
                         }
@@ -696,8 +696,8 @@ namespace AppTestStudio
                         Thread.Sleep(1000);
                     }
 
-                    Debug.WriteLine("Can't find window " + Game.TargetWindow + " attempts left " + RunTimeWindowTimeout);
-                    Game.Log("Can't find Window " + Game.TargetWindow + " the window may have been closed - Press Start Emmulator - Retry Attempts left: " + RunTimeWindowTimeout);
+                    Debug.WriteLine("Can't find window [" + Game.TargetWindow + "] attempts left " + RunTimeWindowTimeout);
+                    Game.Log("Can't find Window [" + Game.TargetWindow + "] the window may have been closed - Retry Attempts left: " + RunTimeWindowTimeout);
 
                     LoopDelay = Game.LoopDelay;
                     while (LoopDelay > 1000)

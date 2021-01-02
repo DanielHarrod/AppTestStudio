@@ -880,6 +880,12 @@ namespace AppTestStudio
                                 break;
                         }
 
+                        Writer.WriteAttributeString("ClickMode", Activites.ClickMode.ToString());
+                        Writer.WriteAttributeString("MoveFirst", Activites.MoveFirst.ToString());
+
+
+                        //*Add New Attributes above here*//
+
                         if (Activites.Mode == Mode.ClickDragRelease)
                         {
                             Writer.WriteStartElement("ClickDragRelease");
@@ -944,7 +950,7 @@ namespace AppTestStudio
                             Writer.WriteAttributeString("FileName", Activites.FileName);
                         }
 
-                        if (Activites.FileName.IsNothing())
+                        if (Activites.FileName.Length == 0)
                         {
                             //' do nothing
                         }
@@ -1088,7 +1094,7 @@ namespace AppTestStudio
 
                         Writer.WriteAttributeString("ResolutionWidth", Activites.ResolutionWidth.ToString());
                         Writer.WriteAttributeString("ResolutionHeight", Activites.ResolutionHeight.ToString());
-                        if (Activites.FileName.IsNothing())
+                        if (Activites.FileName.Length == 0)
                         {
                             //' do nothing
                         }
@@ -1098,7 +1104,6 @@ namespace AppTestStudio
 
                             if (System.IO.File.Exists(FullPath))
                             {
-                                //'do nothing
                                 PictureListExtract.Add(FullPath);
                             }
                             else
@@ -1888,6 +1893,47 @@ namespace AppTestStudio
                 AutoBalanceAttribue = Convert.ToBoolean(actionNode.Attributes["AutoBalance"].Value);
             }
             treeActionNode.AutoBalance = AutoBalanceAttribue;
+
+
+            //ClickMode
+            if (actionNode.Attributes.GetNamedItem("ClickMode").IsSomething())
+            {
+                try
+                {
+                    String ClickMode = actionNode.Attributes["ClickMode"].Value.ToUpper().Trim();
+                    switch (ClickMode)
+                    {
+                        case "ACTIVE":
+                            treeActionNode.ClickMode = AppTestStudio.ClickMode.Active;
+                            break;
+                        case "PASSIVE":
+                            treeActionNode.ClickMode = AppTestStudio.ClickMode.Passive;
+                            break;
+                        default:
+                            Debug.Assert(false);
+                            treeActionNode.ClickMode = AppTestStudio.ClickMode.Passive;
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine("LoadEvent.ClickMode" + ex.Message);
+                }
+            }
+
+            //MoveFirst 
+            if (actionNode.Attributes.GetNamedItem("MoveFirst").IsSomething())
+            {
+                try
+                {
+                    Boolean MoveFirst = Convert.ToBoolean(actionNode.Attributes["MoveFirst"].Value);
+                    treeActionNode.MoveFirst = MoveFirst;
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
 
 
 

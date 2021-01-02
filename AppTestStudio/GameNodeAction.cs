@@ -57,6 +57,9 @@ namespace AppTestStudio
 
             Channel = "";
             FileName = "";
+            ClickMode = ClickMode.Passive;
+
+            MoveFirst = true;
             Utils.SetIcons(this);
 
         }
@@ -233,6 +236,10 @@ namespace AppTestStudio
         public long ObjectThreshold { get; set; }
         public int RelativeXOffset { get; set; }
         public int RelativeYOffset { get; set; }
+        
+        public ClickMode ClickMode { get; set; }
+
+        public Boolean MoveFirst { get; set; }
 
         public void LoadBitmapFromDisk()
         {
@@ -350,6 +357,10 @@ namespace AppTestStudio
             Action.RepeatsUntilFalseLimit = RepeatsUntilFalseLimit;
 
             Action.Anchor = Anchor;
+
+            Action.ClickMode = ClickMode;
+            Action.MoveFirst = MoveFirst;
+
 
             foreach (GameNodeAction ChildAction in Nodes)
             {
@@ -786,7 +797,7 @@ namespace AppTestStudio
                     game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + AnchorRectangle.X) + "  y =" + (centerY + AnchorRectangle.Y));
                     //'TB.AddReturnTrue()
 
-                    if (FileName.IsNothing())
+                    if (FileName.Length == 0)
                     {
                         SendBitmapToProject(bmp, game);
                     }
