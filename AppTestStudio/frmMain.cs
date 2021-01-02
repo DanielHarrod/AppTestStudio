@@ -134,10 +134,10 @@ namespace AppTestStudio
                 cboPlatform.Items.Add(platform.ToString());
             }
 
-            foreach (ClickMode clickMode in Enum.GetValues(typeof(ClickMode)))
+            foreach (MouseMode mouseMode in Enum.GetValues(typeof(MouseMode)))
             {
-                cboClickMode.Items.Add(clickMode.ToString());
-                cboActionClickMode.Items.Add(clickMode.ToString());
+                cboMouseMode.Items.Add(mouseMode.ToString());
+                cboActionMouseMode.Items.Add(mouseMode.ToString());
             }
 
             TitleBarHeight = this.RectangleToScreen(this.ClientRectangle).Top - this.Top;
@@ -768,7 +768,7 @@ namespace AppTestStudio
             cboApplicationPrimaryWindowNameFilter.Text = gameNode.ApplicationPrimaryWindowFilter.ToEnumString();
             cboApplicationSecondaryWindowNameFilter.Text = gameNode.ApplicationSecondaryWindowFilter.ToEnumString();
 
-            cboClickMode.Text = gameNode.ClickMode.ToString();
+            cboMouseMode.Text = gameNode.ClickMode.ToString();
 
             foreach (BlueGuest guest in BlueRegistry.GuestList)
             {
@@ -1012,13 +1012,13 @@ namespace AppTestStudio
                     chkPropertiesRepeatsUntilFalse.Visible = false;
                     grpPropertiesRepeatsUntilFalse.Visible = false;
                     
-                    lblClickMode.Visible = true;
-                    cboActionClickMode.Visible = true;
-                    chkClickModeMoveFirst.Visible = true;
+                    lblMouseMode.Visible = true;
+                    cboActionMouseMode.Visible = true;
+                    chkMouseModeMoveFirst.Visible = true;
 
-                    cboActionClickMode.Text = GameNode.ClickMode.ToString();
+                    cboActionMouseMode.Text = GameNode.MouseMode.ToString();
                     cboActionClickMode_SelectedIndexChanged(null, null);  // run the show/hide code for the Move First checkbox.
-                    chkClickModeMoveFirst.Checked = GameNode.MoveFirst;
+                    chkMouseModeMoveFirst.Checked = GameNode.MoveFirst;
 
                     //End - Properties Group
 
@@ -1126,9 +1126,9 @@ namespace AppTestStudio
                     chkPropertiesRepeatsUntilFalse.Visible = true;
                     grpPropertiesRepeatsUntilFalse.Visible = true;
 
-                    lblClickMode.Visible = false;
-                    cboActionClickMode.Visible = false;
-                    chkClickModeMoveFirst.Visible = false;
+                    lblMouseMode.Visible = false;
+                    cboActionMouseMode.Visible = false;
+                    chkMouseModeMoveFirst.Visible = false;
 
 
                     chkPropertiesRepeatsUntilFalse.Checked = GameNode.RepeatsUntilFalse;
@@ -2938,7 +2938,7 @@ namespace AppTestStudio
                                     Failed = true;
                                 }
 
-                                Utils.ClickOnWindow(MainWindowHandle, ActionNode.ClickMode, Result.x, Result.y, ActionNode.ClickSpeed);
+                                Utils.ClickOnWindow(MainWindowHandle, ActionNode.MouseMode, Result.x, Result.y, ActionNode.ClickSpeed);
                                 Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }
@@ -4526,7 +4526,7 @@ namespace AppTestStudio
             GameNodeGame Game = GameNodeAction.GetGameNodeGame();
             if ( Game.IsSomething() )
             {
-                GameNodeAction.ClickMode = Game.ClickMode;
+                GameNodeAction.MouseMode = Game.ClickMode;
                 GameNodeAction.ClickSpeed = Game.DefaultClickSpeed;
             }
 
@@ -7163,16 +7163,16 @@ namespace AppTestStudio
             try
             {
                 GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-                switch (cboClickMode.Text)
+                switch (cboMouseMode.Text)
                 {
                     case "Active":
-                        GameNode.ClickMode = ClickMode.Active;
+                        GameNode.ClickMode = MouseMode.Active;
                         break;
                     case "Passive":
-                        GameNode.ClickMode = ClickMode.Passive;
+                        GameNode.ClickMode = MouseMode.Passive;
                         break;
                     default:
-                        GameNode.ClickMode = ClickMode.Passive;
+                        GameNode.ClickMode = MouseMode.Passive;
                         break;
                 }
             }
@@ -7187,27 +7187,27 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                switch (cboActionClickMode.Text)
+                switch (cboActionMouseMode.Text)
                 {
                     case "Active":
-                        ActionNode.ClickMode = ClickMode.Active;
+                        ActionNode.MouseMode = MouseMode.Active;
                         break;
                     case "Passive":
-                        ActionNode.ClickMode = ClickMode.Passive;
+                        ActionNode.MouseMode = MouseMode.Passive;
                         break;
                     default:
-                        ActionNode.ClickMode = ClickMode.Passive;
+                        ActionNode.MouseMode = MouseMode.Passive;
                         break;
                 }
             }
 
-            switch (cboActionClickMode.Text)
+            switch (cboActionMouseMode.Text)
             {
                 case "Passive":
-                    chkClickModeMoveFirst.Visible = false;
+                    chkMouseModeMoveFirst.Visible = false;
                     break;
                 case "Active":
-                    chkClickModeMoveFirst.Visible = true;
+                    chkMouseModeMoveFirst.Visible = true;
                     break;
                 default:
                     Debug.Assert(false);
@@ -7220,7 +7220,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-                Node.MoveFirst = chkClickModeMoveFirst.Checked;
+                Node.MoveFirst = chkMouseModeMoveFirst.Checked;
             }
         }
     }

@@ -141,7 +141,7 @@
             this.txtGamePanelLoopDelay = new System.Windows.Forms.TextBox();
             this.Label30 = new System.Windows.Forms.Label();
             this.cmdRunScript = new System.Windows.Forms.Button();
-            this.cboClickMode = new System.Windows.Forms.ComboBox();
+            this.cboMouseMode = new System.Windows.Forms.ComboBox();
             this.cboPlatform = new System.Windows.Forms.ComboBox();
             this.lblGamePanelGameName = new System.Windows.Forms.Label();
             this.label62 = new System.Windows.Forms.Label();
@@ -492,9 +492,9 @@
             this.label85 = new System.Windows.Forms.Label();
             this.groupBox15 = new System.Windows.Forms.GroupBox();
             this.label86 = new System.Windows.Forms.Label();
-            this.cboActionClickMode = new System.Windows.Forms.ComboBox();
-            this.lblClickMode = new System.Windows.Forms.Label();
-            this.chkClickModeMoveFirst = new System.Windows.Forms.CheckBox();
+            this.cboActionMouseMode = new System.Windows.Forms.ComboBox();
+            this.lblMouseMode = new System.Windows.Forms.Label();
+            this.chkMouseModeMoveFirst = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -944,7 +944,7 @@
             // 
             this.PanelGame.Controls.Add(this.label70);
             this.PanelGame.Controls.Add(this.flowLayoutPanel1);
-            this.PanelGame.Controls.Add(this.cboClickMode);
+            this.PanelGame.Controls.Add(this.cboMouseMode);
             this.PanelGame.Controls.Add(this.cboPlatform);
             this.PanelGame.Controls.Add(this.lblGamePanelGameName);
             this.PanelGame.Controls.Add(this.label62);
@@ -961,9 +961,9 @@
             this.label70.Location = new System.Drawing.Point(11, 73);
             this.label70.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(60, 13);
+            this.label70.Size = new System.Drawing.Size(69, 13);
             this.label70.TabIndex = 46;
-            this.label70.Text = "Click Mode";
+            this.label70.Text = "Mouse Mode";
             // 
             // flowLayoutPanel1
             // 
@@ -1741,17 +1741,17 @@
             this.cmdRunScript.UseVisualStyleBackColor = true;
             this.cmdRunScript.Click += new System.EventHandler(this.cmdRunScript_Click);
             // 
-            // cboClickMode
+            // cboMouseMode
             // 
-            this.cboClickMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboClickMode.FormattingEnabled = true;
-            this.cboClickMode.Location = new System.Drawing.Point(105, 70);
-            this.cboClickMode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.cboClickMode.Name = "cboClickMode";
-            this.cboClickMode.Size = new System.Drawing.Size(231, 21);
-            this.cboClickMode.TabIndex = 37;
-            this.cboClickMode.SelectedIndexChanged += new System.EventHandler(this.cboClickMode_SelectedIndexChanged);
-            this.cboClickMode.TextChanged += new System.EventHandler(this.cboPlatform_TextChanged);
+            this.cboMouseMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMouseMode.FormattingEnabled = true;
+            this.cboMouseMode.Location = new System.Drawing.Point(105, 70);
+            this.cboMouseMode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboMouseMode.Name = "cboMouseMode";
+            this.cboMouseMode.Size = new System.Drawing.Size(231, 21);
+            this.cboMouseMode.TabIndex = 37;
+            this.cboMouseMode.SelectedIndexChanged += new System.EventHandler(this.cboClickMode_SelectedIndexChanged);
+            this.cboMouseMode.TextChanged += new System.EventHandler(this.cboPlatform_TextChanged);
             // 
             // cboPlatform
             // 
@@ -1805,7 +1805,7 @@
             // PanelColorEvent
             // 
             this.PanelColorEvent.Controls.Add(this.tableColorEvent);
-            this.PanelColorEvent.Location = new System.Drawing.Point(17, 10);
+            this.PanelColorEvent.Location = new System.Drawing.Point(689, 98);
             this.PanelColorEvent.Name = "PanelColorEvent";
             this.PanelColorEvent.Size = new System.Drawing.Size(1280, 695);
             this.PanelColorEvent.TabIndex = 14;
@@ -2082,9 +2082,9 @@
             // panelRightProperties
             // 
             this.panelRightProperties.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelRightProperties.Controls.Add(this.chkClickModeMoveFirst);
-            this.panelRightProperties.Controls.Add(this.lblClickMode);
-            this.panelRightProperties.Controls.Add(this.cboActionClickMode);
+            this.panelRightProperties.Controls.Add(this.chkMouseModeMoveFirst);
+            this.panelRightProperties.Controls.Add(this.lblMouseMode);
+            this.panelRightProperties.Controls.Add(this.cboActionMouseMode);
             this.panelRightProperties.Controls.Add(this.chkPropertiesRepeatsUntilFalse);
             this.panelRightProperties.Controls.Add(this.grpPropertiesRepeatsUntilFalse);
             this.panelRightProperties.Controls.Add(this.chkPropertiesEnabled);
@@ -5786,35 +5786,35 @@
             this.label86.TabIndex = 3;
             this.label86.Text = "Ctrl + Alt + Shift + F5 = Toggle Scripts On/Off";
             // 
-            // cboActionClickMode
+            // cboActionMouseMode
             // 
-            this.cboActionClickMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboActionClickMode.FormattingEnabled = true;
-            this.cboActionClickMode.Location = new System.Drawing.Point(84, 46);
-            this.cboActionClickMode.Name = "cboActionClickMode";
-            this.cboActionClickMode.Size = new System.Drawing.Size(174, 21);
-            this.cboActionClickMode.TabIndex = 13;
-            this.cboActionClickMode.SelectedIndexChanged += new System.EventHandler(this.cboActionClickMode_SelectedIndexChanged);
+            this.cboActionMouseMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboActionMouseMode.FormattingEnabled = true;
+            this.cboActionMouseMode.Location = new System.Drawing.Point(84, 46);
+            this.cboActionMouseMode.Name = "cboActionMouseMode";
+            this.cboActionMouseMode.Size = new System.Drawing.Size(174, 21);
+            this.cboActionMouseMode.TabIndex = 13;
+            this.cboActionMouseMode.SelectedIndexChanged += new System.EventHandler(this.cboActionClickMode_SelectedIndexChanged);
             // 
-            // lblClickMode
+            // lblMouseMode
             // 
-            this.lblClickMode.AutoSize = true;
-            this.lblClickMode.Location = new System.Drawing.Point(7, 49);
-            this.lblClickMode.Name = "lblClickMode";
-            this.lblClickMode.Size = new System.Drawing.Size(60, 13);
-            this.lblClickMode.TabIndex = 14;
-            this.lblClickMode.Text = "Click Mode";
+            this.lblMouseMode.AutoSize = true;
+            this.lblMouseMode.Location = new System.Drawing.Point(7, 49);
+            this.lblMouseMode.Name = "lblMouseMode";
+            this.lblMouseMode.Size = new System.Drawing.Size(60, 13);
+            this.lblMouseMode.TabIndex = 14;
+            this.lblMouseMode.Text = "Mouse Mode";
             // 
-            // chkClickModeMoveFirst
+            // chkMouseModeMoveFirst
             // 
-            this.chkClickModeMoveFirst.AutoSize = true;
-            this.chkClickModeMoveFirst.Location = new System.Drawing.Point(84, 73);
-            this.chkClickModeMoveFirst.Name = "chkClickModeMoveFirst";
-            this.chkClickModeMoveFirst.Size = new System.Drawing.Size(162, 17);
-            this.chkClickModeMoveFirst.TabIndex = 16;
-            this.chkClickModeMoveFirst.Text = "Move Mouse Before Clicking";
-            this.chkClickModeMoveFirst.UseVisualStyleBackColor = true;
-            this.chkClickModeMoveFirst.CheckedChanged += new System.EventHandler(this.chkClickModeMoveFirst_CheckedChanged);
+            this.chkMouseModeMoveFirst.AutoSize = true;
+            this.chkMouseModeMoveFirst.Location = new System.Drawing.Point(84, 73);
+            this.chkMouseModeMoveFirst.Name = "chkMouseModeMoveFirst";
+            this.chkMouseModeMoveFirst.Size = new System.Drawing.Size(162, 17);
+            this.chkMouseModeMoveFirst.TabIndex = 16;
+            this.chkMouseModeMoveFirst.Text = "Move Mouse Before Clicking";
+            this.chkMouseModeMoveFirst.UseVisualStyleBackColor = true;
+            this.chkMouseModeMoveFirst.CheckedChanged += new System.EventHandler(this.chkClickModeMoveFirst_CheckedChanged);
             // 
             // frmMain
             // 
@@ -6470,15 +6470,15 @@
         internal System.Windows.Forms.Label label83;
         private System.Windows.Forms.GroupBox groupBox13;
         private System.Windows.Forms.Label label70;
-        private System.Windows.Forms.ComboBox cboClickMode;
+        private System.Windows.Forms.ComboBox cboMouseMode;
         private System.Windows.Forms.Label label71;
         private System.Windows.Forms.GroupBox groupBox14;
         private System.Windows.Forms.Label label84;
         private System.Windows.Forms.GroupBox groupBox15;
         private System.Windows.Forms.Label label86;
         private System.Windows.Forms.Label label85;
-        private System.Windows.Forms.CheckBox chkClickModeMoveFirst;
-        private System.Windows.Forms.Label lblClickMode;
-        private System.Windows.Forms.ComboBox cboActionClickMode;
+        private System.Windows.Forms.CheckBox chkMouseModeMoveFirst;
+        private System.Windows.Forms.Label lblMouseMode;
+        private System.Windows.Forms.ComboBox cboActionMouseMode;
     }
 }

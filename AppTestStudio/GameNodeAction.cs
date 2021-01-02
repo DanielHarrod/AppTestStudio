@@ -57,7 +57,7 @@ namespace AppTestStudio
 
             Channel = "";
             FileName = "";
-            ClickMode = ClickMode.Passive;
+            MouseMode = MouseMode.Passive;
 
             MoveFirst = true;
             Utils.SetIcons(this);
@@ -237,7 +237,7 @@ namespace AppTestStudio
         public int RelativeXOffset { get; set; }
         public int RelativeYOffset { get; set; }
         
-        public ClickMode ClickMode { get; set; }
+        public MouseMode MouseMode { get; set; }
 
         public Boolean MoveFirst { get; set; }
 
@@ -358,7 +358,7 @@ namespace AppTestStudio
 
             Action.Anchor = Anchor;
 
-            Action.ClickMode = ClickMode;
+            Action.MouseMode = MouseMode;
             Action.MoveFirst = MoveFirst;
 
 

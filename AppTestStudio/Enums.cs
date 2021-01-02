@@ -21,7 +21,7 @@ namespace AppTestStudio
         Application
     }
 
-    public enum ClickMode
+    public enum MouseMode
     {
         Passive,
         Active

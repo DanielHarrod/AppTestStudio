@@ -89,7 +89,7 @@ namespace AppTestStudio
                             frm.Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             Debug.WriteLine("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
 
-                            Utils.ClickOnWindow(MainWindowHandle, Node.ClickMode, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed);
+                            Utils.ClickOnWindow(MainWindowHandle, Node.MouseMode, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed);
                             break;
                         case AppTestStudio.Mode.ClickDragRelease:
                             GameNodeAction.ClickDragReleaseResult ClickDragReleaseResult = Node.CalculateClickDragReleaseResult(CenterX, CenterY);

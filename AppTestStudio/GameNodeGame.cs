@@ -289,7 +289,7 @@ namespace AppTestStudio
         public long VideoFrameLimit { get; set; }
         public Boolean SaveVideo { get; set; }
 
-        public ClickMode ClickMode { get; set; }
+        public MouseMode ClickMode { get; set; }
 
         public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, ThreadManager threadManager)
         {
@@ -347,7 +347,7 @@ namespace AppTestStudio
             long SteamID = 0;
             String PathToApplicationExe = "";
 
-            ClickMode ClickMode = ClickMode.Passive;
+            MouseMode ClickMode = MouseMode.Passive;
             
             WindowNameFilterType ApplicationPrimaryWindowFilter = AppTestStudio.WindowNameFilterType.Equals;
             WindowNameFilterType ApplicationSecondaryWindowFilter = AppTestStudio.WindowNameFilterType.Equals;
@@ -664,13 +664,13 @@ namespace AppTestStudio
                     switch (ClickModeValue.Trim().ToUpper())
                     {
                         case "ACTIVE":
-                            ClickMode = ClickMode.Active;
+                            ClickMode = MouseMode.Active;
                             break;
                         case "PASSIVE":
-                            ClickMode = ClickMode.Passive;
+                            ClickMode = MouseMode.Passive;
                             break;           
                         default:
-                            ClickMode = ClickMode.Passive;
+                            ClickMode = MouseMode.Passive;
                             break;
                     }
                 }
@@ -880,7 +880,7 @@ namespace AppTestStudio
                                 break;
                         }
 
-                        Writer.WriteAttributeString("ClickMode", Activites.ClickMode.ToString());
+                        Writer.WriteAttributeString("MouseMode", Activites.MouseMode.ToString());
                         Writer.WriteAttributeString("MoveFirst", Activites.MoveFirst.ToString());
 
 
@@ -1895,29 +1895,29 @@ namespace AppTestStudio
             treeActionNode.AutoBalance = AutoBalanceAttribue;
 
 
-            //ClickMode
-            if (actionNode.Attributes.GetNamedItem("ClickMode").IsSomething())
+            //MouseMode
+            if (actionNode.Attributes.GetNamedItem("MouseMode").IsSomething())
             {
                 try
                 {
-                    String ClickMode = actionNode.Attributes["ClickMode"].Value.ToUpper().Trim();
+                    String ClickMode = actionNode.Attributes["MouseMode"].Value.ToUpper().Trim();
                     switch (ClickMode)
                     {
                         case "ACTIVE":
-                            treeActionNode.ClickMode = AppTestStudio.ClickMode.Active;
+                            treeActionNode.MouseMode = AppTestStudio.MouseMode.Active;
                             break;
                         case "PASSIVE":
-                            treeActionNode.ClickMode = AppTestStudio.ClickMode.Passive;
+                            treeActionNode.MouseMode = AppTestStudio.MouseMode.Passive;
                             break;
                         default:
                             Debug.Assert(false);
-                            treeActionNode.ClickMode = AppTestStudio.ClickMode.Passive;
+                            treeActionNode.MouseMode = AppTestStudio.MouseMode.Passive;
                             break;
                     }
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("LoadEvent.ClickMode" + ex.Message);
+                    Debug.WriteLine("LoadEvent.MouseMode:" + ex.Message);
                 }
             }
 
