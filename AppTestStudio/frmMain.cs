@@ -770,6 +770,10 @@ namespace AppTestStudio
 
             cboMouseMode.Text = gameNode.ClickMode.ToString();
 
+            numericMouseSpeedPixelsPerSecond.Value = gameNode.MouseSpeedPixelsPerSecond;
+            numericMouseSpeedVelocityVariantPercentMax.Value = gameNode.MouseSpeedVelocityVariantPercentMax;
+            numericMouseSpeedVelocityVariantPercentMin.Value = gameNode.MouseSpeedVelocityVariantPercentMin;
+
             foreach (BlueGuest guest in BlueRegistry.GuestList)
             {
                 if ( guest.DisplayName  == gameNode.BlueStacksWindowName )
@@ -780,7 +784,6 @@ namespace AppTestStudio
             }
 
             cboPlatform_TextChanged(null, null);
-
         }
 
         private void LoadObject(GameNodeObject node)
@@ -7208,6 +7211,33 @@ namespace AppTestStudio
             {
                 GameNodeAction Node = tv.SelectedNode as GameNodeAction;
                 Node.MoveMouseBeforeClicking = chkMoveMouseBeforeClicking.Checked;
+            }
+        }
+
+        private void numericMouseSpeedPixelsPerSecond_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeGame Node = tv.SelectedNode as GameNodeGame;
+                Node.MouseSpeedPixelsPerSecond = (int)numericMouseSpeedPixelsPerSecond.Value;
+            }
+        }
+
+        private void numericMouseSpeedVelocityVariantPercentMax_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeGame Node = tv.SelectedNode as GameNodeGame;
+                Node.MouseSpeedVelocityVariantPercentMax = (int)numericMouseSpeedVelocityVariantPercentMax.Value;
+            }
+        }
+
+        private void numericMouseSpeedVelocityVariantPercentMin_ValueChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeGame Node = tv.SelectedNode as GameNodeGame;
+                Node.MouseSpeedVelocityVariantPercentMin = (int)numericMouseSpeedVelocityVariantPercentMin.Value;
             }
         }
     }

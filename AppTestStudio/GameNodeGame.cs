@@ -288,6 +288,10 @@ namespace AppTestStudio
 
             Target.ClickMode = ClickMode;
 
+            Target.MouseSpeedPixelsPerSecond = MouseSpeedPixelsPerSecond;
+            Target.MouseSpeedVelocityVariantPercentMax = MouseSpeedVelocityVariantPercentMax;
+            Target.MouseSpeedVelocityVariantPercentMin = MouseSpeedVelocityVariantPercentMin;
+
             if (BlueGuest.IsSomething())
             {
                 Target.BlueGuest = BlueGuest.CloneMe();
@@ -709,7 +713,7 @@ namespace AppTestStudio
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("MouseSpeedPixelsPerSecond:" + ex.Message);
+                    Debug.WriteLine("LoadGame:MouseSpeedPixelsPerSecond:" + ex.Message);
                 }
             }
 
@@ -721,7 +725,7 @@ namespace AppTestStudio
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("MouseSpeedVelocityVariantPercentMax:" + ex.Message);
+                    Debug.WriteLine("LoadGame:MouseSpeedVelocityVariantPercentMax:" + ex.Message);
                 }
             }
 
@@ -733,7 +737,7 @@ namespace AppTestStudio
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine("MouseSpeedVelocityVariantPercentMin:" + ex.Message);
+                    Debug.WriteLine("LoadGame:MouseSpeedVelocityVariantPercentMin:" + ex.Message);
                 }
             }
 
