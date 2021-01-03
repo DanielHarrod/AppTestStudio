@@ -80,6 +80,7 @@ namespace AppTestStudio
 
                 if (IsPassed)
                 {
+                    int MousePixelSpeedPerSecond = 0;
                     switch (Node.Mode)
                     {
                         case AppTestStudio.Mode.RangeClick:
@@ -90,7 +91,7 @@ namespace AppTestStudio
                             //int y = Parent.Rectangle.Y + CenterY - (Node.Rectangle.Height / 2) + Node.RelativeYOffset + RNGH;
                             frm.Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             Debug.WriteLine("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
-                            int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
+                            MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
                             Utils.ClickOnWindow(MainWindowHandle, Node.MouseMode, Node.MoveMouseBeforeClicking, Game.MouseX, Game.MouseY, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed, MousePixelSpeedPerSecond);
                             break;
                         case AppTestStudio.Mode.ClickDragRelease:
@@ -135,7 +136,8 @@ namespace AppTestStudio
                             else
                             {
                                 frm.Log("Swipe from ( x=" + ClickDragReleaseResult.StartX + ",y = " + ClickDragReleaseResult.StartY + " to x=" + ClickDragReleaseResult.EndX + ",y=" + ClickDragReleaseResult.EndY + ")");
-                                Utils.ClickDragReleasePassive(MainWindowHandle, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity);
+                                MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
+                                Utils.ClickDragRelease(MainWindowHandle, Node.MouseMode, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity, MousePixelSpeedPerSecond);
                             }
                             break;
                         default:

@@ -776,7 +776,7 @@ namespace AppTestStudio
             cboApplicationPrimaryWindowNameFilter.Text = gameNode.ApplicationPrimaryWindowFilter.ToEnumString();
             cboApplicationSecondaryWindowNameFilter.Text = gameNode.ApplicationSecondaryWindowFilter.ToEnumString();
 
-            cboMouseMode.Text = gameNode.ClickMode.ToString();
+            cboMouseMode.Text = gameNode.MouseMode.ToString();
 
             numericMouseSpeedPixelsPerSecond.Value = gameNode.MouseSpeedPixelsPerSecond;
             numericMouseSpeedVelocityVariantPercentMax.Value = gameNode.MouseSpeedVelocityVariantPercentMax;
@@ -2959,7 +2959,7 @@ namespace AppTestStudio
                             {
                                 GameNodeAction.ClickDragReleaseResult Result = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
-                                Utils.ClickDragReleasePassive(MainWindowHandle, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity);
+                                Utils.ClickDragRelease(MainWindowHandle, ActionNode.MouseMode, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond);
                                 Log("ClickDragRelease( x=" + Result.StartX + ",Y = " + Result.StartY + ", ex=" + Result.EndX + ",ey=" + Result.EndY + ")");
                                 ThreadManager.IncrementSingleTestClickDragRelease();
                             }
@@ -4539,7 +4539,7 @@ namespace AppTestStudio
             GameNodeGame Game = GameNodeAction.GetGameNodeGame();
             if ( Game.IsSomething() )
             {
-                GameNodeAction.MouseMode = Game.ClickMode;
+                GameNodeAction.MouseMode = Game.MouseMode;
                 GameNodeAction.ClickSpeed = Game.DefaultClickSpeed;
             }
 
@@ -7179,13 +7179,13 @@ namespace AppTestStudio
                 switch (cboMouseMode.Text)
                 {
                     case "Active":
-                        GameNode.ClickMode = MouseMode.Active;
+                        GameNode.MouseMode = MouseMode.Active;
                         break;
                     case "Passive":
-                        GameNode.ClickMode = MouseMode.Passive;
+                        GameNode.MouseMode = MouseMode.Passive;
                         break;
                     default:
-                        GameNode.ClickMode = MouseMode.Passive;
+                        GameNode.MouseMode = MouseMode.Passive;
                         break;
                 }
             }

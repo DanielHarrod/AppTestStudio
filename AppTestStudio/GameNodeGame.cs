@@ -280,7 +280,7 @@ namespace AppTestStudio
             Target.BlueStacksWindowName = BlueStacksWindowName;
             Target.IsBlueStacks64Bit = IsBlueStacks64Bit;
 
-            Target.ClickMode = ClickMode;
+            Target.MouseMode = MouseMode;
 
             Target.MouseSpeedPixelsPerSecond = MouseSpeedPixelsPerSecond;
             Target.MouseSpeedVelocityVariantPercentMax = MouseSpeedVelocityVariantPercentMax;
@@ -304,7 +304,7 @@ namespace AppTestStudio
         public long VideoFrameLimit { get; set; }
         public Boolean SaveVideo { get; set; }
 
-        public MouseMode ClickMode { get; set; }
+        public MouseMode MouseMode { get; set; }
 
         public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, ThreadManager threadManager)
         {
@@ -671,11 +671,11 @@ namespace AppTestStudio
                 }
             }
 
-            if (childNode.Attributes.GetNamedItem("ClickMode").IsSomething())
+            if (childNode.Attributes.GetNamedItem("MouseMode").IsSomething())
             {
                 try
                 {
-                    String ClickModeValue = childNode.Attributes["ClickMode"].Value;
+                    String ClickModeValue = childNode.Attributes["MouseMode"].Value;
                     switch (ClickModeValue.Trim().ToUpper())
                     {
                         case "ACTIVE":
@@ -751,7 +751,7 @@ namespace AppTestStudio
             Game.SteamID = SteamID;
             Game.PathToApplicationEXE = PathToApplicationExe;
             Game.ApplicationParameters = ApplicationParameters;
-            Game.ClickMode = ClickMode;
+            Game.MouseMode = ClickMode;
             Game.MouseSpeedPixelsPerSecond = MouseSpeedPixelsPerSecond;
             Game.MouseSpeedVelocityVariantPercentMax = MouseSpeedVelocityVariantPercentMax;
             Game.MouseSpeedVelocityVariantPercentMin = MouseSpeedVelocityVariantPercentMin;
@@ -839,7 +839,7 @@ namespace AppTestStudio
             Writer.WriteAttributeString("DefaultClickSpeed", DefaultClickSpeed.ToString());
             Writer.WriteAttributeString("DPI", DPI.ToString());
             Writer.WriteAttributeString("Platform", Platform.ToString());
-            Writer.WriteAttributeString("ClickMode", ClickMode.ToString());
+            Writer.WriteAttributeString("MouseMode", MouseMode.ToString());
 
             Writer.WriteAttributeString("MouseSpeedPixelsPerSecond", MouseSpeedPixelsPerSecond.ToString());
             Writer.WriteAttributeString("MouseSpeedVelocityVariantPercentMax", MouseSpeedVelocityVariantPercentMax.ToString());
@@ -1963,8 +1963,8 @@ namespace AppTestStudio
             {
                 try
                 {
-                    String ClickMode = actionNode.Attributes["MouseMode"].Value.ToUpper().Trim();
-                    switch (ClickMode)
+                    String MouseMode = actionNode.Attributes["MouseMode"].Value.ToUpper().Trim();
+                    switch (MouseMode)
                     {
                         case "ACTIVE":
                             treeActionNode.MouseMode = AppTestStudio.MouseMode.Active;
