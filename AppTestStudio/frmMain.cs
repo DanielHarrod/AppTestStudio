@@ -367,6 +367,14 @@ namespace AppTestStudio
 
             BlueRegistry = new BlueRegistry();
 
+            if (BlueRegistry.ExceptionMessage.IsSomething())
+            {
+                if (BlueRegistry.ExceptionMessage.Length > 0)
+                {
+                    Log(BlueRegistry.ExceptionMessage);
+                }
+            }
+
             if (BlueRegistry.IsValid32)
             {
                 lblBlueEmmulatorInstalled32.Text = "Yes";
