@@ -255,8 +255,8 @@ namespace AppTestStudio
                             else
                             {
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
-
-                                Utils.ClickOnWindow(WindowHandle, node.MouseMode, node.MoveMouseBeforeClicking, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed);
+                                int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
+                                Utils.ClickOnWindow(WindowHandle, node.MouseMode, node.MoveMouseBeforeClicking, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
                                 Game.MouseX = (short)Result.x;
                                 Game.MouseY = (short)Result.y;
 

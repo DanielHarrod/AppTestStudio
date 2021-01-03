@@ -2941,7 +2941,9 @@ namespace AppTestStudio
                                     Failed = true;
                                 }
 
-                                Utils.ClickOnWindow(MainWindowHandle, ActionNode.MouseMode, ActionNode.MoveMouseBeforeClicking, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed);
+                                int MousePixelSpeedPerSecond = game.CalculateNextMousePixelSpeedPerSecond();
+
+                                Utils.ClickOnWindow(MainWindowHandle, ActionNode.MouseMode, ActionNode.MoveMouseBeforeClicking, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
                                 Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }

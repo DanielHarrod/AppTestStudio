@@ -67,10 +67,8 @@ namespace AppTestStudioUnitTest
 
         }
 
-
-
         [TestMethod]
-        public void MouseMoveActive()
+        public void MouseMoveActive0Speed()
         {
             IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("ATS2Window", "");
 
@@ -78,7 +76,23 @@ namespace AppTestStudioUnitTest
 
         }
 
+        [TestMethod]
+        public void MouseMoveActive500PixelsPerSecond()
+        {
+            IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("ATS2Window", "");
 
+            int Count = AppTestStudio.Utils.MoveMouseActive(x, MouseEventFlags.Blank, 10, 10,500);
+        }
+
+
+        [TestMethod]
+        public void MouseMoveActive3000PixelsPerSecond()
+        {
+            IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("ATS2Window", "");
+
+            int Count = AppTestStudio.Utils.MoveMouseActive(x, MouseEventFlags.Blank, 10, 10, 3000);
+
+        }
 
 
 
@@ -90,7 +104,8 @@ namespace AppTestStudioUnitTest
         }
 
         /// <summary>
-        /// Hmm. script_autoit.cpp, I wasn't sure what I was seeing here.  An intersting implementation.
+        /// Hmm. script_autoit.cpp, I wasn't sure what I was seeing here. watned to Debug it
+        /// An intersting implementation.
         /// </summary>
         [TestMethod]
 
