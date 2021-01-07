@@ -944,7 +944,7 @@ namespace AppTestStudio
                         }
 
                         Writer.WriteAttributeString("MouseMode", Activites.MouseMode.ToString());
-                        Writer.WriteAttributeString("MoveMouseBeforeClicking", Activites.MoveMouseBeforeClicking.ToString());
+                        Writer.WriteAttributeString("MoveMouseBeforeAction", Activites.MoveMouseBeforeAction.ToString());
 
 
                         //*Add New Attributes above here*//
@@ -1984,13 +1984,13 @@ namespace AppTestStudio
                 }
             }
 
-            //MoveMouseBeforeClicking 
-            if (actionNode.Attributes.GetNamedItem("MoveMouseBeforeClicking").IsSomething())
+            //MoveMouseBeforeAction 
+            if (actionNode.Attributes.GetNamedItem("MoveMouseBeforeAction").IsSomething())
             {
                 try
                 {
-                    Boolean MoveMouseBeforeClicking = Convert.ToBoolean(actionNode.Attributes["MoveMouseBeforeClicking"].Value);
-                    treeActionNode.MoveMouseBeforeClicking = MoveMouseBeforeClicking;
+                    Boolean MoveMouseBeforeAction = Convert.ToBoolean(actionNode.Attributes["MoveMouseBeforeAction"].Value);
+                    treeActionNode.MoveMouseBeforeAction = MoveMouseBeforeAction;
                 }
                 catch (Exception ex)
                 {

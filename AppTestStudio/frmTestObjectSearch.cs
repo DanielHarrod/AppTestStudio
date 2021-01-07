@@ -92,7 +92,7 @@ namespace AppTestStudio
                             frm.Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             Debug.WriteLine("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                            Utils.ClickOnWindow(MainWindowHandle, Node.MouseMode, Node.MoveMouseBeforeClicking, Game.MouseX, Game.MouseY, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed, MousePixelSpeedPerSecond);
+                            Utils.ClickOnWindow(MainWindowHandle, Node.MouseMode, Node.MoveMouseBeforeAction, Game.MouseX, Game.MouseY, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed, MousePixelSpeedPerSecond);
                             break;
                         case AppTestStudio.Mode.ClickDragRelease:
                             GameNodeAction.ClickDragReleaseResult ClickDragReleaseResult = Node.CalculateClickDragReleaseResult(CenterX, CenterY);
