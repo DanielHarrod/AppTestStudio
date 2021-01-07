@@ -72,7 +72,7 @@ namespace AppTestStudioUnitTest
         {
             IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("ATS2Window", "");
 
-            int Count = AppTestStudio.Utils.MoveMouseActive(x, MouseEventFlags.Blank, 10, 10, 0);
+            int Count = AppTestStudio.Utils.MoveMouseActiveFromSystemPosition(x, MouseEventFlags.Blank, 10, 10, 0);
 
         }
 
@@ -81,7 +81,7 @@ namespace AppTestStudioUnitTest
         {
             IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("ATS2Window", "");
 
-            int Count = AppTestStudio.Utils.MoveMouseActive(x, MouseEventFlags.Blank, 10, 10,500);
+            int Count = AppTestStudio.Utils.MoveMouseActiveFromSystemPosition(x, MouseEventFlags.Blank, 10, 10,500);
         }
 
 
@@ -90,7 +90,7 @@ namespace AppTestStudioUnitTest
         {
             IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("ATS2Window", "");
 
-            int Count = AppTestStudio.Utils.MoveMouseActive(x, MouseEventFlags.Blank, 10, 10, 3000);
+            int Count = AppTestStudio.Utils.MoveMouseActiveFromSystemPosition(x, MouseEventFlags.Blank, 10, 10, 3000);
 
         }
 
