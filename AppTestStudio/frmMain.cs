@@ -1025,11 +1025,11 @@ namespace AppTestStudio
                     
                     lblMouseMode.Visible = true;
                     cboActionMouseMode.Visible = true;
-                    chkMoveMouseBeforeClicking.Visible = true;
+                    chkMoveMouseBeforeAction.Visible = true;
 
                     cboActionMouseMode.Text = GameNode.MouseMode.ToString();
                     cboActionClickMode_SelectedIndexChanged(null, null);  // run the show/hide code for the Move First checkbox.
-                    chkMoveMouseBeforeClicking.Checked = GameNode.MoveMouseBeforeClicking;
+                    chkMoveMouseBeforeAction.Checked = GameNode.MoveMouseBeforeAction;
 
                     //End - Properties Group
 
@@ -1139,7 +1139,7 @@ namespace AppTestStudio
 
                     lblMouseMode.Visible = false;
                     cboActionMouseMode.Visible = false;
-                    chkMoveMouseBeforeClicking.Visible = false;
+                    chkMoveMouseBeforeAction.Visible = false;
 
 
                     chkPropertiesRepeatsUntilFalse.Checked = GameNode.RepeatsUntilFalse;
@@ -2951,7 +2951,7 @@ namespace AppTestStudio
 
                                 int MousePixelSpeedPerSecond = game.CalculateNextMousePixelSpeedPerSecond();
 
-                                Utils.ClickOnWindow(MainWindowHandle, ActionNode.MouseMode, ActionNode.MoveMouseBeforeClicking, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
+                                Utils.ClickOnWindow(MainWindowHandle, ActionNode.MouseMode, ActionNode.MoveMouseBeforeAction, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
                                 Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }
@@ -3984,9 +3984,6 @@ namespace AppTestStudio
             {
                 Log("Unable to locate window: " + TargetWindow);
             }
-
-
-
         }
 
         private void rdoAfterCompletionContinue_CheckedChanged(object sender, EventArgs e)
@@ -7220,7 +7217,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-                Node.MoveMouseBeforeClicking = chkMoveMouseBeforeClicking.Checked;
+                Node.MoveMouseBeforeAction = chkMoveMouseBeforeAction.Checked;
             }
         }
 
