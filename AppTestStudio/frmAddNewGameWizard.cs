@@ -32,10 +32,6 @@ namespace AppTestStudio
             HistoryStack = new List<string>();
         }
 
-        private void cmdCreateProject_Click(object sender, EventArgs e)
-        {
-        }
-
         private void txtSearch_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Enter)

@@ -57,9 +57,6 @@ namespace AppTestStudio
 
             Channel = "";
             FileName = "";
-            MouseMode = MouseMode.Passive;
-
-            MoveMouseBeforeAction = true;
             Utils.SetIcons(this);
 
         }
@@ -237,9 +234,9 @@ namespace AppTestStudio
         public int RelativeXOffset { get; set; }
         public int RelativeYOffset { get; set; }
         
-        public MouseMode MouseMode { get; set; }
+        //public MouseMode MouseMode { get; set; }
 
-        public Boolean MoveMouseBeforeAction { get; set; }
+        //public Boolean MoveMouseBeforeAction { get; set; }
 
         public void LoadBitmapFromDisk()
         {
@@ -357,10 +354,6 @@ namespace AppTestStudio
             Action.RepeatsUntilFalseLimit = RepeatsUntilFalseLimit;
 
             Action.Anchor = Anchor;
-
-            Action.MouseMode = MouseMode;
-            Action.MoveMouseBeforeAction = MoveMouseBeforeAction;
-
 
             foreach (GameNodeAction ChildAction in Nodes)
             {
@@ -990,8 +983,6 @@ namespace AppTestStudio
             y = y + RandomYStart;
             x2 = x2 + RandomXEnd;
             y2 = y2 + RandomYEnd;
-
-            GameNodeGame Game = this.GetGameNodeGame();
 
             Result.StartX = x;
             Result.StartY = y;

@@ -3,6 +3,7 @@
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudioControls;
+using OpenCvSharp;
 using System;
 using System.Collections.Concurrent;
 using System.Collections.Generic;
@@ -49,7 +50,7 @@ namespace AppTestStudio
 
             BlueStacksWindowName = "";
 
-            MouseSpeedPixelsPerSecond = 3000;
+            MouseSpeedPixelsPerSecond = 6000;
             MouseSpeedVelocityVariantPercentMax = 10;
             MouseSpeedVelocityVariantPercentMin = -10;
 
@@ -306,6 +307,10 @@ namespace AppTestStudio
 
         public MouseMode MouseMode { get; set; }
 
+        public Boolean MoveMouseBeforeAction { get; set; }
+
+        public WindowAction WindowAction { get; set; }
+
         public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, ThreadManager threadManager)
         {
             GameNodeGame Game = null;
@@ -379,6 +384,7 @@ namespace AppTestStudio
 
             Boolean IsBlueStacks64Bit = false;
             String BlueStacksWindowName = "";
+
 
             if (childNode.Attributes.GetNamedItem("PackageName").IsSomething())
             {
@@ -695,7 +701,7 @@ namespace AppTestStudio
                 }
             }
 
-            int MouseSpeedPixelsPerSecond = 3000;
+            int MouseSpeedPixelsPerSecond = 6000;
             int MouseSpeedVelocityVariantPercentMax = 10;
             int MouseSpeedVelocityVariantPercentMin = -10;
 
@@ -735,6 +741,48 @@ namespace AppTestStudio
                 }
             }
 
+            Boolean MoveMouseBeforeAction = false;
+            //MoveMouseBeforeAction 
+            if (childNode.Attributes.GetNamedItem("MoveMouseBeforeAction").IsSomething())
+            {
+                try
+                {
+                    MoveMouseBeforeAction = Convert.ToBoolean(childNode.Attributes["MoveMouseBeforeAction"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
+            WindowAction WindowAction = WindowAction.DoNothing;
+            //WindowAction
+            if (childNode.Attributes.GetNamedItem("WindowAction").IsSomething())
+            {
+                try
+                {
+                    String WindowActionValue = childNode.Attributes["WindowAction"].Value;
+                    switch (WindowActionValue.Trim().ToUpper())
+                    {
+                        case "ACTIVATEWINDOW":
+                            WindowAction = WindowAction.ActivateWindow; ;
+                            break;
+                        case "DONOTHING":
+                            WindowAction = WindowAction.DoNothing;
+                            break;
+                        default:
+                            WindowAction = WindowAction.ActivateWindow; 
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
+
+
             GameNodeGame Game = new GameNodeGame(GameName, threadManager);
             Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
@@ -755,6 +803,8 @@ namespace AppTestStudio
             Game.MouseSpeedPixelsPerSecond = MouseSpeedPixelsPerSecond;
             Game.MouseSpeedVelocityVariantPercentMax = MouseSpeedVelocityVariantPercentMax;
             Game.MouseSpeedVelocityVariantPercentMin = MouseSpeedVelocityVariantPercentMin;
+            Game.MoveMouseBeforeAction = MoveMouseBeforeAction;
+            Game.WindowAction = WindowAction;
 
             switch (Game.Platform)
             {
@@ -844,6 +894,9 @@ namespace AppTestStudio
             Writer.WriteAttributeString("MouseSpeedPixelsPerSecond", MouseSpeedPixelsPerSecond.ToString());
             Writer.WriteAttributeString("MouseSpeedVelocityVariantPercentMax", MouseSpeedVelocityVariantPercentMax.ToString());
             Writer.WriteAttributeString("MouseSpeedVelocityVariantPercentMin", MouseSpeedVelocityVariantPercentMin.ToString());
+
+            Writer.WriteAttributeString("WindowAction", WindowAction.ToString());
+            Writer.WriteAttributeString("MoveMouseBeforeAction", MoveMouseBeforeAction.ToString());
 
             switch (Platform)
             {
@@ -942,10 +995,6 @@ namespace AppTestStudio
                                 Writer.WriteAttributeString("WaitType", "Iteration");
                                 break;
                         }
-
-                        Writer.WriteAttributeString("MouseMode", Activites.MouseMode.ToString());
-                        Writer.WriteAttributeString("MoveMouseBeforeAction", Activites.MoveMouseBeforeAction.ToString());
-
 
                         //*Add New Attributes above here*//
 
@@ -1958,45 +2007,9 @@ namespace AppTestStudio
             treeActionNode.AutoBalance = AutoBalanceAttribue;
 
 
-            //MouseMode
-            if (actionNode.Attributes.GetNamedItem("MouseMode").IsSomething())
-            {
-                try
-                {
-                    String MouseMode = actionNode.Attributes["MouseMode"].Value.ToUpper().Trim();
-                    switch (MouseMode)
-                    {
-                        case "ACTIVE":
-                            treeActionNode.MouseMode = AppTestStudio.MouseMode.Active;
-                            break;
-                        case "PASSIVE":
-                            treeActionNode.MouseMode = AppTestStudio.MouseMode.Passive;
-                            break;
-                        default:
-                            Debug.Assert(false);
-                            treeActionNode.MouseMode = AppTestStudio.MouseMode.Passive;
-                            break;
-                    }
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine("LoadEvent.MouseMode:" + ex.Message);
-                }
-            }
 
-            //MoveMouseBeforeAction 
-            if (actionNode.Attributes.GetNamedItem("MoveMouseBeforeAction").IsSomething())
-            {
-                try
-                {
-                    Boolean MoveMouseBeforeAction = Convert.ToBoolean(actionNode.Attributes["MoveMouseBeforeAction"].Value);
-                    treeActionNode.MoveMouseBeforeAction = MoveMouseBeforeAction;
-                }
-                catch (Exception ex)
-                {
-                    Debug.WriteLine(ex.Message);
-                }
-            }
+
+
 
 
             foreach (XmlNode ActionNodeChildNode in actionNode.ChildNodes)
@@ -2187,13 +2200,24 @@ namespace AppTestStudio
             return Result;
         }
 
+        /// <summary>
+        /// Random Modification of Mouse Speed.
+        /// Used During Active Mouse position to move the mouse pointer to the start position before any action
+        /// Configurable on the project settings.
+        /// </summary>
+        /// <returns></returns>
         internal int CalculateNextMousePixelSpeedPerSecond()
+        {
+            return CalculateNextMousePixelSpeedPerSecond(MouseSpeedPixelsPerSecond);
+        }
+
+        internal int CalculateNextMousePixelSpeedPerSecond(int MouseSpeedPixelsPerSecond)
         {
             int RngModification = Utils.RandomNumber(MouseSpeedVelocityVariantPercentMin, MouseSpeedVelocityVariantPercentMax);
             if (RngModification != 0)
             {
                 double ModificationPercentage = 100;
-                ModificationPercentage = (ModificationPercentage + RngModification)/100;
+                ModificationPercentage = (ModificationPercentage + RngModification) / 100;
 
                 int ModifiedMouseSpeed = (int)(MouseSpeedPixelsPerSecond * ModificationPercentage);
 
@@ -2205,4 +2229,6 @@ namespace AppTestStudio
             }
         }
     }
+
+
 }

@@ -54,7 +54,7 @@
         https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/how-to-publish-events-that-conform-to-net-framework-guidelines
 
         MouseMovements
-        https://securityboulevard.com/2020/12/bot-or-not-can-you-spot-the-automated-mouse-movements/
+        https://blog.castle.io/bot-or-not-can-you-spot-the-automated-mouse-movements/
         https://rllabmcgill.github.io/COMP-652/project-reports/2018/report.gavin.mccracken.pdf
 
 
@@ -62,3 +62,5 @@
         https://www.rhyous.com/2011/01/24/how-read-the-64-bit-registry-from-a-32-bit-application-or-vice-versa/  - unusable - license.
         https://stackoverflow.com/questions/974038/reading-64bit-registry-from-a-32bit-application
 
+        TODO: Add Window Action Next
+        cbo made, enum made, 

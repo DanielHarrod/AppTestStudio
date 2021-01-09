@@ -92,7 +92,7 @@ namespace AppTestStudio
                             frm.Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             Debug.WriteLine("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                            Utils.ClickOnWindow(MainWindowHandle, Node.MouseMode, Node.MoveMouseBeforeAction, Game.MouseX, Game.MouseY, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed, MousePixelSpeedPerSecond);
+                            Utils.ClickOnWindow(MainWindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, Game.MouseX, Game.MouseY, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed, MousePixelSpeedPerSecond);
                             break;
                         case AppTestStudio.Mode.ClickDragRelease:
                             GameNodeAction.ClickDragReleaseResult ClickDragReleaseResult = Node.CalculateClickDragReleaseResult(CenterX, CenterY);
@@ -137,7 +137,7 @@ namespace AppTestStudio
                             {
                                 frm.Log("Swipe from ( x=" + ClickDragReleaseResult.StartX + ",y = " + ClickDragReleaseResult.StartY + " to x=" + ClickDragReleaseResult.EndX + ",y=" + ClickDragReleaseResult.EndY + ")");
                                 MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                                Utils.ClickDragRelease(MainWindowHandle, Node.MouseMode, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity, MousePixelSpeedPerSecond);
+                                Utils.ClickDragRelease(MainWindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity, MousePixelSpeedPerSecond);
                             }
                             break;
                         default:

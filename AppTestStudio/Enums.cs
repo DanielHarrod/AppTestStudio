@@ -13,6 +13,13 @@ using System.Web.Caching;
 
 namespace AppTestStudio
 {
+
+    public enum WindowAction
+    {
+        DoNothing,
+        ActivateWindow
+    }
+
     public enum Platform
     {
         NoxPlayer,

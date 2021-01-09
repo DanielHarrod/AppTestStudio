@@ -137,8 +137,12 @@ namespace AppTestStudio
             foreach (MouseMode mouseMode in Enum.GetValues(typeof(MouseMode)))
             {
                 cboMouseMode.Items.Add(mouseMode.ToString());
-                cboActionMouseMode.Items.Add(mouseMode.ToString());
             }
+
+            foreach (WindowAction windowAction in Enum.GetValues(typeof(WindowAction)))
+            {
+                cboWindowAction.Items.Add(windowAction.ToString());
+            }            
 
             TitleBarHeight = this.RectangleToScreen(this.ClientRectangle).Top - this.Top;
             InitialPanelRightColorAtPointerHeight = panelRightColorAtPointer.Height;
@@ -791,6 +795,9 @@ namespace AppTestStudio
                 }
             }
 
+            chkMoveMouseBeforeAction.Checked = gameNode.MoveMouseBeforeAction;
+            cboWindowAction.Text = gameNode.WindowAction.ToString();
+
             cboPlatform_TextChanged(null, null);
         }
 
@@ -1022,15 +1029,7 @@ namespace AppTestStudio
                     //Properties Group
                     chkPropertiesRepeatsUntilFalse.Visible = false;
                     grpPropertiesRepeatsUntilFalse.Visible = false;
-                    
-                    lblMouseMode.Visible = true;
-                    cboActionMouseMode.Visible = true;
-                    chkMoveMouseBeforeAction.Visible = true;
-
-                    cboActionMouseMode.Text = GameNode.MouseMode.ToString();
-                    cboActionClickMode_SelectedIndexChanged(null, null);  // run the show/hide code for the Move First checkbox.
-                    chkMoveMouseBeforeAction.Checked = GameNode.MoveMouseBeforeAction;
-
+                
                     //End - Properties Group
 
 
@@ -1136,11 +1135,6 @@ namespace AppTestStudio
                     //Properties Group
                     chkPropertiesRepeatsUntilFalse.Visible = true;
                     grpPropertiesRepeatsUntilFalse.Visible = true;
-
-                    lblMouseMode.Visible = false;
-                    cboActionMouseMode.Visible = false;
-                    chkMoveMouseBeforeAction.Visible = false;
-
 
                     chkPropertiesRepeatsUntilFalse.Checked = GameNode.RepeatsUntilFalse;
                     chkPropertiesRepeatsUntilFalse_CheckedChanged(null, null); // lazy - enable/disable code is on the change event.
@@ -2951,7 +2945,7 @@ namespace AppTestStudio
 
                                 int MousePixelSpeedPerSecond = game.CalculateNextMousePixelSpeedPerSecond();
 
-                                Utils.ClickOnWindow(MainWindowHandle, ActionNode.MouseMode, ActionNode.MoveMouseBeforeAction, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
+                                Utils.ClickOnWindow(MainWindowHandle, game.MouseMode, game.MoveMouseBeforeAction, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
                                 Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }
@@ -2959,7 +2953,7 @@ namespace AppTestStudio
                             {
                                 GameNodeAction.ClickDragReleaseResult Result = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
-                                Utils.ClickDragRelease(MainWindowHandle, ActionNode.MouseMode, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond);
+                                Utils.ClickDragRelease(MainWindowHandle, game.MouseMode, game.MoveMouseBeforeAction, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond);
                                 Log("ClickDragRelease( x=" + Result.StartX + ",Y = " + Result.StartY + ", ex=" + Result.EndX + ",ey=" + Result.EndY + ")");
                                 ThreadManager.IncrementSingleTestClickDragRelease();
                             }
@@ -4536,7 +4530,6 @@ namespace AppTestStudio
             GameNodeGame Game = GameNodeAction.GetGameNodeGame();
             if ( Game.IsSomething() )
             {
-                GameNodeAction.MouseMode = Game.MouseMode;
                 GameNodeAction.ClickSpeed = Game.DefaultClickSpeed;
             }
 
@@ -6968,6 +6961,7 @@ namespace AppTestStudio
                     cboObject.Text = txtObjectScreenshotName.Text;
 
                     LastNodeAddObjectWasUsedFrom.Text = "Find " + txtObjectScreenshotName.Text;
+                    txtEventName.Text = LastNodeAddObjectWasUsedFrom.Text;
 
                     // Add Child Click Event the size of the origin picture.
                     GameNodeAction ClickEvent = new GameNodeAction("Click " + txtObjectScreenshotName.Text, ActionType.Action);
@@ -7190,34 +7184,17 @@ namespace AppTestStudio
             {
                 Log(ex.Message);
             }
-        }
 
-        private void cboActionClickMode_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            if (IsPanelLoading == false)
+            switch (cboMouseMode.Text)
             {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                switch (cboActionMouseMode.Text)
-                {
-                    case "Active":
-                        ActionNode.MouseMode = MouseMode.Active;
-                        break;
-                    case "Passive":
-                        ActionNode.MouseMode = MouseMode.Passive;
-                        break;
-                    default:
-                        ActionNode.MouseMode = MouseMode.Passive;
-                        break;
-                }
-            }
-        }
-
-        private void chkClickModeMoveMouseBeforeClicking_CheckedChanged(object sender, EventArgs e)
-        {
-            if (IsPanelLoading == false)
-            {
-                GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-                Node.MoveMouseBeforeAction = chkMoveMouseBeforeAction.Checked;
+                case "Active":
+                    lblWindowNotVisibleAction.Visible = true;
+                    break;
+                case "Passive":
+                    lblWindowNotVisibleAction.Visible = false;
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -7245,6 +7222,35 @@ namespace AppTestStudio
             {
                 GameNodeGame Node = tv.SelectedNode as GameNodeGame;
                 Node.MouseSpeedVelocityVariantPercentMin = (int)numericMouseSpeedVelocityVariantPercentMin.Value;
+            }
+        }
+
+        private void cboWindowAction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeGame Node = tv.SelectedNode as GameNodeGame;
+                switch (cboWindowAction.Text)
+                {
+                    case "DoNothing":
+                        Node.WindowAction = WindowAction.DoNothing;
+                        break;
+                    case "ActivateWindow":
+                        Node.WindowAction = WindowAction.ActivateWindow;
+                        break;
+                    default:
+                        Debug.Assert(false);
+                        break;
+                }
+            }
+        }
+
+        private void chkMoveMouseBeforeAction_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeGame Node = tv.SelectedNode as GameNodeGame;
+                Node.MoveMouseBeforeAction = chkMoveMouseBeforeAction.Checked;
             }
         }
     }

@@ -244,6 +244,7 @@ namespace AppTestStudio
         // 4. Mouse Up at endx/y
         public static void ClickDragReleaseActive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond)
         {
+  
             // Move to Start
             MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, (short)startX, (short)startY, mouseSpeedPixelsPerSecond);
             MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.LeftDown, (short)startX, (short)startY, (short)endX, (short)endY, velocityMS);
@@ -262,7 +263,7 @@ namespace AppTestStudio
             API.SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWordIntptr(endX, endY));
         }
 
-        public static void ClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond)
+        public static void ClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond)
         {
             switch (mouseMode)
             {
@@ -270,6 +271,10 @@ namespace AppTestStudio
                     ClickDragReleasePassive(windowHandle, startX, startY, endX, endY, velocityMS, mouseSpeedPixelsPerSecond);
                     break;
                 case MouseMode.Active:
+                    if (moveMouseFirst)
+                    {
+                        MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
+                    }
                     ClickDragReleaseActive(windowHandle, startX, startY, endX, endY, velocityMS, mouseSpeedPixelsPerSecond);
                     break;
                 default:
@@ -427,7 +432,11 @@ namespace AppTestStudio
             return PostCount;
         }
 
-
+        [System.Diagnostics.DebuggerStepThrough]
+        public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientTarget, int yClientTarget, int mouseSpeedPixelsPerSecond)
+        {
+            return MoveMouseActiveFromSystemPosition(windowHandle, mouseEventFlags, (short) xClientTarget, (short)yClientTarget, mouseSpeedPixelsPerSecond);
+        }
         public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond)
         {
             //windowHandle = GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
@@ -623,11 +632,11 @@ namespace AppTestStudio
             switch (mouseMode)
             {
                 case MouseMode.Passive:
-                    if (moveMouseFirst)
-                    {
-                        int MoveDurationMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, xTarget, yTarget, mouseSpeedPixelsPerSecond);
-                        MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_NONE, xStart, yStart, xTarget, yTarget, MoveDurationMS);
-                    }
+                    //if (moveMouseFirst)
+                    //{
+                    //    int MoveDurationMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, xTarget, yTarget, mouseSpeedPixelsPerSecond);
+                    //    MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_NONE, xStart, yStart, xTarget, yTarget, MoveDurationMS);
+                    //}
                     ClickOnWindowPassiveMode(windowHandle, xTarget, yTarget, clickDuration);
                     break;
                 case MouseMode.Active:
@@ -1264,27 +1273,20 @@ namespace AppTestStudio
                 Time = hour + "h ";
             }
 
-
-
             if (minute > 0)
             {
                 Time = Time + minute + "m ";
             }
-
-
 
             if (second > 0)
             {
                 Time = Time + second + "s ";
             }
 
-
-
             if (ms > 0)
             {
                 Time = Time + ms + "ms";
             }
-
 
             if (Time.Length == 0)
             {
@@ -1479,8 +1481,7 @@ namespace AppTestStudio
             int Left = (Screen.PrimaryScreen.WorkingArea.Width - frm.Width) / 2;
             int Top = (Screen.PrimaryScreen.WorkingArea.Height - frm.Height) / 2;
 
-            API.SetWindowPos(frm.Handle, new IntPtr(HWND_TOPMOST), Left, Top, frm.Width, frm.Height, SWP_NOACTIVATE);
-            Thread.Sleep(1000);
+            API.SetWindowPos(frm.Handle, new IntPtr(HWND_TOPMOST), Left, Top, frm.Width, frm.Height, SWP_NOACTIVATE);             
         }
 
         public static int GetDistanceABS(int x1, int y1, int x2, int y2)

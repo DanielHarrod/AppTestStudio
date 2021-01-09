@@ -256,7 +256,7 @@ namespace AppTestStudio
                             {
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
                                 int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                                Utils.ClickOnWindow(WindowHandle, node.MouseMode, node.MoveMouseBeforeAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
+                                Utils.ClickOnWindow(WindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
                                 Game.MouseX = (short)Result.x;
                                 Game.MouseY = (short)Result.y;
 
@@ -300,7 +300,7 @@ namespace AppTestStudio
                             else
                             {
                                 Game.Log("Swipe from ( x=" + CDRResult.StartX + ",y = " + CDRResult.StartY + " to x=" + CDRResult.EndX + ",y=" + CDRResult.EndY + ")");
-                                Utils.ClickDragRelease(WindowHandle, Game.MouseMode, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond);
+                                Utils.ClickDragRelease(WindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond);
                                 Game.MouseX = (short)CDRResult.EndX;
                                 Game.MouseY = (short)CDRResult.EndY;
                                 ThreadManager.IncrementClickDragRelease();
