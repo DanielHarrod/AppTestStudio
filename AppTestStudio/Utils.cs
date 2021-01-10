@@ -285,9 +285,15 @@ namespace AppTestStudio
                     ClickDragReleasePassive(windowHandle, startX, startY, endX, endY, velocityMS, mouseSpeedPixelsPerSecond);
                     break;
                 case MouseMode.Active:
-                    if (windowAction == WindowAction.ActivateWindow )
+                    switch (windowAction)
                     {
-                        ActivateWindow(windowHandle, startX, startY);
+                        case WindowAction.DoNothing:
+                            return;
+                        case WindowAction.ActivateWindow:
+                            ActivateWindow(windowHandle, startX, startY);
+                            break;
+                        default:
+                            break;
                     }
                     if (moveMouseFirst)
                     {
@@ -658,9 +664,15 @@ namespace AppTestStudio
                     ClickOnWindowPassiveMode(windowHandle, xTarget, yTarget, clickDuration);
                     break;
                 case MouseMode.Active:
-                    if (windowAction == WindowAction.ActivateWindow)
+                    switch (windowAction)
                     {
-                        ActivateWindow(windowHandle, xTarget, yTarget);
+                        case WindowAction.DoNothing:
+                            return;
+                        case WindowAction.ActivateWindow:
+                            ActivateWindow(windowHandle, xTarget, yTarget);
+                            break;
+                        default:
+                            break;
                     }
                     if (moveMouseFirst)
                     {
