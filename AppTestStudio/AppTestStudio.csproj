@@ -84,6 +84,9 @@
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\ATSGears.ico</ApplicationIcon>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Gma.System.MouseKeyHook, Version=5.6.130.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MouseKeyHook.5.6.0\lib\net40\Gma.System.MouseKeyHook.dll</HintPath>
@@ -294,6 +297,8 @@
     <Content Include="Resources\AddRNGP.png" />
     <Content Include="Resources\Angular_lightningboltGR.png" />
     <Content Include="Resources\ASX_CollapseChevronDown_grey_16x.png" />
+    <Content Include="Resources\ATSGears.ico" />
+    <Content Include="Resources\ATSGears.png" />
     <Content Include="Resources\ButtonClick_16xGR.png" />
     <Content Include="Resources\CollapseChevronLeft_16x.png" />
     <Content Include="Resources\DependencyArrow_16xGR.png" />
@@ -307,6 +312,7 @@
     <Content Include="Resources\Test.png" />
     <Content Include="Resources\TestALLP.png" />
     <Content Include="Resources\UploadFile_16x_24.bmp" />
+    <None Include="Resources\ATSGears.psd" />
     <None Include="Resources\DragTargetMode.png" />
     <Content Include="Resources\ImportCatalogPart_16x_24.bmp" />
     <Content Include="Resources\Pause_64x_64.bmp" />
