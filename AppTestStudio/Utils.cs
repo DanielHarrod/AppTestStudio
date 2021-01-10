@@ -237,15 +237,11 @@ namespace AppTestStudio
             return Loc;
         }
 
-
-        // 1. Move Mouse to startx/y 
-        // 2. Mouse Down at startx/y
-        // 3. Mouse Move to endx/y
-        // 4. Mouse Up at endx/y
+        // 1. Mouse Down at startx/y
+        // 2. Mouse Move to endx/y
+        // 3. Mouse Up at endx/y
         public static void ClickDragReleaseActive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond)
         {
-            // Move to Start
-            MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, (short)startX, (short)startY, mouseSpeedPixelsPerSecond);
             MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.LeftDown, (short)startX, (short)startY, (short)endX, (short)endY, velocityMS);
         }
 
@@ -334,7 +330,7 @@ namespace AppTestStudio
             short ySystemTarget = (short)(yClientTarget + TargetWindowRectangle.Top);
 
             short xSystemStart = (short)(xClientStart + TargetWindowRectangle.Left);
-            short ySystemStart = (short)(yClientTarget + TargetWindowRectangle.Top);
+            short ySystemStart = (short)(yClientStart + TargetWindowRectangle.Top);
 
             int PostCount = 0;
             int PostEveryMS = 30;
