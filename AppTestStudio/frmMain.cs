@@ -786,6 +786,7 @@ namespace AppTestStudio
             numericMouseSpeedVelocityVariantPercentMax.Value = gameNode.MouseSpeedVelocityVariantPercentMax;
             numericMouseSpeedVelocityVariantPercentMin.Value = gameNode.MouseSpeedVelocityVariantPercentMin;
 
+
             foreach (BlueGuest guest in BlueRegistry.GuestList)
             {
                 if ( guest.DisplayName  == gameNode.BlueStacksWindowName )
@@ -2953,7 +2954,7 @@ namespace AppTestStudio
                             {
                                 GameNodeAction.ClickDragReleaseResult Result = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
-                                Utils.ClickDragRelease(MainWindowHandle, game.MouseMode, game.MoveMouseBeforeAction, game.WindowAction, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond);
+                                Utils.ClickDragRelease(MainWindowHandle, game.MouseMode, game.MoveMouseBeforeAction, game.WindowAction, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
                                 Log("ClickDragRelease( x=" + Result.StartX + ",Y = " + Result.StartY + ", ex=" + Result.EndX + ",ey=" + Result.EndY + ")");
                                 ThreadManager.IncrementSingleTestClickDragRelease();
                             }

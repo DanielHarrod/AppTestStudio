@@ -789,8 +789,6 @@ namespace AppTestStudio
                 }
             }
 
-
-
             GameNodeGame Game = new GameNodeGame(GameName, threadManager);
             Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
@@ -814,6 +812,7 @@ namespace AppTestStudio
             Game.MoveMouseBeforeAction = MoveMouseBeforeAction;
             Game.WindowAction = WindowAction;
 
+
             switch (Game.Platform)
             {
                 case Platform.BlueStacks:
@@ -828,6 +827,16 @@ namespace AppTestStudio
                         {
                             Game.BlueGuest = Guest.CloneMe();
                             break;
+                        }
+                    }
+
+                    if (Game.BlueGuest.IsNothing())
+                    {
+                        if (Registry.GuestList.Count > 0)
+                        {
+                            // Last
+                            Game.BlueGuest = Registry.GuestList[Registry.GuestList.Count-1];
+                            Game.BlueStacksWindowName = Game.BlueGuest.WindowTitle;
                         }
                     }
 
