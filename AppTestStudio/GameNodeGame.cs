@@ -54,6 +54,12 @@ namespace AppTestStudio
             MouseSpeedVelocityVariantPercentMax = 10;
             MouseSpeedVelocityVariantPercentMin = -10;
 
+            if (MouseMode == MouseMode.Active)
+            {
+                WindowAction = WindowAction.ActivateWindow;
+                MoveMouseBeforeAction = true;
+            }
+
             IsPaused = false;
         }
 
@@ -286,6 +292,8 @@ namespace AppTestStudio
             Target.MouseSpeedPixelsPerSecond = MouseSpeedPixelsPerSecond;
             Target.MouseSpeedVelocityVariantPercentMax = MouseSpeedVelocityVariantPercentMax;
             Target.MouseSpeedVelocityVariantPercentMin = MouseSpeedVelocityVariantPercentMin;
+            Target.WindowAction = WindowAction;
+            Target.MoveMouseBeforeAction = MoveMouseBeforeAction;
 
             if (BlueGuest.IsSomething())
             {

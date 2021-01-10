@@ -2945,7 +2945,7 @@ namespace AppTestStudio
 
                                 int MousePixelSpeedPerSecond = game.CalculateNextMousePixelSpeedPerSecond();
 
-                                Utils.ClickOnWindow(MainWindowHandle, game.MouseMode, game.MoveMouseBeforeAction, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
+                                Utils.ClickOnWindow(MainWindowHandle, game.MouseMode, game.MoveMouseBeforeAction, game.WindowAction, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
                                 Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }
@@ -2953,7 +2953,7 @@ namespace AppTestStudio
                             {
                                 GameNodeAction.ClickDragReleaseResult Result = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
-                                Utils.ClickDragRelease(MainWindowHandle, game.MouseMode, game.MoveMouseBeforeAction, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond);
+                                Utils.ClickDragRelease(MainWindowHandle, game.MouseMode, game.MoveMouseBeforeAction, game.WindowAction, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond);
                                 Log("ClickDragRelease( x=" + Result.StartX + ",Y = " + Result.StartY + ", ex=" + Result.EndX + ",ey=" + Result.EndY + ")");
                                 ThreadManager.IncrementSingleTestClickDragRelease();
                             }

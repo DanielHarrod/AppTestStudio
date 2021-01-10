@@ -244,10 +244,28 @@ namespace AppTestStudio
         // 4. Mouse Up at endx/y
         public static void ClickDragReleaseActive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond)
         {
-  
             // Move to Start
             MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, (short)startX, (short)startY, mouseSpeedPixelsPerSecond);
             MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.LeftDown, (short)startX, (short)startY, (short)endX, (short)endY, velocityMS);
+        }
+
+        private static void ActivateWindow(IntPtr windowHandle, int startX, int startY)
+        {
+            API.RECT TargetWindowRectangle;
+            Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
+            short xSystemTargetStartPosition = (short)(startX + TargetWindowRectangle.Left);
+            short ySystemTargetStartPosition = (short)(startY + +TargetWindowRectangle.Top);
+            System.Drawing.Point p = new System.Drawing.Point();
+            p.X = xSystemTargetStartPosition;
+            p.Y = ySystemTargetStartPosition;
+            IntPtr WindowHandleAtStartPosition = API.WindowFromPoint(p);
+
+            IntPtr ParentWindowHandleAtStartPosition = API.GetAncestor(WindowHandleAtStartPosition, GetAncestorFlags.GetRoot);
+            IntPtr ParentWindowHandleOfApplication = API.GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
+            if (ParentWindowHandleOfApplication != ParentWindowHandleAtStartPosition)
+            {
+                API.SetForegroundWindow(ParentWindowHandleOfApplication);
+            }
         }
 
         public static void ClickDragReleasePassive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond)
@@ -263,7 +281,7 @@ namespace AppTestStudio
             API.SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWordIntptr(endX, endY));
         }
 
-        public static void ClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond)
+        public static void ClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond)
         {
             switch (mouseMode)
             {
@@ -271,6 +289,10 @@ namespace AppTestStudio
                     ClickDragReleasePassive(windowHandle, startX, startY, endX, endY, velocityMS, mouseSpeedPixelsPerSecond);
                     break;
                 case MouseMode.Active:
+                    if (windowAction == WindowAction.ActivateWindow )
+                    {
+                        ActivateWindow(windowHandle, startX, startY);
+                    }
                     if (moveMouseFirst)
                     {
                         MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
@@ -623,11 +645,11 @@ namespace AppTestStudio
         }
 
         [System.Diagnostics.DebuggerStepThrough]
-        public static void ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, int xStart, int yStart, int xTarget, int yTarget, int clickDurationMS, int mouseSpeedPixelsPerSecond)
+        public static void ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int xStart, int yStart, int xTarget, int yTarget, int clickDurationMS, int mouseSpeedPixelsPerSecond)
         {
-            ClickOnWindow(windowHandle, mouseMode, moveMouseFirst, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, clickDurationMS, mouseSpeedPixelsPerSecond);
+            ClickOnWindow(windowHandle, mouseMode, moveMouseFirst, windowAction, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, clickDurationMS, mouseSpeedPixelsPerSecond);
         }
-        public static void ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
+        public static void ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
         {
             switch (mouseMode)
             {
@@ -640,6 +662,10 @@ namespace AppTestStudio
                     ClickOnWindowPassiveMode(windowHandle, xTarget, yTarget, clickDuration);
                     break;
                 case MouseMode.Active:
+                    if (windowAction == WindowAction.ActivateWindow)
+                    {
+                        ActivateWindow(windowHandle, xTarget, yTarget);
+                    }
                     if (moveMouseFirst)
                     {
                         MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, xTarget, yTarget, mouseSpeedPixelsPerSecond);
