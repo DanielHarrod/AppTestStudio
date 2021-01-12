@@ -100,7 +100,6 @@ namespace AppTestStudioUnitTest
         public void MouseMoveTesting()
         {
             int Count = AppTestStudio.Utils.MoveMousePassive(new IntPtr(0x1650a2e), 1, 740, 337, 59, 336, 500);
-
         }
 
         /// <summary>

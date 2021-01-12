@@ -11,7 +11,7 @@ using System.Windows.Forms;
 using System.Threading;
 using static AppTestStudio.API;
 using System.Runtime.InteropServices;
-using System.Threading.Tasks;
+using System.Windows.Media.Animation;
 
 namespace AppTestStudio
 {
@@ -478,25 +478,14 @@ namespace AppTestStudio
         }
         public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond)
         {
-            //windowHandle = GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
-            API.RECT TargetWindowRectangle;
+             API.RECT TargetWindowRectangle;
             Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
-
-            //Debug.WriteLine("xClientTarget:" + xClientTarget);
-            //Debug.WriteLine("yClientTarget:" + yClientTarget);
-            //Debug.WriteLine("Right:" + TargetWindowRectangle.Right);
-            //Debug.WriteLine("Left:" + TargetWindowRectangle.Left);
-
-            //RECT WindowFrame;
-
-            //int Result = API.DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
 
             RECT ClientRect;
             API.GetClientRect(windowHandle, out ClientRect);
 
             short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);
 
-            //short ySystemTarget = (short)(yClientTarget + WindowFrame.Bottom - ClientRect.Bottom);
             short ySystemTarget = (short)(yClientTarget + +TargetWindowRectangle.Top);
 
             GetCursorPos(out API.Point point);
@@ -519,11 +508,9 @@ namespace AppTestStudio
 
             Input MouseMove = new Input();
 
-
             // Don't post the Start move if there's a 0ms delay
             if (velocityMS > 0)
             {
-
                 AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
                 AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
 
@@ -541,13 +528,32 @@ namespace AppTestStudio
 
             if (NumberOfActions > 0)
             {
+                PowerEase PowerEase = new PowerEase();
+                float xDistance = (float)(xSystemTarget - xStart);
+                float yDistance = (float)(ySystemTarget - yStart);
                 float XIncrement = (float)(xSystemTarget - xStart) / NumberOfActions;
                 float YIncrement = (float)(ySystemTarget - yStart) / NumberOfActions;
                 int CurrentAction = 0;
+                PowerEase.Power = 2;
                 for (CurrentAction = 0; CurrentAction < NumberOfActions; CurrentAction++)
                 {
-                    AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
-                    AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
+                    // Easing
+                    double CurrentPercent = PowerEase.Ease((double)CurrentAction / NumberOfActions);
+
+                    double CurrentXPosition = xStart + (xDistance * CurrentPercent);
+                    double CurrentYPosition = yStart + (yDistance * CurrentPercent);
+
+                    Debug.WriteLine("CA:" + CurrentAction + ", NOA: " + NumberOfActions);
+
+                    AbsoluteX = CalculateAbsoluteCoordinateX(CurrentXPosition);
+                    AbsoluteY = CalculateAbsoluteCoordinateY(CurrentYPosition);
+
+                    // Adding Easing
+                    //AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
+                    //AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
+
+                    //Debug.WriteLine(CurrentX + "x:" + CurrentXPosition);
+                    //Debug.WriteLine(CurrentY + "y:" + CurrentYPosition);
 
                     MouseMove.Type = INPUT_MOUSE;
                     MouseMove.u.MouseInput.X = AbsoluteX;
@@ -562,8 +568,9 @@ namespace AppTestStudio
 
                     Thread.Sleep(PostEveryMS);
 
-                    CurrentX = CurrentX + XIncrement;
-                    CurrentY = CurrentY + YIncrement;
+                    // Adding Easing
+                    //CurrentX = CurrentX + XIncrement;
+                    //CurrentY = CurrentY + YIncrement;
                 }
             }
 
@@ -728,6 +735,11 @@ namespace AppTestStudio
                 return 0;
             }
         }
+        [System.Diagnostics.DebuggerStepThrough]
+        static int CalculateAbsoluteCoordinateX(double x)
+        {
+            return CalculateAbsoluteCoordinateX((int)x);
+        }
 
         [System.Diagnostics.DebuggerStepThrough]
         static int CalculateAbsoluteCoordinateX(float x)
@@ -741,6 +753,11 @@ namespace AppTestStudio
             return (x * 65536) / XScreen;
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
+        static int CalculateAbsoluteCoordinateY(double y)
+        {
+            return CalculateAbsoluteCoordinateY((int)y);
+        }
         [System.Diagnostics.DebuggerStepThrough]
         static int CalculateAbsoluteCoordinateY(float y)
         {
