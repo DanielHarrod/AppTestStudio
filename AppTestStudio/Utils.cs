@@ -531,8 +531,10 @@ namespace AppTestStudio
                 PowerEase PowerEase = new PowerEase();
                 float xDistance = (float)(xSystemTarget - xStart);
                 float yDistance = (float)(ySystemTarget - yStart);
-                float XIncrement = (float)(xSystemTarget - xStart) / NumberOfActions;
-                float YIncrement = (float)(ySystemTarget - yStart) / NumberOfActions;
+
+                //Adding Easing
+                //float XIncrement = (float)(xSystemTarget - xStart) / NumberOfActions;
+                //float YIncrement = (float)(ySystemTarget - yStart) / NumberOfActions;
                 int CurrentAction = 0;
                 PowerEase.Power = 2;
                 for (CurrentAction = 0; CurrentAction < NumberOfActions; CurrentAction++)
