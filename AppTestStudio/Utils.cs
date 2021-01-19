@@ -368,7 +368,7 @@ namespace AppTestStudio
             Input MouseMove = new Input();
 
 
-            // Don't post the Start move if there's a 0ms delay
+            // Don't post the Start move if there's a 0ms delay 
             if (velocityMS > 0)
             {
 
@@ -472,11 +472,11 @@ namespace AppTestStudio
         }
 
         [System.Diagnostics.DebuggerStepThrough]
-        public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientTarget, int yClientTarget, int mouseSpeedPixelsPerSecond)
+        public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientTarget, int yClientTarget, int mouseSpeedPixelsPerSecond, EasingFunctionBase easingFunction = null)
         {
             return MoveMouseActiveFromSystemPosition(windowHandle, mouseEventFlags, (short) xClientTarget, (short)yClientTarget, mouseSpeedPixelsPerSecond);
         }
-        public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond)
+        public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond, EasingFunctionBase easingFunction = null)
         {
              API.RECT TargetWindowRectangle;
             Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
@@ -528,7 +528,12 @@ namespace AppTestStudio
 
             if (NumberOfActions > 0)
             {
-                PowerEase PowerEase = new PowerEase();
+                if (easingFunction.IsNothing())
+                {
+                    // if no easing function use power ease 2, if you want a consistent velocity pass in "easingFuction = new PowerEase() { Power = 1 };
+                    easingFunction = new PowerEase() { Power = 2 };
+                }
+
                 float xDistance = (float)(xSystemTarget - xStart);
                 float yDistance = (float)(ySystemTarget - yStart);
 
@@ -536,11 +541,10 @@ namespace AppTestStudio
                 //float XIncrement = (float)(xSystemTarget - xStart) / NumberOfActions;
                 //float YIncrement = (float)(ySystemTarget - yStart) / NumberOfActions;
                 int CurrentAction = 0;
-                PowerEase.Power = 2;
                 for (CurrentAction = 0; CurrentAction < NumberOfActions; CurrentAction++)
                 {
                     // Easing
-                    double CurrentPercent = PowerEase.Ease((double)CurrentAction / NumberOfActions);
+                    double CurrentPercent = easingFunction.Ease((double)CurrentAction / NumberOfActions);
 
                     double CurrentXPosition = xStart + (xDistance * CurrentPercent);
                     double CurrentYPosition = yStart + (yDistance * CurrentPercent);
@@ -693,9 +697,12 @@ namespace AppTestStudio
                     ClickOnWindowPassiveMode(windowHandle, xTarget, yTarget, clickDuration);
                     break;
                 case MouseMode.Active:
+                    
                     Boolean Continue = ActivateWindowIfNecessary(windowHandle, windowAction, xTarget, yTarget);
                     if (Continue == false)
                     {
+                        // Project configuration indicates that if the window isn't visible: to not perform any actions.
+                        // Check the project settings checkbox [Move System Mouse To Start Location Before Action] to avoid this.
                         return;
                     }
 
@@ -703,6 +710,7 @@ namespace AppTestStudio
                     {
                         MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, xTarget, yTarget, mouseSpeedPixelsPerSecond);
                     }
+
                     ClickOnWindowActiveMode(windowHandle, xTarget, yTarget, clickDuration);
                     break;
                 default:
