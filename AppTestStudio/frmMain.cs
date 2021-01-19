@@ -846,14 +846,16 @@ namespace AppTestStudio
         {
             if (tv.Nodes.Count > 0)
             {
-                try
+                if (tv.Nodes[0].Nodes.Count > 0)
                 {
-                    return tv.Nodes[0].Nodes[0] as GameNodeGame;
-                }
-                catch (Exception ex)
-                {
-
-                    Log("GetGameNode:" + ex.Message.ToString());
+                    try
+                    {
+                        return tv.Nodes[0].Nodes[0] as GameNodeGame;
+                    }
+                    catch (Exception ex)
+                    {
+                        Log("GetGameNode:" + ex.Message.ToString());
+                    }
                 }
 
             }

@@ -63,9 +63,7 @@
             this.splitContainerWorkspace = new System.Windows.Forms.SplitContainer();
             this.tabTree = new System.Windows.Forms.TabControl();
             this.tabDesign = new System.Windows.Forms.TabPage();
-            this.SplitContainerSearchTreePatron = new System.Windows.Forms.SplitContainer();
             this.txtFilter = new System.Windows.Forms.TextBox();
-            this.splitContainerTreePatron = new System.Windows.Forms.SplitContainer();
             this.tv = new System.Windows.Forms.TreeView();
             this.ImageList1 = new System.Windows.Forms.ImageList(this.components);
             this.cmdPatron = new System.Windows.Forms.Button();
@@ -508,6 +506,10 @@
             this.toolStripInstances = new System.Windows.Forms.ToolStripDropDownButton();
             this.dlgApplicationPicker = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
+            this.cmdAnimatePIxelsPerSecond = new System.Windows.Forms.Button();
+            this.tableLayoutPanelDesign = new System.Windows.Forms.TableLayoutPanel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.label93 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -519,14 +521,6 @@
             this.splitContainerWorkspace.SuspendLayout();
             this.tabTree.SuspendLayout();
             this.tabDesign.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerSearchTreePatron)).BeginInit();
-            this.SplitContainerSearchTreePatron.Panel1.SuspendLayout();
-            this.SplitContainerSearchTreePatron.Panel2.SuspendLayout();
-            this.SplitContainerSearchTreePatron.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreePatron)).BeginInit();
-            this.splitContainerTreePatron.Panel1.SuspendLayout();
-            this.splitContainerTreePatron.Panel2.SuspendLayout();
-            this.splitContainerTreePatron.SuspendLayout();
             this.tabRun.SuspendLayout();
             this.PanelGame.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
@@ -652,6 +646,8 @@
             this.mnuObjects.SuspendLayout();
             this.appTestStudioToolStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
+            this.tableLayoutPanelDesign.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -803,7 +799,7 @@
             // 
             // tabDesign
             // 
-            this.tabDesign.Controls.Add(this.SplitContainerSearchTreePatron);
+            this.tabDesign.Controls.Add(this.tableLayoutPanelDesign);
             this.tabDesign.Location = new System.Drawing.Point(4, 22);
             this.tabDesign.Name = "tabDesign";
             this.tabDesign.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
@@ -812,55 +808,15 @@
             this.tabDesign.Text = "Design";
             this.tabDesign.UseVisualStyleBackColor = true;
             // 
-            // SplitContainerSearchTreePatron
-            // 
-            this.SplitContainerSearchTreePatron.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.SplitContainerSearchTreePatron.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.SplitContainerSearchTreePatron.IsSplitterFixed = true;
-            this.SplitContainerSearchTreePatron.Location = new System.Drawing.Point(3, 3);
-            this.SplitContainerSearchTreePatron.Name = "SplitContainerSearchTreePatron";
-            this.SplitContainerSearchTreePatron.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // SplitContainerSearchTreePatron.Panel1
-            // 
-            this.SplitContainerSearchTreePatron.Panel1.Controls.Add(this.txtFilter);
-            // 
-            // SplitContainerSearchTreePatron.Panel2
-            // 
-            this.SplitContainerSearchTreePatron.Panel2.Controls.Add(this.splitContainerTreePatron);
-            this.SplitContainerSearchTreePatron.Size = new System.Drawing.Size(228, 623);
-            this.SplitContainerSearchTreePatron.SplitterDistance = 40;
-            this.SplitContainerSearchTreePatron.TabIndex = 0;
-            // 
             // txtFilter
             // 
-            this.txtFilter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtFilter.Location = new System.Drawing.Point(0, 0);
+            this.txtFilter.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtFilter.Location = new System.Drawing.Point(35, 3);
             this.txtFilter.Name = "txtFilter";
-            this.txtFilter.Size = new System.Drawing.Size(228, 20);
+            this.txtFilter.Size = new System.Drawing.Size(184, 20);
             this.txtFilter.TabIndex = 0;
             this.txtFilter.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtSearch_KeyUp);
-            // 
-            // splitContainerTreePatron
-            // 
-            this.splitContainerTreePatron.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerTreePatron.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainerTreePatron.IsSplitterFixed = true;
-            this.splitContainerTreePatron.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerTreePatron.Name = "splitContainerTreePatron";
-            this.splitContainerTreePatron.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerTreePatron.Panel1
-            // 
-            this.splitContainerTreePatron.Panel1.Controls.Add(this.tv);
-            // 
-            // splitContainerTreePatron.Panel2
-            // 
-            this.splitContainerTreePatron.Panel2.Controls.Add(this.cmdPatron);
-            this.splitContainerTreePatron.Panel2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.splitContainerTreePatron.Size = new System.Drawing.Size(228, 579);
-            this.splitContainerTreePatron.SplitterDistance = 500;
-            this.splitContainerTreePatron.TabIndex = 0;
             // 
             // tv
             // 
@@ -868,10 +824,10 @@
             this.tv.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tv.ImageIndex = 0;
             this.tv.ImageList = this.ImageList1;
-            this.tv.Location = new System.Drawing.Point(0, 0);
+            this.tv.Location = new System.Drawing.Point(3, 35);
             this.tv.Name = "tv";
             this.tv.SelectedImageIndex = 0;
-            this.tv.Size = new System.Drawing.Size(228, 500);
+            this.tv.Size = new System.Drawing.Size(222, 545);
             this.tv.TabIndex = 0;
             this.tv.ItemDrag += new System.Windows.Forms.ItemDragEventHandler(this.tv_ItemDrag);
             this.tv.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tv_AfterSelect);
@@ -922,9 +878,9 @@
             this.cmdPatron.Dock = System.Windows.Forms.DockStyle.Fill;
             this.cmdPatron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cmdPatron.Image = global::AppTestStudio.Properties.Resources.Patron;
-            this.cmdPatron.Location = new System.Drawing.Point(0, 0);
+            this.cmdPatron.Location = new System.Drawing.Point(3, 586);
             this.cmdPatron.Name = "cmdPatron";
-            this.cmdPatron.Size = new System.Drawing.Size(228, 75);
+            this.cmdPatron.Size = new System.Drawing.Size(222, 34);
             this.cmdPatron.TabIndex = 0;
             this.cmdPatron.UseVisualStyleBackColor = false;
             this.cmdPatron.Click += new System.EventHandler(this.cmdPatron_Click);
@@ -1044,6 +1000,7 @@
             // 
             // groupBox16
             // 
+            this.groupBox16.Controls.Add(this.cmdAnimatePIxelsPerSecond);
             this.groupBox16.Controls.Add(this.label92);
             this.groupBox16.Controls.Add(this.numericMouseSpeedPixelsPerSecond);
             this.groupBox16.Controls.Add(this.groupBox17);
@@ -5980,6 +5937,51 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.cmdMakeObject_Click);
             // 
+            // cmdAnimatePIxelsPerSecond
+            // 
+            this.cmdAnimatePIxelsPerSecond.Location = new System.Drawing.Point(284, 22);
+            this.cmdAnimatePIxelsPerSecond.Name = "cmdAnimatePIxelsPerSecond";
+            this.cmdAnimatePIxelsPerSecond.Size = new System.Drawing.Size(75, 23);
+            this.cmdAnimatePIxelsPerSecond.TabIndex = 4;
+            this.cmdAnimatePIxelsPerSecond.Text = "Show Me";
+            this.cmdAnimatePIxelsPerSecond.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanelDesign
+            // 
+            this.tableLayoutPanelDesign.ColumnCount = 1;
+            this.tableLayoutPanelDesign.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelDesign.Controls.Add(this.cmdPatron, 0, 2);
+            this.tableLayoutPanelDesign.Controls.Add(this.tv, 0, 1);
+            this.tableLayoutPanelDesign.Controls.Add(this.panel3, 0, 0);
+            this.tableLayoutPanelDesign.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelDesign.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanelDesign.Name = "tableLayoutPanelDesign";
+            this.tableLayoutPanelDesign.RowCount = 3;
+            this.tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 40F));
+            this.tableLayoutPanelDesign.Size = new System.Drawing.Size(228, 623);
+            this.tableLayoutPanelDesign.TabIndex = 1;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.txtFilter);
+            this.panel3.Controls.Add(this.label93);
+            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel3.Location = new System.Drawing.Point(3, 3);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(222, 26);
+            this.panel3.TabIndex = 0;
+            // 
+            // label93
+            // 
+            this.label93.AutoSize = true;
+            this.label93.Location = new System.Drawing.Point(3, 5);
+            this.label93.Name = "label93";
+            this.label93.Size = new System.Drawing.Size(29, 13);
+            this.label93.TabIndex = 0;
+            this.label93.Text = "Filter";
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6009,15 +6011,6 @@
             this.splitContainerWorkspace.ResumeLayout(false);
             this.tabTree.ResumeLayout(false);
             this.tabDesign.ResumeLayout(false);
-            this.SplitContainerSearchTreePatron.Panel1.ResumeLayout(false);
-            this.SplitContainerSearchTreePatron.Panel1.PerformLayout();
-            this.SplitContainerSearchTreePatron.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.SplitContainerSearchTreePatron)).EndInit();
-            this.SplitContainerSearchTreePatron.ResumeLayout(false);
-            this.splitContainerTreePatron.Panel1.ResumeLayout(false);
-            this.splitContainerTreePatron.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerTreePatron)).EndInit();
-            this.splitContainerTreePatron.ResumeLayout(false);
             this.tabRun.ResumeLayout(false);
             this.PanelGame.ResumeLayout(false);
             this.PanelGame.PerformLayout();
@@ -6199,6 +6192,9 @@
             this.appTestStudioToolStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
+            this.tableLayoutPanelDesign.ResumeLayout(false);
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -6451,8 +6447,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestAllReferenceBlue;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestAllReferenceX;
         private System.Windows.Forms.DataGridViewTextBoxColumn dgvTestAllReferenceY;
-        private System.Windows.Forms.SplitContainer SplitContainerSearchTreePatron;
-        private System.Windows.Forms.SplitContainer splitContainerTreePatron;
         private System.Windows.Forms.SplitContainer splitContainerStatsNScrollie;
         private System.Windows.Forms.TableLayoutPanel tableLayoutStats;
         private System.Windows.Forms.GroupBox groupTotal;
@@ -6482,8 +6476,6 @@
         private System.Windows.Forms.Label lblWaiting;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblChild;
-        internal System.Windows.Forms.Panel Panel2;
-        internal System.Windows.Forms.Panel Panel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.FlowLayoutPanel FlowLayoutPanelColorEvent1;
         private System.Windows.Forms.Panel panelRightColorAtPointer;
@@ -6666,5 +6658,11 @@
         private System.Windows.Forms.ComboBox cboWindowAction;
         private System.Windows.Forms.CheckBox chkMoveMouseBeforeAction;
         private System.Windows.Forms.GroupBox grpActiveMouseSettings;
+        private System.Windows.Forms.Button cmdAnimatePIxelsPerSecond;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanelDesign;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label label93;
+        internal System.Windows.Forms.Panel Panel2;
+        internal System.Windows.Forms.Panel Panel1;
     }
 }
