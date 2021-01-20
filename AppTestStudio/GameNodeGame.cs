@@ -1523,6 +1523,7 @@ namespace AppTestStudio
                         GameNodeAction NewEvent = new GameNodeAction("New Node", ActionType.Event);
                         treeEventNode.Nodes.Add(NewEvent);
                         LoadEvent(ChildNode, gameNode, NewEvent, lst, loadBitmaps);
+                        Utils.SetIcons(NewEvent);
                         break;
                     case "ACTION":
                         GameNodeAction NewAction = new GameNodeAction("New Node", ActionType.Action);

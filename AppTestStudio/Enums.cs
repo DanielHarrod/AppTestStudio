@@ -138,6 +138,9 @@ namespace AppTestStudio
         }
     }
 
+    /// <summary>
+    /// See frmMain.ImageList1
+    /// </summary>
     public static class IconNames 
     {
         public const int VideoGameController = 0;
@@ -170,6 +173,8 @@ namespace AppTestStudio
         public const int ClickDragReleaseGray = 27;
         public const int RNGContainerGray = 28;
         public const int SearchGray = 29;
+        public const int Group = 30;
+        public const int GroupGray = 31;
     }
 
     public enum SystemMetric

@@ -3449,6 +3449,12 @@ namespace AppTestStudio
 
                         ArchaicSave();
 
+                        GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
+                        if (GameNode.IsSomething())
+                        {
+                            Utils.SetIcons(GameNode);
+                        }
+
                     }
                     break;
                 case "Action":
@@ -3767,6 +3773,12 @@ namespace AppTestStudio
                     if (IsPanelLoading == false)
                     {
                         ArchaicSave();
+                    }
+
+                    GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
+                    if (GameNode.IsSomething())
+                    {
+                        Utils.SetIcons(GameNode);
                     }
 
                     PictureBox1.Refresh();

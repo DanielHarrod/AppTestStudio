@@ -50,14 +50,40 @@ namespace AppTestStudio
                                 {
                                     if (ActionNode.Enabled)
                                     {
-                                        Node.ImageIndex = IconNames.Event;
-                                        Node.SelectedImageIndex = IconNames.Event;
+                                        if ( ActionNode.ClickList.Count > 0 )
+                                        {
+                                            Node.ImageIndex = IconNames.Event;
+                                            Node.SelectedImageIndex = IconNames.Event;
+                                        }
+                                        else
+                                        {
+                                            Node.ImageIndex = IconNames.Group;
+                                            Node.SelectedImageIndex = IconNames.Group;
+                                        }
+
                                         Node.ForeColor = EnabledColor;
                                     }
                                     else
                                     {
-                                        Node.ImageIndex = IconNames.EventGray;
-                                        Node.SelectedImageIndex = IconNames.EventGray;
+                                        if (ActionNode.ClickList.IsSomething())
+                                        {
+                                            if (ActionNode.ClickList.Count > 0)
+                                            {
+                                                Node.ImageIndex = IconNames.EventGray;
+                                                Node.SelectedImageIndex = IconNames.EventGray;
+                                            }
+                                            else
+                                            {
+                                                Node.ImageIndex = IconNames.GroupGray;
+                                                Node.SelectedImageIndex = IconNames.GroupGray;
+                                            }
+                                        }
+                                        else
+                                        {
+                                            Node.ImageIndex = IconNames.GroupGray;
+                                            Node.SelectedImageIndex = IconNames.GroupGray;
+                                        }
+
                                         Node.ForeColor = DisabledColor;
                                     }
                                 }

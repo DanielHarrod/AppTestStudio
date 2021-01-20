@@ -301,6 +301,8 @@
     <Content Include="Resources\ASX_CollapseChevronDown_grey_16x.png" />
     <Content Include="Resources\ATSGears.ico" />
     <Content Include="Resources\ATSGears.png" />
+    <Content Include="Resources\ATSGroup.png" />
+    <Content Include="Resources\ATSGroupGR.png" />
     <Content Include="Resources\ButtonClick_16xGR.png" />
     <Content Include="Resources\CollapseChevronLeft_16x.png" />
     <Content Include="Resources\DependencyArrow_16xGR.png" />
