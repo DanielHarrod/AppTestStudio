@@ -1270,6 +1270,11 @@ namespace AppTestStudio
                         pictureBoxInformationWarning.Visible = true;
                         lblInformation.Text = "No area to click has been set, please draw a box where the click should occur.";
                     }
+                    else
+                    {
+                        pictureBoxInformationWarning.Visible = false;
+                        lblInformation.Text = "Click starting at (" + Node.Rectangle.X + "," + Node.Rectangle.Y + ") with Height = " + Node.Rectangle.Height + ", Width =" + Node.Rectangle.Width;
+                    }
                     break;
                 case Mode.ClickDragRelease:
                     break;
@@ -3704,6 +3709,7 @@ namespace AppTestStudio
         {
             GameNodeAction Node = tv.SelectedNode as GameNodeAction;
             ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.Rectangle);
+            RefreshInformation(Node);
         }
 
         private void PictureBox1_MouseUp(object sender, MouseEventArgs e)
