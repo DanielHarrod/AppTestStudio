@@ -103,6 +103,7 @@ namespace AppTestStudio
         private int InitialPanelRightPointGridHeight;
         private int InitialPanelRightClickPropertiesHeight;
         private int InitialPanelRightSwipePropertiesHeight;
+        private int InitialPanelRightInformationHeight;
         private int TitleBarHeight;
 
         public SteamRegistry SteamRegistry { get; set; }
@@ -158,6 +159,7 @@ namespace AppTestStudio
             InitialPanelRightPointGridHeight = panelRightCustomLogic.Height;
             InitialPanelRightClickPropertiesHeight = panelRightClickProperties.Height;
             InitialPanelRightSwipePropertiesHeight = panelRightSwipeProperties.Height;
+            InitialPanelRightInformationHeight = panelRightInformation.Height;
             InitialPanelRightAnchorHeight = panelRightAnchor.Height;
 
             Timer1.Enabled = true;
@@ -7266,6 +7268,27 @@ namespace AppTestStudio
             {
                 GameNodeGame Node = tv.SelectedNode as GameNodeGame;
                 Node.MoveMouseBeforeAction = chkMoveMouseBeforeAction.Checked;
+            }
+        }
+
+        /// <summary>
+        /// Minimizes/shows the right information panel.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void cmdRightInformation_Click(object sender, EventArgs e)
+        {
+            if (panelRightInformation.Height == InitialPanelRightInformationHeight)
+            {
+                panelRightInformation.Height = cmdRightInformation.Height;
+
+                cmdRightInformation.ImageIndex = IconNames.LeftChevron;
+            }
+            else
+            {
+                panelRightInformation.Height = InitialPanelRightInformationHeight;
+
+                cmdRightInformation.ImageIndex = IconNames.DownChevron;
             }
         }
     }

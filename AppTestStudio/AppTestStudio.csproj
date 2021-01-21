@@ -313,6 +313,7 @@
     <Content Include="Resources\RNGGR.png" />
     <Content Include="Resources\SearchAndApps_16xGR.png" />
     <Content Include="Resources\StartEmmulator.bmp" />
+    <None Include="Resources\StatusWarning_71x71.png" />
     <Content Include="Resources\Test.png" />
     <Content Include="Resources\TestALLP.png" />
     <Content Include="Resources\UploadFile_16x_24.bmp" />
