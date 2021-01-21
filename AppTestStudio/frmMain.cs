@@ -892,6 +892,8 @@ namespace AppTestStudio
 
         private void LoadPanelSingleColorAtSingleLocation(GameNodeAction GameNode)
         {
+            lblInformation.Text = "";
+            pictureBoxInformationWarning.Visible = false;
             IsPanelLoading = true;
             PanelLoadNode = GameNode;
             if (tv.SelectedNode is GameNodeEvents)
@@ -1254,6 +1256,26 @@ namespace AppTestStudio
             lblResolution.Text = GameNode.ResolutionWidth + "x" + GameNode.ResolutionHeight;
             IsPanelLoading = false;
 
+            RefreshInformation(GameNode);
+
+        }
+
+        private void RefreshInformation(GameNodeAction Node)
+        {
+            switch (Node.Mode)
+            {
+                case Mode.RangeClick:
+                    if ( (Node.Rectangle.X == 0) && (Node.Rectangle.Y == 0) && (Node.Rectangle.Width == 0) && (Node.Rectangle.Height ==0))
+                    {
+                        pictureBoxInformationWarning.Visible = true;
+                        lblInformation.Text = "No area to click has been set, please draw a box where the click should occur.";
+                    }
+                    break;
+                case Mode.ClickDragRelease:
+                    break;
+                default:
+                    break;
+            }
         }
 
         // Bitmap can be missing when a minimal export is loaded, minimal export does not include reference images.
@@ -2715,7 +2737,8 @@ namespace AppTestStudio
                     GameNodeAction Action = CurrentParent as GameNodeAction;
                     if (Action.Bitmap.IsSomething())
                     {
-                        PictureBox1.Image = Action.Bitmap.Clone() as Bitmap;
+                        PanelLoadNode.Bitmap = Action.Bitmap.Clone() as Bitmap;
+                        PictureBox1.Image = PanelLoadNode.Bitmap as Bitmap;
                         ShowHidePictureMissingMessage();
                         return;
                     }
