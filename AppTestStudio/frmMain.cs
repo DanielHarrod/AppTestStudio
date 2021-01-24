@@ -7096,7 +7096,19 @@ namespace AppTestStudio
         frmNotify frmNotify;
         private void GlobalMouseKeyHook_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.Escape))
+            if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.F1 ))
+            {
+                try
+                {
+                    AddNewEvent();
+                }
+                catch (Exception ex)
+                {
+                    Log("GlobalMouseKeyHook_KeyDown F1:" + ex.Message);
+                }
+                e.Handled = true;
+            }
+                if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.Escape))
             {
                 Log("The Claw[Ctrl+Alt+Shift] + Escape - Pressed");
                 e.Handled = true;
