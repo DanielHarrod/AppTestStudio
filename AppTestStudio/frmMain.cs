@@ -1263,21 +1263,35 @@ namespace AppTestStudio
 
         private void RefreshInformation(GameNodeAction Node)
         {
-            switch (Node.Mode)
+            switch (Node.ActionType)
             {
-                case Mode.RangeClick:
-                    if ( (Node.Rectangle.X == 0) && (Node.Rectangle.Y == 0) && (Node.Rectangle.Width == 0) && (Node.Rectangle.Height ==0))
+                case ActionType.Action:
+                    switch (Node.Mode)
                     {
-                        pictureBoxInformationWarning.Visible = true;
-                        lblInformation.Text = "No area to click has been set, please draw a box where the click should occur.";
+                        case Mode.RangeClick:
+                            if ((Node.Rectangle.X == 0) && (Node.Rectangle.Y == 0) && (Node.Rectangle.Width == 0) && (Node.Rectangle.Height == 0))
+                            {
+                                pictureBoxInformationWarning.Visible = true;
+                                lblInformation.Text = "No area to click has been set, please draw a box where the click should occur.";
+                            }
+                            else
+                            {
+                                pictureBoxInformationWarning.Visible = false;
+                                lblInformation.Text = "Click starting at (" + Node.Rectangle.X + "," + Node.Rectangle.Y + ") with Height = " + Node.Rectangle.Height + ", Width =" + Node.Rectangle.Width;
+                            }
+                            break;
+                        case Mode.ClickDragRelease:
+                            break;
+                        default:
+                            break;
                     }
-                    else
-                    {
-                        pictureBoxInformationWarning.Visible = false;
-                        lblInformation.Text = "Click starting at (" + Node.Rectangle.X + "," + Node.Rectangle.Y + ") with Height = " + Node.Rectangle.Height + ", Width =" + Node.Rectangle.Width;
-                    }
+
                     break;
-                case Mode.ClickDragRelease:
+                case ActionType.Event:
+                    break;
+                case ActionType.RNG:
+                    break;
+                case ActionType.RNGContainer:
                     break;
                 default:
                     break;
