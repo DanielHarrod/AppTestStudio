@@ -511,13 +511,14 @@ namespace AppTestStudio
         private void LoadGameToTree(GameNodeGame game)
         {
             ThreadManager.IncrementTestLoaded();
-
+            tv.BeginUpdate();
             GameNode gt = WorkspaceNode;
             gt.Nodes.Clear();
             gt.Nodes.Add(game);
 
             game.EnsureVisible();
             game.ExpandAll();
+            tv.EndUpdate();
             LastNode = game;
             tv.SelectedNode = game;
             tv_AfterSelect(null, new TreeViewEventArgs(game));
