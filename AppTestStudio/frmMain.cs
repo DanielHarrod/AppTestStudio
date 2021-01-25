@@ -7332,6 +7332,81 @@ namespace AppTestStudio
                 cmdRightInformation.ImageIndex = IconNames.DownChevron;
             }
         }
+
+        private void tv_KeyUp(object sender, KeyEventArgs e)
+        {
+            if ( e.Control )
+            {
+                if (e.KeyCode == Keys.Down)
+                {
+                    GameNode Node = tv.SelectedNode as GameNode;
+                    if (Node.IsSomething())
+                    {
+                        switch (Node.GameNodeType)
+                        {
+                            case GameNodeType.Workspace:
+                                break;
+                            case GameNodeType.Games:
+                                break;
+                            case GameNodeType.Game:
+                                break;
+                            case GameNodeType.Events:
+                                break;
+                            case GameNodeType.Action:
+                                if (Node.NextNode.IsSomething())
+                                {
+                                    Node.MoveDown();
+                                    tv.SelectedNode = Node;
+                                }
+                                break;
+                            case GameNodeType.Objects:
+                                break;
+                            case GameNodeType.ObjectScreenshot:
+                                break;
+                            case GameNodeType.Object:
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
+                }
+
+                if ( e.KeyCode == Keys.Up )
+                {
+                    GameNode Node = tv.SelectedNode as GameNode;
+                    if ( Node.IsSomething())
+                    {
+                        switch (Node.GameNodeType)
+                        {
+                            case GameNodeType.Workspace:
+                                break;
+                            case GameNodeType.Games:
+                                break;
+                            case GameNodeType.Game:
+                                break;
+                            case GameNodeType.Events:
+                                break;
+                            case GameNodeType.Action:
+                                if (Node.PrevNode.IsSomething())
+                                {
+                                    Node.MoveUp();
+                                    tv.SelectedNode = Node;
+                                }
+                                break;
+                            case GameNodeType.Objects:
+                                break;
+                            case GameNodeType.ObjectScreenshot:
+                                break;
+                            case GameNodeType.Object:
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
+        }
     }
 }
 

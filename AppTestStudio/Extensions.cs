@@ -9,6 +9,7 @@ using System.Linq;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace AppTestStudio
 {
@@ -214,10 +215,57 @@ namespace AppTestStudio
             return Color.FromArgb(Convert.ToInt32(Results[0]), Convert.ToInt32(Results[1]), Convert.ToInt32(Results[2]));
         }
 
-
         public static String ToHex(this Color aColor)
         {
             return String.Format("#{0:X2}{1:X2}{2:X2}{3:X2}", aColor.A, aColor.R, aColor.G, aColor.B);
+        }
+
+        public static void MoveUp(this TreeNode node)
+        {
+            TreeNode Parent = node.Parent;
+            TreeView tv = node.TreeView;
+            if (Parent.IsSomething())
+            {
+                int index = Parent.Nodes.IndexOf(node);
+                if (index > 0)
+                {
+                    Parent.Nodes.RemoveAt(index);
+                    Parent.Nodes.Insert(index - 1, node);
+                }
+            }
+            else if (node.TreeView.Nodes.Contains(node)) //root node
+            {
+                int index = tv.Nodes.IndexOf(node);
+                if (index > 0)
+                {
+                    tv.Nodes.RemoveAt(index);
+                    tv.Nodes.Insert(index - 1, node);
+                }
+            }
+        }
+
+        public static void MoveDown(this TreeNode node)
+        {
+            TreeNode Parent = node.Parent;
+            TreeView tv = node.TreeView;
+            if (Parent.IsSomething())
+            {
+                int index = Parent.Nodes.IndexOf(node);
+                if (index < Parent.Nodes.Count - 1)
+                {
+                    Parent.Nodes.RemoveAt(index);
+                    Parent.Nodes.Insert(index + 1, node);
+                }
+            }
+            else if (tv.IsSomething() && tv.Nodes.Contains(node)) //root node
+            {
+                int index = tv.Nodes.IndexOf(node);
+                if (index < tv.Nodes.Count - 1)
+                {
+                    tv.Nodes.RemoveAt(index);
+                    tv.Nodes.Insert(index + 1, node);
+                }
+            }
         }
     }
 }

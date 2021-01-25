@@ -1592,10 +1592,10 @@ namespace AppTestStudio
             return Math.Abs(GetDistance(x1, y1, x2, y2));
         }
 
-
         public static int GetDistance(int x1, int y1, int x2, int y2)
         {
             return (int)Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
         }
     }
+
 }
