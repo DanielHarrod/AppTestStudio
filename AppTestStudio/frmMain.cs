@@ -4562,16 +4562,19 @@ namespace AppTestStudio
 
         private void AddNewEvent()
         {
-            GameNodeAction Event = new GameNodeAction("New Event", ActionType.Event);
-            tv.SelectedNode.Nodes.Add(Event);
-            tv.SelectedNode = Event;
+            if (tv.SelectedNode.IsSomething())
+            {
+                GameNodeAction Event = new GameNodeAction("New Event", ActionType.Event);
+                tv.SelectedNode.Nodes.Add(Event);
+                tv.SelectedNode = Event;
 
-            SetPanel(PanelMode.PanelColorEvent);
-            LoadPanelSingleColorAtSingleLocation(Event);
-            //LoadParentScreenshotIfNecessary();
-            cmdAddSingleColorAtSingleLocationTakeASceenshot.PerformClick();
-            ArchaicSave();
-            ThreadManager.IncrementNewEventAdded();
+                SetPanel(PanelMode.PanelColorEvent);
+                LoadPanelSingleColorAtSingleLocation(Event);
+                //LoadParentScreenshotIfNecessary();
+                cmdAddSingleColorAtSingleLocationTakeASceenshot.PerformClick();
+                ArchaicSave();
+                ThreadManager.IncrementNewEventAdded();
+            }
         }
 
         private void mnuAddAction_Click(object sender, EventArgs e)
@@ -7421,6 +7424,11 @@ namespace AppTestStudio
                     }
                 }
             }
+        }
+
+        private void cmdAnimatePIxelsPerSecond_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
