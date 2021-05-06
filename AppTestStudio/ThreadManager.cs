@@ -21,12 +21,10 @@ namespace AppTestStudio
 
         public ThreadManager()
         {
-            Games = new List<GameNodeGame>();
             RemoveGameLock = new object();
 			ThreadLog = new ConcurrentQueue<String>();
-
 		}
-        [XmlIgnore] public List<GameNodeGame> Games { get; set; }
+		[XmlIgnore] public GameNodeGame Game { get; set; }
 
         // Store Stats from last run.
         [XmlIgnore] public ThreadManager LoadThreadManager { get; set; }
@@ -38,17 +36,11 @@ namespace AppTestStudio
         
         [XmlIgnore] private Object RemoveGameLock { get; set; }
 
-        [XmlIgnore] public Boolean IsDirty { get; set; }
-
 		[XmlIgnore] public ConcurrentQueue<String> ThreadLog { get; set; }
 
-		public void RemoveGame(GameNodeGame Game )
+		public void RemoveGame()
         {
-            lock(RemoveGameLock)
-            {
-                Games.Remove(Game);
-                IsDirty = true;
-            }
+			Game = null;
         }
 
         public void Load()

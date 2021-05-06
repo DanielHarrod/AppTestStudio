@@ -143,7 +143,7 @@ namespace AppTestStudio
             foreach (WindowAction windowAction in Enum.GetValues(typeof(WindowAction)))
             {
                 cboWindowAction.Items.Add(windowAction.ToString());
-            }            
+            }
 
             TitleBarHeight = this.RectangleToScreen(this.ClientRectangle).Top - this.Top;
             InitialPanelRightColorAtPointerHeight = panelRightColorAtPointer.Height;
@@ -408,14 +408,14 @@ namespace AppTestStudio
                 lblBlueInstancesFound64.Text = "0";
             }
 
-            foreach (BlueGuest  Guest in BlueRegistry.GuestList )
+            foreach (BlueGuest Guest in BlueRegistry.GuestList)
             {
                 cboBlueInstance.Items.Add(Guest.BitDashDisplayName);
             }
 
             if (cboBlueInstance.Items.Count > 0)
             {
-                cboBlueInstance.SelectedIndex = cboBlueInstance.Items.Count-1;
+                cboBlueInstance.SelectedIndex = cboBlueInstance.Items.Count - 1;
             }
 
             SteamRegistry = new SteamRegistry();
@@ -792,7 +792,7 @@ namespace AppTestStudio
 
             foreach (BlueGuest guest in BlueRegistry.GuestList)
             {
-                if ( guest.DisplayName  == gameNode.BlueStacksWindowName )
+                if (guest.DisplayName == gameNode.BlueStacksWindowName)
                 {
                     cboBlueInstance.Text = guest.BitDashDisplayName;
                     break;
@@ -1037,7 +1037,7 @@ namespace AppTestStudio
                     //Properties Group
                     chkPropertiesRepeatsUntilFalse.Visible = false;
                     grpPropertiesRepeatsUntilFalse.Visible = false;
-                
+
                     //End - Properties Group
 
 
@@ -1552,20 +1552,15 @@ namespace AppTestStudio
 
         private void LoadInstance(GameNodeGame gameNode)
         {
-            Log("Starting Instance " + gameNode.GameNodeName);
 
-            // Stop any existing threads that are running on this instance.
-            foreach (GameNodeGame RunningThreadGames in ThreadManager.Games)
+
+            if (ThreadManager.Game.IsSomething())
             {
-                if (RunningThreadGames.ThreadandWindowName == gameNode.ThreadandWindowName)
-                {
-                    ThreadManager.RemoveGame(RunningThreadGames);
-                    RunningThreadGames.Thread.Abort();
-                    Log("Stopping existing Instance" + RunningThreadGames.GameNodeName);
-                    break;
-                }
+                ThreadManager.Game.Thread.Abort();
+                Log("Stopping Existing Running Instance " + ThreadManager.Game.GameNodeName);
             }
 
+            Log("Starting Instance " + gameNode.GameNodeName);
             GameNodeGame GameCopy = gameNode.CloneMe();
 
             RunThread RT = new RunThread(GameCopy);
@@ -1573,11 +1568,11 @@ namespace AppTestStudio
 
             Thread t = new Thread(new ThreadStart(RT.Run));
             GameCopy.Thread = t;
-            ThreadManager.Games.Add(GameCopy);
+            ThreadManager.Game = GameCopy;
 
-            RefreshThreadList();
+            toolStripButtonToggleScript.Enabled = true;
 
-            RefreshStatusList();
+            OrdinateGameNode();
 
             t.Start();
             SetThreadPauseState(false);
@@ -1585,20 +1580,15 @@ namespace AppTestStudio
             ThreadManager.IncrementInstanceLoaded();
 
             tabTree.SelectTab(1);
-            lstThreads.SelectedIndex = lstThreads.Items.Count - 1;
         }
 
-        private void RefreshStatusList()
+        private void OrdinateGameNode()
         {
             int Ordinal = 0;
             List<String> lst = new List<string>();
-            foreach (GameNodeGame game in ThreadManager.Games)
-            {
-                lst.Add(game.Name);
-                game.StatusNodeID = Ordinal;
-                Ordinal++;
-                Ordinate(ref Ordinal, lst, game.Nodes[0] as GameNode);
-            }
+            ThreadManager.Game.StatusNodeID = Ordinal;
+            Ordinal++;
+            Ordinate(ref Ordinal, lst, ThreadManager.Game.Nodes[0] as GameNode);
 
             appTestStudioStatusControl1.Items = lst;
 
@@ -1625,31 +1615,20 @@ namespace AppTestStudio
             }
         }
 
-        private void RefreshThreadList()
-        {
-            lstThreads.Items.Clear();
-            foreach (GameNodeGame Game in ThreadManager.Games)
-            {
-                lstThreads.Items.Add(Game.ThreadandWindowName);
-                toolStripButtonToggleScript.Enabled = true;
 
-            }
-        }
 
         private void SetThreadPauseState(Boolean isPaused)
         {
             //Debug.WriteLine("SetThreadPauseState:" + isPaused);
-            foreach (GameNodeGame Game in ThreadManager.Games)
+
+            ThreadManager.Game.IsPaused = isPaused;
+            if (isPaused)
             {
-                Game.IsPaused = isPaused;
-                if (isPaused)
-                {
-                    Log("Pausing Thread " + Game.ThreadandWindowName);
-                }
-                else
-                {
-                    Log("Resuming Thread " + Game.ThreadandWindowName);
-                }
+                Log("Pausing Thread ");
+            }
+            else
+            {
+                Log("Resuming Thread ");
             }
 
 
@@ -2563,7 +2542,7 @@ namespace AppTestStudio
                         Result = Utils.LaunchBlueStacksInstance(PackageName, Game.BlueGuest);
                         break;
                     case Platform.NoxPlayer:
-                        Result = Utils.LaunchInstance( PackageName, "", InstanceToLaunch.ToString(), Game.Resolution, Game.DPI);
+                        Result = Utils.LaunchInstance(PackageName, "", InstanceToLaunch.ToString(), Game.Resolution, Game.DPI);
                         break;
                     case Platform.Steam:
                         ApplicationPath = SteamRegistry.GetExePath();
@@ -3080,81 +3059,61 @@ namespace AppTestStudio
 
                 Log(ex.Message);
                 //Debug.Assert(false);
-
-                ThreadManager.IsDirty = true;
             }
-
-            if (ThreadManager.IsDirty)
-            {
-                RefreshThreadList();
-                ThreadManager.IsDirty = false;
-            }
-
-            //'wow not good.
-            int lstthreadsSelectedIndex = lstThreads.SelectedIndex;
-            if (lstthreadsSelectedIndex == -1)
-            {
-                if (lstThreads.Items.Count > 0)
-                {
-                    lstThreads.SelectedIndex = 0;
-                }
-            }
-
+            toolStripButtonToggleScript.Enabled = true;
             Boolean NeedRedraw = false;
 
-            foreach (GameNodeGame game in ThreadManager.Games)
+            if (ThreadManager.Game.IsSomething())
             {
-                if (game.IsSomething())
+     
+                int OriginalCount = ThreadManager.Game.StatusControl.Count;
+                while (ThreadManager.Game.StatusControl.Count > 0)
                 {
-
-                    int OriginalCount = game.StatusControl.Count;
-                    while (game.StatusControl.Count > 0)
+                    AppTestStudioStatusControlItem sci = null;
+                    if (ThreadManager.Game.StatusControl.TryDequeue(out sci))
                     {
-                        AppTestStudioStatusControlItem sci = null;
-                        if (game.StatusControl.TryDequeue(out sci))
-                        {
-                            appTestStudioStatusControl1.Queue.Add(sci);
-                        }
+                        appTestStudioStatusControl1.Queue.Add(sci);
                     }
+                }
 
-                    if (OriginalCount > 0)
+                if (OriginalCount > 0)
+                {
+                    NeedRedraw = true;
+                }
+
+                if (ThreadManager.Game.MinimalBitmapClones.Count > 0)
+                {
+                    //'walk the tree to find a bitmpa
+
+                    MinimalBitmapNode mbmc = null;
+                    if (ThreadManager.Game.MinimalBitmapClones.TryDequeue(out mbmc))
                     {
-                        NeedRedraw = true;
-                    }
+                        TreeNode[] tns = tv.Nodes.Find(mbmc.NodeName, true);
 
-                    if (game.MinimalBitmapClones.Count > 0)
-                    {
-                        //'walk the tree to find a bitmpa
-
-                        MinimalBitmapNode mbmc = null;
-                        if (game.MinimalBitmapClones.TryDequeue(out mbmc))
+                        if (tns.Length == 1)
                         {
-                            TreeNode[] tns = tv.Nodes.Find(mbmc.NodeName, true);
+                            GameNodeAction ActionNode = tns[0] as GameNodeAction;
 
-                            if (tns.Length == 1)
+                            if (mbmc.ResolutionHeight == ActionNode.ResolutionHeight)
                             {
-                                GameNodeAction ActionNode = tns[0] as GameNodeAction;
-
-                                if (mbmc.ResolutionHeight == ActionNode.ResolutionHeight)
+                                if (mbmc.ResolutionWidth == ActionNode.ResolutionWidth)
                                 {
-                                    if (mbmc.ResolutionWidth == ActionNode.ResolutionWidth)
-                                    {
-                                        ActionNode.Bitmap = mbmc.Bitmap.Clone() as Bitmap;
-                                        Log("Synching Screenshot: " + ActionNode.Name);
-                                        BitmapChildren(ActionNode, ActionNode.Bitmap);
-                                    }
+                                    ActionNode.Bitmap = mbmc.Bitmap.Clone() as Bitmap;
+                                    Log("Synching Screenshot: " + ActionNode.Name);
+                                    BitmapChildren(ActionNode, ActionNode.Bitmap);
                                 }
                             }
-                            else
-                            {
-                                Log("Attempted to sync screenshots but two nodes have the same name: " + mbmc.NodeName);
-                            }
-                            mbmc.Bitmap.Dispose();
-                            mbmc.Bitmap = null;
                         }
+                        else
+                        {
+                            Log("Attempted to sync screenshots but two nodes have the same name: " + mbmc.NodeName);
+                        }
+                        mbmc.Bitmap.Dispose();
+                        mbmc.Bitmap = null;
                     }
                 }
             }
+
 
             //'if (mPaintCount > 0 and ) {
             //'    cmdGraph.Text = "Time Left " & mPaintCount
@@ -3352,70 +3311,69 @@ namespace AppTestStudio
             //'}
 
 
-            foreach (GameNodeGame game in ThreadManager.Games)
+            GameNodeGame game = ThreadManager.Game;
+
+            if (game.IsSomething())
             {
-
-                if (game.IsSomething())
+                if (game.SaveVideo)
                 {
-                    if (game.SaveVideo)
+                    if (game.VideoFrameLimit > 0)
                     {
-                        if (game.VideoFrameLimit > 0)
+                        if (game.Video.IsSomething() == false)
                         {
-                            if (game.Video.IsSomething() == false)
+                            if (game.BitmapClones.IsSomething())
                             {
-                                if (game.BitmapClones.IsSomething())
+                                if (game.BitmapClones.Count > 0)
                                 {
-                                    if (game.BitmapClones.Count > 0)
-                                    {
-                                        Bitmap bmp = game.BitmapClones.First();
-                                        String FileName = StartNewVideo(game, bmp);
-                                        Log("Starting new video");
-                                        Log(FileName);
-                                        bmp = null;
-                                        //'don//'t dispose re-reading it later.
-                                    }
-                                }
-                            }
-
-                            if (game.Video.IsSomething())
-                            {
-                                while (game.BitmapClones.Count > 0)
-                                {
-
-
-                                    Bitmap bmp = null;
-                                    if (game.BitmapClones.TryDequeue(out bmp))
-                                    {
-                                        if (game.VideoWidth != bmp.Width || game.VideoHeight != bmp.Height)
-                                        {
-                                            game.Video.Release();
-                                            game.Video = null;
-                                            String FileName = StartNewVideo(game, bmp);
-                                            Log("New Video Due to New Resolution:" + bmp.Width + "x" + bmp.Height);
-                                            Log(FileName);
-                                        }
-                                        OpenCvSharp.Mat mat = OpenCvSharp.Extensions.BitmapConverter.ToMat(bmp);
-                                        game.Video.Write(mat);
-                                        game.VideoFrameLimit = game.VideoFrameLimit - 1;
-                                    }
+                                    Bitmap bmp = game.BitmapClones.First();
+                                    String FileName = StartNewVideo(game, bmp);
+                                    Log("Starting new video");
+                                    Log(FileName);
+                                    bmp = null;
+                                    //'don//'t dispose re-reading it later.
                                 }
                             }
                         }
-                        else
+
+                        if (game.Video.IsSomething())
                         {
                             while (game.BitmapClones.Count > 0)
                             {
-                                Bitmap bmp = null;
-                                game.BitmapClones.TryDequeue(out bmp);
-                                bmp.Dispose();
-                                bmp = null;
 
+
+                                Bitmap bmp = null;
+                                if (game.BitmapClones.TryDequeue(out bmp))
+                                {
+                                    if (game.VideoWidth != bmp.Width || game.VideoHeight != bmp.Height)
+                                    {
+                                        game.Video.Release();
+                                        game.Video = null;
+                                        String FileName = StartNewVideo(game, bmp);
+                                        Log("New Video Due to New Resolution:" + bmp.Width + "x" + bmp.Height);
+                                        Log(FileName);
+                                    }
+                                    OpenCvSharp.Mat mat = OpenCvSharp.Extensions.BitmapConverter.ToMat(bmp);
+                                    game.Video.Write(mat);
+                                    game.VideoFrameLimit = game.VideoFrameLimit - 1;
+                                }
                             }
+                        }
+                    }
+                    else
+                    {
+                        while (game.BitmapClones.Count > 0)
+                        {
+                            Bitmap bmp = null;
+                            game.BitmapClones.TryDequeue(out bmp);
+                            bmp.Dispose();
+                            bmp = null;
 
                         }
+
                     }
                 }
             }
+
 
 
 
@@ -3974,10 +3932,6 @@ namespace AppTestStudio
                     break;
                 case 1:
                     SetPanel(PanelMode.Thread);
-                    if (lstThreads.Items.Count > 0)
-                    {
-                        lstThreads.SelectedIndex = 0;
-                    }
                     break;
                 case 2:
                     SetPanel(PanelMode.Schedule);
@@ -4416,16 +4370,16 @@ namespace AppTestStudio
                 }
                 else
                 {
-                    if (Schedule.RuntimeSchedule[i].NextRun < LowestNextRun || LowestNextRun == DateTime.MinValue )
+                    if (Schedule.RuntimeSchedule[i].NextRun < LowestNextRun || LowestNextRun == DateTime.MinValue)
                     {
                         LowestNextRun = Schedule.RuntimeSchedule[i].NextRun;
                     }
                 }
             }
 
-            if ( Schedule.ScheduleList.Count() > 0 )
+            if (Schedule.ScheduleList.Count() > 0)
             {
-                if ( Schedule.RuntimeSchedule.Count() == 0)
+                if (Schedule.RuntimeSchedule.Count() == 0)
                 {
                     // We are out of schedules for the day load next day's schedule.
                     Schedule.RuntimeSchedule = Schedule.GenerateRuntimeSchedule(DateTime.Now.AddDays(1));
@@ -4592,7 +4546,7 @@ namespace AppTestStudio
 
             // Initialize Children with Parent Defaults
             GameNodeGame Game = GameNodeAction.GetGameNodeGame();
-            if ( Game.IsSomething() )
+            if (Game.IsSomething())
             {
                 GameNodeAction.ClickSpeed = Game.DefaultClickSpeed;
             }
@@ -4649,10 +4603,10 @@ namespace AppTestStudio
             foreach (GameNode gameNode in node.Nodes)
             {
                 Debug.WriteLine(gameNode.GameNodeType);
-                if ( gameNode.GameNodeType == GameNodeType.Action)
+                if (gameNode.GameNodeType == GameNodeType.Action)
                 {
                     GameNodeAction Action = gameNode as GameNodeAction;
-                    if ( Action.ActionType == ActionType.Action )
+                    if (Action.ActionType == ActionType.Action)
                     {
                         Action.Enabled = false;
                         Action.Text = Action.Text + " - (Disabled)";
@@ -5165,7 +5119,7 @@ namespace AppTestStudio
                     default:
                         break;
                 }
-                
+
                 toolStripButtonSaveScript_Click(null, null);
                 ThreadManager.IncrementNewAppAdded();
             }
@@ -5579,54 +5533,13 @@ namespace AppTestStudio
             }
         }
 
-        private void lstThreads_MouseDown(object sender, MouseEventArgs e)
-        {
-            Debug.WriteLine("Event lstThreads_MouseDown");
-
-            lstThreads.SelectedIndex = lstThreads.IndexFromPoint(e.X, e.Y);
-
-            if (e.Button == MouseButtons.Right)
-            {
-                //'mnuThreadName.Text = lstThreads.SelectedItem.ToString 
-                //'mnuThreadName.Enabled = false
-                mnuThreadList.Show(MousePosition);
-                //';ContextMenuStrip1.Show(MousePosition)
-            }
-        }
-
         private void mnuThreadExit_Click(object sender, EventArgs e)
         {
-            String git = lstThreads.SelectedItem.ToString();
-            String[] KeysIn = { " - " };
-            String[] Keys = git.Split(KeysIn, 1, StringSplitOptions.None);
-
-            if (Keys.Length == 0)
+            if (ThreadManager.Game.IsSomething())
             {
-                Debug.WriteLine("Not sure this is possible");
-                Debug.Assert(false);
-                return;
-            }
-
-            String Token = Keys[Keys.Length - 1];
-            Token = Token.Replace("ATS", "").Replace("Window", "");
-
-            GameNodeGame GameFound = null;
-            foreach (GameNodeGame Game in ThreadManager.Games)
-            {
-                if (Game.ThreadandWindowName == git)
-                {
-                    GameFound = Game;
-                    Game.Thread.Abort();
-
-                    break; // exit for
-                }
-            }
-
-            if (GameFound.IsSomething())
-            {
-                ThreadManager.RemoveGame(GameFound);
-                lstThreads.Items.Remove(git);
-                Log("Stopping Thread -" + git);
+                Log("Stopping Thread ");
+                ThreadManager.Game.Thread.Abort();
+                ThreadManager.RemoveGame();
             }
         }
 
@@ -5801,10 +5714,7 @@ namespace AppTestStudio
             {
                 Visible = false;
                 Timer1.Enabled = false;
-                foreach (GameNodeGame Game in ThreadManager.Games)
-                {
-                    Game.Thread.Abort();
-                }
+                ThreadManager.Game.Thread.Abort();
                 Thread.Sleep(100);
 
                 // threads must be turned off off during saving.
@@ -7114,7 +7024,7 @@ namespace AppTestStudio
         frmNotify frmNotify;
         private void GlobalMouseKeyHook_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.F1 ))
+            if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.F1))
             {
                 try
                 {
@@ -7126,26 +7036,24 @@ namespace AppTestStudio
                 }
                 e.Handled = true;
             }
-                if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.Escape))
+            if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.Escape))
             {
                 Log("The Claw[Ctrl+Alt+Shift] + Escape - Pressed");
                 e.Handled = true;
 
                 Boolean RunningThreadDetected = false;
 
-                foreach (GameNodeGame Game in ThreadManager.Games)
+
+                if (ThreadManager.Game.IsPaused == false)
                 {
-                    if (Game.IsPaused == false)
-                    {
-                        RunningThreadDetected = true;
+                    RunningThreadDetected = true;
 
-                        // if any thread is running then pause them all
-                        SetThreadPauseState(true);
+                    // if any thread is running then pause them all
+                    SetThreadPauseState(true);
 
-                        // since we paused all threads we can stop checking.
-                        break;
-                    }
+                    // since we paused all threads we can stop checking.
                 }
+
 
                 if (RunningThreadDetected)
                 {
@@ -7174,20 +7082,14 @@ namespace AppTestStudio
                 e.Handled = true;
 
                 Boolean IsThereAnyThreadsRunning = false;
-                foreach (GameNodeGame Game in ThreadManager.Games)
+
+                if (ThreadManager.Game.IsSomething())
                 {
-                    if (Game.IsPaused == false)
+                    if (ThreadManager.Game.IsPaused == false)
                     {
                         IsThereAnyThreadsRunning = true;
-
-                        // since we detected one we can stop checking.
-                        break;
                     }
-                }
-                
-                // Only toggle if there's something to toggle.
-                if (ThreadManager.Games.Count() > 0)
-                {
+
                     if (IsThereAnyThreadsRunning)
                     {
                         // Pause all threads
@@ -7201,7 +7103,7 @@ namespace AppTestStudio
                 }
                 else
                 {
-                    Log("There were not any threads active to toggle.");
+                    Log("There were not any running scripts.");
                 }
             }
         }
@@ -7353,7 +7255,7 @@ namespace AppTestStudio
 
         private void tv_KeyUp(object sender, KeyEventArgs e)
         {
-            if ( e.Control )
+            if (e.Control)
             {
                 if (e.KeyCode == Keys.Down)
                 {
@@ -7390,10 +7292,10 @@ namespace AppTestStudio
 
                 }
 
-                if ( e.KeyCode == Keys.Up )
+                if (e.KeyCode == Keys.Up)
                 {
                     GameNode Node = tv.SelectedNode as GameNode;
-                    if ( Node.IsSomething())
+                    if (Node.IsSomething())
                     {
                         switch (Node.GameNodeType)
                         {

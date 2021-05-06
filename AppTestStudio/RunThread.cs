@@ -144,7 +144,7 @@ namespace AppTestStudio
                     Game.Video = null;
                 }
 
-                ThreadManager.RemoveGame(Game);
+                ThreadManager.RemoveGame();
 
                 Game.Log("Shutting down thread:" + Game.GameNodeName + " on instance " + Game.InstanceToLaunch);
                 //Debug.WriteLine("Shutting down thread:" + Game.GameNodeName + " on instance " + Game.InstanceToLaunch);
