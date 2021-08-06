@@ -255,7 +255,7 @@ namespace AppTestStudio
 
         private void cmdUseWindowFound_Click(object sender, EventArgs e)
         {
-            if (lstWindowsFound.SelectedIndex > 0)
+            if (lstWindowsFound.SelectedIndex >= 0)
             {
                 txtPrimaryWindowName.Text = lstWindowsFound.Text;
                 cboSteamPrimaryWindowNameFilter.Text = "Equals";
