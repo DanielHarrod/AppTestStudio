@@ -1587,6 +1587,7 @@ namespace AppTestStudio
             int Ordinal = 0;
             List<String> lst = new List<string>();
             ThreadManager.Game.StatusNodeID = Ordinal;
+            lst.Add(ThreadManager.Game.Name);
             Ordinal++;
             Ordinate(ref Ordinal, lst, ThreadManager.Game.Nodes[0] as GameNode);
 
@@ -4534,6 +4535,10 @@ namespace AppTestStudio
                 ArchaicSave();
                 ThreadManager.IncrementNewEventAdded();
             }
+            else
+            {
+                Log("Unable to Add New Event due to no-node selected");
+            }
         }
 
         private void mnuAddAction_Click(object sender, EventArgs e)
@@ -7051,15 +7056,17 @@ namespace AppTestStudio
 
                 Boolean RunningThreadDetected = false;
 
-
-                if (ThreadManager.Game.IsPaused == false)
+                if (ThreadManager.Game.IsSomething())
                 {
-                    RunningThreadDetected = true;
+                    if (ThreadManager.Game.IsPaused == false)
+                    {
+                        RunningThreadDetected = true;
 
-                    // if any thread is running then pause them all
-                    SetThreadPauseState(true);
+                        // if any thread is running then pause them all
+                        SetThreadPauseState(true);
 
-                    // since we paused all threads we can stop checking.
+                        // since we paused all threads we can stop checking.
+                    }
                 }
 
 
