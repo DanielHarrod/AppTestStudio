@@ -1620,8 +1620,10 @@ namespace AppTestStudio
         private void SetThreadPauseState(Boolean isPaused)
         {
             //Debug.WriteLine("SetThreadPauseState:" + isPaused);
-
-            ThreadManager.Game.IsPaused = isPaused;
+            if (ThreadManager.Game.IsSomething())
+            {
+                ThreadManager.Game.IsPaused = isPaused;
+            }
             if (isPaused)
             {
                 Log("Pausing Thread ");
@@ -2880,9 +2882,12 @@ namespace AppTestStudio
         {
             try
             {
-                GameNode p = PanelLoadNode.Parent as GameNode;
-                PanelLoadNode.Remove();
-                tv.SelectedNode = p;
+                if (PanelLoadNode.IsSomething())
+                {
+                    GameNode p = PanelLoadNode.Parent as GameNode;
+                    PanelLoadNode.Remove();
+                    tv.SelectedNode = p;
+                }
             }
             catch (Exception ex)
             {
@@ -5714,7 +5719,10 @@ namespace AppTestStudio
             {
                 Visible = false;
                 Timer1.Enabled = false;
-                ThreadManager.Game.Thread.Abort();
+                if (ThreadManager.Game.IsSomething())
+                {
+                    ThreadManager.Game.Thread.Abort();
+                }
                 Thread.Sleep(100);
 
                 // threads must be turned off off during saving.
