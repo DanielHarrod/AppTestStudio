@@ -57,7 +57,7 @@ namespace AppTestStudio
             catch (Exception ex)
             {
 
-                Debug.WriteLine("cmdUpdateScreenshot_Click:" + ex.Message);
+                frm.Log("cmdUpdateScreenshot_Click:" + ex.Message);
             }
             
         }
@@ -377,7 +377,7 @@ namespace AppTestStudio
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("frmTestObjectSearch_Load:" + ex.Message);
+                frm.Log("frmTestObjectSearch_Load:" + ex.Message);
             }
         }
 
@@ -490,11 +490,11 @@ namespace AppTestStudio
         {
             try
             {
-                RunFullTest();
+                RunFullTest(false);
             }
             catch (Exception ex)
             {
-                Debug.WriteLine("frmTestObjectSearch_Load:" + ex.Message);
+                frm.Log("frmTestObjectSearch_Load:" + ex.Message);
             }
         }
     }
