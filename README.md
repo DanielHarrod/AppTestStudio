@@ -8,8 +8,6 @@ Quickly and interactively create automated actions by building Events either wit
 ## Current issues
 1. The multi processing (multiple scripts at the same time) was removed now only a single script can be run at one time.  It was too confusing for some users which made the experience frustrating.  If multiple concurrent scripts are needed just run an additional instance of ATS.
 
-2. The scheduler was not converted to single mode and may not function properly.
-
 ## Getting Started
 1. Install [NoxPlayer](https://www.bignox.com/) 
 
