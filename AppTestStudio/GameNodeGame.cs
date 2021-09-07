@@ -266,6 +266,7 @@ namespace AppTestStudio
             Target.VideoHeight = VideoHeight;
             Target.VideoWidth = VideoWidth;
             Target.DefaultClickSpeed = DefaultClickSpeed;
+            Target.Resolution = Resolution;  // Issue #14 Forgot to clone the resolution so it defaulted to 1024x768.  - thanks zvasilius.
             Target.DPI = DPI;
 
             Target.Platform = Platform;
