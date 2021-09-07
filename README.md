@@ -1,10 +1,12 @@
 # AppTestStudio
 
-AppTestStudio is a automated development environment, it contains a builder, tester, and can simultaneously run multiple scripts that can simultaneously automate multiple android apps.  
+AppTestStudio (ATS) is a automated development environment, you can builder, tester, and can automate windows applications and android emmulators.
 ![Image](https://appteststudio.b-cdn.net/ATSCircles.png)
 
-Interactively: Design, Test, Schedule and Play multiple clients at the same time.
-![Image](https://appteststudio.b-cdn.net/ATSAutomate.png)
+Quickly and interactively create automated actions by building Events either with pixel color matching, or using OpenCV image matching.  Then attach actions to the events such as clicking or dragging.
+
+## Current issues
+1. The multi processing (multiple scripts at the same time) was removed now only a single script can be run at one time.  It was too confusing for some users which made the experience frustrating.  If multiple concurrent scripts are needed just run an additional instance of ATS.
 
 ## Getting Started
 1. Install [NoxPlayer](https://www.bignox.com/) 
