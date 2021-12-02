@@ -1014,6 +1014,8 @@ namespace AppTestStudio
                                 break;
                         }
 
+                        Writer.WriteAttributeString("FromCurrentMousePos", Activites.FromCurrentMousePos.ToString());
+
                         //*Add New Attributes above here*//
 
                         if (Activites.Mode == Mode.ClickDragRelease)
@@ -2026,8 +2028,12 @@ namespace AppTestStudio
             treeActionNode.AutoBalance = AutoBalanceAttribue;
 
 
-
-
+            Boolean FromCurrentMousePos = false;
+            if (actionNode.Attributes.GetNamedItem("FromCurrentMousePos").IsSomething())
+            {
+                FromCurrentMousePos = Convert.ToBoolean(actionNode.Attributes["FromCurrentMousePos"].Value);
+            }
+            treeActionNode.FromCurrentMousePos = FromCurrentMousePos;
 
 
 

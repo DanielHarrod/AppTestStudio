@@ -254,6 +254,18 @@ namespace AppTestStudio
                             }
                             else
                             {
+                                if (Game.MouseMode == MouseMode.Active)
+                                {
+                                    if (node.FromCurrentMousePos )
+                                    {
+                                        Game.MoveMouseBeforeAction = false;
+                                        API.GetCursorPos(out API.Point point);
+                                        Game.MouseX = (short)point.X;
+                                        Game.MouseY = (short)point.Y;
+                                        Result.x = point.X;
+                                        Result.y = point.Y;
+                                    }
+                                }
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
                                 int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
                                 Utils.ClickOnWindow(WindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);

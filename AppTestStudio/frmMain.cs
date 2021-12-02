@@ -572,6 +572,7 @@ namespace AppTestStudio
 
             panelRightClickProperties.Visible = false;
             panelRightSwipeProperties.Visible = false;
+            chkFromCurrentMousePos.Visible = false;
 
             DisableSecondToolbarButtons();
 
@@ -895,6 +896,7 @@ namespace AppTestStudio
         {
             lblInformation.Text = "";
             pictureBoxInformationWarning.Visible = false;
+            chkFromCurrentMousePos.Visible = false;
             IsPanelLoading = true;
             PanelLoadNode = GameNode;
             if (tv.SelectedNode is GameNodeEvents)
@@ -955,6 +957,8 @@ namespace AppTestStudio
             cboDelayS.Text = GameNode.DelayS.ToString();
             cboDelayH.Text = GameNode.DelayH.ToString();
             cboDelayM.Text = GameNode.DelayM.ToString();
+
+            chkFromCurrentMousePos.Checked = GameNode.FromCurrentMousePos;
 
             NumericClickSpeed.Value = GameNode.ClickSpeed;
 
@@ -1037,6 +1041,7 @@ namespace AppTestStudio
                     //Properties Group
                     chkPropertiesRepeatsUntilFalse.Visible = false;
                     grpPropertiesRepeatsUntilFalse.Visible = false;
+                    
 
                     //End - Properties Group
 
@@ -1135,6 +1140,11 @@ namespace AppTestStudio
                             break;
                         default:
                             break;
+                    }
+
+                    if (rdoModeRangeClick.Checked )
+                    {
+                        chkFromCurrentMousePos.Visible = true;
                     }
 
                     break;
@@ -4468,7 +4478,6 @@ namespace AppTestStudio
             PictureBox1.Refresh();
             if (IsPanelLoading == false)
             {
-
                 ArchaicSave();
             }
             Utils.SetIcons(PanelLoadNode);
@@ -4476,8 +4485,12 @@ namespace AppTestStudio
             if (rdoModeRangeClick.Checked)
             {
                 panelRightSwipeProperties.Visible = false;
+                if ( PanelLoadNode.ActionType == ActionType.Action)
+                { 
+                    chkFromCurrentMousePos.Visible = true; 
+                }
+                
             }
-
         }
 
         private void rdoModeClickDragRelease_CheckedChanged(object sender, EventArgs e)
@@ -4509,6 +4522,7 @@ namespace AppTestStudio
 
                 }
                 panelRightClickProperties.Visible = false;
+                chkFromCurrentMousePos.Visible = false;
             }
 
 
@@ -7346,6 +7360,15 @@ namespace AppTestStudio
         private void cmdAnimatePIxelsPerSecond_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void chkFromCurrentMousePos_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
+                GameNode.FromCurrentMousePos = chkFromCurrentMousePos.Checked;
+            }
         }
     }
 }

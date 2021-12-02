@@ -13,6 +13,19 @@ using System.IO;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 
+
+/*
+ * Adding a new property 
+ * Add property to GameNodeAction Class
+ * Set default in constructor if needed.
+ * Update CloneMe fuction.
+ *   Don't update when not used for threaded operations... runtime data/status
+ * UPdate GameNodeGame.SaveEvents
+ * Update GameNodeGame.LoadAction
+ * Update frmMain.LoadPanelSingleColorAtSingleLocation to populate forms.
+ */
+
+
 namespace AppTestStudio
 {
     public class GameNodeAction : GameNode
@@ -233,10 +246,12 @@ namespace AppTestStudio
         public long ObjectThreshold { get; set; }
         public int RelativeXOffset { get; set; }
         public int RelativeYOffset { get; set; }
-        
+
         //public MouseMode MouseMode { get; set; }
 
         //public Boolean MoveMouseBeforeAction { get; set; }
+
+        public Boolean FromCurrentMousePos { get; set; }
 
         public void LoadBitmapFromDisk()
         {
@@ -352,6 +367,8 @@ namespace AppTestStudio
             Action.Enabled = Enabled;
             Action.RepeatsUntilFalse = RepeatsUntilFalse;
             Action.RepeatsUntilFalseLimit = RepeatsUntilFalseLimit;
+
+            Action.FromCurrentMousePos = FromCurrentMousePos;
 
             Action.Anchor = Anchor;
 
