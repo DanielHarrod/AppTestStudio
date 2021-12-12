@@ -2988,7 +2988,7 @@ namespace AppTestStudio
 
                                 int MousePixelSpeedPerSecond = game.CalculateNextMousePixelSpeedPerSecond();
 
-                                Utils.ClickOnWindow(MainWindowHandle, game.MouseMode, game.MoveMouseBeforeAction, game.WindowAction, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
+                                Utils.ClickOnWindow(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
                                 Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
                                 ThreadManager.IncrementSingleTestClick();
                             }
@@ -2996,7 +2996,7 @@ namespace AppTestStudio
                             {
                                 GameNodeAction.ClickDragReleaseResult Result = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
-                                Utils.ClickDragRelease(MainWindowHandle, game.MouseMode, game.MoveMouseBeforeAction, game.WindowAction, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                Utils.ClickDragRelease(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
                                 Log("ClickDragRelease( x=" + Result.StartX + ",Y = " + Result.StartY + ", ex=" + Result.EndX + ",ey=" + Result.EndY + ")");
                                 ThreadManager.IncrementSingleTestClickDragRelease();
                             }
@@ -4564,6 +4564,8 @@ namespace AppTestStudio
         {
             GameNode OriginalNode = tv.SelectedNode as GameNode;
             GameNodeAction GameNodeAction = new GameNodeAction("Click " + tv.SelectedNode.Text, ActionType.Action);
+
+            GameNodeAction.FromCurrentMousePos = GetGameNode().MoveMouseBeforeAction;
 
             OriginalNode.Nodes.Add(GameNodeAction);
             tv.SelectedNode = GameNodeAction;

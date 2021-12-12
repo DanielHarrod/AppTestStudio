@@ -96,6 +96,7 @@
             this.FlowLayoutPanelColorEvent1 = new System.Windows.Forms.FlowLayoutPanel();
             this.cmdFlowLayoutPanelColorEvent1 = new System.Windows.Forms.Button();
             this.panelRightProperties = new System.Windows.Forms.Panel();
+            this.chkFromCurrentMousePos = new System.Windows.Forms.CheckBox();
             this.chkPropertiesRepeatsUntilFalse = new System.Windows.Forms.CheckBox();
             this.grpPropertiesRepeatsUntilFalse = new System.Windows.Forms.GroupBox();
             this.lblPropertiesRepeatsUntilFalse = new System.Windows.Forms.Label();
@@ -514,7 +515,6 @@
             this.toolStripInstances = new System.Windows.Forms.ToolStripDropDownButton();
             this.dlgApplicationPicker = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
-            this.chkFromCurrentMousePos = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -777,7 +777,6 @@
             // 
             // splitContainerWorkspace.Panel2
             // 
-            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelColorEvent);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObject);
@@ -790,6 +789,7 @@
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelAddNewGames);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObjects);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelColorEvent);
             this.splitContainerWorkspace.Size = new System.Drawing.Size(2403, 1173);
             this.splitContainerWorkspace.SplitterDistance = 385;
             this.splitContainerWorkspace.SplitterWidth = 6;
@@ -976,7 +976,7 @@
             // PanelColorEvent
             // 
             this.PanelColorEvent.Controls.Add(this.tableColorEvent);
-            this.PanelColorEvent.Location = new System.Drawing.Point(22, 20);
+            this.PanelColorEvent.Location = new System.Drawing.Point(22, 113);
             this.PanelColorEvent.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.PanelColorEvent.Name = "PanelColorEvent";
             this.PanelColorEvent.Size = new System.Drawing.Size(1920, 1069);
@@ -1282,6 +1282,17 @@
             this.panelRightProperties.Name = "panelRightProperties";
             this.panelRightProperties.Size = new System.Drawing.Size(419, 133);
             this.panelRightProperties.TabIndex = 38;
+            // 
+            // chkFromCurrentMousePos
+            // 
+            this.chkFromCurrentMousePos.AutoSize = true;
+            this.chkFromCurrentMousePos.Location = new System.Drawing.Point(8, 68);
+            this.chkFromCurrentMousePos.Name = "chkFromCurrentMousePos";
+            this.chkFromCurrentMousePos.Size = new System.Drawing.Size(196, 24);
+            this.chkFromCurrentMousePos.TabIndex = 13;
+            this.chkFromCurrentMousePos.Text = "Move from sys pos first";
+            this.chkFromCurrentMousePos.UseVisualStyleBackColor = true;
+            this.chkFromCurrentMousePos.CheckedChanged += new System.EventHandler(this.chkFromCurrentMousePos_CheckedChanged);
             // 
             // chkPropertiesRepeatsUntilFalse
             // 
@@ -3320,9 +3331,9 @@
             this.chkMoveMouseBeforeAction.Location = new System.Drawing.Point(20, 77);
             this.chkMoveMouseBeforeAction.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.chkMoveMouseBeforeAction.Name = "chkMoveMouseBeforeAction";
-            this.chkMoveMouseBeforeAction.Size = new System.Drawing.Size(409, 24);
+            this.chkMoveMouseBeforeAction.Size = new System.Drawing.Size(474, 24);
             this.chkMoveMouseBeforeAction.TabIndex = 49;
-            this.chkMoveMouseBeforeAction.Text = "Move System Mouse To Start Location Before Action";
+            this.chkMoveMouseBeforeAction.Text = "Default - Move System Mouse To Start Location Before Action";
             this.chkMoveMouseBeforeAction.UseVisualStyleBackColor = true;
             this.chkMoveMouseBeforeAction.CheckedChanged += new System.EventHandler(this.chkMoveMouseBeforeAction_CheckedChanged);
             // 
@@ -4510,7 +4521,7 @@
             // 
             this.splitContainerStatsNScrollie.Panel2.Controls.Add(this.splitContainerSeconds);
             this.splitContainerStatsNScrollie.Size = new System.Drawing.Size(1689, 184);
-            this.splitContainerStatsNScrollie.SplitterDistance = 115;
+            this.splitContainerStatsNScrollie.SplitterDistance = 113;
             this.splitContainerStatsNScrollie.SplitterWidth = 6;
             this.splitContainerStatsNScrollie.TabIndex = 2;
             // 
@@ -4527,7 +4538,7 @@
             this.tableLayoutStats.Name = "tableLayoutStats";
             this.tableLayoutStats.RowCount = 1;
             this.tableLayoutStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutStats.Size = new System.Drawing.Size(1689, 115);
+            this.tableLayoutStats.Size = new System.Drawing.Size(1689, 113);
             this.tableLayoutStats.TabIndex = 3;
             // 
             // groupTotal
@@ -4538,7 +4549,7 @@
             this.groupTotal.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupTotal.Name = "groupTotal";
             this.groupTotal.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupTotal.Size = new System.Drawing.Size(837, 105);
+            this.groupTotal.Size = new System.Drawing.Size(837, 103);
             this.groupTotal.TabIndex = 2;
             this.groupTotal.TabStop = false;
             this.groupTotal.Text = "Total";
@@ -4570,7 +4581,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(829, 76);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(829, 74);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
             // label13
@@ -4586,7 +4597,7 @@
             // lblHomeTotal
             // 
             this.lblHomeTotal.AutoSize = true;
-            this.lblHomeTotal.Location = new System.Drawing.Point(613, 50);
+            this.lblHomeTotal.Location = new System.Drawing.Point(613, 48);
             this.lblHomeTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHomeTotal.Name = "lblHomeTotal";
             this.lblHomeTotal.Size = new System.Drawing.Size(102, 20);
@@ -4596,7 +4607,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(4, 25);
+            this.label15.Location = new System.Drawing.Point(4, 24);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(54, 20);
@@ -4606,7 +4617,7 @@
             // lblChildTotal
             // 
             this.lblChildTotal.AutoSize = true;
-            this.lblChildTotal.Location = new System.Drawing.Point(613, 25);
+            this.lblChildTotal.Location = new System.Drawing.Point(613, 24);
             this.lblChildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblChildTotal.Name = "lblChildTotal";
             this.lblChildTotal.Size = new System.Drawing.Size(94, 20);
@@ -4626,7 +4637,7 @@
             // label21
             // 
             this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(418, 50);
+            this.label21.Location = new System.Drawing.Point(418, 48);
             this.label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label21.Name = "label21";
             this.label21.Size = new System.Drawing.Size(56, 20);
@@ -4636,7 +4647,7 @@
             // label20
             // 
             this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(4, 50);
+            this.label20.Location = new System.Drawing.Point(4, 48);
             this.label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(66, 20);
@@ -4646,7 +4657,7 @@
             // lblWaitingTotal
             // 
             this.lblWaitingTotal.AutoSize = true;
-            this.lblWaitingTotal.Location = new System.Drawing.Point(199, 50);
+            this.lblWaitingTotal.Location = new System.Drawing.Point(199, 48);
             this.lblWaitingTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWaitingTotal.Name = "lblWaitingTotal";
             this.lblWaitingTotal.Size = new System.Drawing.Size(112, 20);
@@ -4666,7 +4677,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(418, 25);
+            this.label19.Location = new System.Drawing.Point(418, 24);
             this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(48, 20);
@@ -4676,7 +4687,7 @@
             // lblClickCountTotal
             // 
             this.lblClickCountTotal.AutoSize = true;
-            this.lblClickCountTotal.Location = new System.Drawing.Point(199, 25);
+            this.lblClickCountTotal.Location = new System.Drawing.Point(199, 24);
             this.lblClickCountTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblClickCountTotal.Name = "lblClickCountTotal";
             this.lblClickCountTotal.Size = new System.Drawing.Size(135, 20);
@@ -4701,7 +4712,7 @@
             this.groupSession.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupSession.Name = "groupSession";
             this.groupSession.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupSession.Size = new System.Drawing.Size(836, 105);
+            this.groupSession.Size = new System.Drawing.Size(836, 103);
             this.groupSession.TabIndex = 1;
             this.groupSession.TabStop = false;
             this.groupSession.Text = "Session";
@@ -4734,7 +4745,7 @@
             this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
             this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
             this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 31F));
-            this.tableLayoutPanelSession.Size = new System.Drawing.Size(828, 76);
+            this.tableLayoutPanelSession.Size = new System.Drawing.Size(828, 74);
             this.tableLayoutPanelSession.TabIndex = 3;
             // 
             // label1
@@ -4750,7 +4761,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(4, 50);
+            this.label3.Location = new System.Drawing.Point(4, 48);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(66, 20);
@@ -4760,7 +4771,7 @@
             // lblWaiting
             // 
             this.lblWaiting.AutoSize = true;
-            this.lblWaiting.Location = new System.Drawing.Point(199, 50);
+            this.lblWaiting.Location = new System.Drawing.Point(199, 48);
             this.lblWaiting.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblWaiting.Name = "lblWaiting";
             this.lblWaiting.Size = new System.Drawing.Size(77, 20);
@@ -4770,7 +4781,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(418, 50);
+            this.label9.Location = new System.Drawing.Point(418, 48);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(56, 20);
@@ -4780,7 +4791,7 @@
             // lblHome
             // 
             this.lblHome.AutoSize = true;
-            this.lblHome.Location = new System.Drawing.Point(613, 50);
+            this.lblHome.Location = new System.Drawing.Point(613, 48);
             this.lblHome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblHome.Name = "lblHome";
             this.lblHome.Size = new System.Drawing.Size(67, 20);
@@ -4820,7 +4831,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(4, 25);
+            this.label2.Location = new System.Drawing.Point(4, 24);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(54, 20);
@@ -4830,7 +4841,7 @@
             // lblChild
             // 
             this.lblChild.AutoSize = true;
-            this.lblChild.Location = new System.Drawing.Point(613, 25);
+            this.lblChild.Location = new System.Drawing.Point(613, 24);
             this.lblChild.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblChild.Name = "lblChild";
             this.lblChild.Size = new System.Drawing.Size(59, 20);
@@ -4840,7 +4851,7 @@
             // lblClickCount
             // 
             this.lblClickCount.AutoSize = true;
-            this.lblClickCount.Location = new System.Drawing.Point(199, 25);
+            this.lblClickCount.Location = new System.Drawing.Point(199, 24);
             this.lblClickCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblClickCount.Name = "lblClickCount";
             this.lblClickCount.Size = new System.Drawing.Size(100, 20);
@@ -4850,7 +4861,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(418, 25);
+            this.label8.Location = new System.Drawing.Point(418, 24);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 20);
@@ -4860,7 +4871,7 @@
             // splitContainerSeconds
             // 
             this.splitContainerSeconds.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitContainerSeconds.Location = new System.Drawing.Point(0, 34);
+            this.splitContainerSeconds.Location = new System.Drawing.Point(0, 36);
             this.splitContainerSeconds.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.splitContainerSeconds.Name = "splitContainerSeconds";
             // 
@@ -5010,7 +5021,7 @@
             dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTest.DefaultCellStyle = dataGridViewCellStyle25;
-            this.dgvTest.Location = new System.Drawing.Point(937, 348);
+            this.dgvTest.Location = new System.Drawing.Point(936, 348);
             this.dgvTest.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.RowHeadersWidth = 62;
@@ -5104,7 +5115,7 @@
             dataGridViewCellStyle27.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle27;
-            this.dgvTestAllReference.Location = new System.Drawing.Point(937, 74);
+            this.dgvTestAllReference.Location = new System.Drawing.Point(936, 74);
             this.dgvTestAllReference.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.RowHeadersWidth = 62;
@@ -5189,7 +5200,7 @@
             this.Panel2.AutoScroll = true;
             this.Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Panel2.Controls.Add(this.PictureTestAllTest);
-            this.Panel2.Location = new System.Drawing.Point(-5, 422);
+            this.Panel2.Location = new System.Drawing.Point(-6, 422);
             this.Panel2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Panel2.Name = "Panel2";
             this.Panel2.Size = new System.Drawing.Size(734, 363);
@@ -5234,7 +5245,7 @@
             this.Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.Panel1.Controls.Add(this.PictureTestAllReference);
-            this.Panel1.Location = new System.Drawing.Point(1, 65);
+            this.Panel1.Location = new System.Drawing.Point(0, 65);
             this.Panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Panel1.Name = "Panel1";
             this.Panel1.Size = new System.Drawing.Size(728, 292);
@@ -6284,17 +6295,6 @@
             this.button1.Text = "Make Object + Choose";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.cmdMakeObject_Click);
-            // 
-            // chkFromCurrentMousePos
-            // 
-            this.chkFromCurrentMousePos.AutoSize = true;
-            this.chkFromCurrentMousePos.Location = new System.Drawing.Point(8, 68);
-            this.chkFromCurrentMousePos.Name = "chkFromCurrentMousePos";
-            this.chkFromCurrentMousePos.Size = new System.Drawing.Size(212, 24);
-            this.chkFromCurrentMousePos.TabIndex = 13;
-            this.chkFromCurrentMousePos.Text = "From Current Mouse Pos";
-            this.chkFromCurrentMousePos.UseVisualStyleBackColor = true;
-            this.chkFromCurrentMousePos.CheckedChanged += new System.EventHandler(this.chkFromCurrentMousePos_CheckedChanged);
             // 
             // frmMain
             // 
