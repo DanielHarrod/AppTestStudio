@@ -3469,11 +3469,6 @@ namespace AppTestStudio
                         ArchaicSave();
 
                         GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
-                        if (GameNode.IsSomething())
-                        {
-                            Utils.SetIcons(GameNode);
-                        }
-
                     }
                     break;
                 case "Action":
@@ -3614,7 +3609,7 @@ namespace AppTestStudio
 
                             SingleClick.X = row.Cells["dgvX"].Value.ToString().ToInt();
                             SingleClick.Y = row.Cells["dgvY"].Value.ToString().ToInt();
-                            EventNode.ClickList.Add(SingleClick);
+                            EventNode.AddToClickList(SingleClick);
 
                             if (rdoAnd.Checked)
                             {
@@ -3631,6 +3626,7 @@ namespace AppTestStudio
                         }
                     }
                 }
+                Utils.SetIcons(EventNode);
                 //' LoadPanelSingleColorAtSingleLocation(PanelLoadNode)
                 //'tv.SelectedNode = EventNode
             }
@@ -3796,10 +3792,6 @@ namespace AppTestStudio
                     }
 
                     GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
-                    if (GameNode.IsSomething())
-                    {
-                        Utils.SetIcons(GameNode);
-                    }
 
                     PictureBox1.Refresh();
                     return;
@@ -4479,8 +4471,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 ArchaicSave();
-            }
-            Utils.SetIcons(PanelLoadNode);
+            }            
 
             if (rdoModeRangeClick.Checked)
             {
@@ -4500,7 +4491,6 @@ namespace AppTestStudio
             {
                 ArchaicSave();
             }
-            Utils.SetIcons(PanelLoadNode);
 
             if (rdoModeClickDragRelease.Checked)
             {
@@ -6277,8 +6267,6 @@ namespace AppTestStudio
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.Enabled = chkPropertiesEnabled.Checked;
-
-                Utils.SetIcons(ActionNode);
             }
         }
 

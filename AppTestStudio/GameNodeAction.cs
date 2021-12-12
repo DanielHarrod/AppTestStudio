@@ -70,8 +70,6 @@ namespace AppTestStudio
 
             Channel = "";
             FileName = "";
-            Utils.SetIcons(this);
-
         }
 
         public AnchorMode Anchor { get; set; }
@@ -113,6 +111,12 @@ namespace AppTestStudio
         }
 
         public List<SingleClick> ClickList { get; set; }
+
+        public void AddToClickList(SingleClick Click)
+        {
+            ClickList.Add(Click);
+            Utils.SetIcons(this);
+        }
 
 
         /// <summary>
@@ -158,12 +162,32 @@ namespace AppTestStudio
         /// </summary>
         public int ClickSpeed { get; set; }
 
-        public Boolean Enabled { get; set; }
+        private Boolean mEnabled;
+        public Boolean Enabled {
+            get 
+            { 
+                return mEnabled; 
+            }
+            set 
+            { 
+                mEnabled = value;
+                Utils.SetIcons(this);
+            }        
+        }
 
         public Boolean RepeatsUntilFalse { get; set; }
         public int RepeatsUntilFalseLimit { get; set; }
 
-        public ActionType ActionType { get; set; }
+        private ActionType mActionType;
+        public ActionType ActionType
+        {
+            get { return mActionType; }
+            set
+            {
+                mActionType = value;
+                Utils.SetIcons(this);
+            }
+        }
 
         public Rectangle Rectangle;
         public Boolean UseParentPicture { get; set; }
@@ -309,7 +333,7 @@ namespace AppTestStudio
 
             foreach (SingleClick Item in ClickList)
             {
-                Action.ClickList.Add(Item.CloneMe());
+                AddToClickList(Item.CloneMe());
             }
 
             Action.LogicChoice = LogicChoice;
@@ -377,7 +401,6 @@ namespace AppTestStudio
                 GameNodeAction CA = ChildAction.CloneMe();
                 Action.Nodes.Add(CA);
             }
-            Utils.SetIcons(Action);
 
             return Action;
         }

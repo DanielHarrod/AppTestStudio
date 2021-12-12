@@ -1526,7 +1526,6 @@ namespace AppTestStudio
                         GameNodeAction NewEvent = new GameNodeAction("New Node", ActionType.Event);
                         treeEventNode.Nodes.Add(NewEvent);
                         LoadEvent(ChildNode, gameNode, NewEvent, lst, loadBitmaps);
-                        Utils.SetIcons(NewEvent);
                         break;
                     case "ACTION":
                         GameNodeAction NewAction = new GameNodeAction("New Node", ActionType.Action);
@@ -1770,7 +1769,7 @@ namespace AppTestStudio
 
                             ChildSC.Color = ColorTranslator.FromHtml(ChildColor);
 
-                            newEvent.ClickList.Add(ChildSC);
+                            newEvent.AddToClickList(ChildSC);
                         }
                         break;
                     case "PICTURE":
@@ -2184,7 +2183,6 @@ namespace AppTestStudio
                 }
 
             }
-            Utils.SetIcons(gameNode);
         }
 
         public GameNodeEvents GetEventsNode()

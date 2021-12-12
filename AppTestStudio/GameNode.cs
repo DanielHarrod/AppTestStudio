@@ -24,7 +24,19 @@ namespace AppTestStudio
         public int StatusNodeID { get; set; }
 
         //Which panel to show
-        public GameNodeType GameNodeType { get; set; }
+        private GameNodeType mGameNodeType ;
+        public GameNodeType GameNodeType
+        {
+            get 
+            { 
+                return mGameNodeType; 
+            }
+            set 
+            { 
+                mGameNodeType = value;
+                Utils.SetIcons(this);
+            }
+        }
 
         private String mGameNodeName;
 
