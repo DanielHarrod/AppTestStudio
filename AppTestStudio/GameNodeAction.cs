@@ -333,7 +333,7 @@ namespace AppTestStudio
 
             foreach (SingleClick Item in ClickList)
             {
-                AddToClickList(Item.CloneMe());
+                Action.AddToClickList(Item.CloneMe());
             }
 
             Action.LogicChoice = LogicChoice;
