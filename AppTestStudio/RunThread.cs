@@ -440,6 +440,20 @@ namespace AppTestStudio
 
                         int TargetIndex = (int)Math.Ceiling((double)RNG / Increment) - 1;
 
+                        //Extremely rare this returns > # nodes
+                        if (TargetIndex >= node.Nodes.Count)
+                        {
+                            if (node.Nodes.Count > 0)
+                            {
+                                TargetIndex = node.Nodes.Count - 1;
+                            }                      
+                            else
+                            {
+                                Debug.Assert(false);
+                                return AfterCompletionType.Home;
+                            }
+                        }
+
                         Game.Log(node.Name + " RNG (" + RNG + ") Node Index chosen (" + TargetIndex + ")");
 
                         int DelayCalc = node.DelayMS + (node.DelayS * 1000) + (node.DelayM * 60 * 1000);
