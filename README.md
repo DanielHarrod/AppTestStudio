@@ -1,7 +1,7 @@
 # AppTestStudio
 
 AppTestStudio (ATS) is a automated development environment, you can builder, tester, and can automate windows applications and android emmulators.
-![Image](https://appteststudio.b-cdn.net/ATSCircles.png)
+![Image](https://appteststudio.com/cdn/ATSCircles.png)
 
 Quickly and interactively create automated actions by building Events either with pixel color matching, or using OpenCV image matching.  Then attach actions to the events such as clicking or dragging.
 
@@ -13,13 +13,13 @@ Quickly and interactively create automated actions by building Events either wit
 
    1.1 - Launch NoxPlayer client go to Gear on the top menu(Settings)->Interface Settings-> Make sure fixed Window size is checked.
    
-   ![Image](https://appteststudio.b-cdn.net/Settings.png)
-   ![Image](https://appteststudio.b-cdn.net/FixedWindowSize.png)
+   ![Image](https://appteststudio.com/cdn/Settings.png)
+   ![Image](https://appteststudio.com/cdn/FixedWindowSize.png)
 
 2. Install the app of your choice on the Nox player.
 
-   ![Image](https://appteststudio.b-cdn.net/Tools.png)
-   ![Image](https://appteststudio.b-cdn.net/PlayStore.png)
+   ![Image](https://appteststudio.com/cdn/Tools.png)
+   ![Image](https://appteststudio.com/cdn/PlayStore.png)
    
 3. Close this instance of Nox Player, Use the launch controls from App Test Studio - Launching from app test studio, configures DPI, resolution, and window naming.  Which enables consistency and transportability between systems.   
 
@@ -31,7 +31,7 @@ Quickly and interactively create automated actions by building Events either wit
 
 ### 1.) In AppTestStudio go to File->New->Wizard
 
-![Image](https://appteststudio.b-cdn.net/Wizard.png)
+![Image](https://appteststudio.com/cdn/Wizard.png)
 
 ### 2.) Use the wizard to quickly configure a project in seconds.
 1.) Enter Seach text for app or game.
@@ -43,7 +43,7 @@ Quickly and interactively create automated actions by building Events either wit
 4.) Game ID and Name will autopopulate.
 
 5.) Click Create Project
-![Image](https://appteststudio.b-cdn.net/AppWizard.png)
+![Image](https://appteststudio.com/cdn/AppWizard.png)
 
 ### 3.) Start the emmulator
 
@@ -63,12 +63,12 @@ Video:  A video can be saved that takes a screenshot of the screen at each activ
 
 Frame Limit: A basic limit to prevent running out of disk space, the script can take 100's to 1000's of screenshots when running.  
 
-![Image](https://appteststudio.b-cdn.net/StartEmmulator.png)
+![Image](https://appteststudio.com/cdn/StartEmmulator.png)
 
 ### 4.) Design your script
 
 #### 4.1 On the Events Node in AppTestStudio Tree, right Click and Choose "Add Event", this will take a screenshot.
-![Image](https://appteststudio.b-cdn.net/AddEvent.png)
+![Image](https://appteststudio.com/cdn/AddEvent.png)
 
 
 #### 4.2 A new Event is created - at screenshot is automatically taken of the current emmulator window.
@@ -81,29 +81,29 @@ Frame Limit: A basic limit to prevent running out of disk space, the script can 
 
 (opinion) There are other pixel,coordinate locations that may be better, for example: selecting pixels on the skip text may be ideal so that anytime skip is presented it would be clicked.
 
-![Image](https://appteststudio.b-cdn.net/Event.png)
+![Image](https://appteststudio.com/cdn/Event.png)
 
 #### 4.3 Now create an Action
 Right click on the 'Zeus' Event, then left click 'Add Action'.
 
 The name will automatically have 'Click ' prepended to the parent name.
 
-![Image](https://appteststudio.b-cdn.net/AddAction.png)
+![Image](https://appteststudio.com/cdn/AddAction.png)
 
 #### 4.4 Build the Action
 Incidate where to click, click and drag a blue box around the area that needs to be clicked.  AppTestStudio will randomly click at a single location inside the box when the application is run or when the application is tested.
-![Image](https://appteststudio.b-cdn.net/Action.png)
+![Image](https://appteststudio.com/cdn/Action.png)
 
 #### 4.4) When the Action note still selected, click 'Test'
 App Test Studio will click inside the box inside the emmulator, which will advance app to the next screen.
-![Image](https://appteststudio.b-cdn.net/Test.png)
+![Image](https://appteststudio.com/cdn/Test.png)
 
 ### 4.5) Object Search
 Object search enables you to quickly define regions on the screen to search, and quickly define images to locate.
 
 #### 4.5.1) First Define an object.
 To define an object click the 'Create Object' button from an Event Node or Right click on the Objects Tree Node under the application.
-![Image](https://appteststudio.b-cdn.net/CreateObject.png)
+![Image](https://appteststudio.com/cdn/CreateObject.png)
 
 #### 4.5.2) Next identify the object to serach for.
 Add New Object will take a screenshot of the current window and allow you to select the object to look for.  
@@ -118,14 +118,14 @@ Add New Object will take a screenshot of the current window and allow you to sel
 
 4.) Make Object (SAVE): Make object will save your selection and add it to the list of objects that can be searched for in the Object Search Event.
 
-![Image](https://appteststudio.b-cdn.net/AddNewObject.png)
+![Image](https://appteststudio.com/cdn/AddNewObject.png)
 
 #### 4.5.3) Make a New Event with Mode: Object Search
 Events default to Color/Point change the event mode to 'Object Search'
 
 On the Object Search a screenshot will be displayed, draw a mask around the area to be searched.  Image recognition can significantly slower than the Color/Point implementation, so define a mask to reduce the area that is needed to be searched.  To draw a mask click on the area and draw a box.  If the box is unsuitable, redraw a box.
 
-![Image](https://appteststudio.b-cdn.net/EventModeObjectSearch.png)
+![Image](https://appteststudio.com/cdn/EventModeObjectSearch.png)
 
 #### 4.5.3) Object properties
 After the Object Search Event mode is set to 'Object Search' object properties appears.
@@ -142,14 +142,14 @@ Set Mask to Max: Is it time to search the entire area, press the Max button and 
 
 Object:  This shows the object to search for giving you a visual representation.
 
-![Image](https://appteststudio.b-cdn.net/Object.png)
+![Image](https://appteststudio.com/cdn/Object.png)
 
 #### 4.5.3) An Event under Object Search
 So you have build the event, but events don't do anything.  Now an action is needed, place an action under the Object Search.
 Object Search has a hourglass icon when the mode of an evetn is set to 'Object Search'.  When a Click or Drag event is a child of a Object Search, the click or drag event will be positioned at the location of the found object that was found in the object search mask.  
 On the click event draw a box the size of the range you would like searched, when the object is found the box will be centered on the location, then the click or drag will be performed.
 
-![Image](https://appteststudio.b-cdn.net/EventUnderObjectSearch.png)
+![Image](https://appteststudio.com/cdn/EventUnderObjectSearch.png)
 
 ### 5.) Continue building 
 
@@ -162,7 +162,7 @@ Use an Event inside another Event.
 
 2.) Organize events inside other events for logic/priority.
 
-![Image](https://appteststudio.b-cdn.net/Groups.png)
+![Image](https://appteststudio.com/cdn/Groups.png)
 
 #### 5.2) Control what happens after an Event or Action occurs.
 What needs to occur after a Event Node is true or after an Action node is completed. 
@@ -199,7 +199,7 @@ Wait type: once per session:  You want this activity to run only one time.
 
 Repeats will reset the iteration count if limit has already compelted, so it will occur again.
 
-![Image](https://appteststudio.b-cdn.net/After.png)
+![Image](https://appteststudio.com/cdn/After.png)
 
 #### 5.3 Properties
 
@@ -207,7 +207,7 @@ Enabled: Enable or disable parts of the script from running.  This is useful whe
 
 Repeats Until False (with Iteration Limit):  This will repeat until the designated iteration limit is hit OR if the event value is false.  This is usefull when you want to repeat a section of code without going back through the entire loop from the start.
 
-![Image](https://appteststudio.b-cdn.net/Properties.png)
+![Image](https://appteststudio.com/cdn/Properties.png)
 
 #### 5.4 Logic - Basic
 Logic is how the color points are treated options are:
@@ -218,12 +218,12 @@ POINTS: Points are added and subtracted on the range of the RGB.
 
 In this example below with the first line R=36, B=30, G=35, X=951, Y=673, and POINTS = 5.  Acceptable range for R would be any color between 36-5 to 36+5, Acceptable range for B would be any color from 30-5 to 30+5, and the acceptable range for G would be an color between 35-5 to 35 + 5.  If the R and G and B are in that range the line would be considered true, this is applied to each line in the calculation. 
 
-![Image](https://appteststudio.b-cdn.net/Logic.png)
+![Image](https://appteststudio.com/cdn/Logic.png)
 
 #### 5.4 Logic - Advanced
 CUSTOM:  You can mix and match AND/OR/NOT/(). Acceptable (AND, &, &&) - All are considered logical AND.  Acceptable (OR, |, || ) - all are considered logical OR.  Acceptable (NOT, !) - Are considered logical NOT.
 
-![Image](https://appteststudio.b-cdn.net/Logic2.png)
+![Image](https://appteststudio.com/cdn/Logic2.png)
 
 Validate button, pressing the validate button can verify the logic is valid ( This isn't perfect but it's very good at checking).
 
@@ -232,7 +232,7 @@ Scan will take a new screenshot and sample the X/Y position if the R,G,B color i
 
 Remove: Removes the color point.
 
-![Image](https://appteststudio.b-cdn.net/Logic.png)
+![Image](https://appteststudio.com/cdn/Logic.png)
 
 #### 5.4.1 POINTS
 Points increase the ranges of the RGB color point.
@@ -243,7 +243,7 @@ In this example below with the first line R=36, B=30, G=35, X=951, Y=673, and PO
 
 Every app is different, some apps I have found need at least 5 points on every event, while most others the colors remain the same over time.  I would caution using very large numbers, I have not found a use case to go over 15.
 
-![Image](https://appteststudio.b-cdn.net/Logic.png)
+![Image](https://appteststudio.com/cdn/Logic.png)
 
 #### 5.4.1 Properties
 
@@ -251,7 +251,7 @@ Enabled: Enable or disable parts of the script from running.  This is useful whe
 
 Repeats Until False (with Iteration Limit):  This will repeat until the designated iteration limit is hit OR if the event value is false.  This is usefull when you want to repeat a section of code without going back through the entire loop from the start.
 
-![Image](https://appteststudio.b-cdn.net/Properties.png)
+![Image](https://appteststudio.com/cdn/Properties.png)
 
 #### 5.4.1 Anchor
 
@@ -267,7 +267,7 @@ Left+Right the button and mask region will scale up or down to the percentage be
 
 Top+Bottom the button and mask region will scale up or down to the percentage between the orginal image and the current image on the Y axis.
 
-![Image](https://appteststudio.b-cdn.net/Anchor.png)
+![Image](https://appteststudio.com/cdn/Anchor.png)
 
 ## Testing - Object Search Event
 
@@ -302,7 +302,7 @@ Pressing the Test button on an object search event will:
 
 15.) Hide and Seek Time: How long it takes to find the object in ms.  Keep in mind that 1000ms = 1 second, use masks and whenever possible use color points to improve performance.
 
-![Image](https://appteststudio.b-cdn.net/TestObjectSearch.png)
+![Image](https://appteststudio.com/cdn/TestObjectSearch.png)
 
 ## Testing - Color Point Event
 
@@ -324,7 +324,7 @@ When a color point event is tested the Single Test Dialog is displayed.
 
 8.) Points - the number of configued points.
 
-![Image](https://appteststudio.b-cdn.net/EventTest.png)
+![Image](https://appteststudio.com/cdn/EventTest.png)
 
 #### Testing - Click and Scroll events.
 Testing Click and Scroll Events will perform the action on the currently indicated design instance.  This is commonly used not need to leave the designer increasing build speed.
@@ -332,17 +332,17 @@ Testing Click and Scroll Events will perform the action on the currently indicat
 ## Testing - Object Search Event Child Action
 Same as Object Search Event, with the execption that the action is performed on the current instance.  So it will click the button on the indicated location ( If the parent object search is true ).
 
-![Image](https://appteststudio.b-cdn.net/TestObjectSearch.png)
+![Image](https://appteststudio.com/cdn/TestObjectSearch.png)
 
 ## Scheduler
 The scheduler can be used to run a script a a designated time such as every 4.1 hours.  In conjunction with scripting exit events via (After Completion - Stop Thread) can provide high levels of flexibility.
 
-![Image](https://appteststudio.b-cdn.net/scheduler.png)
+![Image](https://appteststudio.com/cdn/scheduler.png)
 
 AppTestStudio will NOT function if the system goes to sleep, Screen Savers are OK, and Lock Screens are OK.
 
 If running overnight makes sure the SCREEN and PC do not go to sleep by modifying the windows settings.  If the Screen goes the sleep the GDI function return black screens.  If the PC is sleeping well then nothing is running.
-![Image](https://appteststudio.b-cdn.net/PowerSleep.png)
+![Image](https://appteststudio.com/cdn/PowerSleep.png)
 
 ## Minimal Exports
 File-> Import/Export -> Export -> Minimal Export
@@ -351,7 +351,7 @@ AppTestStudio doesn't actually use the reference images to run the scripts, the 
 
 When run, AppTestStudio will rebuild the reference images whenever an image is true.  Be sure to save your work so that the modifications will be saved.
 
-![Image](https://appteststudio.b-cdn.net/MinimalExport.png)
+![Image](https://appteststudio.com/cdn/MinimalExport.png)
 
 ## Notes
 AppTestStudio can manage on multiple instances and run them in the background so there's no need to any fancy window management, however there are a few gotchas that are easily manageable.
@@ -379,7 +379,7 @@ AppTestStudio can manage on multiple instances and run them in the background so
 11.) Don't use with personal accounts.
 
 12.) Sometimes its easier to edit the project file manually, often it's not.
-![Image](https://appteststudio.b-cdn.net/Manual.png)
+![Image](https://appteststudio.com/cdn/Manual.png)
 
 13.) You can manually code in AppTestStudio XML and run them in AppTestStudio, See #12.
 
