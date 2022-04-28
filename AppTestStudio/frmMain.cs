@@ -1478,7 +1478,6 @@ namespace AppTestStudio
             }
             txtLog.Text = sb.ToString();
             txtLog.SelectionStart = index;
-
         }
 
         private void toolStripButtonSaveScript_Click(object sender, EventArgs e)
@@ -3083,13 +3082,23 @@ namespace AppTestStudio
         {
             try
             {
-                if (ThreadManager.ThreadLog.Count() > 0)
+                int CurrentThreadLogCount = ThreadManager.ThreadLog.Count();
+                while (CurrentThreadLogCount-- > 0)
                 {
-                    String s = "";
-
-                    if (ThreadManager.ThreadLog.TryDequeue(out s))
+                    if (ThreadManager.ThreadLog.Count() > 0)
                     {
-                        Log(s);
+                        String s = "";
+
+                        if (ThreadManager.ThreadLog.TryDequeue(out s))
+                        {
+                            Log(s);
+                            Debug.WriteLine("LogLength:" + ThreadManager.ThreadLog.Count());
+                        }
+                    }
+                    else
+                    {
+                        // shouldn't happen.
+                        break;
                     }
                 }
             }
