@@ -1439,6 +1439,10 @@ namespace AppTestStudio
 
         private void SaveObject(XmlWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNodeObject obj, string directory, List<String> objectList)
         {
+            if(obj.FileName == null)
+            {
+                Log("Critical Error: Object Node:" + obj.Name + " filename is null - Unable to Save");
+            }
             writer.WriteStartElement("Object");
 
             writer.WriteAttributeString("Name", obj.GameNodeName);
@@ -1471,6 +1475,7 @@ namespace AppTestStudio
 
         private static void LoadObjects(XmlNode xmlNode, GameNodeObjects objects, string gameName, List<GameNodeAction> actionNodesWithObjects, GameNodeGame game)
         {
+            int CriticalErrorCount = 0;
             foreach (XmlNode LoadObjectNode in xmlNode.ChildNodes)
             {
                 String oName = "";
@@ -1492,7 +1497,7 @@ namespace AppTestStudio
                             {
                                 Node.ObjectSearchBitmap = Bitmap.FromFile(FullPathP) as Bitmap;
                                 //Node.FileName = Path.GetFileName(FullPathP);
-                            }
+                            }   
                             // Don't set Object Search filename to object search filename, --Node.FileName = Path.GetFileName(FullPathP);
                         }
                     }
@@ -1509,10 +1514,15 @@ namespace AppTestStudio
                 }
                 else
                 {
-
-                    Debug.WriteLine("filenot found:" + FullPath);
+                    game.Log("Critical Error: Object Nodes: Loading Node: " + oName + ": Missing file: " + FullPath);
+                    CriticalErrorCount++;
                 }
                 objects.Nodes.Add(o);
+            }
+
+            if(CriticalErrorCount >0)
+            {
+                game.Log("Required Image files not found, please add them back to the Pictures folder and reload the project.");
             }
         }
 

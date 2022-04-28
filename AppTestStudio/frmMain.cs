@@ -1523,10 +1523,10 @@ namespace AppTestStudio
 
                 String DirectoryName = Path.GetDirectoryName(GameNode.FileName);
                 String TemporaryFileName = System.IO.Path.Combine(DirectoryName, Guid.NewGuid().ToString());
-
+                XmlTextWriter Writer = null;
                 try
                 {
-                    XmlTextWriter Writer = new XmlTextWriter(TemporaryFileName, System.Text.Encoding.UTF8);
+                    Writer = new XmlTextWriter(TemporaryFileName, System.Text.Encoding.UTF8);
                     Writer.Formatting = Formatting.Indented;
 
                     Writer.WriteStartDocument();
@@ -1548,6 +1548,7 @@ namespace AppTestStudio
                     Log("Save Failed: " + ex.Message);
                     try
                     {
+                        Writer.Close();
                         System.IO.File.Delete(TemporaryFileName);
                     }
                     catch (Exception ex1)
