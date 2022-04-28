@@ -1521,18 +1521,40 @@ namespace AppTestStudio
                     }
                 }
 
-                XmlTextWriter Writer = new XmlTextWriter(GameNode.FileName, System.Text.Encoding.UTF8);
-                Writer.Formatting = Formatting.Indented;
+                String DirectoryName = Path.GetDirectoryName(GameNode.FileName);
+                String TemporaryFileName = System.IO.Path.Combine(DirectoryName, Guid.NewGuid().ToString());
 
-                Writer.WriteStartDocument();
+                try
+                {
+                    XmlTextWriter Writer = new XmlTextWriter(TemporaryFileName, System.Text.Encoding.UTF8);
+                    Writer.Formatting = Formatting.Indented;
 
-                Writer.WriteStartElement("AppTestStudio");  // Root.
+                    Writer.WriteStartDocument();
 
-                GameNode.SaveGame(Writer, ThreadManager, tv, false);
-                Writer.WriteEndElement();
-                Writer.WriteEndDocument();
-                Writer.Close();
-                Log("Saving New File: " + GameNode.FileName);
+                    Writer.WriteStartElement("AppTestStudio");  // Root.
+
+                    GameNode.SaveGame(Writer, ThreadManager, tv, false);
+                    Writer.WriteEndElement();
+                    Writer.WriteEndDocument();
+                    Writer.Close();
+
+                    System.IO.File.Delete(GameNode.FileName);
+                    System.IO.File.Move(TemporaryFileName, GameNode.FileName);
+
+                    Log("Saving New File: " + GameNode.FileName);
+                }
+                catch (Exception ex)
+                {
+                    Log("Save Failed: " + ex.Message);
+                    try
+                    {
+                        System.IO.File.Delete(TemporaryFileName);
+                    }
+                    catch (Exception ex1)
+                    {
+                        Log("Attempted to clean up temp file: " + ex1.Message);
+                    }
+                }
             }
         }
 
