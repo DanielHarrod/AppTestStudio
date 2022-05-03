@@ -313,8 +313,17 @@ namespace AppTestStudioControls
                 PaintWidth = PaintWidth - (HeaderArea - StartX);
                 StartX = HeaderArea;
             }
-
-            e.Graphics.FillRectangle(Brush, StartX, RectangelY1, PaintWidth - 1, Height);
+            
+            if (PaintWidth == 1)
+            {
+                // just draw a line
+                e.Graphics.FillRectangle(Brush, StartX, RectangelY1, PaintWidth, Height);
+            }
+            else
+            {
+                // make room for the shadow
+                e.Graphics.FillRectangle(Brush, StartX, RectangelY1, PaintWidth - 1, Height);
+            }
 
             if (FirstWidth == 1)
             {
