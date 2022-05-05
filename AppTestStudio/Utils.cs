@@ -1596,6 +1596,48 @@ namespace AppTestStudio
         {
             return (int)Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
         }
+
+
+        public static void DrawRectangleWithGuidesOnGraphics(Graphics graphics, Bitmap bitmap, Rectangle rectangle)
+        {
+            //Draw a box at 50% transparency to show the click area.
+            using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
+            {
+                graphics.FillRectangle(br, rectangle);
+            }
+
+            // Draw a blue outline around the click area.
+            using (Pen p = new Pen(Color.Blue, 1))
+            {
+                graphics.DrawRectangle(p, rectangle);
+
+                float CenterX = rectangle.Left + (rectangle.Width / 2);
+                float CenterY = rectangle.Top + (rectangle.Height / 2);
+                float TopOfRange = rectangle.Top;
+                float BottomOfRangeY = rectangle.Top + rectangle.Height;
+                float TargetHeight = rectangle.Top;
+                float StartOfRangeX = rectangle.Left;
+                float RightOfRangeX = rectangle.Left + rectangle.Width;
+
+                // Draw Blue Line from Top to Center of the Top of the Range
+                graphics.DrawLine(p, CenterX, 0, CenterX, TopOfRange);
+
+                // Draw Blue Line from Center of the Bottom of the Range to the bottom of the image
+                if (bitmap.IsSomething())
+                {
+                    graphics.DrawLine(p, CenterX, BottomOfRangeY, CenterX, bitmap.Height);
+                }
+
+                // Draw Blue Line from 0 to Middle of the Right Range.
+                graphics.DrawLine(p, 0, CenterY, StartOfRangeX, CenterY);
+
+                // Draw Blue Line from Right of Range to the right of the image
+                if (bitmap.IsSomething())
+                {
+                    graphics.DrawLine(p, RightOfRangeX, CenterY, bitmap.Width, CenterY);
+                }
+            }
+        }
     }
 
 }

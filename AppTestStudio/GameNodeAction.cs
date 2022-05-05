@@ -163,16 +163,17 @@ namespace AppTestStudio
         public int ClickSpeed { get; set; }
 
         private Boolean mEnabled;
-        public Boolean Enabled {
-            get 
-            { 
-                return mEnabled; 
+        public Boolean Enabled
+        {
+            get
+            {
+                return mEnabled;
             }
-            set 
-            { 
+            set
+            {
                 mEnabled = value;
                 Utils.SetIcons(this);
-            }        
+            }
         }
 
         public Boolean RepeatsUntilFalse { get; set; }
@@ -291,14 +292,15 @@ namespace AppTestStudio
                         mBitmap = Bitmap.FromFile(PictureFullPath) as Bitmap;
                     }
                 }
-            }            
+            }
         }
 
         private Bitmap mBitmap;
         public Bitmap Bitmap
         {
-            get {
-                return mBitmap; 
+            get
+            {
+                return mBitmap;
             }
             set
             {
@@ -882,43 +884,7 @@ namespace AppTestStudio
                 case Mode.RangeClick:
                     if (Rectangle.Width > 0 && Rectangle.Height > 0)
                     {
-                        //Draw a box at 50% transparency to show the click area.
-                        using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
-                        {
-                            graphics.FillRectangle(br, Rectangle);
-                        }
-
-                        // Draw a blue outline around the click area.
-                        using (Pen p = new Pen(Color.Blue, 1))
-                        {
-                            graphics.DrawRectangle(p, Rectangle);
-
-                            float CenterX = Rectangle.Left + (Rectangle.Width / 2);
-                            float CenterY = Rectangle.Top + (Rectangle.Height / 2);
-                            float TopOfRange = Rectangle.Top;
-                            float BottomOfRangeY = Rectangle.Top + Rectangle.Height;
-                            float TargetHeight = Rectangle.Top;
-                            float StartOfRangeX = Rectangle.Left;
-                            float RightOfRangeX = Rectangle.Left + Rectangle.Width;
-
-                            // Draw Blue Line from Top to Center of the Top of the Range
-                            graphics.DrawLine(p, CenterX, 0, CenterX, TopOfRange);
-
-                            // Draw Blue Line from Center of the Bottom of the Range to the bottom of the image
-                            if (Bitmap.IsSomething())
-                            {
-                                graphics.DrawLine(p, CenterX, BottomOfRangeY, CenterX, this.Bitmap.Height);
-                            }
-
-                            // Draw Blue Line from 0 to Middle of the Right Range.
-                            graphics.DrawLine(p, 0, CenterY, StartOfRangeX, CenterY);
-
-                            // Draw Blue Line from Right of Range to the right of the image
-                            if (Bitmap.IsSomething())
-                            {
-                                graphics.DrawLine(p, RightOfRangeX, CenterY, this.Bitmap.Width, CenterY);
-                            }
-                        }
+                        Utils.DrawRectangleWithGuidesOnGraphics(graphics, Bitmap, Rectangle);
 
                         // Draw a white outline to show the offset window.
                         if (RelativeXOffset != 0 || RelativeYOffset != 0)
@@ -975,6 +941,8 @@ namespace AppTestStudio
                     break;
             }
         }
+
+  
 
         public class RangeClickResult
         {
