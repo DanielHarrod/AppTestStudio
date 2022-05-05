@@ -3092,7 +3092,6 @@ namespace AppTestStudio
                         if (ThreadManager.ThreadLog.TryDequeue(out s))
                         {
                             Log(s);
-                            Debug.WriteLine("LogLength:" + ThreadManager.ThreadLog.Count());
                         }
                     }
                     else
