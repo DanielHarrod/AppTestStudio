@@ -384,34 +384,38 @@ namespace AppTestStudio
         private void PictureBoxSearchArea_Paint(object sender, PaintEventArgs e)
         {
             //'Draw the box on the search
-            Rectangle Rectangle = new Rectangle();
+            Rectangle rectangle = new Rectangle();
 
             if (Parent.IsSomething())
             {
                 Utils.DrawMask(PictureBoxSearchArea, Parent.Rectangle, e);
-                Rectangle.X = DetectedPoint.X + Parent.Rectangle.X;
-                Rectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y;
+                rectangle.X = DetectedPoint.X + Parent.Rectangle.X;
+                rectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y;
             }
             else
             {
 
                 Utils.DrawMask(PictureBoxSearchArea, Node.Rectangle, e);
-                Rectangle.X = DetectedPoint.X + Node.Rectangle.X;
-                Rectangle.Y = DetectedPoint.Y + Node.Rectangle.Y;
+                rectangle.X = DetectedPoint.X + Node.Rectangle.X;
+                rectangle.Y = DetectedPoint.Y + Node.Rectangle.Y;
             }
 
 
-            Rectangle.Width = PictureBoxObject.Image.Width;
-            Rectangle.Height = PictureBoxObject.Image.Height;
-            using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 255, 201, 14)))
-            {
-                e.Graphics.FillRectangle(br, Rectangle);
-            }
+            rectangle.Width = PictureBoxObject.Image.Width;
+            rectangle.Height = PictureBoxObject.Image.Height;
 
-            using (Pen p = new Pen(Color.FromArgb(255, 201, 14), 1))
-            {
-                e.Graphics.DrawRectangle(p, Rectangle);
-            }
+            Bitmap bitmap = (Bitmap)PictureBoxSearchArea.Image;
+            Utils.DrawRectangleWithGuidesOnGraphics(e.Graphics, bitmap, rectangle);
+
+            //using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 255, 201, 14)))
+            //{
+            //    e.Graphics.FillRectangle(br, rectangle);
+            //}
+
+            //using (Pen p = new Pen(Color.FromArgb(255, 201, 14), 1))
+            //{
+            //    e.Graphics.DrawRectangle(p, rectangle);
+            //}
 
             return;
 
