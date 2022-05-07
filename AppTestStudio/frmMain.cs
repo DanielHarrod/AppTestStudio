@@ -5695,18 +5695,18 @@ namespace AppTestStudio
 
             if (Node.IsSomething() && Node.GameNodeType == GameNodeType.Action)
             {
-                GameNodeAction Action = Node as GameNodeAction;
-                if (Action.IsColorPoint)
+                GameNodeAction action = Node as GameNodeAction;
+                if (action.IsColorPoint)
                 {
                     Utils.DrawColorPoints(e, dgvTest, "dgvColorTest", "dgvXTest", "dgvYTest");
                 }
                 else
                 {
-                    if (Action.Rectangle.IsEmpty)
+                    if (action.Rectangle.IsEmpty)
                     {
-                        Action.Rectangle = new Rectangle(0, 0, PictureTestAllTest.Width, PictureTestAllTest.Height);
+                        action.Rectangle = new Rectangle(0, 0, PictureTestAllTest.Width, PictureTestAllTest.Height);
                     }
-                    Utils.DrawMask(PictureTestAllTest, Action.Rectangle, e);
+                    Utils.DrawMask(PictureTestAllTest, action.Rectangle, e);
                 }
 
                 try
@@ -5721,27 +5721,19 @@ namespace AppTestStudio
                         int x = Keys[1].ToInt();
                         int y = Keys[2].ToInt();
 
-                        Rectangle Rectangle = new Rectangle();
+                        Rectangle rectangle = new Rectangle();
 
                         // Add back 1/2 the mask to align the mask with the center detected coordinate.
-                        Rectangle.X = x + Action.Rectangle.X - (Action.ObjectSearchBitmap.Width / 2);
-                        Rectangle.Y = y + Action.Rectangle.Y - (Action.ObjectSearchBitmap.Height / 2);
+                        rectangle.X = x - (action.ObjectSearchBitmap.Width / 2) + action.Rectangle.X;
+                        rectangle.Y = y - (action.ObjectSearchBitmap.Height / 2) + action.Rectangle.Y;
 
                         // Width and height of object search image size.
-                        Rectangle.Width = Action.ObjectSearchBitmap.Width;
-                        Rectangle.Height = Action.ObjectSearchBitmap.Height;
+                        rectangle.Width = action.ObjectSearchBitmap.Width;
+                        rectangle.Height = action.ObjectSearchBitmap.Height;
 
-                        // Draw a yellow transparent box.
-                        using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 255, 201, 14)))
-                        {
-                            e.Graphics.FillRectangle(br, Rectangle);
-                        }
 
-                        // Draw a solid yellow line.
-                        using (Pen p = new Pen(Color.FromArgb(255, 201, 14), 1))
-                        {
-                            e.Graphics.DrawRectangle(p, Rectangle);
-                        }
+                        Utils.DrawRectangleWithGuidesOnGraphics(e.Graphics, action.Bitmap, rectangle);
+
                     }
                 }
                 catch (Exception ex)
