@@ -681,43 +681,41 @@ namespace AppTestStudio
         {
             try
             {
-
                 //Copy
-                Rectangle AnchorRectangle = GetAnchorRectangle(bmp);
+                Rectangle anchorRectangle = GetAnchorRectangle(bmp);
 
-                if (AnchorRectangle.Width <= 0 || AnchorRectangle.Height <= 0)
+                // Bitmap has no height and width - abort
+                if (anchorRectangle.Width <= 0 || anchorRectangle.Height <= 0)
                 {
-                    //'Debug.Assert(False)
-                    //'TB.AddReturnFalse()
                     return false;
                 }
 
-                //' False if no object to search
+                // False if no object to search - abort
                 if (ObjectName == "")
-                {
-                    //' TB.AddReturnFalse()
+                {             
                     return false;
                 }
 
+                // Channel is not slelected - abort
                 if (Channel == "")
                 {
-                    //' TB.AddReturnFalse()
                     return false;
                 }
 
+                // No object to search for - abort
                 if (ObjectSearchBitmap.IsNothing())
                 {
                     game.Log(GameNodeName + " configuration is invalid Search Object Not Configured.");
-                    //' TB.AddReturnFalse()
                     return false;
                 }
 
-                Bitmap CropImage = new Bitmap(AnchorRectangle.Width, AnchorRectangle.Height);
+                // Create a bitmap the size of the mask
+                Bitmap bitmapToSearchForObject = new Bitmap(anchorRectangle.Width, anchorRectangle.Height);
 
-                using (Graphics grp = Graphics.FromImage(CropImage))
+                using (Graphics grp = Graphics.FromImage(bitmapToSearchForObject))
                 {
-                    grp.DrawImage(bmp, new Rectangle(0, 0, AnchorRectangle.Width, AnchorRectangle.Height), AnchorRectangle, GraphicsUnit.Pixel);
-                    //'grp.DrawEllipse(Pens.Black, 40, 40, 40, 40)
+                    // copy the masked area onto the bitmap.
+                    grp.DrawImage(bmp, new Rectangle(0, 0, anchorRectangle.Width, anchorRectangle.Height), anchorRectangle, GraphicsUnit.Pixel);                    
 
                     grp.InterpolationMode = InterpolationMode.HighQualityBicubic;
                     grp.PixelOffsetMode = PixelOffsetMode.HighQuality;
@@ -727,7 +725,7 @@ namespace AppTestStudio
                 Mat m1 = null;
                 try
                 {
-                    m1 = OpenCvSharp.Extensions.BitmapConverter.ToMat(CropImage);
+                    m1 = OpenCvSharp.Extensions.BitmapConverter.ToMat(bitmapToSearchForObject);
                 }
                 catch (DllNotFoundException ex)
                 {
@@ -829,7 +827,7 @@ namespace AppTestStudio
 
                 if (detectedThreashold >= ((float)iObjectThreshold / 100))
                 {
-                    game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + AnchorRectangle.X) + "  y =" + (centerY + AnchorRectangle.Y));
+                    game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + anchorRectangle.X) + "  y =" + (centerY + anchorRectangle.Y));
                     //'TB.AddReturnTrue()
 
                     if (FileName.Length == 0)
