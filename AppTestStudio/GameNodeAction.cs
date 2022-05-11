@@ -709,23 +709,28 @@ namespace AppTestStudio
                     return false;
                 }
 
+                Stopwatch WatchImageSearchTime = System.Diagnostics.Stopwatch.StartNew();
+                
                 // Create a bitmap the size of the mask
-                Bitmap bitmapToSearchForObject = new Bitmap(anchorRectangle.Width, anchorRectangle.Height);
+                Bitmap bitmapBeingSearchedForObject = new Bitmap(anchorRectangle.Width, anchorRectangle.Height);
 
-                using (Graphics grp = Graphics.FromImage(bitmapToSearchForObject))
+                Stopwatch WatchCreateMaskedImageToSearch = System.Diagnostics.Stopwatch.StartNew();
+                using (Graphics graphics = Graphics.FromImage(bitmapBeingSearchedForObject))
                 {
                     // copy the masked area onto the bitmap.
-                    grp.DrawImage(bmp, new Rectangle(0, 0, anchorRectangle.Width, anchorRectangle.Height), anchorRectangle, GraphicsUnit.Pixel);                    
+                    graphics.DrawImage(bmp, new Rectangle(0, 0, anchorRectangle.Width, anchorRectangle.Height), anchorRectangle, GraphicsUnit.Pixel);                    
 
-                    grp.InterpolationMode = InterpolationMode.HighQualityBicubic;
-                    grp.PixelOffsetMode = PixelOffsetMode.HighQuality;
-                    grp.CompositingQuality = CompositingQuality.HighQuality;
+                    graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    graphics.PixelOffsetMode = PixelOffsetMode.HighQuality;
+                    graphics.CompositingQuality = CompositingQuality.HighQuality;
 
                 }
-                Mat m1 = null;
+                WatchCreateMaskedImageToSearch.Stop();
+
+                Mat matBeingSearchedForObject = null;
                 try
                 {
-                    m1 = OpenCvSharp.Extensions.BitmapConverter.ToMat(bitmapToSearchForObject);
+                    matBeingSearchedForObject = OpenCvSharp.Extensions.BitmapConverter.ToMat(bitmapBeingSearchedForObject);
                 }
                 catch (DllNotFoundException ex)
                 {
@@ -737,14 +742,16 @@ namespace AppTestStudio
 
                 //'213 ms
                 //'Dim Red As Mat = m1.ExtractChannel(2)
-                Mat[] BGR = m1.Split();
+                Mat[] BGR = matBeingSearchedForObject.Split();
 
                 Mat Blue = BGR[0];
                 Mat Green = BGR[1];
                 Mat Red = BGR[2];
 
-                Mat m2 = OpenCvSharp.Extensions.BitmapConverter.ToMat(ObjectSearchBitmap);
-                BGR = m2.Split();
+                Mat matObjectToFind = OpenCvSharp.Extensions.BitmapConverter.ToMat(ObjectSearchBitmap);
+
+
+                BGR = matObjectToFind.Split();
                 Mat BlueTarget = BGR[0];
                 Mat GreenTarget = BGR[1];
                 Mat RedTarget = BGR[2];
@@ -799,6 +806,7 @@ namespace AppTestStudio
                         ObjectTarget = RedTarget;
                         break;
                 }
+
                 try
                 {
                     Cv2.MatchTemplate(SearchTarget, ObjectTarget, res, TemplateMatchModes.CCoeffNormed);
@@ -808,13 +816,18 @@ namespace AppTestStudio
                     game.Log("Search Failure, possible resolution mismatch");
                     return false;
                 }
-
+  
                 OpenCvSharp.Point p = new OpenCvSharp.Point();
                 OpenCvSharp.Point DetectedPoint = new OpenCvSharp.Point();
+
+                
                 Cv2.MinMaxLoc(res, out p, out DetectedPoint);
 
                 Mat.Indexer<Single> indexer = res.GetGenericIndexer<Single>();
                 detectedThreashold = indexer[DetectedPoint.Y, DetectedPoint.X];
+
+
+
 
                 long iObjectThreshold = ObjectThreshold;
                 if (iObjectThreshold == 0)
@@ -825,9 +838,11 @@ namespace AppTestStudio
                 centerX = DetectedPoint.X + (ObjectSearchBitmap.Width / 2);
                 centerY = DetectedPoint.Y + (ObjectSearchBitmap.Height / 2);
 
+                long ImageSearchTime = WatchImageSearchTime.ElapsedMilliseconds;
+
                 if (detectedThreashold >= ((float)iObjectThreshold / 100))
                 {
-                    game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + anchorRectangle.X) + "  y =" + (centerY + anchorRectangle.Y));
+                    game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + anchorRectangle.X) + ",  y =" + (centerY + anchorRectangle.Y) + ", Seek=" + ImageSearchTime + "ms");
                     //'TB.AddReturnTrue()
 
                     if (FileName.Length == 0)
