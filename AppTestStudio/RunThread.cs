@@ -91,7 +91,7 @@ namespace AppTestStudio
             API.DeleteObject(hBitmap);
 
             Success = true;
-            
+
             return bmp;
         }
 
@@ -256,7 +256,7 @@ namespace AppTestStudio
                             {
                                 if (Game.MouseMode == MouseMode.Active)
                                 {
-                                    if (node.FromCurrentMousePos )
+                                    if (node.FromCurrentMousePos)
                                     {
                                         Game.MoveMouseBeforeAction = false;
                                         API.GetCursorPos(out API.Point point);
@@ -363,21 +363,21 @@ namespace AppTestStudio
                         Game.Log(node.Name + " Taking Screenshot");
                     }
 
+                    if (node.IsLimited)
+                    {
+                        AfterCompletionType Result = CheckLimit(node);
+                        switch (Result)
+                        {
+                            case AfterCompletionType.ContinueProcess:
+                                // do nothing
+                                break;
+                            default:
+                                return Result;
+                        }
+                    }
+
                     if (node.IsTrue(bmp, Game, ref centerX, ref centerY, ref Offset, ref DetectedThreashold))
                     {
-                        if (node.IsLimited)
-                        {
-                            AfterCompletionType Result = CheckLimit(node);
-                            switch (Result)
-                            {
-                                case AfterCompletionType.ContinueProcess:
-                                    // do nothing
-                                    break;
-                                default:
-                                    return Result;
-                            }
-                        }
-
                         if (node.IsColorPoint == false)
                         {
                             // is Object search.
@@ -446,7 +446,7 @@ namespace AppTestStudio
                             if (node.Nodes.Count > 0)
                             {
                                 TargetIndex = node.Nodes.Count - 1;
-                            }                      
+                            }
                             else
                             {
                                 Debug.Assert(false);
@@ -613,7 +613,7 @@ namespace AppTestStudio
             GameNodeGame Game = node.GetGameNodeGame();
             Game.Log(node.GameNodeName + " Recycle");
             StopThreadCloseWindow(node as GameNode, WindowHandle, false);
-            
+
             Game.Log("Waiting 15 sec... to restart");
             Thread.Sleep(15000);
             Game.Log("Restarting: " + Game.TargetWindow);
@@ -846,8 +846,8 @@ namespace AppTestStudio
                 {
                     Thread.Sleep(1000);
                 }
-                
-                
+
+
 
                 // Clean up Screenshot
                 if (bmp.IsNothing())
