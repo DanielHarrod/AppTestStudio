@@ -1584,8 +1584,6 @@ namespace AppTestStudio
 
         private void LoadInstance(GameNodeGame gameNode)
         {
-
-
             if (ThreadManager.Game.IsSomething())
             {
                 ThreadManager.Game.Thread.Abort();
@@ -1594,6 +1592,8 @@ namespace AppTestStudio
 
             Log("Starting Instance " + gameNode.GameNodeName);
             GameNodeGame GameCopy = gameNode.CloneMe();
+
+            tvRun.Nodes.Add( GameCopy as TreeNode);
 
             RunThread RT = new RunThread(GameCopy);
             RT.ThreadManager = ThreadManager;
