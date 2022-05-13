@@ -120,8 +120,6 @@ namespace AppTestStudio
 
         private void frmMain_Load(object sender, EventArgs e)
         {
-
-
             ShowTermsOfServiceIfNecessary();
 
             ThreadManager.Load();
@@ -204,6 +202,9 @@ namespace AppTestStudio
 
             // Instructions for minimal export 
             lblPictureMissing.Text = "This node did not include the reference picture - typically from a minimal export. \n\n If this node is true during a Run, a screenshot will automatically be linked.  \n\nYou can also manually press 'take a screenshot'.  \n\nWhen minimal exports are matched during a 'Run', a link message will be displayed in the log.  If images are linked, don't forget to save the project so the images can be loaded and managed.";
+
+            tableLayoutPanelRunLabels.BackColor = Color.FromArgb(37, 37, 38);
+            tableLayoutPanelRunValues.BackColor = Color.FromArgb(37, 37, 38);
         }
 
         private void ShowTermsOfServiceIfNecessary()
@@ -1041,7 +1042,7 @@ namespace AppTestStudio
                     //Properties Group
                     chkPropertiesRepeatsUntilFalse.Visible = false;
                     grpPropertiesRepeatsUntilFalse.Visible = false;
-                    
+
 
                     //End - Properties Group
 
@@ -1142,7 +1143,7 @@ namespace AppTestStudio
                             break;
                     }
 
-                    if (rdoModeRangeClick.Checked )
+                    if (rdoModeRangeClick.Checked)
                     {
                         chkFromCurrentMousePos.Visible = true;
                     }
@@ -1593,7 +1594,12 @@ namespace AppTestStudio
             Log("Starting Instance " + gameNode.GameNodeName);
             GameNodeGame GameCopy = gameNode.CloneMe();
 
-            tvRun.Nodes.Add( GameCopy as TreeNode);
+            // It is kinda cool to see all the old runs, but it's not self discoverable
+            tvRun.Nodes.Clear();
+
+            // Copy the Runtime tree to the tvRun tab.
+            tvRun.Nodes.Add(GameCopy as TreeNode);
+            tvRun.ExpandAll();
 
             RunThread RT = new RunThread(GameCopy);
             RT.ThreadManager = ThreadManager;
@@ -3112,7 +3118,7 @@ namespace AppTestStudio
 
             if (ThreadManager.Game.IsSomething())
             {
-     
+
                 int OriginalCount = ThreadManager.Game.StatusControl.Count;
                 while (ThreadManager.Game.StatusControl.Count > 0)
                 {
@@ -4502,16 +4508,16 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 ArchaicSave();
-            }            
+            }
 
             if (rdoModeRangeClick.Checked)
             {
                 panelRightSwipeProperties.Visible = false;
-                if ( PanelLoadNode.ActionType == ActionType.Action)
-                { 
-                    chkFromCurrentMousePos.Visible = true; 
+                if (PanelLoadNode.ActionType == ActionType.Action)
+                {
+                    chkFromCurrentMousePos.Visible = true;
                 }
-                
+
             }
         }
 
@@ -7382,6 +7388,135 @@ namespace AppTestStudio
                 GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
                 GameNode.FromCurrentMousePos = chkFromCurrentMousePos.Checked;
             }
+        }
+
+        private void tvRun_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            GameNode Node = e.Node as GameNode;
+            if (Node.IsNothing())
+            {
+                return;
+            }
+
+            if (lblRunLabel1.Text == lblRunLabel1.Name)
+            {
+                lblRunLabel1.Text = "Name";
+                lblRunLabel2.Text = "Node Type";
+                lblRunLabel3.Text = "Node Sub Type";
+                lblRunLabel4.Text = "Enabled";
+                lblRunLabel5.Text = "Actions";
+            }
+
+            lblRunValue3.Text = "";
+            lblRunValue5.Text = "";
+
+
+            lblRunValue1.Text = Node.Name;
+
+
+            lblRunValue2.Text = Node.GameNodeType.ToString();
+
+
+            lblRunValue4.Text = "True";
+
+
+            switch (Node.GameNodeType)
+            {
+                case GameNodeType.Workspace:
+
+                    break;
+                case GameNodeType.Games:
+
+                    break;
+                case GameNodeType.Game:
+                    break;
+                case GameNodeType.Events:
+                    break;
+                case GameNodeType.Action:
+                    GameNodeAction Action = e.Node as GameNodeAction;
+
+                    lblRunValue4.Text = Action.Enabled.ToString();
+
+                    lblRunValue3.Text = Action.ActionType.ToString();
+
+                    lblRunValue5.Text = Action.RuntimeActionCount.ToString();
+                    switch (Action.ActionType)
+                    {
+                        case AppTestStudio.ActionType.RNGContainer:
+                            break;
+                        case ActionType.RNG:
+                            break;
+                        case ActionType.Event:
+                            lblRunValue2.Text = "Event";
+                            if (Action.IsColorPoint)
+                            {
+                                if (Action.ClickList.Count == 0)
+                                {
+                                    lblRunValue3.Text = "Group";
+                                }
+                                else
+                                {
+                                    lblRunValue3.Text = "Color Point";
+                                }
+
+                            }
+                            else
+                            {
+                                lblRunValue3.Text = "Object Search";
+                            }
+                            break;
+                        case ActionType.Action:
+
+                            if (Action.IsParentObjectSearch())
+                            {
+                                if (Action.Mode == Mode.ClickDragRelease)
+                                {
+
+                                }
+                            }
+
+                            switch (Action.Mode)
+                            {
+                                case Mode.RangeClick:
+                                    lblRunValue3.Text = lblRunValue3.Text + " " + Mode.RangeClick.ToString();
+                                    break;
+                                case Mode.ClickDragRelease:
+                                    lblRunValue3.Text = lblRunValue3.Text + " " + Mode.ClickDragRelease.ToString();
+                                    if (Action.IsParentObjectSearch())
+                                    {
+
+                                    }
+                                    else
+                                    {
+                                    }
+                                    // do nothing
+                                    break;
+                                default:
+                                    // do nothing
+                                    break;
+                            }
+
+                            break;
+                        default:
+                            break;
+                    }
+                    break;
+                case GameNodeType.Objects:
+                    break;
+                case GameNodeType.ObjectScreenshot:
+                    break;
+                case GameNodeType.Object:
+                    break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+
+        }
+
+        private void lblRunValue6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

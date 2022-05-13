@@ -260,10 +260,7 @@ namespace AppTestStudio
         public int ClickDragReleaseEndHeight { get; set; }
         public int ClickDragReleaseEndWidth { get; set; }
         public int ClickDragReleaseVelocity { get; set; }
-
-        public int ThreadMatchCount { get; set; }
         public Boolean RuntimeOncePerSession { get; set; }
-
         public Boolean RuntimeWaitFirst { get; set; }
         public long RuntimeIterationsLeft { get; set; }
         public DateTime RuntimeNextAllowedTime { get; set; }
@@ -328,6 +325,9 @@ namespace AppTestStudio
 
         // Don't Clone
         public String LastLogicChoice { get; set; }
+
+        // Don't Clone
+        public long RuntimeActionCount { get; set; }
 
         public GameNodeAction CloneMe()
         {

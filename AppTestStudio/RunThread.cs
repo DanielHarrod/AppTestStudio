@@ -274,6 +274,8 @@ namespace AppTestStudio
 
                                 ThreadManager.IncrementClickCount();
 
+                                node.RuntimeActionCount++;
+
                                 // Draw solution marker
                                 if (Game.SaveVideo)
                                 {
@@ -311,11 +313,13 @@ namespace AppTestStudio
                             }
                             else
                             {
+
                                 Game.Log("Swipe from ( x=" + CDRResult.StartX + ",y = " + CDRResult.StartY + " to x=" + CDRResult.EndX + ",y=" + CDRResult.EndY + ")");
                                 Utils.ClickDragRelease(WindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, Game.WindowAction, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
                                 Game.MouseX = (short)CDRResult.EndX;
                                 Game.MouseY = (short)CDRResult.EndY;
                                 ThreadManager.IncrementClickDragRelease();
+                                node.RuntimeActionCount++;
                                 //'if (UseThreadBitmap ) {
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)
                                 //'}
@@ -384,7 +388,6 @@ namespace AppTestStudio
                             // Draw solution marker
                             if (Game.SaveVideo)
                             {
-
                                 Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
                             }
 
@@ -396,7 +399,7 @@ namespace AppTestStudio
                             node.SendBitmapToProject(bmp, Game);
                         }
 
-                        node.ThreadMatchCount++;
+                        node.RuntimeActionCount++;
 
                         //'Track the Last Node Event
                         Game.AbsoluteLastNode = node;
@@ -404,12 +407,9 @@ namespace AppTestStudio
 
                         if (node.RepeatsUntilFalse)
                         {
-
-
                             if (CurrentRepeatsUntilFalseLimit > 0)
                             {
                                 AlwaysTakeScreenshot = true;
-
 
                                 // Process children and throw away the result
                                 foreach (GameNodeAction ChildNode in node.Nodes)
