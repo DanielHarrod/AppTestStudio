@@ -203,8 +203,8 @@ namespace AppTestStudio
             // Instructions for minimal export 
             lblPictureMissing.Text = "This node did not include the reference picture - typically from a minimal export. \n\n If this node is true during a Run, a screenshot will automatically be linked.  \n\nYou can also manually press 'take a screenshot'.  \n\nWhen minimal exports are matched during a 'Run', a link message will be displayed in the log.  If images are linked, don't forget to save the project so the images can be loaded and managed.";
 
-            tableLayoutPanelRunLabels.BackColor = Color.FromArgb(37, 37, 38);
-            tableLayoutPanelRunValues.BackColor = Color.FromArgb(37, 37, 38);
+            tableLayoutPanelRunLabels.BackColor = Color.FromArgb(60, 60, 60);
+            tableLayoutPanelRunValues.BackColor = Color.FromArgb(60, 60, 60);
         }
 
         private void ShowTermsOfServiceIfNecessary()
@@ -7404,11 +7404,16 @@ namespace AppTestStudio
                 lblRunLabel2.Text = "Node Type";
                 lblRunLabel3.Text = "Node Sub Type";
                 lblRunLabel4.Text = "Enabled";
-                lblRunLabel5.Text = "Actions";
+                lblRunLabel5.Text = "Activity Count";
+                lblRunLabel6.Text = "Is Limited";
+                lblRunLabel7.Text = "Wait Type";
+                lblRunLabel8.Text = "Resolution";
             }
 
             lblRunValue3.Text = "";
             lblRunValue5.Text = "";
+            lblRunValue7.Text = "";
+            lblRunValue8.Text = "";
 
 
             lblRunValue1.Text = Node.Name;
@@ -7419,14 +7424,11 @@ namespace AppTestStudio
 
             lblRunValue4.Text = "True";
 
-
             switch (Node.GameNodeType)
             {
                 case GameNodeType.Workspace:
-
                     break;
                 case GameNodeType.Games:
-
                     break;
                 case GameNodeType.Game:
                     break;
@@ -7440,6 +7442,29 @@ namespace AppTestStudio
                     lblRunValue3.Text = Action.ActionType.ToString();
 
                     lblRunValue5.Text = Action.RuntimeActionCount.ToString();
+
+                    lblRunValue6.Text = Action.IsLimited.ToString();
+
+                    lblRunValue8.Text = Action.ResolutionWidth + "x" + Action.ResolutionHeight;
+
+                    if (Action.IsLimited)
+                    {
+                        lblRunValue7.Text = Action.WaitType.ToString();
+
+                        switch (Action.WaitType)
+                        {
+                            case WaitType.Iteration:
+
+                                break;
+                            case WaitType.Time:
+                                break;
+                            case WaitType.Session:
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+
                     switch (Action.ActionType)
                     {
                         case AppTestStudio.ActionType.RNGContainer:
@@ -7514,9 +7539,54 @@ namespace AppTestStudio
 
         }
 
-        private void lblRunValue6_Click(object sender, EventArgs e)
+        private void lblRunValue8_MouseDown(object sender, MouseEventArgs e)
         {
+            if (e.Button == MouseButtons.Right)
+            {
+                int x = lblRunValue8.Location.X;
+                int y = lblRunValue8.Location.Y;
 
+                // Move over so you can still see the value
+                x = x + 40;
+
+                contextMenuStripResetResolution.Show(tableLayoutPanelRunValues, x, y);
+            }
+        }
+
+        private void toolStripMenuItemResetResolution_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+                GameNode gameNode = tvRun.SelectedNode as GameNode;
+                if (gameNode.IsSomething())
+                {
+                    GameNodeAction gameNodeAction = gameNode as GameNodeAction;
+
+                    GameNodeGame game = gameNode.GetGameNodeGame();
+
+                    IntPtr MainWindowHandle = game.GetWindowHandleByWindowName();
+
+                    if (MainWindowHandle.ToInt32() == 0)
+                    {
+                        Log("Reset Resolution: Unable to find Window");
+                        return;
+                    }
+
+                    if (gameNodeAction.ResolutionHeight <= 0 || gameNodeAction.ResolutionWidth <= 0)
+                    {
+                        Log("Reset Resolution: Height or width is invalid: " + gameNodeAction.ResolutionWidth + "x" + gameNodeAction.ResolutionHeight);
+                    }
+
+                    Log("Attempting to resize window to " + gameNodeAction.ResolutionWidth + "x" + gameNodeAction.ResolutionHeight);
+                    API.MoveWindow(MainWindowHandle, 0, 0, gameNodeAction.ResolutionWidth, gameNodeAction.ResolutionHeight, true);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message.ToString());
+                throw;
+            }
         }
     }
 }
