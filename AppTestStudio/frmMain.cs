@@ -7408,12 +7408,14 @@ namespace AppTestStudio
                 lblRunLabel6.Text = "Is Limited";
                 lblRunLabel7.Text = "Wait Type";
                 lblRunLabel8.Text = "Resolution";
+                lblRunLabel9.Text = "Limit Control";
             }
 
             lblRunValue3.Text = "";
             lblRunValue5.Text = "";
             lblRunValue7.Text = "";
             lblRunValue8.Text = "";
+            lblRunValue9.Text = "";
 
 
             lblRunValue1.Text = Node.Name;
@@ -7451,14 +7453,21 @@ namespace AppTestStudio
                     {
                         lblRunValue7.Text = Action.WaitType.ToString();
 
+                        if (Action.LimitRepeats)
+                        {
+                            lblRunValue7.Text = lblRunValue7.Text + " (Repeats)";
+                        }
+
                         switch (Action.WaitType)
                         {
                             case WaitType.Iteration:
-
+                                lblRunValue9.Text = Action.RuntimeIterationsLeft.ToString();
                                 break;
                             case WaitType.Time:
+                                lblRunValue9.Text = Action.RuntimeNextAllowedTime.ToString();
                                 break;
                             case WaitType.Session:
+                                lblRunValue9.Text = Action.RuntimeOncePerSession.ToString();
                                 break;
                             default:
                                 break;
