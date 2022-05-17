@@ -71,7 +71,39 @@
             this.txtFilter = new System.Windows.Forms.TextBox();
             this.label93 = new System.Windows.Forms.Label();
             this.tabRun = new System.Windows.Forms.TabPage();
+            this.splitContainerRunTab = new System.Windows.Forms.SplitContainer();
             this.tvRun = new System.Windows.Forms.TreeView();
+            this.splitContainerRunProperties = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutPanelRunLabels = new System.Windows.Forms.TableLayoutPanel();
+            this.lblRunLabel11 = new System.Windows.Forms.Label();
+            this.lblRunLabel12 = new System.Windows.Forms.Label();
+            this.lblRunLabel13 = new System.Windows.Forms.Label();
+            this.lblRunLabel10 = new System.Windows.Forms.Label();
+            this.lblRunLabel9 = new System.Windows.Forms.Label();
+            this.lblRunLabel7 = new System.Windows.Forms.Label();
+            this.lblRunLabel14 = new System.Windows.Forms.Label();
+            this.lblRunLabel2 = new System.Windows.Forms.Label();
+            this.lblRunLabel8 = new System.Windows.Forms.Label();
+            this.lblRunLabel1 = new System.Windows.Forms.Label();
+            this.lblRunLabel3 = new System.Windows.Forms.Label();
+            this.lblRunLabel4 = new System.Windows.Forms.Label();
+            this.lblRunLabel5 = new System.Windows.Forms.Label();
+            this.lblRunLabel6 = new System.Windows.Forms.Label();
+            this.tableLayoutPanelRunValues = new System.Windows.Forms.TableLayoutPanel();
+            this.lblRunValue14 = new System.Windows.Forms.Label();
+            this.lblRunValue7 = new System.Windows.Forms.Label();
+            this.lblRunValue1 = new System.Windows.Forms.Label();
+            this.lblRunValue2 = new System.Windows.Forms.Label();
+            this.lblRunValue8 = new System.Windows.Forms.Label();
+            this.lblRunValue3 = new System.Windows.Forms.Label();
+            this.lblRunValue12 = new System.Windows.Forms.Label();
+            this.lblRunValue9 = new System.Windows.Forms.Label();
+            this.lblRunValue13 = new System.Windows.Forms.Label();
+            this.lblRunValue4 = new System.Windows.Forms.Label();
+            this.lblRunValue5 = new System.Windows.Forms.Label();
+            this.lblRunValue11 = new System.Windows.Forms.Label();
+            this.lblRunValue10 = new System.Windows.Forms.Label();
+            this.lblRunValue6 = new System.Windows.Forms.Label();
             this.tabSchedule = new System.Windows.Forms.TabPage();
             this.PanelColorEvent = new System.Windows.Forms.Panel();
             this.tableColorEvent = new System.Windows.Forms.TableLayoutPanel();
@@ -515,38 +547,6 @@
             this.toolStripInstances = new System.Windows.Forms.ToolStripDropDownButton();
             this.dlgApplicationPicker = new System.Windows.Forms.OpenFileDialog();
             this.button1 = new System.Windows.Forms.Button();
-            this.splitContainerRunTab = new System.Windows.Forms.SplitContainer();
-            this.tableLayoutPanelRunValues = new System.Windows.Forms.TableLayoutPanel();
-            this.lblRunLabel1 = new System.Windows.Forms.Label();
-            this.lblRunLabel2 = new System.Windows.Forms.Label();
-            this.lblRunValue1 = new System.Windows.Forms.Label();
-            this.lblRunValue2 = new System.Windows.Forms.Label();
-            this.lblRunLabel3 = new System.Windows.Forms.Label();
-            this.lblRunValue3 = new System.Windows.Forms.Label();
-            this.lblRunLabel4 = new System.Windows.Forms.Label();
-            this.lblRunValue4 = new System.Windows.Forms.Label();
-            this.lblRunLabel5 = new System.Windows.Forms.Label();
-            this.lblRunValue5 = new System.Windows.Forms.Label();
-            this.lblRunLabel6 = new System.Windows.Forms.Label();
-            this.lblRunValue6 = new System.Windows.Forms.Label();
-            this.splitContainerRunProperties = new System.Windows.Forms.SplitContainer();
-            this.tableLayoutPanelRunLabels = new System.Windows.Forms.TableLayoutPanel();
-            this.lblRunValue7 = new System.Windows.Forms.Label();
-            this.lblRunLabel7 = new System.Windows.Forms.Label();
-            this.lblRunLabel12 = new System.Windows.Forms.Label();
-            this.lblRunLabel13 = new System.Windows.Forms.Label();
-            this.lblRunValue8 = new System.Windows.Forms.Label();
-            this.lblRunLabel14 = new System.Windows.Forms.Label();
-            this.lblRunLabel8 = new System.Windows.Forms.Label();
-            this.lblRunValue13 = new System.Windows.Forms.Label();
-            this.lblRunValue9 = new System.Windows.Forms.Label();
-            this.lblRunValue12 = new System.Windows.Forms.Label();
-            this.lblRunValue10 = new System.Windows.Forms.Label();
-            this.lblRunValue11 = new System.Windows.Forms.Label();
-            this.lblRunLabel9 = new System.Windows.Forms.Label();
-            this.lblRunLabel10 = new System.Windows.Forms.Label();
-            this.lblRunLabel11 = new System.Windows.Forms.Label();
-            this.lblRunValue14 = new System.Windows.Forms.Label();
             this.contextMenuStripResetResolution = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.toolStripMenuItemResetResolution = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
@@ -563,6 +563,16 @@
             this.tableLayoutPanelDesign.SuspendLayout();
             this.panel3.SuspendLayout();
             this.tabRun.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRunTab)).BeginInit();
+            this.splitContainerRunTab.Panel1.SuspendLayout();
+            this.splitContainerRunTab.Panel2.SuspendLayout();
+            this.splitContainerRunTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRunProperties)).BeginInit();
+            this.splitContainerRunProperties.Panel1.SuspendLayout();
+            this.splitContainerRunProperties.Panel2.SuspendLayout();
+            this.splitContainerRunProperties.SuspendLayout();
+            this.tableLayoutPanelRunLabels.SuspendLayout();
+            this.tableLayoutPanelRunValues.SuspendLayout();
             this.PanelColorEvent.SuspendLayout();
             this.tableColorEvent.SuspendLayout();
             this.panelColorEventChild1.SuspendLayout();
@@ -689,16 +699,6 @@
             this.mnuObjects.SuspendLayout();
             this.appTestStudioToolStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRunTab)).BeginInit();
-            this.splitContainerRunTab.Panel1.SuspendLayout();
-            this.splitContainerRunTab.Panel2.SuspendLayout();
-            this.splitContainerRunTab.SuspendLayout();
-            this.tableLayoutPanelRunValues.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRunProperties)).BeginInit();
-            this.splitContainerRunProperties.Panel1.SuspendLayout();
-            this.splitContainerRunProperties.Panel2.SuspendLayout();
-            this.splitContainerRunProperties.SuspendLayout();
-            this.tableLayoutPanelRunLabels.SuspendLayout();
             this.contextMenuStripResetResolution.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -854,7 +854,7 @@
             this.tabDesign.Controls.Add(this.tableLayoutPanelDesign);
             this.tabDesign.Location = new System.Drawing.Point(4, 22);
             this.tabDesign.Name = "tabDesign";
-            this.tabDesign.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabDesign.Padding = new System.Windows.Forms.Padding(3);
             this.tabDesign.Size = new System.Drawing.Size(248, 717);
             this.tabDesign.TabIndex = 0;
             this.tabDesign.Text = "Design";
@@ -869,7 +869,7 @@
             this.tableLayoutPanelDesign.Controls.Add(this.panel3, 0, 0);
             this.tableLayoutPanelDesign.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelDesign.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanelDesign.Margin = new System.Windows.Forms.Padding(1, 1, 1, 1);
+            this.tableLayoutPanelDesign.Margin = new System.Windows.Forms.Padding(1);
             this.tableLayoutPanelDesign.Name = "tableLayoutPanelDesign";
             this.tableLayoutPanelDesign.RowCount = 3;
             this.tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 32F));
@@ -985,24 +985,458 @@
             this.tabRun.Controls.Add(this.splitContainerRunTab);
             this.tabRun.Location = new System.Drawing.Point(4, 22);
             this.tabRun.Name = "tabRun";
-            this.tabRun.Padding = new System.Windows.Forms.Padding(3, 3, 3, 3);
+            this.tabRun.Padding = new System.Windows.Forms.Padding(3);
             this.tabRun.Size = new System.Drawing.Size(248, 717);
             this.tabRun.TabIndex = 1;
             this.tabRun.Text = "Run";
             this.tabRun.UseVisualStyleBackColor = true;
             // 
+            // splitContainerRunTab
+            // 
+            this.splitContainerRunTab.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerRunTab.Location = new System.Drawing.Point(3, 3);
+            this.splitContainerRunTab.Name = "splitContainerRunTab";
+            this.splitContainerRunTab.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerRunTab.Panel1
+            // 
+            this.splitContainerRunTab.Panel1.AutoScroll = true;
+            this.splitContainerRunTab.Panel1.Controls.Add(this.tvRun);
+            // 
+            // splitContainerRunTab.Panel2
+            // 
+            this.splitContainerRunTab.Panel2.AutoScroll = true;
+            this.splitContainerRunTab.Panel2.Controls.Add(this.splitContainerRunProperties);
+            this.splitContainerRunTab.Size = new System.Drawing.Size(242, 711);
+            this.splitContainerRunTab.SplitterDistance = 355;
+            this.splitContainerRunTab.TabIndex = 1;
+            // 
             // tvRun
             // 
+            this.tvRun.BackColor = System.Drawing.SystemColors.Control;
             this.tvRun.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tvRun.ImageIndex = 0;
             this.tvRun.ImageList = this.ImageList1;
             this.tvRun.Location = new System.Drawing.Point(0, 0);
-            this.tvRun.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tvRun.Margin = new System.Windows.Forms.Padding(2);
             this.tvRun.Name = "tvRun";
             this.tvRun.SelectedImageIndex = 0;
             this.tvRun.Size = new System.Drawing.Size(242, 355);
             this.tvRun.TabIndex = 0;
             this.tvRun.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.tvRun_AfterSelect);
+            // 
+            // splitContainerRunProperties
+            // 
+            this.splitContainerRunProperties.Dock = System.Windows.Forms.DockStyle.Top;
+            this.splitContainerRunProperties.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerRunProperties.Name = "splitContainerRunProperties";
+            // 
+            // splitContainerRunProperties.Panel1
+            // 
+            this.splitContainerRunProperties.Panel1.Controls.Add(this.tableLayoutPanelRunLabels);
+            // 
+            // splitContainerRunProperties.Panel2
+            // 
+            this.splitContainerRunProperties.Panel2.Controls.Add(this.tableLayoutPanelRunValues);
+            this.splitContainerRunProperties.Size = new System.Drawing.Size(242, 352);
+            this.splitContainerRunProperties.SplitterDistance = 100;
+            this.splitContainerRunProperties.SplitterWidth = 1;
+            this.splitContainerRunProperties.TabIndex = 1;
+            // 
+            // tableLayoutPanelRunLabels
+            // 
+            this.tableLayoutPanelRunLabels.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tableLayoutPanelRunLabels.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanelRunLabels.ColumnCount = 1;
+            this.tableLayoutPanelRunLabels.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel11, 0, 10);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel12, 0, 11);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel13, 0, 12);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel10, 0, 9);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel9, 0, 8);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel7, 0, 6);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel14, 0, 13);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel2, 0, 1);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel8, 0, 7);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel1, 0, 0);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel3, 0, 2);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel4, 0, 3);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel5, 0, 4);
+            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel6, 0, 5);
+            this.tableLayoutPanelRunLabels.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelRunLabels.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelRunLabels.Name = "tableLayoutPanelRunLabels";
+            this.tableLayoutPanelRunLabels.RowCount = 15;
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunLabels.Size = new System.Drawing.Size(100, 352);
+            this.tableLayoutPanelRunLabels.TabIndex = 1;
+            // 
+            // lblRunLabel11
+            // 
+            this.lblRunLabel11.AutoSize = true;
+            this.lblRunLabel11.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel11.Location = new System.Drawing.Point(4, 214);
+            this.lblRunLabel11.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel11.Name = "lblRunLabel11";
+            this.lblRunLabel11.Size = new System.Drawing.Size(75, 13);
+            this.lblRunLabel11.TabIndex = 13;
+            this.lblRunLabel11.Text = "lblRunLabel11";
+            // 
+            // lblRunLabel12
+            // 
+            this.lblRunLabel12.AutoSize = true;
+            this.lblRunLabel12.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel12.Location = new System.Drawing.Point(4, 235);
+            this.lblRunLabel12.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel12.Name = "lblRunLabel12";
+            this.lblRunLabel12.Size = new System.Drawing.Size(75, 13);
+            this.lblRunLabel12.TabIndex = 2;
+            this.lblRunLabel12.Text = "lblRunLabel12";
+            // 
+            // lblRunLabel13
+            // 
+            this.lblRunLabel13.AutoSize = true;
+            this.lblRunLabel13.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel13.Location = new System.Drawing.Point(4, 256);
+            this.lblRunLabel13.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel13.Name = "lblRunLabel13";
+            this.lblRunLabel13.Size = new System.Drawing.Size(75, 13);
+            this.lblRunLabel13.TabIndex = 3;
+            this.lblRunLabel13.Text = "lblRunLabel13";
+            // 
+            // lblRunLabel10
+            // 
+            this.lblRunLabel10.AutoSize = true;
+            this.lblRunLabel10.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel10.Location = new System.Drawing.Point(4, 193);
+            this.lblRunLabel10.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel10.Name = "lblRunLabel10";
+            this.lblRunLabel10.Size = new System.Drawing.Size(75, 13);
+            this.lblRunLabel10.TabIndex = 12;
+            this.lblRunLabel10.Text = "lblRunLabel10";
+            // 
+            // lblRunLabel9
+            // 
+            this.lblRunLabel9.AutoSize = true;
+            this.lblRunLabel9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel9.Location = new System.Drawing.Point(4, 172);
+            this.lblRunLabel9.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel9.Name = "lblRunLabel9";
+            this.lblRunLabel9.Size = new System.Drawing.Size(69, 13);
+            this.lblRunLabel9.TabIndex = 11;
+            this.lblRunLabel9.Text = "lblRunLabel9";
+            // 
+            // lblRunLabel7
+            // 
+            this.lblRunLabel7.AutoSize = true;
+            this.lblRunLabel7.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel7.Location = new System.Drawing.Point(4, 130);
+            this.lblRunLabel7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel7.Name = "lblRunLabel7";
+            this.lblRunLabel7.Size = new System.Drawing.Size(69, 13);
+            this.lblRunLabel7.TabIndex = 1;
+            this.lblRunLabel7.Text = "lblRunLabel7";
+            // 
+            // lblRunLabel14
+            // 
+            this.lblRunLabel14.AutoSize = true;
+            this.lblRunLabel14.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel14.Location = new System.Drawing.Point(4, 277);
+            this.lblRunLabel14.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel14.Name = "lblRunLabel14";
+            this.lblRunLabel14.Size = new System.Drawing.Size(75, 13);
+            this.lblRunLabel14.TabIndex = 5;
+            this.lblRunLabel14.Text = "lblRunLabel14";
+            // 
+            // lblRunLabel2
+            // 
+            this.lblRunLabel2.AutoSize = true;
+            this.lblRunLabel2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel2.Location = new System.Drawing.Point(4, 25);
+            this.lblRunLabel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel2.Name = "lblRunLabel2";
+            this.lblRunLabel2.Size = new System.Drawing.Size(69, 13);
+            this.lblRunLabel2.TabIndex = 1;
+            this.lblRunLabel2.Text = "lblRunLabel2";
+            // 
+            // lblRunLabel8
+            // 
+            this.lblRunLabel8.AutoSize = true;
+            this.lblRunLabel8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel8.Location = new System.Drawing.Point(4, 151);
+            this.lblRunLabel8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel8.Name = "lblRunLabel8";
+            this.lblRunLabel8.Size = new System.Drawing.Size(69, 13);
+            this.lblRunLabel8.TabIndex = 6;
+            this.lblRunLabel8.Text = "lblRunLabel8";
+            // 
+            // lblRunLabel1
+            // 
+            this.lblRunLabel1.AutoSize = true;
+            this.lblRunLabel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel1.Location = new System.Drawing.Point(4, 4);
+            this.lblRunLabel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel1.Name = "lblRunLabel1";
+            this.lblRunLabel1.Size = new System.Drawing.Size(69, 13);
+            this.lblRunLabel1.TabIndex = 0;
+            this.lblRunLabel1.Text = "lblRunLabel1";
+            // 
+            // lblRunLabel3
+            // 
+            this.lblRunLabel3.AutoSize = true;
+            this.lblRunLabel3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel3.Location = new System.Drawing.Point(4, 46);
+            this.lblRunLabel3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel3.Name = "lblRunLabel3";
+            this.lblRunLabel3.Size = new System.Drawing.Size(69, 13);
+            this.lblRunLabel3.TabIndex = 4;
+            this.lblRunLabel3.Text = "lblRunLabel3";
+            // 
+            // lblRunLabel4
+            // 
+            this.lblRunLabel4.AutoSize = true;
+            this.lblRunLabel4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel4.Location = new System.Drawing.Point(4, 67);
+            this.lblRunLabel4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel4.Name = "lblRunLabel4";
+            this.lblRunLabel4.Size = new System.Drawing.Size(69, 13);
+            this.lblRunLabel4.TabIndex = 6;
+            this.lblRunLabel4.Text = "lblRunLabel4";
+            // 
+            // lblRunLabel5
+            // 
+            this.lblRunLabel5.AutoSize = true;
+            this.lblRunLabel5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel5.Location = new System.Drawing.Point(4, 88);
+            this.lblRunLabel5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel5.Name = "lblRunLabel5";
+            this.lblRunLabel5.Size = new System.Drawing.Size(69, 13);
+            this.lblRunLabel5.TabIndex = 8;
+            this.lblRunLabel5.Text = "lblRunLabel5";
+            // 
+            // lblRunLabel6
+            // 
+            this.lblRunLabel6.AutoSize = true;
+            this.lblRunLabel6.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunLabel6.Location = new System.Drawing.Point(4, 109);
+            this.lblRunLabel6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunLabel6.Name = "lblRunLabel6";
+            this.lblRunLabel6.Size = new System.Drawing.Size(69, 13);
+            this.lblRunLabel6.TabIndex = 10;
+            this.lblRunLabel6.Text = "lblRunLabel6";
+            // 
+            // tableLayoutPanelRunValues
+            // 
+            this.tableLayoutPanelRunValues.BackColor = System.Drawing.SystemColors.ControlDarkDark;
+            this.tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
+            this.tableLayoutPanelRunValues.ColumnCount = 1;
+            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue14, 0, 13);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue7, 0, 6);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue1, 0, 0);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue2, 0, 1);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue8, 0, 7);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue3, 0, 2);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue12, 0, 11);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue9, 0, 8);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue13, 0, 12);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue4, 0, 3);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue5, 0, 4);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue11, 0, 10);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue10, 0, 9);
+            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue6, 0, 5);
+            this.tableLayoutPanelRunValues.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelRunValues.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanelRunValues.Name = "tableLayoutPanelRunValues";
+            this.tableLayoutPanelRunValues.RowCount = 17;
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelRunValues.Size = new System.Drawing.Size(141, 352);
+            this.tableLayoutPanelRunValues.TabIndex = 0;
+            // 
+            // lblRunValue14
+            // 
+            this.lblRunValue14.AutoSize = true;
+            this.lblRunValue14.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue14.Location = new System.Drawing.Point(4, 277);
+            this.lblRunValue14.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue14.Name = "lblRunValue14";
+            this.lblRunValue14.Size = new System.Drawing.Size(76, 13);
+            this.lblRunValue14.TabIndex = 12;
+            this.lblRunValue14.Text = "lblRunValue14";
+            // 
+            // lblRunValue7
+            // 
+            this.lblRunValue7.AutoSize = true;
+            this.lblRunValue7.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue7.Location = new System.Drawing.Point(4, 130);
+            this.lblRunValue7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue7.Name = "lblRunValue7";
+            this.lblRunValue7.Size = new System.Drawing.Size(70, 13);
+            this.lblRunValue7.TabIndex = 0;
+            this.lblRunValue7.Text = "lblRunValue7";
+            // 
+            // lblRunValue1
+            // 
+            this.lblRunValue1.AutoSize = true;
+            this.lblRunValue1.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue1.Location = new System.Drawing.Point(4, 4);
+            this.lblRunValue1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue1.Name = "lblRunValue1";
+            this.lblRunValue1.Size = new System.Drawing.Size(70, 13);
+            this.lblRunValue1.TabIndex = 2;
+            this.lblRunValue1.Text = "lblRunValue1";
+            // 
+            // lblRunValue2
+            // 
+            this.lblRunValue2.AutoSize = true;
+            this.lblRunValue2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue2.Location = new System.Drawing.Point(4, 25);
+            this.lblRunValue2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue2.Name = "lblRunValue2";
+            this.lblRunValue2.Size = new System.Drawing.Size(70, 13);
+            this.lblRunValue2.TabIndex = 3;
+            this.lblRunValue2.Text = "lblRunValue2";
+            // 
+            // lblRunValue8
+            // 
+            this.lblRunValue8.AutoSize = true;
+            this.lblRunValue8.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue8.Location = new System.Drawing.Point(4, 151);
+            this.lblRunValue8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue8.Name = "lblRunValue8";
+            this.lblRunValue8.Size = new System.Drawing.Size(70, 13);
+            this.lblRunValue8.TabIndex = 4;
+            this.lblRunValue8.Text = "lblRunValue8";
+            this.lblRunValue8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblRunValue8_MouseDown);
+            // 
+            // lblRunValue3
+            // 
+            this.lblRunValue3.AutoSize = true;
+            this.lblRunValue3.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue3.Location = new System.Drawing.Point(4, 46);
+            this.lblRunValue3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue3.Name = "lblRunValue3";
+            this.lblRunValue3.Size = new System.Drawing.Size(70, 13);
+            this.lblRunValue3.TabIndex = 5;
+            this.lblRunValue3.Text = "lblRunValue3";
+            // 
+            // lblRunValue12
+            // 
+            this.lblRunValue12.AutoSize = true;
+            this.lblRunValue12.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue12.Location = new System.Drawing.Point(4, 235);
+            this.lblRunValue12.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue12.Name = "lblRunValue12";
+            this.lblRunValue12.Size = new System.Drawing.Size(76, 13);
+            this.lblRunValue12.TabIndex = 9;
+            this.lblRunValue12.Text = "lblRunValue12";
+            // 
+            // lblRunValue9
+            // 
+            this.lblRunValue9.AutoSize = true;
+            this.lblRunValue9.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue9.Location = new System.Drawing.Point(4, 172);
+            this.lblRunValue9.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue9.Name = "lblRunValue9";
+            this.lblRunValue9.Size = new System.Drawing.Size(70, 13);
+            this.lblRunValue9.TabIndex = 8;
+            this.lblRunValue9.Text = "lblRunValue9";
+            // 
+            // lblRunValue13
+            // 
+            this.lblRunValue13.AutoSize = true;
+            this.lblRunValue13.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue13.Location = new System.Drawing.Point(4, 256);
+            this.lblRunValue13.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue13.Name = "lblRunValue13";
+            this.lblRunValue13.Size = new System.Drawing.Size(76, 13);
+            this.lblRunValue13.TabIndex = 7;
+            this.lblRunValue13.Text = "lblRunValue13";
+            // 
+            // lblRunValue4
+            // 
+            this.lblRunValue4.AutoSize = true;
+            this.lblRunValue4.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue4.Location = new System.Drawing.Point(4, 67);
+            this.lblRunValue4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue4.Name = "lblRunValue4";
+            this.lblRunValue4.Size = new System.Drawing.Size(70, 13);
+            this.lblRunValue4.TabIndex = 7;
+            this.lblRunValue4.Text = "lblRunValue4";
+            // 
+            // lblRunValue5
+            // 
+            this.lblRunValue5.AutoSize = true;
+            this.lblRunValue5.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue5.Location = new System.Drawing.Point(4, 88);
+            this.lblRunValue5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue5.Name = "lblRunValue5";
+            this.lblRunValue5.Size = new System.Drawing.Size(70, 13);
+            this.lblRunValue5.TabIndex = 9;
+            this.lblRunValue5.Text = "lblRunValue5";
+            // 
+            // lblRunValue11
+            // 
+            this.lblRunValue11.AutoSize = true;
+            this.lblRunValue11.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue11.Location = new System.Drawing.Point(4, 214);
+            this.lblRunValue11.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue11.Name = "lblRunValue11";
+            this.lblRunValue11.Size = new System.Drawing.Size(76, 13);
+            this.lblRunValue11.TabIndex = 11;
+            this.lblRunValue11.Text = "lblRunValue11";
+            // 
+            // lblRunValue10
+            // 
+            this.lblRunValue10.AutoSize = true;
+            this.lblRunValue10.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue10.Location = new System.Drawing.Point(4, 193);
+            this.lblRunValue10.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue10.Name = "lblRunValue10";
+            this.lblRunValue10.Size = new System.Drawing.Size(76, 13);
+            this.lblRunValue10.TabIndex = 10;
+            this.lblRunValue10.Text = "lblRunValue10";
+            // 
+            // lblRunValue6
+            // 
+            this.lblRunValue6.AutoSize = true;
+            this.lblRunValue6.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblRunValue6.Location = new System.Drawing.Point(4, 109);
+            this.lblRunValue6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
+            this.lblRunValue6.Name = "lblRunValue6";
+            this.lblRunValue6.Size = new System.Drawing.Size(70, 13);
+            this.lblRunValue6.TabIndex = 11;
+            this.lblRunValue6.Text = "lblRunValue6";
             // 
             // tabSchedule
             // 
@@ -1032,7 +1466,7 @@
             this.tableColorEvent.Controls.Add(this.FlowLayoutPanelColorEvent2, 2, 0);
             this.tableColorEvent.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableColorEvent.Location = new System.Drawing.Point(0, 0);
-            this.tableColorEvent.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.tableColorEvent.Margin = new System.Windows.Forms.Padding(2);
             this.tableColorEvent.Name = "tableColorEvent";
             this.tableColorEvent.RowCount = 1;
             this.tableColorEvent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -1054,7 +1488,7 @@
             this.panelColorEventChild1.Controls.Add(this.cmdAddSingleColorAtSingleLocationTakeASceenshot);
             this.panelColorEventChild1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelColorEventChild1.Location = new System.Drawing.Point(2, 2);
-            this.panelColorEventChild1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelColorEventChild1.Margin = new System.Windows.Forms.Padding(2);
             this.panelColorEventChild1.Name = "panelColorEventChild1";
             this.panelColorEventChild1.Size = new System.Drawing.Size(686, 691);
             this.panelColorEventChild1.TabIndex = 0;
@@ -1301,7 +1735,7 @@
             this.panelRightProperties.Controls.Add(this.lblResolution);
             this.panelRightProperties.Controls.Add(this.cmdPanelRightResolution);
             this.panelRightProperties.Location = new System.Drawing.Point(2, 20);
-            this.panelRightProperties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRightProperties.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightProperties.Name = "panelRightProperties";
             this.panelRightProperties.Size = new System.Drawing.Size(280, 87);
             this.panelRightProperties.TabIndex = 38;
@@ -1310,7 +1744,7 @@
             // 
             this.chkFromCurrentMousePos.AutoSize = true;
             this.chkFromCurrentMousePos.Location = new System.Drawing.Point(5, 44);
-            this.chkFromCurrentMousePos.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkFromCurrentMousePos.Margin = new System.Windows.Forms.Padding(2);
             this.chkFromCurrentMousePos.Name = "chkFromCurrentMousePos";
             this.chkFromCurrentMousePos.Size = new System.Drawing.Size(133, 17);
             this.chkFromCurrentMousePos.TabIndex = 13;
@@ -1322,7 +1756,7 @@
             // 
             this.chkPropertiesRepeatsUntilFalse.AutoSize = true;
             this.chkPropertiesRepeatsUntilFalse.Location = new System.Drawing.Point(151, 29);
-            this.chkPropertiesRepeatsUntilFalse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkPropertiesRepeatsUntilFalse.Margin = new System.Windows.Forms.Padding(2);
             this.chkPropertiesRepeatsUntilFalse.Name = "chkPropertiesRepeatsUntilFalse";
             this.chkPropertiesRepeatsUntilFalse.Size = new System.Drawing.Size(118, 17);
             this.chkPropertiesRepeatsUntilFalse.TabIndex = 11;
@@ -1335,9 +1769,9 @@
             this.grpPropertiesRepeatsUntilFalse.Controls.Add(this.lblPropertiesRepeatsUntilFalse);
             this.grpPropertiesRepeatsUntilFalse.Controls.Add(this.numericPropertiesRepeatsUntilFalse);
             this.grpPropertiesRepeatsUntilFalse.Location = new System.Drawing.Point(145, 32);
-            this.grpPropertiesRepeatsUntilFalse.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpPropertiesRepeatsUntilFalse.Margin = new System.Windows.Forms.Padding(2);
             this.grpPropertiesRepeatsUntilFalse.Name = "grpPropertiesRepeatsUntilFalse";
-            this.grpPropertiesRepeatsUntilFalse.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpPropertiesRepeatsUntilFalse.Padding = new System.Windows.Forms.Padding(2);
             this.grpPropertiesRepeatsUntilFalse.Size = new System.Drawing.Size(124, 44);
             this.grpPropertiesRepeatsUntilFalse.TabIndex = 12;
             this.grpPropertiesRepeatsUntilFalse.TabStop = false;
@@ -1370,7 +1804,7 @@
             // 
             this.chkPropertiesEnabled.AutoSize = true;
             this.chkPropertiesEnabled.Location = new System.Drawing.Point(5, 27);
-            this.chkPropertiesEnabled.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.chkPropertiesEnabled.Margin = new System.Windows.Forms.Padding(2);
             this.chkPropertiesEnabled.Name = "chkPropertiesEnabled";
             this.chkPropertiesEnabled.Size = new System.Drawing.Size(65, 17);
             this.chkPropertiesEnabled.TabIndex = 9;
@@ -1425,9 +1859,9 @@
             // groupBox4
             // 
             this.groupBox4.Location = new System.Drawing.Point(13, 99);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(79, 1);
             this.groupBox4.TabIndex = 8;
             this.groupBox4.TabStop = false;
@@ -1833,7 +2267,7 @@
             this.panelRightObject.Controls.Add(this.Label50);
             this.panelRightObject.Controls.Add(this.cboChannel);
             this.panelRightObject.Location = new System.Drawing.Point(2, 286);
-            this.panelRightObject.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRightObject.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightObject.Name = "panelRightObject";
             this.panelRightObject.Size = new System.Drawing.Size(280, 198);
             this.panelRightObject.TabIndex = 34;
@@ -1975,7 +2409,7 @@
             this.panelRightSwipeProperties.Controls.Add(this.numericSwipeVelocity);
             this.panelRightSwipeProperties.Controls.Add(this.cmdRightSwipeProperties);
             this.panelRightSwipeProperties.Location = new System.Drawing.Point(2, 488);
-            this.panelRightSwipeProperties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRightSwipeProperties.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightSwipeProperties.Name = "panelRightSwipeProperties";
             this.panelRightSwipeProperties.Size = new System.Drawing.Size(280, 203);
             this.panelRightSwipeProperties.TabIndex = 40;
@@ -1997,9 +2431,9 @@
             this.groupBox8.Controls.Add(this.numericSwipeEndWidth);
             this.groupBox8.Controls.Add(this.numericSwipeEndHeight);
             this.groupBox8.Location = new System.Drawing.Point(12, 120);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox8.Size = new System.Drawing.Size(107, 72);
             this.groupBox8.TabIndex = 15;
             this.groupBox8.TabStop = false;
@@ -2060,9 +2494,9 @@
             this.groupBox5.Controls.Add(this.numericSwipeStartWidth);
             this.groupBox5.Controls.Add(this.numericSwipeStartHeight);
             this.groupBox5.Location = new System.Drawing.Point(12, 31);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(107, 78);
             this.groupBox5.TabIndex = 15;
             this.groupBox5.TabStop = false;
@@ -2122,9 +2556,9 @@
             this.groupBoxClickDragReleaseObjectSearch.Controls.Add(this.rdoObjectSearchEnd);
             this.groupBoxClickDragReleaseObjectSearch.Controls.Add(this.rdoObjectSearchStart);
             this.groupBoxClickDragReleaseObjectSearch.Location = new System.Drawing.Point(135, 83);
-            this.groupBoxClickDragReleaseObjectSearch.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxClickDragReleaseObjectSearch.Margin = new System.Windows.Forms.Padding(2);
             this.groupBoxClickDragReleaseObjectSearch.Name = "groupBoxClickDragReleaseObjectSearch";
-            this.groupBoxClickDragReleaseObjectSearch.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBoxClickDragReleaseObjectSearch.Padding = new System.Windows.Forms.Padding(2);
             this.groupBoxClickDragReleaseObjectSearch.Size = new System.Drawing.Size(113, 109);
             this.groupBoxClickDragReleaseObjectSearch.TabIndex = 14;
             this.groupBoxClickDragReleaseObjectSearch.TabStop = false;
@@ -2134,7 +2568,7 @@
             // 
             this.rdoObjectSearchNone.AutoSize = true;
             this.rdoObjectSearchNone.Location = new System.Drawing.Point(10, 61);
-            this.rdoObjectSearchNone.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoObjectSearchNone.Margin = new System.Windows.Forms.Padding(2);
             this.rdoObjectSearchNone.Name = "rdoObjectSearchNone";
             this.rdoObjectSearchNone.Size = new System.Drawing.Size(51, 17);
             this.rdoObjectSearchNone.TabIndex = 1;
@@ -2147,7 +2581,7 @@
             // 
             this.rdoObjectSearchEnd.AutoSize = true;
             this.rdoObjectSearchEnd.Location = new System.Drawing.Point(10, 42);
-            this.rdoObjectSearchEnd.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoObjectSearchEnd.Margin = new System.Windows.Forms.Padding(2);
             this.rdoObjectSearchEnd.Name = "rdoObjectSearchEnd";
             this.rdoObjectSearchEnd.Size = new System.Drawing.Size(66, 17);
             this.rdoObjectSearchEnd.TabIndex = 1;
@@ -2160,7 +2594,7 @@
             // 
             this.rdoObjectSearchStart.AutoSize = true;
             this.rdoObjectSearchStart.Location = new System.Drawing.Point(10, 21);
-            this.rdoObjectSearchStart.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rdoObjectSearchStart.Margin = new System.Windows.Forms.Padding(2);
             this.rdoObjectSearchStart.Name = "rdoObjectSearchStart";
             this.rdoObjectSearchStart.Size = new System.Drawing.Size(69, 17);
             this.rdoObjectSearchStart.TabIndex = 0;
@@ -2213,7 +2647,7 @@
             this.panelRightClickProperties.Controls.Add(this.label54);
             this.panelRightClickProperties.Controls.Add(this.cmdRightClickProperties);
             this.panelRightClickProperties.Location = new System.Drawing.Point(2, 695);
-            this.panelRightClickProperties.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRightClickProperties.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightClickProperties.Name = "panelRightClickProperties";
             this.panelRightClickProperties.Size = new System.Drawing.Size(280, 87);
             this.panelRightClickProperties.TabIndex = 39;
@@ -2284,7 +2718,7 @@
             this.panelRightLogic.Controls.Add(this.rdoOR);
             this.panelRightLogic.Controls.Add(this.rdoAnd);
             this.panelRightLogic.Location = new System.Drawing.Point(2, 786);
-            this.panelRightLogic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRightLogic.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightLogic.Name = "panelRightLogic";
             this.panelRightLogic.Size = new System.Drawing.Size(280, 71);
             this.panelRightLogic.TabIndex = 35;
@@ -2373,7 +2807,7 @@
             this.panelRightCustomLogic.Controls.Add(this.label37);
             this.panelRightCustomLogic.Controls.Add(this.txtCustomLogic);
             this.panelRightCustomLogic.Location = new System.Drawing.Point(2, 861);
-            this.panelRightCustomLogic.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRightCustomLogic.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightCustomLogic.Name = "panelRightCustomLogic";
             this.panelRightCustomLogic.Size = new System.Drawing.Size(279, 93);
             this.panelRightCustomLogic.TabIndex = 36;
@@ -2413,7 +2847,7 @@
             // 
             this.panelRightPointGrid.Controls.Add(this.dgv);
             this.panelRightPointGrid.Location = new System.Drawing.Point(2, 958);
-            this.panelRightPointGrid.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRightPointGrid.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightPointGrid.Name = "panelRightPointGrid";
             this.panelRightPointGrid.Size = new System.Drawing.Size(280, 154);
             this.panelRightPointGrid.TabIndex = 37;
@@ -2514,7 +2948,7 @@
             this.panelRightInformation.Controls.Add(this.lblInformation);
             this.panelRightInformation.Controls.Add(this.cmdRightInformation);
             this.panelRightInformation.Location = new System.Drawing.Point(2, 1116);
-            this.panelRightInformation.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRightInformation.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightInformation.Name = "panelRightInformation";
             this.panelRightInformation.Size = new System.Drawing.Size(280, 87);
             this.panelRightInformation.TabIndex = 41;
@@ -2573,7 +3007,7 @@
             this.FlowLayoutPanelColorEvent2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FlowLayoutPanelColorEvent2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.FlowLayoutPanelColorEvent2.Location = new System.Drawing.Point(992, 2);
-            this.FlowLayoutPanelColorEvent2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.FlowLayoutPanelColorEvent2.Margin = new System.Windows.Forms.Padding(2);
             this.FlowLayoutPanelColorEvent2.Name = "FlowLayoutPanelColorEvent2";
             this.FlowLayoutPanelColorEvent2.Size = new System.Drawing.Size(286, 691);
             this.FlowLayoutPanelColorEvent2.TabIndex = 33;
@@ -2922,7 +3356,7 @@
             this.panelRightOffset.Controls.Add(this.Label48);
             this.panelRightOffset.Controls.Add(this.cmdRightOffset);
             this.panelRightOffset.Location = new System.Drawing.Point(2, 504);
-            this.panelRightOffset.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRightOffset.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightOffset.Name = "panelRightOffset";
             this.panelRightOffset.Size = new System.Drawing.Size(280, 84);
             this.panelRightOffset.TabIndex = 32;
@@ -3008,7 +3442,7 @@
             this.panelRightDragMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.panelRightDragMode.Controls.Add(this.cmdRightDragMode);
             this.panelRightDragMode.Location = new System.Drawing.Point(2, 592);
-            this.panelRightDragMode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.panelRightDragMode.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightDragMode.Name = "panelRightDragMode";
             this.panelRightDragMode.Size = new System.Drawing.Size(263, 164);
             this.panelRightDragMode.TabIndex = 33;
@@ -3097,9 +3531,9 @@
             this.groupBox12.Controls.Add(this.label68);
             this.groupBox12.Controls.Add(this.label65);
             this.groupBox12.Location = new System.Drawing.Point(7, 105);
-            this.groupBox12.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox12.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox12.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox12.Size = new System.Drawing.Size(387, 127);
             this.groupBox12.TabIndex = 2;
             this.groupBox12.TabStop = false;
@@ -4652,9 +5086,9 @@
             this.groupBox2.Controls.Add(this.label42);
             this.groupBox2.Controls.Add(this.numericApplicationDefaultClickSpeed);
             this.groupBox2.Location = new System.Drawing.Point(13, 45);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(369, 57);
             this.groupBox2.TabIndex = 34;
             this.groupBox2.TabStop = false;
@@ -4877,7 +5311,7 @@
             this.cboMouseMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboMouseMode.FormattingEnabled = true;
             this.cboMouseMode.Location = new System.Drawing.Point(149, 18);
-            this.cboMouseMode.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboMouseMode.Margin = new System.Windows.Forms.Padding(2);
             this.cboMouseMode.Name = "cboMouseMode";
             this.cboMouseMode.Size = new System.Drawing.Size(231, 21);
             this.cboMouseMode.TabIndex = 37;
@@ -4889,9 +5323,9 @@
             this.grpApplication.Controls.Add(this.groupBox13);
             this.grpApplication.Controls.Add(this.groupBox10);
             this.grpApplication.Location = new System.Drawing.Point(2, 234);
-            this.grpApplication.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpApplication.Margin = new System.Windows.Forms.Padding(2);
             this.grpApplication.Name = "grpApplication";
-            this.grpApplication.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpApplication.Padding = new System.Windows.Forms.Padding(2);
             this.grpApplication.Size = new System.Drawing.Size(700, 294);
             this.grpApplication.TabIndex = 40;
             this.grpApplication.TabStop = false;
@@ -4906,9 +5340,9 @@
             this.groupBox13.Controls.Add(this.cmdPathToExePicker);
             this.groupBox13.Controls.Add(this.label72);
             this.groupBox13.Location = new System.Drawing.Point(5, 144);
-            this.groupBox13.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox13.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox13.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox13.Size = new System.Drawing.Size(690, 140);
             this.groupBox13.TabIndex = 11;
             this.groupBox13.TabStop = false;
@@ -4939,7 +5373,7 @@
             this.txtPathToApplicationExe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPathToApplicationExe.Location = new System.Drawing.Point(12, 32);
-            this.txtPathToApplicationExe.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPathToApplicationExe.Margin = new System.Windows.Forms.Padding(2);
             this.txtPathToApplicationExe.Name = "txtPathToApplicationExe";
             this.txtPathToApplicationExe.Size = new System.Drawing.Size(636, 20);
             this.txtPathToApplicationExe.TabIndex = 4;
@@ -4948,7 +5382,7 @@
             // txtApplicationParameters
             // 
             this.txtApplicationParameters.Location = new System.Drawing.Point(12, 79);
-            this.txtApplicationParameters.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApplicationParameters.Margin = new System.Windows.Forms.Padding(2);
             this.txtApplicationParameters.Name = "txtApplicationParameters";
             this.txtApplicationParameters.Size = new System.Drawing.Size(273, 20);
             this.txtApplicationParameters.TabIndex = 7;
@@ -4959,7 +5393,7 @@
             this.cmdPathToExePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.cmdPathToExePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cmdPathToExePicker.Location = new System.Drawing.Point(649, 29);
-            this.cmdPathToExePicker.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmdPathToExePicker.Margin = new System.Windows.Forms.Padding(2);
             this.cmdPathToExePicker.Name = "cmdPathToExePicker";
             this.cmdPathToExePicker.Size = new System.Drawing.Size(35, 26);
             this.cmdPathToExePicker.TabIndex = 5;
@@ -5023,7 +5457,7 @@
             // txtApplicationSecondaryWindowName
             // 
             this.txtApplicationSecondaryWindowName.Location = new System.Drawing.Point(139, 93);
-            this.txtApplicationSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApplicationSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
             this.txtApplicationSecondaryWindowName.Name = "txtApplicationSecondaryWindowName";
             this.txtApplicationSecondaryWindowName.Size = new System.Drawing.Size(329, 20);
             this.txtApplicationSecondaryWindowName.TabIndex = 10;
@@ -5066,7 +5500,7 @@
             // txtApplicationPrimaryWindowName
             // 
             this.txtApplicationPrimaryWindowName.Location = new System.Drawing.Point(139, 42);
-            this.txtApplicationPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApplicationPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
             this.txtApplicationPrimaryWindowName.Name = "txtApplicationPrimaryWindowName";
             this.txtApplicationPrimaryWindowName.Size = new System.Drawing.Size(329, 20);
             this.txtApplicationPrimaryWindowName.TabIndex = 7;
@@ -5106,9 +5540,9 @@
             this.grpNox.Controls.Add(this.label63);
             this.grpNox.Controls.Add(this.Label25);
             this.grpNox.Location = new System.Drawing.Point(2, 532);
-            this.grpNox.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpNox.Margin = new System.Windows.Forms.Padding(2);
             this.grpNox.Name = "grpNox";
-            this.grpNox.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpNox.Padding = new System.Windows.Forms.Padding(2);
             this.grpNox.Size = new System.Drawing.Size(700, 134);
             this.grpNox.TabIndex = 38;
             this.grpNox.TabStop = false;
@@ -5236,9 +5670,9 @@
             this.grpSteam.Controls.Add(this.groupBox14);
             this.grpSteam.Controls.Add(this.groupBox9);
             this.grpSteam.Location = new System.Drawing.Point(2, 670);
-            this.grpSteam.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSteam.Margin = new System.Windows.Forms.Padding(2);
             this.grpSteam.Name = "grpSteam";
-            this.grpSteam.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpSteam.Padding = new System.Windows.Forms.Padding(2);
             this.grpSteam.Size = new System.Drawing.Size(700, 257);
             this.grpSteam.TabIndex = 39;
             this.grpSteam.TabStop = false;
@@ -5290,7 +5724,7 @@
             // txtSteamID
             // 
             this.txtSteamID.Location = new System.Drawing.Point(127, 19);
-            this.txtSteamID.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSteamID.Margin = new System.Windows.Forms.Padding(2);
             this.txtSteamID.Name = "txtSteamID";
             this.txtSteamID.Size = new System.Drawing.Size(223, 20);
             this.txtSteamID.TabIndex = 4;
@@ -5342,7 +5776,7 @@
             // txtSteamSecondaryWindowName
             // 
             this.txtSteamSecondaryWindowName.Location = new System.Drawing.Point(139, 93);
-            this.txtSteamSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSteamSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
             this.txtSteamSecondaryWindowName.Name = "txtSteamSecondaryWindowName";
             this.txtSteamSecondaryWindowName.Size = new System.Drawing.Size(351, 20);
             this.txtSteamSecondaryWindowName.TabIndex = 10;
@@ -5385,7 +5819,7 @@
             // txtSteamPrimaryWindowName
             // 
             this.txtSteamPrimaryWindowName.Location = new System.Drawing.Point(139, 41);
-            this.txtSteamPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtSteamPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
             this.txtSteamPrimaryWindowName.Name = "txtSteamPrimaryWindowName";
             this.txtSteamPrimaryWindowName.Size = new System.Drawing.Size(351, 20);
             this.txtSteamPrimaryWindowName.TabIndex = 5;
@@ -5418,9 +5852,9 @@
             this.grpBlue.Controls.Add(this.label82);
             this.grpBlue.Controls.Add(this.txtBluePackageName);
             this.grpBlue.Location = new System.Drawing.Point(2, 931);
-            this.grpBlue.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpBlue.Margin = new System.Windows.Forms.Padding(2);
             this.grpBlue.Name = "grpBlue";
-            this.grpBlue.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.grpBlue.Padding = new System.Windows.Forms.Padding(2);
             this.grpBlue.Size = new System.Drawing.Size(701, 65);
             this.grpBlue.TabIndex = 48;
             this.grpBlue.TabStop = false;
@@ -5431,7 +5865,7 @@
             this.cboBlueInstance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboBlueInstance.FormattingEnabled = true;
             this.cboBlueInstance.Location = new System.Drawing.Point(183, 45);
-            this.cboBlueInstance.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboBlueInstance.Margin = new System.Windows.Forms.Padding(2);
             this.cboBlueInstance.Name = "cboBlueInstance";
             this.cboBlueInstance.Size = new System.Drawing.Size(293, 21);
             this.cboBlueInstance.TabIndex = 43;
@@ -5620,7 +6054,7 @@
             this.cboPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cboPlatform.FormattingEnabled = true;
             this.cboPlatform.Location = new System.Drawing.Point(104, 45);
-            this.cboPlatform.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cboPlatform.Margin = new System.Windows.Forms.Padding(2);
             this.cboPlatform.Name = "cboPlatform";
             this.cboPlatform.Size = new System.Drawing.Size(231, 21);
             this.cboPlatform.TabIndex = 37;
@@ -6126,450 +6560,17 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.cmdMakeObject_Click);
             // 
-            // splitContainerRunTab
-            // 
-            this.splitContainerRunTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerRunTab.Location = new System.Drawing.Point(3, 3);
-            this.splitContainerRunTab.Name = "splitContainerRunTab";
-            this.splitContainerRunTab.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerRunTab.Panel1
-            // 
-            this.splitContainerRunTab.Panel1.AutoScroll = true;
-            this.splitContainerRunTab.Panel1.Controls.Add(this.tvRun);
-            // 
-            // splitContainerRunTab.Panel2
-            // 
-            this.splitContainerRunTab.Panel2.AutoScroll = true;
-            this.splitContainerRunTab.Panel2.Controls.Add(this.splitContainerRunProperties);
-            this.splitContainerRunTab.Size = new System.Drawing.Size(242, 711);
-            this.splitContainerRunTab.SplitterDistance = 355;
-            this.splitContainerRunTab.TabIndex = 1;
-            // 
-            // tableLayoutPanelRunValues
-            // 
-            this.tableLayoutPanelRunValues.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanelRunValues.ColumnCount = 1;
-            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue14, 0, 13);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue7, 0, 6);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue1, 0, 0);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue2, 0, 1);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue8, 0, 7);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue3, 0, 2);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue12, 0, 11);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue9, 0, 8);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue13, 0, 12);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue4, 0, 3);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue5, 0, 4);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue11, 0, 10);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue10, 0, 9);
-            this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue6, 0, 5);
-            this.tableLayoutPanelRunValues.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelRunValues.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelRunValues.Name = "tableLayoutPanelRunValues";
-            this.tableLayoutPanelRunValues.RowCount = 17;
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunValues.Size = new System.Drawing.Size(141, 352);
-            this.tableLayoutPanelRunValues.TabIndex = 0;
-            // 
-            // lblRunLabel1
-            // 
-            this.lblRunLabel1.AutoSize = true;
-            this.lblRunLabel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel1.Location = new System.Drawing.Point(4, 4);
-            this.lblRunLabel1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel1.Name = "lblRunLabel1";
-            this.lblRunLabel1.Size = new System.Drawing.Size(69, 13);
-            this.lblRunLabel1.TabIndex = 0;
-            this.lblRunLabel1.Text = "lblRunLabel1";
-            // 
-            // lblRunLabel2
-            // 
-            this.lblRunLabel2.AutoSize = true;
-            this.lblRunLabel2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel2.Location = new System.Drawing.Point(4, 25);
-            this.lblRunLabel2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel2.Name = "lblRunLabel2";
-            this.lblRunLabel2.Size = new System.Drawing.Size(69, 13);
-            this.lblRunLabel2.TabIndex = 1;
-            this.lblRunLabel2.Text = "lblRunLabel2";
-            // 
-            // lblRunValue1
-            // 
-            this.lblRunValue1.AutoSize = true;
-            this.lblRunValue1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue1.Location = new System.Drawing.Point(4, 4);
-            this.lblRunValue1.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue1.Name = "lblRunValue1";
-            this.lblRunValue1.Size = new System.Drawing.Size(70, 13);
-            this.lblRunValue1.TabIndex = 2;
-            this.lblRunValue1.Text = "lblRunValue1";
-            // 
-            // lblRunValue2
-            // 
-            this.lblRunValue2.AutoSize = true;
-            this.lblRunValue2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue2.Location = new System.Drawing.Point(4, 25);
-            this.lblRunValue2.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue2.Name = "lblRunValue2";
-            this.lblRunValue2.Size = new System.Drawing.Size(70, 13);
-            this.lblRunValue2.TabIndex = 3;
-            this.lblRunValue2.Text = "lblRunValue2";
-            // 
-            // lblRunLabel3
-            // 
-            this.lblRunLabel3.AutoSize = true;
-            this.lblRunLabel3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel3.Location = new System.Drawing.Point(4, 46);
-            this.lblRunLabel3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel3.Name = "lblRunLabel3";
-            this.lblRunLabel3.Size = new System.Drawing.Size(69, 13);
-            this.lblRunLabel3.TabIndex = 4;
-            this.lblRunLabel3.Text = "lblRunLabel3";
-            // 
-            // lblRunValue3
-            // 
-            this.lblRunValue3.AutoSize = true;
-            this.lblRunValue3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue3.Location = new System.Drawing.Point(4, 46);
-            this.lblRunValue3.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue3.Name = "lblRunValue3";
-            this.lblRunValue3.Size = new System.Drawing.Size(70, 13);
-            this.lblRunValue3.TabIndex = 5;
-            this.lblRunValue3.Text = "lblRunValue3";
-            // 
-            // lblRunLabel4
-            // 
-            this.lblRunLabel4.AutoSize = true;
-            this.lblRunLabel4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel4.Location = new System.Drawing.Point(4, 67);
-            this.lblRunLabel4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel4.Name = "lblRunLabel4";
-            this.lblRunLabel4.Size = new System.Drawing.Size(69, 13);
-            this.lblRunLabel4.TabIndex = 6;
-            this.lblRunLabel4.Text = "lblRunLabel4";
-            // 
-            // lblRunValue4
-            // 
-            this.lblRunValue4.AutoSize = true;
-            this.lblRunValue4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue4.Location = new System.Drawing.Point(4, 67);
-            this.lblRunValue4.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue4.Name = "lblRunValue4";
-            this.lblRunValue4.Size = new System.Drawing.Size(70, 13);
-            this.lblRunValue4.TabIndex = 7;
-            this.lblRunValue4.Text = "lblRunValue4";
-            // 
-            // lblRunLabel5
-            // 
-            this.lblRunLabel5.AutoSize = true;
-            this.lblRunLabel5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel5.Location = new System.Drawing.Point(4, 88);
-            this.lblRunLabel5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel5.Name = "lblRunLabel5";
-            this.lblRunLabel5.Size = new System.Drawing.Size(69, 13);
-            this.lblRunLabel5.TabIndex = 8;
-            this.lblRunLabel5.Text = "lblRunLabel5";
-            // 
-            // lblRunValue5
-            // 
-            this.lblRunValue5.AutoSize = true;
-            this.lblRunValue5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue5.Location = new System.Drawing.Point(4, 88);
-            this.lblRunValue5.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue5.Name = "lblRunValue5";
-            this.lblRunValue5.Size = new System.Drawing.Size(70, 13);
-            this.lblRunValue5.TabIndex = 9;
-            this.lblRunValue5.Text = "lblRunValue5";
-            // 
-            // lblRunLabel6
-            // 
-            this.lblRunLabel6.AutoSize = true;
-            this.lblRunLabel6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel6.Location = new System.Drawing.Point(4, 109);
-            this.lblRunLabel6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel6.Name = "lblRunLabel6";
-            this.lblRunLabel6.Size = new System.Drawing.Size(69, 13);
-            this.lblRunLabel6.TabIndex = 10;
-            this.lblRunLabel6.Text = "lblRunLabel6";
-            // 
-            // lblRunValue6
-            // 
-            this.lblRunValue6.AutoSize = true;
-            this.lblRunValue6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue6.Location = new System.Drawing.Point(4, 109);
-            this.lblRunValue6.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue6.Name = "lblRunValue6";
-            this.lblRunValue6.Size = new System.Drawing.Size(70, 13);
-            this.lblRunValue6.TabIndex = 11;
-            this.lblRunValue6.Text = "lblRunValue6";
-            // 
-            // splitContainerRunProperties
-            // 
-            this.splitContainerRunProperties.Dock = System.Windows.Forms.DockStyle.Top;
-            this.splitContainerRunProperties.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerRunProperties.Name = "splitContainerRunProperties";
-            // 
-            // splitContainerRunProperties.Panel1
-            // 
-            this.splitContainerRunProperties.Panel1.Controls.Add(this.tableLayoutPanelRunLabels);
-            // 
-            // splitContainerRunProperties.Panel2
-            // 
-            this.splitContainerRunProperties.Panel2.Controls.Add(this.tableLayoutPanelRunValues);
-            this.splitContainerRunProperties.Size = new System.Drawing.Size(242, 352);
-            this.splitContainerRunProperties.SplitterDistance = 100;
-            this.splitContainerRunProperties.SplitterWidth = 1;
-            this.splitContainerRunProperties.TabIndex = 1;
-            // 
-            // tableLayoutPanelRunLabels
-            // 
-            this.tableLayoutPanelRunLabels.BackColor = System.Drawing.SystemColors.ControlDarkDark;
-            this.tableLayoutPanelRunLabels.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
-            this.tableLayoutPanelRunLabels.ColumnCount = 1;
-            this.tableLayoutPanelRunLabels.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel11, 0, 10);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel12, 0, 11);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel13, 0, 12);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel10, 0, 9);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel9, 0, 8);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel7, 0, 6);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel14, 0, 13);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel2, 0, 1);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel8, 0, 7);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel1, 0, 0);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel3, 0, 2);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel4, 0, 3);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel5, 0, 4);
-            this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel6, 0, 5);
-            this.tableLayoutPanelRunLabels.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelRunLabels.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanelRunLabels.Name = "tableLayoutPanelRunLabels";
-            this.tableLayoutPanelRunLabels.RowCount = 15;
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelRunLabels.Size = new System.Drawing.Size(100, 352);
-            this.tableLayoutPanelRunLabels.TabIndex = 1;
-            // 
-            // lblRunValue7
-            // 
-            this.lblRunValue7.AutoSize = true;
-            this.lblRunValue7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue7.Location = new System.Drawing.Point(4, 130);
-            this.lblRunValue7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue7.Name = "lblRunValue7";
-            this.lblRunValue7.Size = new System.Drawing.Size(70, 13);
-            this.lblRunValue7.TabIndex = 0;
-            this.lblRunValue7.Text = "lblRunValue7";
-            // 
-            // lblRunLabel7
-            // 
-            this.lblRunLabel7.AutoSize = true;
-            this.lblRunLabel7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel7.Location = new System.Drawing.Point(4, 130);
-            this.lblRunLabel7.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel7.Name = "lblRunLabel7";
-            this.lblRunLabel7.Size = new System.Drawing.Size(69, 13);
-            this.lblRunLabel7.TabIndex = 1;
-            this.lblRunLabel7.Text = "lblRunLabel7";
-            // 
-            // lblRunLabel12
-            // 
-            this.lblRunLabel12.AutoSize = true;
-            this.lblRunLabel12.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel12.Location = new System.Drawing.Point(4, 235);
-            this.lblRunLabel12.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel12.Name = "lblRunLabel12";
-            this.lblRunLabel12.Size = new System.Drawing.Size(75, 13);
-            this.lblRunLabel12.TabIndex = 2;
-            this.lblRunLabel12.Text = "lblRunLabel12";
-            // 
-            // lblRunLabel13
-            // 
-            this.lblRunLabel13.AutoSize = true;
-            this.lblRunLabel13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel13.Location = new System.Drawing.Point(4, 256);
-            this.lblRunLabel13.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel13.Name = "lblRunLabel13";
-            this.lblRunLabel13.Size = new System.Drawing.Size(75, 13);
-            this.lblRunLabel13.TabIndex = 3;
-            this.lblRunLabel13.Text = "lblRunLabel13";
-            // 
-            // lblRunValue8
-            // 
-            this.lblRunValue8.AutoSize = true;
-            this.lblRunValue8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue8.Location = new System.Drawing.Point(4, 151);
-            this.lblRunValue8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue8.Name = "lblRunValue8";
-            this.lblRunValue8.Size = new System.Drawing.Size(70, 13);
-            this.lblRunValue8.TabIndex = 4;
-            this.lblRunValue8.Text = "lblRunValue8";
-            this.lblRunValue8.MouseDown += new System.Windows.Forms.MouseEventHandler(this.lblRunValue8_MouseDown);
-            // 
-            // lblRunLabel14
-            // 
-            this.lblRunLabel14.AutoSize = true;
-            this.lblRunLabel14.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel14.Location = new System.Drawing.Point(4, 277);
-            this.lblRunLabel14.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel14.Name = "lblRunLabel14";
-            this.lblRunLabel14.Size = new System.Drawing.Size(75, 13);
-            this.lblRunLabel14.TabIndex = 5;
-            this.lblRunLabel14.Text = "lblRunLabel14";
-            // 
-            // lblRunLabel8
-            // 
-            this.lblRunLabel8.AutoSize = true;
-            this.lblRunLabel8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel8.Location = new System.Drawing.Point(4, 151);
-            this.lblRunLabel8.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel8.Name = "lblRunLabel8";
-            this.lblRunLabel8.Size = new System.Drawing.Size(69, 13);
-            this.lblRunLabel8.TabIndex = 6;
-            this.lblRunLabel8.Text = "lblRunLabel8";
-            // 
-            // lblRunValue13
-            // 
-            this.lblRunValue13.AutoSize = true;
-            this.lblRunValue13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue13.Location = new System.Drawing.Point(4, 256);
-            this.lblRunValue13.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue13.Name = "lblRunValue13";
-            this.lblRunValue13.Size = new System.Drawing.Size(76, 13);
-            this.lblRunValue13.TabIndex = 7;
-            this.lblRunValue13.Text = "lblRunValue13";
-            // 
-            // lblRunValue9
-            // 
-            this.lblRunValue9.AutoSize = true;
-            this.lblRunValue9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue9.Location = new System.Drawing.Point(4, 172);
-            this.lblRunValue9.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue9.Name = "lblRunValue9";
-            this.lblRunValue9.Size = new System.Drawing.Size(70, 13);
-            this.lblRunValue9.TabIndex = 8;
-            this.lblRunValue9.Text = "lblRunValue9";
-            // 
-            // lblRunValue12
-            // 
-            this.lblRunValue12.AutoSize = true;
-            this.lblRunValue12.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue12.Location = new System.Drawing.Point(4, 235);
-            this.lblRunValue12.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue12.Name = "lblRunValue12";
-            this.lblRunValue12.Size = new System.Drawing.Size(76, 13);
-            this.lblRunValue12.TabIndex = 9;
-            this.lblRunValue12.Text = "lblRunValue12";
-            // 
-            // lblRunValue10
-            // 
-            this.lblRunValue10.AutoSize = true;
-            this.lblRunValue10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue10.Location = new System.Drawing.Point(4, 193);
-            this.lblRunValue10.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue10.Name = "lblRunValue10";
-            this.lblRunValue10.Size = new System.Drawing.Size(76, 13);
-            this.lblRunValue10.TabIndex = 10;
-            this.lblRunValue10.Text = "lblRunValue10";
-            // 
-            // lblRunValue11
-            // 
-            this.lblRunValue11.AutoSize = true;
-            this.lblRunValue11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue11.Location = new System.Drawing.Point(4, 214);
-            this.lblRunValue11.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue11.Name = "lblRunValue11";
-            this.lblRunValue11.Size = new System.Drawing.Size(76, 13);
-            this.lblRunValue11.TabIndex = 11;
-            this.lblRunValue11.Text = "lblRunValue11";
-            // 
-            // lblRunLabel9
-            // 
-            this.lblRunLabel9.AutoSize = true;
-            this.lblRunLabel9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel9.Location = new System.Drawing.Point(4, 172);
-            this.lblRunLabel9.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel9.Name = "lblRunLabel9";
-            this.lblRunLabel9.Size = new System.Drawing.Size(69, 13);
-            this.lblRunLabel9.TabIndex = 11;
-            this.lblRunLabel9.Text = "lblRunLabel9";
-            // 
-            // lblRunLabel10
-            // 
-            this.lblRunLabel10.AutoSize = true;
-            this.lblRunLabel10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel10.Location = new System.Drawing.Point(4, 193);
-            this.lblRunLabel10.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel10.Name = "lblRunLabel10";
-            this.lblRunLabel10.Size = new System.Drawing.Size(75, 13);
-            this.lblRunLabel10.TabIndex = 12;
-            this.lblRunLabel10.Text = "lblRunLabel10";
-            // 
-            // lblRunLabel11
-            // 
-            this.lblRunLabel11.AutoSize = true;
-            this.lblRunLabel11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunLabel11.Location = new System.Drawing.Point(4, 214);
-            this.lblRunLabel11.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunLabel11.Name = "lblRunLabel11";
-            this.lblRunLabel11.Size = new System.Drawing.Size(75, 13);
-            this.lblRunLabel11.TabIndex = 13;
-            this.lblRunLabel11.Text = "lblRunLabel11";
-            // 
-            // lblRunValue14
-            // 
-            this.lblRunValue14.AutoSize = true;
-            this.lblRunValue14.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lblRunValue14.Location = new System.Drawing.Point(4, 277);
-            this.lblRunValue14.Margin = new System.Windows.Forms.Padding(3, 3, 3, 0);
-            this.lblRunValue14.Name = "lblRunValue14";
-            this.lblRunValue14.Size = new System.Drawing.Size(76, 13);
-            this.lblRunValue14.TabIndex = 12;
-            this.lblRunValue14.Text = "lblRunValue14";
-            // 
             // contextMenuStripResetResolution
             // 
             this.contextMenuStripResetResolution.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemResetResolution});
             this.contextMenuStripResetResolution.Name = "contextMenuStripResetResolution";
-            this.contextMenuStripResetResolution.Size = new System.Drawing.Size(181, 48);
+            this.contextMenuStripResetResolution.Size = new System.Drawing.Size(162, 26);
             // 
             // toolStripMenuItemResetResolution
             // 
             this.toolStripMenuItemResetResolution.Name = "toolStripMenuItemResetResolution";
-            this.toolStripMenuItemResetResolution.Size = new System.Drawing.Size(180, 22);
+            this.toolStripMenuItemResetResolution.Size = new System.Drawing.Size(161, 22);
             this.toolStripMenuItemResetResolution.Text = "Reset Resolution";
             this.toolStripMenuItemResetResolution.Click += new System.EventHandler(this.toolStripMenuItemResetResolution_Click);
             // 
@@ -6606,6 +6607,18 @@
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             this.tabRun.ResumeLayout(false);
+            this.splitContainerRunTab.Panel1.ResumeLayout(false);
+            this.splitContainerRunTab.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRunTab)).EndInit();
+            this.splitContainerRunTab.ResumeLayout(false);
+            this.splitContainerRunProperties.Panel1.ResumeLayout(false);
+            this.splitContainerRunProperties.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRunProperties)).EndInit();
+            this.splitContainerRunProperties.ResumeLayout(false);
+            this.tableLayoutPanelRunLabels.ResumeLayout(false);
+            this.tableLayoutPanelRunLabels.PerformLayout();
+            this.tableLayoutPanelRunValues.ResumeLayout(false);
+            this.tableLayoutPanelRunValues.PerformLayout();
             this.PanelColorEvent.ResumeLayout(false);
             this.tableColorEvent.ResumeLayout(false);
             this.panelColorEventChild1.ResumeLayout(false);
@@ -6788,18 +6801,6 @@
             this.appTestStudioToolStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);
             this.toolStripMain.PerformLayout();
-            this.splitContainerRunTab.Panel1.ResumeLayout(false);
-            this.splitContainerRunTab.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRunTab)).EndInit();
-            this.splitContainerRunTab.ResumeLayout(false);
-            this.tableLayoutPanelRunValues.ResumeLayout(false);
-            this.tableLayoutPanelRunValues.PerformLayout();
-            this.splitContainerRunProperties.Panel1.ResumeLayout(false);
-            this.splitContainerRunProperties.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRunProperties)).EndInit();
-            this.splitContainerRunProperties.ResumeLayout(false);
-            this.tableLayoutPanelRunLabels.ResumeLayout(false);
-            this.tableLayoutPanelRunLabels.PerformLayout();
             this.contextMenuStripResetResolution.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
