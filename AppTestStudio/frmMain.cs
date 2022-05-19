@@ -7400,15 +7400,7 @@ namespace AppTestStudio
 
             if (lblRunLabel1.Text == lblRunLabel1.Name)
             {
-                lblRunLabel1.Text = "Name";
-                lblRunLabel2.Text = "Node Type";
-                lblRunLabel3.Text = "Node Sub Type";
-                lblRunLabel4.Text = "Enabled";
-                lblRunLabel5.Text = "Activity Count";
-                lblRunLabel6.Text = "Is Limited";
-                lblRunLabel7.Text = "Wait Type";
-                lblRunLabel8.Text = "Resolution";
-                lblRunLabel9.Text = "Limit Control";
+                InitializeRunLabels();
             }
 
             lblRunValue3.Text = "";
@@ -7416,13 +7408,12 @@ namespace AppTestStudio
             lblRunValue7.Text = "";
             lblRunValue8.Text = "";
             lblRunValue9.Text = "";
-
+            lblRunValue10.Text = "";
+            lblRunValue11.Text = "";
 
             lblRunValue1.Text = Node.Name;
 
-
             lblRunValue2.Text = Node.GameNodeType.ToString();
-
 
             lblRunValue4.Text = "True";
 
@@ -7534,6 +7525,31 @@ namespace AppTestStudio
                         default:
                             break;
                     }
+
+                    switch (Action.AfterCompletionType)
+                    {
+                        case AfterCompletionType.Continue:
+                            lblRunValue10.Text = "Continue";
+                            break;
+                        case AfterCompletionType.Home:
+                            lblRunValue10.Text = "Home";
+                            break;
+                        case AfterCompletionType.Parent:
+                            lblRunValue10.Text = "Parent";
+                            break;
+                        case AfterCompletionType.Stop:
+                            lblRunValue10.Text = "Stop";
+                            break;
+                        case AfterCompletionType.ContinueProcess:
+                            lblRunValue10.Text = "ContinueProcess";
+                            break;
+                        case AfterCompletionType.Recycle:
+                            lblRunValue10.Text = "Recycle";
+                            break;
+                        default:
+                            break;
+                    }
+
                     break;
                 case GameNodeType.Objects:
                     break;
@@ -7548,18 +7564,38 @@ namespace AppTestStudio
 
         }
 
-        private void lblRunValue8_MouseDown(object sender, MouseEventArgs e)
+        private void InitializeRunLabels()
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                int x = lblRunValue8.Location.X;
-                int y = lblRunValue8.Location.Y;
+            lblRunLabel1.Text = "Name";
+            lblRunLabel2.Text = "Node Type";
+            lblRunLabel3.Text = "Node Sub Type";
+            lblRunLabel4.Text = "Enabled";
+            lblRunLabel5.Text = "Activity Count";
+            lblRunLabel6.Text = "Is Limited";
+            lblRunLabel7.Text = "Wait Type";
+            lblRunLabel8.Text = "Resolution";
+            lblRunLabel9.Text = "Limit Control";
+            lblRunLabel10.Text = "After Completion";
+            lblRunLabel11.Text = "After Delay";
+            lblRunLabel12.Text = "";
+            lblRunLabel13.Text = "";
+            lblRunLabel14.Text = "";
 
-                // Move over so you can still see the value
-                x = x + 40;
+            lblRunValue1.Text = "";
+            lblRunValue2.Text = "";
+            lblRunValue3.Text = "";
+            lblRunValue4.Text = "";
+            lblRunValue5.Text = "";
+            lblRunValue6.Text = "";
+            lblRunValue7.Text = "";
+            lblRunValue8.Text = "";
+            lblRunValue9.Text = "";
+            lblRunValue10.Text = "";
+            lblRunValue11.Text = "";
+            lblRunValue12.Text = "";
+            lblRunValue13.Text = "";
+            lblRunValue14.Text = "";
 
-                contextMenuStripResetResolution.Show(tableLayoutPanelRunValues, x, y);
-            }
         }
 
         private void toolStripMenuItemResetResolution_Click(object sender, EventArgs e)
@@ -7594,7 +7630,16 @@ namespace AppTestStudio
             catch (Exception ex)
             {
                 Log(ex.Message.ToString());
-                throw;
+            }
+        }
+
+        private void cmdUpdateResolution_Click(object sender, EventArgs e)
+        {
+            // if there is some resolution in the box.
+            if (lblRunValue8.Text.Contains("x"))
+            {
+                Point point = cmdUpdateResolution.PointToClient(Cursor.Position);
+                contextMenuStripResetResolution.Show(cmdUpdateResolution, point.X, point.Y);
             }
         }
     }
