@@ -7642,6 +7642,74 @@ namespace AppTestStudio
                 contextMenuStripResetResolution.Show(cmdUpdateResolution, point.X, point.Y);
             }
         }
+
+        private void cmdRuntimeEnableToggle_Click(object sender, EventArgs e)
+        {
+            Point point = cmdRuntimeEnableToggle.PointToClient(Cursor.Position);
+            GameNodeAction Action = GetCurrentSelectedRunTreeActionNode();
+            if (Action.IsSomething())
+            {
+                toolStripMenuItemRuntimeEnableDisableToggle.Text = "Change to " + !Action.Enabled + "?";
+                contextMenuStripRuntimeEnableDisable.Show(cmdRuntimeEnableToggle, point.X, point.Y);
+            }
+            else
+            {
+                Log("Unable to locate runtime Action Node");
+            }
+        }
+
+        private GameNodeAction GetCurrentSelectedRunTreeActionNode()
+        {
+            GameNode Node = tvRun.SelectedNode as GameNode;
+            if (Node.IsNothing())
+            {
+                return null;
+            }
+
+            switch (Node.GameNodeType)
+            {
+                case GameNodeType.Workspace:
+                    break;
+                case GameNodeType.Games:
+                    break;
+                case GameNodeType.Game:
+                    break;
+                case GameNodeType.Events:
+                    break;
+                case GameNodeType.Action:
+                    GameNodeAction Action = Node as GameNodeAction;
+                    if (Action.IsNothing())
+                    {
+                        return null;
+                    }
+
+                    return Action;
+                default:
+                    break;
+            }
+            return null;
+        }
+
+        private void toolStripMenuItemRuntimeEnableDisableToggle_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction Action = GetCurrentSelectedRunTreeActionNode();
+                if (Action.IsSomething())
+                {
+                    // Toggle Event.
+                    Action.Enabled = !Action.Enabled;
+
+                    // Reset the menu
+                    TreeViewEventArgs tvea = new TreeViewEventArgs(Action as TreeNode);
+                    tvRun_AfterSelect(this, tvea);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
     }
 }
 
