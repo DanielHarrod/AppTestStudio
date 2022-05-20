@@ -1078,5 +1078,11 @@ namespace AppTestStudio
             Result.y = yPos;
             return Result;
         }
+
+        public int CalculateDelayInMS()
+        {
+            int result = DelayMS + (DelayS * 1000) + (DelayM * 60 * 1000) + (DelayH * 60 * 60 * 1000);
+            return result;
+        }
     }
 }

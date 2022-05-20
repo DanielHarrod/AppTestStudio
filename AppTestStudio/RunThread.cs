@@ -456,7 +456,7 @@ namespace AppTestStudio
 
                         Game.Log(node.Name + " RNG (" + RNG + ") Node Index chosen (" + TargetIndex + ")");
 
-                        int DelayCalc = node.DelayMS + (node.DelayS * 1000) + (node.DelayM * 60 * 1000);
+                        int DelayCalc = node.CalculateDelayInMS();
 
 
                         if (DelayCalc > 0)
@@ -527,7 +527,7 @@ namespace AppTestStudio
 
             if ((node.ActionType == ActionType.Event && ActionTypeEventResult) || node.ActionType == ActionType.Action)
             {
-                int DelayCalc = node.DelayMS + (node.DelayS * 1000) + (node.DelayM * 60 * 1000);
+                int DelayCalc = node.CalculateDelayInMS();
 
                 // Log status to status control.
                 Game.LogStatus(node.StatusNodeID, DelayCalc);

@@ -7440,6 +7440,8 @@ namespace AppTestStudio
 
                     lblRunValue8.Text = Action.ResolutionWidth + "x" + Action.ResolutionHeight;
 
+                    lblRunValue11.Text = Action.CalculateDelayInMS() + "ms";
+
                     if (Action.IsLimited)
                     {
                         lblRunValue7.Text = Action.WaitType.ToString();
