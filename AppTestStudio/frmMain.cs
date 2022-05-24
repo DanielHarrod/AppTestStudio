@@ -7402,20 +7402,18 @@ namespace AppTestStudio
             {
                 InitializeRunLabels();
             }
+            String RT1        = Node.Name;
+            String RT2 = Node.GameNodeType.ToString();
+            String RT3 = "";
+            String RT4 = "True";
+            String RT5 = "";
+            String RT6 = "";
+            String RT7 = "";
+            String RT8 = "";
+            String RT9 = "";
+            String RT10 = "";
+            String RT11 = "";
 
-            lblRunValue3.Text = "";
-            lblRunValue5.Text = "";
-            lblRunValue7.Text = "";
-            lblRunValue8.Text = "";
-            lblRunValue9.Text = "";
-            lblRunValue10.Text = "";
-            lblRunValue11.Text = "";
-
-            lblRunValue1.Text = Node.Name;
-
-            lblRunValue2.Text = Node.GameNodeType.ToString();
-
-            lblRunValue4.Text = "True";
 
             switch (Node.GameNodeType)
             {
@@ -7430,37 +7428,37 @@ namespace AppTestStudio
                 case GameNodeType.Action:
                     GameNodeAction Action = e.Node as GameNodeAction;
 
-                    lblRunValue4.Text = Action.Enabled.ToString();
+                    RT4 = Action.Enabled.ToString();
 
-                    lblRunValue3.Text = Action.ActionType.ToString();
+                    RT3 = Action.ActionType.ToString();
 
-                    lblRunValue5.Text = Action.RuntimeActionCount.ToString();
+                    RT5 = Action.RuntimeActionCount.ToString();
 
-                    lblRunValue6.Text = Action.IsLimited.ToString();
+                    RT6 = Action.IsLimited.ToString();
 
-                    lblRunValue8.Text = Action.ResolutionWidth + "x" + Action.ResolutionHeight;
+                    RT8 = Action.ResolutionWidth + "x" + Action.ResolutionHeight;
 
-                    lblRunValue11.Text = Action.CalculateDelayInMS() + "ms";
+                    RT11 = Action.CalculateDelayInMS() + "ms";
 
                     if (Action.IsLimited)
                     {
-                        lblRunValue7.Text = Action.WaitType.ToString();
+                        RT7 = Action.WaitType.ToString();
 
                         if (Action.LimitRepeats)
                         {
-                            lblRunValue7.Text = lblRunValue7.Text + " (Repeats)";
+                            RT7 = lblRunValue7.Text + " (Repeats)";
                         }
 
                         switch (Action.WaitType)
                         {
                             case WaitType.Iteration:
-                                lblRunValue9.Text = Action.RuntimeIterationsLeft.ToString();
+                                RT9 = Action.RuntimeIterationsLeft.ToString();
                                 break;
                             case WaitType.Time:
-                                lblRunValue9.Text = Action.RuntimeNextAllowedTime.ToString();
+                                RT9 = Action.RuntimeNextAllowedTime.ToString();
                                 break;
                             case WaitType.Session:
-                                lblRunValue9.Text = Action.RuntimeOncePerSession.ToString();
+                                RT9 = Action.RuntimeOncePerSession.ToString();
                                 break;
                             default:
                                 break;
@@ -7474,22 +7472,22 @@ namespace AppTestStudio
                         case ActionType.RNG:
                             break;
                         case ActionType.Event:
-                            lblRunValue2.Text = "Event";
+                            RT2 = "Event";
                             if (Action.IsColorPoint)
                             {
                                 if (Action.ClickList.Count == 0)
                                 {
-                                    lblRunValue3.Text = "Group";
+                                    RT3 = "Group";
                                 }
                                 else
                                 {
-                                    lblRunValue3.Text = "Color Point";
+                                    RT3 = "Color Point";
                                 }
 
                             }
                             else
                             {
-                                lblRunValue3.Text = "Object Search";
+                                RT3 = "Object Search";
                             }
                             break;
                         case ActionType.Action:
@@ -7505,10 +7503,10 @@ namespace AppTestStudio
                             switch (Action.Mode)
                             {
                                 case Mode.RangeClick:
-                                    lblRunValue3.Text = lblRunValue3.Text + " " + Mode.RangeClick.ToString();
+                                    RT3 = RT3 + " " + Mode.RangeClick.ToString();
                                     break;
                                 case Mode.ClickDragRelease:
-                                    lblRunValue3.Text = lblRunValue3.Text + " " + Mode.ClickDragRelease.ToString();
+                                    RT3 = RT3 + " " + Mode.ClickDragRelease.ToString();
                                     if (Action.IsParentObjectSearch())
                                     {
 
@@ -7531,22 +7529,22 @@ namespace AppTestStudio
                     switch (Action.AfterCompletionType)
                     {
                         case AfterCompletionType.Continue:
-                            lblRunValue10.Text = "Continue";
+                            RT10 = "Continue";
                             break;
                         case AfterCompletionType.Home:
-                            lblRunValue10.Text = "Home";
+                            RT10 = "Home";
                             break;
                         case AfterCompletionType.Parent:
-                            lblRunValue10.Text = "Parent";
+                            RT10 = "Parent";
                             break;
                         case AfterCompletionType.Stop:
-                            lblRunValue10.Text = "Stop";
+                            RT10 = "Stop";
                             break;
                         case AfterCompletionType.ContinueProcess:
-                            lblRunValue10.Text = "ContinueProcess";
+                            RT10 = "ContinueProcess";
                             break;
                         case AfterCompletionType.Recycle:
-                            lblRunValue10.Text = "Recycle";
+                            RT10 = "Recycle";
                             break;
                         default:
                             break;
@@ -7563,7 +7561,22 @@ namespace AppTestStudio
                     Debug.Assert(false);
                     break;
             }
+        //https://stackoverflow.com/questions/3816362/winforms-label-flickering
+            lblRunValue1.Text = RT1;
+            lblRunValue2.Text = RT2;
+            lblRunValue3.Text = RT3;
+            lblRunValue4.Text = RT4;
+            lblRunValue5.Text = RT5;
+            lblRunValue6.Text = RT6;
+            lblRunValue7.Text = RT7;
+            lblRunValue8.Text = RT8;
+            lblRunValue9.Text = RT9;
+            lblRunValue10.Text = RT10;
+            lblRunValue11.Text = RT11;
 
+            //lblRunValue12.Text = RT12;
+            //lblRunValue13.Text = RT13;
+            //lblRunValue14.text = RT14;
         }
 
         private void InitializeRunLabels()
@@ -7710,6 +7723,15 @@ namespace AppTestStudio
             catch (Exception ex)
             {
                 Log(ex.Message);
+            }
+        }
+
+        private void TimerProperties_Tick(object sender, EventArgs e)
+        {
+            if (tvRun.SelectedNode.IsSomething())
+            {
+                TreeViewEventArgs tvea = new TreeViewEventArgs(tvRun.SelectedNode);
+                tvRun_AfterSelect(null, tvea);
             }
         }
     }

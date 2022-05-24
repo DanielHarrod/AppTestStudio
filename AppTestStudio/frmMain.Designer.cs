@@ -557,6 +557,7 @@
             this.toolStripMenuItemEnableDisableToggleLabel = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparatorEnableDisableToggle = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemRuntimeEnableDisableToggle = new System.Windows.Forms.ToolStripMenuItem();
+            this.TimerProperties = new System.Windows.Forms.Timer(this.components);
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -1054,6 +1055,9 @@
             // 
             // tableLayoutPanelRunLabels
             // 
+            this.tableLayoutPanelRunLabels.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tableLayoutPanelRunLabels.BackColor = System.Drawing.SystemColors.ControlDarkDark;
             this.tableLayoutPanelRunLabels.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelRunLabels.ColumnCount = 1;
@@ -1072,7 +1076,6 @@
             this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel4, 0, 3);
             this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel5, 0, 4);
             this.tableLayoutPanelRunLabels.Controls.Add(this.lblRunLabel6, 0, 5);
-            this.tableLayoutPanelRunLabels.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanelRunLabels.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanelRunLabels.Name = "tableLayoutPanelRunLabels";
             this.tableLayoutPanelRunLabels.RowCount = 15;
@@ -6578,12 +6581,12 @@
             this.toolStripSeparator13,
             this.toolStripMenuItemResetResolution});
             this.contextMenuStripResetResolution.Name = "contextMenuStripResetResolution";
-            this.contextMenuStripResetResolution.Size = new System.Drawing.Size(219, 76);
+            this.contextMenuStripResetResolution.Size = new System.Drawing.Size(219, 54);
             // 
             // toolStripMenuItemResetResolution
             // 
             this.toolStripMenuItemResetResolution.Name = "toolStripMenuItemResetResolution";
-            this.toolStripMenuItemResetResolution.Size = new System.Drawing.Size(173, 22);
+            this.toolStripMenuItemResetResolution.Size = new System.Drawing.Size(218, 22);
             this.toolStripMenuItemResetResolution.Text = "Reset Resolution";
             this.toolStripMenuItemResetResolution.Click += new System.EventHandler(this.toolStripMenuItemResetResolution_Click);
             // 
@@ -6609,7 +6612,7 @@
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
-            this.toolStripSeparator13.Size = new System.Drawing.Size(170, 6);
+            this.toolStripSeparator13.Size = new System.Drawing.Size(215, 6);
             // 
             // cmdRuntimeEnableToggle
             // 
@@ -6649,6 +6652,12 @@
             this.toolStripMenuItemRuntimeEnableDisableToggle.Size = new System.Drawing.Size(195, 22);
             this.toolStripMenuItemRuntimeEnableDisableToggle.Text = "Toggle";
             this.toolStripMenuItemRuntimeEnableDisableToggle.Click += new System.EventHandler(this.toolStripMenuItemRuntimeEnableDisableToggle_Click);
+            // 
+            // TimerProperties
+            // 
+            this.TimerProperties.Enabled = true;
+            this.TimerProperties.Interval = 1000;
+            this.TimerProperties.Tick += new System.EventHandler(this.TimerProperties_Tick);
             // 
             // frmMain
             // 
@@ -7395,5 +7404,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemEnableDisableToggleLabel;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparatorEnableDisableToggle;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemRuntimeEnableDisableToggle;
+        private System.Windows.Forms.Timer TimerProperties;
     }
 }
