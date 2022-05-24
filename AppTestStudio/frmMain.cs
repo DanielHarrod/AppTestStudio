@@ -7402,7 +7402,8 @@ namespace AppTestStudio
             {
                 InitializeRunLabels();
             }
-            String RT1        = Node.Name;
+            // Done to reduce flickering.
+            String RT1 = Node.Name;
             String RT2 = Node.GameNodeType.ToString();
             String RT3 = "";
             String RT4 = "True";
