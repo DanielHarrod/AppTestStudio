@@ -85,6 +85,7 @@ namespace AppTestStudio
 
             String OriginalExpression = Expression;
 
+            // Loop through each color point from reference.
             foreach (DataGridViewRow row in frm.dgv.Rows)
             {
                 if (row.IsNewRow)
@@ -275,7 +276,9 @@ namespace AppTestStudio
             txtLogic.Text = PreExpression.ToLower();
             txtLogic2.Text = OriginalExpression.ToLower();
             txtLogic3.Text = Expression.ToLower();
-            if (dgvTest.Rows.Count == 1)
+            
+            // event with no requirements is a passing test.
+            if (dgvTest.Rows.Count == 0 )
             {
                 Result = true;
             }
