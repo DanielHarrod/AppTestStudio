@@ -258,9 +258,14 @@ namespace AppTestStudio
 
         private void LoadData(GameNodeAction parent, Rectangle Mask)
         {
-            if (Mask.Width <= 0 || Mask.Height <= 0)
+            if (Mask.IsFullScreenMask())
             {
-                Debug.Assert(false);
+                Mask = Mask.SetFullScreenFromDefault();
+            }
+
+            if(Mask.Width <= 0 || Mask.Height <= 0)
+            {
+                frm.Log("Error: Mask width or height set to 0");
                 return;
             }
             Bitmap CropImage = new Bitmap(Mask.Width, Mask.Height);
@@ -386,20 +391,28 @@ namespace AppTestStudio
             //'Draw the box on the search
             Rectangle rectangle = new Rectangle();
 
+            Rectangle SourceMask;
             if (Parent.IsSomething())
             {
-                Utils.DrawMask(PictureBoxSearchArea, Parent.Rectangle, e);
-                rectangle.X = DetectedPoint.X + Parent.Rectangle.X;
-                rectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y;
+                SourceMask = Parent.Rectangle;
             }
             else
             {
-
-                Utils.DrawMask(PictureBoxSearchArea, Node.Rectangle, e);
-                rectangle.X = DetectedPoint.X + Node.Rectangle.X;
-                rectangle.Y = DetectedPoint.Y + Node.Rectangle.Y;
+                SourceMask = Node.Rectangle;
             }
 
+            if (SourceMask.IsFullScreenMask())
+            {
+                // do nothing
+                SourceMask = SourceMask.SetFullScreenFromDefault();
+            }
+            else
+            {
+                Utils.DrawMask(PictureBoxSearchArea, SourceMask, e);
+            }
+
+            rectangle.X = DetectedPoint.X + SourceMask.X;
+            rectangle.Y = DetectedPoint.Y + SourceMask.Y;
 
             rectangle.Width = PictureBoxObject.Image.Width;
             rectangle.Height = PictureBoxObject.Image.Height;

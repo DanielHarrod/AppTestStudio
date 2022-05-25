@@ -43,6 +43,25 @@ namespace AppTestStudio
             return Result;
         }
 
+        public static Rectangle SetFullScreenFromDefault(this Rectangle rec)
+        {
+            Rectangle newRectangle = new Rectangle();
+            newRectangle.Width = rec.X;
+            newRectangle.Height = rec.Y;
+            newRectangle.X = 0;
+            newRectangle.Y = 0;
+            return newRectangle;
+        }
+
+        public static Boolean IsFullScreenMask(this Rectangle rec)
+        {
+            if( rec.Height == 0 && rec.Width == 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
         public static Bitmap CloneMe(this Bitmap bmp)
         {
             return (Bitmap)bmp.Clone();
