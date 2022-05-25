@@ -819,15 +819,11 @@ namespace AppTestStudio
   
                 OpenCvSharp.Point p = new OpenCvSharp.Point();
                 OpenCvSharp.Point DetectedPoint = new OpenCvSharp.Point();
-
-                
+                                
                 Cv2.MinMaxLoc(res, out p, out DetectedPoint);
 
                 Mat.Indexer<Single> indexer = res.GetGenericIndexer<Single>();
                 detectedThreashold = indexer[DetectedPoint.Y, DetectedPoint.X];
-
-
-
 
                 long iObjectThreshold = ObjectThreshold;
                 if (iObjectThreshold == 0)

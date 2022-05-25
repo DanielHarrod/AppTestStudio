@@ -908,6 +908,36 @@ namespace AppTestStudio
                     break;
             }
 
+            switch (node.ActionType)
+            {
+                case AppTestStudio.ActionType.RNGContainer:
+                    break;
+                case ActionType.RNG:
+                    break;
+                case ActionType.Event:
+                    if (node.IsColorPoint)
+                    {
+                        if (node.ClickList.Count == 0)
+                        {
+                        }
+                        else
+                        {
+                        }
+
+                    }
+                    else
+                    {
+                        if (node.Rectangle.IsFullScreenMask())
+                        {
+                            node.Rectangle = node.Rectangle.SetFullScreenFromDefault();
+                        }
+                        // Object search
+                    }
+                    break;
+            }
+
+
+
             foreach (GameNodeAction Node in node.Nodes)
             {
                 InitializeChildren(Node);
