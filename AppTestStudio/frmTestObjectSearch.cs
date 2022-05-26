@@ -73,8 +73,15 @@ namespace AppTestStudio
             if (Parent.IsSomething())
             {
                 RunTest(Parent, UseCurrentWindow);
-                LoadData(Parent, Parent.Rectangle);
-                Search(Parent, ref CenterX, ref CenterY, ref IsPassed);
+                if (LoadData(Parent, Parent.Rectangle))
+                {
+                    Search(Parent, ref CenterX, ref CenterY, ref IsPassed);
+                }
+                else
+                {
+                    frm.Log("Error running test, check error messages.");
+                    return;
+                }
 
                 GameNodeGame Game = Node.GetGameNodeGame();
 
@@ -149,8 +156,15 @@ namespace AppTestStudio
             else
             {
                 RunTest(Node, UseCurrentWindow);
-                LoadData(Node, Node.Rectangle);
-                Search(Node, ref CenterX, ref CenterY, ref IsPassed);
+                if (LoadData(Node, Node.Rectangle))
+                {
+                    Search(Node, ref CenterX, ref CenterY, ref IsPassed);
+                }
+                else
+                {
+                    frm.Log("Error running tests, check error messages.");
+                    return;
+                }
             }
 
             Watch.Stop();
@@ -256,7 +270,7 @@ namespace AppTestStudio
 
         }
 
-        private void LoadData(GameNodeAction parent, Rectangle Mask)
+        private Boolean LoadData(GameNodeAction parent, Rectangle Mask)
         {
             if (Mask.IsFullScreenMask())
             {
@@ -266,7 +280,7 @@ namespace AppTestStudio
             if(Mask.Width <= 0 || Mask.Height <= 0)
             {
                 frm.Log("Error: Mask width or height set to 0");
-                return;
+                return false;
             }
             Bitmap CropImage = new Bitmap(Mask.Width, Mask.Height);
 
@@ -287,7 +301,7 @@ namespace AppTestStudio
             catch (DllNotFoundException ex)
             {
                 Debug.Assert(false, "Deleting the BIN folder and rebuilding typically will fix this issue.");
-                return;
+                return false;
             }
 
             //'213 ms
@@ -310,6 +324,7 @@ namespace AppTestStudio
             BlueTarget = BGR[0];
             GreenTarget = BGR[1];
             RedTarget = BGR[2];
+            return true;
         }
 
         private void RunTest(GameNodeAction node, bool useCurrentWindow)
