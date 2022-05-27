@@ -4405,8 +4405,8 @@ namespace AppTestStudio
         {
             DateTime LowestNextRun = DateTime.MinValue;
 
-            // go backwards
-            for (int i = Schedule.RuntimeSchedule.Count - 1; i >= 0; i--)
+            // not sure I need a loop anymore as the list is now sorted.
+            for (int i = 0; i < Schedule.RuntimeSchedule.Count(); i++)
             {
                 if (Schedule.RuntimeSchedule[i].NextRun < DateTime.Now)
                 {
@@ -4415,9 +4415,10 @@ namespace AppTestStudio
                 }
                 else
                 {
-                    if (Schedule.RuntimeSchedule[i].NextRun < LowestNextRun || LowestNextRun == DateTime.MinValue)
+                    if (Schedule.RuntimeSchedule[i].NextRun > DateTime.Now)
                     {
                         LowestNextRun = Schedule.RuntimeSchedule[i].NextRun;
+                        break;
                     }
                 }
             }

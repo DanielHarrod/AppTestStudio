@@ -85,7 +85,10 @@ namespace AppTestStudio
                     // Add Current Day + time from ScheduleTemplate.StartsAt
                     FirstScheduledItem.NextRun = DayToStart.Date.Add(ScheduleTemplate.StartsAt.TimeOfDay);
 
-                    RuntimeSchedule.Add(FirstScheduledItem);
+                    if (FirstScheduledItem.NextRun > DateTime.Now)
+                    {
+                        RuntimeSchedule.Add(FirstScheduledItem);
+                    }
 
                     // if it repeats then calculate the other times to launch.
                     if (ScheduleTemplate.Repeats)
@@ -97,7 +100,11 @@ namespace AppTestStudio
                         {
                             ScheduleItem NextItem = ScheduleTemplate.CloneMe();
                             NextItem.NextRun = NextPotentialDateTime;
-                            RuntimeSchedule.Add(NextItem);
+
+                            if(NextItem.NextRun > DateTime.Now)
+                            {
+                                RuntimeSchedule.Add(NextItem);
+                            }
 
                             NextPotentialDateTime = NextPotentialDateTime.AddMinutes(ScheduleTemplate.RepeatsEvery);
                         }
@@ -105,6 +112,8 @@ namespace AppTestStudio
                 }
             }
 
+            RuntimeSchedule.Sort(ScheduleItem.CompareByDate);
+            
             return RuntimeSchedule;
         }
 
