@@ -3976,9 +3976,12 @@ namespace AppTestStudio
                     tv_AfterSelect(null, null);
                     break;
                 case 1:
+                    DisableSecondToolbarButtons();
                     SetPanel(PanelMode.Thread);
+
                     break;
                 case 2:
+                    DisableSecondToolbarButtons();
                     SetPanel(PanelMode.Schedule);
 
                     break;
