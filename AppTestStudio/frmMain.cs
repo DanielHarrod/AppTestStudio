@@ -7760,6 +7760,12 @@ namespace AppTestStudio
                 tvRun_AfterSelect(null, tvea);
             }
         }
+
+        private void aboutAppTestStudioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAbout f = new frmAbout();
+            f.ShowDialog();
+        }
     }
 }
 

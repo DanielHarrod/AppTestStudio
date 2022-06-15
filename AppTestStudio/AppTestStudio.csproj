@@ -141,6 +141,12 @@
     <Compile Include="Enums.cs" />
     <Compile Include="ExportGameResults.cs" />
     <Compile Include="Extensions.cs" />
+    <Compile Include="frmAbout.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAbout.Designer.cs">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAddNewGame.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -226,6 +232,9 @@
     <Compile Include="WindowHandleInfo.cs" />
     <Compile Include="ThreadManager.cs" />
     <Compile Include="Utils.cs" />
+    <EmbeddedResource Include="frmAbout.resx">
+      <DependentUpon>frmAbout.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAddNewGame.resx">
       <DependentUpon>frmAddNewGame.cs</DependentUpon>
     </EmbeddedResource>
