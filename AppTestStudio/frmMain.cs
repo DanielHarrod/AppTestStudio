@@ -539,7 +539,10 @@ namespace AppTestStudio
                 }
                 else
                 {
-                    cboGameInstances.SelectedIndex = 0;
+                    if (cboGameInstances.Items.Count > 0)
+                    {
+                        cboGameInstances.SelectedIndex = 0;
+                    }
                     txtGamePanelLaunchInstance.Text = "0";
                     game.InstanceToLaunch = "0";
                 }
@@ -2688,9 +2691,9 @@ namespace AppTestStudio
             catch (Exception ex)
             {
                 Log("Save Schedule: error getting filename " + ex.Message);
-                
+
             }
-            
+
             try
             {
                 TextWriter TR = new StreamWriter(FileName);
@@ -7584,7 +7587,7 @@ namespace AppTestStudio
                     Debug.Assert(false);
                     break;
             }
-        //https://stackoverflow.com/questions/3816362/winforms-label-flickering
+            //https://stackoverflow.com/questions/3816362/winforms-label-flickering
             lblRunValue1.Text = RT1;
             lblRunValue2.Text = RT2;
             lblRunValue3.Text = RT3;
