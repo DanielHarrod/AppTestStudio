@@ -121,7 +121,7 @@ namespace AppTestStudio
             this.textBox2.Size = new System.Drawing.Size(318, 61);
             this.textBox2.TabIndex = 0;
             this.textBox2.Text = "Bluestacks is a trademark of Bluestack Systems, Inc.\r\nNox App Player is a tradema" +
-    "rk of Nox (HongKong) Limited";
+    "rk of Nox (HongKong) Limited\r\nSteam is a trademark of Valve Corporation";
             this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // frmAbout
