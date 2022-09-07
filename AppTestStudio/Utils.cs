@@ -755,11 +755,11 @@ namespace AppTestStudio
             if (mouseSpeedPixelsPerSecond > 0)
             {
                 int Distance = GetDistanceABS(xStart, yStart, xTarget, yTarget);
-                int MouseSpeedPixelsPerMS = mouseSpeedPixelsPerSecond / 1000;
+                double MouseSpeedPixelsPerMS = mouseSpeedPixelsPerSecond / 1000.0d;
                 if (MouseSpeedPixelsPerMS > 0)
                 {
-                    int MoveDurationMS = Distance / MouseSpeedPixelsPerMS;
-                    return MoveDurationMS;
+                    double MoveDurationMS = Distance / MouseSpeedPixelsPerMS;
+                    return MoveDurationMS.ToInt();
                 }
                 else
                 {
