@@ -2252,7 +2252,7 @@ namespace AppTestStudio
                 double ModificationPercentage = 100;
                 ModificationPercentage = (ModificationPercentage + RngModification) / 100;
 
-                int ModifiedMouseSpeed = (int)(MouseSpeedPixelsPerSecond * ModificationPercentage);
+                int ModifiedMouseSpeed = (MouseSpeedPixelsPerSecond * ModificationPercentage).ToInt();
 
                 return ModifiedMouseSpeed;
             }

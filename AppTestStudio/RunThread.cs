@@ -438,7 +438,7 @@ namespace AppTestStudio
 
                         int RNG = Utils.RandomNumber(1, 100);
 
-                        int TargetIndex = (int)Math.Ceiling((double)RNG / Increment) - 1;
+                        int TargetIndex = Math.Ceiling((double)RNG / Increment).ToInt() - 1;
 
                         //Extremely rare this returns > # nodes
                         if (TargetIndex >= node.Nodes.Count)
@@ -738,7 +738,7 @@ namespace AppTestStudio
 
                     if (LoopDelay > 0)
                     {
-                        Thread.Sleep((int)LoopDelay);
+                        Thread.Sleep(LoopDelay.ToInt());
                     }
 
                     WindowHandle = Game.GetWindowHandleByWindowName();
@@ -838,7 +838,7 @@ namespace AppTestStudio
                 {
                     Game.LogStatus(Game.StatusNodeID, LoopDelay);
 
-                    Thread.Sleep((int)LoopDelay);
+                    Thread.Sleep(LoopDelay.ToInt());
                     ThreadManager.AddWaitLength(LoopDelay);
                 }
 

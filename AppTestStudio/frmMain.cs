@@ -2653,7 +2653,7 @@ namespace AppTestStudio
         private void NumericVideoFrameLimit_ValueChanged(object sender, EventArgs e)
         {
             GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-            GameNode.VideoFrameLimit = (long)NumericVideoFrameLimit.Value;
+            GameNode.VideoFrameLimit = NumericVideoFrameLimit.Value.ToLong();
         }
 
         private void chkEnableSchedule_CheckedChanged(object sender, EventArgs e)
@@ -4256,7 +4256,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-                Node.ExecutionLimit = (long)numIterations.Value;
+                Node.ExecutionLimit = numIterations.Value.ToLong();
             }
 
         }
@@ -4311,7 +4311,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.RelativeXOffset = (int)NumericXOffset.Value;
+                ActionNode.RelativeXOffset = NumericXOffset.Value.ToInt();
                 PictureBox1.Invalidate();
             }
         }
@@ -4321,7 +4321,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.RelativeYOffset = (int)NumericYOffset.Value;
+                ActionNode.RelativeYOffset = NumericYOffset.Value.ToInt();
                 PictureBox1.Invalidate();
             }
         }
@@ -4375,7 +4375,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.ObjectThreshold = (long)NumericObjectThreshold.Value;
+                ActionNode.ObjectThreshold = NumericObjectThreshold.Value.ToLong();
             }
         }
 
@@ -4794,7 +4794,7 @@ namespace AppTestStudio
                     }
                     else
                     {
-                        int intDetectedThreashold = (int)(DetectedThreashold * 100);
+                        int intDetectedThreashold = (DetectedThreashold * 100).ToInt();
                         Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
                     }
                 }
@@ -4822,7 +4822,7 @@ namespace AppTestStudio
                     }
                     else
                     {
-                        int intDetectedThreashold = (int)(DetectedThreashold * 100);
+                        int intDetectedThreashold = (DetectedThreashold * 100).ToInt();
                         Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
                     }
 
@@ -6243,7 +6243,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.ClickDragReleaseStartHeight = (int)numericSwipeStartHeight.Value;
+                ActionNode.ClickDragReleaseStartHeight = numericSwipeStartHeight.Value.ToInt();
                 PictureBox1.Invalidate();
             }
         }
@@ -6253,7 +6253,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.ClickDragReleaseStartWidth = (int)numericSwipeStartWidth.Value;
+                ActionNode.ClickDragReleaseStartWidth = numericSwipeStartWidth.Value.ToInt();
                 PictureBox1.Invalidate();
             }
 
@@ -6264,7 +6264,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.ClickDragReleaseEndHeight = (int)numericSwipeEndHeight.Value;
+                ActionNode.ClickDragReleaseEndHeight = numericSwipeEndHeight.Value.ToInt();
                 PictureBox1.Invalidate();
             }
 
@@ -6275,7 +6275,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.ClickDragReleaseVelocity = (int)numericSwipeVelocity.Value;
+                ActionNode.ClickDragReleaseVelocity = numericSwipeVelocity.Value.ToInt();
             }
 
         }
@@ -6359,7 +6359,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.ClickDragReleaseEndWidth = (int)numericSwipeEndWidth.Value;
+                ActionNode.ClickDragReleaseEndWidth = numericSwipeEndWidth.Value.ToInt();
                 PictureBox1.Invalidate();
             }
         }
@@ -7254,7 +7254,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeGame Node = tv.SelectedNode as GameNodeGame;
-                Node.MouseSpeedPixelsPerSecond = (int)numericMouseSpeedPixelsPerSecond.Value;
+                Node.MouseSpeedPixelsPerSecond = numericMouseSpeedPixelsPerSecond.Value.ToInt();
             }
         }
 
@@ -7263,7 +7263,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeGame Node = tv.SelectedNode as GameNodeGame;
-                Node.MouseSpeedVelocityVariantPercentMax = (int)numericMouseSpeedVelocityVariantPercentMax.Value;
+                Node.MouseSpeedVelocityVariantPercentMax = numericMouseSpeedVelocityVariantPercentMax.Value.ToInt();
             }
         }
 
@@ -7272,7 +7272,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 GameNodeGame Node = tv.SelectedNode as GameNodeGame;
-                Node.MouseSpeedVelocityVariantPercentMin = (int)numericMouseSpeedVelocityVariantPercentMin.Value;
+                Node.MouseSpeedVelocityVariantPercentMin = numericMouseSpeedVelocityVariantPercentMin.Value.ToInt();
             }
         }
 

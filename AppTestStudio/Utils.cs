@@ -510,9 +510,9 @@ namespace AppTestStudio
             RECT ClientRect;
             API.GetClientRect(windowHandle, out ClientRect);
 
-            short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);
+            short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
-            short ySystemTarget = (short)(yClientTarget + +TargetWindowRectangle.Top);
+            short ySystemTarget = (yClientTarget + +TargetWindowRectangle.Top).ToShort();
 
             GetCursorPos(out API.Point point);
             int xStart = point.X;
@@ -524,7 +524,7 @@ namespace AppTestStudio
             float CurrentX = xStart;
             float CurrentY = yStart;
 
-            int velocityMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, (int)xSystemTarget, (int)ySystemTarget, mouseSpeedPixelsPerSecond);
+            int velocityMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, xSystemTarget.ToInt(), ySystemTarget.ToInt(), mouseSpeedPixelsPerSecond);
 
             int NumberOfActions = velocityMS / PostEveryMS;
 
@@ -774,13 +774,13 @@ namespace AppTestStudio
         [System.Diagnostics.DebuggerStepThrough]
         static int CalculateAbsoluteCoordinateX(double x)
         {
-            return CalculateAbsoluteCoordinateX((int)x);
+            return CalculateAbsoluteCoordinateX(x.ToInt());
         }
 
         [System.Diagnostics.DebuggerStepThrough]
         static int CalculateAbsoluteCoordinateX(float x)
         {
-            return CalculateAbsoluteCoordinateX((int)x);
+            return CalculateAbsoluteCoordinateX(x);
         }
 
         static int CalculateAbsoluteCoordinateX(int x)
@@ -792,12 +792,12 @@ namespace AppTestStudio
         [System.Diagnostics.DebuggerStepThrough]
         static int CalculateAbsoluteCoordinateY(double y)
         {
-            return CalculateAbsoluteCoordinateY((int)y);
+            return CalculateAbsoluteCoordinateY(y.ToInt());
         }
         [System.Diagnostics.DebuggerStepThrough]
         static int CalculateAbsoluteCoordinateY(float y)
         {
-            return CalculateAbsoluteCoordinateY((int)y);
+            return CalculateAbsoluteCoordinateY(y.ToInt());
         }
         static int CalculateAbsoluteCoordinateY(int y)
         {
@@ -825,9 +825,9 @@ namespace AppTestStudio
             //Retrieves the coordinates of a window's client area.
             API.GetClientRect(windowHandle, out ClientRect);
 
-            short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);
+            short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
-            short ySystemTarget = (short)(yClientTarget + TargetWindowRectangle.Top);
+            short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
 
             int AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
             int AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
@@ -1425,8 +1425,8 @@ namespace AppTestStudio
                             SizeF WidthTextSize = e.Graphics.MeasureString(pictureBox1Rectangle.Width.ToString(), Arial);
                             SizeF HeightTextSize = e.Graphics.MeasureString(pictureBox1Rectangle.Height.ToString(), Arial);
 
-                            int MiddleOfTextWidth = (int)(WidthTextSize.Width / 2);
-                            int MiddleOfTextHeight = (int)(WidthTextSize.Height / 2);
+                            int MiddleOfTextWidth = (WidthTextSize.Width / 2).ToInt();
+                            int MiddleOfTextHeight = (WidthTextSize.Height / 2).ToInt();
 
                             //Debug.WriteLine("Node.Anchor" + Node.Anchor);
                             //Debug.WriteLine("pictureBox1Rectangle: " + pictureBox1Rectangle);
@@ -1594,7 +1594,7 @@ namespace AppTestStudio
 
         public static int GetDistance(int x1, int y1, int x2, int y2)
         {
-            return (int)Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2));
+            return Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2).ToInt());
         }
 
 

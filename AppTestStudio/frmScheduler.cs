@@ -52,7 +52,7 @@ namespace AppTestStudio
             }
             si.AppPath = txtApp.Text;
 
-            si.InstanceNumber = (int)nudInstanceNumber.Value;
+            si.InstanceNumber = nudInstanceNumber.Value.ToInt();
             si.Monday = chkMonday.Checked;
             si.Tuesday = chkTuesday.Checked;
             si.Wednesday = chkWednesday.Checked;
@@ -63,9 +63,9 @@ namespace AppTestStudio
 
             si.Name = txtName.Text;
             si.Repeats = chkRepeat.Checked;
-            si.RepeatsEvery = (int)nudRepeatEvery.Value;
+            si.RepeatsEvery = nudRepeatEvery.Value.ToInt();
             si.StartsAt = dtStartsAt.Value;
-            si.StopsAfter = (int)nudStopAfter.Value;
+            si.StopsAfter = nudStopAfter.Value.ToInt();
             si.WindowName = txtWindowName.Text;
             si.IsEnabled = chkEnabled.Checked;
 

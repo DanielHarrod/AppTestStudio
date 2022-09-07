@@ -93,10 +93,37 @@ namespace AppTestStudio
         {
             return (int)d;
         }
+        public static int ToInt(this float d)
+        {
+            return (int)d;
+        }
+        public static int ToInt(this decimal d)
+        {
+            return (int)d;
+        }
+        public static int ToInt(this long d)
+        {
+            return (int)d;
+        }
+
+        public static int ToInt(this short d)
+        {
+            return (int)d;
+        }
 
         public static long ToLong(this double d)
         {
             return (long)d;
+        }
+        public static long ToLong(this decimal d)
+        {
+            return (long)d;
+        }
+
+
+        public static short ToShort(this int d)
+        {
+            return (short)d;
         }
 
         // Compare Colors and return if the colors match
