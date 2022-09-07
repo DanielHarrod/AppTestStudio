@@ -89,6 +89,11 @@ namespace AppTestStudio
             }
         }
 
+        public static int ToInt(this double d)
+        {
+            return (int)d;
+        }
+
         public static long ToLong(this double d)
         {
             return (long)d;
