@@ -1594,7 +1594,7 @@ namespace AppTestStudio
 
         public static int GetDistance(int x1, int y1, int x2, int y2)
         {
-            return Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2).ToInt());
+            return Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2)).ToInt();
         }
 
 
