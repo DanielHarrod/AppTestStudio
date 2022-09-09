@@ -780,7 +780,7 @@ namespace AppTestStudio
         [System.Diagnostics.DebuggerStepThrough]
         static int CalculateAbsoluteCoordinateX(float x)
         {
-            return CalculateAbsoluteCoordinateX(x);
+            return CalculateAbsoluteCoordinateX(x.ToInt());
         }
 
         static int CalculateAbsoluteCoordinateX(int x)
