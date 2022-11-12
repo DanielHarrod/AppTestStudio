@@ -434,8 +434,8 @@ namespace AppTestStudio
             DisableSecondToolbarButtons();
         }
 
-        const String PauseScript = "Pause Scripts";
-        const String UnPauseScript = "Resume Scripts";
+        const String PauseScript = "Pause Script";
+        const String UnPauseScript = "Resume Script";
         private void toolStripButtonToggleScript_Click(object sender, EventArgs e)
         {
             Boolean IsPaused = false;
