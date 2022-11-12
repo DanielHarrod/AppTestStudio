@@ -48,7 +48,11 @@
             this.cboSteamPrimaryWindowNameFilter = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label9 = new System.Windows.Forms.Label();
+            this.lblPrimaryWindowsFound = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
+            this.lstSecondary = new System.Windows.Forms.ListBox();
+            this.cmdSecondarySearch = new System.Windows.Forms.Button();
             this.lblSecondaryWindowsFound = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
@@ -61,11 +65,7 @@
             this.cmdRefreshList = new System.Windows.Forms.Button();
             this.cmdUseWindowFound = new System.Windows.Forms.Button();
             this.label12 = new System.Windows.Forms.Label();
-            this.lstSecondary = new System.Windows.Forms.ListBox();
-            this.cmdSecondarySearch = new System.Windows.Forms.Button();
             this.cmdUseSecondaryWindowFound = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lblPrimaryWindowsFound = new System.Windows.Forms.Label();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblChangeSecondaryWindowFilter = new System.Windows.Forms.Label();
@@ -297,6 +297,24 @@
             this.label9.TabIndex = 1;
             this.label9.Text = "Filter";
             // 
+            // lblPrimaryWindowsFound
+            // 
+            this.lblPrimaryWindowsFound.AutoSize = true;
+            this.lblPrimaryWindowsFound.Location = new System.Drawing.Point(89, 225);
+            this.lblPrimaryWindowsFound.Name = "lblPrimaryWindowsFound";
+            this.lblPrimaryWindowsFound.Size = new System.Drawing.Size(125, 13);
+            this.lblPrimaryWindowsFound.TabIndex = 15;
+            this.lblPrimaryWindowsFound.Text = "lblPrimaryWindowsFound";
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(7, 225);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(84, 13);
+            this.label13.TabIndex = 14;
+            this.label13.Text = "Windows Found";
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.lstSecondary);
@@ -313,6 +331,24 @@
             this.groupBox4.TabIndex = 15;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Secondary Search";
+            // 
+            // lstSecondary
+            // 
+            this.lstSecondary.FormattingEnabled = true;
+            this.lstSecondary.Location = new System.Drawing.Point(89, 98);
+            this.lstSecondary.Name = "lstSecondary";
+            this.lstSecondary.Size = new System.Drawing.Size(216, 121);
+            this.lstSecondary.TabIndex = 17;
+            // 
+            // cmdSecondarySearch
+            // 
+            this.cmdSecondarySearch.Location = new System.Drawing.Point(89, 69);
+            this.cmdSecondarySearch.Name = "cmdSecondarySearch";
+            this.cmdSecondarySearch.Size = new System.Drawing.Size(75, 23);
+            this.cmdSecondarySearch.TabIndex = 18;
+            this.cmdSecondarySearch.Text = "Search";
+            this.cmdSecondarySearch.UseVisualStyleBackColor = true;
+            this.cmdSecondarySearch.Click += new System.EventHandler(this.cmdSecondarySearch_Click);
             // 
             // lblSecondaryWindowsFound
             // 
@@ -374,10 +410,11 @@
             // PictureBox1
             // 
             this.PictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.PictureBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PictureBox1.Location = new System.Drawing.Point(0, 0);
             this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureBox1.Size = new System.Drawing.Size(335, 170);
+            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PictureBox1.TabIndex = 0;
             this.PictureBox1.TabStop = false;
             // 
@@ -429,24 +466,6 @@
             this.label12.TabIndex = 18;
             this.label12.Text = "Secondary Windows";
             // 
-            // lstSecondary
-            // 
-            this.lstSecondary.FormattingEnabled = true;
-            this.lstSecondary.Location = new System.Drawing.Point(89, 98);
-            this.lstSecondary.Name = "lstSecondary";
-            this.lstSecondary.Size = new System.Drawing.Size(216, 121);
-            this.lstSecondary.TabIndex = 17;
-            // 
-            // cmdSecondarySearch
-            // 
-            this.cmdSecondarySearch.Location = new System.Drawing.Point(89, 69);
-            this.cmdSecondarySearch.Name = "cmdSecondarySearch";
-            this.cmdSecondarySearch.Size = new System.Drawing.Size(75, 23);
-            this.cmdSecondarySearch.TabIndex = 18;
-            this.cmdSecondarySearch.Text = "Search";
-            this.cmdSecondarySearch.UseVisualStyleBackColor = true;
-            this.cmdSecondarySearch.Click += new System.EventHandler(this.cmdSecondarySearch_Click);
-            // 
             // cmdUseSecondaryWindowFound
             // 
             this.cmdUseSecondaryWindowFound.Enabled = false;
@@ -457,24 +476,6 @@
             this.cmdUseSecondaryWindowFound.Text = ">>";
             this.cmdUseSecondaryWindowFound.UseVisualStyleBackColor = true;
             this.cmdUseSecondaryWindowFound.Click += new System.EventHandler(this.cmdUseSecondaryWindowFound_Click);
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 225);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(84, 13);
-            this.label13.TabIndex = 14;
-            this.label13.Text = "Windows Found";
-            // 
-            // lblPrimaryWindowsFound
-            // 
-            this.lblPrimaryWindowsFound.AutoSize = true;
-            this.lblPrimaryWindowsFound.Location = new System.Drawing.Point(89, 225);
-            this.lblPrimaryWindowsFound.Name = "lblPrimaryWindowsFound";
-            this.lblPrimaryWindowsFound.Size = new System.Drawing.Size(125, 13);
-            this.lblPrimaryWindowsFound.TabIndex = 15;
-            this.lblPrimaryWindowsFound.Text = "lblPrimaryWindowsFound";
             // 
             // groupBox5
             // 
@@ -633,7 +634,6 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.PanelScreenshot.ResumeLayout(false);
-            this.PanelScreenshot.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.groupBox5.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
