@@ -44,7 +44,9 @@ namespace AppTestStudio
         {
             if (txtSearch.Text.Trim().Length > 0)
             {
-                webBrowser1.Navigate("https://play.google.com/store/search?q=" + System.Web.HttpUtility.UrlEncode(txtSearch.Text.Trim()) + "&c=apps");
+                String URL = "https://play.google.com/store/search?q=" + System.Web.HttpUtility.UrlEncode(txtSearch.Text.Trim()) + "&c=apps";
+                Debug.WriteLine(URL);
+                webBrowser1.Navigate(URL);
             }
         }
 
