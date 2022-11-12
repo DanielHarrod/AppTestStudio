@@ -3404,7 +3404,7 @@ namespace AppTestStudio
                                     Log("Starting new video");
                                     Log(FileName);
                                     bmp = null;
-                                    //'don//'t dispose re-reading it later.
+                                    //dont dispose re-reading it later.
                                 }
                             }
                         }
@@ -3413,8 +3413,6 @@ namespace AppTestStudio
                         {
                             while (game.BitmapClones.Count > 0)
                             {
-
-
                                 Bitmap bmp = null;
                                 if (game.BitmapClones.TryDequeue(out bmp))
                                 {
@@ -3441,16 +3439,10 @@ namespace AppTestStudio
                             game.BitmapClones.TryDequeue(out bmp);
                             bmp.Dispose();
                             bmp = null;
-
                         }
-
                     }
                 }
             }
-
-
-
-
         }
 
         private String StartNewVideo(GameNodeGame game, Bitmap bmp)
@@ -3466,8 +3458,8 @@ namespace AppTestStudio
                 System.IO.Directory.CreateDirectory(Directory);
             }
 
-            String Filename = Directory + @"\" + game.GameNodeName + DateTime.Now.ToString("ATSyyyyMMddHHmmss") + ".avi";
-            game.Video = new OpenCvSharp.VideoWriter(Filename, OpenCvSharp.FourCCValues.DIVX, 1, new OpenCvSharp.Size(bmp.Width, bmp.Height), true);
+            String Filename = Directory + @"\" + game.GameNodeName + DateTime.Now.ToString("ATSyyyyMMddHHmmss") + ".mp4";
+            game.Video = new OpenCvSharp.VideoWriter(Filename, OpenCvSharp.FourCC.XVID, 1, new OpenCvSharp.Size(bmp.Width, bmp.Height), true);
             game.VideoHeight = bmp.Height;
             game.VideoWidth = bmp.Width;
 
