@@ -205,6 +205,8 @@ namespace AppTestStudio
 
             tableLayoutPanelRunLabels.BackColor = Color.FromArgb(60, 60, 60);
             tableLayoutPanelRunValues.BackColor = Color.FromArgb(60, 60, 60);
+
+            InitializeRunLabels();
         }
 
         private void ShowTermsOfServiceIfNecessary()
@@ -1588,13 +1590,20 @@ namespace AppTestStudio
 
         private void LoadInstance(GameNodeGame gameNode)
         {
-            if (ThreadManager.Game.IsSomething())
+            Log("Starting Instance " + gameNode.GameNodeName);
+
+            // Stop any existing threads that are running on this instance.
+            foreach (GameNodeGame RunningThreadGames in ThreadManager.Games)
             {
-                ThreadManager.Game.Thread.Abort();
-                Log("Stopping Existing Running Instance " + ThreadManager.Game.GameNodeName);
+                if (RunningThreadGames.ThreadandWindowName == gameNode.ThreadandWindowName)
+                {
+                    ThreadManager.RemoveGame(RunningThreadGames);
+                    RunningThreadGames.Thread.Abort();
+                    Log("Stopping existing Instance" + RunningThreadGames.GameNodeName);
+                    break;
+                }
             }
 
-            Log("Starting Instance " + gameNode.GameNodeName);
             GameNodeGame GameCopy = gameNode.CloneMe();
 
             // It is kinda cool to see all the old runs, but it's not self discoverable
@@ -1609,7 +1618,11 @@ namespace AppTestStudio
 
             Thread t = new Thread(new ThreadStart(RT.Run));
             GameCopy.Thread = t;
-            ThreadManager.Game = GameCopy;
+            ThreadManager.Games.Add(GameCopy);
+
+            RefreshThreadList();
+
+            RefreshStatusList();
 
             toolStripButtonToggleScript.Enabled = true;
 
@@ -1621,16 +1634,34 @@ namespace AppTestStudio
             ThreadManager.IncrementInstanceLoaded();
 
             tabTree.SelectTab(1);
+            cboThreads.SelectedIndex = cboThreads.Items.Count - 1;
+        }
+
+        private void RefreshStatusList()
+        {
+            int Ordinal = 0;
+            List<String> lst = new List<string>();
+            foreach (GameNodeGame game in ThreadManager.Games)
+            {
+                lst.Add(game.Name);
+                game.StatusNodeID = Ordinal;
+                Ordinal++;
+                Ordinate(ref Ordinal, lst, game.Nodes[0] as GameNode);
+            }
+            appTestStudioStatusControl1.Items = lst;
         }
 
         private void OrdinateGameNode()
         {
             int Ordinal = 0;
             List<String> lst = new List<string>();
-            ThreadManager.Game.StatusNodeID = Ordinal;
-            lst.Add(ThreadManager.Game.Name);
-            Ordinal++;
-            Ordinate(ref Ordinal, lst, ThreadManager.Game.Nodes[0] as GameNode);
+            foreach (GameNodeGame game in ThreadManager.Games)
+            {
+                lst.Add(game.Name);
+                game.StatusNodeID = Ordinal;
+                Ordinal++;
+                Ordinate(ref Ordinal, lst, game.Nodes[0] as GameNode);
+            }
 
             appTestStudioStatusControl1.Items = lst;
 
@@ -1661,26 +1692,23 @@ namespace AppTestStudio
 
         private void SetThreadPauseState(Boolean isPaused)
         {
-            //Debug.WriteLine("SetThreadPauseState:" + isPaused);
-            if (ThreadManager.Game.IsSomething())
+            foreach (GameNodeGame Game in ThreadManager.Games)
             {
-                ThreadManager.Game.IsPaused = isPaused;
+                Game.IsPaused = isPaused;
+                if (isPaused)
+                {
+                    Log("Pausing Thread " + Game.ThreadandWindowName);
+                }
+                else
+                {
+                    Log("Resuming Thread " + Game.ThreadandWindowName);
+                }
             }
-            if (isPaused)
-            {
-                Log("Pausing Thread ");
-            }
-            else
-            {
-                Log("Resuming Thread ");
-            }
-
-
+                   
             if (isPaused)
             {
                 toolStripButtonToggleScript.Text = UnPauseScript;
                 toolStripButtonToggleScript.Image = AppTestStudio.Properties.Resources.StartWithoutDebug_16x_24;
-
             }
             else
             {
@@ -3133,57 +3161,81 @@ namespace AppTestStudio
 
                 Log(ex.Message);
                 //Debug.Assert(false);
+
+                ThreadManager.IsDirty = true;
             }
+
+            if (ThreadManager.IsDirty)
+            {
+                RefreshThreadList();
+                ThreadManager.IsDirty = false;
+            }
+
+
+            //'wow not good.
+            int lstthreadsSelectedIndex = cboThreads.SelectedIndex;
+            if (lstthreadsSelectedIndex == -1)
+            {
+                if (cboThreads.Items.Count > 0)
+                {
+                    cboThreads.SelectedIndex = 0;
+                }
+            }
+
             toolStripButtonToggleScript.Enabled = true;
+
+
             Boolean NeedRedraw = false;
 
-            if (ThreadManager.Game.IsSomething())
+            foreach (GameNodeGame game in ThreadManager.Games)
             {
-
-                int OriginalCount = ThreadManager.Game.StatusControl.Count;
-                while (ThreadManager.Game.StatusControl.Count > 0)
+                if (game.IsSomething())
                 {
-                    AppTestStudioStatusControlItem sci = null;
-                    if (ThreadManager.Game.StatusControl.TryDequeue(out sci))
+                    int OriginalCount = game.StatusControl.Count;
+                    while (game.StatusControl.Count > 0)
                     {
-                        appTestStudioStatusControl1.Queue.Add(sci);
-                    }
-                }
-
-                if (OriginalCount > 0)
-                {
-                    NeedRedraw = true;
-                }
-
-                if (ThreadManager.Game.MinimalBitmapClones.Count > 0)
-                {
-                    //'walk the tree to find a bitmpa
-
-                    MinimalBitmapNode mbmc = null;
-                    if (ThreadManager.Game.MinimalBitmapClones.TryDequeue(out mbmc))
-                    {
-                        TreeNode[] tns = tv.Nodes.Find(mbmc.NodeName, true);
-
-                        if (tns.Length == 1)
+                        AppTestStudioStatusControlItem sci = null;
+                        if (game.StatusControl.TryDequeue(out sci))
                         {
-                            GameNodeAction ActionNode = tns[0] as GameNodeAction;
+                            appTestStudioStatusControl1.Queue.Add(sci);
+                        }
+                    }
 
-                            if (mbmc.ResolutionHeight == ActionNode.ResolutionHeight)
+                    if (OriginalCount > 0)
+                    {
+                        NeedRedraw = true;
+                    }
+
+                    if (game.MinimalBitmapClones.Count > 0)
+                    {
+                        //'walk the tree to find a bitmpa
+
+                        MinimalBitmapNode mbmc = null;
+                        if (game.MinimalBitmapClones.TryDequeue(out mbmc))
+                        {
+                            TreeNode[] tns = tv.Nodes.Find(mbmc.NodeName, true);
+
+                            if (tns.Length == 1)
                             {
-                                if (mbmc.ResolutionWidth == ActionNode.ResolutionWidth)
+                                GameNodeAction ActionNode = tns[0] as GameNodeAction;
+
+                                if (mbmc.ResolutionHeight == ActionNode.ResolutionHeight)
                                 {
-                                    ActionNode.Bitmap = mbmc.Bitmap.Clone() as Bitmap;
-                                    Log("Synching Screenshot: " + ActionNode.Name);
-                                    BitmapChildren(ActionNode, ActionNode.Bitmap);
+                                    if (mbmc.ResolutionWidth == ActionNode.ResolutionWidth)
+                                    {
+                                        ActionNode.Bitmap = mbmc.Bitmap.Clone() as Bitmap;
+                                        Log("Synching Screenshot: " + ActionNode.Name);
+                                        BitmapChildren(ActionNode, ActionNode.Bitmap);
+                                    }
                                 }
                             }
+                            else
+                            {
+                                Log("Attempted to sync screenshots but two nodes have the same name: " + mbmc.NodeName);
+                            }
+                            mbmc.Bitmap.Dispose();
+                            mbmc.Bitmap = null;
                         }
-                        else
-                        {
-                            Log("Attempted to sync screenshots but two nodes have the same name: " + mbmc.NodeName);
-                        }
-                        mbmc.Bitmap.Dispose();
-                        mbmc.Bitmap = null;
                     }
                 }
             }
@@ -3385,60 +3437,61 @@ namespace AppTestStudio
             //'}
 
 
-            GameNodeGame game = ThreadManager.Game;
-
-            if (game.IsSomething())
+            foreach (GameNodeGame game in ThreadManager.Games)
             {
-                if (game.SaveVideo)
+                if (game.IsSomething())
                 {
-                    if (game.VideoFrameLimit > 0)
+                    if (game.SaveVideo)
                     {
-                        if (game.Video.IsSomething() == false)
+                        if (game.VideoFrameLimit > 0)
                         {
-                            if (game.BitmapClones.IsSomething())
+                            if (game.Video.IsSomething() == false)
                             {
-                                if (game.BitmapClones.Count > 0)
+                                if (game.BitmapClones.IsSomething())
                                 {
-                                    Bitmap bmp = game.BitmapClones.First();
-                                    String FileName = StartNewVideo(game, bmp);
-                                    Log("Starting new video");
-                                    Log(FileName);
-                                    bmp = null;
-                                    //dont dispose re-reading it later.
+                                    if (game.BitmapClones.Count > 0)
+                                    {
+                                        Bitmap bmp = game.BitmapClones.First();
+                                        String FileName = StartNewVideo(game, bmp);
+                                        Log("Starting new video");
+                                        Log(FileName);
+                                        bmp = null;
+                                        //dont dispose re-reading it later.
+                                    }
+                                }
+                            }
+
+                            if (game.Video.IsSomething())
+                            {
+                                while (game.BitmapClones.Count > 0)
+                                {
+                                    Bitmap bmp = null;
+                                    if (game.BitmapClones.TryDequeue(out bmp))
+                                    {
+                                        if (game.VideoWidth != bmp.Width || game.VideoHeight != bmp.Height)
+                                        {
+                                            game.Video.Release();
+                                            game.Video = null;
+                                            String FileName = StartNewVideo(game, bmp);
+                                            Log("New Video Due to New Resolution:" + bmp.Width + "x" + bmp.Height);
+                                            Log(FileName);
+                                        }
+                                        OpenCvSharp.Mat mat = OpenCvSharp.Extensions.BitmapConverter.ToMat(bmp);
+                                        game.Video.Write(mat);
+                                        game.VideoFrameLimit = game.VideoFrameLimit - 1;
+                                    }
                                 }
                             }
                         }
-
-                        if (game.Video.IsSomething())
+                        else
                         {
                             while (game.BitmapClones.Count > 0)
                             {
                                 Bitmap bmp = null;
-                                if (game.BitmapClones.TryDequeue(out bmp))
-                                {
-                                    if (game.VideoWidth != bmp.Width || game.VideoHeight != bmp.Height)
-                                    {
-                                        game.Video.Release();
-                                        game.Video = null;
-                                        String FileName = StartNewVideo(game, bmp);
-                                        Log("New Video Due to New Resolution:" + bmp.Width + "x" + bmp.Height);
-                                        Log(FileName);
-                                    }
-                                    OpenCvSharp.Mat mat = OpenCvSharp.Extensions.BitmapConverter.ToMat(bmp);
-                                    game.Video.Write(mat);
-                                    game.VideoFrameLimit = game.VideoFrameLimit - 1;
-                                }
+                                game.BitmapClones.TryDequeue(out bmp);
+                                bmp.Dispose();
+                                bmp = null;
                             }
-                        }
-                    }
-                    else
-                    {
-                        while (game.BitmapClones.Count > 0)
-                        {
-                            Bitmap bmp = null;
-                            game.BitmapClones.TryDequeue(out bmp);
-                            bmp.Dispose();
-                            bmp = null;
                         }
                     }
                 }
@@ -4583,7 +4636,25 @@ namespace AppTestStudio
             if (tv.SelectedNode.IsSomething())
             {
                 GameNodeAction Event = new GameNodeAction("New Event", ActionType.Event);
-                tv.SelectedNode.Nodes.Add(Event);
+
+                TreeNode gne = GetGameNodeEvents();
+                TreeNode gn = GetGameNode();
+                TreeNode gno = GetGameNodeObjects();
+
+                TreeNode TargetParentNode = tv.SelectedNode;
+                // TODO find other nodes that are not valid.
+                if(TargetParentNode == gn)
+                { 
+                    TargetParentNode = gne;
+                }
+
+                if (TargetParentNode == gno)
+                {
+                    TargetParentNode = gne;
+                }
+
+                // Need to make sure this isn't the 
+                TargetParentNode.Nodes.Add(Event);
                 tv.SelectedNode = Event;
 
                 SetPanel(PanelMode.PanelColorEvent);
@@ -5605,11 +5676,44 @@ namespace AppTestStudio
 
         private void mnuThreadExit_Click(object sender, EventArgs e)
         {
-            if (ThreadManager.Game.IsSomething())
+            //if (ThreadManager.Game.IsSomething())
+            //{
+            //    Log("Stopping Thread ");
+            //    ThreadManager.Game.Thread.Abort();
+            //    ThreadManager.RemoveGame();
+            //}
+
+            String git = cboThreads.SelectedItem.ToString();
+            String[] KeysIn = { " - " };
+            String[] Keys = git.Split(KeysIn, 1, StringSplitOptions.None);
+
+            if (Keys.Length == 0)
             {
-                Log("Stopping Thread ");
-                ThreadManager.Game.Thread.Abort();
-                ThreadManager.RemoveGame();
+                Debug.WriteLine("Not sure this is possible");
+                Debug.Assert(false);
+                return;
+            }
+
+            String Token = Keys[Keys.Length - 1];
+            Token = Token.Replace("ATS", "").Replace("Window", "");
+
+            GameNodeGame GameFound = null;
+            foreach (GameNodeGame Game in ThreadManager.Games)
+            {
+                if (Game.ThreadandWindowName == git)
+                {
+                    GameFound = Game;
+                    Game.Thread.Abort();
+
+                    break; // exit for
+                }
+            }
+
+            if (GameFound.IsSomething())
+            {
+                ThreadManager.RemoveGame(GameFound);
+                cboThreads.Items.Remove(git);
+                Log("Stopping Thread -" + git);
             }
         }
 
@@ -5776,9 +5880,9 @@ namespace AppTestStudio
             {
                 Visible = false;
                 Timer1.Enabled = false;
-                if (ThreadManager.Game.IsSomething())
+                foreach (GameNodeGame Game in ThreadManager.Games)
                 {
-                    ThreadManager.Game.Thread.Abort();
+                    Game.Thread.Abort();
                 }
                 Thread.Sleep(100);
 
@@ -7087,11 +7191,16 @@ namespace AppTestStudio
         frmNotify frmNotify;
         private void GlobalMouseKeyHook_KeyDown(object sender, KeyEventArgs e)
         {
+            // Not sure why this fires true for F5 sometimes.
             if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.F1))
             {
                 try
-                {
-                    AddNewEvent();
+                {                    
+                    String KeyDatavalue = e.KeyData.ToString();
+                    if (KeyDatavalue.Contains("F1"))
+                    {
+                        AddNewEvent();
+                    }
                 }
                 catch (Exception ex)
                 {
@@ -7106,9 +7215,9 @@ namespace AppTestStudio
 
                 Boolean RunningThreadDetected = false;
 
-                if (ThreadManager.Game.IsSomething())
+                foreach (GameNodeGame game in ThreadManager.Games)
                 {
-                    if (ThreadManager.Game.IsPaused == false)
+                    if (game.IsPaused == false)
                     {
                         RunningThreadDetected = true;
 
@@ -7147,28 +7256,30 @@ namespace AppTestStudio
                 e.Handled = true;
 
                 Boolean IsThereAnyThreadsRunning = false;
-
-                if (ThreadManager.Game.IsSomething())
+                foreach (GameNodeGame game in ThreadManager.Games)
                 {
-                    if (ThreadManager.Game.IsPaused == false)
+                    if (game.IsSomething())
                     {
-                        IsThereAnyThreadsRunning = true;
-                    }
+                        if (game.IsPaused == false)
+                        {
+                            IsThereAnyThreadsRunning = true;
+                        }
 
-                    if (IsThereAnyThreadsRunning)
-                    {
-                        // Pause all threads
-                        SetThreadPauseState(true);
+                        if (IsThereAnyThreadsRunning)
+                        {
+                            // Pause all threads
+                            SetThreadPauseState(true);
+                        }
+                        else
+                        {
+                            // Resume all threads
+                            SetThreadPauseState(false);
+                        }
                     }
                     else
                     {
-                        // Resume all threads
-                        SetThreadPauseState(false);
+                        Log("There were not any running scripts.");
                     }
-                }
-                else
-                {
-                    Log("There were not any running scripts.");
                 }
             }
         }
@@ -7179,7 +7290,6 @@ namespace AppTestStudio
             frmNotify = null;
             IsNotifying = false;
         }
-
         private void Notify_threadDone(object sender, EventArgs e)
         {
             IsNotifying = false;
@@ -7798,6 +7908,17 @@ namespace AppTestStudio
             {
                 Log("aboutAppTestStudioToolStripMenuItem_Click");
                 Log(ex.Message);
+            }
+        }
+
+        private void RefreshThreadList()
+        {
+            cboThreads.Items.Clear();
+            foreach (GameNodeGame Game in ThreadManager.Games)
+            {
+                cboThreads.Items.Add(Game.ThreadandWindowName);
+                toolStripButtonToggleScript.Enabled = true;
+
             }
         }
     }
