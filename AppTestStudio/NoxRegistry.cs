@@ -1,4 +1,4 @@
-﻿//AppTestStudio 
+﻿4//AppTestStudio 
 //Copyright (C) 2016-2021 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
@@ -44,11 +44,11 @@ namespace AppTestStudio
                     String[] Results = ReadValue.Split(keys, 2, StringSplitOptions.None);
                     if (Results.Length == 2)
                     {
-                        ExePath = Results[0];
+                        ExePath = Results[0].Replace(@"""","");
 
-                        WorkingDirectory = ExePath.Replace(@"bin\Nox.exe", "");
+                        WorkingDirectory = ExePath.Replace(@"bin\Nox.exe", "").Replace(@"""", ""); 
 
-                        BigNoxVMSFolder = ExePath.Replace("Nox.exe", "BignoxVMS");
+                        BigNoxVMSFolder = ExePath.Replace("Nox.exe", "BignoxVMS").Replace(@"""", ""); 
                     }
                     else
                     {
