@@ -7409,192 +7409,200 @@ namespace AppTestStudio
 
         private void tvRun_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            GameNode Node = e.Node as GameNode;
-            if (Node.IsNothing())
+            try
             {
-                return;
-            }
+                GameNode Node = e.Node as GameNode;
+                if (Node.IsNothing())
+                {
+                    return;
+                }
 
-            if (lblRunLabel1.Text == lblRunLabel1.Name)
-            {
-                InitializeRunLabels();
-            }
-            // Done to reduce flickering.
-            String RT1 = Node.Name;
-            String RT2 = Node.GameNodeType.ToString();
-            String RT3 = "";
-            String RT4 = "True";
-            String RT5 = "";
-            String RT6 = "";
-            String RT7 = "";
-            String RT8 = "";
-            String RT9 = "";
-            String RT10 = "";
-            String RT11 = "";
+                if (lblRunLabel1.Text == lblRunLabel1.Name)
+                {
+                    InitializeRunLabels();
+                }
+                // Done to reduce flickering.
+                String RT1 = Node.Name;
+                String RT2 = Node.GameNodeType.ToString();
+                String RT3 = "";
+                String RT4 = "True";
+                String RT5 = "";
+                String RT6 = "";
+                String RT7 = "";
+                String RT8 = "";
+                String RT9 = "";
+                String RT10 = "";
+                String RT11 = "";
 
 
-            switch (Node.GameNodeType)
-            {
-                case GameNodeType.Workspace:
-                    break;
-                case GameNodeType.Games:
-                    break;
-                case GameNodeType.Game:
-                    break;
-                case GameNodeType.Events:
-                    break;
-                case GameNodeType.Action:
-                    GameNodeAction Action = e.Node as GameNodeAction;
+                switch (Node.GameNodeType)
+                {
+                    case GameNodeType.Workspace:
+                        break;
+                    case GameNodeType.Games:
+                        break;
+                    case GameNodeType.Game:
+                        break;
+                    case GameNodeType.Events:
+                        break;
+                    case GameNodeType.Action:
+                        GameNodeAction Action = e.Node as GameNodeAction;
 
-                    RT4 = Action.Enabled.ToString();
+                        RT4 = Action.Enabled.ToString();
 
-                    RT3 = Action.ActionType.ToString();
+                        RT3 = Action.ActionType.ToString();
 
-                    RT5 = Action.RuntimeActionCount.ToString();
+                        RT5 = Action.RuntimeActionCount.ToString();
 
-                    RT6 = Action.IsLimited.ToString();
+                        RT6 = Action.IsLimited.ToString();
 
-                    RT8 = Action.ResolutionWidth + "x" + Action.ResolutionHeight;
+                        RT8 = Action.ResolutionWidth + "x" + Action.ResolutionHeight;
 
-                    RT11 = Action.CalculateDelayInMS() + "ms";
+                        RT11 = Action.CalculateDelayInMS() + "ms";
 
-                    if (Action.IsLimited)
-                    {
-                        RT7 = Action.WaitType.ToString();
-
-                        if (Action.LimitRepeats)
+                        if (Action.IsLimited)
                         {
-                            RT7 = lblRunValue7.Text + " (Repeats)";
+                            RT7 = Action.WaitType.ToString();
+
+                            if (Action.LimitRepeats)
+                            {
+                                RT7 = lblRunValue7.Text + " (Repeats)";
+                            }
+
+                            switch (Action.WaitType)
+                            {
+                                case WaitType.Iteration:
+                                    RT9 = Action.RuntimeIterationsLeft.ToString();
+                                    break;
+                                case WaitType.Time:
+                                    RT9 = Action.RuntimeNextAllowedTime.ToString();
+                                    break;
+                                case WaitType.Session:
+                                    RT9 = Action.RuntimeOncePerSession.ToString();
+                                    break;
+                                default:
+                                    break;
+                            }
                         }
 
-                        switch (Action.WaitType)
+                        switch (Action.ActionType)
                         {
-                            case WaitType.Iteration:
-                                RT9 = Action.RuntimeIterationsLeft.ToString();
+                            case AppTestStudio.ActionType.RNGContainer:
                                 break;
-                            case WaitType.Time:
-                                RT9 = Action.RuntimeNextAllowedTime.ToString();
+                            case ActionType.RNG:
                                 break;
-                            case WaitType.Session:
-                                RT9 = Action.RuntimeOncePerSession.ToString();
+                            case ActionType.Event:
+                                RT2 = "Event";
+                                if (Action.IsColorPoint)
+                                {
+                                    if (Action.ClickList.Count == 0)
+                                    {
+                                        RT3 = "Group";
+                                    }
+                                    else
+                                    {
+                                        RT3 = "Color Point";
+                                    }
+
+                                }
+                                else
+                                {
+                                    RT3 = "Object Search";
+                                }
+                                break;
+                            case ActionType.Action:
+
+                                if (Action.IsParentObjectSearch())
+                                {
+                                    if (Action.Mode == Mode.ClickDragRelease)
+                                    {
+
+                                    }
+                                }
+
+                                switch (Action.Mode)
+                                {
+                                    case Mode.RangeClick:
+                                        RT3 = RT3 + " " + Mode.RangeClick.ToString();
+                                        break;
+                                    case Mode.ClickDragRelease:
+                                        RT3 = RT3 + " " + Mode.ClickDragRelease.ToString();
+                                        if (Action.IsParentObjectSearch())
+                                        {
+
+                                        }
+                                        else
+                                        {
+                                        }
+                                        // do nothing
+                                        break;
+                                    default:
+                                        // do nothing
+                                        break;
+                                }
+
                                 break;
                             default:
                                 break;
                         }
-                    }
 
-                    switch (Action.ActionType)
-                    {
-                        case AppTestStudio.ActionType.RNGContainer:
-                            break;
-                        case ActionType.RNG:
-                            break;
-                        case ActionType.Event:
-                            RT2 = "Event";
-                            if (Action.IsColorPoint)
-                            {
-                                if (Action.ClickList.Count == 0)
-                                {
-                                    RT3 = "Group";
-                                }
-                                else
-                                {
-                                    RT3 = "Color Point";
-                                }
+                        switch (Action.AfterCompletionType)
+                        {
+                            case AfterCompletionType.Continue:
+                                RT10 = "Continue";
+                                break;
+                            case AfterCompletionType.Home:
+                                RT10 = "Home";
+                                break;
+                            case AfterCompletionType.Parent:
+                                RT10 = "Parent";
+                                break;
+                            case AfterCompletionType.Stop:
+                                RT10 = "Stop";
+                                break;
+                            case AfterCompletionType.ContinueProcess:
+                                RT10 = "ContinueProcess";
+                                break;
+                            case AfterCompletionType.Recycle:
+                                RT10 = "Recycle";
+                                break;
+                            default:
+                                break;
+                        }
 
-                            }
-                            else
-                            {
-                                RT3 = "Object Search";
-                            }
-                            break;
-                        case ActionType.Action:
+                        break;
+                    case GameNodeType.Objects:
+                        break;
+                    case GameNodeType.ObjectScreenshot:
+                        break;
+                    case GameNodeType.Object:
+                        break;
+                    default:
+                        Debug.Assert(false);
+                        break;
+                }
+                //https://stackoverflow.com/questions/3816362/winforms-label-flickering
+                lblRunValue1.Text = RT1;
+                lblRunValue2.Text = RT2;
+                lblRunValue3.Text = RT3;
+                lblRunValue4.Text = RT4;
+                lblRunValue5.Text = RT5;
+                lblRunValue6.Text = RT6;
+                lblRunValue7.Text = RT7;
+                lblRunValue8.Text = RT8;
+                lblRunValue9.Text = RT9;
+                lblRunValue10.Text = RT10;
+                lblRunValue11.Text = RT11;
 
-                            if (Action.IsParentObjectSearch())
-                            {
-                                if (Action.Mode == Mode.ClickDragRelease)
-                                {
-
-                                }
-                            }
-
-                            switch (Action.Mode)
-                            {
-                                case Mode.RangeClick:
-                                    RT3 = RT3 + " " + Mode.RangeClick.ToString();
-                                    break;
-                                case Mode.ClickDragRelease:
-                                    RT3 = RT3 + " " + Mode.ClickDragRelease.ToString();
-                                    if (Action.IsParentObjectSearch())
-                                    {
-
-                                    }
-                                    else
-                                    {
-                                    }
-                                    // do nothing
-                                    break;
-                                default:
-                                    // do nothing
-                                    break;
-                            }
-
-                            break;
-                        default:
-                            break;
-                    }
-
-                    switch (Action.AfterCompletionType)
-                    {
-                        case AfterCompletionType.Continue:
-                            RT10 = "Continue";
-                            break;
-                        case AfterCompletionType.Home:
-                            RT10 = "Home";
-                            break;
-                        case AfterCompletionType.Parent:
-                            RT10 = "Parent";
-                            break;
-                        case AfterCompletionType.Stop:
-                            RT10 = "Stop";
-                            break;
-                        case AfterCompletionType.ContinueProcess:
-                            RT10 = "ContinueProcess";
-                            break;
-                        case AfterCompletionType.Recycle:
-                            RT10 = "Recycle";
-                            break;
-                        default:
-                            break;
-                    }
-
-                    break;
-                case GameNodeType.Objects:
-                    break;
-                case GameNodeType.ObjectScreenshot:
-                    break;
-                case GameNodeType.Object:
-                    break;
-                default:
-                    Debug.Assert(false);
-                    break;
+                //lblRunValue12.Text = RT12;
+                //lblRunValue13.Text = RT13;
+                //lblRunValue14.text = RT14;
             }
-            //https://stackoverflow.com/questions/3816362/winforms-label-flickering
-            lblRunValue1.Text = RT1;
-            lblRunValue2.Text = RT2;
-            lblRunValue3.Text = RT3;
-            lblRunValue4.Text = RT4;
-            lblRunValue5.Text = RT5;
-            lblRunValue6.Text = RT6;
-            lblRunValue7.Text = RT7;
-            lblRunValue8.Text = RT8;
-            lblRunValue9.Text = RT9;
-            lblRunValue10.Text = RT10;
-            lblRunValue11.Text = RT11;
-
-            //lblRunValue12.Text = RT12;
-            //lblRunValue13.Text = RT13;
-            //lblRunValue14.text = RT14;
+            catch (Exception ex)
+            {
+                Log("tvRun_AfterSelect");
+                Log(ex.Message);
+            }
         }
 
         private void InitializeRunLabels()
@@ -7662,32 +7670,49 @@ namespace AppTestStudio
             }
             catch (Exception ex)
             {
+                Log("toolStripMenuItemResetResolution_Click");
                 Log(ex.Message.ToString());
             }
         }
 
         private void cmdUpdateResolution_Click(object sender, EventArgs e)
         {
-            // if there is some resolution in the box.
-            if (lblRunValue8.Text.Contains("x"))
+            try
             {
-                Point point = cmdUpdateResolution.PointToClient(Cursor.Position);
-                contextMenuStripResetResolution.Show(cmdUpdateResolution, point.X, point.Y);
+                // if there is some resolution in the box.
+                if (lblRunValue8.Text.Contains("x"))
+                {
+                    Point point = cmdUpdateResolution.PointToClient(Cursor.Position);
+                    contextMenuStripResetResolution.Show(cmdUpdateResolution, point.X, point.Y);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("cmdUpdateResolution_Click");
+                Log(ex.Message);
             }
         }
 
         private void cmdRuntimeEnableToggle_Click(object sender, EventArgs e)
         {
-            Point point = cmdRuntimeEnableToggle.PointToClient(Cursor.Position);
-            GameNodeAction Action = GetCurrentSelectedRunTreeActionNode();
-            if (Action.IsSomething())
+            try
             {
-                toolStripMenuItemRuntimeEnableDisableToggle.Text = "Change to " + !Action.Enabled + "?";
-                contextMenuStripRuntimeEnableDisable.Show(cmdRuntimeEnableToggle, point.X, point.Y);
+                Point point = cmdRuntimeEnableToggle.PointToClient(Cursor.Position);
+                GameNodeAction Action = GetCurrentSelectedRunTreeActionNode();
+                if (Action.IsSomething())
+                {
+                    toolStripMenuItemRuntimeEnableDisableToggle.Text = "Change to " + !Action.Enabled + "?";
+                    contextMenuStripRuntimeEnableDisable.Show(cmdRuntimeEnableToggle, point.X, point.Y);
+                }
+                else
+                {
+                    Log("Unable to locate runtime Action Node");
+                }
             }
-            else
+            catch (Exception ex)
             {
-                Log("Unable to locate runtime Action Node");
+                Log("cmdRuntimeEnableToggle_Click");
+                Log(ex.Message);
             }
         }
 
@@ -7740,23 +7765,40 @@ namespace AppTestStudio
             }
             catch (Exception ex)
             {
+                Log("toolStripMenuItemRuntimeEnableDisableToggle_Click");
                 Log(ex.Message);
             }
         }
 
         private void TimerProperties_Tick(object sender, EventArgs e)
         {
-            if (tvRun.SelectedNode.IsSomething())
+            try
             {
-                TreeViewEventArgs tvea = new TreeViewEventArgs(tvRun.SelectedNode);
-                tvRun_AfterSelect(null, tvea);
+                if (tvRun.SelectedNode.IsSomething())
+                {
+                    TreeViewEventArgs tvea = new TreeViewEventArgs(tvRun.SelectedNode);
+                    tvRun_AfterSelect(null, tvea);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("TimerProperties_Tick");
+                Log(ex.Message);
             }
         }
 
         private void aboutAppTestStudioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAbout f = new frmAbout();
-            f.ShowDialog();
+            try
+            {
+                frmAbout f = new frmAbout();
+                f.ShowDialog();
+            }
+            catch (Exception ex)
+            {
+                Log("aboutAppTestStudioToolStripMenuItem_Click");
+                Log(ex.Message);
+            }
         }
     }
 }
