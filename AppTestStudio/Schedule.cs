@@ -19,6 +19,7 @@ namespace AppTestStudio
 
         public List<ScheduleItem> ScheduleList { get; set; }
 
+        [XmlIgnore]
         public List<ScheduleItem> RuntimeSchedule { get; set; }
 
         public String GetFileName()
