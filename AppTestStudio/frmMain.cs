@@ -2753,6 +2753,7 @@ namespace AppTestStudio
                     Schedule.ScheduleList.Add(si);
                     SaveSchedule();
                     ReloadScheduleView();
+                    Schedule.RuntimeSchedule = Schedule.GenerateRuntimeSchedule(DateTime.Now);
                     ReloadRuntimeScheduleView();
                 }
             }
@@ -2800,6 +2801,7 @@ namespace AppTestStudio
                 String Saturday = item.Saturday.ToX();
                 String Sunday = item.Sunday.ToX();
                 String Repeats = "";
+                String IsEnabled = item.IsEnabled.ToString();
 
                 if (item.Repeats)
                 {
@@ -2814,7 +2816,7 @@ namespace AppTestStudio
                     ItemName,
                 WindowName,
                 InstanceNumber,
-                StartsAt, Repeats};
+                StartsAt, Repeats,IsEnabled};
                 dgSchedule.Rows.Add(k);
                 item.CurrentRun = DateTime.MinValue;
             }
@@ -4483,6 +4485,7 @@ namespace AppTestStudio
                     SaveSchedule();
                 }
                 ReloadScheduleView();
+                Schedule.RuntimeSchedule = Schedule.GenerateRuntimeSchedule(DateTime.Now);
                 ReloadRuntimeScheduleView();
             }
         }
