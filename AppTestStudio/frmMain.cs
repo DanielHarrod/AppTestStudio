@@ -7192,6 +7192,7 @@ namespace AppTestStudio
                     if (KeyDatavalue.Contains("F1"))
                     {
                         AddNewEvent();
+                        tabDesign.Show();
                     }
                 }
                 catch (Exception ex)
