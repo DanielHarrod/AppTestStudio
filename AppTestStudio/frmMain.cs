@@ -189,6 +189,7 @@ namespace AppTestStudio
 
             LoadSchedule();
             ReloadScheduleView();
+            ReloadRuntimeScheduleView();
 
             tv.ExpandAll();
 
@@ -2752,8 +2753,32 @@ namespace AppTestStudio
                     Schedule.ScheduleList.Add(si);
                     SaveSchedule();
                     ReloadScheduleView();
+                    ReloadRuntimeScheduleView();
                 }
             }
+
+        }
+
+        private void ReloadRuntimeScheduleView()
+        {
+            dgRuntimeSchedule.Rows.Clear();
+            foreach (ScheduleItem item in Schedule.RuntimeSchedule)
+            {
+
+                String ItemName = item.Name;
+                String WindowName = item.WindowName;
+                String InstanceNumber = item.InstanceNumber.ToString();
+                String StartsAt = item.NextRun.ToString("hh:mm tt");
+
+
+                String[] k = {
+                    ItemName,
+                WindowName,
+                InstanceNumber,
+                StartsAt};
+                dgRuntimeSchedule.Rows.Add(k);
+            }
+
 
         }
 
@@ -2789,7 +2814,7 @@ namespace AppTestStudio
                     ItemName,
                 WindowName,
                 InstanceNumber,
-                StartsAt, Monday, Tuesday, Wednesday, Thursday, Friday, Saturday, Sunday, Repeats};
+                StartsAt, Repeats};
                 dgSchedule.Rows.Add(k);
                 item.CurrentRun = DateTime.MinValue;
             }
@@ -4458,6 +4483,7 @@ namespace AppTestStudio
                     SaveSchedule();
                 }
                 ReloadScheduleView();
+                ReloadRuntimeScheduleView();
             }
         }
 

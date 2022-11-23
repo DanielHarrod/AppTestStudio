@@ -450,7 +450,7 @@
             this.Controls.Add(this.GroupBox3);
             this.Controls.Add(this.chkEnabled);
             this.Name = "frmScheduler";
-            this.Text = "frmScheduler";
+            this.Text = "Add/Edit Scheduler";
             this.Load += new System.EventHandler(this.frmScheduler_Load);
             ((System.ComponentModel.ISupportInitialize)(this.nudInstanceNumber)).EndInit();
             this.GroupBox5.ResumeLayout(false);

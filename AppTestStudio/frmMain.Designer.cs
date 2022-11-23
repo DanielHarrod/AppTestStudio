@@ -31,16 +31,6 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -48,6 +38,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -358,19 +351,6 @@
             this.Button4 = new System.Windows.Forms.Button();
             this.cmdAddSchedule = new System.Windows.Forms.Button();
             this.dgSchedule = new System.Windows.Forms.DataGridView();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWindowName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colInstance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTue = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWed = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colThu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colFri = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSun = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRepeat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEdit = new System.Windows.Forms.DataGridViewButtonColumn();
             this.label40 = new System.Windows.Forms.Label();
             this.PanelGames = new System.Windows.Forms.Panel();
             this.label43 = new System.Windows.Forms.Label();
@@ -562,6 +542,20 @@
             this.toolStripSeparatorEnableDisableToggle = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemRuntimeEnableDisableToggle = new System.Windows.Forms.ToolStripMenuItem();
             this.TimerProperties = new System.Windows.Forms.Timer(this.components);
+            this.splitContainerSchedule = new System.Windows.Forms.SplitContainer();
+            this.splitContainerRuntimeSchedule = new System.Windows.Forms.SplitContainer();
+            this.lblRuntimeScheduleLabel = new System.Windows.Forms.Label();
+            this.dgRuntimeSchedule = new System.Windows.Forms.DataGridView();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWindowName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colInstance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRepeat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -718,6 +712,15 @@
             this.toolStripMain.SuspendLayout();
             this.contextMenuStripResetResolution.SuspendLayout();
             this.contextMenuStripRuntimeEnableDisable.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSchedule)).BeginInit();
+            this.splitContainerSchedule.Panel1.SuspendLayout();
+            this.splitContainerSchedule.Panel2.SuspendLayout();
+            this.splitContainerSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRuntimeSchedule)).BeginInit();
+            this.splitContainerRuntimeSchedule.Panel1.SuspendLayout();
+            this.splitContainerRuntimeSchedule.Panel2.SuspendLayout();
+            this.splitContainerRuntimeSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRuntimeSchedule)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -853,12 +856,12 @@
             // 
             // splitContainerWorkspace.Panel2
             // 
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelSchedule);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelColorEvent);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObject);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelThread);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelTestAllEvents);
-            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelSchedule);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGames);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelActions);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObjectScreenshot);
@@ -2976,48 +2979,48 @@
             // 
             // dgvID
             // 
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvID.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvID.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvID.HeaderText = "ID";
             this.dgvID.MinimumWidth = 10;
             this.dgvID.Name = "dgvID";
             // 
             // dgvRed
             // 
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvRed.HeaderText = "R";
             this.dgvRed.MinimumWidth = 10;
             this.dgvRed.Name = "dgvRed";
             // 
             // dgvBlue
             // 
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgvBlue.HeaderText = "B";
             this.dgvBlue.MinimumWidth = 10;
             this.dgvBlue.Name = "dgvBlue";
             // 
             // dgvGreen
             // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvGreen.HeaderText = "G";
             this.dgvGreen.MinimumWidth = 10;
             this.dgvGreen.Name = "dgvGreen";
             // 
             // dgvX
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvX.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvX.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvX.HeaderText = "X";
             this.dgvX.MinimumWidth = 10;
             this.dgvX.Name = "dgvX";
             // 
             // dgvY
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvY.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvY.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvY.HeaderText = "Y";
             this.dgvY.MinimumWidth = 10;
             this.dgvY.Name = "dgvY";
@@ -4339,14 +4342,14 @@
             // 
             this.dgvTest.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTestID,
@@ -4357,14 +4360,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvTest.Location = new System.Drawing.Point(623, 226);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.RowHeadersWidth = 62;
@@ -4434,14 +4437,14 @@
             // dgvTestAllReference
             // 
             this.dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceID,
@@ -4450,14 +4453,14 @@
             this.dgvTestAllReferenceBlue,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgvTestAllReference.Location = new System.Drawing.Point(623, 48);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.RowHeadersWidth = 62;
@@ -4600,13 +4603,13 @@
             // 
             // PanelSchedule
             // 
+            this.PanelSchedule.Controls.Add(this.splitContainerSchedule);
             this.PanelSchedule.Controls.Add(this.Button5);
             this.PanelSchedule.Controls.Add(this.chkEnableSchedule);
             this.PanelSchedule.Controls.Add(this.Button4);
             this.PanelSchedule.Controls.Add(this.cmdAddSchedule);
-            this.PanelSchedule.Controls.Add(this.dgSchedule);
             this.PanelSchedule.Controls.Add(this.label40);
-            this.PanelSchedule.Location = new System.Drawing.Point(316, 364);
+            this.PanelSchedule.Location = new System.Drawing.Point(85, 42);
             this.PanelSchedule.Name = "PanelSchedule";
             this.PanelSchedule.Size = new System.Drawing.Size(621, 392);
             this.PanelSchedule.TabIndex = 19;
@@ -4658,158 +4661,23 @@
             this.dgSchedule.AllowUserToAddRows = false;
             this.dgSchedule.AllowUserToDeleteRows = false;
             this.dgSchedule.AllowUserToOrderColumns = true;
-            this.dgSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.dgSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colName,
             this.colWindowName,
             this.colInstance,
             this.colStartTime,
-            this.colMon,
-            this.colTue,
-            this.colWed,
-            this.colThu,
-            this.colFri,
-            this.colSat,
-            this.colSun,
             this.colRepeat,
             this.colEdit});
+            this.dgSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgSchedule.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgSchedule.Location = new System.Drawing.Point(9, 66);
+            this.dgSchedule.Location = new System.Drawing.Point(0, 0);
             this.dgSchedule.Name = "dgSchedule";
             this.dgSchedule.ReadOnly = true;
             this.dgSchedule.RowHeadersWidth = 62;
-            this.dgSchedule.Size = new System.Drawing.Size(598, 315);
+            this.dgSchedule.Size = new System.Drawing.Size(614, 168);
             this.dgSchedule.TabIndex = 3;
             this.dgSchedule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSchedule_CellContentClick);
-            // 
-            // colName
-            // 
-            this.colName.HeaderText = "Name";
-            this.colName.MinimumWidth = 8;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 150;
-            // 
-            // colWindowName
-            // 
-            this.colWindowName.HeaderText = "Window";
-            this.colWindowName.MinimumWidth = 8;
-            this.colWindowName.Name = "colWindowName";
-            this.colWindowName.ReadOnly = true;
-            this.colWindowName.Width = 150;
-            // 
-            // colInstance
-            // 
-            this.colInstance.HeaderText = "Instance";
-            this.colInstance.MinimumWidth = 60;
-            this.colInstance.Name = "colInstance";
-            this.colInstance.ReadOnly = true;
-            this.colInstance.Width = 60;
-            // 
-            // colStartTime
-            // 
-            this.colStartTime.HeaderText = "Start Time";
-            this.colStartTime.MinimumWidth = 8;
-            this.colStartTime.Name = "colStartTime";
-            this.colStartTime.ReadOnly = true;
-            this.colStartTime.Width = 150;
-            // 
-            // colMon
-            // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colMon.DefaultCellStyle = dataGridViewCellStyle11;
-            this.colMon.HeaderText = "Mon";
-            this.colMon.MaxInputLength = 1;
-            this.colMon.MinimumWidth = 37;
-            this.colMon.Name = "colMon";
-            this.colMon.ReadOnly = true;
-            this.colMon.Width = 37;
-            // 
-            // colTue
-            // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colTue.DefaultCellStyle = dataGridViewCellStyle12;
-            this.colTue.HeaderText = "Tue";
-            this.colTue.MaxInputLength = 1;
-            this.colTue.MinimumWidth = 37;
-            this.colTue.Name = "colTue";
-            this.colTue.ReadOnly = true;
-            this.colTue.Width = 37;
-            // 
-            // colWed
-            // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colWed.DefaultCellStyle = dataGridViewCellStyle13;
-            this.colWed.HeaderText = "Wed";
-            this.colWed.MaxInputLength = 1;
-            this.colWed.MinimumWidth = 37;
-            this.colWed.Name = "colWed";
-            this.colWed.ReadOnly = true;
-            this.colWed.Width = 37;
-            // 
-            // colThu
-            // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colThu.DefaultCellStyle = dataGridViewCellStyle14;
-            this.colThu.HeaderText = "Thu";
-            this.colThu.MaxInputLength = 1;
-            this.colThu.MinimumWidth = 37;
-            this.colThu.Name = "colThu";
-            this.colThu.ReadOnly = true;
-            this.colThu.Width = 37;
-            // 
-            // colFri
-            // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colFri.DefaultCellStyle = dataGridViewCellStyle15;
-            this.colFri.HeaderText = "Fri";
-            this.colFri.MaxInputLength = 1;
-            this.colFri.MinimumWidth = 37;
-            this.colFri.Name = "colFri";
-            this.colFri.ReadOnly = true;
-            this.colFri.Width = 37;
-            // 
-            // colSat
-            // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSat.DefaultCellStyle = dataGridViewCellStyle16;
-            this.colSat.HeaderText = "Sat";
-            this.colSat.MaxInputLength = 1;
-            this.colSat.MinimumWidth = 37;
-            this.colSat.Name = "colSat";
-            this.colSat.ReadOnly = true;
-            this.colSat.Width = 37;
-            // 
-            // colSun
-            // 
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.colSun.DefaultCellStyle = dataGridViewCellStyle17;
-            this.colSun.HeaderText = "Sun";
-            this.colSun.MaxInputLength = 1;
-            this.colSun.MinimumWidth = 37;
-            this.colSun.Name = "colSun";
-            this.colSun.ReadOnly = true;
-            this.colSun.Width = 37;
-            // 
-            // colRepeat
-            // 
-            this.colRepeat.HeaderText = "Repeats";
-            this.colRepeat.MinimumWidth = 8;
-            this.colRepeat.Name = "colRepeat";
-            this.colRepeat.ReadOnly = true;
-            this.colRepeat.Width = 150;
-            // 
-            // colEdit
-            // 
-            this.colEdit.HeaderText = "Modify";
-            this.colEdit.MinimumWidth = 8;
-            this.colEdit.Name = "colEdit";
-            this.colEdit.ReadOnly = true;
-            this.colEdit.Text = "Edit";
-            this.colEdit.UseColumnTextForButtonValue = true;
-            this.colEdit.Width = 35;
             // 
             // label40
             // 
@@ -6719,6 +6587,159 @@
             this.TimerProperties.Interval = 1000;
             this.TimerProperties.Tick += new System.EventHandler(this.TimerProperties_Tick);
             // 
+            // splitContainerSchedule
+            // 
+            this.splitContainerSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainerSchedule.Location = new System.Drawing.Point(3, 53);
+            this.splitContainerSchedule.Name = "splitContainerSchedule";
+            this.splitContainerSchedule.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerSchedule.Panel1
+            // 
+            this.splitContainerSchedule.Panel1.Controls.Add(this.dgSchedule);
+            // 
+            // splitContainerSchedule.Panel2
+            // 
+            this.splitContainerSchedule.Panel2.Controls.Add(this.splitContainerRuntimeSchedule);
+            this.splitContainerSchedule.Size = new System.Drawing.Size(614, 336);
+            this.splitContainerSchedule.SplitterDistance = 168;
+            this.splitContainerSchedule.TabIndex = 8;
+            // 
+            // splitContainerRuntimeSchedule
+            // 
+            this.splitContainerRuntimeSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerRuntimeSchedule.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainerRuntimeSchedule.IsSplitterFixed = true;
+            this.splitContainerRuntimeSchedule.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerRuntimeSchedule.Name = "splitContainerRuntimeSchedule";
+            this.splitContainerRuntimeSchedule.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerRuntimeSchedule.Panel1
+            // 
+            this.splitContainerRuntimeSchedule.Panel1.Controls.Add(this.lblRuntimeScheduleLabel);
+            this.splitContainerRuntimeSchedule.Panel1MinSize = 21;
+            // 
+            // splitContainerRuntimeSchedule.Panel2
+            // 
+            this.splitContainerRuntimeSchedule.Panel2.Controls.Add(this.dgRuntimeSchedule);
+            this.splitContainerRuntimeSchedule.Size = new System.Drawing.Size(614, 164);
+            this.splitContainerRuntimeSchedule.SplitterDistance = 21;
+            this.splitContainerRuntimeSchedule.TabIndex = 0;
+            // 
+            // lblRuntimeScheduleLabel
+            // 
+            this.lblRuntimeScheduleLabel.AutoSize = true;
+            this.lblRuntimeScheduleLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblRuntimeScheduleLabel.Location = new System.Drawing.Point(0, 0);
+            this.lblRuntimeScheduleLabel.Name = "lblRuntimeScheduleLabel";
+            this.lblRuntimeScheduleLabel.Size = new System.Drawing.Size(76, 13);
+            this.lblRuntimeScheduleLabel.TabIndex = 0;
+            this.lblRuntimeScheduleLabel.Text = "Schedule Plan";
+            // 
+            // dgRuntimeSchedule
+            // 
+            this.dgRuntimeSchedule.AllowUserToAddRows = false;
+            this.dgRuntimeSchedule.AllowUserToDeleteRows = false;
+            this.dgRuntimeSchedule.AllowUserToOrderColumns = true;
+            this.dgRuntimeSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgRuntimeSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dgRuntimeSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgRuntimeSchedule.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgRuntimeSchedule.Location = new System.Drawing.Point(0, 0);
+            this.dgRuntimeSchedule.Name = "dgRuntimeSchedule";
+            this.dgRuntimeSchedule.ReadOnly = true;
+            this.dgRuntimeSchedule.RowHeadersWidth = 62;
+            this.dgRuntimeSchedule.Size = new System.Drawing.Size(614, 139);
+            this.dgRuntimeSchedule.TabIndex = 4;
+            // 
+            // colName
+            // 
+            this.colName.HeaderText = "Name";
+            this.colName.MinimumWidth = 8;
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 150;
+            // 
+            // colWindowName
+            // 
+            this.colWindowName.HeaderText = "Window";
+            this.colWindowName.MinimumWidth = 8;
+            this.colWindowName.Name = "colWindowName";
+            this.colWindowName.ReadOnly = true;
+            this.colWindowName.Width = 150;
+            // 
+            // colInstance
+            // 
+            this.colInstance.HeaderText = "Instance";
+            this.colInstance.MinimumWidth = 60;
+            this.colInstance.Name = "colInstance";
+            this.colInstance.ReadOnly = true;
+            this.colInstance.Width = 60;
+            // 
+            // colStartTime
+            // 
+            this.colStartTime.HeaderText = "Start Time";
+            this.colStartTime.MinimumWidth = 8;
+            this.colStartTime.Name = "colStartTime";
+            this.colStartTime.ReadOnly = true;
+            this.colStartTime.Width = 150;
+            // 
+            // colRepeat
+            // 
+            this.colRepeat.HeaderText = "Repeats";
+            this.colRepeat.MinimumWidth = 8;
+            this.colRepeat.Name = "colRepeat";
+            this.colRepeat.ReadOnly = true;
+            this.colRepeat.Width = 150;
+            // 
+            // colEdit
+            // 
+            this.colEdit.HeaderText = "Modify";
+            this.colEdit.MinimumWidth = 8;
+            this.colEdit.Name = "colEdit";
+            this.colEdit.ReadOnly = true;
+            this.colEdit.Text = "Edit";
+            this.colEdit.UseColumnTextForButtonValue = true;
+            this.colEdit.Width = 35;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Window";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Instance";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 60;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Start Time";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -6952,6 +6973,16 @@
             this.toolStripMain.PerformLayout();
             this.contextMenuStripResetResolution.ResumeLayout(false);
             this.contextMenuStripRuntimeEnableDisable.ResumeLayout(false);
+            this.splitContainerSchedule.Panel1.ResumeLayout(false);
+            this.splitContainerSchedule.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSchedule)).EndInit();
+            this.splitContainerSchedule.ResumeLayout(false);
+            this.splitContainerRuntimeSchedule.Panel1.ResumeLayout(false);
+            this.splitContainerRuntimeSchedule.Panel1.PerformLayout();
+            this.splitContainerRuntimeSchedule.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRuntimeSchedule)).EndInit();
+            this.splitContainerRuntimeSchedule.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgRuntimeSchedule)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7094,19 +7125,6 @@
         internal System.Windows.Forms.Button Button4;
         internal System.Windows.Forms.Button cmdAddSchedule;
         internal System.Windows.Forms.DataGridView dgSchedule;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colName;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colWindowName;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colInstance;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colStartTime;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colMon;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colTue;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colWed;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colThu;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colFri;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colSat;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colSun;
-        internal System.Windows.Forms.DataGridViewTextBoxColumn colRepeat;
-        internal System.Windows.Forms.DataGridViewButtonColumn colEdit;
         internal System.Windows.Forms.Label label40;
         internal System.Windows.Forms.Panel PanelObject;
         internal System.Windows.Forms.Panel Panel5;
@@ -7473,5 +7491,19 @@
         private System.Windows.Forms.ToolStripMenuItem aboutAppTestStudioToolStripMenuItem;
         private System.Windows.Forms.ComboBox cboThreads;
         private System.Windows.Forms.SplitContainer splitContainerRunTabThread;
+        private System.Windows.Forms.SplitContainer splitContainerSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colWindowName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colInstance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colStartTime;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colRepeat;
+        private System.Windows.Forms.DataGridViewButtonColumn colEdit;
+        private System.Windows.Forms.SplitContainer splitContainerRuntimeSchedule;
+        private System.Windows.Forms.Label lblRuntimeScheduleLabel;
+        internal System.Windows.Forms.DataGridView dgRuntimeSchedule;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
     }
 }
