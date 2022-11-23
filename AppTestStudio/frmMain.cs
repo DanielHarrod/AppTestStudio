@@ -1606,13 +1606,6 @@ namespace AppTestStudio
 
             GameNodeGame GameCopy = gameNode.CloneMe();
 
-            // It is kinda cool to see all the old runs, but it's not self discoverable
-            tvRun.Nodes.Clear();
-
-            // Copy the Runtime tree to the tvRun tab.
-            tvRun.Nodes.Add(GameCopy as TreeNode);
-            tvRun.ExpandAll();
-
             RunThread RT = new RunThread(GameCopy);
             RT.ThreadManager = ThreadManager;
 
@@ -1704,7 +1697,7 @@ namespace AppTestStudio
                     Log("Resuming Thread " + Game.ThreadandWindowName);
                 }
             }
-                   
+
             if (isPaused)
             {
                 toolStripButtonToggleScript.Text = UnPauseScript;
@@ -3170,7 +3163,6 @@ namespace AppTestStudio
                 RefreshThreadList();
                 ThreadManager.IsDirty = false;
             }
-
 
             //'wow not good.
             int lstthreadsSelectedIndex = cboThreads.SelectedIndex;
@@ -4643,8 +4635,8 @@ namespace AppTestStudio
 
                 TreeNode TargetParentNode = tv.SelectedNode;
                 // TODO find other nodes that are not valid.
-                if(TargetParentNode == gn)
-                { 
+                if (TargetParentNode == gn)
+                {
                     TargetParentNode = gne;
                 }
 
@@ -7195,7 +7187,7 @@ namespace AppTestStudio
             if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.F1))
             {
                 try
-                {                    
+                {
                     String KeyDatavalue = e.KeyData.ToString();
                     if (KeyDatavalue.Contains("F1"))
                     {
@@ -7918,7 +7910,39 @@ namespace AppTestStudio
             {
                 cboThreads.Items.Add(Game.ThreadandWindowName);
                 toolStripButtonToggleScript.Enabled = true;
+            }
+            cboThreads_SelectedIndexChanged(null, null);
+        }
 
+        private void cboThreads_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Debug.WriteLine("cboThreads_SelectedIndexChanged");
+            
+            try
+            {
+                if(ThreadManager.Games.Count == 0)
+                {
+                    tvRun.Nodes.Clear();
+                    InitializeRunLabels();
+                }
+                foreach (GameNodeGame Game in ThreadManager.Games)
+                {
+                    if (cboThreads.Text == Game.ThreadandWindowName)
+                    {
+                        tvRun.Nodes.Clear();
+
+                        // Copy the Runtime tree to the tvRun tab.
+                        tvRun.Nodes.Add(Game as TreeNode);
+                        tvRun.ExpandAll();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("Clearing Run Nodes Tree View.");
+                tvRun.Nodes.Clear();
+                Log("cboThreads_SelectedIndexChanged");
+                Log(ex.Message);
             }
         }
     }
