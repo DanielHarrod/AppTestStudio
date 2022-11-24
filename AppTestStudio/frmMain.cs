@@ -7975,6 +7975,19 @@ namespace AppTestStudio
                 Log(ex.Message);
             }
         }
+
+        private void txtApplicationParameters_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+                GameNode.ApplicationParameters = txtApplicationParameters.Text.Trim();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
     }
 }
 
