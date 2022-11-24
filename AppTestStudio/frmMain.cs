@@ -1048,10 +1048,7 @@ namespace AppTestStudio
                     //Properties Group
                     chkPropertiesRepeatsUntilFalse.Visible = false;
                     grpPropertiesRepeatsUntilFalse.Visible = false;
-
-
                     //End - Properties Group
-
 
                     grpEventMode.Visible = false;
                     grpMode.Visible = true;
@@ -1114,7 +1111,6 @@ namespace AppTestStudio
                         Log("Swipe End Width(" + GameNode.ClickDragReleaseEndWidth + ") is invalid setting to 10");
                     }
 
-
                     if (GameNode.ClickDragReleaseVelocity <= numericSwipeVelocity.Maximum)
                     {
                         numericSwipeVelocity.Value = GameNode.ClickDragReleaseVelocity;
@@ -1149,10 +1145,8 @@ namespace AppTestStudio
                             break;
                     }
 
-                    if (rdoModeRangeClick.Checked)
-                    {
-                        chkFromCurrentMousePos.Visible = true;
-                    }
+
+                    chkFromCurrentMousePos.Visible = true;
 
                     break;
                 case AppTestStudio.ActionType.Event:
@@ -4640,7 +4634,7 @@ namespace AppTestStudio
 
                 }
                 panelRightClickProperties.Visible = false;
-                chkFromCurrentMousePos.Visible = false;
+                //chkFromCurrentMousePos.Visible = false;
             }
 
 
