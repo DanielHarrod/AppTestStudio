@@ -1313,13 +1313,33 @@ namespace AppTestStudio
         // ATS doesn't need the reference images to function, ATS will attempt to rebuild the project when the node receives a true event.
         private void ShowHidePictureMissingMessage()
         {
-            if (PictureBox1.Image.IsNothing())
+            Boolean IsOption = true;
+            switch (PanelLoadNode.ActionType)
             {
-                lblPictureMissing.Visible = true;
+                case ActionType.Action:
+                    break;
+                case ActionType.Event:
+                    break;
+                case ActionType.RNG:
+                    IsOption = false;
+                    break;
+                case ActionType.RNGContainer:
+                    IsOption = false;
+                    break;
+                default:
+                    break;
             }
-            else
+
+            if (IsOption)
             {
-                lblPictureMissing.Visible = false;
+                if (PictureBox1.Image.IsNothing())
+                {
+                    lblPictureMissing.Visible = true;
+                }
+                else
+                {
+                    lblPictureMissing.Visible = false;
+                }
             }
         }
 
