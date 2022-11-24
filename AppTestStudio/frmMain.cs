@@ -1477,14 +1477,14 @@ namespace AppTestStudio
 
         public void Log(String s)
         {
-            int index = txtLog.SelectionStart;
             sb.Insert(0, s + System.Environment.NewLine);
             if (sb.Length > 10000)
             {
                 sb.Remove(9700, 300);
             }
+            //txtLog.Text = sb.ToString();
             txtLog.Text = sb.ToString();
-            txtLog.SelectionStart = index;
+
         }
 
         private void toolStripButtonSaveScript_Click(object sender, EventArgs e)

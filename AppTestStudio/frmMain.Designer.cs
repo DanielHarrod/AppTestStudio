@@ -31,16 +31,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,6 +104,121 @@
             this.cmdUpdateResolution = new System.Windows.Forms.Button();
             this.cmdRuntimeEnableToggle = new System.Windows.Forms.Button();
             this.tabSchedule = new System.Windows.Forms.TabPage();
+            this.PanelGame = new System.Windows.Forms.Panel();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.groupBox18 = new System.Windows.Forms.GroupBox();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label42 = new System.Windows.Forms.Label();
+            this.numericApplicationDefaultClickSpeed = new System.Windows.Forms.NumericUpDown();
+            this.groupBox16 = new System.Windows.Forms.GroupBox();
+            this.label92 = new System.Windows.Forms.Label();
+            this.numericMouseSpeedPixelsPerSecond = new System.Windows.Forms.NumericUpDown();
+            this.groupBox17 = new System.Windows.Forms.GroupBox();
+            this.label91 = new System.Windows.Forms.Label();
+            this.label90 = new System.Windows.Forms.Label();
+            this.numericMouseSpeedVelocityVariantPercentMin = new System.Windows.Forms.NumericUpDown();
+            this.numericMouseSpeedVelocityVariantPercentMax = new System.Windows.Forms.NumericUpDown();
+            this.label88 = new System.Windows.Forms.Label();
+            this.label89 = new System.Windows.Forms.Label();
+            this.label87 = new System.Windows.Forms.Label();
+            this.grpActiveMouseSettings = new System.Windows.Forms.GroupBox();
+            this.cboWindowAction = new System.Windows.Forms.ComboBox();
+            this.chkMoveMouseBeforeAction = new System.Windows.Forms.CheckBox();
+            this.lblWindowNotVisibleAction = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.cboMouseMode = new System.Windows.Forms.ComboBox();
+            this.grpApplication = new System.Windows.Forms.GroupBox();
+            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.txtPathToApplicationExe = new System.Windows.Forms.TextBox();
+            this.txtApplicationParameters = new System.Windows.Forms.TextBox();
+            this.cmdPathToExePicker = new System.Windows.Forms.Button();
+            this.label72 = new System.Windows.Forms.Label();
+            this.groupBox10 = new System.Windows.Forms.GroupBox();
+            this.cmdApplicationWindowWizard = new System.Windows.Forms.Button();
+            this.cboApplicationSecondaryWindowNameFilter = new System.Windows.Forms.ComboBox();
+            this.txtApplicationSecondaryWindowName = new System.Windows.Forms.TextBox();
+            this.label76 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.cboApplicationPrimaryWindowNameFilter = new System.Windows.Forms.ComboBox();
+            this.txtApplicationPrimaryWindowName = new System.Windows.Forms.TextBox();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label79 = new System.Windows.Forms.Label();
+            this.grpNox = new System.Windows.Forms.GroupBox();
+            this.label61 = new System.Windows.Forms.Label();
+            this.cboDPI = new System.Windows.Forms.ComboBox();
+            this.Label26 = new System.Windows.Forms.Label();
+            this.cboGameInstances = new System.Windows.Forms.ComboBox();
+            this.cboResolution = new System.Windows.Forms.ComboBox();
+            this.txtGamePanelLaunchInstance = new System.Windows.Forms.TextBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.Label16 = new System.Windows.Forms.Label();
+            this.txtPackageName = new System.Windows.Forms.TextBox();
+            this.label63 = new System.Windows.Forms.Label();
+            this.Label25 = new System.Windows.Forms.Label();
+            this.grpSteam = new System.Windows.Forms.GroupBox();
+            this.groupBox14 = new System.Windows.Forms.GroupBox();
+            this.label84 = new System.Windows.Forms.Label();
+            this.label64 = new System.Windows.Forms.Label();
+            this.label66 = new System.Windows.Forms.Label();
+            this.txtSteamID = new System.Windows.Forms.TextBox();
+            this.groupBox9 = new System.Windows.Forms.GroupBox();
+            this.cmdSteamWindowWizard = new System.Windows.Forms.Button();
+            this.cboSteamSecondaryWindowNameFilter = new System.Windows.Forms.ComboBox();
+            this.txtSteamSecondaryWindowName = new System.Windows.Forms.TextBox();
+            this.label74 = new System.Windows.Forms.Label();
+            this.label75 = new System.Windows.Forms.Label();
+            this.cboSteamPrimaryWindowNameFilter = new System.Windows.Forms.ComboBox();
+            this.txtSteamPrimaryWindowName = new System.Windows.Forms.TextBox();
+            this.label73 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.grpBlue = new System.Windows.Forms.GroupBox();
+            this.cboBlueInstance = new System.Windows.Forms.ComboBox();
+            this.label83 = new System.Windows.Forms.Label();
+            this.label82 = new System.Windows.Forms.Label();
+            this.txtBluePackageName = new System.Windows.Forms.TextBox();
+            this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.grpVideo = new System.Windows.Forms.GroupBox();
+            this.lblFrameLimit = new System.Windows.Forms.Label();
+            this.NumericVideoFrameLimit = new System.Windows.Forms.NumericUpDown();
+            this.chkSaveVideo = new System.Windows.Forms.CheckBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.Label33 = new System.Windows.Forms.Label();
+            this.txtGamePanelVersion = new System.Windows.Forms.TextBox();
+            this.cmdStartEmmulatorAndPackage = new System.Windows.Forms.Button();
+            this.cmdStartEmmulatorPackageAndRunScript = new System.Windows.Forms.Button();
+            this.cmdStartEmmulator = new System.Windows.Forms.Button();
+            this.txtGamePanelLoopDelay = new System.Windows.Forms.TextBox();
+            this.Label30 = new System.Windows.Forms.Label();
+            this.cmdRunScript = new System.Windows.Forms.Button();
+            this.cboPlatform = new System.Windows.Forms.ComboBox();
+            this.lblGamePanelGameName = new System.Windows.Forms.Label();
+            this.label62 = new System.Windows.Forms.Label();
+            this.label18 = new System.Windows.Forms.Label();
+            this.label22 = new System.Windows.Forms.Label();
+            this.PanelSchedule = new System.Windows.Forms.Panel();
+            this.splitContainerSchedule = new System.Windows.Forms.SplitContainer();
+            this.dgSchedule = new System.Windows.Forms.DataGridView();
+            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colWindowName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colInstance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colRepeat = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colScheduleEnabled = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.splitContainerRuntimeSchedule = new System.Windows.Forms.SplitContainer();
+            this.lblRuntimeScheduleLabel = new System.Windows.Forms.Label();
+            this.dgRuntimeSchedule = new System.Windows.Forms.DataGridView();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Button5 = new System.Windows.Forms.Button();
+            this.chkEnableSchedule = new System.Windows.Forms.CheckBox();
+            this.Button4 = new System.Windows.Forms.Button();
+            this.cmdAddSchedule = new System.Windows.Forms.Button();
+            this.label40 = new System.Windows.Forms.Label();
             this.PanelColorEvent = new System.Windows.Forms.Panel();
             this.tableColorEvent = new System.Windows.Forms.TableLayoutPanel();
             this.panelColorEventChild1 = new System.Windows.Forms.Panel();
@@ -345,13 +460,6 @@
             this.lblReference = new System.Windows.Forms.Label();
             this.Panel1 = new System.Windows.Forms.Panel();
             this.PictureTestAllReference = new System.Windows.Forms.PictureBox();
-            this.PanelSchedule = new System.Windows.Forms.Panel();
-            this.Button5 = new System.Windows.Forms.Button();
-            this.chkEnableSchedule = new System.Windows.Forms.CheckBox();
-            this.Button4 = new System.Windows.Forms.Button();
-            this.cmdAddSchedule = new System.Windows.Forms.Button();
-            this.dgSchedule = new System.Windows.Forms.DataGridView();
-            this.label40 = new System.Windows.Forms.Label();
             this.PanelGames = new System.Windows.Forms.Panel();
             this.label43 = new System.Windows.Forms.Label();
             this.PanelActions = new System.Windows.Forms.Panel();
@@ -383,100 +491,6 @@
             this.lblEventsPanelTargetWindow = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.PanelGame = new System.Windows.Forms.Panel();
-            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.groupBox18 = new System.Windows.Forms.GroupBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label42 = new System.Windows.Forms.Label();
-            this.numericApplicationDefaultClickSpeed = new System.Windows.Forms.NumericUpDown();
-            this.groupBox16 = new System.Windows.Forms.GroupBox();
-            this.label92 = new System.Windows.Forms.Label();
-            this.numericMouseSpeedPixelsPerSecond = new System.Windows.Forms.NumericUpDown();
-            this.groupBox17 = new System.Windows.Forms.GroupBox();
-            this.label91 = new System.Windows.Forms.Label();
-            this.label90 = new System.Windows.Forms.Label();
-            this.numericMouseSpeedVelocityVariantPercentMin = new System.Windows.Forms.NumericUpDown();
-            this.numericMouseSpeedVelocityVariantPercentMax = new System.Windows.Forms.NumericUpDown();
-            this.label88 = new System.Windows.Forms.Label();
-            this.label89 = new System.Windows.Forms.Label();
-            this.label87 = new System.Windows.Forms.Label();
-            this.grpActiveMouseSettings = new System.Windows.Forms.GroupBox();
-            this.cboWindowAction = new System.Windows.Forms.ComboBox();
-            this.chkMoveMouseBeforeAction = new System.Windows.Forms.CheckBox();
-            this.lblWindowNotVisibleAction = new System.Windows.Forms.Label();
-            this.label70 = new System.Windows.Forms.Label();
-            this.cboMouseMode = new System.Windows.Forms.ComboBox();
-            this.grpApplication = new System.Windows.Forms.GroupBox();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
-            this.label71 = new System.Windows.Forms.Label();
-            this.label69 = new System.Windows.Forms.Label();
-            this.txtPathToApplicationExe = new System.Windows.Forms.TextBox();
-            this.txtApplicationParameters = new System.Windows.Forms.TextBox();
-            this.cmdPathToExePicker = new System.Windows.Forms.Button();
-            this.label72 = new System.Windows.Forms.Label();
-            this.groupBox10 = new System.Windows.Forms.GroupBox();
-            this.cmdApplicationWindowWizard = new System.Windows.Forms.Button();
-            this.cboApplicationSecondaryWindowNameFilter = new System.Windows.Forms.ComboBox();
-            this.txtApplicationSecondaryWindowName = new System.Windows.Forms.TextBox();
-            this.label76 = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.cboApplicationPrimaryWindowNameFilter = new System.Windows.Forms.ComboBox();
-            this.txtApplicationPrimaryWindowName = new System.Windows.Forms.TextBox();
-            this.label78 = new System.Windows.Forms.Label();
-            this.label79 = new System.Windows.Forms.Label();
-            this.grpNox = new System.Windows.Forms.GroupBox();
-            this.label61 = new System.Windows.Forms.Label();
-            this.cboDPI = new System.Windows.Forms.ComboBox();
-            this.Label26 = new System.Windows.Forms.Label();
-            this.cboGameInstances = new System.Windows.Forms.ComboBox();
-            this.cboResolution = new System.Windows.Forms.ComboBox();
-            this.txtGamePanelLaunchInstance = new System.Windows.Forms.TextBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.Label16 = new System.Windows.Forms.Label();
-            this.txtPackageName = new System.Windows.Forms.TextBox();
-            this.label63 = new System.Windows.Forms.Label();
-            this.Label25 = new System.Windows.Forms.Label();
-            this.grpSteam = new System.Windows.Forms.GroupBox();
-            this.groupBox14 = new System.Windows.Forms.GroupBox();
-            this.label84 = new System.Windows.Forms.Label();
-            this.label64 = new System.Windows.Forms.Label();
-            this.label66 = new System.Windows.Forms.Label();
-            this.txtSteamID = new System.Windows.Forms.TextBox();
-            this.groupBox9 = new System.Windows.Forms.GroupBox();
-            this.cmdSteamWindowWizard = new System.Windows.Forms.Button();
-            this.cboSteamSecondaryWindowNameFilter = new System.Windows.Forms.ComboBox();
-            this.txtSteamSecondaryWindowName = new System.Windows.Forms.TextBox();
-            this.label74 = new System.Windows.Forms.Label();
-            this.label75 = new System.Windows.Forms.Label();
-            this.cboSteamPrimaryWindowNameFilter = new System.Windows.Forms.ComboBox();
-            this.txtSteamPrimaryWindowName = new System.Windows.Forms.TextBox();
-            this.label73 = new System.Windows.Forms.Label();
-            this.label67 = new System.Windows.Forms.Label();
-            this.grpBlue = new System.Windows.Forms.GroupBox();
-            this.cboBlueInstance = new System.Windows.Forms.ComboBox();
-            this.label83 = new System.Windows.Forms.Label();
-            this.label82 = new System.Windows.Forms.Label();
-            this.txtBluePackageName = new System.Windows.Forms.TextBox();
-            this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.grpVideo = new System.Windows.Forms.GroupBox();
-            this.lblFrameLimit = new System.Windows.Forms.Label();
-            this.NumericVideoFrameLimit = new System.Windows.Forms.NumericUpDown();
-            this.chkSaveVideo = new System.Windows.Forms.CheckBox();
-            this.label17 = new System.Windows.Forms.Label();
-            this.Label33 = new System.Windows.Forms.Label();
-            this.txtGamePanelVersion = new System.Windows.Forms.TextBox();
-            this.cmdStartEmmulatorAndPackage = new System.Windows.Forms.Button();
-            this.cmdStartEmmulatorPackageAndRunScript = new System.Windows.Forms.Button();
-            this.cmdStartEmmulator = new System.Windows.Forms.Button();
-            this.txtGamePanelLoopDelay = new System.Windows.Forms.TextBox();
-            this.Label30 = new System.Windows.Forms.Label();
-            this.cmdRunScript = new System.Windows.Forms.Button();
-            this.cboPlatform = new System.Windows.Forms.ComboBox();
-            this.lblGamePanelGameName = new System.Windows.Forms.Label();
-            this.label62 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label22 = new System.Windows.Forms.Label();
-            this.txtLog = new System.Windows.Forms.TextBox();
             this.mnuPopupGames = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.mnuGamesAddNewGame = new System.Windows.Forms.ToolStripMenuItem();
             this.mnuGamesLoadApp = new System.Windows.Forms.ToolStripMenuItem();
@@ -542,21 +556,7 @@
             this.toolStripSeparatorEnableDisableToggle = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemRuntimeEnableDisableToggle = new System.Windows.Forms.ToolStripMenuItem();
             this.TimerProperties = new System.Windows.Forms.Timer(this.components);
-            this.splitContainerSchedule = new System.Windows.Forms.SplitContainer();
-            this.splitContainerRuntimeSchedule = new System.Windows.Forms.SplitContainer();
-            this.lblRuntimeScheduleLabel = new System.Windows.Forms.Label();
-            this.dgRuntimeSchedule = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colWindowName = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colInstance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colStartTime = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colRepeat = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colScheduleEnabled = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colEdit = new System.Windows.Forms.DataGridViewButtonColumn();
+            this.txtLog = new System.Windows.Forms.RichTextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -585,6 +585,39 @@
             this.splitContainerRunProperties.SuspendLayout();
             this.tableLayoutPanelRunLabels.SuspendLayout();
             this.tableLayoutPanelRunValues.SuspendLayout();
+            this.PanelGame.SuspendLayout();
+            this.flowLayoutPanel1.SuspendLayout();
+            this.groupBox18.SuspendLayout();
+            this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).BeginInit();
+            this.groupBox16.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedPixelsPerSecond)).BeginInit();
+            this.groupBox17.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedVelocityVariantPercentMin)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedVelocityVariantPercentMax)).BeginInit();
+            this.grpActiveMouseSettings.SuspendLayout();
+            this.grpApplication.SuspendLayout();
+            this.groupBox13.SuspendLayout();
+            this.groupBox10.SuspendLayout();
+            this.grpNox.SuspendLayout();
+            this.grpSteam.SuspendLayout();
+            this.groupBox14.SuspendLayout();
+            this.groupBox9.SuspendLayout();
+            this.grpBlue.SuspendLayout();
+            this.groupBox11.SuspendLayout();
+            this.grpVideo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericVideoFrameLimit)).BeginInit();
+            this.PanelSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSchedule)).BeginInit();
+            this.splitContainerSchedule.Panel1.SuspendLayout();
+            this.splitContainerSchedule.Panel2.SuspendLayout();
+            this.splitContainerSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRuntimeSchedule)).BeginInit();
+            this.splitContainerRuntimeSchedule.Panel1.SuspendLayout();
+            this.splitContainerRuntimeSchedule.Panel2.SuspendLayout();
+            this.splitContainerRuntimeSchedule.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgRuntimeSchedule)).BeginInit();
             this.PanelColorEvent.SuspendLayout();
             this.tableColorEvent.SuspendLayout();
             this.panelColorEventChild1.SuspendLayout();
@@ -668,8 +701,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllTest)).BeginInit();
             this.Panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllReference)).BeginInit();
-            this.PanelSchedule.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).BeginInit();
             this.PanelGames.SuspendLayout();
             this.PanelActions.SuspendLayout();
             this.PanelObjectScreenshot.SuspendLayout();
@@ -682,28 +713,6 @@
             this.PanelAddNewGames.SuspendLayout();
             this.PanelObjects.SuspendLayout();
             this.PanelEvents.SuspendLayout();
-            this.PanelGame.SuspendLayout();
-            this.flowLayoutPanel1.SuspendLayout();
-            this.groupBox18.SuspendLayout();
-            this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).BeginInit();
-            this.groupBox16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedPixelsPerSecond)).BeginInit();
-            this.groupBox17.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedVelocityVariantPercentMin)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedVelocityVariantPercentMax)).BeginInit();
-            this.grpActiveMouseSettings.SuspendLayout();
-            this.grpApplication.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox10.SuspendLayout();
-            this.grpNox.SuspendLayout();
-            this.grpSteam.SuspendLayout();
-            this.groupBox14.SuspendLayout();
-            this.groupBox9.SuspendLayout();
-            this.grpBlue.SuspendLayout();
-            this.groupBox11.SuspendLayout();
-            this.grpVideo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericVideoFrameLimit)).BeginInit();
             this.mnuPopupGames.SuspendLayout();
             this.mnuEvents.SuspendLayout();
             this.mnuThreadList.SuspendLayout();
@@ -713,15 +722,6 @@
             this.toolStripMain.SuspendLayout();
             this.contextMenuStripResetResolution.SuspendLayout();
             this.contextMenuStripRuntimeEnableDisable.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSchedule)).BeginInit();
-            this.splitContainerSchedule.Panel1.SuspendLayout();
-            this.splitContainerSchedule.Panel2.SuspendLayout();
-            this.splitContainerSchedule.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRuntimeSchedule)).BeginInit();
-            this.splitContainerRuntimeSchedule.Panel1.SuspendLayout();
-            this.splitContainerRuntimeSchedule.Panel2.SuspendLayout();
-            this.splitContainerRuntimeSchedule.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgRuntimeSchedule)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -1320,7 +1320,7 @@
             this.tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelRunValues.ColumnCount = 2;
             this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 29F));
+            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue14, 0, 13);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue7, 0, 6);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue1, 0, 0);
@@ -1518,10 +1518,10 @@
             // cmdUpdateResolution
             // 
             this.cmdUpdateResolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdUpdateResolution.Location = new System.Drawing.Point(111, 148);
+            this.cmdUpdateResolution.Location = new System.Drawing.Point(110, 148);
             this.cmdUpdateResolution.Margin = new System.Windows.Forms.Padding(0);
             this.cmdUpdateResolution.Name = "cmdUpdateResolution";
-            this.cmdUpdateResolution.Size = new System.Drawing.Size(29, 20);
+            this.cmdUpdateResolution.Size = new System.Drawing.Size(30, 20);
             this.cmdUpdateResolution.TabIndex = 13;
             this.cmdUpdateResolution.Text = "...";
             this.cmdUpdateResolution.UseVisualStyleBackColor = true;
@@ -1530,10 +1530,10 @@
             // cmdRuntimeEnableToggle
             // 
             this.cmdRuntimeEnableToggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(111, 64);
+            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(110, 64);
             this.cmdRuntimeEnableToggle.Margin = new System.Windows.Forms.Padding(0);
             this.cmdRuntimeEnableToggle.Name = "cmdRuntimeEnableToggle";
-            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(29, 20);
+            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(30, 20);
             this.cmdRuntimeEnableToggle.TabIndex = 14;
             this.cmdRuntimeEnableToggle.Text = "...";
             this.cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
@@ -1547,6 +1547,1317 @@
             this.tabSchedule.TabIndex = 2;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
+            // 
+            // PanelGame
+            // 
+            this.PanelGame.Controls.Add(this.flowLayoutPanel1);
+            this.PanelGame.Controls.Add(this.cboPlatform);
+            this.PanelGame.Controls.Add(this.lblGamePanelGameName);
+            this.PanelGame.Controls.Add(this.label62);
+            this.PanelGame.Controls.Add(this.label18);
+            this.PanelGame.Controls.Add(this.label22);
+            this.PanelGame.Location = new System.Drawing.Point(32, 58);
+            this.PanelGame.Name = "PanelGame";
+            this.PanelGame.Size = new System.Drawing.Size(859, 600);
+            this.PanelGame.TabIndex = 13;
+            // 
+            // flowLayoutPanel1
+            // 
+            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.Controls.Add(this.groupBox18);
+            this.flowLayoutPanel1.Controls.Add(this.grpApplication);
+            this.flowLayoutPanel1.Controls.Add(this.grpNox);
+            this.flowLayoutPanel1.Controls.Add(this.grpSteam);
+            this.flowLayoutPanel1.Controls.Add(this.grpBlue);
+            this.flowLayoutPanel1.Controls.Add(this.groupBox11);
+            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(9, 72);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(847, 522);
+            this.flowLayoutPanel1.TabIndex = 45;
+            this.flowLayoutPanel1.WrapContents = false;
+            // 
+            // groupBox18
+            // 
+            this.groupBox18.Controls.Add(this.groupBox2);
+            this.groupBox18.Controls.Add(this.groupBox16);
+            this.groupBox18.Controls.Add(this.grpActiveMouseSettings);
+            this.groupBox18.Controls.Add(this.label70);
+            this.groupBox18.Controls.Add(this.cboMouseMode);
+            this.groupBox18.Location = new System.Drawing.Point(3, 3);
+            this.groupBox18.Name = "groupBox18";
+            this.groupBox18.Size = new System.Drawing.Size(813, 226);
+            this.groupBox18.TabIndex = 50;
+            this.groupBox18.TabStop = false;
+            this.groupBox18.Text = "Mouse";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label42);
+            this.groupBox2.Controls.Add(this.numericApplicationDefaultClickSpeed);
+            this.groupBox2.Location = new System.Drawing.Point(13, 45);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(369, 57);
+            this.groupBox2.TabIndex = 34;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Default Click Speed (ms)";
+            // 
+            // label42
+            // 
+            this.label42.Location = new System.Drawing.Point(119, 14);
+            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(209, 39);
+            this.label42.TabIndex = 34;
+            this.label42.Text = "How long to hold the mouse down during a click event.  Some applications do not r" +
+    "espond to 0ms.";
+            // 
+            // numericApplicationDefaultClickSpeed
+            // 
+            this.numericApplicationDefaultClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.numericApplicationDefaultClickSpeed.Location = new System.Drawing.Point(12, 18);
+            this.numericApplicationDefaultClickSpeed.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.numericApplicationDefaultClickSpeed.Name = "numericApplicationDefaultClickSpeed";
+            this.numericApplicationDefaultClickSpeed.Size = new System.Drawing.Size(94, 30);
+            this.numericApplicationDefaultClickSpeed.TabIndex = 33;
+            this.numericApplicationDefaultClickSpeed.ValueChanged += new System.EventHandler(this.numericApplicationDefaultClickSpeed_ValueChanged);
+            // 
+            // groupBox16
+            // 
+            this.groupBox16.Controls.Add(this.label92);
+            this.groupBox16.Controls.Add(this.numericMouseSpeedPixelsPerSecond);
+            this.groupBox16.Controls.Add(this.groupBox17);
+            this.groupBox16.Controls.Add(this.label87);
+            this.groupBox16.Location = new System.Drawing.Point(391, 100);
+            this.groupBox16.Name = "groupBox16";
+            this.groupBox16.Size = new System.Drawing.Size(415, 122);
+            this.groupBox16.TabIndex = 45;
+            this.groupBox16.TabStop = false;
+            this.groupBox16.Text = "Mouse Movement Speed";
+            // 
+            // label92
+            // 
+            this.label92.AutoSize = true;
+            this.label92.Location = new System.Drawing.Point(214, 28);
+            this.label92.Name = "label92";
+            this.label92.Size = new System.Drawing.Size(64, 13);
+            this.label92.TabIndex = 3;
+            this.label92.Text = "(1 to 50000)";
+            // 
+            // numericMouseSpeedPixelsPerSecond
+            // 
+            this.numericMouseSpeedPixelsPerSecond.Location = new System.Drawing.Point(109, 22);
+            this.numericMouseSpeedPixelsPerSecond.Maximum = new decimal(new int[] {
+            50000,
+            0,
+            0,
+            0});
+            this.numericMouseSpeedPixelsPerSecond.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericMouseSpeedPixelsPerSecond.Name = "numericMouseSpeedPixelsPerSecond";
+            this.numericMouseSpeedPixelsPerSecond.Size = new System.Drawing.Size(98, 20);
+            this.numericMouseSpeedPixelsPerSecond.TabIndex = 2;
+            this.numericMouseSpeedPixelsPerSecond.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.numericMouseSpeedPixelsPerSecond.ValueChanged += new System.EventHandler(this.numericMouseSpeedPixelsPerSecond_ValueChanged);
+            // 
+            // groupBox17
+            // 
+            this.groupBox17.Controls.Add(this.label91);
+            this.groupBox17.Controls.Add(this.label90);
+            this.groupBox17.Controls.Add(this.numericMouseSpeedVelocityVariantPercentMin);
+            this.groupBox17.Controls.Add(this.numericMouseSpeedVelocityVariantPercentMax);
+            this.groupBox17.Controls.Add(this.label88);
+            this.groupBox17.Controls.Add(this.label89);
+            this.groupBox17.Location = new System.Drawing.Point(13, 49);
+            this.groupBox17.Name = "groupBox17";
+            this.groupBox17.Size = new System.Drawing.Size(241, 67);
+            this.groupBox17.TabIndex = 1;
+            this.groupBox17.TabStop = false;
+            this.groupBox17.Text = "Random Speed Modification Per Action";
+            // 
+            // label91
+            // 
+            this.label91.AutoSize = true;
+            this.label91.Location = new System.Drawing.Point(125, 45);
+            this.label91.Name = "label91";
+            this.label91.Size = new System.Drawing.Size(55, 13);
+            this.label91.TabIndex = 2;
+            this.label91.Text = "(-500 to 0)";
+            // 
+            // label90
+            // 
+            this.label90.AutoSize = true;
+            this.label90.Location = new System.Drawing.Point(125, 22);
+            this.label90.Name = "label90";
+            this.label90.Size = new System.Drawing.Size(52, 13);
+            this.label90.TabIndex = 2;
+            this.label90.Text = "(0 to 500)";
+            // 
+            // numericMouseSpeedVelocityVariantPercentMin
+            // 
+            this.numericMouseSpeedVelocityVariantPercentMin.Location = new System.Drawing.Point(48, 45);
+            this.numericMouseSpeedVelocityVariantPercentMin.Maximum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numericMouseSpeedVelocityVariantPercentMin.Minimum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            -2147483648});
+            this.numericMouseSpeedVelocityVariantPercentMin.Name = "numericMouseSpeedVelocityVariantPercentMin";
+            this.numericMouseSpeedVelocityVariantPercentMin.Size = new System.Drawing.Size(69, 20);
+            this.numericMouseSpeedVelocityVariantPercentMin.TabIndex = 1;
+            this.numericMouseSpeedVelocityVariantPercentMin.ValueChanged += new System.EventHandler(this.numericMouseSpeedVelocityVariantPercentMin_ValueChanged);
+            // 
+            // numericMouseSpeedVelocityVariantPercentMax
+            // 
+            this.numericMouseSpeedVelocityVariantPercentMax.Location = new System.Drawing.Point(47, 20);
+            this.numericMouseSpeedVelocityVariantPercentMax.Maximum = new decimal(new int[] {
+            500,
+            0,
+            0,
+            0});
+            this.numericMouseSpeedVelocityVariantPercentMax.Name = "numericMouseSpeedVelocityVariantPercentMax";
+            this.numericMouseSpeedVelocityVariantPercentMax.Size = new System.Drawing.Size(70, 20);
+            this.numericMouseSpeedVelocityVariantPercentMax.TabIndex = 1;
+            this.numericMouseSpeedVelocityVariantPercentMax.ValueChanged += new System.EventHandler(this.numericMouseSpeedVelocityVariantPercentMax_ValueChanged);
+            // 
+            // label88
+            // 
+            this.label88.AutoSize = true;
+            this.label88.Location = new System.Drawing.Point(6, 22);
+            this.label88.Name = "label88";
+            this.label88.Size = new System.Drawing.Size(38, 13);
+            this.label88.TabIndex = 0;
+            this.label88.Text = "Max %";
+            // 
+            // label89
+            // 
+            this.label89.AutoSize = true;
+            this.label89.Location = new System.Drawing.Point(6, 49);
+            this.label89.Name = "label89";
+            this.label89.Size = new System.Drawing.Size(35, 13);
+            this.label89.TabIndex = 0;
+            this.label89.Text = "Min %";
+            // 
+            // label87
+            // 
+            this.label87.AutoSize = true;
+            this.label87.Location = new System.Drawing.Point(10, 27);
+            this.label87.Name = "label87";
+            this.label87.Size = new System.Drawing.Size(93, 13);
+            this.label87.TabIndex = 0;
+            this.label87.Text = "Pixels Per Second";
+            // 
+            // grpActiveMouseSettings
+            // 
+            this.grpActiveMouseSettings.Controls.Add(this.cboWindowAction);
+            this.grpActiveMouseSettings.Controls.Add(this.chkMoveMouseBeforeAction);
+            this.grpActiveMouseSettings.Controls.Add(this.lblWindowNotVisibleAction);
+            this.grpActiveMouseSettings.Location = new System.Drawing.Point(391, 18);
+            this.grpActiveMouseSettings.Name = "grpActiveMouseSettings";
+            this.grpActiveMouseSettings.Size = new System.Drawing.Size(416, 76);
+            this.grpActiveMouseSettings.TabIndex = 50;
+            this.grpActiveMouseSettings.TabStop = false;
+            this.grpActiveMouseSettings.Text = "Mouse Mode (Active) Mouse Settings";
+            // 
+            // cboWindowAction
+            // 
+            this.cboWindowAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboWindowAction.FormattingEnabled = true;
+            this.cboWindowAction.Location = new System.Drawing.Point(143, 19);
+            this.cboWindowAction.Name = "cboWindowAction";
+            this.cboWindowAction.Size = new System.Drawing.Size(231, 21);
+            this.cboWindowAction.TabIndex = 47;
+            this.cboWindowAction.SelectedIndexChanged += new System.EventHandler(this.cboWindowAction_SelectedIndexChanged);
+            // 
+            // chkMoveMouseBeforeAction
+            // 
+            this.chkMoveMouseBeforeAction.AutoSize = true;
+            this.chkMoveMouseBeforeAction.Location = new System.Drawing.Point(13, 50);
+            this.chkMoveMouseBeforeAction.Name = "chkMoveMouseBeforeAction";
+            this.chkMoveMouseBeforeAction.Size = new System.Drawing.Size(320, 17);
+            this.chkMoveMouseBeforeAction.TabIndex = 49;
+            this.chkMoveMouseBeforeAction.Text = "Default - Move System Mouse To Start Location Before Action";
+            this.chkMoveMouseBeforeAction.UseVisualStyleBackColor = true;
+            this.chkMoveMouseBeforeAction.CheckedChanged += new System.EventHandler(this.chkMoveMouseBeforeAction_CheckedChanged);
+            // 
+            // lblWindowNotVisibleAction
+            // 
+            this.lblWindowNotVisibleAction.AutoSize = true;
+            this.lblWindowNotVisibleAction.Location = new System.Drawing.Point(8, 22);
+            this.lblWindowNotVisibleAction.Name = "lblWindowNotVisibleAction";
+            this.lblWindowNotVisibleAction.Size = new System.Drawing.Size(132, 13);
+            this.lblWindowNotVisibleAction.TabIndex = 48;
+            this.lblWindowNotVisibleAction.Text = "Window Not Visible Action";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Location = new System.Drawing.Point(14, 21);
+            this.label70.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(69, 13);
+            this.label70.TabIndex = 46;
+            this.label70.Text = "Mouse Mode";
+            // 
+            // cboMouseMode
+            // 
+            this.cboMouseMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboMouseMode.FormattingEnabled = true;
+            this.cboMouseMode.Location = new System.Drawing.Point(149, 18);
+            this.cboMouseMode.Margin = new System.Windows.Forms.Padding(2);
+            this.cboMouseMode.Name = "cboMouseMode";
+            this.cboMouseMode.Size = new System.Drawing.Size(231, 21);
+            this.cboMouseMode.TabIndex = 37;
+            this.cboMouseMode.SelectedIndexChanged += new System.EventHandler(this.cboClickMode_SelectedIndexChanged);
+            this.cboMouseMode.TextChanged += new System.EventHandler(this.cboPlatform_TextChanged);
+            // 
+            // grpApplication
+            // 
+            this.grpApplication.Controls.Add(this.groupBox13);
+            this.grpApplication.Controls.Add(this.groupBox10);
+            this.grpApplication.Location = new System.Drawing.Point(2, 234);
+            this.grpApplication.Margin = new System.Windows.Forms.Padding(2);
+            this.grpApplication.Name = "grpApplication";
+            this.grpApplication.Padding = new System.Windows.Forms.Padding(2);
+            this.grpApplication.Size = new System.Drawing.Size(700, 294);
+            this.grpApplication.TabIndex = 40;
+            this.grpApplication.TabStop = false;
+            this.grpApplication.Text = "Application";
+            // 
+            // groupBox13
+            // 
+            this.groupBox13.Controls.Add(this.label71);
+            this.groupBox13.Controls.Add(this.label69);
+            this.groupBox13.Controls.Add(this.txtPathToApplicationExe);
+            this.groupBox13.Controls.Add(this.txtApplicationParameters);
+            this.groupBox13.Controls.Add(this.cmdPathToExePicker);
+            this.groupBox13.Controls.Add(this.label72);
+            this.groupBox13.Location = new System.Drawing.Point(5, 144);
+            this.groupBox13.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox13.Name = "groupBox13";
+            this.groupBox13.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox13.Size = new System.Drawing.Size(690, 140);
+            this.groupBox13.TabIndex = 11;
+            this.groupBox13.TabStop = false;
+            this.groupBox13.Text = "Start Configuration - Not Required";
+            // 
+            // label71
+            // 
+            this.label71.Location = new System.Drawing.Point(393, 88);
+            this.label71.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(268, 44);
+            this.label71.TabIndex = 8;
+            this.label71.Text = "Used to automatically launch application when scheduler is used, or Toolbar \"Star" +
+    "t\" buttons.";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Location = new System.Drawing.Point(7, 16);
+            this.label69.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(65, 13);
+            this.label69.TabIndex = 0;
+            this.label69.Text = "Path to EXE";
+            // 
+            // txtPathToApplicationExe
+            // 
+            this.txtPathToApplicationExe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtPathToApplicationExe.Location = new System.Drawing.Point(12, 32);
+            this.txtPathToApplicationExe.Margin = new System.Windows.Forms.Padding(2);
+            this.txtPathToApplicationExe.Name = "txtPathToApplicationExe";
+            this.txtPathToApplicationExe.Size = new System.Drawing.Size(636, 20);
+            this.txtPathToApplicationExe.TabIndex = 4;
+            this.txtPathToApplicationExe.TextChanged += new System.EventHandler(this.txtPathToApplicationExe_TextChanged);
+            // 
+            // txtApplicationParameters
+            // 
+            this.txtApplicationParameters.Location = new System.Drawing.Point(12, 79);
+            this.txtApplicationParameters.Margin = new System.Windows.Forms.Padding(2);
+            this.txtApplicationParameters.Name = "txtApplicationParameters";
+            this.txtApplicationParameters.Size = new System.Drawing.Size(273, 20);
+            this.txtApplicationParameters.TabIndex = 7;
+            this.txtApplicationParameters.TextChanged += new System.EventHandler(this.txtApplicationParameters_TextChanged);
+            // 
+            // cmdPathToExePicker
+            // 
+            this.cmdPathToExePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdPathToExePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmdPathToExePicker.Location = new System.Drawing.Point(649, 29);
+            this.cmdPathToExePicker.Margin = new System.Windows.Forms.Padding(2);
+            this.cmdPathToExePicker.Name = "cmdPathToExePicker";
+            this.cmdPathToExePicker.Size = new System.Drawing.Size(35, 26);
+            this.cmdPathToExePicker.TabIndex = 5;
+            this.cmdPathToExePicker.Text = "...";
+            this.cmdPathToExePicker.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.cmdPathToExePicker.UseVisualStyleBackColor = false;
+            this.cmdPathToExePicker.Click += new System.EventHandler(this.cmdPathToExePicker_Click);
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Location = new System.Drawing.Point(7, 58);
+            this.label72.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(60, 13);
+            this.label72.TabIndex = 6;
+            this.label72.Text = "Parameters";
+            // 
+            // groupBox10
+            // 
+            this.groupBox10.Controls.Add(this.cmdApplicationWindowWizard);
+            this.groupBox10.Controls.Add(this.cboApplicationSecondaryWindowNameFilter);
+            this.groupBox10.Controls.Add(this.txtApplicationSecondaryWindowName);
+            this.groupBox10.Controls.Add(this.label76);
+            this.groupBox10.Controls.Add(this.label77);
+            this.groupBox10.Controls.Add(this.cboApplicationPrimaryWindowNameFilter);
+            this.groupBox10.Controls.Add(this.txtApplicationPrimaryWindowName);
+            this.groupBox10.Controls.Add(this.label78);
+            this.groupBox10.Controls.Add(this.label79);
+            this.groupBox10.Location = new System.Drawing.Point(5, 18);
+            this.groupBox10.Name = "groupBox10";
+            this.groupBox10.Size = new System.Drawing.Size(476, 119);
+            this.groupBox10.TabIndex = 10;
+            this.groupBox10.TabStop = false;
+            this.groupBox10.Text = "Window";
+            // 
+            // cmdApplicationWindowWizard
+            // 
+            this.cmdApplicationWindowWizard.Location = new System.Drawing.Point(392, 10);
+            this.cmdApplicationWindowWizard.Name = "cmdApplicationWindowWizard";
+            this.cmdApplicationWindowWizard.Size = new System.Drawing.Size(75, 23);
+            this.cmdApplicationWindowWizard.TabIndex = 12;
+            this.cmdApplicationWindowWizard.Text = "Wizard";
+            this.cmdApplicationWindowWizard.UseVisualStyleBackColor = true;
+            this.cmdApplicationWindowWizard.Click += new System.EventHandler(this.cmdApplicationWindowWizard_Click);
+            // 
+            // cboApplicationSecondaryWindowNameFilter
+            // 
+            this.cboApplicationSecondaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboApplicationSecondaryWindowNameFilter.FormattingEnabled = true;
+            this.cboApplicationSecondaryWindowNameFilter.Items.AddRange(new object[] {
+            "Equals",
+            "Starts With",
+            "Contains"});
+            this.cboApplicationSecondaryWindowNameFilter.Location = new System.Drawing.Point(139, 67);
+            this.cboApplicationSecondaryWindowNameFilter.Name = "cboApplicationSecondaryWindowNameFilter";
+            this.cboApplicationSecondaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
+            this.cboApplicationSecondaryWindowNameFilter.TabIndex = 11;
+            this.cboApplicationSecondaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboApplicationSecondaryWindowNameFilter_SelectedIndexChanged);
+            // 
+            // txtApplicationSecondaryWindowName
+            // 
+            this.txtApplicationSecondaryWindowName.Location = new System.Drawing.Point(139, 93);
+            this.txtApplicationSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtApplicationSecondaryWindowName.Name = "txtApplicationSecondaryWindowName";
+            this.txtApplicationSecondaryWindowName.Size = new System.Drawing.Size(329, 20);
+            this.txtApplicationSecondaryWindowName.TabIndex = 10;
+            this.txtApplicationSecondaryWindowName.TextChanged += new System.EventHandler(this.txtApplicationSecondaryWindowName_TextChanged);
+            // 
+            // label76
+            // 
+            this.label76.AutoSize = true;
+            this.label76.Location = new System.Drawing.Point(5, 98);
+            this.label76.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label76.Name = "label76";
+            this.label76.Size = new System.Drawing.Size(131, 13);
+            this.label76.TabIndex = 8;
+            this.label76.Text = "Secondary Window Name";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Location = new System.Drawing.Point(5, 72);
+            this.label77.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(125, 13);
+            this.label77.TabIndex = 9;
+            this.label77.Text = "Secondary Window Filter";
+            // 
+            // cboApplicationPrimaryWindowNameFilter
+            // 
+            this.cboApplicationPrimaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboApplicationPrimaryWindowNameFilter.FormattingEnabled = true;
+            this.cboApplicationPrimaryWindowNameFilter.Items.AddRange(new object[] {
+            "Equals",
+            "Starts With",
+            "Contains"});
+            this.cboApplicationPrimaryWindowNameFilter.Location = new System.Drawing.Point(139, 15);
+            this.cboApplicationPrimaryWindowNameFilter.Name = "cboApplicationPrimaryWindowNameFilter";
+            this.cboApplicationPrimaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
+            this.cboApplicationPrimaryWindowNameFilter.TabIndex = 7;
+            this.cboApplicationPrimaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboApplicationPrimaryWindowNameFilter_SelectedIndexChanged);
+            // 
+            // txtApplicationPrimaryWindowName
+            // 
+            this.txtApplicationPrimaryWindowName.Location = new System.Drawing.Point(139, 42);
+            this.txtApplicationPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtApplicationPrimaryWindowName.Name = "txtApplicationPrimaryWindowName";
+            this.txtApplicationPrimaryWindowName.Size = new System.Drawing.Size(329, 20);
+            this.txtApplicationPrimaryWindowName.TabIndex = 7;
+            this.txtApplicationPrimaryWindowName.TextChanged += new System.EventHandler(this.txtApplicationWindowName_TextChanged);
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Location = new System.Drawing.Point(5, 46);
+            this.label78.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(114, 13);
+            this.label78.TabIndex = 0;
+            this.label78.Text = "Primary Window Name";
+            // 
+            // label79
+            // 
+            this.label79.AutoSize = true;
+            this.label79.Location = new System.Drawing.Point(5, 20);
+            this.label79.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label79.Name = "label79";
+            this.label79.Size = new System.Drawing.Size(108, 13);
+            this.label79.TabIndex = 0;
+            this.label79.Text = "Primary Window Filter";
+            // 
+            // grpNox
+            // 
+            this.grpNox.Controls.Add(this.label61);
+            this.grpNox.Controls.Add(this.cboDPI);
+            this.grpNox.Controls.Add(this.Label26);
+            this.grpNox.Controls.Add(this.cboGameInstances);
+            this.grpNox.Controls.Add(this.cboResolution);
+            this.grpNox.Controls.Add(this.txtGamePanelLaunchInstance);
+            this.grpNox.Controls.Add(this.label12);
+            this.grpNox.Controls.Add(this.Label16);
+            this.grpNox.Controls.Add(this.txtPackageName);
+            this.grpNox.Controls.Add(this.label63);
+            this.grpNox.Controls.Add(this.Label25);
+            this.grpNox.Location = new System.Drawing.Point(2, 532);
+            this.grpNox.Margin = new System.Windows.Forms.Padding(2);
+            this.grpNox.Name = "grpNox";
+            this.grpNox.Padding = new System.Windows.Forms.Padding(2);
+            this.grpNox.Size = new System.Drawing.Size(700, 134);
+            this.grpNox.TabIndex = 38;
+            this.grpNox.TabStop = false;
+            this.grpNox.Text = "Nox Player";
+            // 
+            // label61
+            // 
+            this.label61.Location = new System.Drawing.Point(257, 104);
+            this.label61.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label61.Name = "label61";
+            this.label61.Size = new System.Drawing.Size(335, 32);
+            this.label61.TabIndex = 36;
+            this.label61.Text = "DPI: some apps are DPI aware and adjust.  Those apps need consistent dpi for tran" +
+    "sportability.  Most apps do not use this setting.";
+            // 
+            // cboDPI
+            // 
+            this.cboDPI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboDPI.FormattingEnabled = true;
+            this.cboDPI.Items.AddRange(new object[] {
+            "96",
+            "120",
+            "144",
+            "192",
+            "240",
+            "288",
+            "384",
+            "480"});
+            this.cboDPI.Location = new System.Drawing.Point(149, 104);
+            this.cboDPI.Name = "cboDPI";
+            this.cboDPI.Size = new System.Drawing.Size(98, 21);
+            this.cboDPI.TabIndex = 35;
+            this.cboDPI.SelectedIndexChanged += new System.EventHandler(this.cboDPI_SelectedIndexChanged);
+            // 
+            // Label26
+            // 
+            this.Label26.AutoSize = true;
+            this.Label26.Location = new System.Drawing.Point(220, 51);
+            this.Label26.Name = "Label26";
+            this.Label26.Size = new System.Drawing.Size(95, 13);
+            this.Label26.TabIndex = 47;
+            this.Label26.Text = "Installed Instances";
+            // 
+            // cboGameInstances
+            // 
+            this.cboGameInstances.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboGameInstances.FormattingEnabled = true;
+            this.cboGameInstances.Location = new System.Drawing.Point(316, 46);
+            this.cboGameInstances.Name = "cboGameInstances";
+            this.cboGameInstances.Size = new System.Drawing.Size(98, 21);
+            this.cboGameInstances.TabIndex = 46;
+            this.cboGameInstances.SelectedIndexChanged += new System.EventHandler(this.cboGameInstances_SelectedIndexChanged);
+            // 
+            // cboResolution
+            // 
+            this.cboResolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboResolution.FormattingEnabled = true;
+            this.cboResolution.Items.AddRange(new object[] {
+            "640x360",
+            "667x375",
+            "1024x768",
+            "1280x800"});
+            this.cboResolution.Location = new System.Drawing.Point(149, 74);
+            this.cboResolution.Name = "cboResolution";
+            this.cboResolution.Size = new System.Drawing.Size(264, 21);
+            this.cboResolution.TabIndex = 45;
+            this.cboResolution.SelectedIndexChanged += new System.EventHandler(this.cboResolution_SelectedIndexChanged);
+            // 
+            // txtGamePanelLaunchInstance
+            // 
+            this.txtGamePanelLaunchInstance.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGamePanelLaunchInstance.Location = new System.Drawing.Point(149, 48);
+            this.txtGamePanelLaunchInstance.Name = "txtGamePanelLaunchInstance";
+            this.txtGamePanelLaunchInstance.Size = new System.Drawing.Size(64, 20);
+            this.txtGamePanelLaunchInstance.TabIndex = 41;
+            this.txtGamePanelLaunchInstance.TextChanged += new System.EventHandler(this.txtGamePanelLaunchInstance_TextChanged);
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(9, 48);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(95, 13);
+            this.label12.TabIndex = 39;
+            this.label12.Text = "Instance to launch";
+            // 
+            // Label16
+            // 
+            this.Label16.AutoSize = true;
+            this.Label16.Location = new System.Drawing.Point(9, 21);
+            this.Label16.Name = "Label16";
+            this.Label16.Size = new System.Drawing.Size(81, 13);
+            this.Label16.TabIndex = 40;
+            this.Label16.Text = "Package Name";
+            // 
+            // txtPackageName
+            // 
+            this.txtPackageName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtPackageName.Location = new System.Drawing.Point(149, 21);
+            this.txtPackageName.Name = "txtPackageName";
+            this.txtPackageName.Size = new System.Drawing.Size(476, 20);
+            this.txtPackageName.TabIndex = 38;
+            this.txtPackageName.TextChanged += new System.EventHandler(this.txtPackageName_TextChanged);
+            // 
+            // label63
+            // 
+            this.label63.AutoSize = true;
+            this.label63.Location = new System.Drawing.Point(11, 104);
+            this.label63.Name = "label63";
+            this.label63.Size = new System.Drawing.Size(99, 13);
+            this.label63.TabIndex = 37;
+            this.label63.Text = "DPI (Dots Per Inch)";
+            // 
+            // Label25
+            // 
+            this.Label25.AutoSize = true;
+            this.Label25.Location = new System.Drawing.Point(9, 77);
+            this.Label25.Name = "Label25";
+            this.Label25.Size = new System.Drawing.Size(84, 13);
+            this.Label25.TabIndex = 37;
+            this.Label25.Text = "Initial Resolution";
+            // 
+            // grpSteam
+            // 
+            this.grpSteam.Controls.Add(this.groupBox14);
+            this.grpSteam.Controls.Add(this.groupBox9);
+            this.grpSteam.Location = new System.Drawing.Point(2, 670);
+            this.grpSteam.Margin = new System.Windows.Forms.Padding(2);
+            this.grpSteam.Name = "grpSteam";
+            this.grpSteam.Padding = new System.Windows.Forms.Padding(2);
+            this.grpSteam.Size = new System.Drawing.Size(700, 257);
+            this.grpSteam.TabIndex = 39;
+            this.grpSteam.TabStop = false;
+            this.grpSteam.Text = "Steam - Experimental/In Development/Incomplete";
+            // 
+            // groupBox14
+            // 
+            this.groupBox14.Controls.Add(this.label84);
+            this.groupBox14.Controls.Add(this.label64);
+            this.groupBox14.Controls.Add(this.label66);
+            this.groupBox14.Controls.Add(this.txtSteamID);
+            this.groupBox14.Location = new System.Drawing.Point(5, 144);
+            this.groupBox14.Name = "groupBox14";
+            this.groupBox14.Size = new System.Drawing.Size(684, 101);
+            this.groupBox14.TabIndex = 9;
+            this.groupBox14.TabStop = false;
+            this.groupBox14.Text = "Start Configuration - Not Required";
+            // 
+            // label84
+            // 
+            this.label84.Location = new System.Drawing.Point(9, 48);
+            this.label84.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label84.Name = "label84";
+            this.label84.Size = new System.Drawing.Size(268, 44);
+            this.label84.TabIndex = 9;
+            this.label84.Text = "Used to automatically launch application when scheduler is used, or Toolbar \"Star" +
+    "t\" buttons.";
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.Location = new System.Drawing.Point(7, 20);
+            this.label64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(106, 13);
+            this.label64.TabIndex = 0;
+            this.label64.Text = "Steam Application ID";
+            // 
+            // label66
+            // 
+            this.label66.Location = new System.Drawing.Point(352, 18);
+            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(327, 63);
+            this.label66.TabIndex = 3;
+            this.label66.Text = "Enter the Steam Game Number Ex.  285920  Right Click a steam app Icon, then go to" +
+    " properties.  Steam ID\'s Look like this: steam://rungameid/285920";
+            // 
+            // txtSteamID
+            // 
+            this.txtSteamID.Location = new System.Drawing.Point(127, 19);
+            this.txtSteamID.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSteamID.Name = "txtSteamID";
+            this.txtSteamID.Size = new System.Drawing.Size(223, 20);
+            this.txtSteamID.TabIndex = 4;
+            this.txtSteamID.TextChanged += new System.EventHandler(this.txtSteamID_TextChanged);
+            this.txtSteamID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSteamID_KeyPress);
+            // 
+            // groupBox9
+            // 
+            this.groupBox9.Controls.Add(this.cmdSteamWindowWizard);
+            this.groupBox9.Controls.Add(this.cboSteamSecondaryWindowNameFilter);
+            this.groupBox9.Controls.Add(this.txtSteamSecondaryWindowName);
+            this.groupBox9.Controls.Add(this.label74);
+            this.groupBox9.Controls.Add(this.label75);
+            this.groupBox9.Controls.Add(this.cboSteamPrimaryWindowNameFilter);
+            this.groupBox9.Controls.Add(this.txtSteamPrimaryWindowName);
+            this.groupBox9.Controls.Add(this.label73);
+            this.groupBox9.Controls.Add(this.label67);
+            this.groupBox9.Location = new System.Drawing.Point(5, 18);
+            this.groupBox9.Name = "groupBox9";
+            this.groupBox9.Size = new System.Drawing.Size(501, 119);
+            this.groupBox9.TabIndex = 8;
+            this.groupBox9.TabStop = false;
+            this.groupBox9.Text = "Window";
+            // 
+            // cmdSteamWindowWizard
+            // 
+            this.cmdSteamWindowWizard.Location = new System.Drawing.Point(378, 15);
+            this.cmdSteamWindowWizard.Name = "cmdSteamWindowWizard";
+            this.cmdSteamWindowWizard.Size = new System.Drawing.Size(112, 23);
+            this.cmdSteamWindowWizard.TabIndex = 9;
+            this.cmdSteamWindowWizard.Text = "Window Wizard";
+            this.cmdSteamWindowWizard.UseVisualStyleBackColor = true;
+            this.cmdSteamWindowWizard.Click += new System.EventHandler(this.cmdSteamWindowWizard_Click);
+            // 
+            // cboSteamSecondaryWindowNameFilter
+            // 
+            this.cboSteamSecondaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSteamSecondaryWindowNameFilter.FormattingEnabled = true;
+            this.cboSteamSecondaryWindowNameFilter.Items.AddRange(new object[] {
+            "Equals",
+            "Starts With",
+            "Contains"});
+            this.cboSteamSecondaryWindowNameFilter.Location = new System.Drawing.Point(139, 67);
+            this.cboSteamSecondaryWindowNameFilter.Name = "cboSteamSecondaryWindowNameFilter";
+            this.cboSteamSecondaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
+            this.cboSteamSecondaryWindowNameFilter.TabIndex = 11;
+            this.cboSteamSecondaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboSteamSecondaryWindowNameFilter_SelectedIndexChanged);
+            // 
+            // txtSteamSecondaryWindowName
+            // 
+            this.txtSteamSecondaryWindowName.Location = new System.Drawing.Point(139, 93);
+            this.txtSteamSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSteamSecondaryWindowName.Name = "txtSteamSecondaryWindowName";
+            this.txtSteamSecondaryWindowName.Size = new System.Drawing.Size(351, 20);
+            this.txtSteamSecondaryWindowName.TabIndex = 10;
+            this.txtSteamSecondaryWindowName.TextChanged += new System.EventHandler(this.txtSteamSecondaryWindowName_TextChanged);
+            // 
+            // label74
+            // 
+            this.label74.AutoSize = true;
+            this.label74.Location = new System.Drawing.Point(5, 98);
+            this.label74.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label74.Name = "label74";
+            this.label74.Size = new System.Drawing.Size(131, 13);
+            this.label74.TabIndex = 8;
+            this.label74.Text = "Secondary Window Name";
+            // 
+            // label75
+            // 
+            this.label75.AutoSize = true;
+            this.label75.Location = new System.Drawing.Point(5, 72);
+            this.label75.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label75.Name = "label75";
+            this.label75.Size = new System.Drawing.Size(125, 13);
+            this.label75.TabIndex = 9;
+            this.label75.Text = "Secondary Window Filter";
+            // 
+            // cboSteamPrimaryWindowNameFilter
+            // 
+            this.cboSteamPrimaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboSteamPrimaryWindowNameFilter.FormattingEnabled = true;
+            this.cboSteamPrimaryWindowNameFilter.Items.AddRange(new object[] {
+            "Equals",
+            "Starts With",
+            "Contains"});
+            this.cboSteamPrimaryWindowNameFilter.Location = new System.Drawing.Point(139, 15);
+            this.cboSteamPrimaryWindowNameFilter.Name = "cboSteamPrimaryWindowNameFilter";
+            this.cboSteamPrimaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
+            this.cboSteamPrimaryWindowNameFilter.TabIndex = 7;
+            this.cboSteamPrimaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboSteamPrimaryWindowNameFilter_SelectedIndexChanged);
+            // 
+            // txtSteamPrimaryWindowName
+            // 
+            this.txtSteamPrimaryWindowName.Location = new System.Drawing.Point(139, 41);
+            this.txtSteamPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSteamPrimaryWindowName.Name = "txtSteamPrimaryWindowName";
+            this.txtSteamPrimaryWindowName.Size = new System.Drawing.Size(351, 20);
+            this.txtSteamPrimaryWindowName.TabIndex = 5;
+            this.txtSteamPrimaryWindowName.TextChanged += new System.EventHandler(this.txtSteamWindowName_TextChanged);
+            // 
+            // label73
+            // 
+            this.label73.AutoSize = true;
+            this.label73.Location = new System.Drawing.Point(5, 46);
+            this.label73.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label73.Name = "label73";
+            this.label73.Size = new System.Drawing.Size(114, 13);
+            this.label73.TabIndex = 0;
+            this.label73.Text = "Primary Window Name";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Location = new System.Drawing.Point(5, 20);
+            this.label67.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(108, 13);
+            this.label67.TabIndex = 0;
+            this.label67.Text = "Primary Window Filter";
+            // 
+            // grpBlue
+            // 
+            this.grpBlue.Controls.Add(this.cboBlueInstance);
+            this.grpBlue.Controls.Add(this.label83);
+            this.grpBlue.Controls.Add(this.label82);
+            this.grpBlue.Controls.Add(this.txtBluePackageName);
+            this.grpBlue.Location = new System.Drawing.Point(2, 931);
+            this.grpBlue.Margin = new System.Windows.Forms.Padding(2);
+            this.grpBlue.Name = "grpBlue";
+            this.grpBlue.Padding = new System.Windows.Forms.Padding(2);
+            this.grpBlue.Size = new System.Drawing.Size(701, 65);
+            this.grpBlue.TabIndex = 48;
+            this.grpBlue.TabStop = false;
+            this.grpBlue.Text = "BlueStacks";
+            // 
+            // cboBlueInstance
+            // 
+            this.cboBlueInstance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBlueInstance.FormattingEnabled = true;
+            this.cboBlueInstance.Location = new System.Drawing.Point(183, 45);
+            this.cboBlueInstance.Margin = new System.Windows.Forms.Padding(2);
+            this.cboBlueInstance.Name = "cboBlueInstance";
+            this.cboBlueInstance.Size = new System.Drawing.Size(293, 21);
+            this.cboBlueInstance.TabIndex = 43;
+            this.cboBlueInstance.SelectedIndexChanged += new System.EventHandler(this.cboBlueInstance_SelectedIndexChanged);
+            // 
+            // label83
+            // 
+            this.label83.AutoSize = true;
+            this.label83.Location = new System.Drawing.Point(46, 44);
+            this.label83.Name = "label83";
+            this.label83.Size = new System.Drawing.Size(48, 13);
+            this.label83.TabIndex = 42;
+            this.label83.Text = "Instance";
+            // 
+            // label82
+            // 
+            this.label82.AutoSize = true;
+            this.label82.Location = new System.Drawing.Point(43, 24);
+            this.label82.Name = "label82";
+            this.label82.Size = new System.Drawing.Size(81, 13);
+            this.label82.TabIndex = 42;
+            this.label82.Text = "Package Name";
+            // 
+            // txtBluePackageName
+            // 
+            this.txtBluePackageName.BackColor = System.Drawing.SystemColors.Window;
+            this.txtBluePackageName.Location = new System.Drawing.Point(183, 24);
+            this.txtBluePackageName.Name = "txtBluePackageName";
+            this.txtBluePackageName.Size = new System.Drawing.Size(476, 20);
+            this.txtBluePackageName.TabIndex = 41;
+            this.txtBluePackageName.TextChanged += new System.EventHandler(this.txtBluePackageName_TextChanged);
+            // 
+            // groupBox11
+            // 
+            this.groupBox11.Controls.Add(this.grpVideo);
+            this.groupBox11.Controls.Add(this.label17);
+            this.groupBox11.Controls.Add(this.Label33);
+            this.groupBox11.Controls.Add(this.txtGamePanelVersion);
+            this.groupBox11.Controls.Add(this.cmdStartEmmulatorAndPackage);
+            this.groupBox11.Controls.Add(this.cmdStartEmmulatorPackageAndRunScript);
+            this.groupBox11.Controls.Add(this.cmdStartEmmulator);
+            this.groupBox11.Controls.Add(this.txtGamePanelLoopDelay);
+            this.groupBox11.Controls.Add(this.Label30);
+            this.groupBox11.Controls.Add(this.cmdRunScript);
+            this.groupBox11.Location = new System.Drawing.Point(3, 1001);
+            this.groupBox11.Name = "groupBox11";
+            this.groupBox11.Size = new System.Drawing.Size(700, 282);
+            this.groupBox11.TabIndex = 47;
+            this.groupBox11.TabStop = false;
+            this.groupBox11.Text = "General";
+            // 
+            // grpVideo
+            // 
+            this.grpVideo.Controls.Add(this.lblFrameLimit);
+            this.grpVideo.Controls.Add(this.NumericVideoFrameLimit);
+            this.grpVideo.Controls.Add(this.chkSaveVideo);
+            this.grpVideo.Location = new System.Drawing.Point(12, 37);
+            this.grpVideo.Name = "grpVideo";
+            this.grpVideo.Size = new System.Drawing.Size(200, 76);
+            this.grpVideo.TabIndex = 32;
+            this.grpVideo.TabStop = false;
+            this.grpVideo.Text = "Video";
+            // 
+            // lblFrameLimit
+            // 
+            this.lblFrameLimit.AutoSize = true;
+            this.lblFrameLimit.Location = new System.Drawing.Point(9, 43);
+            this.lblFrameLimit.Name = "lblFrameLimit";
+            this.lblFrameLimit.Size = new System.Drawing.Size(60, 13);
+            this.lblFrameLimit.TabIndex = 33;
+            this.lblFrameLimit.Text = "Frame Limit";
+            // 
+            // NumericVideoFrameLimit
+            // 
+            this.NumericVideoFrameLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumericVideoFrameLimit.Location = new System.Drawing.Point(76, 35);
+            this.NumericVideoFrameLimit.Maximum = new decimal(new int[] {
+            1000000,
+            0,
+            0,
+            0});
+            this.NumericVideoFrameLimit.Name = "NumericVideoFrameLimit";
+            this.NumericVideoFrameLimit.Size = new System.Drawing.Size(94, 30);
+            this.NumericVideoFrameLimit.TabIndex = 32;
+            this.NumericVideoFrameLimit.ValueChanged += new System.EventHandler(this.NumericVideoFrameLimit_ValueChanged);
+            // 
+            // chkSaveVideo
+            // 
+            this.chkSaveVideo.AutoSize = true;
+            this.chkSaveVideo.Location = new System.Drawing.Point(9, 15);
+            this.chkSaveVideo.Name = "chkSaveVideo";
+            this.chkSaveVideo.Size = new System.Drawing.Size(81, 17);
+            this.chkSaveVideo.TabIndex = 31;
+            this.chkSaveVideo.Text = "Save Video";
+            this.chkSaveVideo.UseVisualStyleBackColor = true;
+            this.chkSaveVideo.CheckedChanged += new System.EventHandler(this.chkSaveVideo_CheckedChanged);
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(14, 128);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(107, 13);
+            this.label17.TabIndex = 5;
+            this.label17.Text = "Target Game Version";
+            this.label17.Visible = false;
+            // 
+            // Label33
+            // 
+            this.Label33.AutoSize = true;
+            this.Label33.Location = new System.Drawing.Point(261, 19);
+            this.Label33.Name = "Label33";
+            this.Label33.Size = new System.Drawing.Size(88, 13);
+            this.Label33.TabIndex = 44;
+            this.Label33.Text = "1,000 ms = 1 sec";
+            // 
+            // txtGamePanelVersion
+            // 
+            this.txtGamePanelVersion.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGamePanelVersion.Location = new System.Drawing.Point(134, 125);
+            this.txtGamePanelVersion.Name = "txtGamePanelVersion";
+            this.txtGamePanelVersion.Size = new System.Drawing.Size(180, 20);
+            this.txtGamePanelVersion.TabIndex = 6;
+            this.txtGamePanelVersion.Visible = false;
+            // 
+            // cmdStartEmmulatorAndPackage
+            // 
+            this.cmdStartEmmulatorAndPackage.Location = new System.Drawing.Point(385, 75);
+            this.cmdStartEmmulatorAndPackage.Name = "cmdStartEmmulatorAndPackage";
+            this.cmdStartEmmulatorAndPackage.Size = new System.Drawing.Size(264, 23);
+            this.cmdStartEmmulatorAndPackage.TabIndex = 21;
+            this.cmdStartEmmulatorAndPackage.Text = "Start Emmulator + Run App";
+            this.cmdStartEmmulatorAndPackage.UseVisualStyleBackColor = true;
+            this.cmdStartEmmulatorAndPackage.Click += new System.EventHandler(this.cmdStartEmmulatorAndPackage_Click);
+            // 
+            // cmdStartEmmulatorPackageAndRunScript
+            // 
+            this.cmdStartEmmulatorPackageAndRunScript.Location = new System.Drawing.Point(385, 104);
+            this.cmdStartEmmulatorPackageAndRunScript.Name = "cmdStartEmmulatorPackageAndRunScript";
+            this.cmdStartEmmulatorPackageAndRunScript.Size = new System.Drawing.Size(264, 23);
+            this.cmdStartEmmulatorPackageAndRunScript.TabIndex = 21;
+            this.cmdStartEmmulatorPackageAndRunScript.Text = "Start Emmulator + Run App + Run Script";
+            this.cmdStartEmmulatorPackageAndRunScript.UseVisualStyleBackColor = true;
+            this.cmdStartEmmulatorPackageAndRunScript.Click += new System.EventHandler(this.cmdStartEmmulatorPackageAndRunScript_Click);
+            // 
+            // cmdStartEmmulator
+            // 
+            this.cmdStartEmmulator.Location = new System.Drawing.Point(385, 17);
+            this.cmdStartEmmulator.Name = "cmdStartEmmulator";
+            this.cmdStartEmmulator.Size = new System.Drawing.Size(264, 23);
+            this.cmdStartEmmulator.TabIndex = 21;
+            this.cmdStartEmmulator.Text = "Start Emmulator";
+            this.cmdStartEmmulator.UseVisualStyleBackColor = true;
+            this.cmdStartEmmulator.Click += new System.EventHandler(this.cmdStartEmmulator_Click);
+            // 
+            // txtGamePanelLoopDelay
+            // 
+            this.txtGamePanelLoopDelay.BackColor = System.Drawing.SystemColors.Window;
+            this.txtGamePanelLoopDelay.Location = new System.Drawing.Point(153, 17);
+            this.txtGamePanelLoopDelay.Name = "txtGamePanelLoopDelay";
+            this.txtGamePanelLoopDelay.Size = new System.Drawing.Size(100, 20);
+            this.txtGamePanelLoopDelay.TabIndex = 43;
+            this.txtGamePanelLoopDelay.TextChanged += new System.EventHandler(this.txtGamePanelLoopDelay_TextChanged_1);
+            // 
+            // Label30
+            // 
+            this.Label30.AutoSize = true;
+            this.Label30.Location = new System.Drawing.Point(13, 17);
+            this.Label30.Name = "Label30";
+            this.Label30.Size = new System.Drawing.Size(83, 13);
+            this.Label30.TabIndex = 42;
+            this.Label30.Text = "Loop Delay (ms)";
+            // 
+            // cmdRunScript
+            // 
+            this.cmdRunScript.Location = new System.Drawing.Point(385, 46);
+            this.cmdRunScript.Name = "cmdRunScript";
+            this.cmdRunScript.Size = new System.Drawing.Size(264, 23);
+            this.cmdRunScript.TabIndex = 22;
+            this.cmdRunScript.Text = "Run Script";
+            this.cmdRunScript.UseVisualStyleBackColor = true;
+            this.cmdRunScript.Click += new System.EventHandler(this.cmdRunScript_Click);
+            // 
+            // cboPlatform
+            // 
+            this.cboPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPlatform.FormattingEnabled = true;
+            this.cboPlatform.Location = new System.Drawing.Point(104, 45);
+            this.cboPlatform.Margin = new System.Windows.Forms.Padding(2);
+            this.cboPlatform.Name = "cboPlatform";
+            this.cboPlatform.Size = new System.Drawing.Size(231, 21);
+            this.cboPlatform.TabIndex = 37;
+            this.cboPlatform.SelectedIndexChanged += new System.EventHandler(this.cboPlatform_SelectedIndexChanged);
+            this.cboPlatform.TextChanged += new System.EventHandler(this.cboPlatform_TextChanged);
+            // 
+            // lblGamePanelGameName
+            // 
+            this.lblGamePanelGameName.AutoSize = true;
+            this.lblGamePanelGameName.Location = new System.Drawing.Point(101, 28);
+            this.lblGamePanelGameName.Name = "lblGamePanelGameName";
+            this.lblGamePanelGameName.Size = new System.Drawing.Size(134, 13);
+            this.lblGamePanelGameName.TabIndex = 2;
+            this.lblGamePanelGameName.Text = "[lblGamePanelGameName]";
+            // 
+            // label62
+            // 
+            this.label62.AutoSize = true;
+            this.label62.Location = new System.Drawing.Point(11, 48);
+            this.label62.Name = "label62";
+            this.label62.Size = new System.Drawing.Size(45, 13);
+            this.label62.TabIndex = 1;
+            this.label62.Text = "Platform";
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(11, 27);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(57, 13);
+            this.label18.TabIndex = 1;
+            this.label18.Text = "App Name";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.Location = new System.Drawing.Point(3, 0);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(74, 18);
+            this.label22.TabIndex = 0;
+            this.label22.Text = "App Panel";
+            // 
+            // PanelSchedule
+            // 
+            this.PanelSchedule.Controls.Add(this.splitContainerSchedule);
+            this.PanelSchedule.Controls.Add(this.Button5);
+            this.PanelSchedule.Controls.Add(this.chkEnableSchedule);
+            this.PanelSchedule.Controls.Add(this.Button4);
+            this.PanelSchedule.Controls.Add(this.cmdAddSchedule);
+            this.PanelSchedule.Controls.Add(this.label40);
+            this.PanelSchedule.Location = new System.Drawing.Point(85, 42);
+            this.PanelSchedule.Name = "PanelSchedule";
+            this.PanelSchedule.Size = new System.Drawing.Size(621, 392);
+            this.PanelSchedule.TabIndex = 19;
+            // 
+            // splitContainerSchedule
+            // 
+            this.splitContainerSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainerSchedule.Location = new System.Drawing.Point(3, 53);
+            this.splitContainerSchedule.Name = "splitContainerSchedule";
+            this.splitContainerSchedule.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerSchedule.Panel1
+            // 
+            this.splitContainerSchedule.Panel1.Controls.Add(this.dgSchedule);
+            // 
+            // splitContainerSchedule.Panel2
+            // 
+            this.splitContainerSchedule.Panel2.Controls.Add(this.splitContainerRuntimeSchedule);
+            this.splitContainerSchedule.Size = new System.Drawing.Size(614, 336);
+            this.splitContainerSchedule.SplitterDistance = 168;
+            this.splitContainerSchedule.TabIndex = 8;
+            // 
+            // dgSchedule
+            // 
+            this.dgSchedule.AllowUserToAddRows = false;
+            this.dgSchedule.AllowUserToDeleteRows = false;
+            this.dgSchedule.AllowUserToOrderColumns = true;
+            this.dgSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colName,
+            this.colWindowName,
+            this.colInstance,
+            this.colStartTime,
+            this.colRepeat,
+            this.colScheduleEnabled,
+            this.colEdit});
+            this.dgSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgSchedule.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgSchedule.Location = new System.Drawing.Point(0, 0);
+            this.dgSchedule.Name = "dgSchedule";
+            this.dgSchedule.ReadOnly = true;
+            this.dgSchedule.RowHeadersWidth = 62;
+            this.dgSchedule.Size = new System.Drawing.Size(614, 168);
+            this.dgSchedule.TabIndex = 3;
+            this.dgSchedule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSchedule_CellContentClick);
+            // 
+            // colName
+            // 
+            this.colName.HeaderText = "Name";
+            this.colName.MinimumWidth = 8;
+            this.colName.Name = "colName";
+            this.colName.ReadOnly = true;
+            this.colName.Width = 150;
+            // 
+            // colWindowName
+            // 
+            this.colWindowName.HeaderText = "Window";
+            this.colWindowName.MinimumWidth = 8;
+            this.colWindowName.Name = "colWindowName";
+            this.colWindowName.ReadOnly = true;
+            this.colWindowName.Width = 150;
+            // 
+            // colInstance
+            // 
+            this.colInstance.HeaderText = "Instance";
+            this.colInstance.MinimumWidth = 60;
+            this.colInstance.Name = "colInstance";
+            this.colInstance.ReadOnly = true;
+            this.colInstance.Width = 60;
+            // 
+            // colStartTime
+            // 
+            this.colStartTime.HeaderText = "Start Time";
+            this.colStartTime.MinimumWidth = 8;
+            this.colStartTime.Name = "colStartTime";
+            this.colStartTime.ReadOnly = true;
+            this.colStartTime.Width = 150;
+            // 
+            // colRepeat
+            // 
+            this.colRepeat.HeaderText = "Repeats";
+            this.colRepeat.MinimumWidth = 8;
+            this.colRepeat.Name = "colRepeat";
+            this.colRepeat.ReadOnly = true;
+            this.colRepeat.Width = 150;
+            // 
+            // colScheduleEnabled
+            // 
+            this.colScheduleEnabled.HeaderText = "Enabled";
+            this.colScheduleEnabled.Name = "colScheduleEnabled";
+            this.colScheduleEnabled.ReadOnly = true;
+            // 
+            // colEdit
+            // 
+            this.colEdit.HeaderText = "Modify";
+            this.colEdit.MinimumWidth = 8;
+            this.colEdit.Name = "colEdit";
+            this.colEdit.ReadOnly = true;
+            this.colEdit.Text = "Edit";
+            this.colEdit.UseColumnTextForButtonValue = true;
+            this.colEdit.Width = 35;
+            // 
+            // splitContainerRuntimeSchedule
+            // 
+            this.splitContainerRuntimeSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerRuntimeSchedule.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainerRuntimeSchedule.IsSplitterFixed = true;
+            this.splitContainerRuntimeSchedule.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerRuntimeSchedule.Name = "splitContainerRuntimeSchedule";
+            this.splitContainerRuntimeSchedule.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerRuntimeSchedule.Panel1
+            // 
+            this.splitContainerRuntimeSchedule.Panel1.Controls.Add(this.lblRuntimeScheduleLabel);
+            this.splitContainerRuntimeSchedule.Panel1MinSize = 21;
+            // 
+            // splitContainerRuntimeSchedule.Panel2
+            // 
+            this.splitContainerRuntimeSchedule.Panel2.Controls.Add(this.dgRuntimeSchedule);
+            this.splitContainerRuntimeSchedule.Size = new System.Drawing.Size(614, 164);
+            this.splitContainerRuntimeSchedule.SplitterDistance = 25;
+            this.splitContainerRuntimeSchedule.TabIndex = 0;
+            // 
+            // lblRuntimeScheduleLabel
+            // 
+            this.lblRuntimeScheduleLabel.AutoSize = true;
+            this.lblRuntimeScheduleLabel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.lblRuntimeScheduleLabel.Location = new System.Drawing.Point(0, 0);
+            this.lblRuntimeScheduleLabel.Name = "lblRuntimeScheduleLabel";
+            this.lblRuntimeScheduleLabel.Size = new System.Drawing.Size(119, 13);
+            this.lblRuntimeScheduleLabel.TabIndex = 0;
+            this.lblRuntimeScheduleLabel.Text = "Schedule plan for today";
+            // 
+            // dgRuntimeSchedule
+            // 
+            this.dgRuntimeSchedule.AllowUserToAddRows = false;
+            this.dgRuntimeSchedule.AllowUserToDeleteRows = false;
+            this.dgRuntimeSchedule.AllowUserToOrderColumns = true;
+            this.dgRuntimeSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgRuntimeSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            this.dgRuntimeSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgRuntimeSchedule.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dgRuntimeSchedule.Location = new System.Drawing.Point(0, 0);
+            this.dgRuntimeSchedule.Name = "dgRuntimeSchedule";
+            this.dgRuntimeSchedule.ReadOnly = true;
+            this.dgRuntimeSchedule.RowHeadersWidth = 62;
+            this.dgRuntimeSchedule.Size = new System.Drawing.Size(614, 135);
+            this.dgRuntimeSchedule.TabIndex = 4;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.HeaderText = "Window";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 150;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.HeaderText = "Instance";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 60;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 60;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.HeaderText = "Start Time";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 150;
+            // 
+            // Button5
+            // 
+            this.Button5.Location = new System.Drawing.Point(195, 29);
+            this.Button5.Name = "Button5";
+            this.Button5.Size = new System.Drawing.Size(75, 23);
+            this.Button5.TabIndex = 7;
+            this.Button5.Text = "Button5";
+            this.Button5.UseVisualStyleBackColor = true;
+            this.Button5.Visible = false;
+            // 
+            // chkEnableSchedule
+            // 
+            this.chkEnableSchedule.AutoSize = true;
+            this.chkEnableSchedule.Location = new System.Drawing.Point(9, 24);
+            this.chkEnableSchedule.Name = "chkEnableSchedule";
+            this.chkEnableSchedule.Size = new System.Drawing.Size(110, 17);
+            this.chkEnableSchedule.TabIndex = 6;
+            this.chkEnableSchedule.Text = "Enable Scheduler";
+            this.chkEnableSchedule.UseVisualStyleBackColor = true;
+            this.chkEnableSchedule.CheckedChanged += new System.EventHandler(this.chkEnableSchedule_CheckedChanged);
+            // 
+            // Button4
+            // 
+            this.Button4.Location = new System.Drawing.Point(259, 0);
+            this.Button4.Name = "Button4";
+            this.Button4.Size = new System.Drawing.Size(220, 23);
+            this.Button4.TabIndex = 5;
+            this.Button4.Text = "add 1 schedule entry";
+            this.Button4.UseVisualStyleBackColor = true;
+            this.Button4.Visible = false;
+            // 
+            // cmdAddSchedule
+            // 
+            this.cmdAddSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cmdAddSchedule.Location = new System.Drawing.Point(495, 4);
+            this.cmdAddSchedule.Name = "cmdAddSchedule";
+            this.cmdAddSchedule.Size = new System.Drawing.Size(123, 23);
+            this.cmdAddSchedule.TabIndex = 4;
+            this.cmdAddSchedule.Text = "Add New Schedule";
+            this.cmdAddSchedule.UseVisualStyleBackColor = true;
+            this.cmdAddSchedule.Click += new System.EventHandler(this.cmdAddSchedule_Click);
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label40.Location = new System.Drawing.Point(3, 2);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(69, 18);
+            this.label40.TabIndex = 2;
+            this.label40.Text = "Schedule";
             // 
             // PanelColorEvent
             // 
@@ -2980,48 +4291,48 @@
             // 
             // dgvID
             // 
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvID.DefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvID.DefaultCellStyle = dataGridViewCellStyle11;
             this.dgvID.HeaderText = "ID";
             this.dgvID.MinimumWidth = 10;
             this.dgvID.Name = "dgvID";
             // 
             // dgvRed
             // 
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle12;
             this.dgvRed.HeaderText = "R";
             this.dgvRed.MinimumWidth = 10;
             this.dgvRed.Name = "dgvRed";
             // 
             // dgvBlue
             // 
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle13;
             this.dgvBlue.HeaderText = "B";
             this.dgvBlue.MinimumWidth = 10;
             this.dgvBlue.Name = "dgvBlue";
             // 
             // dgvGreen
             // 
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle14;
             this.dgvGreen.HeaderText = "G";
             this.dgvGreen.MinimumWidth = 10;
             this.dgvGreen.Name = "dgvGreen";
             // 
             // dgvX
             // 
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvX.DefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvX.DefaultCellStyle = dataGridViewCellStyle15;
             this.dgvX.HeaderText = "X";
             this.dgvX.MinimumWidth = 10;
             this.dgvX.Name = "dgvX";
             // 
             // dgvY
             // 
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvY.DefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvY.DefaultCellStyle = dataGridViewCellStyle16;
             this.dgvY.HeaderText = "Y";
             this.dgvY.MinimumWidth = 10;
             this.dgvY.Name = "dgvY";
@@ -4343,14 +5654,14 @@
             // 
             this.dgvTest.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle57.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle57.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTestID,
@@ -4361,14 +5672,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle58.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle58.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle58.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle18;
             this.dgvTest.Location = new System.Drawing.Point(623, 226);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.RowHeadersWidth = 62;
@@ -4438,14 +5749,14 @@
             // dgvTestAllReference
             // 
             this.dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle59.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle59.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle59.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceID,
@@ -4454,14 +5765,14 @@
             this.dgvTestAllReferenceBlue,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle60.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle60.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle60.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle60.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle20;
             this.dgvTestAllReference.Location = new System.Drawing.Point(623, 48);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.RowHeadersWidth = 62;
@@ -4601,95 +5912,6 @@
             this.PictureTestAllReference.TabIndex = 1;
             this.PictureTestAllReference.TabStop = false;
             this.PictureTestAllReference.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureTestAllReference_Paint);
-            // 
-            // PanelSchedule
-            // 
-            this.PanelSchedule.Controls.Add(this.splitContainerSchedule);
-            this.PanelSchedule.Controls.Add(this.Button5);
-            this.PanelSchedule.Controls.Add(this.chkEnableSchedule);
-            this.PanelSchedule.Controls.Add(this.Button4);
-            this.PanelSchedule.Controls.Add(this.cmdAddSchedule);
-            this.PanelSchedule.Controls.Add(this.label40);
-            this.PanelSchedule.Location = new System.Drawing.Point(85, 42);
-            this.PanelSchedule.Name = "PanelSchedule";
-            this.PanelSchedule.Size = new System.Drawing.Size(621, 392);
-            this.PanelSchedule.TabIndex = 19;
-            // 
-            // Button5
-            // 
-            this.Button5.Location = new System.Drawing.Point(195, 29);
-            this.Button5.Name = "Button5";
-            this.Button5.Size = new System.Drawing.Size(75, 23);
-            this.Button5.TabIndex = 7;
-            this.Button5.Text = "Button5";
-            this.Button5.UseVisualStyleBackColor = true;
-            this.Button5.Visible = false;
-            // 
-            // chkEnableSchedule
-            // 
-            this.chkEnableSchedule.AutoSize = true;
-            this.chkEnableSchedule.Location = new System.Drawing.Point(9, 24);
-            this.chkEnableSchedule.Name = "chkEnableSchedule";
-            this.chkEnableSchedule.Size = new System.Drawing.Size(110, 17);
-            this.chkEnableSchedule.TabIndex = 6;
-            this.chkEnableSchedule.Text = "Enable Scheduler";
-            this.chkEnableSchedule.UseVisualStyleBackColor = true;
-            this.chkEnableSchedule.CheckedChanged += new System.EventHandler(this.chkEnableSchedule_CheckedChanged);
-            // 
-            // Button4
-            // 
-            this.Button4.Location = new System.Drawing.Point(259, 0);
-            this.Button4.Name = "Button4";
-            this.Button4.Size = new System.Drawing.Size(220, 23);
-            this.Button4.TabIndex = 5;
-            this.Button4.Text = "add 1 schedule entry";
-            this.Button4.UseVisualStyleBackColor = true;
-            this.Button4.Visible = false;
-            // 
-            // cmdAddSchedule
-            // 
-            this.cmdAddSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdAddSchedule.Location = new System.Drawing.Point(495, 4);
-            this.cmdAddSchedule.Name = "cmdAddSchedule";
-            this.cmdAddSchedule.Size = new System.Drawing.Size(123, 23);
-            this.cmdAddSchedule.TabIndex = 4;
-            this.cmdAddSchedule.Text = "Add New Schedule";
-            this.cmdAddSchedule.UseVisualStyleBackColor = true;
-            this.cmdAddSchedule.Click += new System.EventHandler(this.cmdAddSchedule_Click);
-            // 
-            // dgSchedule
-            // 
-            this.dgSchedule.AllowUserToAddRows = false;
-            this.dgSchedule.AllowUserToDeleteRows = false;
-            this.dgSchedule.AllowUserToOrderColumns = true;
-            this.dgSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colName,
-            this.colWindowName,
-            this.colInstance,
-            this.colStartTime,
-            this.colRepeat,
-            this.colScheduleEnabled,
-            this.colEdit});
-            this.dgSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgSchedule.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgSchedule.Location = new System.Drawing.Point(0, 0);
-            this.dgSchedule.Name = "dgSchedule";
-            this.dgSchedule.ReadOnly = true;
-            this.dgSchedule.RowHeadersWidth = 62;
-            this.dgSchedule.Size = new System.Drawing.Size(614, 168);
-            this.dgSchedule.TabIndex = 3;
-            this.dgSchedule.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgSchedule_CellContentClick);
-            // 
-            // label40
-            // 
-            this.label40.AutoSize = true;
-            this.label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label40.Location = new System.Drawing.Point(3, 2);
-            this.label40.Name = "label40";
-            this.label40.Size = new System.Drawing.Size(69, 18);
-            this.label40.TabIndex = 2;
-            this.label40.Text = "Schedule";
             // 
             // PanelGames
             // 
@@ -5001,1079 +6223,6 @@
             this.label10.Size = new System.Drawing.Size(53, 18);
             this.label10.TabIndex = 1;
             this.label10.Text = "Events";
-            // 
-            // PanelGame
-            // 
-            this.PanelGame.Controls.Add(this.flowLayoutPanel1);
-            this.PanelGame.Controls.Add(this.cboPlatform);
-            this.PanelGame.Controls.Add(this.lblGamePanelGameName);
-            this.PanelGame.Controls.Add(this.label62);
-            this.PanelGame.Controls.Add(this.label18);
-            this.PanelGame.Controls.Add(this.label22);
-            this.PanelGame.Location = new System.Drawing.Point(32, 58);
-            this.PanelGame.Name = "PanelGame";
-            this.PanelGame.Size = new System.Drawing.Size(859, 600);
-            this.PanelGame.TabIndex = 13;
-            // 
-            // flowLayoutPanel1
-            // 
-            this.flowLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.flowLayoutPanel1.AutoScroll = true;
-            this.flowLayoutPanel1.Controls.Add(this.groupBox18);
-            this.flowLayoutPanel1.Controls.Add(this.grpApplication);
-            this.flowLayoutPanel1.Controls.Add(this.grpNox);
-            this.flowLayoutPanel1.Controls.Add(this.grpSteam);
-            this.flowLayoutPanel1.Controls.Add(this.grpBlue);
-            this.flowLayoutPanel1.Controls.Add(this.groupBox11);
-            this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(9, 72);
-            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(847, 522);
-            this.flowLayoutPanel1.TabIndex = 45;
-            this.flowLayoutPanel1.WrapContents = false;
-            // 
-            // groupBox18
-            // 
-            this.groupBox18.Controls.Add(this.groupBox2);
-            this.groupBox18.Controls.Add(this.groupBox16);
-            this.groupBox18.Controls.Add(this.grpActiveMouseSettings);
-            this.groupBox18.Controls.Add(this.label70);
-            this.groupBox18.Controls.Add(this.cboMouseMode);
-            this.groupBox18.Location = new System.Drawing.Point(3, 3);
-            this.groupBox18.Name = "groupBox18";
-            this.groupBox18.Size = new System.Drawing.Size(813, 226);
-            this.groupBox18.TabIndex = 50;
-            this.groupBox18.TabStop = false;
-            this.groupBox18.Text = "Mouse";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.label42);
-            this.groupBox2.Controls.Add(this.numericApplicationDefaultClickSpeed);
-            this.groupBox2.Location = new System.Drawing.Point(13, 45);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(369, 57);
-            this.groupBox2.TabIndex = 34;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Default Click Speed (ms)";
-            // 
-            // label42
-            // 
-            this.label42.Location = new System.Drawing.Point(119, 14);
-            this.label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(209, 39);
-            this.label42.TabIndex = 34;
-            this.label42.Text = "How long to hold the mouse down during a click event.  Some applications do not r" +
-    "espond to 0ms.";
-            // 
-            // numericApplicationDefaultClickSpeed
-            // 
-            this.numericApplicationDefaultClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.numericApplicationDefaultClickSpeed.Location = new System.Drawing.Point(12, 18);
-            this.numericApplicationDefaultClickSpeed.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.numericApplicationDefaultClickSpeed.Name = "numericApplicationDefaultClickSpeed";
-            this.numericApplicationDefaultClickSpeed.Size = new System.Drawing.Size(94, 30);
-            this.numericApplicationDefaultClickSpeed.TabIndex = 33;
-            this.numericApplicationDefaultClickSpeed.ValueChanged += new System.EventHandler(this.numericApplicationDefaultClickSpeed_ValueChanged);
-            // 
-            // groupBox16
-            // 
-            this.groupBox16.Controls.Add(this.label92);
-            this.groupBox16.Controls.Add(this.numericMouseSpeedPixelsPerSecond);
-            this.groupBox16.Controls.Add(this.groupBox17);
-            this.groupBox16.Controls.Add(this.label87);
-            this.groupBox16.Location = new System.Drawing.Point(391, 100);
-            this.groupBox16.Name = "groupBox16";
-            this.groupBox16.Size = new System.Drawing.Size(415, 122);
-            this.groupBox16.TabIndex = 45;
-            this.groupBox16.TabStop = false;
-            this.groupBox16.Text = "Mouse Movement Speed";
-            // 
-            // label92
-            // 
-            this.label92.AutoSize = true;
-            this.label92.Location = new System.Drawing.Point(214, 28);
-            this.label92.Name = "label92";
-            this.label92.Size = new System.Drawing.Size(64, 13);
-            this.label92.TabIndex = 3;
-            this.label92.Text = "(1 to 50000)";
-            // 
-            // numericMouseSpeedPixelsPerSecond
-            // 
-            this.numericMouseSpeedPixelsPerSecond.Location = new System.Drawing.Point(109, 22);
-            this.numericMouseSpeedPixelsPerSecond.Maximum = new decimal(new int[] {
-            50000,
-            0,
-            0,
-            0});
-            this.numericMouseSpeedPixelsPerSecond.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericMouseSpeedPixelsPerSecond.Name = "numericMouseSpeedPixelsPerSecond";
-            this.numericMouseSpeedPixelsPerSecond.Size = new System.Drawing.Size(98, 20);
-            this.numericMouseSpeedPixelsPerSecond.TabIndex = 2;
-            this.numericMouseSpeedPixelsPerSecond.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericMouseSpeedPixelsPerSecond.ValueChanged += new System.EventHandler(this.numericMouseSpeedPixelsPerSecond_ValueChanged);
-            // 
-            // groupBox17
-            // 
-            this.groupBox17.Controls.Add(this.label91);
-            this.groupBox17.Controls.Add(this.label90);
-            this.groupBox17.Controls.Add(this.numericMouseSpeedVelocityVariantPercentMin);
-            this.groupBox17.Controls.Add(this.numericMouseSpeedVelocityVariantPercentMax);
-            this.groupBox17.Controls.Add(this.label88);
-            this.groupBox17.Controls.Add(this.label89);
-            this.groupBox17.Location = new System.Drawing.Point(13, 49);
-            this.groupBox17.Name = "groupBox17";
-            this.groupBox17.Size = new System.Drawing.Size(241, 67);
-            this.groupBox17.TabIndex = 1;
-            this.groupBox17.TabStop = false;
-            this.groupBox17.Text = "Random Speed Modification Per Action";
-            // 
-            // label91
-            // 
-            this.label91.AutoSize = true;
-            this.label91.Location = new System.Drawing.Point(125, 45);
-            this.label91.Name = "label91";
-            this.label91.Size = new System.Drawing.Size(55, 13);
-            this.label91.TabIndex = 2;
-            this.label91.Text = "(-500 to 0)";
-            // 
-            // label90
-            // 
-            this.label90.AutoSize = true;
-            this.label90.Location = new System.Drawing.Point(125, 22);
-            this.label90.Name = "label90";
-            this.label90.Size = new System.Drawing.Size(52, 13);
-            this.label90.TabIndex = 2;
-            this.label90.Text = "(0 to 500)";
-            // 
-            // numericMouseSpeedVelocityVariantPercentMin
-            // 
-            this.numericMouseSpeedVelocityVariantPercentMin.Location = new System.Drawing.Point(48, 45);
-            this.numericMouseSpeedVelocityVariantPercentMin.Maximum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.numericMouseSpeedVelocityVariantPercentMin.Minimum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            -2147483648});
-            this.numericMouseSpeedVelocityVariantPercentMin.Name = "numericMouseSpeedVelocityVariantPercentMin";
-            this.numericMouseSpeedVelocityVariantPercentMin.Size = new System.Drawing.Size(69, 20);
-            this.numericMouseSpeedVelocityVariantPercentMin.TabIndex = 1;
-            this.numericMouseSpeedVelocityVariantPercentMin.ValueChanged += new System.EventHandler(this.numericMouseSpeedVelocityVariantPercentMin_ValueChanged);
-            // 
-            // numericMouseSpeedVelocityVariantPercentMax
-            // 
-            this.numericMouseSpeedVelocityVariantPercentMax.Location = new System.Drawing.Point(47, 20);
-            this.numericMouseSpeedVelocityVariantPercentMax.Maximum = new decimal(new int[] {
-            500,
-            0,
-            0,
-            0});
-            this.numericMouseSpeedVelocityVariantPercentMax.Name = "numericMouseSpeedVelocityVariantPercentMax";
-            this.numericMouseSpeedVelocityVariantPercentMax.Size = new System.Drawing.Size(70, 20);
-            this.numericMouseSpeedVelocityVariantPercentMax.TabIndex = 1;
-            this.numericMouseSpeedVelocityVariantPercentMax.ValueChanged += new System.EventHandler(this.numericMouseSpeedVelocityVariantPercentMax_ValueChanged);
-            // 
-            // label88
-            // 
-            this.label88.AutoSize = true;
-            this.label88.Location = new System.Drawing.Point(6, 22);
-            this.label88.Name = "label88";
-            this.label88.Size = new System.Drawing.Size(38, 13);
-            this.label88.TabIndex = 0;
-            this.label88.Text = "Max %";
-            // 
-            // label89
-            // 
-            this.label89.AutoSize = true;
-            this.label89.Location = new System.Drawing.Point(6, 49);
-            this.label89.Name = "label89";
-            this.label89.Size = new System.Drawing.Size(35, 13);
-            this.label89.TabIndex = 0;
-            this.label89.Text = "Min %";
-            // 
-            // label87
-            // 
-            this.label87.AutoSize = true;
-            this.label87.Location = new System.Drawing.Point(10, 27);
-            this.label87.Name = "label87";
-            this.label87.Size = new System.Drawing.Size(93, 13);
-            this.label87.TabIndex = 0;
-            this.label87.Text = "Pixels Per Second";
-            // 
-            // grpActiveMouseSettings
-            // 
-            this.grpActiveMouseSettings.Controls.Add(this.cboWindowAction);
-            this.grpActiveMouseSettings.Controls.Add(this.chkMoveMouseBeforeAction);
-            this.grpActiveMouseSettings.Controls.Add(this.lblWindowNotVisibleAction);
-            this.grpActiveMouseSettings.Location = new System.Drawing.Point(391, 18);
-            this.grpActiveMouseSettings.Name = "grpActiveMouseSettings";
-            this.grpActiveMouseSettings.Size = new System.Drawing.Size(416, 76);
-            this.grpActiveMouseSettings.TabIndex = 50;
-            this.grpActiveMouseSettings.TabStop = false;
-            this.grpActiveMouseSettings.Text = "Mouse Mode (Active) Mouse Settings";
-            // 
-            // cboWindowAction
-            // 
-            this.cboWindowAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboWindowAction.FormattingEnabled = true;
-            this.cboWindowAction.Location = new System.Drawing.Point(143, 19);
-            this.cboWindowAction.Name = "cboWindowAction";
-            this.cboWindowAction.Size = new System.Drawing.Size(231, 21);
-            this.cboWindowAction.TabIndex = 47;
-            this.cboWindowAction.SelectedIndexChanged += new System.EventHandler(this.cboWindowAction_SelectedIndexChanged);
-            // 
-            // chkMoveMouseBeforeAction
-            // 
-            this.chkMoveMouseBeforeAction.AutoSize = true;
-            this.chkMoveMouseBeforeAction.Location = new System.Drawing.Point(13, 50);
-            this.chkMoveMouseBeforeAction.Name = "chkMoveMouseBeforeAction";
-            this.chkMoveMouseBeforeAction.Size = new System.Drawing.Size(320, 17);
-            this.chkMoveMouseBeforeAction.TabIndex = 49;
-            this.chkMoveMouseBeforeAction.Text = "Default - Move System Mouse To Start Location Before Action";
-            this.chkMoveMouseBeforeAction.UseVisualStyleBackColor = true;
-            this.chkMoveMouseBeforeAction.CheckedChanged += new System.EventHandler(this.chkMoveMouseBeforeAction_CheckedChanged);
-            // 
-            // lblWindowNotVisibleAction
-            // 
-            this.lblWindowNotVisibleAction.AutoSize = true;
-            this.lblWindowNotVisibleAction.Location = new System.Drawing.Point(8, 22);
-            this.lblWindowNotVisibleAction.Name = "lblWindowNotVisibleAction";
-            this.lblWindowNotVisibleAction.Size = new System.Drawing.Size(132, 13);
-            this.lblWindowNotVisibleAction.TabIndex = 48;
-            this.lblWindowNotVisibleAction.Text = "Window Not Visible Action";
-            // 
-            // label70
-            // 
-            this.label70.AutoSize = true;
-            this.label70.Location = new System.Drawing.Point(14, 21);
-            this.label70.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label70.Name = "label70";
-            this.label70.Size = new System.Drawing.Size(69, 13);
-            this.label70.TabIndex = 46;
-            this.label70.Text = "Mouse Mode";
-            // 
-            // cboMouseMode
-            // 
-            this.cboMouseMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboMouseMode.FormattingEnabled = true;
-            this.cboMouseMode.Location = new System.Drawing.Point(149, 18);
-            this.cboMouseMode.Margin = new System.Windows.Forms.Padding(2);
-            this.cboMouseMode.Name = "cboMouseMode";
-            this.cboMouseMode.Size = new System.Drawing.Size(231, 21);
-            this.cboMouseMode.TabIndex = 37;
-            this.cboMouseMode.SelectedIndexChanged += new System.EventHandler(this.cboClickMode_SelectedIndexChanged);
-            this.cboMouseMode.TextChanged += new System.EventHandler(this.cboPlatform_TextChanged);
-            // 
-            // grpApplication
-            // 
-            this.grpApplication.Controls.Add(this.groupBox13);
-            this.grpApplication.Controls.Add(this.groupBox10);
-            this.grpApplication.Location = new System.Drawing.Point(2, 234);
-            this.grpApplication.Margin = new System.Windows.Forms.Padding(2);
-            this.grpApplication.Name = "grpApplication";
-            this.grpApplication.Padding = new System.Windows.Forms.Padding(2);
-            this.grpApplication.Size = new System.Drawing.Size(700, 294);
-            this.grpApplication.TabIndex = 40;
-            this.grpApplication.TabStop = false;
-            this.grpApplication.Text = "Application";
-            // 
-            // groupBox13
-            // 
-            this.groupBox13.Controls.Add(this.label71);
-            this.groupBox13.Controls.Add(this.label69);
-            this.groupBox13.Controls.Add(this.txtPathToApplicationExe);
-            this.groupBox13.Controls.Add(this.txtApplicationParameters);
-            this.groupBox13.Controls.Add(this.cmdPathToExePicker);
-            this.groupBox13.Controls.Add(this.label72);
-            this.groupBox13.Location = new System.Drawing.Point(5, 144);
-            this.groupBox13.Margin = new System.Windows.Forms.Padding(2);
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox13.Size = new System.Drawing.Size(690, 140);
-            this.groupBox13.TabIndex = 11;
-            this.groupBox13.TabStop = false;
-            this.groupBox13.Text = "Start Configuration - Not Required";
-            // 
-            // label71
-            // 
-            this.label71.Location = new System.Drawing.Point(393, 88);
-            this.label71.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label71.Name = "label71";
-            this.label71.Size = new System.Drawing.Size(268, 44);
-            this.label71.TabIndex = 8;
-            this.label71.Text = "Used to automatically launch application when scheduler is used, or Toolbar \"Star" +
-    "t\" buttons.";
-            // 
-            // label69
-            // 
-            this.label69.AutoSize = true;
-            this.label69.Location = new System.Drawing.Point(7, 16);
-            this.label69.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label69.Name = "label69";
-            this.label69.Size = new System.Drawing.Size(65, 13);
-            this.label69.TabIndex = 0;
-            this.label69.Text = "Path to EXE";
-            // 
-            // txtPathToApplicationExe
-            // 
-            this.txtPathToApplicationExe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtPathToApplicationExe.Location = new System.Drawing.Point(12, 32);
-            this.txtPathToApplicationExe.Margin = new System.Windows.Forms.Padding(2);
-            this.txtPathToApplicationExe.Name = "txtPathToApplicationExe";
-            this.txtPathToApplicationExe.Size = new System.Drawing.Size(636, 20);
-            this.txtPathToApplicationExe.TabIndex = 4;
-            this.txtPathToApplicationExe.TextChanged += new System.EventHandler(this.txtPathToApplicationExe_TextChanged);
-            // 
-            // txtApplicationParameters
-            // 
-            this.txtApplicationParameters.Location = new System.Drawing.Point(12, 79);
-            this.txtApplicationParameters.Margin = new System.Windows.Forms.Padding(2);
-            this.txtApplicationParameters.Name = "txtApplicationParameters";
-            this.txtApplicationParameters.Size = new System.Drawing.Size(273, 20);
-            this.txtApplicationParameters.TabIndex = 7;
-            this.txtApplicationParameters.TextChanged += new System.EventHandler(this.txtApplicationParameters_TextChanged);
-            // 
-            // cmdPathToExePicker
-            // 
-            this.cmdPathToExePicker.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cmdPathToExePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmdPathToExePicker.Location = new System.Drawing.Point(649, 29);
-            this.cmdPathToExePicker.Margin = new System.Windows.Forms.Padding(2);
-            this.cmdPathToExePicker.Name = "cmdPathToExePicker";
-            this.cmdPathToExePicker.Size = new System.Drawing.Size(35, 26);
-            this.cmdPathToExePicker.TabIndex = 5;
-            this.cmdPathToExePicker.Text = "...";
-            this.cmdPathToExePicker.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.cmdPathToExePicker.UseVisualStyleBackColor = false;
-            this.cmdPathToExePicker.Click += new System.EventHandler(this.cmdPathToExePicker_Click);
-            // 
-            // label72
-            // 
-            this.label72.AutoSize = true;
-            this.label72.Location = new System.Drawing.Point(7, 58);
-            this.label72.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label72.Name = "label72";
-            this.label72.Size = new System.Drawing.Size(60, 13);
-            this.label72.TabIndex = 6;
-            this.label72.Text = "Parameters";
-            // 
-            // groupBox10
-            // 
-            this.groupBox10.Controls.Add(this.cmdApplicationWindowWizard);
-            this.groupBox10.Controls.Add(this.cboApplicationSecondaryWindowNameFilter);
-            this.groupBox10.Controls.Add(this.txtApplicationSecondaryWindowName);
-            this.groupBox10.Controls.Add(this.label76);
-            this.groupBox10.Controls.Add(this.label77);
-            this.groupBox10.Controls.Add(this.cboApplicationPrimaryWindowNameFilter);
-            this.groupBox10.Controls.Add(this.txtApplicationPrimaryWindowName);
-            this.groupBox10.Controls.Add(this.label78);
-            this.groupBox10.Controls.Add(this.label79);
-            this.groupBox10.Location = new System.Drawing.Point(5, 18);
-            this.groupBox10.Name = "groupBox10";
-            this.groupBox10.Size = new System.Drawing.Size(476, 119);
-            this.groupBox10.TabIndex = 10;
-            this.groupBox10.TabStop = false;
-            this.groupBox10.Text = "Window";
-            // 
-            // cmdApplicationWindowWizard
-            // 
-            this.cmdApplicationWindowWizard.Location = new System.Drawing.Point(392, 10);
-            this.cmdApplicationWindowWizard.Name = "cmdApplicationWindowWizard";
-            this.cmdApplicationWindowWizard.Size = new System.Drawing.Size(75, 23);
-            this.cmdApplicationWindowWizard.TabIndex = 12;
-            this.cmdApplicationWindowWizard.Text = "Wizard";
-            this.cmdApplicationWindowWizard.UseVisualStyleBackColor = true;
-            this.cmdApplicationWindowWizard.Click += new System.EventHandler(this.cmdApplicationWindowWizard_Click);
-            // 
-            // cboApplicationSecondaryWindowNameFilter
-            // 
-            this.cboApplicationSecondaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboApplicationSecondaryWindowNameFilter.FormattingEnabled = true;
-            this.cboApplicationSecondaryWindowNameFilter.Items.AddRange(new object[] {
-            "Equals",
-            "Starts With",
-            "Contains"});
-            this.cboApplicationSecondaryWindowNameFilter.Location = new System.Drawing.Point(139, 67);
-            this.cboApplicationSecondaryWindowNameFilter.Name = "cboApplicationSecondaryWindowNameFilter";
-            this.cboApplicationSecondaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
-            this.cboApplicationSecondaryWindowNameFilter.TabIndex = 11;
-            this.cboApplicationSecondaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboApplicationSecondaryWindowNameFilter_SelectedIndexChanged);
-            // 
-            // txtApplicationSecondaryWindowName
-            // 
-            this.txtApplicationSecondaryWindowName.Location = new System.Drawing.Point(139, 93);
-            this.txtApplicationSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtApplicationSecondaryWindowName.Name = "txtApplicationSecondaryWindowName";
-            this.txtApplicationSecondaryWindowName.Size = new System.Drawing.Size(329, 20);
-            this.txtApplicationSecondaryWindowName.TabIndex = 10;
-            this.txtApplicationSecondaryWindowName.TextChanged += new System.EventHandler(this.txtApplicationSecondaryWindowName_TextChanged);
-            // 
-            // label76
-            // 
-            this.label76.AutoSize = true;
-            this.label76.Location = new System.Drawing.Point(5, 98);
-            this.label76.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label76.Name = "label76";
-            this.label76.Size = new System.Drawing.Size(131, 13);
-            this.label76.TabIndex = 8;
-            this.label76.Text = "Secondary Window Name";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Location = new System.Drawing.Point(5, 72);
-            this.label77.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(125, 13);
-            this.label77.TabIndex = 9;
-            this.label77.Text = "Secondary Window Filter";
-            // 
-            // cboApplicationPrimaryWindowNameFilter
-            // 
-            this.cboApplicationPrimaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboApplicationPrimaryWindowNameFilter.FormattingEnabled = true;
-            this.cboApplicationPrimaryWindowNameFilter.Items.AddRange(new object[] {
-            "Equals",
-            "Starts With",
-            "Contains"});
-            this.cboApplicationPrimaryWindowNameFilter.Location = new System.Drawing.Point(139, 15);
-            this.cboApplicationPrimaryWindowNameFilter.Name = "cboApplicationPrimaryWindowNameFilter";
-            this.cboApplicationPrimaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
-            this.cboApplicationPrimaryWindowNameFilter.TabIndex = 7;
-            this.cboApplicationPrimaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboApplicationPrimaryWindowNameFilter_SelectedIndexChanged);
-            // 
-            // txtApplicationPrimaryWindowName
-            // 
-            this.txtApplicationPrimaryWindowName.Location = new System.Drawing.Point(139, 42);
-            this.txtApplicationPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtApplicationPrimaryWindowName.Name = "txtApplicationPrimaryWindowName";
-            this.txtApplicationPrimaryWindowName.Size = new System.Drawing.Size(329, 20);
-            this.txtApplicationPrimaryWindowName.TabIndex = 7;
-            this.txtApplicationPrimaryWindowName.TextChanged += new System.EventHandler(this.txtApplicationWindowName_TextChanged);
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Location = new System.Drawing.Point(5, 46);
-            this.label78.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(114, 13);
-            this.label78.TabIndex = 0;
-            this.label78.Text = "Primary Window Name";
-            // 
-            // label79
-            // 
-            this.label79.AutoSize = true;
-            this.label79.Location = new System.Drawing.Point(5, 20);
-            this.label79.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label79.Name = "label79";
-            this.label79.Size = new System.Drawing.Size(108, 13);
-            this.label79.TabIndex = 0;
-            this.label79.Text = "Primary Window Filter";
-            // 
-            // grpNox
-            // 
-            this.grpNox.Controls.Add(this.label61);
-            this.grpNox.Controls.Add(this.cboDPI);
-            this.grpNox.Controls.Add(this.Label26);
-            this.grpNox.Controls.Add(this.cboGameInstances);
-            this.grpNox.Controls.Add(this.cboResolution);
-            this.grpNox.Controls.Add(this.txtGamePanelLaunchInstance);
-            this.grpNox.Controls.Add(this.label12);
-            this.grpNox.Controls.Add(this.Label16);
-            this.grpNox.Controls.Add(this.txtPackageName);
-            this.grpNox.Controls.Add(this.label63);
-            this.grpNox.Controls.Add(this.Label25);
-            this.grpNox.Location = new System.Drawing.Point(2, 532);
-            this.grpNox.Margin = new System.Windows.Forms.Padding(2);
-            this.grpNox.Name = "grpNox";
-            this.grpNox.Padding = new System.Windows.Forms.Padding(2);
-            this.grpNox.Size = new System.Drawing.Size(700, 134);
-            this.grpNox.TabIndex = 38;
-            this.grpNox.TabStop = false;
-            this.grpNox.Text = "Nox Player";
-            // 
-            // label61
-            // 
-            this.label61.Location = new System.Drawing.Point(257, 104);
-            this.label61.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(335, 32);
-            this.label61.TabIndex = 36;
-            this.label61.Text = "DPI: some apps are DPI aware and adjust.  Those apps need consistent dpi for tran" +
-    "sportability.  Most apps do not use this setting.";
-            // 
-            // cboDPI
-            // 
-            this.cboDPI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboDPI.FormattingEnabled = true;
-            this.cboDPI.Items.AddRange(new object[] {
-            "96",
-            "120",
-            "144",
-            "192",
-            "240",
-            "288",
-            "384",
-            "480"});
-            this.cboDPI.Location = new System.Drawing.Point(149, 104);
-            this.cboDPI.Name = "cboDPI";
-            this.cboDPI.Size = new System.Drawing.Size(98, 21);
-            this.cboDPI.TabIndex = 35;
-            this.cboDPI.SelectedIndexChanged += new System.EventHandler(this.cboDPI_SelectedIndexChanged);
-            // 
-            // Label26
-            // 
-            this.Label26.AutoSize = true;
-            this.Label26.Location = new System.Drawing.Point(220, 51);
-            this.Label26.Name = "Label26";
-            this.Label26.Size = new System.Drawing.Size(95, 13);
-            this.Label26.TabIndex = 47;
-            this.Label26.Text = "Installed Instances";
-            // 
-            // cboGameInstances
-            // 
-            this.cboGameInstances.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboGameInstances.FormattingEnabled = true;
-            this.cboGameInstances.Location = new System.Drawing.Point(316, 46);
-            this.cboGameInstances.Name = "cboGameInstances";
-            this.cboGameInstances.Size = new System.Drawing.Size(98, 21);
-            this.cboGameInstances.TabIndex = 46;
-            this.cboGameInstances.SelectedIndexChanged += new System.EventHandler(this.cboGameInstances_SelectedIndexChanged);
-            // 
-            // cboResolution
-            // 
-            this.cboResolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboResolution.FormattingEnabled = true;
-            this.cboResolution.Items.AddRange(new object[] {
-            "640x360",
-            "667x375",
-            "1024x768",
-            "1280x800"});
-            this.cboResolution.Location = new System.Drawing.Point(149, 74);
-            this.cboResolution.Name = "cboResolution";
-            this.cboResolution.Size = new System.Drawing.Size(264, 21);
-            this.cboResolution.TabIndex = 45;
-            this.cboResolution.SelectedIndexChanged += new System.EventHandler(this.cboResolution_SelectedIndexChanged);
-            // 
-            // txtGamePanelLaunchInstance
-            // 
-            this.txtGamePanelLaunchInstance.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGamePanelLaunchInstance.Location = new System.Drawing.Point(149, 48);
-            this.txtGamePanelLaunchInstance.Name = "txtGamePanelLaunchInstance";
-            this.txtGamePanelLaunchInstance.Size = new System.Drawing.Size(64, 20);
-            this.txtGamePanelLaunchInstance.TabIndex = 41;
-            this.txtGamePanelLaunchInstance.TextChanged += new System.EventHandler(this.txtGamePanelLaunchInstance_TextChanged);
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(9, 48);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(95, 13);
-            this.label12.TabIndex = 39;
-            this.label12.Text = "Instance to launch";
-            // 
-            // Label16
-            // 
-            this.Label16.AutoSize = true;
-            this.Label16.Location = new System.Drawing.Point(9, 21);
-            this.Label16.Name = "Label16";
-            this.Label16.Size = new System.Drawing.Size(81, 13);
-            this.Label16.TabIndex = 40;
-            this.Label16.Text = "Package Name";
-            // 
-            // txtPackageName
-            // 
-            this.txtPackageName.BackColor = System.Drawing.SystemColors.Window;
-            this.txtPackageName.Location = new System.Drawing.Point(149, 21);
-            this.txtPackageName.Name = "txtPackageName";
-            this.txtPackageName.Size = new System.Drawing.Size(476, 20);
-            this.txtPackageName.TabIndex = 38;
-            this.txtPackageName.TextChanged += new System.EventHandler(this.txtPackageName_TextChanged);
-            // 
-            // label63
-            // 
-            this.label63.AutoSize = true;
-            this.label63.Location = new System.Drawing.Point(11, 104);
-            this.label63.Name = "label63";
-            this.label63.Size = new System.Drawing.Size(99, 13);
-            this.label63.TabIndex = 37;
-            this.label63.Text = "DPI (Dots Per Inch)";
-            // 
-            // Label25
-            // 
-            this.Label25.AutoSize = true;
-            this.Label25.Location = new System.Drawing.Point(9, 77);
-            this.Label25.Name = "Label25";
-            this.Label25.Size = new System.Drawing.Size(84, 13);
-            this.Label25.TabIndex = 37;
-            this.Label25.Text = "Initial Resolution";
-            // 
-            // grpSteam
-            // 
-            this.grpSteam.Controls.Add(this.groupBox14);
-            this.grpSteam.Controls.Add(this.groupBox9);
-            this.grpSteam.Location = new System.Drawing.Point(2, 670);
-            this.grpSteam.Margin = new System.Windows.Forms.Padding(2);
-            this.grpSteam.Name = "grpSteam";
-            this.grpSteam.Padding = new System.Windows.Forms.Padding(2);
-            this.grpSteam.Size = new System.Drawing.Size(700, 257);
-            this.grpSteam.TabIndex = 39;
-            this.grpSteam.TabStop = false;
-            this.grpSteam.Text = "Steam - Experimental/In Development/Incomplete";
-            // 
-            // groupBox14
-            // 
-            this.groupBox14.Controls.Add(this.label84);
-            this.groupBox14.Controls.Add(this.label64);
-            this.groupBox14.Controls.Add(this.label66);
-            this.groupBox14.Controls.Add(this.txtSteamID);
-            this.groupBox14.Location = new System.Drawing.Point(5, 144);
-            this.groupBox14.Name = "groupBox14";
-            this.groupBox14.Size = new System.Drawing.Size(684, 101);
-            this.groupBox14.TabIndex = 9;
-            this.groupBox14.TabStop = false;
-            this.groupBox14.Text = "Start Configuration - Not Required";
-            // 
-            // label84
-            // 
-            this.label84.Location = new System.Drawing.Point(9, 48);
-            this.label84.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label84.Name = "label84";
-            this.label84.Size = new System.Drawing.Size(268, 44);
-            this.label84.TabIndex = 9;
-            this.label84.Text = "Used to automatically launch application when scheduler is used, or Toolbar \"Star" +
-    "t\" buttons.";
-            // 
-            // label64
-            // 
-            this.label64.AutoSize = true;
-            this.label64.Location = new System.Drawing.Point(7, 20);
-            this.label64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(106, 13);
-            this.label64.TabIndex = 0;
-            this.label64.Text = "Steam Application ID";
-            // 
-            // label66
-            // 
-            this.label66.Location = new System.Drawing.Point(352, 18);
-            this.label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label66.Name = "label66";
-            this.label66.Size = new System.Drawing.Size(327, 63);
-            this.label66.TabIndex = 3;
-            this.label66.Text = "Enter the Steam Game Number Ex.  285920  Right Click a steam app Icon, then go to" +
-    " properties.  Steam ID\'s Look like this: steam://rungameid/285920";
-            // 
-            // txtSteamID
-            // 
-            this.txtSteamID.Location = new System.Drawing.Point(127, 19);
-            this.txtSteamID.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSteamID.Name = "txtSteamID";
-            this.txtSteamID.Size = new System.Drawing.Size(223, 20);
-            this.txtSteamID.TabIndex = 4;
-            this.txtSteamID.TextChanged += new System.EventHandler(this.txtSteamID_TextChanged);
-            this.txtSteamID.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtSteamID_KeyPress);
-            // 
-            // groupBox9
-            // 
-            this.groupBox9.Controls.Add(this.cmdSteamWindowWizard);
-            this.groupBox9.Controls.Add(this.cboSteamSecondaryWindowNameFilter);
-            this.groupBox9.Controls.Add(this.txtSteamSecondaryWindowName);
-            this.groupBox9.Controls.Add(this.label74);
-            this.groupBox9.Controls.Add(this.label75);
-            this.groupBox9.Controls.Add(this.cboSteamPrimaryWindowNameFilter);
-            this.groupBox9.Controls.Add(this.txtSteamPrimaryWindowName);
-            this.groupBox9.Controls.Add(this.label73);
-            this.groupBox9.Controls.Add(this.label67);
-            this.groupBox9.Location = new System.Drawing.Point(5, 18);
-            this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Size = new System.Drawing.Size(501, 119);
-            this.groupBox9.TabIndex = 8;
-            this.groupBox9.TabStop = false;
-            this.groupBox9.Text = "Window";
-            // 
-            // cmdSteamWindowWizard
-            // 
-            this.cmdSteamWindowWizard.Location = new System.Drawing.Point(378, 15);
-            this.cmdSteamWindowWizard.Name = "cmdSteamWindowWizard";
-            this.cmdSteamWindowWizard.Size = new System.Drawing.Size(112, 23);
-            this.cmdSteamWindowWizard.TabIndex = 9;
-            this.cmdSteamWindowWizard.Text = "Window Wizard";
-            this.cmdSteamWindowWizard.UseVisualStyleBackColor = true;
-            this.cmdSteamWindowWizard.Click += new System.EventHandler(this.cmdSteamWindowWizard_Click);
-            // 
-            // cboSteamSecondaryWindowNameFilter
-            // 
-            this.cboSteamSecondaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSteamSecondaryWindowNameFilter.FormattingEnabled = true;
-            this.cboSteamSecondaryWindowNameFilter.Items.AddRange(new object[] {
-            "Equals",
-            "Starts With",
-            "Contains"});
-            this.cboSteamSecondaryWindowNameFilter.Location = new System.Drawing.Point(139, 67);
-            this.cboSteamSecondaryWindowNameFilter.Name = "cboSteamSecondaryWindowNameFilter";
-            this.cboSteamSecondaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
-            this.cboSteamSecondaryWindowNameFilter.TabIndex = 11;
-            this.cboSteamSecondaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboSteamSecondaryWindowNameFilter_SelectedIndexChanged);
-            // 
-            // txtSteamSecondaryWindowName
-            // 
-            this.txtSteamSecondaryWindowName.Location = new System.Drawing.Point(139, 93);
-            this.txtSteamSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSteamSecondaryWindowName.Name = "txtSteamSecondaryWindowName";
-            this.txtSteamSecondaryWindowName.Size = new System.Drawing.Size(351, 20);
-            this.txtSteamSecondaryWindowName.TabIndex = 10;
-            this.txtSteamSecondaryWindowName.TextChanged += new System.EventHandler(this.txtSteamSecondaryWindowName_TextChanged);
-            // 
-            // label74
-            // 
-            this.label74.AutoSize = true;
-            this.label74.Location = new System.Drawing.Point(5, 98);
-            this.label74.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label74.Name = "label74";
-            this.label74.Size = new System.Drawing.Size(131, 13);
-            this.label74.TabIndex = 8;
-            this.label74.Text = "Secondary Window Name";
-            // 
-            // label75
-            // 
-            this.label75.AutoSize = true;
-            this.label75.Location = new System.Drawing.Point(5, 72);
-            this.label75.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label75.Name = "label75";
-            this.label75.Size = new System.Drawing.Size(125, 13);
-            this.label75.TabIndex = 9;
-            this.label75.Text = "Secondary Window Filter";
-            // 
-            // cboSteamPrimaryWindowNameFilter
-            // 
-            this.cboSteamPrimaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboSteamPrimaryWindowNameFilter.FormattingEnabled = true;
-            this.cboSteamPrimaryWindowNameFilter.Items.AddRange(new object[] {
-            "Equals",
-            "Starts With",
-            "Contains"});
-            this.cboSteamPrimaryWindowNameFilter.Location = new System.Drawing.Point(139, 15);
-            this.cboSteamPrimaryWindowNameFilter.Name = "cboSteamPrimaryWindowNameFilter";
-            this.cboSteamPrimaryWindowNameFilter.Size = new System.Drawing.Size(75, 21);
-            this.cboSteamPrimaryWindowNameFilter.TabIndex = 7;
-            this.cboSteamPrimaryWindowNameFilter.SelectedIndexChanged += new System.EventHandler(this.cboSteamPrimaryWindowNameFilter_SelectedIndexChanged);
-            // 
-            // txtSteamPrimaryWindowName
-            // 
-            this.txtSteamPrimaryWindowName.Location = new System.Drawing.Point(139, 41);
-            this.txtSteamPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
-            this.txtSteamPrimaryWindowName.Name = "txtSteamPrimaryWindowName";
-            this.txtSteamPrimaryWindowName.Size = new System.Drawing.Size(351, 20);
-            this.txtSteamPrimaryWindowName.TabIndex = 5;
-            this.txtSteamPrimaryWindowName.TextChanged += new System.EventHandler(this.txtSteamWindowName_TextChanged);
-            // 
-            // label73
-            // 
-            this.label73.AutoSize = true;
-            this.label73.Location = new System.Drawing.Point(5, 46);
-            this.label73.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label73.Name = "label73";
-            this.label73.Size = new System.Drawing.Size(114, 13);
-            this.label73.TabIndex = 0;
-            this.label73.Text = "Primary Window Name";
-            // 
-            // label67
-            // 
-            this.label67.AutoSize = true;
-            this.label67.Location = new System.Drawing.Point(5, 20);
-            this.label67.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label67.Name = "label67";
-            this.label67.Size = new System.Drawing.Size(108, 13);
-            this.label67.TabIndex = 0;
-            this.label67.Text = "Primary Window Filter";
-            // 
-            // grpBlue
-            // 
-            this.grpBlue.Controls.Add(this.cboBlueInstance);
-            this.grpBlue.Controls.Add(this.label83);
-            this.grpBlue.Controls.Add(this.label82);
-            this.grpBlue.Controls.Add(this.txtBluePackageName);
-            this.grpBlue.Location = new System.Drawing.Point(2, 931);
-            this.grpBlue.Margin = new System.Windows.Forms.Padding(2);
-            this.grpBlue.Name = "grpBlue";
-            this.grpBlue.Padding = new System.Windows.Forms.Padding(2);
-            this.grpBlue.Size = new System.Drawing.Size(701, 65);
-            this.grpBlue.TabIndex = 48;
-            this.grpBlue.TabStop = false;
-            this.grpBlue.Text = "BlueStacks";
-            // 
-            // cboBlueInstance
-            // 
-            this.cboBlueInstance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBlueInstance.FormattingEnabled = true;
-            this.cboBlueInstance.Location = new System.Drawing.Point(183, 45);
-            this.cboBlueInstance.Margin = new System.Windows.Forms.Padding(2);
-            this.cboBlueInstance.Name = "cboBlueInstance";
-            this.cboBlueInstance.Size = new System.Drawing.Size(293, 21);
-            this.cboBlueInstance.TabIndex = 43;
-            this.cboBlueInstance.SelectedIndexChanged += new System.EventHandler(this.cboBlueInstance_SelectedIndexChanged);
-            // 
-            // label83
-            // 
-            this.label83.AutoSize = true;
-            this.label83.Location = new System.Drawing.Point(46, 44);
-            this.label83.Name = "label83";
-            this.label83.Size = new System.Drawing.Size(48, 13);
-            this.label83.TabIndex = 42;
-            this.label83.Text = "Instance";
-            // 
-            // label82
-            // 
-            this.label82.AutoSize = true;
-            this.label82.Location = new System.Drawing.Point(43, 24);
-            this.label82.Name = "label82";
-            this.label82.Size = new System.Drawing.Size(81, 13);
-            this.label82.TabIndex = 42;
-            this.label82.Text = "Package Name";
-            // 
-            // txtBluePackageName
-            // 
-            this.txtBluePackageName.BackColor = System.Drawing.SystemColors.Window;
-            this.txtBluePackageName.Location = new System.Drawing.Point(183, 24);
-            this.txtBluePackageName.Name = "txtBluePackageName";
-            this.txtBluePackageName.Size = new System.Drawing.Size(476, 20);
-            this.txtBluePackageName.TabIndex = 41;
-            this.txtBluePackageName.TextChanged += new System.EventHandler(this.txtBluePackageName_TextChanged);
-            // 
-            // groupBox11
-            // 
-            this.groupBox11.Controls.Add(this.grpVideo);
-            this.groupBox11.Controls.Add(this.label17);
-            this.groupBox11.Controls.Add(this.Label33);
-            this.groupBox11.Controls.Add(this.txtGamePanelVersion);
-            this.groupBox11.Controls.Add(this.cmdStartEmmulatorAndPackage);
-            this.groupBox11.Controls.Add(this.cmdStartEmmulatorPackageAndRunScript);
-            this.groupBox11.Controls.Add(this.cmdStartEmmulator);
-            this.groupBox11.Controls.Add(this.txtGamePanelLoopDelay);
-            this.groupBox11.Controls.Add(this.Label30);
-            this.groupBox11.Controls.Add(this.cmdRunScript);
-            this.groupBox11.Location = new System.Drawing.Point(3, 1001);
-            this.groupBox11.Name = "groupBox11";
-            this.groupBox11.Size = new System.Drawing.Size(700, 282);
-            this.groupBox11.TabIndex = 47;
-            this.groupBox11.TabStop = false;
-            this.groupBox11.Text = "General";
-            // 
-            // grpVideo
-            // 
-            this.grpVideo.Controls.Add(this.lblFrameLimit);
-            this.grpVideo.Controls.Add(this.NumericVideoFrameLimit);
-            this.grpVideo.Controls.Add(this.chkSaveVideo);
-            this.grpVideo.Location = new System.Drawing.Point(12, 37);
-            this.grpVideo.Name = "grpVideo";
-            this.grpVideo.Size = new System.Drawing.Size(200, 76);
-            this.grpVideo.TabIndex = 32;
-            this.grpVideo.TabStop = false;
-            this.grpVideo.Text = "Video";
-            // 
-            // lblFrameLimit
-            // 
-            this.lblFrameLimit.AutoSize = true;
-            this.lblFrameLimit.Location = new System.Drawing.Point(9, 43);
-            this.lblFrameLimit.Name = "lblFrameLimit";
-            this.lblFrameLimit.Size = new System.Drawing.Size(60, 13);
-            this.lblFrameLimit.TabIndex = 33;
-            this.lblFrameLimit.Text = "Frame Limit";
-            // 
-            // NumericVideoFrameLimit
-            // 
-            this.NumericVideoFrameLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumericVideoFrameLimit.Location = new System.Drawing.Point(76, 35);
-            this.NumericVideoFrameLimit.Maximum = new decimal(new int[] {
-            1000000,
-            0,
-            0,
-            0});
-            this.NumericVideoFrameLimit.Name = "NumericVideoFrameLimit";
-            this.NumericVideoFrameLimit.Size = new System.Drawing.Size(94, 30);
-            this.NumericVideoFrameLimit.TabIndex = 32;
-            this.NumericVideoFrameLimit.ValueChanged += new System.EventHandler(this.NumericVideoFrameLimit_ValueChanged);
-            // 
-            // chkSaveVideo
-            // 
-            this.chkSaveVideo.AutoSize = true;
-            this.chkSaveVideo.Location = new System.Drawing.Point(9, 15);
-            this.chkSaveVideo.Name = "chkSaveVideo";
-            this.chkSaveVideo.Size = new System.Drawing.Size(81, 17);
-            this.chkSaveVideo.TabIndex = 31;
-            this.chkSaveVideo.Text = "Save Video";
-            this.chkSaveVideo.UseVisualStyleBackColor = true;
-            this.chkSaveVideo.CheckedChanged += new System.EventHandler(this.chkSaveVideo_CheckedChanged);
-            // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 128);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(107, 13);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Target Game Version";
-            this.label17.Visible = false;
-            // 
-            // Label33
-            // 
-            this.Label33.AutoSize = true;
-            this.Label33.Location = new System.Drawing.Point(261, 19);
-            this.Label33.Name = "Label33";
-            this.Label33.Size = new System.Drawing.Size(88, 13);
-            this.Label33.TabIndex = 44;
-            this.Label33.Text = "1,000 ms = 1 sec";
-            // 
-            // txtGamePanelVersion
-            // 
-            this.txtGamePanelVersion.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGamePanelVersion.Location = new System.Drawing.Point(134, 125);
-            this.txtGamePanelVersion.Name = "txtGamePanelVersion";
-            this.txtGamePanelVersion.Size = new System.Drawing.Size(180, 20);
-            this.txtGamePanelVersion.TabIndex = 6;
-            this.txtGamePanelVersion.Visible = false;
-            // 
-            // cmdStartEmmulatorAndPackage
-            // 
-            this.cmdStartEmmulatorAndPackage.Location = new System.Drawing.Point(385, 75);
-            this.cmdStartEmmulatorAndPackage.Name = "cmdStartEmmulatorAndPackage";
-            this.cmdStartEmmulatorAndPackage.Size = new System.Drawing.Size(264, 23);
-            this.cmdStartEmmulatorAndPackage.TabIndex = 21;
-            this.cmdStartEmmulatorAndPackage.Text = "Start Emmulator + Run App";
-            this.cmdStartEmmulatorAndPackage.UseVisualStyleBackColor = true;
-            this.cmdStartEmmulatorAndPackage.Click += new System.EventHandler(this.cmdStartEmmulatorAndPackage_Click);
-            // 
-            // cmdStartEmmulatorPackageAndRunScript
-            // 
-            this.cmdStartEmmulatorPackageAndRunScript.Location = new System.Drawing.Point(385, 104);
-            this.cmdStartEmmulatorPackageAndRunScript.Name = "cmdStartEmmulatorPackageAndRunScript";
-            this.cmdStartEmmulatorPackageAndRunScript.Size = new System.Drawing.Size(264, 23);
-            this.cmdStartEmmulatorPackageAndRunScript.TabIndex = 21;
-            this.cmdStartEmmulatorPackageAndRunScript.Text = "Start Emmulator + Run App + Run Script";
-            this.cmdStartEmmulatorPackageAndRunScript.UseVisualStyleBackColor = true;
-            this.cmdStartEmmulatorPackageAndRunScript.Click += new System.EventHandler(this.cmdStartEmmulatorPackageAndRunScript_Click);
-            // 
-            // cmdStartEmmulator
-            // 
-            this.cmdStartEmmulator.Location = new System.Drawing.Point(385, 17);
-            this.cmdStartEmmulator.Name = "cmdStartEmmulator";
-            this.cmdStartEmmulator.Size = new System.Drawing.Size(264, 23);
-            this.cmdStartEmmulator.TabIndex = 21;
-            this.cmdStartEmmulator.Text = "Start Emmulator";
-            this.cmdStartEmmulator.UseVisualStyleBackColor = true;
-            this.cmdStartEmmulator.Click += new System.EventHandler(this.cmdStartEmmulator_Click);
-            // 
-            // txtGamePanelLoopDelay
-            // 
-            this.txtGamePanelLoopDelay.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGamePanelLoopDelay.Location = new System.Drawing.Point(153, 17);
-            this.txtGamePanelLoopDelay.Name = "txtGamePanelLoopDelay";
-            this.txtGamePanelLoopDelay.Size = new System.Drawing.Size(100, 20);
-            this.txtGamePanelLoopDelay.TabIndex = 43;
-            this.txtGamePanelLoopDelay.TextChanged += new System.EventHandler(this.txtGamePanelLoopDelay_TextChanged_1);
-            // 
-            // Label30
-            // 
-            this.Label30.AutoSize = true;
-            this.Label30.Location = new System.Drawing.Point(13, 17);
-            this.Label30.Name = "Label30";
-            this.Label30.Size = new System.Drawing.Size(83, 13);
-            this.Label30.TabIndex = 42;
-            this.Label30.Text = "Loop Delay (ms)";
-            // 
-            // cmdRunScript
-            // 
-            this.cmdRunScript.Location = new System.Drawing.Point(385, 46);
-            this.cmdRunScript.Name = "cmdRunScript";
-            this.cmdRunScript.Size = new System.Drawing.Size(264, 23);
-            this.cmdRunScript.TabIndex = 22;
-            this.cmdRunScript.Text = "Run Script";
-            this.cmdRunScript.UseVisualStyleBackColor = true;
-            this.cmdRunScript.Click += new System.EventHandler(this.cmdRunScript_Click);
-            // 
-            // cboPlatform
-            // 
-            this.cboPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPlatform.FormattingEnabled = true;
-            this.cboPlatform.Location = new System.Drawing.Point(104, 45);
-            this.cboPlatform.Margin = new System.Windows.Forms.Padding(2);
-            this.cboPlatform.Name = "cboPlatform";
-            this.cboPlatform.Size = new System.Drawing.Size(231, 21);
-            this.cboPlatform.TabIndex = 37;
-            this.cboPlatform.SelectedIndexChanged += new System.EventHandler(this.cboPlatform_SelectedIndexChanged);
-            this.cboPlatform.TextChanged += new System.EventHandler(this.cboPlatform_TextChanged);
-            // 
-            // lblGamePanelGameName
-            // 
-            this.lblGamePanelGameName.AutoSize = true;
-            this.lblGamePanelGameName.Location = new System.Drawing.Point(101, 28);
-            this.lblGamePanelGameName.Name = "lblGamePanelGameName";
-            this.lblGamePanelGameName.Size = new System.Drawing.Size(134, 13);
-            this.lblGamePanelGameName.TabIndex = 2;
-            this.lblGamePanelGameName.Text = "[lblGamePanelGameName]";
-            // 
-            // label62
-            // 
-            this.label62.AutoSize = true;
-            this.label62.Location = new System.Drawing.Point(11, 48);
-            this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(45, 13);
-            this.label62.TabIndex = 1;
-            this.label62.Text = "Platform";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(11, 27);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(57, 13);
-            this.label18.TabIndex = 1;
-            this.label18.Text = "App Name";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(3, 0);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(74, 18);
-            this.label22.TabIndex = 0;
-            this.label22.Text = "App Panel";
-            // 
-            // txtLog
-            // 
-            this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.txtLog.Location = new System.Drawing.Point(0, 0);
-            this.txtLog.Multiline = true;
-            this.txtLog.Name = "txtLog";
-            this.txtLog.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.txtLog.Size = new System.Drawing.Size(1602, 71);
-            this.txtLog.TabIndex = 0;
             // 
             // mnuPopupGames
             // 
@@ -6589,164 +6738,14 @@
             this.TimerProperties.Interval = 1000;
             this.TimerProperties.Tick += new System.EventHandler(this.TimerProperties_Tick);
             // 
-            // splitContainerSchedule
+            // txtLog
             // 
-            this.splitContainerSchedule.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainerSchedule.Location = new System.Drawing.Point(3, 53);
-            this.splitContainerSchedule.Name = "splitContainerSchedule";
-            this.splitContainerSchedule.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerSchedule.Panel1
-            // 
-            this.splitContainerSchedule.Panel1.Controls.Add(this.dgSchedule);
-            // 
-            // splitContainerSchedule.Panel2
-            // 
-            this.splitContainerSchedule.Panel2.Controls.Add(this.splitContainerRuntimeSchedule);
-            this.splitContainerSchedule.Size = new System.Drawing.Size(614, 336);
-            this.splitContainerSchedule.SplitterDistance = 168;
-            this.splitContainerSchedule.TabIndex = 8;
-            // 
-            // splitContainerRuntimeSchedule
-            // 
-            this.splitContainerRuntimeSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerRuntimeSchedule.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainerRuntimeSchedule.IsSplitterFixed = true;
-            this.splitContainerRuntimeSchedule.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerRuntimeSchedule.Name = "splitContainerRuntimeSchedule";
-            this.splitContainerRuntimeSchedule.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerRuntimeSchedule.Panel1
-            // 
-            this.splitContainerRuntimeSchedule.Panel1.Controls.Add(this.lblRuntimeScheduleLabel);
-            this.splitContainerRuntimeSchedule.Panel1MinSize = 21;
-            // 
-            // splitContainerRuntimeSchedule.Panel2
-            // 
-            this.splitContainerRuntimeSchedule.Panel2.Controls.Add(this.dgRuntimeSchedule);
-            this.splitContainerRuntimeSchedule.Size = new System.Drawing.Size(614, 164);
-            this.splitContainerRuntimeSchedule.SplitterDistance = 21;
-            this.splitContainerRuntimeSchedule.TabIndex = 0;
-            // 
-            // lblRuntimeScheduleLabel
-            // 
-            this.lblRuntimeScheduleLabel.AutoSize = true;
-            this.lblRuntimeScheduleLabel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.lblRuntimeScheduleLabel.Location = new System.Drawing.Point(0, 0);
-            this.lblRuntimeScheduleLabel.Name = "lblRuntimeScheduleLabel";
-            this.lblRuntimeScheduleLabel.Size = new System.Drawing.Size(119, 13);
-            this.lblRuntimeScheduleLabel.TabIndex = 0;
-            this.lblRuntimeScheduleLabel.Text = "Schedule plan for today";
-            // 
-            // dgRuntimeSchedule
-            // 
-            this.dgRuntimeSchedule.AllowUserToAddRows = false;
-            this.dgRuntimeSchedule.AllowUserToDeleteRows = false;
-            this.dgRuntimeSchedule.AllowUserToOrderColumns = true;
-            this.dgRuntimeSchedule.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgRuntimeSchedule.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3,
-            this.dataGridViewTextBoxColumn4});
-            this.dgRuntimeSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgRuntimeSchedule.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgRuntimeSchedule.Location = new System.Drawing.Point(0, 0);
-            this.dgRuntimeSchedule.Name = "dgRuntimeSchedule";
-            this.dgRuntimeSchedule.ReadOnly = true;
-            this.dgRuntimeSchedule.RowHeadersWidth = 62;
-            this.dgRuntimeSchedule.Size = new System.Drawing.Size(614, 139);
-            this.dgRuntimeSchedule.TabIndex = 4;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Name";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Window";
-            this.dataGridViewTextBoxColumn2.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 150;
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Instance";
-            this.dataGridViewTextBoxColumn3.MinimumWidth = 60;
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 60;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Start Time";
-            this.dataGridViewTextBoxColumn4.MinimumWidth = 8;
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 150;
-            // 
-            // colName
-            // 
-            this.colName.HeaderText = "Name";
-            this.colName.MinimumWidth = 8;
-            this.colName.Name = "colName";
-            this.colName.ReadOnly = true;
-            this.colName.Width = 150;
-            // 
-            // colWindowName
-            // 
-            this.colWindowName.HeaderText = "Window";
-            this.colWindowName.MinimumWidth = 8;
-            this.colWindowName.Name = "colWindowName";
-            this.colWindowName.ReadOnly = true;
-            this.colWindowName.Width = 150;
-            // 
-            // colInstance
-            // 
-            this.colInstance.HeaderText = "Instance";
-            this.colInstance.MinimumWidth = 60;
-            this.colInstance.Name = "colInstance";
-            this.colInstance.ReadOnly = true;
-            this.colInstance.Width = 60;
-            // 
-            // colStartTime
-            // 
-            this.colStartTime.HeaderText = "Start Time";
-            this.colStartTime.MinimumWidth = 8;
-            this.colStartTime.Name = "colStartTime";
-            this.colStartTime.ReadOnly = true;
-            this.colStartTime.Width = 150;
-            // 
-            // colRepeat
-            // 
-            this.colRepeat.HeaderText = "Repeats";
-            this.colRepeat.MinimumWidth = 8;
-            this.colRepeat.Name = "colRepeat";
-            this.colRepeat.ReadOnly = true;
-            this.colRepeat.Width = 150;
-            // 
-            // colScheduleEnabled
-            // 
-            this.colScheduleEnabled.HeaderText = "Enabled";
-            this.colScheduleEnabled.Name = "colScheduleEnabled";
-            this.colScheduleEnabled.ReadOnly = true;
-            // 
-            // colEdit
-            // 
-            this.colEdit.HeaderText = "Modify";
-            this.colEdit.MinimumWidth = 8;
-            this.colEdit.Name = "colEdit";
-            this.colEdit.ReadOnly = true;
-            this.colEdit.Text = "Edit";
-            this.colEdit.UseColumnTextForButtonValue = true;
-            this.colEdit.Width = 35;
+            this.txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.txtLog.Location = new System.Drawing.Point(0, 0);
+            this.txtLog.Name = "txtLog";
+            this.txtLog.Size = new System.Drawing.Size(1602, 71);
+            this.txtLog.TabIndex = 1;
+            this.txtLog.Text = "";
             // 
             // frmMain
             // 
@@ -6768,7 +6767,6 @@
             this.menuStrip1.PerformLayout();
             this.splitContainerMain.Panel1.ResumeLayout(false);
             this.splitContainerMain.Panel2.ResumeLayout(false);
-            this.splitContainerMain.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).EndInit();
             this.splitContainerMain.ResumeLayout(false);
             this.splitContainerWorkspace.Panel1.ResumeLayout(false);
@@ -6797,6 +6795,54 @@
             this.tableLayoutPanelRunLabels.PerformLayout();
             this.tableLayoutPanelRunValues.ResumeLayout(false);
             this.tableLayoutPanelRunValues.PerformLayout();
+            this.PanelGame.ResumeLayout(false);
+            this.PanelGame.PerformLayout();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.groupBox18.ResumeLayout(false);
+            this.groupBox18.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).EndInit();
+            this.groupBox16.ResumeLayout(false);
+            this.groupBox16.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedPixelsPerSecond)).EndInit();
+            this.groupBox17.ResumeLayout(false);
+            this.groupBox17.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedVelocityVariantPercentMin)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedVelocityVariantPercentMax)).EndInit();
+            this.grpActiveMouseSettings.ResumeLayout(false);
+            this.grpActiveMouseSettings.PerformLayout();
+            this.grpApplication.ResumeLayout(false);
+            this.groupBox13.ResumeLayout(false);
+            this.groupBox13.PerformLayout();
+            this.groupBox10.ResumeLayout(false);
+            this.groupBox10.PerformLayout();
+            this.grpNox.ResumeLayout(false);
+            this.grpNox.PerformLayout();
+            this.grpSteam.ResumeLayout(false);
+            this.groupBox14.ResumeLayout(false);
+            this.groupBox14.PerformLayout();
+            this.groupBox9.ResumeLayout(false);
+            this.groupBox9.PerformLayout();
+            this.grpBlue.ResumeLayout(false);
+            this.grpBlue.PerformLayout();
+            this.groupBox11.ResumeLayout(false);
+            this.groupBox11.PerformLayout();
+            this.grpVideo.ResumeLayout(false);
+            this.grpVideo.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NumericVideoFrameLimit)).EndInit();
+            this.PanelSchedule.ResumeLayout(false);
+            this.PanelSchedule.PerformLayout();
+            this.splitContainerSchedule.Panel1.ResumeLayout(false);
+            this.splitContainerSchedule.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSchedule)).EndInit();
+            this.splitContainerSchedule.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).EndInit();
+            this.splitContainerRuntimeSchedule.Panel1.ResumeLayout(false);
+            this.splitContainerRuntimeSchedule.Panel1.PerformLayout();
+            this.splitContainerRuntimeSchedule.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRuntimeSchedule)).EndInit();
+            this.splitContainerRuntimeSchedule.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgRuntimeSchedule)).EndInit();
             this.PanelColorEvent.ResumeLayout(false);
             this.tableColorEvent.ResumeLayout(false);
             this.panelColorEventChild1.ResumeLayout(false);
@@ -6912,9 +6958,6 @@
             this.Panel1.ResumeLayout(false);
             this.Panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureTestAllReference)).EndInit();
-            this.PanelSchedule.ResumeLayout(false);
-            this.PanelSchedule.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgSchedule)).EndInit();
             this.PanelGames.ResumeLayout(false);
             this.PanelGames.PerformLayout();
             this.PanelActions.ResumeLayout(false);
@@ -6935,41 +6978,6 @@
             this.PanelObjects.PerformLayout();
             this.PanelEvents.ResumeLayout(false);
             this.PanelEvents.PerformLayout();
-            this.PanelGame.ResumeLayout(false);
-            this.PanelGame.PerformLayout();
-            this.flowLayoutPanel1.ResumeLayout(false);
-            this.groupBox18.ResumeLayout(false);
-            this.groupBox18.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.numericApplicationDefaultClickSpeed)).EndInit();
-            this.groupBox16.ResumeLayout(false);
-            this.groupBox16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedPixelsPerSecond)).EndInit();
-            this.groupBox17.ResumeLayout(false);
-            this.groupBox17.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedVelocityVariantPercentMin)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericMouseSpeedVelocityVariantPercentMax)).EndInit();
-            this.grpActiveMouseSettings.ResumeLayout(false);
-            this.grpActiveMouseSettings.PerformLayout();
-            this.grpApplication.ResumeLayout(false);
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.groupBox10.ResumeLayout(false);
-            this.groupBox10.PerformLayout();
-            this.grpNox.ResumeLayout(false);
-            this.grpNox.PerformLayout();
-            this.grpSteam.ResumeLayout(false);
-            this.groupBox14.ResumeLayout(false);
-            this.groupBox14.PerformLayout();
-            this.groupBox9.ResumeLayout(false);
-            this.groupBox9.PerformLayout();
-            this.grpBlue.ResumeLayout(false);
-            this.grpBlue.PerformLayout();
-            this.groupBox11.ResumeLayout(false);
-            this.groupBox11.PerformLayout();
-            this.grpVideo.ResumeLayout(false);
-            this.grpVideo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NumericVideoFrameLimit)).EndInit();
             this.mnuPopupGames.ResumeLayout(false);
             this.mnuEvents.ResumeLayout(false);
             this.mnuThreadList.ResumeLayout(false);
@@ -6981,16 +6989,6 @@
             this.toolStripMain.PerformLayout();
             this.contextMenuStripResetResolution.ResumeLayout(false);
             this.contextMenuStripRuntimeEnableDisable.ResumeLayout(false);
-            this.splitContainerSchedule.Panel1.ResumeLayout(false);
-            this.splitContainerSchedule.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSchedule)).EndInit();
-            this.splitContainerSchedule.ResumeLayout(false);
-            this.splitContainerRuntimeSchedule.Panel1.ResumeLayout(false);
-            this.splitContainerRuntimeSchedule.Panel1.PerformLayout();
-            this.splitContainerRuntimeSchedule.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerRuntimeSchedule)).EndInit();
-            this.splitContainerRuntimeSchedule.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgRuntimeSchedule)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -7002,7 +7000,6 @@
         private AppTestStudioControls.AppTestStudioToolStrip toolStripMain;
         private System.Windows.Forms.SplitContainer splitContainerMain;
         private System.Windows.Forms.SplitContainer splitContainerWorkspace;
-        private System.Windows.Forms.TextBox txtLog;
         private System.Windows.Forms.ToolStripMenuItem fileToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem newToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
@@ -7514,5 +7511,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colRepeat;
         private System.Windows.Forms.DataGridViewTextBoxColumn colScheduleEnabled;
         private System.Windows.Forms.DataGridViewButtonColumn colEdit;
+        private System.Windows.Forms.RichTextBox txtLog;
     }
 }
