@@ -340,7 +340,7 @@ namespace AppTestStudio
                     }
 
                     // Softsave
-                    frm.ArchaicSave();
+                    frm.SaveClickList();
 
                     // redraw picture.
                     PictureBox1.Refresh();

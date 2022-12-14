@@ -1189,7 +1189,7 @@ namespace AppTestStudio
                     }
 
                     //'load existing
-                    PictureBox1.Image = GameNode.Bitmap;
+                    SetPictureBox1(GameNode.Bitmap);
 
                     panelRightCustomLogic.Visible = false;
                     if (GameNode.LogicChoice.ToUpper() == "OR")
@@ -1258,7 +1258,7 @@ namespace AppTestStudio
             {
                 GameNode.LoadBitmapFromDisk();
             }
-            PictureBox1.Image = GameNode.Bitmap;
+            SetPictureBox1(GameNode.Bitmap);
             PictureBox1.Refresh();
 
             ShowHidePictureMissingMessage();
@@ -2843,7 +2843,9 @@ namespace AppTestStudio
             LoadParentScreenshotIfNecessary();
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
+                GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
+
+                Picturable.UseParentPicture = chkUseParentScreenshot.Checked;
             }
         }
 
@@ -2861,7 +2863,7 @@ namespace AppTestStudio
                     if (Action.Bitmap.IsSomething())
                     {
                         PanelLoadNode.Bitmap = Action.Bitmap.Clone() as Bitmap;
-                        PictureBox1.Image = PanelLoadNode.Bitmap as Bitmap;
+                        SetPictureBox1(PanelLoadNode.Bitmap as Bitmap);
                         ShowHidePictureMissingMessage();
                         return;
                     }
@@ -2935,7 +2937,7 @@ namespace AppTestStudio
                 PictureBox1.Refresh();
 
                 // Save 0 points.
-                ArchaicSave();
+                SaveClickList();
 
             }
 
@@ -3602,7 +3604,7 @@ namespace AppTestStudio
 
                         PictureBox1.Refresh();
 
-                        ArchaicSave();
+                        SaveClickList();
 
                         GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
                     }
@@ -3615,119 +3617,21 @@ namespace AppTestStudio
             }
         }
 
-        public void ArchaicSave()
+
+        public void SaveClickList()
         {
-            AfterCompletionType ChosenAfterCompletionType = AfterCompletionType.Continue;
-
-            if (rdoAfterCompletionContinue.Checked)
+            GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
+            if (ActionNode.IsNothing())
             {
-                ChosenAfterCompletionType = AfterCompletionType.Continue;
+                Log("Unable to identify selected node.");
+                return;
             }
 
-            if (rdoAfterCompletionHome.Checked)
+            if (ActionNode.ActionType == ActionType.Event)
             {
-                ChosenAfterCompletionType = AfterCompletionType.Home;
-            }
-
-            if (rdoAfterCompletionParent.Checked)
-            {
-                ChosenAfterCompletionType = AfterCompletionType.Parent;
-            }
-
-            if (rdoAfterCompletionStop.Checked)
-            {
-                ChosenAfterCompletionType = AfterCompletionType.Stop;
-            }
-
-            if (rdoAfterCompletionRecycle.Checked)
-            {
-                ChosenAfterCompletionType = AfterCompletionType.Recycle;
-            }
-
-            GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
-
-            if (cboDelayMS.Text.IsNumeric())
-            {
-                Picturable.DelayMS = cboDelayMS.Text.ToInt();
-            }
-            else
-            {
-                Picturable.DelayMS = Picturable.DefaultDelayMS();
-            }
-
-            if (cboDelayS.Text.IsNumeric())
-            {
-                Picturable.DelayS = cboDelayS.Text.ToInt();
-            }
-            else
-            {
-                Picturable.DelayS = Picturable.DefaultDelayS();
-            }
-
-            if (cboDelayM.Text.IsNumeric())
-            {
-                Picturable.DelayM = cboDelayM.Text.ToInt();
-            }
-            else
-            {
-                Picturable.DelayM = Picturable.DefaultDelayM();
-            }
-
-            if (cboDelayH.Text.IsNumeric())
-            {
-                Picturable.DelayH = cboDelayH.Text.ToInt();
-            }
-            else
-            {
-                Picturable.DelayH = Picturable.DefaultDelayH();
-            }
-
-            Picturable.Points = cboPoints.Text.ToInt();
-
-            Picturable.UseParentPicture = chkUseParentScreenshot.Checked;
-
-            if (PictureBox1.Image.IsSomething())
-            {
-                Picturable.Bitmap = PictureBox1.Image as Bitmap;
-                Picturable.ResolutionWidth = PictureBox1.Image.Width;
-                Picturable.ResolutionHeight = PictureBox1.Image.Height;
-            }
-
-            Picturable.AfterCompletionType = ChosenAfterCompletionType;
-
-            Picturable.IsLimited = chkUseLimit.Checked;
-            Picturable.ExecutionLimit = Convert.ToInt32(numIterations.Value);
-            Picturable.IsWaitFirst = chkWaitFirst.Checked;
-            Picturable.LimitRepeats = chkLimitRepeats.Checked;
-            switch (cboWaitType.Text)
-            {
-                case "Iteration":
-                    Picturable.WaitType = WaitType.Iteration;
-                    break;
-                case "Once Per Session":
-                    Picturable.WaitType = WaitType.Session;
-                    break;
-                case "Time":
-                    Picturable.WaitType = WaitType.Time;
-                    break;
-                default:
-                    break;
-            }
-
-
-            if (lblMode.Text == "Event")
-            {
-                GameNodeAction EventNode = PanelLoadNode;
-                if (EventNode.IsNothing())
-                {
-                    Log("Unable to identify selected node.");
-                    return;
-                }
-
-                EventNode.GameNodeName = txtEventName.Text;
 
                 //'      Color.
-                EventNode.ClickList.Clear();
+                ActionNode.ClickList.Clear();
 
                 foreach (DataGridViewRow row in dgv.Rows)
                 {
@@ -3745,59 +3649,28 @@ namespace AppTestStudio
 
                             SingleClick.X = row.Cells["dgvX"].Value.ToString().ToInt();
                             SingleClick.Y = row.Cells["dgvY"].Value.ToString().ToInt();
-                            EventNode.AddToClickList(SingleClick);
+                            ActionNode.AddToClickList(SingleClick);
 
                             if (rdoAnd.Checked)
                             {
-                                EventNode.LogicChoice = "AND";
+                                ActionNode.LogicChoice = "AND";
                             }
                             else if (rdoOR.Checked)
                             {
-                                EventNode.LogicChoice = "OR";
+                                ActionNode.LogicChoice = "OR";
                             }
                             else
                             {
-                                EventNode.LogicChoice = "CUSTOM";
+                                ActionNode.LogicChoice = "CUSTOM";
                             }
                         }
                     }
                 }
-                Utils.SetIcons(EventNode);
+                Utils.SetIcons(ActionNode);
                 //' LoadPanelSingleColorAtSingleLocation(PanelLoadNode)
                 //'tv.SelectedNode = EventNode
             }
-            else
-            {
-                GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
-                //'Action
-                if (ActionNode.IsNothing())
-                {
-                    Log("Unable to identify selected node.");
-                    return;
-                }
 
-                if (rdoModeRangeClick.Checked)
-                {
-                    ActionNode.Mode = Mode.RangeClick;
-                }
-                else
-                {
-                    ActionNode.Mode = Mode.ClickDragRelease;
-                }
-                ActionNode.GameNodeName = txtEventName.Text;
-
-                if (cboDelayMS.Text.IsNumeric())
-                {
-                    ActionNode.DelayMS = cboDelayMS.Text.ToInt();
-                }
-                else
-                {
-                    ActionNode.DelayMS = ActionNode.DefaultDelayMS();
-                }
-
-                //' LoadPanelSingleColorAtSingleLocation(PanelLoadNode)
-                //'tv.SelectedNode = ActionNode
-            }
         }
 
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
@@ -3924,7 +3797,7 @@ namespace AppTestStudio
 
                     if (IsPanelLoading == false)
                     {
-                        ArchaicSave();
+                        SaveClickList();
                     }
 
                     GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
@@ -3997,7 +3870,7 @@ namespace AppTestStudio
 
                             if (IsPanelLoading == false)
                             {
-                                ArchaicSave();
+                                SaveClickList();
                             }
                         }
                     }
@@ -4096,6 +3969,19 @@ namespace AppTestStudio
 
         }
 
+        private void SetPictureBox1(Bitmap bmp)
+        {
+            PictureBox1.Image = bmp;
+            GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
+
+            if (PictureBox1.Image.IsSomething())
+            {
+                Picturable.Bitmap = PictureBox1.Image as Bitmap;
+                Picturable.ResolutionWidth = PictureBox1.Image.Width;
+                Picturable.ResolutionHeight = PictureBox1.Image.Height;
+            }
+        }
+
         private void cmdAddSingleColorAtSingleLocationTakeASceenshot_Click(object sender, EventArgs e)
         {
             GameNode Node = tv.SelectedNode as GameNode;
@@ -4112,7 +3998,7 @@ namespace AppTestStudio
                 Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
                 lblResolution.Text = bmp.Width + "x" + bmp.Height;
 
-                PictureBox1.Image = bmp;
+                SetPictureBox1(bmp);
 
                 ShowHidePictureMissingMessage();
 
@@ -4131,7 +4017,7 @@ namespace AppTestStudio
 
                 if (IsPanelLoading == false)
                 {
-                    ArchaicSave();
+                    SaveClickList();
 
                 }
 
@@ -4142,11 +4028,53 @@ namespace AppTestStudio
             }
         }
 
+        private void RDOAfterCompletionChange()
+        {
+            try
+            {
+                AfterCompletionType ChosenAfterCompletionType = AfterCompletionType.Continue;
+
+                if (rdoAfterCompletionContinue.Checked)
+                {
+                    ChosenAfterCompletionType = AfterCompletionType.Continue;
+                }
+
+                if (rdoAfterCompletionHome.Checked)
+                {
+                    ChosenAfterCompletionType = AfterCompletionType.Home;
+                }
+
+                if (rdoAfterCompletionParent.Checked)
+                {
+                    ChosenAfterCompletionType = AfterCompletionType.Parent;
+                }
+
+                if (rdoAfterCompletionStop.Checked)
+                {
+                    ChosenAfterCompletionType = AfterCompletionType.Stop;
+                }
+
+                if (rdoAfterCompletionRecycle.Checked)
+                {
+                    ChosenAfterCompletionType = AfterCompletionType.Recycle;
+                }
+
+                GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
+
+                Picturable.AfterCompletionType = ChosenAfterCompletionType;
+            }
+            catch (Exception ex)
+            {
+                Log("RDOAfterCompletionChange");
+                Log(ex.Message);
+            }
+        }
+
         private void rdoAfterCompletionContinue_CheckedChanged(object sender, EventArgs e)
         {
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
+                RDOAfterCompletionChange();
             }
         }
 
@@ -4154,7 +4082,7 @@ namespace AppTestStudio
         {
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
+                RDOAfterCompletionChange();
             }
         }
 
@@ -4162,7 +4090,7 @@ namespace AppTestStudio
         {
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
+                RDOAfterCompletionChange();
             }
         }
 
@@ -4170,7 +4098,7 @@ namespace AppTestStudio
         {
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
+                RDOAfterCompletionChange();
             }
         }
 
@@ -4191,9 +4119,17 @@ namespace AppTestStudio
 
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
-            }
+                GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
 
+                if (cboDelayMS.Text.IsNumeric())
+                {
+                    ActionNode.DelayMS = cboDelayMS.Text.ToInt();
+                }
+                else
+                {
+                    ActionNode.DelayMS = ActionNode.DefaultDelayMS();
+                }
+            }
         }
 
         private void cboDelayS_TextChanged(object sender, EventArgs e)
@@ -4214,9 +4150,17 @@ namespace AppTestStudio
 
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
-            }
+                GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
 
+                if (cboDelayS.Text.IsNumeric())
+                {
+                    Picturable.DelayS = cboDelayS.Text.ToInt();
+                }
+                else
+                {
+                    Picturable.DelayS = Picturable.DefaultDelayS();
+                }
+            }
         }
 
         private void cboDelayM_TextChanged(object sender, EventArgs e)
@@ -4236,9 +4180,17 @@ namespace AppTestStudio
             lblDelayCalc.Text = Utils.CalculateDelay(cboDelayH.Text.ToInt(), cboDelayM.Text.ToInt(), cboDelayS.Text.ToInt(), cboDelayMS.Text.ToInt());
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
-            }
+                GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
 
+                if (cboDelayM.Text.IsNumeric())
+                {
+                    Picturable.DelayM = cboDelayM.Text.ToInt();
+                }
+                else
+                {
+                    Picturable.DelayM = Picturable.DefaultDelayM();
+                }
+            }
         }
 
         private void cboDelayH_TextChanged(object sender, EventArgs e)
@@ -4258,328 +4210,439 @@ namespace AppTestStudio
             lblDelayCalc.Text = Utils.CalculateDelay(cboDelayH.Text.ToInt(), cboDelayM.Text.ToInt(), cboDelayS.Text.ToInt(), cboDelayMS.Text.ToInt());
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
+                GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
+
+                if (cboDelayH.Text.IsNumeric())
+                {
+                    Picturable.DelayH = cboDelayH.Text.ToInt();
+                }
+                else
+                {
+                    Picturable.DelayH = Picturable.DefaultDelayH();
+                }
             }
         }
 
         private void chkUseLimit_CheckedChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-                Node.IsLimited = chkUseLimit.Checked;
-            }
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
 
-            // Gray out other controls if not using.
-            cboWaitType.Enabled = chkUseLimit.Checked;
-            chkWaitFirst.Enabled = chkUseLimit.Checked;
-            numIterations.Enabled = chkUseLimit.Checked;
-            lnkLimitTime.Enabled = chkUseLimit.Checked;
-            chkLimitRepeats.Enabled = chkUseLimit.Checked;
-            lblLimitIterationsLabel.Enabled = chkUseLimit.Checked;
-            lblLimitWaitType.Enabled = chkUseLimit.Checked;
+                    Picturable.IsLimited = chkUseLimit.Checked;
+                }
+
+                // Gray out other controls if not using.
+                cboWaitType.Enabled = chkUseLimit.Checked;
+                chkWaitFirst.Enabled = chkUseLimit.Checked;
+                numIterations.Enabled = chkUseLimit.Checked;
+                lnkLimitTime.Enabled = chkUseLimit.Checked;
+                chkLimitRepeats.Enabled = chkUseLimit.Checked;
+                lblLimitIterationsLabel.Enabled = chkUseLimit.Checked;
+                lblLimitWaitType.Enabled = chkUseLimit.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log("chkUseLimit_CheckedChanged");
+                Log(ex.Message);
+            }
         }
 
         private void cboWaitType_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                ArchaicSave();
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
+                    switch (cboWaitType.Text)
+                    {
+                        case "Iteration":
+                            Picturable.WaitType = WaitType.Iteration;
+                            break;
+                        case "Once Per Session":
+                            Picturable.WaitType = WaitType.Session;
+                            break;
+                        case "Time":
+                            Picturable.WaitType = WaitType.Time;
+                            break;
+                        default:
+                            break;
+                    }
+                }
+
+                switch (cboWaitType.Text)
+                {
+                    case "Iteration":
+                        lblLimitTimeLabel.Visible = false;
+                        lnkLimitTime.Visible = false;
+                        lblLimitIterationsLabel.Visible = true;
+                        numIterations.Visible = true;
+                        chkLimitRepeats.Visible = true;
+                        chkWaitFirst.Visible = true;
+                        break;
+                    case "Time":
+                        lblLimitTimeLabel.Visible = true;
+                        lnkLimitTime.Visible = true;
+                        lblLimitIterationsLabel.Visible = false;
+                        numIterations.Visible = false;
+                        chkLimitRepeats.Visible = true;
+                        chkWaitFirst.Visible = true;
+                        break;
+                    case "Once Per Session":
+                        lblLimitTimeLabel.Visible = false;
+                        lnkLimitTime.Visible = false;
+                        lblLimitIterationsLabel.Visible = false;
+                        numIterations.Visible = false;
+                        chkLimitRepeats.Visible = false;
+                        chkWaitFirst.Visible = false;
+
+                        break;
+                    default:
+                        break;
+                }
             }
-
-            switch (cboWaitType.Text)
+            catch (Exception ex)
             {
-                case "Iteration":
-                    lblLimitTimeLabel.Visible = false;
-                    lnkLimitTime.Visible = false;
-                    lblLimitIterationsLabel.Visible = true;
-                    numIterations.Visible = true;
-                    chkLimitRepeats.Visible = true;
-                    chkWaitFirst.Visible = true;
-                    break;
-                case "Time":
-                    lblLimitTimeLabel.Visible = true;
-                    lnkLimitTime.Visible = true;
-                    lblLimitIterationsLabel.Visible = false;
-                    numIterations.Visible = false;
-                    chkLimitRepeats.Visible = true;
-                    chkWaitFirst.Visible = true;
-                    break;
-                case "Once Per Session":
-                    lblLimitTimeLabel.Visible = false;
-                    lnkLimitTime.Visible = false;
-                    lblLimitIterationsLabel.Visible = false;
-                    numIterations.Visible = false;
-                    chkLimitRepeats.Visible = false;
-                    chkWaitFirst.Visible = false;
-
-                    break;
-                default:
-                    break;
+                Log("cboWaitType_SelectedIndexChanged");
+                Log(ex.Message);
             }
         }
 
         private void chkWaitFirst_CheckedChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-                Node.IsWaitFirst = chkWaitFirst.Checked;
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                    Node.IsWaitFirst = chkWaitFirst.Checked;
+                }
             }
-
+            catch (Exception ex)
+            {
+                Log("chkWaitFirst_CheckedChanged");
+                Log(ex.Message);
+            }
         }
 
         private void numIterations_ValueChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-                Node.ExecutionLimit = numIterations.Value.ToLong();
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
+                    ActionNode.ExecutionLimit = numIterations.Value.ToLong();
+                }
             }
-
+            catch (Exception ex)
+            {
+                Log("numIterations_ValueChanged");
+                Log(ex.Message);
+            }
         }
 
         private void chkLimitRepeats_CheckedChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-                Node.LimitRepeats = chkLimitRepeats.Checked;
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                    Node.LimitRepeats = chkLimitRepeats.Checked;
+                }
             }
-
+            catch (Exception ex)
+            {
+                Log("chkLimitRepeats_CheckedChanged");
+                Log(ex.Message);
+            }
         }
 
         private void lnkLimitTime_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
-            frmTimeCapture frm = new frmTimeCapture();
-            frm.DelayH = Picturable.LimitDelayH;
-            frm.DelayM = Picturable.LimitDelayM;
-            frm.DelayS = Picturable.LimitDelayS;
-            frm.DelayMS = Picturable.LimitDelayMS;
-
-            frm.StartPosition = FormStartPosition.CenterParent;
-            frm.ShowDialog(this);
-
-            if (frm.IsSaved)
+            try
             {
+                GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
+                frmTimeCapture frm = new frmTimeCapture();
+                frm.DelayH = Picturable.LimitDelayH;
+                frm.DelayM = Picturable.LimitDelayM;
+                frm.DelayS = Picturable.LimitDelayS;
+                frm.DelayMS = Picturable.LimitDelayMS;
 
-                Picturable.LimitDelayH = frm.DelayH;
-                Picturable.LimitDelayM = frm.DelayM;
-                Picturable.LimitDelayS = frm.DelayS;
-                Picturable.LimitDelayMS = frm.DelayMS;
+                frm.StartPosition = FormStartPosition.CenterParent;
+                frm.ShowDialog(this);
 
-                lnkLimitTime.Text = Utils.CalculateDelay(frm.DelayH, frm.DelayM, frm.DelayS, frm.DelayMS);
+                if (frm.IsSaved)
+                {
 
+                    Picturable.LimitDelayH = frm.DelayH;
+                    Picturable.LimitDelayM = frm.DelayM;
+                    Picturable.LimitDelayS = frm.DelayS;
+                    Picturable.LimitDelayMS = frm.DelayMS;
+
+                    lnkLimitTime.Text = Utils.CalculateDelay(frm.DelayH, frm.DelayM, frm.DelayS, frm.DelayMS);
+                }
             }
-
+            catch (Exception ex)
+            {
+                Log("lnkLimitTime_LinkClicked");
+                Log(ex.Message);
+            }
         }
-
 
         private void cboPoints_TextChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                ArchaicSave();
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
+
+                    Picturable.Points = cboPoints.Text.ToInt();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("cboPoints_TextChanged");
+                Log(ex.Message);
             }
         }
 
         private void NumericXOffset_ValueChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.RelativeXOffset = NumericXOffset.Value.ToInt();
-                PictureBox1.Invalidate();
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                    ActionNode.RelativeXOffset = NumericXOffset.Value.ToInt();
+                    PictureBox1.Invalidate();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("NumericXOffset_ValueChanged");
+                Log(ex.Message);
             }
         }
 
         private void NumericYOffset_ValueChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.RelativeYOffset = NumericYOffset.Value.ToInt();
-                PictureBox1.Invalidate();
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                    ActionNode.RelativeYOffset = NumericYOffset.Value.ToInt();
+                    PictureBox1.Invalidate();
+                }
             }
+            catch (Exception ex)
+            {
+                Log("NumericYOffset_ValueChanged");
+                Log(ex.Message);
+            }
+
         }
 
         private void cboObject_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                String TargetSearch = cboObject.Text;
-                if (TargetSearch == "Choose a Object")
+                if (IsPanelLoading == false)
                 {
-                    PictureBoxEventObjectSelection.Image = null;
-                    ActionNode.ObjectName = "";
-                    return;
+                    GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                    String TargetSearch = cboObject.Text;
+                    if (TargetSearch == "Choose a Object")
+                    {
+                        PictureBoxEventObjectSelection.Image = null;
+                        ActionNode.ObjectName = "";
+                        return;
+                    }
+
+                    //'Save cboObject
+                    ActionNode.ObjectName = cboObject.Text;
+
+                    LoadObjectSelectionImage();
                 }
-
-                //'Save cboObject
-                ActionNode.ObjectName = cboObject.Text;
-
-                LoadObjectSelectionImage();
             }
+            catch (Exception ex)
+            {
+                Log("cboObject_SelectedIndexChanged");
+                Log(ex.Message);
+            }
+
         }
 
         private void cboChannel_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-
-                switch (cboChannel.Text)
+                if (IsPanelLoading == false)
                 {
-                    case "Red Channel":
-                        ActionNode.Channel = "Red";
-                        break;
-                    case "Green Channel":
-                        ActionNode.Channel = "Green";
-                        break;
-                    case "Blue Channel":
-                        ActionNode.Channel = "Blue";
-                        break;
-                    default:
-                        ActionNode.Channel = "Red";
-                        break;
+                    GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+
+                    switch (cboChannel.Text)
+                    {
+                        case "Red Channel":
+                            ActionNode.Channel = "Red";
+                            break;
+                        case "Green Channel":
+                            ActionNode.Channel = "Green";
+                            break;
+                        case "Blue Channel":
+                            ActionNode.Channel = "Blue";
+                            break;
+                        default:
+                            ActionNode.Channel = "Red";
+                            break;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Log("cboChannel_SelectedIndexChanged");
+                Log(ex.Message);
             }
         }
 
         private void NumericObjectThreshold_ValueChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.ObjectThreshold = NumericObjectThreshold.Value.ToLong();
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                    ActionNode.ObjectThreshold = NumericObjectThreshold.Value.ToLong();
+                }
             }
+            catch (Exception ex)
+            {
+                Log("NumericObjectThreshold_ValueChanged");
+                Log(ex.Message);
+            }
+
         }
 
         private void cmdMaxMask_Click(object sender, EventArgs e)
         {
-            GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-            ActionNode.Rectangle = new Rectangle(0, 0, PictureBox1.Image.Width, PictureBox1.Image.Height);
-            PictureBox1.Invalidate();
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.Rectangle = new Rectangle(0, 0, PictureBox1.Image.Width, PictureBox1.Image.Height);
+                PictureBox1.Invalidate();
+            }
+            catch (Exception ex)
+            {
+                Log("cmdMaxMask_Click");
+                Log(ex.Message);
+            }
         }
 
         private void dgSchedule_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            DataGridView senderGrid = sender as DataGridView;
-
-            if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
+            try
             {
-                ScheduleItem Item = Schedule.ScheduleList[e.RowIndex];
+                DataGridView senderGrid = sender as DataGridView;
 
-                frmScheduler frm = new frmScheduler(Item);
-                frm.IsAdding = false;
-
-                frm.ShowDialog();
-
-                if (frm.IsSaving)
+                if (senderGrid.Columns[e.ColumnIndex] is DataGridViewButtonColumn && e.RowIndex >= 0)
                 {
-                    if (frm.IsAdding)
+                    ScheduleItem Item = Schedule.ScheduleList[e.RowIndex];
+
+                    frmScheduler frm = new frmScheduler(Item);
+                    frm.IsAdding = false;
+
+                    frm.ShowDialog();
+
+                    if (frm.IsSaving)
                     {
-                        ScheduleItem si = frm.getItem();
-                        Schedule.ScheduleList.Add(si);
+                        if (frm.IsAdding)
+                        {
+                            ScheduleItem si = frm.getItem();
+                            Schedule.ScheduleList.Add(si);
+                        }
+                        else
+                        {
+                            frm.getItem();
+                        }
+                        SaveSchedule();
                     }
                     else
                     {
-                        frm.getItem();
+                        if (frm.IsDeleting)
+                        {
+                            Schedule.ScheduleList.Remove(Item);
+                        }
+                        SaveSchedule();
                     }
-                    SaveSchedule();
+                    ReloadScheduleView();
+                    Schedule.RuntimeSchedule = Schedule.GenerateRuntimeSchedule(DateTime.Now);
+                    ReloadRuntimeScheduleView();
                 }
-                else
-                {
-                    if (frm.IsDeleting)
-                    {
-                        Schedule.ScheduleList.Remove(Item);
-                    }
-                    SaveSchedule();
-                }
-                ReloadScheduleView();
-                Schedule.RuntimeSchedule = Schedule.GenerateRuntimeSchedule(DateTime.Now);
-                ReloadRuntimeScheduleView();
             }
+            catch (Exception ex)
+            {
+                Log("dgSchedule_CellContentClick");
+                Log(ex.Message);
+            }
+
         }
 
 
         private void timerScheduler_Tick(object sender, EventArgs e)
         {
-            DateTime LowestNextRun = DateTime.MinValue;
-
-            // not sure I need a loop anymore as the list is now sorted.
-            for (int i = 0; i < Schedule.RuntimeSchedule.Count(); i++)
+            try
             {
-                if (Schedule.RuntimeSchedule[i].NextRun < DateTime.Now)
+
+                DateTime LowestNextRun = DateTime.MinValue;
+
+                // not sure I need a loop anymore as the list is now sorted.
+                for (int i = 0; i < Schedule.RuntimeSchedule.Count(); i++)
                 {
-                    LaunchScheduledGame(Schedule.RuntimeSchedule[i]);
-                    Schedule.RuntimeSchedule.RemoveAt(i);
+                    if (Schedule.RuntimeSchedule[i].NextRun < DateTime.Now)
+                    {
+                        LaunchScheduledGame(Schedule.RuntimeSchedule[i]);
+                        Schedule.RuntimeSchedule.RemoveAt(i);
+                    }
+                    else
+                    {
+                        if (Schedule.RuntimeSchedule[i].NextRun > DateTime.Now)
+                        {
+                            LowestNextRun = Schedule.RuntimeSchedule[i].NextRun;
+                            break;
+                        }
+                    }
+                }
+
+                if (Schedule.ScheduleList.Count() > 0)
+                {
+                    if (Schedule.RuntimeSchedule.Count() == 0)
+                    {
+                        // We are out of schedules for the day load next day's schedule.
+                        Schedule.RuntimeSchedule = Schedule.GenerateRuntimeSchedule(DateTime.Now.AddDays(1));
+                    }
+                }
+
+                if (LowestNextRun == DateTime.MaxValue || LowestNextRun == DateTime.MinValue)
+                {
+                    toolSchedulerRunning.Text = "Scheduler running, but no Schedules enabled.";
                 }
                 else
                 {
-                    if (Schedule.RuntimeSchedule[i].NextRun > DateTime.Now)
-                    {
-                        LowestNextRun = Schedule.RuntimeSchedule[i].NextRun;
-                        break;
-                    }
+                    toolSchedulerRunning.Text = "Next Scheduled Event: " + LowestNextRun.ToString("MM/dd/yyyy hh:mm tt") + " in " + Utils.CalculateDelay(LowestNextRun);
                 }
             }
-
-            if (Schedule.ScheduleList.Count() > 0)
+            catch (Exception ex)
             {
-                if (Schedule.RuntimeSchedule.Count() == 0)
-                {
-                    // We are out of schedules for the day load next day's schedule.
-                    Schedule.RuntimeSchedule = Schedule.GenerateRuntimeSchedule(DateTime.Now.AddDays(1));
-                }
-            }
-
-            //foreach (ScheduleItem si in Schedule.ScheduleList)
-            //{
-            //    if (si.IsEnabled)
-            //    {
-            //        DateTime StartsTodayAt = DateTime.Parse(DateTime.Now.ToString("MM/dd/yyyy ") + si.StartsAt.ToString("HH:mm"));
-            //        if (si.CurrentRun == DateTime.MinValue)
-            //        {
-            //            if (StartsTodayAt.Hour == DateTime.Now.Hour && StartsTodayAt.Minute == DateTime.Now.Minute)
-            //            {
-            //                LaunchScheduledGame(si);
-            //            }
-            //        }
-            //        else
-            //        {
-            //            if (si.NextRun.Day == DateTime.Now.Day && si.NextRun.Hour == DateTime.Now.Hour && si.NextRun.Minute == DateTime.Now.Minute)
-            //            {
-            //                LaunchScheduledGame(si);
-            //            }
-            //        }
-            //        DateTime CalcNextRun = si.CalculateNextRun();
-            //        //' Is First Run
-            //        if (LowestNextRun == DateTime.MinValue)
-            //        {
-            //            LowestNextRun = CalcNextRun;
-            //        }
-            //        else
-            //        {
-            //            if (LowestNextRun > CalcNextRun)
-            //            {
-            //                LowestNextRun = CalcNextRun;
-            //            }
-            //        }
-            //    }
-            //}
-
-            if (LowestNextRun == DateTime.MaxValue || LowestNextRun == DateTime.MinValue)
-            {
-                toolSchedulerRunning.Text = "Scheduler running, but no Schedules enabled.";
-            }
-            else
-            {
-                toolSchedulerRunning.Text = "Next Scheduled Event: " + LowestNextRun.ToString("MM/dd/yyyy hh:mm tt") + " in " + Utils.CalculateDelay(LowestNextRun);
+                Log("timerScheduler_Tick");
+                Log(ex.Message);
             }
         }
+
 
         private void LaunchScheduledGame(ScheduleItem si)
         {
@@ -4604,25 +4667,41 @@ namespace AppTestStudio
             {
                 Log("File not found: " + si.AppPath);
             }
-
         }
 
         private void rdoModeRangeClick_CheckedChanged(object sender, EventArgs e)
         {
-            PictureBox1.Refresh();
-            if (IsPanelLoading == false)
+            try
             {
-                ArchaicSave();
-            }
-
-            if (rdoModeRangeClick.Checked)
-            {
-                panelRightSwipeProperties.Visible = false;
-                if (PanelLoadNode.ActionType == ActionType.Action)
+                PictureBox1.Refresh();
+                if (IsPanelLoading == false)
                 {
-                    chkFromCurrentMousePos.Visible = true;
+                    GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
+
+                    if (rdoModeRangeClick.Checked)
+                    {
+                        ActionNode.Mode = Mode.RangeClick;
+                    }
+                    else
+                    {
+                        ActionNode.Mode = Mode.ClickDragRelease;
+                    }
                 }
 
+                if (rdoModeRangeClick.Checked)
+                {
+                    panelRightSwipeProperties.Visible = false;
+                    if (PanelLoadNode.ActionType == ActionType.Action)
+                    {
+                        chkFromCurrentMousePos.Visible = true;
+                    }
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("rdoModeRangeClick_CheckedChanged");
+                Log(ex.Message);
             }
         }
 
@@ -4631,7 +4710,8 @@ namespace AppTestStudio
             PictureBox1.Refresh();
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
+                //SaveClickList();
+                //Saving not necessary saved in complimentary node.
             }
 
             if (rdoModeClickDragRelease.Checked)
@@ -4696,7 +4776,7 @@ namespace AppTestStudio
                 LoadPanelSingleColorAtSingleLocation(Event);
                 //LoadParentScreenshotIfNecessary();
                 cmdAddSingleColorAtSingleLocationTakeASceenshot.PerformClick();
-                ArchaicSave();
+                SaveClickList();
                 ThreadManager.IncrementNewEventAdded();
             }
             else
@@ -4736,7 +4816,7 @@ namespace AppTestStudio
             InitalizeOffsets();
 
             ThreadManager.IncrementNewActionAdded();
-            ArchaicSave();
+            SaveClickList();
         }
 
         private void mnuAddRNG_Click(object sender, EventArgs e)
@@ -5703,9 +5783,18 @@ namespace AppTestStudio
 
         private void txtEventName_TextChanged(object sender, EventArgs e)
         {
-            if (IsPanelLoading == false)
+            try
             {
-                ArchaicSave();
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
+                    ActionNode.GameNodeName = txtEventName.Text;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("txtEventName_TextChanged");
+                Log(ex.Message);
             }
         }
 
@@ -5754,7 +5843,15 @@ namespace AppTestStudio
 
         private void cmdPatron_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://www.patreon.com/AppTestStudio?fan_landing=true");
+            try
+            {
+                System.Diagnostics.Process.Start("https://www.patreon.com/AppTestStudio?fan_landing=true");
+            }
+            catch (Exception ex)
+            {
+                Log("cmdPatron_Click");
+                Log(ex.Message);
+            }
         }
 
         private void toolTestAll_Click(object sender, EventArgs e)
@@ -5831,23 +5928,31 @@ namespace AppTestStudio
 
         private void PictureTestAllReference_Paint(object sender, PaintEventArgs e)
         {
-            GameNode Node = tvTestAllEvents.SelectedNode as GameNode;
-
-            if (Node.IsSomething() && Node.GameNodeType == GameNodeType.Action)
+            try
             {
-                GameNodeAction Action = Node as GameNodeAction;
-                if (Action.IsColorPoint)
+                GameNode Node = tvTestAllEvents.SelectedNode as GameNode;
+
+                if (Node.IsSomething() && Node.GameNodeType == GameNodeType.Action)
                 {
-                    Utils.DrawColorPoints(e, dgvTestAllReference, "dgvTestAllReference", "dgvTestAllReferenceX", "dgvTestAllReferenceY");
-                }
-                else
-                {
-                    if (Action.Rectangle.IsEmpty)
+                    GameNodeAction Action = Node as GameNodeAction;
+                    if (Action.IsColorPoint)
                     {
-                        Action.Rectangle = new Rectangle(0, 0, PictureTestAllReference.Width, PictureTestAllReference.Height);
+                        Utils.DrawColorPoints(e, dgvTestAllReference, "dgvTestAllReference", "dgvTestAllReferenceX", "dgvTestAllReferenceY");
                     }
-                    Utils.DrawMask(PictureTestAllReference, Action.Rectangle, e);
+                    else
+                    {
+                        if (Action.Rectangle.IsEmpty)
+                        {
+                            Action.Rectangle = new Rectangle(0, 0, PictureTestAllReference.Width, PictureTestAllReference.Height);
+                        }
+                        Utils.DrawMask(PictureTestAllReference, Action.Rectangle, e);
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+                Log("PictureTestAllReference_Paint");
+                Log(ex.Message);
             }
         }
 
@@ -5904,8 +6009,6 @@ namespace AppTestStudio
                     Log(ex.Message);
                 }
             }
-
-
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -6053,7 +6156,7 @@ namespace AppTestStudio
 
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
+                SaveClickList();
             }
         }
 
@@ -6071,7 +6174,7 @@ namespace AppTestStudio
             }
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
+                SaveClickList();
             }
 
         }
@@ -6085,7 +6188,7 @@ namespace AppTestStudio
             }
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
+                SaveClickList();
             }
 
         }
@@ -6499,7 +6602,7 @@ namespace AppTestStudio
         {
             if (IsPanelLoading == false)
             {
-                ArchaicSave();
+                RDOAfterCompletionChange();
             }
         }
 
@@ -7961,10 +8064,10 @@ namespace AppTestStudio
         private void cboThreads_SelectedIndexChanged(object sender, EventArgs e)
         {
             Debug.WriteLine("cboThreads_SelectedIndexChanged");
-            
+
             try
             {
-                if(ThreadManager.Games.Count == 0)
+                if (ThreadManager.Games.Count == 0)
                 {
                     tvRun.Nodes.Clear();
                     InitializeRunLabels();
