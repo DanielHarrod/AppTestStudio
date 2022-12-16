@@ -3702,7 +3702,18 @@ namespace AppTestStudio
         private void PictureBox1_MouseMove(object sender, MouseEventArgs e)
         {
             GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-            ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.Rectangle);
+
+            Rectangle CopyOfRectangle = Node.Rectangle;
+
+            ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.mRectangle);
+            if (CopyOfRectangle.Height != Node.Rectangle.Height)
+            {
+                Node.Rectangle = CopyOfRectangle;
+            }
+            if (CopyOfRectangle.Width != Node.Rectangle.Width )
+            {
+                Node.Rectangle = CopyOfRectangle;
+            }
             RefreshInformation(Node);
         }
 
@@ -4711,7 +4722,7 @@ namespace AppTestStudio
             if (IsPanelLoading == false)
             {
                 //SaveClickList();
-                //Saving not necessary saved in complimentary node.
+                //Saving not necessary
             }
 
             if (rdoModeClickDragRelease.Checked)

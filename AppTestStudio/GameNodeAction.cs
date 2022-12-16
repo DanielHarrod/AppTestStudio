@@ -72,7 +72,46 @@ namespace AppTestStudio
             FileName = "";
         }
 
-        public AnchorMode Anchor { get; set; }
+        // Used to determine if any changes have occurred since the last checkpoint.
+        private Boolean mIsDirty;
+
+        public Boolean IsDirty
+        {
+            get { return mIsDirty; }
+            //set { mIsDirty = value; }
+        }
+
+        // Used to determine if change tracking should be calculated.
+        private Boolean mIsLoading;
+
+        public Boolean IsLoading
+        {
+            get { return mIsLoading; }
+            set { 
+                mIsLoading = value; 
+                if (value == false)
+                {
+                    mIsDirty = false;
+                }                    
+            }
+        }
+
+        private AnchorMode mAnchor;
+
+        public AnchorMode Anchor
+        {
+            get { return mAnchor; }
+            set { 
+                if(mAnchor != value)
+                {
+                    if (IsLoading == false)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mAnchor = value; 
+            }
+        }
 
         public int DefaultDelayS()
         {
@@ -116,6 +155,10 @@ namespace AppTestStudio
         {
             ClickList.Add(Click);
             Utils.SetIcons(this);
+            if (IsLoading == false)
+            {
+                mIsDirty = true;
+            }
         }
 
 
@@ -131,6 +174,13 @@ namespace AppTestStudio
             get { return mLogicChoice; }
             set
             {
+                if (IsLoading == false )
+                {
+                    if (mLogicChoice != value)
+                    {
+                        mIsDirty = true;   
+                    }
+                }
                 mLogicChoice = value;
             }
         }
@@ -140,7 +190,23 @@ namespace AppTestStudio
         /// where the #'s represent the ClickList in a 1 based format
         /// eg. 1 AND not (2)
         /// </summary>
-        public String CustomLogic { get; set; }
+        /// 
+        private String mCustomLogic;
+
+        public String CustomLogic
+        {
+            get { return mCustomLogic; }
+            set {
+                if (mCustomLogic != value)
+                {
+                    if (IsLoading == false)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mCustomLogic = value; 
+            }
+        }
 
         private Boolean mIsColorPoint;
         /// <summary>
@@ -152,6 +218,13 @@ namespace AppTestStudio
             get { return mIsColorPoint; }
             set
             {
+                if (mIsColorPoint != value)
+                {
+                    if (IsLoading == false)
+                    {
+                        mIsDirty = true;
+                    }
+                }
                 mIsColorPoint = value;
                 Utils.SetIcons(this);
             }
@@ -160,7 +233,22 @@ namespace AppTestStudio
         /// <summary>
         /// The delay between the mouse going down and the mouse going up in a click event.
         /// </summary>
-        public int ClickSpeed { get; set; }
+        private int mClickSpeed;
+
+        public int ClickSpeed
+        {
+            get { return mClickSpeed; }
+            set {
+                if (mClickSpeed != value)
+                {
+                    if (IsLoading == false)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mClickSpeed = value; 
+            }
+        }
 
         private Boolean mEnabled;
         public Boolean Enabled
@@ -171,13 +259,51 @@ namespace AppTestStudio
             }
             set
             {
+                if (IsLoading == false)
+                {
+                    if (mEnabled != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
                 mEnabled = value;
                 Utils.SetIcons(this);
             }
         }
 
-        public Boolean RepeatsUntilFalse { get; set; }
-        public int RepeatsUntilFalseLimit { get; set; }
+        private Boolean mRepeatsUntilFalse;
+
+        public Boolean RepeatsUntilFalse
+        {
+            get { return mRepeatsUntilFalse; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mRepeatsUntilFalse != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mRepeatsUntilFalse = value; }
+        }
+
+        private int mRepeatsUntilFalseLimit;
+
+        public int RepeatsUntilFalseLimit
+        {
+            get { return mRepeatsUntilFalseLimit; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mRepeatsUntilFalseLimit != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mRepeatsUntilFalseLimit = value; 
+            }
+        }
 
         private ActionType mActionType;
         public ActionType ActionType
@@ -185,38 +311,336 @@ namespace AppTestStudio
             get { return mActionType; }
             set
             {
+                if (IsLoading == false)
+                {
+                    if (mActionType != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
                 mActionType = value;
                 Utils.SetIcons(this);
             }
         }
 
-        public Rectangle Rectangle;
-        public Boolean UseParentPicture { get; set; }
-        public Bitmap ObjectSearchBitmap { get; set; }
-        public int ResolutionWidth { get; set; }
-        public int ResolutionHeight { get; set; }
-        public String ObjectName { get; set; }
+        // need to get a reference sometimes... 
+        public Rectangle mRectangle;
+
+        public Rectangle Rectangle
+        {
+            get { return mRectangle; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mRectangle.Width != value.Width)
+                    {
+                        if (mRectangle.Height != value.Height)
+                        {
+                            if ( mRectangle.X != value.X )
+                            {
+                                if (mRectangle.Y != value.Y )
+                                {
+                                    mIsDirty = true;
+                                }
+                            }
+                        }                        
+                    }
+                }
+                mRectangle = value; 
+            }
+        }
+
+        private Boolean mUseParentPicture;
+
+        public Boolean UseParentPicture
+        {
+            get { return mUseParentPicture; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mUseParentPicture != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mUseParentPicture = value; 
+            }
+        }
+
+        private Bitmap mObjectSearchBitmap;
+
+        public Bitmap ObjectSearchBitmap
+        {
+            get { return mObjectSearchBitmap; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mObjectSearchBitmap != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mObjectSearchBitmap = value; 
+            }
+        }
+
+        private int mResolutionWidth;
+
+        public int ResolutionWidth
+        {
+            get { return mResolutionWidth; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mResolutionWidth != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mResolutionWidth = value; 
+            }
+        }
+
+        private int mResolutionHeight;
+
+        public int ResolutionHeight
+        {
+            get { return mResolutionHeight; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mResolutionHeight != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mResolutionHeight = value; 
+            }
+        }
+
+        private String mObjectName;
+
+        public String ObjectName
+        {
+            get { return mObjectName; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mObjectName != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mObjectName = value; 
+            }
+        }
 
         private String mFileName;
 
         public String FileName
         {
             get { return mFileName; }
-            set { mFileName = value; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mFileName != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mFileName = value;
+            }
         }
 
-        public AfterCompletionType AfterCompletionType { get; set; }
+        private AfterCompletionType mAfterCompletionType;
 
-        public int DelayMS { get; set; }
-        public int DelayS { get; set; }
-        public int DelayM { get; set; }
-        public int DelayH { get; set; }
-        public Boolean LimitRepeats { get; set; }
-        public int LimitDelayMS { get; set; }
-        public int LimitDelayS { get; set; }
-        public int LimitDelayM { get; set; }
-        public int LimitDelayH { get; set; }
-        public Boolean AutoBalance { get; set; }
+        public AfterCompletionType AfterCompletionType
+        {
+            get { return mAfterCompletionType; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mAfterCompletionType != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mAfterCompletionType = value; 
+            }
+        }
+
+        private int mDelayMS;
+
+        public int DelayMS
+        {
+            get { return mDelayMS; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mDelayMS != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mDelayMS = value; 
+            }
+        }
+
+        private int mDelayS;
+
+        public int DelayS
+        {
+            get { return mDelayS; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mDelayS != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mDelayS = value; 
+            }
+        }
+
+        private int mDelayM;
+
+        public int DelayM
+        {
+            get { return mDelayM; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mDelayM != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mDelayM = value; 
+            }
+        }
+        private int mDelayH;
+
+        public int DelayH
+        {
+            get { return mDelayH; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mDelayH != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mDelayH = value;
+            }
+        }
+
+        private Boolean mLimitRepeats;
+
+        public Boolean LimitRepeats
+        {
+            get { return mLimitRepeats; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mLimitRepeats != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mLimitRepeats = value; 
+            }
+        }
+
+        private int mLimitDelayMS;
+
+        public int LimitDelayMS
+        {
+            get { return mLimitDelayMS; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mLimitDelayMS != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mLimitDelayMS = value; 
+            }
+        }
+        private int mLimitDelayS;
+
+        public int LimitDelayS
+        {
+            get { return mLimitDelayS; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mLimitDelayS != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mLimitDelayS = value; 
+            }
+        }
+
+        private int mLimitDelayM;
+
+        public int LimitDelayM
+        {
+            get { return mLimitDelayM; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mLimitDelayM != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mLimitDelayM = value;
+            }
+        }
+
+        private int mLimitDelayH;
+
+        public int LimitDelayH
+        {
+            get { return mLimitDelayH; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mLimitDelayH != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mLimitDelayH = value; 
+            }
+        }
+
+        private Boolean mAutoBalance;
+
+        public Boolean AutoBalance
+        {
+            get { return mAutoBalance; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mAutoBalance != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mAutoBalance = value; 
+            }
+        }
+
+
         private int mPercentage;
 
         public int Percentage
@@ -224,15 +648,87 @@ namespace AppTestStudio
             get { return mPercentage; }
             set
             {
+                if (IsLoading == false)
+                {
+                    if (mPercentage != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
                 mPercentage = value;
                 Text = String.Format("{0}%", mPercentage);
             }
         }
 
-        public Boolean IsLimited { get; set; }
-        public WaitType WaitType { get; set; }
-        public Boolean IsWaitFirst { get; set; }
-        public long ExecutionLimit { get; set; }
+        private Boolean mIsLimited;
+
+        public Boolean IsLimited
+        {
+            get { return mIsLimited; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mIsLimited != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mIsLimited = value; 
+            }
+        }
+
+        private WaitType mWaitType;
+
+        public WaitType WaitType
+        {
+            get { return mWaitType; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mWaitType != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mWaitType = value;
+            }
+        }
+
+        private Boolean mIsWaitFirst;
+
+        public Boolean IsWaitFirst
+        {
+            get { return mIsWaitFirst; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mIsWaitFirst != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mIsWaitFirst = value; 
+            }
+        }
+
+        private long mExecutionLimit;
+
+        public long ExecutionLimit
+        {
+            get { return mExecutionLimit; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mExecutionLimit != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mExecutionLimit = value;
+            }
+        }
+
+
 
         private Mode mMode;
         public Mode Mode
@@ -240,6 +736,13 @@ namespace AppTestStudio
             get { return mMode; }
             set
             {
+                if (IsLoading == false)
+                {
+                    if (mMode != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
                 mMode = value;
 
                 if (ActionType == ActionType.Action)
@@ -249,31 +752,291 @@ namespace AppTestStudio
             }
         }
 
-        public int Points { get; set; }
+        private int mPoints;
+
+        public int Points
+        {
+            get { return mPoints; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mPoints != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mPoints = value; 
+            }
+        }
+
 
         /// <summary>
         /// Where to provide X,Y Coordinates Start/End = from object search.
         /// </summary>
-        public ClickDragReleaseMode ClickDragReleaseMode { get; set; }
-        public int ClickDragReleaseStartHeight { get; set; }
-        public int ClickDragReleaseStartWidth { get; set; }
-        public int ClickDragReleaseEndHeight { get; set; }
-        public int ClickDragReleaseEndWidth { get; set; }
-        public int ClickDragReleaseVelocity { get; set; }
-        public Boolean RuntimeOncePerSession { get; set; }
-        public Boolean RuntimeWaitFirst { get; set; }
-        public long RuntimeIterationsLeft { get; set; }
-        public DateTime RuntimeNextAllowedTime { get; set; }
-        public String Channel { get; set; }
-        public long ObjectThreshold { get; set; }
-        public int RelativeXOffset { get; set; }
-        public int RelativeYOffset { get; set; }
+        /// 
+        private ClickDragReleaseMode mClickDragReleaseMode;
+
+        public ClickDragReleaseMode ClickDragReleaseMode
+        {
+            get { return mClickDragReleaseMode; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mClickDragReleaseMode != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mClickDragReleaseMode = value; 
+            }
+        }
+
+        private int mClickDragReleaseStartHeight;
+
+        public int ClickDragReleaseStartHeight
+        {
+            get { return mClickDragReleaseStartHeight; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mClickDragReleaseStartHeight != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mClickDragReleaseStartHeight = value; 
+            }
+        }
+
+        private int mClickDragReleaseStartWidth;
+
+        public int ClickDragReleaseStartWidth
+        {
+            get { return mClickDragReleaseStartWidth; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mClickDragReleaseStartWidth != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mClickDragReleaseStartWidth = value; 
+            }
+        }
+
+        private int mClickDragReleaseEndHeight;
+
+        public int ClickDragReleaseEndHeight
+        {
+            get { return mClickDragReleaseEndHeight; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mClickDragReleaseEndHeight != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mClickDragReleaseEndHeight = value;             
+            }
+        }
+
+        private int mClickDragReleaseEndWidth;
+
+        public int ClickDragReleaseEndWidth
+        {
+            get { return mClickDragReleaseEndWidth; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mClickDragReleaseEndWidth != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mClickDragReleaseEndWidth = value; 
+            }
+        }
+
+        private int mClickDragReleaseVelocity;
+
+        public int ClickDragReleaseVelocity
+        {
+            get { return mClickDragReleaseVelocity; }
+            set {
+                if (IsLoading == false)
+                {
+                    if (mClickDragReleaseVelocity != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mClickDragReleaseVelocity = value;
+            }
+        }
+
+        private Boolean mRuntimeOncePerSession;
+
+        public Boolean RuntimeOncePerSession
+        {
+            get { return mRuntimeOncePerSession; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mRuntimeOncePerSession != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mRuntimeOncePerSession = value;
+            }
+        }
+
+        private Boolean mRuntimeWaitFirst;
+
+        public Boolean RuntimeWaitFirst
+        {
+            get { return mRuntimeWaitFirst; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mRuntimeWaitFirst != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mRuntimeWaitFirst = value;
+            }
+        }
+
+        private long mRuntimeIterationsLeft;
+
+        public long RuntimeIterationsLeft
+        {
+            get { return mRuntimeIterationsLeft; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mRuntimeIterationsLeft != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mRuntimeIterationsLeft = value;
+            }
+        }
+
+        private DateTime mRuntimeNextAllowedTime;
+
+        public DateTime RuntimeNextAllowedTime
+        {
+            get { return mRuntimeNextAllowedTime; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mRuntimeNextAllowedTime != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mRuntimeNextAllowedTime = value;
+            }
+        }
+
+        private String mChannel;
+
+        public String Channel
+        {
+            get { return mChannel; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mChannel != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mChannel = value; }
+        }
+
+        private long mObjectThreshold;
+
+        public long ObjectThreshold
+        {
+            get { return mObjectThreshold; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mObjectThreshold != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                
+                mObjectThreshold = value; }
+        }
+
+        private int mRelativeXOffset;
+
+        public int RelativeXOffset
+        {
+            get { return mRelativeXOffset; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mRelativeXOffset != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mRelativeXOffset = value; }
+        }
+
+        private int mRelativeYOffset;
+
+        public int RelativeYOffset
+        {
+            get { return mRelativeYOffset; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mRelativeYOffset != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mRelativeYOffset = value; }
+        }
 
         //public MouseMode MouseMode { get; set; }
 
         //public Boolean MoveMouseBeforeAction { get; set; }
 
-        public Boolean FromCurrentMousePos { get; set; }
+        private Boolean mFromCurrentMousePos;
+
+        public Boolean FromCurrentMousePos
+        {
+            get { return mFromCurrentMousePos; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mFromCurrentMousePos != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mFromCurrentMousePos = value; }
+        }
 
         public void LoadBitmapFromDisk()
         {
@@ -297,10 +1060,18 @@ namespace AppTestStudio
         {
             get
             {
+
                 return mBitmap;
             }
             set
             {
+                if (IsLoading == false)
+                {
+                    if (mBitmap != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
                 mBitmap = value;
                 FileName = String.Format("{0}{1}.bmp", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-"), Environment.TickCount & int.MaxValue);
             }
@@ -333,6 +1104,7 @@ namespace AppTestStudio
         {
             GameNodeAction Action = new GameNodeAction(GameNodeName, ActionType);
 
+            Action.IsLoading = true;
             foreach (SingleClick Item in ClickList)
             {
                 Action.AddToClickList(Item.CloneMe());
@@ -403,6 +1175,7 @@ namespace AppTestStudio
                 GameNodeAction CA = ChildAction.CloneMe();
                 Action.Nodes.Add(CA);
             }
+            Action.IsLoading = false;
 
             return Action;
         }
@@ -1079,6 +1852,11 @@ namespace AppTestStudio
         {
             int result = DelayMS + (DelayS * 1000) + (DelayM * 60 * 1000) + (DelayH * 60 * 60 * 1000);
             return result;
+        }
+
+        public void FlagAsDirty()
+        {
+            mIsDirty = true;
         }
     }
 }
