@@ -462,24 +462,28 @@ namespace AppTestStudio
             {
                 if (tv.Nodes[0].Nodes.Count > 0)
                 {
-                    frmLoadCheck LoadCheck = new frmLoadCheck();
-                    LoadCheck.StartPosition = FormStartPosition.CenterParent;
-                    LoadCheck.ShowDialog();
-
-                    switch (LoadCheck.Result)
+                    GameNode gameNode= GetGameNode();
+                    if (gameNode.IsAnythingDirty())
                     {
-                        case frmLoadCheck.LoadCheckResult.Save:
-                            toolStripButtonSaveScript_Click(null, null);
-                            break;
-                        case frmLoadCheck.LoadCheckResult.DontSave:
-                            break;
-                        case frmLoadCheck.LoadCheckResult.Cancel:
-                            return;
-                        case frmLoadCheck.LoadCheckResult.DefaultValue:
-                            return;
-                        default:
-                            Debug.Assert(false);  //should not be here.
-                            break;
+                        frmLoadCheck LoadCheck = new frmLoadCheck();
+                        LoadCheck.StartPosition = FormStartPosition.CenterParent;
+                        LoadCheck.ShowDialog();
+
+                        switch (LoadCheck.Result)
+                        {
+                            case frmLoadCheck.LoadCheckResult.Save:
+                                toolStripButtonSaveScript_Click(null, null);
+                                break;
+                            case frmLoadCheck.LoadCheckResult.DontSave:
+                                break;
+                            case frmLoadCheck.LoadCheckResult.Cancel:
+                                return;
+                            case frmLoadCheck.LoadCheckResult.DefaultValue:
+                                return;
+                            default:
+                                Debug.Assert(false);  //should not be here.
+                                break;
+                        }
                     }
                 }
             }
@@ -514,6 +518,7 @@ namespace AppTestStudio
 
         private void LoadGameToTree(GameNodeGame game)
         {
+            IsPanelLoading = true;
             ThreadManager.IncrementTestLoaded();
             tv.BeginUpdate();
             GameNode gt = WorkspaceNode;
@@ -550,6 +555,7 @@ namespace AppTestStudio
                     game.InstanceToLaunch = "0";
                 }
             }
+            IsPanelLoading = false;
         }
 
         private void tv_AfterSelect(object sender, TreeViewEventArgs e)
@@ -1576,6 +1582,8 @@ namespace AppTestStudio
                         Log("Attempted to clean up temp file: " + ex1.Message);
                     }
                 }
+
+                GameNode.ClearIsDirty();
             }
         }
 
@@ -2349,28 +2357,30 @@ namespace AppTestStudio
         }
 
         // Zoom and Crop/Mask
-        private void ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown, ref Rectangle rect)
+        private Boolean ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown, ref Rectangle rect)
         {
+            // this zooms and sets masks
+            // need to decouple some time.
             if (pb.Image.IsSomething())
             {
                 Bitmap MyBitmap = pb.Image as Bitmap;
                 if (e.X >= MyBitmap.Width)
                 {
-                    return;
+                    return false;
                 }
                 if (e.Y >= MyBitmap.Height - 1)
                 {
-                    return;
+                    return false;
                 }
 
                 if (e.X <= -1)
                 {
-                    return;
+                    return false;
                 }
 
                 if (e.Y <= -1)
                 {
-                    return;
+                    return false;
                 }
 
                 Color Color = MyBitmap.GetPixel(e.X, e.Y);
@@ -2453,12 +2463,12 @@ namespace AppTestStudio
                     //'  if (e.Y > PictureBox1Rectangle.Y ) {
                     rect.Height = e.Y - rect.Y;
                     //' }
+                    
                     pb.Refresh();
+                    return true;
                 }
-
             }
-
-
+            return false;
         }
 
         private bool IsCreateScreenshotNamed()
@@ -3703,17 +3713,12 @@ namespace AppTestStudio
         {
             GameNodeAction Node = tv.SelectedNode as GameNodeAction;
 
-            Rectangle CopyOfRectangle = Node.Rectangle;
+            Boolean Changed = ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.mRectangle);
+            if (Changed)
+            {
+                Node.FlagAsDirty();
+            }
 
-            ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.mRectangle);
-            if (CopyOfRectangle.Height != Node.Rectangle.Height)
-            {
-                Node.Rectangle = CopyOfRectangle;
-            }
-            if (CopyOfRectangle.Width != Node.Rectangle.Width )
-            {
-                Node.Rectangle = CopyOfRectangle;
-            }
             RefreshInformation(Node);
         }
 
@@ -6272,6 +6277,7 @@ namespace AppTestStudio
                 {
                     Objects.Nodes.Remove(gameNodeObject);
                     Log("Object: " + txtObjectName.Text + " deleted");
+                    GetGameNode().FlagAsDirty();
                     break;
                 }
             }
@@ -6625,10 +6631,13 @@ namespace AppTestStudio
 
         private void cboDPI_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
-            if (Game.IsSomething())
+            if (IsPanelLoading == false)
             {
-                Game.DPI = Convert.ToInt32(cboDPI.Text);
+                GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+                if (Game.IsSomething())
+                {
+                    Game.DPI = Convert.ToInt32(cboDPI.Text);
+                }
             }
         }
 

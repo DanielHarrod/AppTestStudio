@@ -33,6 +33,7 @@ namespace AppTestStudio
         public GameNodeAction(string name, ActionType actionType)
             : base(name, GameNodeType.Action, actionType)
         {
+            IsLoading = true;
             this.ActionType = actionType;
             AfterCompletionType = AfterCompletionTypeDefault();
             LogicChoice = "AND";
@@ -70,6 +71,7 @@ namespace AppTestStudio
 
             Channel = "";
             FileName = "";
+            IsLoading = false;
         }
 
 
@@ -1042,13 +1044,19 @@ namespace AppTestStudio
             {
                 if (IsLoading == false)
                 {
+                    // this is checking that the object is the same not the bitmaps are the same.
                     if (mBitmap != value)
                     {
                         IsDirty = true;
                     }
                 }
-                mBitmap = value;
-                FileName = String.Format("{0}{1}.bmp", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-"), Environment.TickCount & int.MaxValue);
+
+                if(mBitmap != value)
+                {
+                    FileName = String.Format("{0}{1}.bmp", DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss-"), Environment.TickCount & int.MaxValue);
+                }
+
+                mBitmap = value;                
             }
         }
 
@@ -1827,11 +1835,6 @@ namespace AppTestStudio
         {
             int result = DelayMS + (DelayS * 1000) + (DelayM * 60 * 1000) + (DelayH * 60 * 60 * 1000);
             return result;
-        }
-
-        public void FlagAsDirty()
-        {
-            IsDirty = true;
         }
     }
 }

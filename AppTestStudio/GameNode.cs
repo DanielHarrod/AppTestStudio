@@ -1,5 +1,5 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2021 Daniel Harrod
+//Copyright (C) 2016-2022 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using System;
@@ -43,7 +43,14 @@ namespace AppTestStudio
         public String GameNodeName
         {
             get { return mGameNodeName; }
-            set { 
+            set {
+                if (IsLoading == false)
+                {
+                    if (mGameNodeName != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
                 mGameNodeName = value;
                 Name = value;
                 Text = value;
@@ -56,7 +63,13 @@ namespace AppTestStudio
         public Boolean IsDirty
         {
             get { return mIsDirty; }
-            protected set { mIsDirty = value; }
+            protected set {
+                mIsDirty = value; 
+            }
+        }
+        public void FlagAsDirty()
+        {
+            IsDirty = true;
         }
 
         // Used to determine if change tracking should be calculated.
@@ -80,12 +93,14 @@ namespace AppTestStudio
 
         public GameNode(String Name, GameNodeType Type, ActionType ActionType = ActionType.Action )
         {
+            IsLoading = true;
             GameNodeName = Name;
             this.Name = Name;
             this.Text = Name;
             GameNodeType = Type;
             NodeID = NextNodeID;
-            NextNodeID++;            
+            NextNodeID++;
+            IsLoading = false;
         }
 
         public void AddGameNode(GameNode gameNode)
@@ -158,6 +173,25 @@ namespace AppTestStudio
 
         }
 
+        public Boolean IsAnythingDirty()
+        {
+            if (mIsDirty)
+                return true;
+            foreach (GameNode childNodes in Nodes)
+            {
+                if (childNodes.IsAnythingDirty())
+                    return true;
+            }
+            return false;
+        }
 
+        public void ClearIsDirty()
+        {
+            mIsDirty = false;
+            foreach (GameNode childNodes in Nodes)
+            {
+                childNodes.ClearIsDirty();
+            }
+        }
     }
 }
