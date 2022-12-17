@@ -6037,6 +6037,34 @@ namespace AppTestStudio
         {                        
             try
             {
+                if (PanelLoadNode.IsSomething())
+                {
+                    GameNodeGame gng = GetGameNode();
+                    if (gng.IsAnythingDirty())
+                    {
+                        frmLoadCheck LoadCheck = new frmLoadCheck();
+                        LoadCheck.StartPosition = FormStartPosition.CenterParent;
+                        LoadCheck.ShowDialog();
+
+                        switch (LoadCheck.Result)
+                        {
+                            case frmLoadCheck.LoadCheckResult.Save:
+                                toolStripButtonSaveScript_Click(null, null);
+                                break;
+                            case frmLoadCheck.LoadCheckResult.DontSave:
+                                break;
+                            case frmLoadCheck.LoadCheckResult.Cancel:
+                                e.Cancel = true;
+                                return;
+                            case frmLoadCheck.LoadCheckResult.DefaultValue:
+                                return;
+                            default:
+                                Debug.Assert(false);  //should not be here.
+                                break;
+                        }
+                    }
+                }
+
                 UnsubscribeGlobalMouseKeyHook();
                 Visible = false;
                 Timer1.Enabled = false;
