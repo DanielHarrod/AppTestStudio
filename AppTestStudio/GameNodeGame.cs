@@ -2032,6 +2032,7 @@ namespace AppTestStudio
 
         private static void LoadObjects(XmlNode xmlNode, GameNodeObjects objects, string gameName, List<GameNodeAction> actionNodesWithObjects, GameNodeGame game)
         {
+            
             int CriticalErrorCount = 0;
             foreach (XmlNode LoadObjectNode in xmlNode.ChildNodes)
             {
@@ -2052,7 +2053,9 @@ namespace AppTestStudio
                             String FullPathP = Path.Combine(Path.GetDirectoryName(game.FileName), "Pictures", oFileName);
                             if (System.IO.File.Exists(FullPathP))
                             {
+                                Node.IsLoading = true;
                                 Node.ObjectSearchBitmap = Bitmap.FromFile(FullPathP) as Bitmap;
+                                Node.IsLoading  = false;
                                 //Node.FileName = Path.GetFileName(FullPathP);
                             }
                             // Don't set Object Search filename to object search filename, --Node.FileName = Path.GetFileName(FullPathP);
@@ -2061,7 +2064,7 @@ namespace AppTestStudio
                 }
 
                 GameNodeObject o = new GameNodeObject(oName);
-
+                o.IsLoading = true;
                 String FullPath = Path.Combine(Path.GetDirectoryName(game.FileName), "Pictures", oFileName);
 
                 if (System.IO.File.Exists(FullPath))
@@ -2074,6 +2077,7 @@ namespace AppTestStudio
                     game.Log("Critical Error: Object Nodes: Loading Node: " + oName + ": Missing file: " + FullPath);
                     CriticalErrorCount++;
                 }
+                o.IsLoading = false;
                 objects.Nodes.Add(o);
             }
 

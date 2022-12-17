@@ -64,6 +64,10 @@ namespace AppTestStudio
         {
             get { return mIsDirty; }
             protected set {
+                if (value == true)
+                {
+                    int k = 3;
+                }
                 mIsDirty = value; 
             }
         }
@@ -81,10 +85,6 @@ namespace AppTestStudio
             set
             {
                 mIsLoading = value;
-                if (value == false)
-                {
-                    mIsDirty = false;
-                }
             }
         }
 

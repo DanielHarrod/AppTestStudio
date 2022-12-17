@@ -1273,6 +1273,7 @@ namespace AppTestStudio
 
             lblResolution.Text = GameNode.ResolutionWidth + "x" + GameNode.ResolutionHeight;
             IsPanelLoading = false;
+          
 
             RefreshInformation(GameNode);
 
@@ -1404,7 +1405,7 @@ namespace AppTestStudio
                 return;
             }
             LoadEventObjectList();
-
+            
             LoadObjectSelectionImage();
             if (EventNode.ObjectName == "")
             {
@@ -1466,8 +1467,10 @@ namespace AppTestStudio
                     {
                         if (gameNodeObject.GameNodeName.Trim() == ActionNode.ObjectName.Trim())
                         {
+                            ActionNode.IsLoading = true;
                             PictureBoxEventObjectSelection.Image = gameNodeObject.Bitmap;
                             ActionNode.ObjectSearchBitmap = gameNodeObject.Bitmap;
+                            ActionNode.IsLoading = false;
                             return;
                         }
                     }
@@ -5416,7 +5419,6 @@ namespace AppTestStudio
 
             NewGame.IsLoading = false;
             WorkspaceNode.IsLoading = false;
-
 
             return NewGame;
             //'Dim Actions As GameNode = New GameNode("Actions", GameNodeType.Actions)

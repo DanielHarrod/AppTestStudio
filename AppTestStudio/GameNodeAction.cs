@@ -71,7 +71,7 @@ namespace AppTestStudio
 
             Channel = "";
             FileName = "";
-            IsLoading = false;
+            IsLoading = false;            
         }
 
 
@@ -1159,7 +1159,6 @@ namespace AppTestStudio
                 Action.Nodes.Add(CA);
             }
             Action.IsLoading = false;
-
             return Action;
         }
 
