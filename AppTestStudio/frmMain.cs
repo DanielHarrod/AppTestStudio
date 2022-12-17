@@ -6034,10 +6034,10 @@ namespace AppTestStudio
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            UnsubscribeGlobalMouseKeyHook();
+        {                        
             try
             {
+                UnsubscribeGlobalMouseKeyHook();
                 Visible = false;
                 Timer1.Enabled = false;
                 foreach (GameNodeGame Game in ThreadManager.Games)
