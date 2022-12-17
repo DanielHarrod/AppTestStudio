@@ -49,5 +49,10 @@ namespace AppTestStudio
             Result = LoadCheckResult.Cancel;
             Close();
         }
+
+        private void frmLoadCheck_Load(object sender, EventArgs e)
+        {
+            cmdSave.Focus();
+        }
     }
 }

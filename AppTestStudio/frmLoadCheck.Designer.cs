@@ -90,6 +90,7 @@
             this.MinimizeBox = false;
             this.Name = "frmLoadCheck";
             this.Text = "Load Check";
+            this.Load += new System.EventHandler(this.frmLoadCheck_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
