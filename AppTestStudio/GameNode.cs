@@ -50,6 +50,32 @@ namespace AppTestStudio
             }
         }
 
+        // Used to determine if any changes have occurred since the last checkpoint.
+        private Boolean mIsDirty;
+
+        public Boolean IsDirty
+        {
+            get { return mIsDirty; }
+            protected set { mIsDirty = value; }
+        }
+
+        // Used to determine if change tracking should be calculated.
+        private Boolean mIsLoading;
+
+        public Boolean IsLoading
+        {
+            get { return mIsLoading; }
+            set
+            {
+                mIsLoading = value;
+                if (value == false)
+                {
+                    mIsDirty = false;
+                }
+            }
+        }
+
+
         public long GameLoops { get; set; }
 
         public GameNode(String Name, GameNodeType Type, ActionType ActionType = ActionType.Action )
@@ -59,7 +85,16 @@ namespace AppTestStudio
             this.Text = Name;
             GameNodeType = Type;
             NodeID = NextNodeID;
-            NextNodeID++;
+            NextNodeID++;            
+        }
+
+        public void AddGameNode(GameNode gameNode)
+        {
+            if (IsLoading == false)
+            {
+                IsDirty = true;
+            }
+            Nodes.Add(gameNode);
         }
 
         internal GameNodeGame GetGameNodeGame()

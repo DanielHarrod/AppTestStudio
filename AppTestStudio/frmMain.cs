@@ -1812,7 +1812,7 @@ namespace AppTestStudio
                 GameNodeObject o = new GameNodeObject(txtObjectScreenshotName.Text.Trim());
                 o.Bitmap = CropImage;
 
-                GetObjectsNode().Nodes.Add(o);
+                GetObjectsNode().AddGameNode(o);
 
                 SetPanel(PanelMode.Object);
                 tv.SelectedNode = o;
@@ -2306,7 +2306,7 @@ namespace AppTestStudio
             GameNodeAction GameNodeAction = new GameNodeAction("", ActionType.RNG);
             GameNodeAction.Percentage = WhatsLeft;
 
-            targetAction.Nodes.Add(GameNodeAction);
+            targetAction.AddGameNode(GameNodeAction);
             tv.SelectedNode = GameNodeAction;
             ThreadManager.IncrementNewRNGContainer();
             return GameNodeAction;
@@ -4763,11 +4763,11 @@ namespace AppTestStudio
             {
                 GameNodeAction Event = new GameNodeAction("New Event", ActionType.Event);
 
-                TreeNode gne = GetGameNodeEvents();
-                TreeNode gn = GetGameNode();
-                TreeNode gno = GetGameNodeObjects();
+                GameNodeEvents gne = GetGameNodeEvents();
+                GameNode gn = GetGameNode();
+                GameNodeObjects gno = GetGameNodeObjects();
 
-                TreeNode TargetParentNode = tv.SelectedNode;
+                GameNode TargetParentNode = tv.SelectedNode as GameNode;
                 // TODO find other nodes that are not valid.
                 if (TargetParentNode == gn)
                 {
@@ -4780,7 +4780,7 @@ namespace AppTestStudio
                 }
 
                 // Need to make sure this isn't the 
-                TargetParentNode.Nodes.Add(Event);
+                TargetParentNode.AddGameNode(Event);
                 tv.SelectedNode = Event;
 
                 SetPanel(PanelMode.PanelColorEvent);
@@ -4808,7 +4808,7 @@ namespace AppTestStudio
 
             GameNodeAction.FromCurrentMousePos = GetGameNode().MoveMouseBeforeAction;
 
-            OriginalNode.Nodes.Add(GameNodeAction);
+            OriginalNode.AddGameNode(GameNodeAction);
             tv.SelectedNode = GameNodeAction;
 
             // Initialize Children with Parent Defaults
@@ -4839,7 +4839,8 @@ namespace AppTestStudio
         {
             GameNodeAction RNGContainer = new GameNodeAction("New RNG", ActionType.RNGContainer);
             RNGContainer.AutoBalance = true;
-            tv.SelectedNode.Nodes.Add(RNGContainer);
+            GameNode gn = tv.SelectedNode as GameNode;
+            gn.AddGameNode(RNGContainer);
             tv.SelectedNode = RNGContainer;
 
             //'  SetPanel(PanelMode.PanelColorEvent)
@@ -4847,7 +4848,7 @@ namespace AppTestStudio
 
             GameNodeAction GameNodeAction = new GameNodeAction("", ActionType.RNG);
             GameNodeAction.Percentage = 100;
-            RNGContainer.Nodes.Add(GameNodeAction);
+            RNGContainer.AddGameNode(GameNodeAction);
             tv.SelectedNode = GameNodeAction;
 
             SetPanel(PanelMode.PanelColorEvent);
@@ -5395,17 +5396,22 @@ namespace AppTestStudio
         private GameNodeGame AddNewGameToTree(string applicationName, string targetFileName, Platform platform)
         {
             GameNodeGame NewGame = new GameNodeGame(applicationName, ThreadManager);
-
-            WorkspaceNode.Nodes.Add(NewGame);
+            WorkspaceNode.IsLoading = true;
+            WorkspaceNode.AddGameNode(NewGame);
+            NewGame.IsLoading = true;
             NewGame.FileName = targetFileName;
 
             tv.SelectedNode = NewGame;
 
             GameNodeEvents Events = new GameNodeEvents("Events");
-            NewGame.Nodes.Add(Events);
+            NewGame.AddGameNode(Events);
 
             GameNodeObjects GameNodeObjects = new GameNodeObjects("Objects");
-            NewGame.Nodes.Add(GameNodeObjects);
+            NewGame.AddGameNode(GameNodeObjects);
+
+            NewGame.IsLoading = false;
+            WorkspaceNode.IsLoading = false;
+
 
             return NewGame;
             //'Dim Actions As GameNode = New GameNode("Actions", GameNodeType.Actions)
@@ -7259,7 +7265,8 @@ namespace AppTestStudio
                     ClickEvent.ResolutionHeight = LastNodeAddObjectWasUsedFrom.ResolutionHeight;
                     ClickEvent.ResolutionWidth = LastNodeAddObjectWasUsedFrom.ResolutionWidth;
                     ClickEvent.Rectangle = PictureObjectScreenshotRectangle;
-                    tv.SelectedNode.Nodes.Add(ClickEvent);
+                    GameNode gn = tv.SelectedNode as GameNode;
+                    gn.AddGameNode(ClickEvent);
 
                     // Clear out so that going back to make object will not be available.
                     LastNodeAddObjectWasUsedFrom = null;

@@ -19,7 +19,8 @@ namespace AppTestStudio
     public class GameNodeGame : GameNode
     {
         public GameNodeGame(String name, ThreadManager threadManager) : base(name, GameNodeType.Game)
-        {            
+        {
+            IsLoading = true;
             StatusControl = new ConcurrentQueue<AppTestStudioStatusControlItem>();
             MinimalBitmapClones = new ConcurrentQueue<MinimalBitmapNode>();
             BitmapClones = new ConcurrentQueue<Bitmap>();
@@ -59,11 +60,12 @@ namespace AppTestStudio
                 WindowAction = WindowAction.ActivateWindow;
                 MoveMouseBeforeAction = true;
             }
-
+            mIsDirty = false;
             IsPaused = false;
+            IsLoading = false;
         }
 
-        public ThreadManager ThreadManager{ get; set; }
+        public ThreadManager ThreadManager { get; set; }
 
         /// <summary>
         /// Data for the runtime display.
@@ -92,7 +94,7 @@ namespace AppTestStudio
             Name,
             InstanceToLaunch,
             s);
-            
+
             ThreadManager.ThreadLog.Enqueue(FormattedLog);
         }
 
@@ -110,7 +112,8 @@ namespace AppTestStudio
 
         public String ThreadandWindowName
         {
-            get {
+            get
+            {
                 switch (Platform)
                 {
                     case Platform.BlueStacks:
@@ -123,7 +126,7 @@ namespace AppTestStudio
                         return " Application - " + TargetWindow;
                     default:
                         return Text + " - " + TargetWindow;
-                }                
+                }
             }
         }
 
@@ -157,10 +160,52 @@ namespace AppTestStudio
             }
         }
 
-        public String TargetGameBuild { get; set; }
+        private Boolean mIsDirty;
+
+        public Boolean IsDirty
+        {
+            get { return mIsDirty; }
+            //set { mIsDirty = value; }
+        }
+
+        public Boolean IsLoading { get; set; }
+
+        private String mTargetGameBuild;
+
+        public String TargetGameBuild
+        {
+            get { return mTargetGameBuild; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mTargetGameBuild != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mTargetGameBuild = value;
+            }
+        }
 
         // Shared by Nox and Blue
-        public String PackageName { get; set; }
+        private String mPackageName;
+
+        public String PackageName
+        {
+            get { return mPackageName; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPackageName != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mPackageName = value;
+            }
+        }
 
         private String mInstanceToLaunch;
         public String InstanceToLaunch
@@ -171,6 +216,13 @@ namespace AppTestStudio
                 if (value == "")
                 {
                     value = "0";
+                }
+                if (IsLoading == false)
+                {
+                    if (mInstanceToLaunch != value)
+                    {
+                        mIsDirty = true;
+                    }
                 }
                 mInstanceToLaunch = value;
             }
@@ -186,71 +238,508 @@ namespace AppTestStudio
 
         public DateTime StartTime { get; private set; }
 
-        public long LoopDelay { get; set; }
+        private long mLoopDelay;
 
-        public String Resolution { get; set; }
-        public String FileName { get; set; }
-        public int VideoHeight { get; set; }
-        public int VideoWidth { get; set; }
+        public long LoopDelay
+        {
+            get { return mLoopDelay; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mLoopDelay != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mLoopDelay = value;
+            }
+        }
 
-        public int DefaultClickSpeed { get; set; }
+        private String mResolution;
 
-        public int DPI { get; set; }
+        public String Resolution
+        {
+            get { return mResolution; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mResolution != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mResolution = value;
+            }
+        }
 
-        public long SteamID { get; set; }
-        public String PathToApplicationEXE { get; set; }
-        public Platform Platform { get; set; }
+        private String mFileName;
 
-        public String SteamPrimaryWindowName { get; set; }
-        public WindowNameFilterType SteamPrimaryWindowFilter { get; set; }
-        public String SteamSecondaryWindowName { get; set; }
-        public WindowNameFilterType SteamSecondaryWindowFilter { get; set; }
+        public String FileName
+        {
+            get { return mFileName; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mResolution != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mFileName = value;
+            }
+        }
 
-        public String ApplicationPrimaryWindowName { get; set; }
-        public WindowNameFilterType ApplicationPrimaryWindowFilter { get; set; }
-        public String ApplicationSecondaryWindowName { get; set; }
-        public WindowNameFilterType ApplicationSecondaryWindowFilter { get; set; }
+        private int mVideoHeight;
 
-        public String ApplicationParameters { get; set; }
+        public int VideoHeight
+        {
+            get { return mVideoHeight; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mVideoHeight != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mVideoHeight = value;
+            }
+        }
+        private int mVideoWidth;
+
+        public int VideoWidth
+        {
+            get { return mVideoWidth; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mVideoHeight != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mVideoWidth = value;
+            }
+        }
+
+        private int mDefaultClickSpeed;
+
+        public int DefaultClickSpeed
+        {
+            get { return mDefaultClickSpeed; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mDefaultClickSpeed != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mDefaultClickSpeed = value;
+            }
+        }
+
+        private int mDPI;
+
+        public int DPI
+        {
+            get { return mDPI; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mDefaultClickSpeed != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mDPI = value;
+            }
+        }
+
+        private long mSteamID;
+
+        public long SteamID
+        {
+            get { return mSteamID; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mSteamID != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mSteamID = value;
+            }
+        }
+
+        private String mPathToApplicationEXE;
+
+        public String PathToApplicationEXE
+        {
+            get { return mPathToApplicationEXE; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPathToApplicationEXE != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mPathToApplicationEXE = value;
+            }
+        }
+
+        private Platform mPlatform;
+
+        public Platform Platform
+        {
+            get { return mPlatform; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPlatform != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mPlatform = value;
+            }
+        }
+
+        private String mSteamPrimaryWindowName;
+
+        public String SteamPrimaryWindowName
+        {
+            get { return mSteamPrimaryWindowName; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mSteamPrimaryWindowName != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mSteamPrimaryWindowName = value;
+            }
+        }
+
+        private WindowNameFilterType mSteamPrimaryWindowFilter;
+
+        public WindowNameFilterType SteamPrimaryWindowFilter
+        {
+            get { return mSteamPrimaryWindowFilter; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mSteamPrimaryWindowFilter != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mSteamPrimaryWindowFilter = value;
+            }
+        }
+
+        private String mSteamSecondaryWindowName;
+
+        public String SteamSecondaryWindowName
+        {
+            get { return mSteamSecondaryWindowName; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mSteamSecondaryWindowName != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mSteamSecondaryWindowName = value;
+            }
+        }
+
+        private WindowNameFilterType mSteamSecondaryWindowFilter;
+
+        public WindowNameFilterType SteamSecondaryWindowFilter
+        {
+            get { return mSteamSecondaryWindowFilter; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mSteamSecondaryWindowFilter != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mSteamSecondaryWindowFilter = value;
+            }
+        }
+
+        private String mApplicationPrimaryWindowName;
+
+        public String ApplicationPrimaryWindowName
+        {
+            get { return mApplicationPrimaryWindowName; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mApplicationPrimaryWindowName != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mApplicationPrimaryWindowName = value;
+            }
+        }
+
+        private WindowNameFilterType mApplicationPrimaryWindowFilter;
+
+        public WindowNameFilterType ApplicationPrimaryWindowFilter
+        {
+            get { return mApplicationPrimaryWindowFilter; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mApplicationPrimaryWindowFilter != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mApplicationPrimaryWindowFilter = value;
+            }
+        }
+
+        private String mApplicationSecondaryWindowName;
+
+        public String ApplicationSecondaryWindowName
+        {
+            get { return mApplicationSecondaryWindowName; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mApplicationSecondaryWindowName != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mApplicationSecondaryWindowName = value;
+            }
+        }
+
+        private WindowNameFilterType mApplicationSecondaryWindowFilter;
+
+        public WindowNameFilterType ApplicationSecondaryWindowFilter
+        {
+            get { return mApplicationSecondaryWindowFilter; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mApplicationSecondaryWindowFilter != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mApplicationSecondaryWindowFilter = value;
+            }
+        }
+
+        private String mApplicationParameters;
+
+        public String ApplicationParameters
+        {
+            get { return mApplicationParameters; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mApplicationParameters != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mApplicationParameters = value;
+            }
+        }
+
 
         // BlueStacks section
-        public Boolean IsBlueStacks64Bit { get; set; }
+        private bool mIsBlueStacks64Bit;
 
-        public String BlueStacksWindowName { get; set; }
+        public bool IsBlueStacks64Bit
+        {
+            get { return mIsBlueStacks64Bit; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mIsBlueStacks64Bit != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mIsBlueStacks64Bit = value;
+            }
+        }
 
-        public BlueGuest BlueGuest { get; set; }
+        private String mBlueStacksWindowName;
+
+        public String BlueStacksWindowName
+        {
+            get { return mBlueStacksWindowName; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mBlueStacksWindowName != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mBlueStacksWindowName = value; }
+        }
+
+        private BlueGuest mBlueGuest;
+
+        public BlueGuest BlueGuest
+        {
+            get { return mBlueGuest; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mBlueGuest != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mBlueGuest = value; }
+        }
 
         /// <summary>
         /// Run Time: Mouse X Position.
         /// Design Time: Not Used.
         /// </summary>
-        public short MouseX { get; set; }
+        private short mMouseX;
+
+        public short MouseX
+        {
+            get { return mMouseX; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mMouseX != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mMouseX = value; }
+        }
 
         /// <summary>
         /// Run Time: Mouse Y Position.
         /// Design Time: Not Used.
         /// </summary>
-        public short MouseY { get; set; }
+        private short mMouseY;
+
+        public short MouseY
+        {
+            get { return mMouseY; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mMouseY != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mMouseY = value; }
+        }
 
         /// <summary>
         /// How Fast to move the mouse
         /// </summary>
-        public int MouseSpeedPixelsPerSecond { get; set; }
-        
+        private int mMouseSpeedPixelsPerSecond;
+
+        public int MouseSpeedPixelsPerSecond
+        {
+            get { return mMouseSpeedPixelsPerSecond; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mMouseSpeedPixelsPerSecond != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mMouseSpeedPixelsPerSecond = value; }
+        }
+
         /// <summary>
         /// Maximum Random Velocity above default speed.
         /// </summary>
-        public int MouseSpeedVelocityVariantPercentMax { get; set; }
+        private int mMouseSpeedVelocityVariantPercentMax;
+
+        public int MouseSpeedVelocityVariantPercentMax
+        {
+            get { return mMouseSpeedVelocityVariantPercentMax; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mMouseSpeedVelocityVariantPercentMax != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mMouseSpeedVelocityVariantPercentMax = value; }
+        }
+
 
         /// <summary>
         /// Minimum Random Velocity below defautl speed.
         /// </summary>
-        public int MouseSpeedVelocityVariantPercentMin { get; set; }
+        private int mMouseSpeedVelocityVariantPercentMin;
+
+        public int MouseSpeedVelocityVariantPercentMin
+        {
+            get { return mMouseSpeedVelocityVariantPercentMin; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mMouseSpeedVelocityVariantPercentMin != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mMouseSpeedVelocityVariantPercentMin = value; }
+        }
 
         public GameNodeGame CloneMe()
         {
             GameNodeGame Target = new GameNodeGame(Name, ThreadManager);
-
+            Target.IsLoading = true;
             Target.TargetGameBuild = TargetGameBuild;
             Target.LoopDelay = LoopDelay;
             Target.PackageName = PackageName;
@@ -302,7 +791,7 @@ namespace AppTestStudio
             }
 
             Target.Nodes.Add(TargetEvents);
-
+            Target.IsLoading = false;
             return Target;
         }
 
@@ -311,14 +800,91 @@ namespace AppTestStudio
         public GameNodeAction AbsoluteLastNode { get; set; }
 
         public long ScreenShotsTaken { get; set; }
-        public long VideoFrameLimit { get; set; }
-        public Boolean SaveVideo { get; set; }
 
-        public MouseMode MouseMode { get; set; }
+        private long mVideoFrameLimit;
 
-        public Boolean MoveMouseBeforeAction { get; set; }
+        public long VideoFrameLimit
+        {
+            get { return mVideoFrameLimit; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mVideoFrameLimit != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mVideoFrameLimit = value; }
+        }
 
-        public WindowAction WindowAction { get; set; }
+        private Boolean mSaveVideo;
+
+        public Boolean SaveVideo
+        {
+            get { return mSaveVideo; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mSaveVideo != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mSaveVideo = value; }
+        }
+
+        private MouseMode mMouseMode;
+
+        public MouseMode MouseMode
+        {
+            get { return mMouseMode; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mMouseMode != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mMouseMode = value; }
+        }
+
+        private Boolean mMoveMouseBeforeAction;
+
+        public Boolean MoveMouseBeforeAction
+        {
+            get { return mMoveMouseBeforeAction; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mMoveMouseBeforeAction != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mMoveMouseBeforeAction = value; }
+        }
+
+        private WindowAction mWindowAction;
+
+        public WindowAction WindowAction
+        {
+            get { return mWindowAction; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mWindowAction != value)
+                    {
+                        mIsDirty = true;
+                    }
+                }
+                mWindowAction = value; }
+        }
 
         public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, ThreadManager threadManager)
         {
@@ -377,7 +943,7 @@ namespace AppTestStudio
             String PathToApplicationExe = "";
 
             MouseMode ClickMode = MouseMode.Passive;
-            
+
             WindowNameFilterType ApplicationPrimaryWindowFilter = AppTestStudio.WindowNameFilterType.Equals;
             WindowNameFilterType ApplicationSecondaryWindowFilter = AppTestStudio.WindowNameFilterType.Equals;
             WindowNameFilterType SteamPrimaryWindowFilter = AppTestStudio.WindowNameFilterType.Equals;
@@ -403,7 +969,7 @@ namespace AppTestStudio
                 }
                 catch (Exception ex)
                 {
-                    Debug.WriteLine(ex.Message);         
+                    Debug.WriteLine(ex.Message);
                 }
             }
 
@@ -698,7 +1264,7 @@ namespace AppTestStudio
                             break;
                         case "PASSIVE":
                             ClickMode = MouseMode.Passive;
-                            break;           
+                            break;
                         default:
                             ClickMode = MouseMode.Passive;
                             break;
@@ -780,7 +1346,7 @@ namespace AppTestStudio
                             WindowAction = WindowAction.DoNothing;
                             break;
                         default:
-                            WindowAction = WindowAction.ActivateWindow; 
+                            WindowAction = WindowAction.ActivateWindow;
                             break;
                     }
                 }
@@ -791,6 +1357,7 @@ namespace AppTestStudio
             }
 
             GameNodeGame Game = new GameNodeGame(GameName, threadManager);
+            Game.IsLoading = true;
             Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
 
@@ -836,7 +1403,7 @@ namespace AppTestStudio
                         if (Registry.GuestList.Count > 0)
                         {
                             // Last
-                            Game.BlueGuest = Registry.GuestList[Registry.GuestList.Count-1];
+                            Game.BlueGuest = Registry.GuestList[Registry.GuestList.Count - 1];
                             Game.BlueStacksWindowName = Game.BlueGuest.WindowTitle;
                         }
                     }
@@ -873,7 +1440,7 @@ namespace AppTestStudio
             {
                 LoadObjects(childNode.ChildNodes[1], Objects, GameName, ActionNodesWithObjects, Game);
             }
-
+            Game.IsLoading = false;
             return Game;
         }
 
@@ -927,7 +1494,7 @@ namespace AppTestStudio
                 case Platform.Steam:
                     Writer.WriteAttributeString("SteamID", SteamID.ToString());
                     Writer.WriteAttributeString("SteamPrimaryWindowName", SteamPrimaryWindowName);
-                    Writer.WriteAttributeString("SteamPrimaryWindowFilter", SteamPrimaryWindowFilter.ToEnumString()) ;
+                    Writer.WriteAttributeString("SteamPrimaryWindowFilter", SteamPrimaryWindowFilter.ToEnumString());
                     Writer.WriteAttributeString("SteamSecondaryWindowName", SteamSecondaryWindowName);
                     Writer.WriteAttributeString("SteamSecondaryWindowFilter", SteamSecondaryWindowFilter.ToEnumString());
                     break;
@@ -1439,7 +2006,7 @@ namespace AppTestStudio
 
         private void SaveObject(XmlWriter writer, GameNodeWorkspace workspaceNode, GameNodeGame gameNodeGame, GameNodeObject obj, string directory, List<String> objectList)
         {
-            if(obj.FileName == null)
+            if (obj.FileName == null)
             {
                 Log("Critical Error: Object Node:" + obj.Name + " filename is null - Unable to Save");
             }
@@ -1497,7 +2064,7 @@ namespace AppTestStudio
                             {
                                 Node.ObjectSearchBitmap = Bitmap.FromFile(FullPathP) as Bitmap;
                                 //Node.FileName = Path.GetFileName(FullPathP);
-                            }   
+                            }
                             // Don't set Object Search filename to object search filename, --Node.FileName = Path.GetFileName(FullPathP);
                         }
                     }
@@ -1520,7 +2087,7 @@ namespace AppTestStudio
                 objects.Nodes.Add(o);
             }
 
-            if(CriticalErrorCount >0)
+            if (CriticalErrorCount > 0)
             {
                 game.Log("Required Image files not found, please add them back to the Pictures folder and reload the project.");
             }

@@ -72,29 +72,6 @@ namespace AppTestStudio
             FileName = "";
         }
 
-        // Used to determine if any changes have occurred since the last checkpoint.
-        private Boolean mIsDirty;
-
-        public Boolean IsDirty
-        {
-            get { return mIsDirty; }
-            //set { mIsDirty = value; }
-        }
-
-        // Used to determine if change tracking should be calculated.
-        private Boolean mIsLoading;
-
-        public Boolean IsLoading
-        {
-            get { return mIsLoading; }
-            set { 
-                mIsLoading = value; 
-                if (value == false)
-                {
-                    mIsDirty = false;
-                }                    
-            }
-        }
 
         private AnchorMode mAnchor;
 
@@ -106,7 +83,7 @@ namespace AppTestStudio
                 {
                     if (IsLoading == false)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mAnchor = value; 
@@ -157,7 +134,7 @@ namespace AppTestStudio
             Utils.SetIcons(this);
             if (IsLoading == false)
             {
-                mIsDirty = true;
+                IsDirty = true;
             }
         }
 
@@ -178,7 +155,7 @@ namespace AppTestStudio
                 {
                     if (mLogicChoice != value)
                     {
-                        mIsDirty = true;   
+                        IsDirty = true;   
                     }
                 }
                 mLogicChoice = value;
@@ -201,7 +178,7 @@ namespace AppTestStudio
                 {
                     if (IsLoading == false)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mCustomLogic = value; 
@@ -222,7 +199,7 @@ namespace AppTestStudio
                 {
                     if (IsLoading == false)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mIsColorPoint = value;
@@ -243,7 +220,7 @@ namespace AppTestStudio
                 {
                     if (IsLoading == false)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mClickSpeed = value; 
@@ -263,7 +240,7 @@ namespace AppTestStudio
                 {
                     if (mEnabled != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mEnabled = value;
@@ -281,7 +258,7 @@ namespace AppTestStudio
                 {
                     if (mRepeatsUntilFalse != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mRepeatsUntilFalse = value; }
@@ -298,7 +275,7 @@ namespace AppTestStudio
                 {
                     if (mRepeatsUntilFalseLimit != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mRepeatsUntilFalseLimit = value; 
@@ -315,7 +292,7 @@ namespace AppTestStudio
                 {
                     if (mActionType != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mActionType = value;
@@ -340,7 +317,7 @@ namespace AppTestStudio
                             {
                                 if (mRectangle.Y != value.Y )
                                 {
-                                    mIsDirty = true;
+                                    IsDirty = true;
                                 }
                             }
                         }                        
@@ -360,7 +337,7 @@ namespace AppTestStudio
                 {
                     if (mUseParentPicture != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mUseParentPicture = value; 
@@ -377,7 +354,7 @@ namespace AppTestStudio
                 {
                     if (mObjectSearchBitmap != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mObjectSearchBitmap = value; 
@@ -394,7 +371,7 @@ namespace AppTestStudio
                 {
                     if (mResolutionWidth != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mResolutionWidth = value; 
@@ -411,7 +388,7 @@ namespace AppTestStudio
                 {
                     if (mResolutionHeight != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mResolutionHeight = value; 
@@ -429,7 +406,7 @@ namespace AppTestStudio
                 {
                     if (mObjectName != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mObjectName = value; 
@@ -446,7 +423,7 @@ namespace AppTestStudio
                 {
                     if (mFileName != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mFileName = value;
@@ -463,7 +440,7 @@ namespace AppTestStudio
                 {
                     if (mAfterCompletionType != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mAfterCompletionType = value; 
@@ -481,7 +458,7 @@ namespace AppTestStudio
                 {
                     if (mDelayMS != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mDelayMS = value; 
@@ -498,7 +475,7 @@ namespace AppTestStudio
                 {
                     if (mDelayS != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mDelayS = value; 
@@ -515,7 +492,7 @@ namespace AppTestStudio
                 {
                     if (mDelayM != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mDelayM = value; 
@@ -531,7 +508,7 @@ namespace AppTestStudio
                 {
                     if (mDelayH != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mDelayH = value;
@@ -548,7 +525,7 @@ namespace AppTestStudio
                 {
                     if (mLimitRepeats != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mLimitRepeats = value; 
@@ -565,7 +542,7 @@ namespace AppTestStudio
                 {
                     if (mLimitDelayMS != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mLimitDelayMS = value; 
@@ -581,7 +558,7 @@ namespace AppTestStudio
                 {
                     if (mLimitDelayS != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mLimitDelayS = value; 
@@ -598,7 +575,7 @@ namespace AppTestStudio
                 {
                     if (mLimitDelayM != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mLimitDelayM = value;
@@ -615,7 +592,7 @@ namespace AppTestStudio
                 {
                     if (mLimitDelayH != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mLimitDelayH = value; 
@@ -633,7 +610,7 @@ namespace AppTestStudio
                 {
                     if (mAutoBalance != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mAutoBalance = value; 
@@ -652,7 +629,7 @@ namespace AppTestStudio
                 {
                     if (mPercentage != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mPercentage = value;
@@ -670,7 +647,7 @@ namespace AppTestStudio
                 {
                     if (mIsLimited != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mIsLimited = value; 
@@ -687,7 +664,7 @@ namespace AppTestStudio
                 {
                     if (mWaitType != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mWaitType = value;
@@ -704,7 +681,7 @@ namespace AppTestStudio
                 {
                     if (mIsWaitFirst != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mIsWaitFirst = value; 
@@ -721,14 +698,12 @@ namespace AppTestStudio
                 {
                     if (mExecutionLimit != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mExecutionLimit = value;
             }
         }
-
-
 
         private Mode mMode;
         public Mode Mode
@@ -740,7 +715,7 @@ namespace AppTestStudio
                 {
                     if (mMode != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mMode = value;
@@ -762,7 +737,7 @@ namespace AppTestStudio
                 {
                     if (mPoints != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mPoints = value; 
@@ -784,7 +759,7 @@ namespace AppTestStudio
                 {
                     if (mClickDragReleaseMode != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mClickDragReleaseMode = value; 
@@ -801,7 +776,7 @@ namespace AppTestStudio
                 {
                     if (mClickDragReleaseStartHeight != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mClickDragReleaseStartHeight = value; 
@@ -818,7 +793,7 @@ namespace AppTestStudio
                 {
                     if (mClickDragReleaseStartWidth != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mClickDragReleaseStartWidth = value; 
@@ -835,7 +810,7 @@ namespace AppTestStudio
                 {
                     if (mClickDragReleaseEndHeight != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mClickDragReleaseEndHeight = value;             
@@ -852,7 +827,7 @@ namespace AppTestStudio
                 {
                     if (mClickDragReleaseEndWidth != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mClickDragReleaseEndWidth = value; 
@@ -869,7 +844,7 @@ namespace AppTestStudio
                 {
                     if (mClickDragReleaseVelocity != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mClickDragReleaseVelocity = value;
@@ -887,7 +862,7 @@ namespace AppTestStudio
                 {
                     if (mRuntimeOncePerSession != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mRuntimeOncePerSession = value;
@@ -905,7 +880,7 @@ namespace AppTestStudio
                 {
                     if (mRuntimeWaitFirst != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mRuntimeWaitFirst = value;
@@ -923,7 +898,7 @@ namespace AppTestStudio
                 {
                     if (mRuntimeIterationsLeft != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mRuntimeIterationsLeft = value;
@@ -941,7 +916,7 @@ namespace AppTestStudio
                 {
                     if (mRuntimeNextAllowedTime != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mRuntimeNextAllowedTime = value;
@@ -959,7 +934,7 @@ namespace AppTestStudio
                 {
                     if (mChannel != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mChannel = value; }
@@ -976,7 +951,7 @@ namespace AppTestStudio
                 {
                     if (mObjectThreshold != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 
@@ -994,7 +969,7 @@ namespace AppTestStudio
                 {
                     if (mRelativeXOffset != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mRelativeXOffset = value; }
@@ -1011,7 +986,7 @@ namespace AppTestStudio
                 {
                     if (mRelativeYOffset != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mRelativeYOffset = value; }
@@ -1032,7 +1007,7 @@ namespace AppTestStudio
                 {
                     if (mFromCurrentMousePos != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mFromCurrentMousePos = value; }
@@ -1069,7 +1044,7 @@ namespace AppTestStudio
                 {
                     if (mBitmap != value)
                     {
-                        mIsDirty = true;
+                        IsDirty = true;
                     }
                 }
                 mBitmap = value;
@@ -1856,7 +1831,7 @@ namespace AppTestStudio
 
         public void FlagAsDirty()
         {
-            mIsDirty = true;
+            IsDirty = true;
         }
     }
 }
