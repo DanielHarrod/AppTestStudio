@@ -23,6 +23,9 @@ using System.Windows.Forms;
  * UPdate GameNodeGame.SaveEvents
  * Update GameNodeGame.LoadAction
  * Update frmMain.LoadPanelSingleColorAtSingleLocation to populate forms.
+ * 
+ * Information on using masking on template.
+ * https://docs.opencv.org/3.4/de/da9/tutorial_template_matching.html
  */
 
 
