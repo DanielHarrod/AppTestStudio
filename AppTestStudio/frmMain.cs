@@ -462,7 +462,7 @@ namespace AppTestStudio
             {
                 if (tv.Nodes[0].Nodes.Count > 0)
                 {
-                    GameNode gameNode= GetGameNode();
+                    GameNode gameNode = GetGameNode();
                     if (gameNode.IsAnythingDirty())
                     {
                         frmLoadCheck LoadCheck = new frmLoadCheck();
@@ -1273,7 +1273,7 @@ namespace AppTestStudio
 
             lblResolution.Text = GameNode.ResolutionWidth + "x" + GameNode.ResolutionHeight;
             IsPanelLoading = false;
-          
+
 
             RefreshInformation(GameNode);
 
@@ -1405,7 +1405,7 @@ namespace AppTestStudio
                 return;
             }
             LoadEventObjectList();
-            
+
             LoadObjectSelectionImage();
             if (EventNode.ObjectName == "")
             {
@@ -2466,7 +2466,7 @@ namespace AppTestStudio
                     //'  if (e.Y > PictureBox1Rectangle.Y ) {
                     rect.Height = e.Y - rect.Y;
                     //' }
-                    
+
                     pb.Refresh();
                     return true;
                 }
@@ -6042,7 +6042,7 @@ namespace AppTestStudio
         }
 
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
-        {                        
+        {
             try
             {
                 if (PanelLoadNode.IsSomething())
@@ -7117,44 +7117,54 @@ namespace AppTestStudio
         int FlowLayoutPanelColorEvent2OriginWidth = 0;
         private void cmdFlowLayoutPanelColorEvent2_Click(object sender, EventArgs e)
         {
-            if (FlowLayoutPanelColorEvent2OriginWidth == 0)
+            try
             {
-                FlowLayoutPanelColorEvent2OriginWidth = cmdFlowLayoutPanelColorEvent2.Width;
+
+
+
+                if (FlowLayoutPanelColorEvent2OriginWidth == 0)
+                {
+                    FlowLayoutPanelColorEvent2OriginWidth = cmdFlowLayoutPanelColorEvent2.Width;
+                }
+                // Original Size is 300 first, 290 second.
+                if (cmdFlowLayoutPanelColorEvent2.Text == "<<  ")
+                {
+                    // Hide section
+                    panelRightColorAtPointerOriginalVisible = panelRightColorAtPointer.Visible;
+                    panelRightLimitOriginalVisible = panelRightLimit.Visible;
+                    panelRightAnchorOriginalVisible = panelRightAnchor.Visible;
+                    panelRightOffsetOriginalVisible = panelRightOffset.Visible;
+                    panelRightDragModeOriginalVisible = panelRightDragMode.Visible;
+
+                    cmdFlowLayoutPanelColorEvent2.Text = ">>  ";
+                    cmdFlowLayoutPanelColorEvent2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+
+                    // Third column
+                    tableColorEvent.ColumnStyles[2].Width = 30;
+
+                    panelRightColorAtPointer.Visible = false;
+                    panelRightLimit.Visible = false;
+                    panelRightAnchor.Visible = false;
+                    panelRightOffset.Visible = false;
+                    panelRightDragMode.Visible = false;
+                }
+                else
+                {
+                    cmdFlowLayoutPanelColorEvent2.Text = "<<  ";
+                    cmdFlowLayoutPanelColorEvent2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+
+                    tableColorEvent.ColumnStyles[2].Width = FlowLayoutPanelColorEvent2OriginWidth;
+
+                    panelRightColorAtPointer.Visible = panelRightColorAtPointerOriginalVisible;
+                    panelRightLimit.Visible = panelRightLimitOriginalVisible;
+                    panelRightAnchor.Visible = panelRightAnchorOriginalVisible;
+                    panelRightOffset.Visible = panelRightOffsetOriginalVisible;
+                    panelRightDragMode.Visible = panelRightDragModeOriginalVisible;
+                }
             }
-            // Original Size is 300 first, 290 second.
-            if (cmdFlowLayoutPanelColorEvent2.Text == "<<  ")
+            catch (Exception ex)
             {
-                // Hide section
-                panelRightColorAtPointerOriginalVisible = panelRightColorAtPointer.Visible;
-                panelRightLimitOriginalVisible = panelRightLimit.Visible;
-                panelRightAnchorOriginalVisible = panelRightAnchor.Visible;
-                panelRightOffsetOriginalVisible = panelRightOffset.Visible;
-                panelRightDragModeOriginalVisible = panelRightDragMode.Visible;
-
-                cmdFlowLayoutPanelColorEvent2.Text = ">>  ";
-                cmdFlowLayoutPanelColorEvent2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-
-                // Third column
-                tableColorEvent.ColumnStyles[2].Width = 30;
-
-                panelRightColorAtPointer.Visible = false;
-                panelRightLimit.Visible = false;
-                panelRightAnchor.Visible = false;
-                panelRightOffset.Visible = false;
-                panelRightDragMode.Visible = false;
-            }
-            else
-            {
-                cmdFlowLayoutPanelColorEvent2.Text = "<<  ";
-                cmdFlowLayoutPanelColorEvent2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-
-                tableColorEvent.ColumnStyles[2].Width = FlowLayoutPanelColorEvent2OriginWidth;
-
-                panelRightColorAtPointer.Visible = panelRightColorAtPointerOriginalVisible;
-                panelRightLimit.Visible = panelRightLimitOriginalVisible;
-                panelRightAnchor.Visible = panelRightAnchorOriginalVisible;
-                panelRightOffset.Visible = panelRightOffsetOriginalVisible;
-                panelRightDragMode.Visible = panelRightDragModeOriginalVisible;
+                Log("cmdFlowLayoutPanelColorEvent2_Click:" + ex.Message);
             }
         }
 
@@ -7167,7 +7177,7 @@ namespace AppTestStudio
             }
             catch (Exception ex)
             {
-                Log(ex.Message);
+                Log("txtSteamSecondaryWindowName_TextChanged:" + ex.Message);
             }
         }
 
@@ -7180,11 +7190,9 @@ namespace AppTestStudio
             }
             catch (Exception ex)
             {
-                Log(ex.Message);
+                Log("txtApplicationSecondaryWindowName_TextChanged:" + ex.Message);
             }
         }
-
-
 
         private void cboApplicationPrimaryWindowNameFilter_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -7198,7 +7206,7 @@ namespace AppTestStudio
             }
             catch (Exception ex)
             {
-                Log(ex.Message);
+                Log("cboApplicationPrimaryWindowNameFilter_SelectedIndexChanged:" + ex.Message);
             }
         }
 
@@ -7214,7 +7222,7 @@ namespace AppTestStudio
             }
             catch (Exception ex)
             {
-                Log(ex.Message);
+                Log("cboApplicationSecondaryWindowNameFilter_SelectedIndexChanged:" + ex.Message);
             }
         }
 
@@ -7230,7 +7238,7 @@ namespace AppTestStudio
             }
             catch (Exception ex)
             {
-                Log(ex.Message);
+                Log("cboSteamPrimaryWindowNameFilter_SelectedIndexChanged:" + ex.Message);
             }
         }
 
@@ -7246,37 +7254,51 @@ namespace AppTestStudio
             }
             catch (Exception ex)
             {
-                Log(ex.Message);
+                Log("cboSteamSecondaryWindowNameFilter_SelectedIndexChanged:" + ex.Message);
             }
         }
 
         private void cmdSteamWindowWizard_Click(object sender, EventArgs e)
         {
-            frmWindowWizard WindowWizard = new frmWindowWizard(txtSteamPrimaryWindowName.Text, txtSteamSecondaryWindowName.Text, cboSteamPrimaryWindowNameFilter.Text, cboSteamSecondaryWindowNameFilter.Text);
-            WindowWizard.StartPosition = FormStartPosition.CenterParent;
-            WindowWizard.ShowDialog();
-
-            if (WindowWizard.UseValues)
+            try
             {
-                txtSteamPrimaryWindowName.Text = WindowWizard.lblChangePrimaryWindowName.Text;
-                txtSteamSecondaryWindowName.Text = WindowWizard.lblChangeSecondaryWindowName.Text;
-                cboSteamPrimaryWindowNameFilter.Text = WindowWizard.lblChangePrimaryWindowFilter.Text;
-                cboSteamSecondaryWindowNameFilter.Text = WindowWizard.lblChangeSecondaryWindowFilter.Text;
+                frmWindowWizard WindowWizard = new frmWindowWizard(txtSteamPrimaryWindowName.Text, txtSteamSecondaryWindowName.Text, cboSteamPrimaryWindowNameFilter.Text, cboSteamSecondaryWindowNameFilter.Text);
+                WindowWizard.StartPosition = FormStartPosition.CenterParent;
+                WindowWizard.ShowDialog();
+
+                if (WindowWizard.UseValues)
+                {
+                    txtSteamPrimaryWindowName.Text = WindowWizard.lblChangePrimaryWindowName.Text;
+                    txtSteamSecondaryWindowName.Text = WindowWizard.lblChangeSecondaryWindowName.Text;
+                    cboSteamPrimaryWindowNameFilter.Text = WindowWizard.lblChangePrimaryWindowFilter.Text;
+                    cboSteamSecondaryWindowNameFilter.Text = WindowWizard.lblChangeSecondaryWindowFilter.Text;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("cmdSteamWindowWizard_Click:" + ex.Message);
             }
         }
 
         private void cmdApplicationWindowWizard_Click(object sender, EventArgs e)
         {
-            frmWindowWizard WindowWizard = new frmWindowWizard(txtApplicationPrimaryWindowName.Text, txtApplicationSecondaryWindowName.Text, cboApplicationPrimaryWindowNameFilter.Text, cboApplicationSecondaryWindowNameFilter.Text);
-            WindowWizard.StartPosition = FormStartPosition.CenterParent;
-            WindowWizard.ShowDialog();
-
-            if (WindowWizard.UseValues)
+            try
             {
-                txtApplicationPrimaryWindowName.Text = WindowWizard.lblChangePrimaryWindowName.Text;
-                txtApplicationSecondaryWindowName.Text = WindowWizard.lblChangeSecondaryWindowName.Text;
-                cboApplicationPrimaryWindowNameFilter.Text = WindowWizard.lblChangePrimaryWindowFilter.Text;
-                cboApplicationSecondaryWindowNameFilter.Text = WindowWizard.lblChangeSecondaryWindowFilter.Text;
+                frmWindowWizard WindowWizard = new frmWindowWizard(txtApplicationPrimaryWindowName.Text, txtApplicationSecondaryWindowName.Text, cboApplicationPrimaryWindowNameFilter.Text, cboApplicationSecondaryWindowNameFilter.Text);
+                WindowWizard.StartPosition = FormStartPosition.CenterParent;
+                WindowWizard.ShowDialog();
+
+                if (WindowWizard.UseValues)
+                {
+                    txtApplicationPrimaryWindowName.Text = WindowWizard.lblChangePrimaryWindowName.Text;
+                    txtApplicationSecondaryWindowName.Text = WindowWizard.lblChangeSecondaryWindowName.Text;
+                    cboApplicationPrimaryWindowNameFilter.Text = WindowWizard.lblChangePrimaryWindowFilter.Text;
+                    cboApplicationSecondaryWindowNameFilter.Text = WindowWizard.lblChangeSecondaryWindowFilter.Text;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("cmdApplicationWindowWizard_Click:" + ex.Message);
             }
         }
 
@@ -7325,41 +7347,62 @@ namespace AppTestStudio
 
         private void newToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MenuLaunchWizard();
+            try
+            {
+                MenuLaunchWizard();
+            }
+            catch (Exception ex)
+            {
+                Log("newToolStripMenuItem_Click:" + ex.Message);
+            }
         }
 
         private void txtBluePackageName_TextChanged(object sender, EventArgs e)
         {
-            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
-            if (Game.IsSomething())
+            try
             {
-                Game.PackageName = txtBluePackageName.Text.Trim();
-                if (Game.PackageName.Length > 0)
+                GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+                if (Game.IsSomething())
                 {
-                    toolStripButtonRunStartLaunch.Enabled = true;
-                    toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                    Game.PackageName = txtBluePackageName.Text.Trim();
+                    if (Game.PackageName.Length > 0)
+                    {
+                        toolStripButtonRunStartLaunch.Enabled = true;
+                        toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
+                    }
+                    else
+                    {
+                        toolStripButtonRunStartLaunch.Enabled = false;
+                        toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
+                    }
                 }
-                else
-                {
-                    toolStripButtonRunStartLaunch.Enabled = false;
-                    toolStripButtonStartEmmulatorLaunchApp.Enabled = false;
-                }
+            }
+            catch (Exception ex)
+            {
+                Log("txtBluePackageName_TextChanged:" + ex.Message);
             }
         }
 
         private void cboBlueInstance_SelectedIndexChanged(object sender, EventArgs e)
         {
-            GameNodeGame Game = tv.SelectedNode as GameNodeGame;
-            if (Game.IsSomething())
+            try
             {
-                foreach (BlueGuest Guest in BlueRegistry.GuestList)
+                GameNodeGame Game = tv.SelectedNode as GameNodeGame;
+                if (Game.IsSomething())
                 {
-                    if (cboBlueInstance.Text == Guest.BitDashDisplayName)
+                    foreach (BlueGuest Guest in BlueRegistry.GuestList)
                     {
-                        Game.BlueGuest = Guest.CloneMe();
-                        Game.BlueStacksWindowName = Guest.DisplayName;
+                        if (cboBlueInstance.Text == Guest.BitDashDisplayName)
+                        {
+                            Game.BlueGuest = Guest.CloneMe();
+                            Game.BlueStacksWindowName = Guest.DisplayName;
+                        }
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Log("cboBlueInstance_SelectedIndexChanged:" + ex.Message);
             }
         }
 
@@ -7392,105 +7435,119 @@ namespace AppTestStudio
         frmNotify frmNotify;
         private void GlobalMouseKeyHook_KeyDown(object sender, KeyEventArgs e)
         {
-            // Not sure why this fires true for F5 sometimes.
-            if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.F1))
+            try
             {
-                try
+                // Not sure why this fires true for F5 sometimes.
+                if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.F1))
                 {
-                    String KeyDatavalue = e.KeyData.ToString();
-                    if (KeyDatavalue.Contains("F1"))
+                    try
                     {
-                        AddNewEvent();
-                        tabDesign.Show();
+                        String KeyDatavalue = e.KeyData.ToString();
+                        if (KeyDatavalue.Contains("F1"))
+                        {
+                            AddNewEvent();
+                            tabDesign.Show();
+                        }
                     }
-                }
-                catch (Exception ex)
-                {
-                    Log("GlobalMouseKeyHook_KeyDown F1:" + ex.Message);
-                }
-                e.Handled = true;
-            }
-            if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.Escape))
-            {
-                Log("The Claw[Ctrl+Alt+Shift] + Escape - Pressed");
-                e.Handled = true;
-
-                Boolean RunningThreadDetected = false;
-
-                foreach (GameNodeGame game in ThreadManager.Games)
-                {
-                    if (game.IsPaused == false)
+                    catch (Exception ex)
                     {
-                        RunningThreadDetected = true;
-
-                        // if any thread is running then pause them all
-                        SetThreadPauseState(true);
-
-                        // since we paused all threads we can stop checking.
+                        Log("GlobalMouseKeyHook_KeyDown F1:" + ex.Message);
                     }
+                    e.Handled = true;
                 }
-
-
-                if (RunningThreadDetected)
+                if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.Escape))
                 {
-                    // We aren't already notifying.
-                    if (IsNotifying == false)
-                    {
-                        // prevent reentry until completed
-                        IsNotifying = true;
+                    Log("The Claw[Ctrl+Alt+Shift] + Escape - Pressed");
+                    e.Handled = true;
 
-                        // show a center screen popup to notify that we shutdown.
-                        frmNotify = new frmNotify(3000);
-                        frmNotify.LetsQuit += FrmNotify_LetsQuit;
+                    Boolean RunningThreadDetected = false;
 
-                        Utils.ShowInactiveTopmostFormCenterScreen(frmNotify);
-                    }
-                }
-                else
-                {
-                    Log("There was not any threads that were running.");
-                }
-            }
-
-            if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.F5))
-            {
-                Log("The Claw[Ctrl+Alt+Shift] + F5 - Pressed");
-                e.Handled = true;
-
-                Boolean IsThereAnyThreadsRunning = false;
-                foreach (GameNodeGame game in ThreadManager.Games)
-                {
-                    if (game.IsSomething())
+                    foreach (GameNodeGame game in ThreadManager.Games)
                     {
                         if (game.IsPaused == false)
                         {
-                            IsThereAnyThreadsRunning = true;
-                        }
+                            RunningThreadDetected = true;
 
-                        if (IsThereAnyThreadsRunning)
-                        {
-                            // Pause all threads
+                            // if any thread is running then pause them all
                             SetThreadPauseState(true);
+
+                            // since we paused all threads we can stop checking.
                         }
-                        else
+                    }
+
+
+                    if (RunningThreadDetected)
+                    {
+                        // We aren't already notifying.
+                        if (IsNotifying == false)
                         {
-                            // Resume all threads
-                            SetThreadPauseState(false);
+                            // prevent reentry until completed
+                            IsNotifying = true;
+
+                            // show a center screen popup to notify that we shutdown.
+                            frmNotify = new frmNotify(3000);
+                            frmNotify.LetsQuit += FrmNotify_LetsQuit;
+
+                            Utils.ShowInactiveTopmostFormCenterScreen(frmNotify);
                         }
                     }
                     else
                     {
-                        Log("There were not any running scripts.");
+                        Log("There was not any threads that were running.");
                     }
                 }
+
+                if (e.KeyData.HasFlag(Keys.Control | Keys.Shift | Keys.Alt | Keys.F5))
+                {
+                    Log("The Claw[Ctrl+Alt+Shift] + F5 - Pressed");
+                    e.Handled = true;
+
+                    Boolean IsThereAnyThreadsRunning = false;
+                    foreach (GameNodeGame game in ThreadManager.Games)
+                    {
+                        if (game.IsSomething())
+                        {
+                            if (game.IsPaused == false)
+                            {
+                                IsThereAnyThreadsRunning = true;
+                            }
+
+                            if (IsThereAnyThreadsRunning)
+                            {
+                                // Pause all threads
+                                SetThreadPauseState(true);
+                            }
+                            else
+                            {
+                                // Resume all threads
+                                SetThreadPauseState(false);
+                            }
+                        }
+                        else
+                        {
+                            Log("There were not any running scripts.");
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("GlobalMouseKeyHook_KeyDown:" + ex.Message);
             }
         }
 
         private void FrmNotify_LetsQuit(object sender, EventArgs e)
         {
-            frmNotify.Dispose();
-            frmNotify = null;
-            IsNotifying = false;
+            try
+            {
+                frmNotify.Dispose();
+                frmNotify = null;
+                IsNotifying = false;
+            }
+            catch (Exception ex)
+            {
+                Log("FrmNotify_LetsQuit:" + ex.Message);
+            }
         }
         private void Notify_threadDone(object sender, EventArgs e)
         {
