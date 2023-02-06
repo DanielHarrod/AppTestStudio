@@ -4771,20 +4771,26 @@ namespace AppTestStudio
             {
                 GameNodeAction Event = new GameNodeAction("New Event", ActionType.Event);
 
-                GameNodeEvents gne = GetGameNodeEvents();
-                GameNode gn = GetGameNode();
-                GameNodeObjects gno = GetGameNodeObjects();
+                GameNodeEvents gameNodeEvents = GetGameNodeEvents();
+                GameNode gameNode = GetGameNode();
+                GameNodeObjects gameNodeObjects = GetGameNodeObjects();
+                GameNodeWorkspace gameNodeWorkspace = tv.Nodes[0] as GameNodeWorkspace;
 
                 GameNode TargetParentNode = tv.SelectedNode as GameNode;
                 // TODO find other nodes that are not valid.
-                if (TargetParentNode == gn)
+                if (TargetParentNode == gameNode)
                 {
-                    TargetParentNode = gne;
+                    TargetParentNode = gameNodeEvents;
                 }
 
-                if (TargetParentNode == gno)
+                if (TargetParentNode == gameNodeObjects)
                 {
-                    TargetParentNode = gne;
+                    TargetParentNode = gameNodeEvents;
+                }
+
+                if (TargetParentNode == gameNodeWorkspace)
+                {
+                    TargetParentNode = gameNodeEvents;
                 }
 
                 // Need to make sure this isn't the 
