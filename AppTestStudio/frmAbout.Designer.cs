@@ -89,7 +89,7 @@ namespace AppTestStudio
             this.lblCopyRight.Name = "lblCopyRight";
             this.lblCopyRight.Size = new System.Drawing.Size(186, 13);
             this.lblCopyRight.TabIndex = 4;
-            this.lblCopyRight.Text = "Copyright(C) 2016-2022 Daniel Harrod";
+            this.lblCopyRight.Text = "Copyright(C) 2016-2023 Daniel Harrod";
             // 
             // cmdClose
             // 
