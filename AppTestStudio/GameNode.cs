@@ -144,6 +144,12 @@ namespace AppTestStudio
                 //case GameNodeType.Object:
                 //    break;
                 default:
+
+                    // If we don't have a node with parents
+                    if (Nodes.Count > 0)
+                    {
+                        return Nodes[0] as GameNodeGame;
+                    }
                     // Walk up the parents until it's found.
                     GameNode Node = this;
                     while (Node is GameNodeGame == false)
