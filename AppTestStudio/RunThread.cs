@@ -630,8 +630,7 @@ namespace AppTestStudio
                         if (node.RuntimeIterationsLeft > 0)
                         {
                             node.RuntimeIterationsLeft = node.RuntimeIterationsLeft - 1;
-                            //'Game.Log("Iteration Limit " & Node.RuntimeIterationsLeft)
-                            return AfterCompletionType.Continue;
+                            return AfterCompletionType.ContinueProcess;
                         }
                         else
                         {
@@ -868,14 +867,7 @@ namespace AppTestStudio
             switch (node.WaitType)
             {
                 case WaitType.Iteration:
-                    if (node.IsWaitFirst)
-                    {
                         node.RuntimeIterationsLeft = node.ExecutionLimit;
-                    }
-                    else
-                    {
-                        node.RuntimeIterationsLeft = 0;
-                    }
 
                     if (node.ExecutionLimit == 0)
                     {
