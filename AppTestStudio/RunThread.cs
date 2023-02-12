@@ -867,7 +867,7 @@ namespace AppTestStudio
             switch (node.WaitType)
             {
                 case WaitType.Iteration:
-                        node.RuntimeIterationsLeft = node.ExecutionLimit;
+                        node.RuntimeIterationsLeft = node.ExecutionLimit-1;
 
                     if (node.ExecutionLimit == 0)
                     {
