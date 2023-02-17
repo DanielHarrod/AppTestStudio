@@ -4300,7 +4300,7 @@ namespace AppTestStudio
                         lblLimitIterationsLabel.Visible = true;
                         numIterations.Visible = true;
                         chkLimitRepeats.Visible = true;
-                        chkWaitFirst.Visible = false;
+                        chkWaitFirst.Visible = true;
                         break;
                     case "Time":
                         lblLimitTimeLabel.Visible = true;
