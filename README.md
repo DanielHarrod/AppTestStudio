@@ -5,8 +5,8 @@ AppTestStudio (ATS) is a automated development environment, you can builder, tes
 
 Quickly and interactively create automated actions by building Events either with pixel color matching, or using OpenCV image matching.  Then attach actions to the events such as clicking or dragging.
 
-## Current issues
-1. The multi processing (multiple scripts at the same time) was removed now only a single script can be run at one time.  It was too confusing for some users which made the experience frustrating.  If multiple concurrent scripts are needed just run an additional instance of ATS.
+## Finally a Comlete Tutorial 
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/EhkhOTcd-qA/0.jpg)](http://www.youtube.com/watch?v=EhkhOTcd-qA&list=PLGVepuRQwnsIoVy6SJaZwBS5-b9AEGExs "App Test Studio")
 
 ## Getting Started
 1. Install [NoxPlayer](https://www.bignox.com/) 
