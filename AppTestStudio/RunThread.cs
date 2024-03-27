@@ -95,8 +95,6 @@ namespace AppTestStudio
             return bmp;
         }
 
-
-
         private void StopThreadCloseWindow(GameNode node, IntPtr windowHandle, Boolean AbortThread)
         {
             Game.Log(node.GameNodeName + ":" + "Stop Thread");
@@ -258,7 +256,6 @@ namespace AppTestStudio
                                 {
                                     if (node.FromCurrentMousePos)
                                     {
-                                        Game.MoveMouseBeforeAction = false;
                                         API.GetCursorPos(out API.Point point);
                                         Game.MouseX = (short)point.X;
                                         Game.MouseY = (short)point.Y;
@@ -268,7 +265,7 @@ namespace AppTestStudio
                                 }
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
                                 int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                                Utils.ClickOnWindow(WindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
+                                Utils.ClickOnWindow(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
                                 Game.MouseX = (short)Result.x;
                                 Game.MouseY = (short)Result.y;
 
