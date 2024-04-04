@@ -504,15 +504,17 @@ namespace AppTestStudio
         }
         public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond, EasingFunctionBase easingFunction = null)
         {
-             API.RECT TargetWindowRectangle;
+            Debug.WriteLine($"MoveMouseActiveFromSystemPosition(windowHandle={windowHandle}, mouseEventFlags={mouseEventFlags}, xClientTarget={xClientTarget}, yClientTarget={yClientTarget}, mouseSpeedPixelsPerSecond={mouseSpeedPixelsPerSecond}, easingFunction=...");
+            API.RECT TargetWindowRectangle;
             Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
 
+            Debug.WriteLine(TargetWindowRectangle.ToString());
             RECT ClientRect;
             API.GetClientRect(windowHandle, out ClientRect);
 
             short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
-            short ySystemTarget = (yClientTarget + +TargetWindowRectangle.Top).ToShort();
+            short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
 
             GetCursorPos(out API.Point point);
             int xStart = point.X;
@@ -575,8 +577,6 @@ namespace AppTestStudio
                     double CurrentXPosition = xStart + (xDistance * CurrentPercent);
                     double CurrentYPosition = yStart + (yDistance * CurrentPercent);
 
-                    Debug.WriteLine("CA:" + CurrentAction + ", NOA: " + NumberOfActions);
-
                     AbsoluteX = CalculateAbsoluteCoordinateX(CurrentXPosition);
                     AbsoluteY = CalculateAbsoluteCoordinateY(CurrentYPosition);
 
@@ -586,6 +586,8 @@ namespace AppTestStudio
 
                     //Debug.WriteLine(CurrentX + "x:" + CurrentXPosition);
                     //Debug.WriteLine(CurrentY + "y:" + CurrentYPosition);
+
+                    //Debug.WriteLine($"CA: {CurrentAction}, NOA: {NumberOfActions}, X={CurrentXPosition}, Y={CurrentYPosition}");
 
                     MouseMove.Type = INPUT_MOUSE;
                     MouseMove.u.MouseInput.X = AbsoluteX;
@@ -606,6 +608,7 @@ namespace AppTestStudio
                 }
             }
 
+            // Send the final mouse move position
             AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
             AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
 
@@ -832,6 +835,7 @@ namespace AppTestStudio
             int AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
             int AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
 
+            Debug.Write($"AbsoluteX={AbsoluteX},AbsoluteY={AbsoluteY}");
             int INPUT_MOUSE = 0;
             Input MouseMove = new Input();
             MouseMove.Type = INPUT_MOUSE;
