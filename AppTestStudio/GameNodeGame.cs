@@ -1575,6 +1575,7 @@ namespace AppTestStudio
 
                         //*Add New Attributes above here*//
 
+
                         if (Activites.Mode == Mode.ClickDragRelease)
                         {
                             Writer.WriteStartElement("ClickDragRelease");
@@ -1585,6 +1586,19 @@ namespace AppTestStudio
                             Writer.WriteAttributeString("EndHeight", Activites.ClickDragReleaseEndHeight.ToString());
                             Writer.WriteAttributeString("EndWidth", Activites.ClickDragReleaseEndWidth.ToString());
                             //'ClickDragRelease
+                            Writer.WriteEndElement();
+                        }
+
+                        if (Activites.Mode == Mode.MouseMove)
+                        {
+                            Writer.WriteStartElement("MouseMove");
+                            Writer.WriteAttributeString("Mode", Activites.ClickDragReleaseMode.ToString());
+                            Writer.WriteAttributeString("Velocity", Activites.ClickDragReleaseVelocity.ToString());
+                            Writer.WriteAttributeString("StartHeight", Activites.ClickDragReleaseStartHeight.ToString());
+                            Writer.WriteAttributeString("StartWidth", Activites.ClickDragReleaseStartWidth.ToString());
+                            Writer.WriteAttributeString("EndHeight", Activites.ClickDragReleaseEndHeight.ToString());
+                            Writer.WriteAttributeString("EndWidth", Activites.ClickDragReleaseEndWidth.ToString());
+                            //'MouseMove
                             Writer.WriteEndElement();
                         }
 
@@ -2611,13 +2625,12 @@ namespace AppTestStudio
             }
             treeActionNode.FromCurrentMousePos = FromCurrentMousePos;
 
-
-
             foreach (XmlNode ActionNodeChildNode in actionNode.ChildNodes)
             {
                 switch (ActionNodeChildNode.Name.ToUpper())
                 {
                     case "CLICKDRAGRELEASE":
+                    case "MOUSEMOVE":
                         if (ActionNodeChildNode.Attributes.GetNamedItem("Mode").IsSomething())
                         {
                             switch (ActionNodeChildNode.Attributes["Mode"].Value.ToString().Trim().ToUpper())
