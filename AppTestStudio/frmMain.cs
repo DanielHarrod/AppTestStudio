@@ -695,9 +695,19 @@ namespace AppTestStudio
                             if (Action.IsParentObjectSearch())
                             {
                                 panelRightOffset.Visible = true;
-                                if (Action.Mode == Mode.ClickDragRelease)
+                                switch (Action.Mode)
                                 {
-                                    panelRightDragMode.Visible = true;
+                                    case Mode.RangeClick:
+                                        // Do nothing
+                                        break;
+                                    case Mode.ClickDragRelease:
+                                        panelRightDragMode.Visible = true;
+                                        break;
+                                    case Mode.MouseMove:
+                                        panelRightDragMode.Visible = true;
+                                        break;
+                                    default:
+                                        break;
                                 }
                             }
 
@@ -718,7 +728,19 @@ namespace AppTestStudio
                                         groupBoxClickDragReleaseObjectSearch.Enabled = false;
                                         rdoObjectSearchNone.Checked = true;
                                     }
-                                    // do nothing
+                                    break;
+                                case Mode.MouseMove:
+                                    panelRightSwipeProperties.Visible = true;
+
+                                    if (Action.IsParentObjectSearch())
+                                    {
+                                        groupBoxClickDragReleaseObjectSearch.Enabled = true;
+                                    }
+                                    else
+                                    {
+                                        groupBoxClickDragReleaseObjectSearch.Enabled = false;
+                                        rdoObjectSearchNone.Checked = true;
+                                    }
                                     break;
                                 default:
                                     // do nothing
@@ -1034,13 +1056,19 @@ namespace AppTestStudio
             }
             lnkLimitTime.Text = Utils.CalculateDelay(GameNode.LimitDelayH, GameNode.LimitDelayM, GameNode.LimitDelayS, GameNode.LimitDelayMS);
 
-            if (GameNode.Mode == Mode.RangeClick)
+            switch (GameNode.Mode)
             {
-                rdoModeRangeClick.Checked = true;
-            }
-            else
-            {
-                rdoModeClickDragRelease.Checked = true;
+                case Mode.RangeClick:
+                    rdoModeRangeClick.Checked = true;
+                    break;
+                case Mode.ClickDragRelease:
+                    rdoModeClickDragRelease.Checked = true;
+                    break;
+                case Mode.MouseMove:
+                    rdoModeMove.Checked = true;
+                    break;
+                default:
+                    break;
             }
 
             chkPropertiesEnabled.Checked = GameNode.Enabled;
@@ -1281,16 +1309,24 @@ namespace AppTestStudio
 
         private void RefreshInformation(GameNodeAction Node)
         {
+            const String DrawArrowMissingMessage = "No area to click has been set, please draw a line from start to finish.";
+            const String DrawBoxMissingMessage = "No area to click has been set, please draw a box where the click should occur.";
             switch (Node.ActionType)
             {
                 case ActionType.Action:
+                    bool MissingCoordinates = false;
+
+                    if ((Node.Rectangle.X == 0) && (Node.Rectangle.Y == 0) && (Node.Rectangle.Width == 0) && (Node.Rectangle.Height == 0))
+                    {
+                        MissingCoordinates = true;
+                        pictureBoxInformationWarning.Visible = true;
+                    }
                     switch (Node.Mode)
                     {
                         case Mode.RangeClick:
-                            if ((Node.Rectangle.X == 0) && (Node.Rectangle.Y == 0) && (Node.Rectangle.Width == 0) && (Node.Rectangle.Height == 0))
+                            if (MissingCoordinates)
                             {
-                                pictureBoxInformationWarning.Visible = true;
-                                lblInformation.Text = "No area to click has been set, please draw a box where the click should occur.";
+                                lblInformation.Text = DrawBoxMissingMessage;
                             }
                             else
                             {
@@ -1299,11 +1335,30 @@ namespace AppTestStudio
                             }
                             break;
                         case Mode.ClickDragRelease:
+                            if (MissingCoordinates)
+                            {
+                                lblInformation.Text = DrawArrowMissingMessage;
+                            }
+                            else
+                            {
+                                pictureBoxInformationWarning.Visible = false;
+                                lblInformation.Text = "Swipe starting at (" + Node.Rectangle.X + "," + Node.Rectangle.Y + ") with Height = " + Node.Rectangle.Height + ", Width =" + Node.Rectangle.Width;
+                            }
+                            break;
+                        case Mode.MouseMove:
+                            if (MissingCoordinates)
+                            {
+                                lblInformation.Text = DrawArrowMissingMessage;
+                            }
+                            else
+                            {
+                                pictureBoxInformationWarning.Visible = false;
+                                lblInformation.Text = "Mouse Move starting at (" + Node.Rectangle.X + "," + Node.Rectangle.Y + ") with Height = " + Node.Rectangle.Height + ", Width =" + Node.Rectangle.Width;
+                            }
                             break;
                         default:
                             break;
                     }
-
                     break;
                 case ActionType.Event:
                     break;
@@ -7897,8 +7952,11 @@ namespace AppTestStudio
                                         }
                                         else
                                         {
-                                        }
-                                        // do nothing
+
+                                        }                                        
+                                        break;
+                                    case Mode.MouseMove:
+                                        RT3 = RT3 + " " + Mode.MouseMove.ToString();
                                         break;
                                     default:
                                         // do nothing
