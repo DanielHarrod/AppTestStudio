@@ -150,6 +150,19 @@ namespace AppTestStudio
 			return Interlocked.Increment(ref mClickDragRelease);
 		}
 
+		private long mMouseMove;
+
+		private long MouseMove
+		{
+			get { return mMouseMove; }
+			set { mMouseMove = value; }
+		}
+
+		public long IncrementMouseMove()
+		{
+			return Interlocked.Increment(ref mMouseMove);
+		}
+
 		private long mScreenShots;
 
 		public long ScreenShots
@@ -410,6 +423,20 @@ namespace AppTestStudio
 		public long IncrementSingleTestClickDragRelease()
 		{
 			return Interlocked.Increment(ref mSingleTestClickDragRelease);
+		}
+
+		private long mSingleTestMouseMove;
+
+		private long SingleTestMouseMove
+		{
+			get { return mSingleTestMouseMove; }
+			set { mSingleTestMouseMove = value; }
+		}
+
+		[System.Diagnostics.DebuggerStepThrough]
+		public long IncrementSingleTestMouseMove()
+		{
+			return Interlocked.Increment(ref mSingleTestMouseMove);
 		}
 
 		private long mSingleEventTest;

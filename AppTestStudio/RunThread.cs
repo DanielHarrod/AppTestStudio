@@ -281,6 +281,46 @@ namespace AppTestStudio
                             }
 
                             break;
+                        case Mode.MouseMove:
+                            GameNodeAction.ClickDragReleaseResult MouseMoveResult = node.CalculateClickDragReleaseResult(centerX, centerY);
+
+
+                            Failed = false;
+
+                            if (MouseMoveResult.StartX < 0 || MouseMoveResult.EndX < 0)
+                            {
+                                Game.Log(node.GameNodeName + " has a horizontal start positon of " + MouseMoveResult.StartX + " and a calculated end positon of " + MouseMoveResult.EndX + " please redraw, unable to move to negative position.  Aborting.");
+                                Failed = true;
+                            }
+
+                            if (MouseMoveResult.StartY < 0 || MouseMoveResult.EndY < 0)
+                            {
+                                Game.Log(node.GameNodeName + " has a vertical start positon of " + MouseMoveResult.StartY + " and a calculated end positon of " + MouseMoveResult.EndY + " please redraw, unable to move to negative position.  Aborting.");
+                                Failed = true;
+                            }
+
+                            if (Failed)
+                            {
+                                //'do nothing
+                            }
+                            else
+                            {
+                                Game.Log("MouseMove from ( x=" + MouseMoveResult.StartX + ",y = " + MouseMoveResult.StartY + " to x=" + MouseMoveResult.EndX + ",y=" + MouseMoveResult.EndY + ")");
+                                Utils.MouseMove(WindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                Game.MouseX = (short)MouseMoveResult.EndX;
+                                Game.MouseY = (short)MouseMoveResult.EndY;
+                                ThreadManager.IncrementMouseMove();
+                                node.RuntimeActionCount++;
+
+                                // Draw solution marker
+                                if (Game.SaveVideo)
+                                {
+                                    Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
+                                }
+                            }
+
+                            break;
+
                         case Mode.ClickDragRelease:
                             GameNodeAction.ClickDragReleaseResult CDRResult = node.CalculateClickDragReleaseResult(centerX, centerY);
                             // xPos = X Start Position
