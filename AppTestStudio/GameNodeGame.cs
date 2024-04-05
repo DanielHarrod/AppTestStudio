@@ -2518,6 +2518,9 @@ namespace AppTestStudio
                     case "ClickDragRelease":
                         treeActionNode.Mode = Mode.ClickDragRelease;
                         break;
+                    case "MouseMove":
+                        treeActionNode.Mode = Mode.MouseMove;
+                        break;
                     default:
                         Debug.WriteLine("Unexpected GameNodeGame.LoadAction.Mode {0}", actionNode.Attributes["Mode"].Value);
                         treeActionNode.Mode = Mode.RangeClick;
