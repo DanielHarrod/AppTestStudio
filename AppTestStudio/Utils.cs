@@ -333,7 +333,11 @@ namespace AppTestStudio
                     {
                         return;
                     }
-                    MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
+                    if (moveMouseFirst)
+                    {
+                        MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
+                    }
+                    MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.Blank, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
                     break;
                 default:
                     Debug.Assert(false);
@@ -369,6 +373,12 @@ namespace AppTestStudio
         public static int MoveMousePassive(IntPtr windowHandle, int mouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int velocityMS, int mouseInitialClickDelayMS)
         {
             return MoveMousePassive(windowHandle, mouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)velocityMS, mouseInitialClickDelayMS);
+        }
+
+        [System.Diagnostics.DebuggerStepThrough]
+        public static int MoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientStart, int yClientStart, int xClientTarget, int yClientTarget, int velocityMS, int mouseInitialClickDelayMS)
+        {
+            return MoveMouseActiveFromStartPosition(windowHandle, mouseEventFlags, (short)xClientStart, (short)yClientStart, (short)xClientTarget, (short)yClientTarget, velocityMS, mouseInitialClickDelayMS);
         }
 
         public static int MoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientStart, short yClientStart, short xClientTarget, short yClientTarget, int velocityMS, int mouseInitialClickDelayMS)
