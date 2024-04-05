@@ -320,6 +320,27 @@ namespace AppTestStudio
             API.SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWordIntptr(endX, endY));
         }
 
+        public static void MouseMove(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
+        {
+            switch (mouseMode)
+            {
+                case MouseMode.Passive:
+                    MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
+                    break;
+                case MouseMode.Active:
+                    Boolean Continue = ActivateWindowIfNecessary(windowHandle, windowAction, startX, startY);
+                    if (Continue == false)
+                    {
+                        return;
+                    }
+                    MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
+                    break;
+                default:
+                    Debug.Assert(false);
+                    break;
+            }
+        }
+
         public static void ClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
         {
             switch (mouseMode)
