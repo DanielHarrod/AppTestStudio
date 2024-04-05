@@ -4692,7 +4692,6 @@ namespace AppTestStudio
         {
             try
             {
-                PictureBox1.Refresh();
                 if (IsPanelLoading == false)
                 {
                     GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
@@ -4700,10 +4699,7 @@ namespace AppTestStudio
                     if (rdoModeRangeClick.Checked)
                     {
                         ActionNode.Mode = Mode.RangeClick;
-                    }
-                    else
-                    {
-                        ActionNode.Mode = Mode.ClickDragRelease;
+                        Debug.WriteLine($"rdoRangeClick_CheckedChanged ActionNode.Mode={ActionNode.Mode}");
                     }
                 }
 
@@ -4714,8 +4710,8 @@ namespace AppTestStudio
                     {
                         chkFromCurrentMousePos.Visible = true;
                     }
-
                 }
+                PictureBox1.Refresh();
             }
             catch (Exception ex)
             {
@@ -4726,7 +4722,6 @@ namespace AppTestStudio
 
         private void rdoModeClickDragRelease_CheckedChanged(object sender, EventArgs e)
         {
-            PictureBox1.Refresh();
             if (IsPanelLoading == false)
             {
                 //SaveClickList();
@@ -4739,6 +4734,9 @@ namespace AppTestStudio
                 {
                     panelRightSwipeProperties.Visible = true;
                     GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+
+                    ActionNode.Mode = Mode.ClickDragRelease;
+
                     if (ActionNode.IsParentObjectSearch())
                     {
                         groupBoxClickDragReleaseObjectSearch.Enabled = true;
@@ -4753,11 +4751,8 @@ namespace AppTestStudio
 
                 }
                 panelRightClickProperties.Visible = false;
-                //chkFromCurrentMousePos.Visible = false;
             }
-
-
-
+            PictureBox1.Refresh();
         }
 
         private void mnuAddEvent_Click(object sender, EventArgs e)
@@ -8222,6 +8217,48 @@ namespace AppTestStudio
             }
             catch (Exception ex)
             {
+                Log(ex.Message);
+            }
+        }
+
+        private void rdoModeMove_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
+
+                    if (rdoModeMove.Checked)
+                    {
+                        ActionNode.Mode = Mode.MouseMove;
+
+                        panelRightSwipeProperties.Visible = true;
+                        panelRightClickProperties.Visible = false;
+
+                        if (PanelLoadNode.ActionType == ActionType.Action)
+                        {
+                            chkFromCurrentMousePos.Visible = true;
+                        }
+
+                        if (ActionNode.IsParentObjectSearch())
+                        {
+                            groupBoxClickDragReleaseObjectSearch.Enabled = true;
+                            ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.Start;
+                            rdoObjectSearchStart.Checked = true;
+                        }
+                        else
+                        {
+                            groupBoxClickDragReleaseObjectSearch.Enabled = false;
+                            ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.None;
+                        }
+                    }
+                    PictureBox1.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("rdoModeMove_CheckedChanged");
                 Log(ex.Message);
             }
         }

@@ -113,6 +113,7 @@
             this.rdoColorPoint = new System.Windows.Forms.RadioButton();
             this.lblMode = new System.Windows.Forms.Label();
             this.grpMode = new System.Windows.Forms.GroupBox();
+            this.rdoModeMove = new System.Windows.Forms.RadioButton();
             this.rdoModeClickDragRelease = new System.Windows.Forms.RadioButton();
             this.rdoModeRangeClick = new System.Windows.Forms.RadioButton();
             this.cmdTest = new System.Windows.Forms.Button();
@@ -1320,7 +1321,7 @@
             this.tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelRunValues.ColumnCount = 2;
             this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 32F));
+            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue14, 0, 13);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue7, 0, 6);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue1, 0, 0);
@@ -1518,10 +1519,10 @@
             // cmdUpdateResolution
             // 
             this.cmdUpdateResolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdUpdateResolution.Location = new System.Drawing.Point(108, 148);
+            this.cmdUpdateResolution.Location = new System.Drawing.Point(105, 148);
             this.cmdUpdateResolution.Margin = new System.Windows.Forms.Padding(0);
             this.cmdUpdateResolution.Name = "cmdUpdateResolution";
-            this.cmdUpdateResolution.Size = new System.Drawing.Size(32, 20);
+            this.cmdUpdateResolution.Size = new System.Drawing.Size(35, 20);
             this.cmdUpdateResolution.TabIndex = 13;
             this.cmdUpdateResolution.Text = "...";
             this.cmdUpdateResolution.UseVisualStyleBackColor = true;
@@ -1530,10 +1531,10 @@
             // cmdRuntimeEnableToggle
             // 
             this.cmdRuntimeEnableToggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(108, 64);
+            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(105, 64);
             this.cmdRuntimeEnableToggle.Margin = new System.Windows.Forms.Padding(0);
             this.cmdRuntimeEnableToggle.Name = "cmdRuntimeEnableToggle";
-            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(32, 20);
+            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(35, 20);
             this.cmdRuntimeEnableToggle.TabIndex = 14;
             this.cmdRuntimeEnableToggle.Text = "...";
             this.cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
@@ -1611,7 +1612,7 @@
             this.grpEventMode.Controls.Add(this.lblMode);
             this.grpEventMode.Location = new System.Drawing.Point(139, 6);
             this.grpEventMode.Name = "grpEventMode";
-            this.grpEventMode.Size = new System.Drawing.Size(112, 58);
+            this.grpEventMode.Size = new System.Drawing.Size(112, 60);
             this.grpEventMode.TabIndex = 28;
             this.grpEventMode.TabStop = false;
             this.grpEventMode.Text = "Event Mode";
@@ -1652,19 +1653,32 @@
             // 
             // grpMode
             // 
+            this.grpMode.Controls.Add(this.rdoModeMove);
             this.grpMode.Controls.Add(this.rdoModeClickDragRelease);
             this.grpMode.Controls.Add(this.rdoModeRangeClick);
             this.grpMode.Location = new System.Drawing.Point(257, 6);
             this.grpMode.Name = "grpMode";
-            this.grpMode.Size = new System.Drawing.Size(64, 58);
+            this.grpMode.Size = new System.Drawing.Size(75, 60);
             this.grpMode.TabIndex = 21;
             this.grpMode.TabStop = false;
             this.grpMode.Text = "Mode";
             // 
+            // rdoModeMove
+            // 
+            this.rdoModeMove.AutoSize = true;
+            this.rdoModeMove.Location = new System.Drawing.Point(6, 41);
+            this.rdoModeMove.Name = "rdoModeMove";
+            this.rdoModeMove.Size = new System.Drawing.Size(52, 17);
+            this.rdoModeMove.TabIndex = 2;
+            this.rdoModeMove.TabStop = true;
+            this.rdoModeMove.Text = "Move";
+            this.rdoModeMove.UseVisualStyleBackColor = true;
+            this.rdoModeMove.CheckedChanged += new System.EventHandler(this.rdoModeMove_CheckedChanged);
+            // 
             // rdoModeClickDragRelease
             // 
             this.rdoModeClickDragRelease.AutoSize = true;
-            this.rdoModeClickDragRelease.Location = new System.Drawing.Point(6, 32);
+            this.rdoModeClickDragRelease.Location = new System.Drawing.Point(6, 26);
             this.rdoModeClickDragRelease.Name = "rdoModeClickDragRelease";
             this.rdoModeClickDragRelease.Size = new System.Drawing.Size(54, 17);
             this.rdoModeClickDragRelease.TabIndex = 1;
@@ -1676,7 +1690,7 @@
             // 
             this.rdoModeRangeClick.AutoSize = true;
             this.rdoModeRangeClick.Checked = true;
-            this.rdoModeRangeClick.Location = new System.Drawing.Point(6, 15);
+            this.rdoModeRangeClick.Location = new System.Drawing.Point(6, 11);
             this.rdoModeRangeClick.Name = "rdoModeRangeClick";
             this.rdoModeRangeClick.Size = new System.Drawing.Size(48, 17);
             this.rdoModeRangeClick.TabIndex = 0;
@@ -2733,7 +2747,7 @@
             this.cmdRightSwipeProperties.Name = "cmdRightSwipeProperties";
             this.cmdRightSwipeProperties.Size = new System.Drawing.Size(278, 22);
             this.cmdRightSwipeProperties.TabIndex = 13;
-            this.cmdRightSwipeProperties.Text = "Swipe Properties";
+            this.cmdRightSwipeProperties.Text = "Mouse Positioning";
             this.cmdRightSwipeProperties.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdRightSwipeProperties.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.cmdRightSwipeProperties.UseVisualStyleBackColor = false;
@@ -7511,5 +7525,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colScheduleEnabled;
         private System.Windows.Forms.DataGridViewButtonColumn colEdit;
         private System.Windows.Forms.RichTextBox txtLog;
+        private System.Windows.Forms.RadioButton rdoModeMove;
     }
 }

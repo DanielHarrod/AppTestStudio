@@ -1668,48 +1668,55 @@ namespace AppTestStudio
                     break;
                 case Mode.ClickDragRelease:
                     // Draw Drag Drop Line
-                    using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
-                    {
-                        linePen.StartCap = LineCap.RoundAnchor;
-                        linePen.EndCap = LineCap.ArrowAnchor;
-                        linePen.DashStyle = DashStyle.Dot;
-
-                        int x1 = Rectangle.X;
-                        int y1 = Rectangle.Y;
-                        int x2 = Rectangle.X + Rectangle.Width;
-                        int y2 = Rectangle.Y + Rectangle.Height;
-
-                        // Draw a Dashed line with a Circle for start, and Pointer for end.
-                        Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", x1, y1, x2, y2);
-                        graphics.DrawLine(linePen, x1, y1, x2, y2);
-
-                        // Draw a Box around the start range area.
-                        using (Pen DashPen = new Pen(Color.WhiteSmoke))
-                        {
-                            x1 = Rectangle.X - (ClickDragReleaseStartWidth / 2);
-                            y1 = Rectangle.Y - (ClickDragReleaseStartHeight / 2);
-                            int Width = ClickDragReleaseStartWidth;
-                            int Height = ClickDragReleaseStartHeight;
-                            graphics.DrawRectangle(DashPen, x1, y1, Width, Height);
-                        }
-
-                        // Draw a Box around the end range area.
-                        using (Pen DashPen = new Pen(Color.FromArgb(226, 68, 47)))
-                        {
-                            x1 = Rectangle.X + Rectangle.Width - (ClickDragReleaseEndWidth / 2);
-                            y1 = Rectangle.Y + Rectangle.Height - (ClickDragReleaseEndHeight / 2);
-                            int Width = ClickDragReleaseEndWidth;
-                            int Height = ClickDragReleaseEndHeight;
-                            graphics.DrawRectangle(DashPen, x1, y1, Width, Height);
-                        }
-                    }
+                    PaintNodeForDrawingArrow(graphics);
+                    break;
+                case Mode.MouseMove:
+                    PaintNodeForDrawingArrow(graphics);
                     break;
                 default:
                     break;
             }
         }
 
-  
+        private void PaintNodeForDrawingArrow(Graphics graphics)
+        {
+            using (Pen linePen = new Pen(Color.FromArgb(128, 0, 0, 255), 8))
+            {
+                linePen.StartCap = LineCap.RoundAnchor;
+                linePen.EndCap = LineCap.ArrowAnchor;
+                linePen.DashStyle = DashStyle.Dot;
+
+                int x1 = Rectangle.X;
+                int y1 = Rectangle.Y;
+                int x2 = Rectangle.X + Rectangle.Width;
+                int y2 = Rectangle.Y + Rectangle.Height;
+
+                // Draw a Dashed line with a Circle for start, and Pointer for end.
+                Debug.WriteLine("Drawline x={0}, y={1}, Width={2}, Height={3}", x1, y1, x2, y2);
+                graphics.DrawLine(linePen, x1, y1, x2, y2);
+
+                // Draw a Box around the start range area.
+                using (Pen DashPen = new Pen(Color.WhiteSmoke))
+                {
+                    x1 = Rectangle.X - (ClickDragReleaseStartWidth / 2);
+                    y1 = Rectangle.Y - (ClickDragReleaseStartHeight / 2);
+                    int Width = ClickDragReleaseStartWidth;
+                    int Height = ClickDragReleaseStartHeight;
+                    graphics.DrawRectangle(DashPen, x1, y1, Width, Height);
+                }
+
+                // Draw a Box around the end range area.
+                using (Pen DashPen = new Pen(Color.FromArgb(226, 68, 47)))
+                {
+                    x1 = Rectangle.X + Rectangle.Width - (ClickDragReleaseEndWidth / 2);
+                    y1 = Rectangle.Y + Rectangle.Height - (ClickDragReleaseEndHeight / 2);
+                    int Width = ClickDragReleaseEndWidth;
+                    int Height = ClickDragReleaseEndHeight;
+                    graphics.DrawRectangle(DashPen, x1, y1, Width, Height);
+                }
+            }
+        }
+
 
         public class RangeClickResult
         {
