@@ -70,9 +70,9 @@ namespace AppTestStudioUnitTest
         [TestMethod]
         public void MouseMoveActive0Speed()
         {
-            IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("ATS2Window", "");
+            IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("Untitled - Notepad", "");
 
-            int Count = AppTestStudio.Utils.MoveMouseActiveFromSystemPosition(x, MouseEventFlags.Blank, 10, 10,6000);
+            int Count = AppTestStudio.Utils.MoveMouseActiveFromSystemPosition(x, MouseEventFlags.Blank, 10, 10,1000);
 
         }
 
