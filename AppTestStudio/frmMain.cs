@@ -3150,36 +3150,47 @@ namespace AppTestStudio
                         }
                         else
                         {
-                            if (rdoModeRangeClick.Checked)
+                            switch (ActionNode.Mode)
                             {
-                                Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
-                                GameNodeAction.RangeClickResult Result = ActionNode.CalculateRangeClickResult(bmp, 0, 0);
-                                Boolean Failed = false;
-                                if (Result.x < 0)
-                                {
-                                    Log("Check Relative offset X, calculated to a negative position " + Result.x);
-                                    Failed = true;
-                                }
+                                case Mode.RangeClick:
+                                    Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+                                    GameNodeAction.RangeClickResult RangeClickResult = ActionNode.CalculateRangeClickResult(bmp, 0, 0);
+                                    Boolean Failed = false;
+                                    if (RangeClickResult.x < 0)
+                                    {
+                                        Log("Check Relative offset X, calculated to a negative position " + RangeClickResult.x);
+                                        Failed = true;
+                                    }
 
-                                if (Result.y < 0)
-                                {
-                                    Log("Check Relative offset Y, calculated to a negative position " + Result.y);
-                                    Failed = true;
-                                }
+                                    if (RangeClickResult.y < 0)
+                                    {
+                                        Log("Check Relative offset Y, calculated to a negative position " + RangeClickResult.y);
+                                        Failed = true;
+                                    }
 
-                                int MousePixelSpeedPerSecond = game.CalculateNextMousePixelSpeedPerSecond();
+                                    int MousePixelSpeedPerSecond = game.CalculateNextMousePixelSpeedPerSecond();
 
-                                Utils.ClickOnWindow(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, game.MouseX, game.MouseY, Result.x, Result.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
-                                Log("Click attempt: x=" + Result.x + ",Y = " + Result.y);
-                                ThreadManager.IncrementSingleTestClick();
-                            }
-                            else
-                            {
-                                GameNodeAction.ClickDragReleaseResult Result = ActionNode.CalculateClickDragReleaseResult(0, 0);
+                                    Utils.ClickOnWindow(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, game.MouseX, game.MouseY, RangeClickResult.x, RangeClickResult.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
+                                    Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
+                                    ThreadManager.IncrementSingleTestClick();
 
-                                Utils.ClickDragRelease(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, Result.StartX, Result.StartY, Result.EndX, Result.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
-                                Log("ClickDragRelease( x=" + Result.StartX + ",Y = " + Result.StartY + ", ex=" + Result.EndX + ",ey=" + Result.EndY + ")");
-                                ThreadManager.IncrementSingleTestClickDragRelease();
+                                    break;
+                                case Mode.ClickDragRelease:
+                                    GameNodeAction.ClickDragReleaseResult ClickDragResult = ActionNode.CalculateClickDragReleaseResult(0, 0);
+
+                                    Utils.ClickDragRelease(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, ClickDragResult.StartX, ClickDragResult.StartY, ClickDragResult.EndX, ClickDragResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    Log("ClickDragRelease( x=" + ClickDragResult.StartX + ",Y = " + ClickDragResult.StartY + ", ex=" + ClickDragResult.EndX + ",ey=" + ClickDragResult.EndY + ")");
+                                    ThreadManager.IncrementSingleTestClickDragRelease();
+                                    break;
+                                case Mode.MouseMove:
+                                    GameNodeAction.ClickDragReleaseResult MouseMoveResult = ActionNode.CalculateClickDragReleaseResult(0, 0);
+
+                                    Utils.MouseMove(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    Log("ClickDragRelease( x=" + MouseMoveResult.StartX + ",Y = " + MouseMoveResult.StartY + ", ex=" + MouseMoveResult.EndX + ",ey=" + MouseMoveResult.EndY + ")");
+                                    ThreadManager.IncrementSingleTestMouseMove();
+                                    break;
+                                default:
+                                    break;
                             }
                         }
                         break;
@@ -3226,15 +3237,12 @@ namespace AppTestStudio
                         Debug.Assert(false);
                         break;
                 }
-
                 return;
-
             }
             else
             {
                 Log("Unable to find window with title: " + game.TargetWindow);
             }
-
         }
 
         private void Timer1_Tick(object sender, EventArgs e)
