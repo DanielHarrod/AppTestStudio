@@ -66,6 +66,7 @@ namespace AppTestStudio
             protected set {
                 if (value == true)
                 {
+                    // for debugging
                     int k = 3;
                 }
                 mIsDirty = value; 
@@ -130,7 +131,6 @@ namespace AppTestStudio
                 case GameNodeType.Game:
                     // check equals
                     return this as GameNodeGame;
-                    break;
                 //case GameNodeType.Events:
                 //    break;
                 //case GameNodeType.Event:
@@ -152,7 +152,6 @@ namespace AppTestStudio
                     }
 
                     return Node as GameNodeGame;
-                    break;
             }
 
             return null;

@@ -2149,6 +2149,7 @@ namespace AppTestStudio
 
             if (EventName == "White X")
             {
+                // for debugging
                 int i = 1;
             }
             String LogicChoice = "";

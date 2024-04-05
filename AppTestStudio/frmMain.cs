@@ -5161,7 +5161,6 @@ namespace AppTestStudio
                     default:
                         Log("Please choose an event note");
                         return;
-                        break;
                 }
 
                 // show hide grids depending on node type
