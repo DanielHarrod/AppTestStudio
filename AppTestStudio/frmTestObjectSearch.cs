@@ -144,7 +144,7 @@ namespace AppTestStudio
                             {
                                 frm.Log("Swipe from ( x=" + ClickDragReleaseResult.StartX + ",y = " + ClickDragReleaseResult.StartY + " to x=" + ClickDragReleaseResult.EndX + ",y=" + ClickDragReleaseResult.EndY + ")");
                                 MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                                Utils.ClickDragRelease(MainWindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, Game.WindowAction, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity, MousePixelSpeedPerSecond, Game.DefaultClickSpeed);
+                                Utils.ClickDragRelease(MainWindowHandle, Game.MouseMode, Node.FromCurrentMousePos, Game.WindowAction, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity, MousePixelSpeedPerSecond, Game.DefaultClickSpeed);
                             }
                             break;
                         default:
