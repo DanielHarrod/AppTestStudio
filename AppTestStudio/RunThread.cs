@@ -306,7 +306,7 @@ namespace AppTestStudio
                             else
                             {
                                 Game.Log("MouseMove from ( x=" + MouseMoveResult.StartX + ",y = " + MouseMoveResult.StartY + " to x=" + MouseMoveResult.EndX + ",y=" + MouseMoveResult.EndY + ")");
-                                Utils.MouseMove(WindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                Utils.MouseMove(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
                                 Game.MouseX = (short)MouseMoveResult.EndX;
                                 Game.MouseY = (short)MouseMoveResult.EndY;
                                 ThreadManager.IncrementMouseMove();
