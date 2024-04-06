@@ -1,51 +1,13 @@
 # AppTestStudio
 
 AppTestStudio (ATS) is a automated development environment, you can builder, tester, and can automate windows applications and android emmulators.
-![Image](https://appteststudio.com/cdn/ATSCircles.png)
 
-Quickly and interactively create automated actions by building Events either with pixel color matching, or using OpenCV image matching.  Then attach actions to the events such as clicking or dragging.
+## Finally a Complete Tutorial 
+Youtube tutorials cover how to go from a beginner to an expert.
 
-## Current issues
-1. The multi processing (multiple scripts at the same time) was removed now only a single script can be run at one time.  It was too confusing for some users which made the experience frustrating.  If multiple concurrent scripts are needed just run an additional instance of ATS.
+[![IMAGE ALT TEXT](http://img.youtube.com/vi/EhkhOTcd-qA/0.jpg)](http://www.youtube.com/watch?v=EhkhOTcd-qA&list=PLGVepuRQwnsIoVy6SJaZwBS5-b9AEGExs "App Test Studio")
 
-## Getting Started
-1. Install [NoxPlayer](https://www.bignox.com/) 
-
-   1.1 - Launch NoxPlayer client go to Gear on the top menu(Settings)->Interface Settings-> Make sure fixed Window size is checked.
-   
-   ![Image](https://appteststudio.com/cdn/Settings.png)
-   ![Image](https://appteststudio.com/cdn/FixedWindowSize.png)
-
-2. Install the app of your choice on the Nox player.
-
-   ![Image](https://appteststudio.com/cdn/Tools.png)
-   ![Image](https://appteststudio.com/cdn/PlayStore.png)
-   
-3. Close this instance of Nox Player, Use the launch controls from App Test Studio - Launching from app test studio, configures DPI, resolution, and window naming.  Which enables consistency and transportability between systems.   
-
-4. Install AppTestStudio - Go to the Releases to the right of this information and install the latest version or run the code from Visual Studio.
-
-5. Turn on: [Require password for every purchase](https://support.google.com/googleplay/answer/1626831).  
-
-## To Create a new project in AppTestStudio use the Wizard.
-
-### 1.) In AppTestStudio go to File->New->Wizard
-
-![Image](https://appteststudio.com/cdn/Wizard.png)
-
-### 2.) Use the wizard to quickly configure a project in seconds.
-1.) Enter Seach text for app or game.
-
-2.) Click on the Search button to search for the app.
-
-3.) Click on the app.
-
-4.) Game ID and Name will autopopulate.
-
-5.) Click Create Project
-![Image](https://appteststudio.com/cdn/AppWizard.png)
-
-### 3.) Start the emmulator
+### Start the emmulator
 
 ***Always launch the Emmulator from AppTestStudio***  AppTestStudio launches the emmulator with a specific  WindowName, and resolution for consistency and automation.
 
