@@ -838,6 +838,8 @@ namespace AppTestStudio
             chkMoveMouseBeforeAction.Checked = gameNode.MoveMouseBeforeAction;
             cboWindowAction.Text = gameNode.WindowAction.ToString();
 
+            chkGameWindowNeverQuitIfWindowNotFound.Checked = gameNode.NeverQuitIfWindowNotFound;
+
             cboPlatform_TextChanged(null, null);
         }
 
@@ -8326,6 +8328,11 @@ namespace AppTestStudio
                 Log("rdoModeMove_CheckedChanged");
                 Log(ex.Message);
             }
+        }
+        private void chkGameWindowNeverQuitIfWindowNotFound_CheckedChanged(object sender, EventArgs e)
+        {
+            GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+            GameNode.NeverQuitIfWindowNotFound = chkGameWindowNeverQuitIfWindowNotFound.Checked;
         }
     }
 }

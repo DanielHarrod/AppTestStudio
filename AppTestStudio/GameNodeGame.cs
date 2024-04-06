@@ -63,6 +63,7 @@ namespace AppTestStudio
             IsDirty = false;
             IsPaused = false;
             IsLoading = false;
+            NeverQuitIfWindowNotFound = false;
         }
 
         public ThreadManager ThreadManager { get; set; }
@@ -782,6 +783,8 @@ namespace AppTestStudio
 
             Target.Nodes.Add(TargetEvents);
             Target.IsLoading = false;
+
+            Target.NeverQuitIfWindowNotFound = NeverQuitIfWindowNotFound;
             return Target;
         }
 
@@ -806,6 +809,25 @@ namespace AppTestStudio
                     }
                 }
                 mVideoFrameLimit = value; }
+        }
+
+        // During Runtime if the window is not found don't shutdown the thread.
+        private Boolean mNeverQuitIfWindowNotFound;
+
+        public Boolean NeverQuitIfWindowNotFound
+        {
+            get { return mNeverQuitIfWindowNotFound; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mNeverQuitIfWindowNotFound != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mNeverQuitIfWindowNotFound = value;
+            }
         }
 
         private Boolean mSaveVideo;
@@ -1320,6 +1342,19 @@ namespace AppTestStudio
                 }
             }
 
+            Boolean NeverQuitIfWindowNotFound = false;
+            if (childNode.Attributes.GetNamedItem("NeverQuitIfWindowNotFound").IsSomething())
+            {
+                try
+                {
+                    NeverQuitIfWindowNotFound = Convert.ToBoolean(childNode.Attributes["NeverQuitIfWindowNotFound"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
             WindowAction WindowAction = WindowAction.DoNothing;
             //WindowAction
             if (childNode.Attributes.GetNamedItem("WindowAction").IsSomething())
@@ -1369,7 +1404,7 @@ namespace AppTestStudio
             Game.MouseSpeedVelocityVariantPercentMin = MouseSpeedVelocityVariantPercentMin;
             Game.MoveMouseBeforeAction = MoveMouseBeforeAction;
             Game.WindowAction = WindowAction;
-
+            Game.NeverQuitIfWindowNotFound = NeverQuitIfWindowNotFound;
 
             switch (Game.Platform)
             {
@@ -1472,6 +1507,7 @@ namespace AppTestStudio
 
             Writer.WriteAttributeString("WindowAction", WindowAction.ToString());
             Writer.WriteAttributeString("MoveMouseBeforeAction", MoveMouseBeforeAction.ToString());
+            Writer.WriteAttributeString("NeverQuitIfWindowNotFound", NeverQuitIfWindowNotFound.ToString());
 
             switch (Platform)
             {

@@ -558,6 +558,7 @@
             this.toolStripSeparatorEnableDisableToggle = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemRuntimeEnableDisableToggle = new System.Windows.Forms.ToolStripMenuItem();
             this.TimerProperties = new System.Windows.Forms.Timer(this.components);
+            this.chkGameWindowNeverQuitIfWindowNotFound = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -858,8 +859,8 @@
             // 
             // splitContainerWorkspace.Panel2
             // 
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelColorEvent);
-            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObject);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelThread);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelTestAllEvents);
@@ -869,8 +870,8 @@
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelAddNewGames);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObjects);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
-            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelSchedule);
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
             this.splitContainerWorkspace.Size = new System.Drawing.Size(1602, 743);
             this.splitContainerWorkspace.SplitterDistance = 256;
             this.splitContainerWorkspace.TabIndex = 0;
@@ -1321,7 +1322,7 @@
             this.tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelRunValues.ColumnCount = 2;
             this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 35F));
+            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 36F));
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue14, 0, 13);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue7, 0, 6);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue1, 0, 0);
@@ -1519,10 +1520,10 @@
             // cmdUpdateResolution
             // 
             this.cmdUpdateResolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdUpdateResolution.Location = new System.Drawing.Point(105, 148);
+            this.cmdUpdateResolution.Location = new System.Drawing.Point(104, 148);
             this.cmdUpdateResolution.Margin = new System.Windows.Forms.Padding(0);
             this.cmdUpdateResolution.Name = "cmdUpdateResolution";
-            this.cmdUpdateResolution.Size = new System.Drawing.Size(35, 20);
+            this.cmdUpdateResolution.Size = new System.Drawing.Size(36, 20);
             this.cmdUpdateResolution.TabIndex = 13;
             this.cmdUpdateResolution.Text = "...";
             this.cmdUpdateResolution.UseVisualStyleBackColor = true;
@@ -1531,10 +1532,10 @@
             // cmdRuntimeEnableToggle
             // 
             this.cmdRuntimeEnableToggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(105, 64);
+            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(104, 64);
             this.cmdRuntimeEnableToggle.Margin = new System.Windows.Forms.Padding(0);
             this.cmdRuntimeEnableToggle.Name = "cmdRuntimeEnableToggle";
-            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(35, 20);
+            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(36, 20);
             this.cmdRuntimeEnableToggle.TabIndex = 14;
             this.cmdRuntimeEnableToggle.Text = "...";
             this.cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
@@ -5791,6 +5792,7 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.chkGameWindowNeverQuitIfWindowNotFound);
             this.groupBox11.Controls.Add(this.grpVideo);
             this.groupBox11.Controls.Add(this.label17);
             this.groupBox11.Controls.Add(this.Label33);
@@ -5857,7 +5859,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 128);
+            this.label17.Location = new System.Drawing.Point(14, 139);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(107, 13);
             this.label17.TabIndex = 5;
@@ -5876,7 +5878,7 @@
             // txtGamePanelVersion
             // 
             this.txtGamePanelVersion.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGamePanelVersion.Location = new System.Drawing.Point(134, 125);
+            this.txtGamePanelVersion.Location = new System.Drawing.Point(134, 136);
             this.txtGamePanelVersion.Name = "txtGamePanelVersion";
             this.txtGamePanelVersion.Size = new System.Drawing.Size(180, 20);
             this.txtGamePanelVersion.TabIndex = 6;
@@ -6760,6 +6762,17 @@
             this.TimerProperties.Interval = 1000;
             this.TimerProperties.Tick += new System.EventHandler(this.TimerProperties_Tick);
             // 
+            // chkGameWindowNeverQuitIfWindowNotFound
+            // 
+            this.chkGameWindowNeverQuitIfWindowNotFound.AutoSize = true;
+            this.chkGameWindowNeverQuitIfWindowNotFound.Location = new System.Drawing.Point(12, 118);
+            this.chkGameWindowNeverQuitIfWindowNotFound.Name = "chkGameWindowNeverQuitIfWindowNotFound";
+            this.chkGameWindowNeverQuitIfWindowNotFound.Size = new System.Drawing.Size(180, 17);
+            this.chkGameWindowNeverQuitIfWindowNotFound.TabIndex = 45;
+            this.chkGameWindowNeverQuitIfWindowNotFound.Text = "Never Quit if Window Not Found";
+            this.chkGameWindowNeverQuitIfWindowNotFound.UseVisualStyleBackColor = true;
+            this.chkGameWindowNeverQuitIfWindowNotFound.CheckedChanged += new System.EventHandler(this.chkGameWindowNeverQuitIfWindowNotFound_CheckedChanged);
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -7526,5 +7539,6 @@
         private System.Windows.Forms.DataGridViewButtonColumn colEdit;
         private System.Windows.Forms.RichTextBox txtLog;
         private System.Windows.Forms.RadioButton rdoModeMove;
+        private System.Windows.Forms.CheckBox chkGameWindowNeverQuitIfWindowNotFound;
     }
 }

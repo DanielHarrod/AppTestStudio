@@ -763,8 +763,15 @@ namespace AppTestStudio
                         Thread.Sleep(1000);
                     }
 
-                    Debug.WriteLine("Can't find window [" + Game.TargetWindow + "] attempts left " + RunTimeWindowTimeout);
-                    Game.Log("Can't find Window [" + Game.TargetWindow + "] the window may have been closed - Retry Attempts left: " + RunTimeWindowTimeout);
+                    if (Game.NeverQuitIfWindowNotFound)
+                    {
+                        Game.Log($"Can't find Window [{Game.TargetWindow}] the window may have been closed - Retrying in {Game.LoopDelay}ms");
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"Can't find window [{Game.TargetWindow}] attempts left {RunTimeWindowTimeout}");
+                        Game.Log($"Can't find Window [{Game.TargetWindow}] the window may have been closed - Retry Attempts left: {RunTimeWindowTimeout}");
+                    }
 
                     LoopDelay = Game.LoopDelay;
                     while (LoopDelay > 1000)
@@ -779,7 +786,15 @@ namespace AppTestStudio
                     }
 
                     WindowHandle = Game.GetWindowHandleByWindowName();
-                    RunTimeWindowTimeout = RunTimeWindowTimeout - 1;
+
+                    if (Game.NeverQuitIfWindowNotFound)
+                    {
+                        // do nothing
+                    }
+                    else
+                    {
+                        RunTimeWindowTimeout = RunTimeWindowTimeout - 1;
+                    }                    
 
                     if (RunTimeWindowTimeout < 0)
                     {
