@@ -176,6 +176,7 @@ namespace AppTestStudio
         public const int SearchGray = 29;
         public const int Group = 30;
         public const int GroupGray = 31;
+        public const int Move = 32;
     }
 
     public enum SystemMetric

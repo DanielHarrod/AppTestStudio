@@ -340,6 +340,7 @@
     <Content Include="Resources\ButtonClick_16xGR.png" />
     <Content Include="Resources\CollapseChevronLeft_16x.png" />
     <Content Include="Resources\DependencyArrow_16xGR.png" />
+    <Content Include="Resources\MoveGlyph_16x.png" />
     <Content Include="Resources\Next_16x.png" />
     <Content Include="Resources\Patron.png" />
     <Content Include="Resources\PSGreenCheck.png" />

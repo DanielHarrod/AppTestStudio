@@ -989,6 +989,7 @@
             this.ImageList1.Images.SetKeyName(29, "SearchAndApps_16xGR.png");
             this.ImageList1.Images.SetKeyName(30, "ATSGroup.png");
             this.ImageList1.Images.SetKeyName(31, "ATSGroupGR.png");
+            this.ImageList1.Images.SetKeyName(32, "MoveGlyph_16x.png");
             // 
             // panel3
             // 

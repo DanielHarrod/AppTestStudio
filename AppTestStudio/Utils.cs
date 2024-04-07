@@ -46,6 +46,7 @@ namespace AppTestStudio
                                 SetIconsActionTypeAction(ActionNode);
                                 break;
                             case ActionType.Event:
+ 
                                 if (ActionNode.IsColorPoint)
                                 {
                                     if (ActionNode.Enabled)
@@ -191,7 +192,22 @@ namespace AppTestStudio
                         Action.ForeColor = Color.LightGray;
                     }
                     break;
+                case Mode.MouseMove:
+                    if (Action.Enabled)
+                    {
+                        Action.ImageIndex = IconNames.Move;
+                        Action.SelectedImageIndex = IconNames.Move;
+                        Action.ForeColor = Color.Black;
+                    }
+                    else
+                    {
+                        Action.ImageIndex = IconNames.Move;
+                        Action.SelectedImageIndex = IconNames.Move;
+                        Action.ForeColor = Color.LightGray;
+                    }
+                    break;
                 default:
+                    Debug.WriteLine("Warning: SetIconsActionTypeAction missing settings");
                     break;
             }
         }
