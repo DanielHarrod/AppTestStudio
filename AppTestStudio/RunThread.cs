@@ -281,6 +281,15 @@ namespace AppTestStudio
                             }
 
                             break;
+                        case Mode.Keyboard:
+                            Debug.WriteLine("RunThread: Process children");
+                            Debug.WriteLine("RunThread: Process children");
+                            Debug.WriteLine("RunThread: Process children");
+                            Debug.WriteLine("RunThread: Process children");
+                            Debug.WriteLine("RunThread: Process children");
+                            Debug.WriteLine("RunThread: Process children");
+                            Debug.WriteLine("RunThread: Process children");
+                            break;
                         case Mode.MouseMove:
                             GameNodeAction.ClickDragReleaseResult MouseMoveResult = node.CalculateClickDragReleaseResult(centerX, centerY);
 

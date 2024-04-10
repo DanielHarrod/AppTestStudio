@@ -1673,6 +1673,9 @@ namespace AppTestStudio
                 case Mode.MouseMove:
                     PaintNodeForDrawingArrow(graphics);
                     break;
+                case Mode.Keyboard:
+                    // do nothing
+                    break;
                 default:
                     break;
             }

@@ -206,6 +206,24 @@ namespace AppTestStudio
                         Action.ForeColor = Color.LightGray;
                     }
                     break;
+                case Mode.Keyboard:
+                    Debug.WriteLine("Keyboard: SetIconsActionTypeAction");
+                    Debug.WriteLine("Keyboard: SetIconsActionTypeAction");
+                    Debug.WriteLine("Keyboard: SetIconsActionTypeAction");
+                    Debug.WriteLine("Keyboard: SetIconsActionTypeAction");
+                    if (Action.Enabled)
+                    {
+                        Action.ImageIndex = IconNames.Move;
+                        Action.SelectedImageIndex = IconNames.Move;
+                        Action.ForeColor = Color.Black;
+                    }
+                    else
+                    {
+                        Action.ImageIndex = IconNames.Move;
+                        Action.SelectedImageIndex = IconNames.Move;
+                        Action.ForeColor = Color.LightGray;
+                    }
+                    break;
                 default:
                     Debug.WriteLine("Warning: SetIconsActionTypeAction missing settings");
                     break;

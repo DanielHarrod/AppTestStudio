@@ -83,7 +83,8 @@ namespace AppTestStudio
     {
         RangeClick,
         ClickDragRelease,
-        MouseMove
+        MouseMove,
+        Keyboard
     }
 
     public enum ClickDragReleaseMode

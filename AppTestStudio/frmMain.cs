@@ -706,6 +706,9 @@ namespace AppTestStudio
                                     case Mode.MouseMove:
                                         panelRightDragMode.Visible = true;
                                         break;
+                                    case Mode.Keyboard:
+                                        // Do nothing
+                                        break;
                                     default:
                                         break;
                                 }
@@ -741,6 +744,9 @@ namespace AppTestStudio
                                         groupBoxClickDragReleaseObjectSearch.Enabled = false;
                                         rdoObjectSearchNone.Checked = true;
                                     }
+                                    break;
+                                case Mode.Keyboard:
+                                    panelRightClickProperties.Visible = false;
                                     break;
                                 default:
                                     // do nothing
@@ -1069,6 +1075,9 @@ namespace AppTestStudio
                 case Mode.MouseMove:
                     rdoModeMove.Checked = true;
                     break;
+                case Mode.Keyboard:
+                    rdoModeKeyboard.Checked = true;
+                    break;               
                 default:
                     break;
             }
@@ -1357,6 +1366,13 @@ namespace AppTestStudio
                                 pictureBoxInformationWarning.Visible = false;
                                 lblInformation.Text = "Mouse Move starting at (" + Node.Rectangle.X + "," + Node.Rectangle.Y + ") with Height = " + Node.Rectangle.Height + ", Width =" + Node.Rectangle.Width;
                             }
+                            break;
+                        case Mode.Keyboard:
+                            Debug.WriteLine("TODO Put some summary information in the box.");
+                            Debug.WriteLine("TODO Put some summary information in the box.");
+                            Debug.WriteLine("TODO Put some summary information in the box.");
+                            Debug.WriteLine("TODO Put some summary information in the box.");
+                            Debug.WriteLine("TODO Put some summary information in the box.");
                             break;
                         default:
                             break;
@@ -3191,6 +3207,13 @@ namespace AppTestStudio
                                     Log("MouseMove( x=" + MouseMoveResult.StartX + ",Y = " + MouseMoveResult.StartY + ", ex=" + MouseMoveResult.EndX + ",ey=" + MouseMoveResult.EndY + ")");
                                     ThreadManager.IncrementSingleTestMouseMove();
                                     break;
+                                case Mode.Keyboard:
+                                    Debug.WriteLine("Run Single Test Keyboard");
+                                    Debug.WriteLine("Run Single Test Keyboard");
+                                    Debug.WriteLine("Run Single Test Keyboard");
+                                    Debug.WriteLine("Run Single Test Keyboard");
+                                    break;
+
                                 default:
                                     break;
                             }
@@ -7967,6 +7990,9 @@ namespace AppTestStudio
                                     case Mode.MouseMove:
                                         RT3 = RT3 + " " + Mode.MouseMove.ToString();
                                         break;
+                                    case Mode.Keyboard:
+                                        RT3 = RT3 + " " + Mode.Keyboard.ToString();
+                                        break;
                                     default:
                                         // do nothing
                                         break;
@@ -8350,6 +8376,48 @@ namespace AppTestStudio
             }
             // Oops shoulda made these buttons.
             chk.Checked = false;
+        }
+
+        private void rdoModeKeyboard_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsPanelLoading == false)
+                {
+                    GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
+
+                    if (rdoModeKeyboard.Checked)
+                    {
+                        ActionNode.Mode = Mode.Keyboard;
+
+                        panelRightSwipeProperties.Visible = false;
+                        panelRightClickProperties.Visible = false;
+
+                        //if (PanelLoadNode.ActionType == ActionType.Action)
+                        //{
+                        //    chkFromCurrentMousePos.Visible = true;
+                        //}
+
+                        //if (ActionNode.IsParentObjectSearch())
+                        //{
+                        //    groupBoxClickDragReleaseObjectSearch.Enabled = true;
+                        //    ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.Start;
+                        //    rdoObjectSearchStart.Checked = true;
+                        //}
+                        //else
+                        //{
+                        //    groupBoxClickDragReleaseObjectSearch.Enabled = false;
+                        //    ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.None;
+                        //}
+                    }
+                    PictureBox1.Refresh();
+                }
+            }
+            catch (Exception ex)
+            {
+                Log("rdoModeKeyboard_CheckedChanged");
+                Log(ex.Message);
+            }
         }
     }
 }

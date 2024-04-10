@@ -1638,6 +1638,18 @@ namespace AppTestStudio
                             Writer.WriteEndElement();
                         }
 
+                        if (Activites.Mode == Mode.Keyboard)
+                        {
+                            Debug.WriteLine("SaveEvents");
+                            Debug.WriteLine("SaveEvents");
+                            Debug.WriteLine("SaveEvents");
+                            Debug.WriteLine("SaveEvents");
+                            Debug.WriteLine("SaveEvents");
+                            Debug.WriteLine("SaveEvents");
+
+
+                        }
+
                         Writer.WriteStartElement("Delay");
                         Writer.WriteAttributeString("MilliSeconds", Activites.DelayMS.ToString());
                         Writer.WriteAttributeString("Seconds", Activites.DelayS.ToString());
@@ -2571,6 +2583,9 @@ namespace AppTestStudio
                         break;
                     case "MouseMove":
                         treeActionNode.Mode = Mode.MouseMove;
+                        break;
+                    case "Keyboard":
+                        treeActionNode.Mode = Mode.Keyboard;
                         break;
                     default:
                         Debug.WriteLine("Unexpected GameNodeGame.LoadAction.Mode {0}", actionNode.Attributes["Mode"].Value);
