@@ -3,11 +3,6 @@
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Permissions;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppTestStudio
 {
@@ -97,56 +92,87 @@ namespace AppTestStudio
             public static int SK_X = 0x2D0000;
             public static int SK_Y = 0x150000;
             public static int SK_Z = 0x2C0000;
+            public static uint SK_TILDE = 0x29;
 
         }
 
         public static class VirtualKeyCodeText
         {
-            public static string VK_F1 = "{f1}";
-            public static string VK_F2 = "{f2}";
-            public static string VK_F3 = "{f3}";
-            public static string VK_F4 = "{f4}";
-            public static string VK_F5 = "{f5}";
-            public static string VK_F6 = "{f6}";
-            public static string VK_F7 = "{f7}";
-            public static string VK_F8 = "{f8}";
-            public static string VK_F9 = "{f9}";
-            public static string VK_F10 = "{f10}";
-            public static string VK_F11 = "{f11}";
-            public static string VK_F12 = "{f12}";
+            public const string VK_F1 = "f1";
+            public const string VK_F2 = "f2";
+            public const string VK_F3 = "f3";
+            public const string VK_F4 = "f4";
+            public const string VK_F5 = "f5";
+            public const string VK_F6 = "f6";
+            public const string VK_F7 = "f7";
+            public const string VK_F8 = "f8";
+            public const string VK_F9 = "f9";
+            public const string VK_F10 = "f10";
+            public const string VK_F11 = "f11";
+            public const string VK_F12 = "f12";
 
-            public static string VK_LEFT = "{left}"; //Left Arrow Key
-            public static string VK_UP = "{up}";
-            public static string VK_RIGHT = "{right}";
-            public static string VK_DOWN = "{down}";
+            public const string VK_LEFT = "left"; //Left Arrow Key
+            public const string VK_UP = "up";
+            public const string VK_RIGHT = "right";
+            public const string VK_DOWN = "down";
 
-            public static string VK_ESCAPE = "{esc}"; // Escape key
-            public static string VK_SPACE = "{ }"; // Space
-            public static string VK_PRIOR = "{pgup}"; //Page-Up
-            public static string VK_NEXT = "{pgdown}"; //Page-Down
-            public static string VK_END = "{end}"; //
-            public static string VK_HOME = "{home}"; // Home Key
+            public const string VK_ESCAPE = "esc"; // Escape key
+            public const string VK_SPACE = "space"; // Space
+            public const string VK_PRIOR = "pgup"; //Page-Up
+            public const string VK_NEXT = "pgdown"; //Page-Down
+            public const string VK_END = "end"; //
+            public const string VK_HOME = "home"; // Home Key
 
-            public static string VK_BACK = "{back}"; //Backspace key
-            public static string VK_TAB = "{tab}"; // TAB key
+            public const string VK_BACK = "back"; //Backspace key
+            public const string VK_BACKSPACE = "backspace"; // Not a real VK
 
-            public static string VK_RETURN = "{enter}"; //Enter key
+            public const string VK_TAB = "tab"; // TAB key
 
-            public static string VK_SHIFT = "{shift}"; // Shift key
-            public static string VK_CONTROL = "{ctrl}"; //CTRL
-            public static string VK_PAUSE = "{pause}";
+            public const string VK_RETURN = "enter"; //Enter key
 
-            public static string VK_NUMLOCK = "{numl}";
-            public static string VK_SCROLL = "{scroll}"; //Scroll-Lock
-            public static string VK_LSHIFT = "{lshift}";
-            public static string VK_RSHIFT = "{rshift}";
-            public static string VK_LCONTROL = "{lctrl}";
-            public static string VK_RCONTROL = "{rctrl}";
-            public static string VK_LMENU = "{lalt}"; // Left Alt key
-            public static string VK_RMENU = "{ralt}"; // Right Alt key
+            public const string VK_SHIFT = "shift"; // Shift key
+            public const string VK_CONTROL = "ctrl"; //CTRL
+            public const string VK_PAUSE = "pause";
 
+            public const string VK_NUMLOCK = "numl";
+            public const string VK_SCROLL = "scroll"; //Scroll-Lock
+            
+            public const string VK_LSHIFT = "lshift";
+            public const string VK_LSHIFT_DOWN = "lshiftdown";
+            public const string VK_LSHIFT_UP = "lshiftup";
 
+            public const string VK_RSHIFT = "rshift";
+            public const string VK_RSHIFT_DOWN = "rshiftdown";
+            public const string VK_RSHIFT_UP = "rshiftup";
 
+            public const string VK_LCONTROL = "lctrl";
+            public const string VK_LCONTROL_DOWN = "lctrldown";
+            public const string VK_LCONTROL_UP = "lctrlup";
+
+            public const string VK_RCONTROL = "rctrl";
+            public const string VK_RCONTROL_DOWN = "rctrldown";
+            public const string VK_RCONTROL_UP = "rctrlup";
+
+            public const string VK_LMENU = "lalt"; // Left Alt key
+            public const string VK_LMENU_DOWN = "laltdown"; 
+            public const string VK_LMENU_UP = "laltup";
+
+            public const string VK_RMENU = "ralt"; // Right Alt key
+            public const string VK_RMENU_DOWN = "raltdown"; // Right Alt key
+            public const string VK_RMENU_UP = "raltup"; // Right Alt key
+
+            public const string VK_LWIN = "lwin";
+            public const string VK_LWIN_DOWN = "lwindown";
+            public const string VK_LWIN_UP = "lwinup";
+
+            public const string VK_RWIN = "rwin";
+            public const string VK_RWIN_DOWN = "rwindown";
+            public const string VK_RWIN_UP = "rwinup";
+
+            public const string VK_INSERT = "insert"; // Insert Key
+            public const string VK_DELETE = "delete";
+
+            public const string VK_CAPITAL = "caps";
         }
 
         public static class VirtualKeyCode
@@ -163,7 +189,7 @@ namespace AppTestStudio
             // 0x0A Reserved
             // 0x0B Reserved
             public static ushort VK_CLEAR = 0x0C; // Clear key
-            public static ushort VK_RETURN = 0X0D; //Enter key
+            public static uint VK_RETURN = 0X0D; //Enter key
             // 0x0E Unassigned
             // OX0F Unassigned
             public static ushort VK_SHIFT = 0x10; // Shift key

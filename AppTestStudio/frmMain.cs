@@ -8367,15 +8367,54 @@ namespace AppTestStudio
         {
             CheckBox chk = sender as CheckBox;
 
+            String Tag = chk.Tag.ToString();
             if (chk.Checked)
             {
-                if (chk.Tag.ToString().Length > 0)
+                switch (Tag)
                 {
-                    txtKeyboard.Text = txtKeyboard.Text + chk.Tag.ToString();
+                    case "{LSHIFT}":
+                        Tag = "{LSHIFTDOWN}";
+                        break;
+                    case "{LCTRL}":
+                        Tag = "{LCTRLDOWN}";
+                        break;
+                    case "{LWIN}":
+                        Tag = "{LWINDOWN}";
+                        break;
+                    case "{LALT}":
+                        Tag = "{LALTDOWN}";
+                        break;
+                    default:
+                        chk.Checked = false;
+                        break;
+                }
+                if (Tag.Length > 0)
+                {
+                    txtKeyboard.Text = txtKeyboard.Text + Tag;
                 }
             }
-            // Oops shoulda made these buttons.
-            chk.Checked = false;
+            else
+            {
+                switch (Tag)
+                {
+                    case "{LSHIFT}":
+                        txtKeyboard.Text = txtKeyboard.Text + "{LSHIFTUP}";
+                        break;
+                    case "{LCTRL}":
+                        txtKeyboard.Text = txtKeyboard.Text + "{LCTRLUP}";
+                        Tag = "{LCTRLDOWN}";
+                        break;
+                    case "{LWIN}":
+                        txtKeyboard.Text = txtKeyboard.Text + "{LWINUP}";
+                        break;
+                    case "{LALT}":
+                        txtKeyboard.Text = txtKeyboard.Text + "{LALTUP}";
+                        break;
+                    default:            
+                        break;
+                }
+            }
+
         }
 
         private void rdoModeKeyboard_CheckedChanged(object sender, EventArgs e)
