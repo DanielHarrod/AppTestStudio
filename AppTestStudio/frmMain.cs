@@ -1,5 +1,5 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2023 Daniel Harrod
+//Copyright (C) 2016-2024 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudioControls;
@@ -3026,7 +3026,7 @@ namespace AppTestStudio
                     GameNode.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
                 }
                 PictureBox1.Refresh();
-
+                
                 LoadObjectNodeSection();
             }
         }
@@ -8333,6 +8333,23 @@ namespace AppTestStudio
         {
             GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
             GameNode.NeverQuitIfWindowNotFound = chkGameWindowNeverQuitIfWindowNotFound.Checked;
+        }
+
+        // Stores the checkboxes that are selected.
+        List<CheckBox> chkKeyboardKeys = new List<CheckBox>();
+        private void chkGeneralKeyboardUI_CheckChanged(object sender, EventArgs e)
+        {
+            CheckBox chk = sender as CheckBox;
+
+            if (chk.Checked)
+            {
+                if (chk.Tag.ToString().Length > 0)
+                {
+                    txtKeyboard.Text = txtKeyboard.Text + chk.Tag.ToString();
+                }
+            }
+            // Oops shoulda made these buttons.
+            chk.Checked = false;
         }
     }
 }

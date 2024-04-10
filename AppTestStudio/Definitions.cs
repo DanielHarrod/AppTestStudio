@@ -100,12 +100,64 @@ namespace AppTestStudio
 
         }
 
-        public static class VirtualKeyCodes
+        public static class VirtualKeyCodeText
+        {
+            public static string VK_F1 = "{f1}";
+            public static string VK_F2 = "{f2}";
+            public static string VK_F3 = "{f3}";
+            public static string VK_F4 = "{f4}";
+            public static string VK_F5 = "{f5}";
+            public static string VK_F6 = "{f6}";
+            public static string VK_F7 = "{f7}";
+            public static string VK_F8 = "{f8}";
+            public static string VK_F9 = "{f9}";
+            public static string VK_F10 = "{f10}";
+            public static string VK_F11 = "{f11}";
+            public static string VK_F12 = "{f12}";
+
+            public static string VK_LEFT = "{left}"; //Left Arrow Key
+            public static string VK_UP = "{up}";
+            public static string VK_RIGHT = "{right}";
+            public static string VK_DOWN = "{down}";
+
+            public static string VK_ESCAPE = "{esc}"; // Escape key
+            public static string VK_SPACE = "{ }"; // Space
+            public static string VK_PRIOR = "{pgup}"; //Page-Up
+            public static string VK_NEXT = "{pgdown}"; //Page-Down
+            public static string VK_END = "{end}"; //
+            public static string VK_HOME = "{home}"; // Home Key
+
+            public static string VK_BACK = "{back}"; //Backspace key
+            public static string VK_TAB = "{tab}"; // TAB key
+
+            public static string VK_RETURN = "{enter}"; //Enter key
+
+            public static string VK_SHIFT = "{shift}"; // Shift key
+            public static string VK_CONTROL = "{ctrl}"; //CTRL
+            public static string VK_PAUSE = "{pause}";
+
+            public static string VK_NUMLOCK = "{numl}";
+            public static string VK_SCROLL = "{scroll}"; //Scroll-Lock
+            public static string VK_LSHIFT = "{lshift}";
+            public static string VK_RSHIFT = "{rshift}";
+            public static string VK_LCONTROL = "{lctrl}";
+            public static string VK_RCONTROL = "{rctrl}";
+            public static string VK_LMENU = "{lalt}"; // Left Alt key
+            public static string VK_RMENU = "{ralt}"; // Right Alt key
+
+
+
+        }
+
+        public static class VirtualKeyCode
         {
             public static ushort VK_LBUTTON = 0X01; // Left mouse button
             public static ushort VK_RBUTTON = 0X02; // Right mouse button
             public static ushort VK_CANCEL = 0X03;  // Control-break processing
             public static ushort VK_MBUTTON = 0X04; // Middle mouse button
+            public static ushort VK_XBUTTON1 = 0X05; // Middle mouse button
+            public static ushort VK_XBUTTON2 = 0X06; // Middle mouse button
+            // 0x07 Reserved
             public static ushort VK_BACK = 0X08; //Backspace key
             public static ushort VK_TAB = 0X09; // TAB key,
             // 0x0A Reserved
@@ -116,11 +168,12 @@ namespace AppTestStudio
             // OX0F Unassigned
             public static ushort VK_SHIFT = 0x10; // Shift key
             public static ushort VK_CONTROL = 0X11; //CTRL
-            public static ushort VK_MENU = 0X12; // Alt Key?
+            public static ushort VK_MENU = 0X12; // Alt Key
             public static ushort VK_PAUSE = 0X13;
             public static ushort VK_CAPITAL = 0X14; // Caps Lock Key
             // 0x15-0x1A IME keys.
             public static ushort VK_ESCAPE = 0X1B; // Escape key
+            // 0x1C-Ox1F IME
             public static ushort VK_SPACE = 0X20;
             public static ushort VK_PRIOR = 0X21; //Page-Up
             public static ushort VK_NEXT = 0X22; //Page-Down
@@ -131,9 +184,9 @@ namespace AppTestStudio
             public static ushort VK_RIGHT = 0X27;
             public static ushort VK_DOWN = 0X28;
             public static ushort VK_SELECT = 0X29;
-            public static ushort VK_PRushort = 0X2A;
+            public static ushort VK_PRINT = 0X2A;
             public static ushort VK_EXECUTE = 0X2B;
-            public static ushort VK_SNAPSHOT = 0X2C; //Prushort Screen
+            public static ushort VK_SNAPSHOT = 0X2C; //Print Screen
             public static ushort VK_INSERT = 0X2D; // Insert Key
             public static ushort VK_DELETE = 0X2E;
             public static ushort VK_HELP = 0X2F;
@@ -171,10 +224,15 @@ namespace AppTestStudio
             public static ushort VK_T = 0X54;
             public static ushort VK_U = 0X55;
             public static ushort VK_V = 0X56;
-            public static ushort VK_W = 0X57;
+            public static ushort VK_W = 0X57;  // 87
             public static ushort VK_X = 0X58;
             public static ushort VK_Y = 0X59;
             public static ushort VK_Z = 0X5A;
+            public static ushort VK_LWIN = 0x5B;
+            public static ushort VK_RWIN = 0x5C;
+            public static ushort VK_APPS = 0x5D;
+            // 5E Reserved
+            public static ushort VK_SLEEP = 0x5F;
 
             public static ushort VK_NUMPAD0 = 0X60;
             public static ushort VK_NUMPAD1 = 0X61;
@@ -186,6 +244,9 @@ namespace AppTestStudio
             public static ushort VK_NUMPAD7 = 0X67;
             public static ushort VK_NUMPAD8 = 0X68;
             public static ushort VK_NUMPAD9 = 0X69;
+
+            public static ushort VK_MULTIPLY = 0X6A;
+            public static ushort VK_ADD = 0X6B;
 
             public static ushort VK_SEPERATOR = 0X6C; // PIPE | 
             public static ushort VK_SUBTRACT = 0X6D;  // -
@@ -225,6 +286,23 @@ namespace AppTestStudio
             public static ushort VK_RCONTROL = 0XA3;
             public static ushort VK_LMENU = 0XA4; // Left Alt key
             public static ushort VK_RMENU = 0XA5; // Right Alt key
+
+            // A6-B9 Browser/Apps/Reserved
+            public static ushort VK_OEM_PLUS = 0XBB; // +
+            public static ushort VK_OEM_COMMA = 0XBC; // ,
+            public static ushort VK_OEM_MINUS = 0XBC; // -
+            public static ushort VK_OEM_PERIOD = 0XBE; // -
+
+            public static ushort VK_OEM_2 = 0XBF; // / or ?
+            public static ushort VK_OEM_3 = 0XC0; // ` or ~
+            public static ushort VK_OEM_4 = 0XDB; // [ or {
+            public static ushort VK_OEM_5 = 0XDC; // \ or |
+            public static ushort VK_OEM_6 = 0XDD; // ] or }
+            public static ushort VK_OEM_7 = 0XDE; // ' or "
+            public static ushort VK_OEM_102 = 0XE2; // <> (US)
+
+
+
         }
     }
 }

@@ -41,9 +41,9 @@ namespace AppTestStudioUnitTest
                 int previousStateFalse = 0x0;
                 IntPtr lparam = new IntPtr(previousStateFalse | repeatcount | ScanCodes.SK_A);
                 Debug.WriteLine(AppTestStudio.Utils.ActivateWindowIfNecessary((IntPtr)0xCF0696, WindowAction.ActivateWindow, 20, 20));
-                AppTestStudio.API.SendMessage(hWnd, KeyboardStates.WM_KEYDOWN, VirtualKeyCodes.VK_A, lparam);
+                AppTestStudio.API.SendMessage(hWnd, KeyboardStates.WM_KEYDOWN, VirtualKeyCode.VK_A, lparam);
                 AppTestStudio.API.SendMessage(hWnd, KeyboardStates.WM_CHAR,0x61, lparam);
-                AppTestStudio.API.SendMessage(hWnd, KeyboardStates.WM_KEYUP, VirtualKeyCodes.VK_A, lparam);
+                AppTestStudio.API.SendMessage(hWnd, KeyboardStates.WM_KEYUP, VirtualKeyCode.VK_A, lparam);
             }
         }
 
@@ -66,17 +66,17 @@ namespace AppTestStudioUnitTest
                 //a
                 Input[] inputs = new Input[4];
                 inputs[0].Type = INPUT_KEYBOARD;
-                inputs[0].u.KeyboardInput.VirtualKeyCode = VirtualKeyCodes.VK_D;
+                inputs[0].u.KeyboardInput.VirtualKeyCode = VirtualKeyCode.VK_D;
 
                 inputs[1].Type = INPUT_KEYBOARD;
-                inputs[1].u.KeyboardInput.VirtualKeyCode = VirtualKeyCodes.VK_D;
+                inputs[1].u.KeyboardInput.VirtualKeyCode = VirtualKeyCode.VK_D;
                 inputs[1].u.KeyboardInput.Flags = KEYEVENTF_KEYUP;
 
                 inputs[2].Type = INPUT_KEYBOARD;
-                inputs[2].u.KeyboardInput.VirtualKeyCode = VirtualKeyCodes.VK_A;
+                inputs[2].u.KeyboardInput.VirtualKeyCode = VirtualKeyCode.VK_A;
 
                 inputs[3].Type = INPUT_KEYBOARD;
-                inputs[3].u.KeyboardInput.VirtualKeyCode = VirtualKeyCodes.VK_A;
+                inputs[3].u.KeyboardInput.VirtualKeyCode = VirtualKeyCode.VK_A;
                 inputs[3].u.KeyboardInput.Flags = KEYEVENTF_KEYUP;
 
                 IntPtr root = API.GetAncestor(hWnd, GetAncestorFlags.GetRoot);
@@ -160,5 +160,14 @@ namespace AppTestStudioUnitTest
             SendInput(1,inputs, Marshal.SizeOf(typeof(Input)));
 
         }
+
+        [TestMethod]
+        public void ScanKeyTest()
+        {
+            // 87
+            Debug.WriteLine(VkKeyScan('w'));
+
+        }
+
     }
 }
