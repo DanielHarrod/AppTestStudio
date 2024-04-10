@@ -8485,7 +8485,7 @@ namespace AppTestStudio
             try
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardDownDuration = numericKeyPressDuration.Value.ToInt();
+                ActionNode.KeyboardDuration = numericKeyPressDuration.Value.ToInt();
             }
             catch (Exception ex)
             {
@@ -8512,6 +8512,136 @@ namespace AppTestStudio
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.KeyboardBetweenDurationRandom = numericKeyBetweenDurationRandom.Value.ToInt();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void numericKeyDownDuration_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardDownDuration = numericKeyDownDuration.Value.ToInt();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void chkLeftShift_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardLeftShift = chkLeftShift.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void chkLeftCtrl_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardLeftCtrl = chkLeftCtrl.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void chkLeftAlt_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardLeftAlt= chkLeftAlt.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void chkLeftWin_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardLeftWin = chkLeftWin.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void chkRightShift_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardRightShift = chkRightShift.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void chkRightCtrl_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardRightCtrl = chkRightCtrl.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void chkRightAlt_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardRightAlt = chkRightAlt.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void chkRightWin_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardRightWin = chkRightWin.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void txtKeyboard_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardScript = txtKeyboard.Text;
             }
             catch (Exception ex)
             {
