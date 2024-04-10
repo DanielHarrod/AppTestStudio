@@ -31,16 +31,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -224,11 +224,11 @@
             this.groupBox19 = new System.Windows.Forms.GroupBox();
             this.label97 = new System.Windows.Forms.Label();
             this.label96 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.numericKeyDownDurationRandom = new System.Windows.Forms.NumericUpDown();
+            this.numericKeyBetweenDurationRandom = new System.Windows.Forms.NumericUpDown();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericKeyDownDuration = new System.Windows.Forms.NumericUpDown();
+            this.numericKeyBetweenDuration = new System.Windows.Forms.NumericUpDown();
             this.lblBetweenKeyDuration = new System.Windows.Forms.Label();
             this.lblKeyDownDuration = new System.Windows.Forms.Label();
             this.txtKeyboard = new System.Windows.Forms.TextBox();
@@ -672,6 +672,7 @@
             this.toolStripMenuItemRuntimeEnableDisableToggle = new System.Windows.Forms.ToolStripMenuItem();
             this.TimerProperties = new System.Windows.Forms.Timer(this.components);
             this.rdoModeKeyboard = new System.Windows.Forms.RadioButton();
+            this.txtKeyboardPlan = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -715,11 +716,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericKeyPressDuration)).BeginInit();
             this.grpKeyboardSpeedSettings.SuspendLayout();
             this.groupBox19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyDownDurationRandom)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyBetweenDurationRandom)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyDownDuration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyBetweenDuration)).BeginInit();
             this.FlowLayoutPanelColorEvent1.SuspendLayout();
             this.panelRightProperties.SuspendLayout();
             this.grpPropertiesRepeatsUntilFalse.SuspendLayout();
@@ -1890,6 +1891,7 @@
             this.panelKeyboard.Controls.Add(this.numericKeyPressDuration);
             this.panelKeyboard.Controls.Add(this.cmdKeyboardCalculate);
             this.panelKeyboard.Controls.Add(this.grpKeyboardSpeedSettings);
+            this.panelKeyboard.Controls.Add(this.txtKeyboardPlan);
             this.panelKeyboard.Controls.Add(this.txtKeyboard);
             this.panelKeyboard.Location = new System.Drawing.Point(0, 50);
             this.panelKeyboard.Name = "panelKeyboard";
@@ -3106,7 +3108,7 @@
             // 
             this.groupBox20.Controls.Add(this.grpKeyboardLeft);
             this.groupBox20.Controls.Add(this.grpKeyboardRight);
-            this.groupBox20.Location = new System.Drawing.Point(520, 17);
+            this.groupBox20.Location = new System.Drawing.Point(504, 27);
             this.groupBox20.Name = "groupBox20";
             this.groupBox20.Size = new System.Drawing.Size(141, 111);
             this.groupBox20.TabIndex = 18;
@@ -3223,7 +3225,7 @@
             // label98
             // 
             this.label98.AutoSize = true;
-            this.label98.Location = new System.Drawing.Point(480, 237);
+            this.label98.Location = new System.Drawing.Point(508, 9);
             this.label98.Name = "label98";
             this.label98.Size = new System.Drawing.Size(69, 13);
             this.label98.TabIndex = 17;
@@ -3231,7 +3233,7 @@
             // 
             // numericKeyPressDuration
             // 
-            this.numericKeyPressDuration.Location = new System.Drawing.Point(483, 252);
+            this.numericKeyPressDuration.Location = new System.Drawing.Point(580, 7);
             this.numericKeyPressDuration.Maximum = new decimal(new int[] {
             99999,
             0,
@@ -3245,10 +3247,11 @@
             0,
             0,
             0});
+            this.numericKeyPressDuration.ValueChanged += new System.EventHandler(this.numericKeyPressDuration_ValueChanged);
             // 
             // cmdKeyboardCalculate
             // 
-            this.cmdKeyboardCalculate.Location = new System.Drawing.Point(550, 282);
+            this.cmdKeyboardCalculate.Location = new System.Drawing.Point(486, 282);
             this.cmdKeyboardCalculate.Name = "cmdKeyboardCalculate";
             this.cmdKeyboardCalculate.Size = new System.Drawing.Size(75, 23);
             this.cmdKeyboardCalculate.TabIndex = 15;
@@ -3259,7 +3262,7 @@
             // 
             this.grpKeyboardSpeedSettings.Controls.Add(this.groupBox19);
             this.grpKeyboardSpeedSettings.Controls.Add(this.groupBox1);
-            this.grpKeyboardSpeedSettings.Location = new System.Drawing.Point(520, 126);
+            this.grpKeyboardSpeedSettings.Location = new System.Drawing.Point(263, 377);
             this.grpKeyboardSpeedSettings.Name = "grpKeyboardSpeedSettings";
             this.grpKeyboardSpeedSettings.Size = new System.Drawing.Size(249, 112);
             this.grpKeyboardSpeedSettings.TabIndex = 7;
@@ -3270,8 +3273,8 @@
             // 
             this.groupBox19.Controls.Add(this.label97);
             this.groupBox19.Controls.Add(this.label96);
-            this.groupBox19.Controls.Add(this.numericUpDown3);
-            this.groupBox19.Controls.Add(this.numericUpDown4);
+            this.groupBox19.Controls.Add(this.numericKeyDownDurationRandom);
+            this.groupBox19.Controls.Add(this.numericKeyBetweenDurationRandom);
             this.groupBox19.Location = new System.Drawing.Point(100, 13);
             this.groupBox19.Name = "groupBox19";
             this.groupBox19.Size = new System.Drawing.Size(146, 91);
@@ -3282,7 +3285,7 @@
             // label97
             // 
             this.label97.AutoSize = true;
-            this.label97.Location = new System.Drawing.Point(10, 51);
+            this.label97.Location = new System.Drawing.Point(3, 40);
             this.label97.Name = "label97";
             this.label97.Size = new System.Drawing.Size(70, 13);
             this.label97.TabIndex = 15;
@@ -3291,30 +3294,32 @@
             // label96
             // 
             this.label96.AutoSize = true;
-            this.label96.Location = new System.Drawing.Point(10, 14);
+            this.label96.Location = new System.Drawing.Point(3, 16);
             this.label96.Name = "label96";
             this.label96.Size = new System.Drawing.Size(56, 13);
             this.label96.TabIndex = 14;
             this.label96.Text = "Key Down";
             // 
-            // numericUpDown3
+            // numericKeyDownDurationRandom
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(10, 28);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(45, 20);
-            this.numericUpDown3.TabIndex = 12;
+            this.numericKeyDownDurationRandom.Location = new System.Drawing.Point(72, 16);
+            this.numericKeyDownDurationRandom.Name = "numericKeyDownDurationRandom";
+            this.numericKeyDownDurationRandom.Size = new System.Drawing.Size(58, 20);
+            this.numericKeyDownDurationRandom.TabIndex = 12;
+            this.numericKeyDownDurationRandom.ValueChanged += new System.EventHandler(this.numericKeyDownDurationRandom_ValueChanged);
             // 
-            // numericUpDown4
+            // numericKeyBetweenDurationRandom
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(10, 63);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(45, 20);
-            this.numericUpDown4.TabIndex = 13;
+            this.numericKeyBetweenDurationRandom.Location = new System.Drawing.Point(72, 41);
+            this.numericKeyBetweenDurationRandom.Name = "numericKeyBetweenDurationRandom";
+            this.numericKeyBetweenDurationRandom.Size = new System.Drawing.Size(58, 20);
+            this.numericKeyBetweenDurationRandom.TabIndex = 13;
+            this.numericKeyBetweenDurationRandom.ValueChanged += new System.EventHandler(this.numericKeyBetweenDurationRandom_ValueChanged);
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.numericUpDown1);
-            this.groupBox1.Controls.Add(this.numericUpDown2);
+            this.groupBox1.Controls.Add(this.numericKeyDownDuration);
+            this.groupBox1.Controls.Add(this.numericKeyBetweenDuration);
             this.groupBox1.Controls.Add(this.lblBetweenKeyDuration);
             this.groupBox1.Controls.Add(this.lblKeyDownDuration);
             this.groupBox1.Location = new System.Drawing.Point(7, 13);
@@ -3324,39 +3329,40 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Duration (ms)";
             // 
-            // numericUpDown1
+            // numericKeyDownDuration
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(6, 28);
-            this.numericUpDown1.Maximum = new decimal(new int[] {
+            this.numericKeyDownDuration.Location = new System.Drawing.Point(6, 28);
+            this.numericKeyDownDuration.Maximum = new decimal(new int[] {
             99999999,
             0,
             0,
             0});
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(68, 20);
-            this.numericUpDown1.TabIndex = 8;
-            this.numericUpDown1.Value = new decimal(new int[] {
-            99999999,
+            this.numericKeyDownDuration.Name = "numericKeyDownDuration";
+            this.numericKeyDownDuration.Size = new System.Drawing.Size(68, 20);
+            this.numericKeyDownDuration.TabIndex = 8;
+            this.numericKeyDownDuration.Value = new decimal(new int[] {
+            35,
             0,
             0,
             0});
             // 
-            // numericUpDown2
+            // numericKeyBetweenDuration
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(6, 63);
-            this.numericUpDown2.Maximum = new decimal(new int[] {
+            this.numericKeyBetweenDuration.Location = new System.Drawing.Point(6, 63);
+            this.numericKeyBetweenDuration.Maximum = new decimal(new int[] {
             99999999,
             0,
             0,
             0});
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(68, 20);
-            this.numericUpDown2.TabIndex = 10;
-            this.numericUpDown2.Value = new decimal(new int[] {
-            99999999,
+            this.numericKeyBetweenDuration.Name = "numericKeyBetweenDuration";
+            this.numericKeyBetweenDuration.Size = new System.Drawing.Size(68, 20);
+            this.numericKeyBetweenDuration.TabIndex = 10;
+            this.numericKeyBetweenDuration.Value = new decimal(new int[] {
+            35,
             0,
             0,
             0});
+            this.numericKeyBetweenDuration.ValueChanged += new System.EventHandler(this.numericKeyBetweenDuration_ValueChanged);
             // 
             // lblBetweenKeyDuration
             // 
@@ -3378,10 +3384,10 @@
             // 
             // txtKeyboard
             // 
-            this.txtKeyboard.Location = new System.Drawing.Point(6, 215);
+            this.txtKeyboard.Location = new System.Drawing.Point(6, 200);
             this.txtKeyboard.Multiline = true;
             this.txtKeyboard.Name = "txtKeyboard";
-            this.txtKeyboard.Size = new System.Drawing.Size(467, 138);
+            this.txtKeyboard.Size = new System.Drawing.Size(467, 82);
             this.txtKeyboard.TabIndex = 0;
             // 
             // lblPictureMissing
@@ -4626,48 +4632,48 @@
             // 
             // dgvID
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvID.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvID.DefaultCellStyle = dataGridViewCellStyle51;
             this.dgvID.HeaderText = "ID";
             this.dgvID.MinimumWidth = 10;
             this.dgvID.Name = "dgvID";
             // 
             // dgvRed
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle52;
             this.dgvRed.HeaderText = "R";
             this.dgvRed.MinimumWidth = 10;
             this.dgvRed.Name = "dgvRed";
             // 
             // dgvBlue
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle53;
             this.dgvBlue.HeaderText = "B";
             this.dgvBlue.MinimumWidth = 10;
             this.dgvBlue.Name = "dgvBlue";
             // 
             // dgvGreen
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle54;
             this.dgvGreen.HeaderText = "G";
             this.dgvGreen.MinimumWidth = 10;
             this.dgvGreen.Name = "dgvGreen";
             // 
             // dgvX
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvX.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvX.DefaultCellStyle = dataGridViewCellStyle55;
             this.dgvX.HeaderText = "X";
             this.dgvX.MinimumWidth = 10;
             this.dgvX.Name = "dgvX";
             // 
             // dgvY
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvY.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvY.DefaultCellStyle = dataGridViewCellStyle56;
             this.dgvY.HeaderText = "Y";
             this.dgvY.MinimumWidth = 10;
             this.dgvY.Name = "dgvY";
@@ -5785,14 +5791,14 @@
             // 
             this.dgvTest.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle57.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle57.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle57.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle57.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle57.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle57.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle57;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTestID,
@@ -5803,14 +5809,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle58.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle58.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle58.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle58;
             this.dgvTest.Location = new System.Drawing.Point(623, 226);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.RowHeadersWidth = 62;
@@ -5880,14 +5886,14 @@
             // dgvTestAllReference
             // 
             this.dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle59.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle59.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle59.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle59;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceID,
@@ -5896,14 +5902,14 @@
             this.dgvTestAllReferenceBlue,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle60.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle60.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle60.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle60.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle60.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle60.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle60;
             this.dgvTestAllReference.Location = new System.Drawing.Point(623, 48);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.RowHeadersWidth = 62;
@@ -8417,6 +8423,14 @@
             this.rdoModeKeyboard.UseVisualStyleBackColor = true;
             this.rdoModeKeyboard.CheckedChanged += new System.EventHandler(this.rdoModeKeyboard_CheckedChanged);
             // 
+            // txtKeyboardPlan
+            // 
+            this.txtKeyboardPlan.Location = new System.Drawing.Point(6, 288);
+            this.txtKeyboardPlan.Multiline = true;
+            this.txtKeyboardPlan.Name = "txtKeyboardPlan";
+            this.txtKeyboardPlan.Size = new System.Drawing.Size(467, 82);
+            this.txtKeyboardPlan.TabIndex = 0;
+            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8488,12 +8502,12 @@
             this.grpKeyboardSpeedSettings.ResumeLayout(false);
             this.groupBox19.ResumeLayout(false);
             this.groupBox19.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyDownDurationRandom)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyBetweenDurationRandom)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyDownDuration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyBetweenDuration)).EndInit();
             this.FlowLayoutPanelColorEvent1.ResumeLayout(false);
             this.panelRightProperties.ResumeLayout(false);
             this.panelRightProperties.PerformLayout();
@@ -9208,11 +9222,11 @@
         private System.Windows.Forms.GroupBox groupBox19;
         private System.Windows.Forms.Label label97;
         private System.Windows.Forms.Label label96;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown numericKeyDownDurationRandom;
+        private System.Windows.Forms.NumericUpDown numericKeyBetweenDurationRandom;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericKeyDownDuration;
+        private System.Windows.Forms.NumericUpDown numericKeyBetweenDuration;
         private System.Windows.Forms.Label lblBetweenKeyDuration;
         private System.Windows.Forms.Label lblKeyDownDuration;
         private System.Windows.Forms.CheckBox chkKeyboardF4;
@@ -9315,5 +9329,6 @@
         private System.Windows.Forms.CheckBox chkKeyboardIns;
         private System.Windows.Forms.CheckBox chkKeyboardMnu;
         private System.Windows.Forms.RadioButton rdoModeKeyboard;
+        private System.Windows.Forms.TextBox txtKeyboardPlan;
     }
 }

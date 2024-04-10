@@ -245,6 +245,7 @@
     <Compile Include="GameNodeObject.cs" />
     <Compile Include="GameNodeObjects.cs" />
     <Compile Include="GameNodeWorkspace.cs" />
+    <Compile Include="KeyboardProcessor.cs" />
     <Compile Include="MinimalBitmapNode.cs" />
     <Compile Include="NoxRegistry.cs" />
     <Compile Include="Program.cs" />

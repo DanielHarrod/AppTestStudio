@@ -8419,6 +8419,58 @@ namespace AppTestStudio
                 Log(ex.Message);
             }
         }
+
+        private void numericKeyDownDurationRandom_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardDownDurationRandom = numericKeyDownDurationRandom.Value.ToInt();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void numericKeyPressDuration_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardDownDuration = numericKeyPressDuration.Value.ToInt();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void numericKeyBetweenDuration_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardBetweenDuration = numericKeyBetweenDuration.Value.ToInt();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void numericKeyBetweenDurationRandom_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardBetweenDurationRandom = numericKeyBetweenDurationRandom.Value.ToInt();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
     }
 }
 
