@@ -4785,7 +4785,7 @@ namespace AppTestStudio
                     GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
 
                     if (rdoModeRangeClick.Checked)
-                    {
+                    {                        
                         ActionNode.Mode = Mode.RangeClick;
                         Debug.WriteLine($"rdoRangeClick_CheckedChanged ActionNode.Mode={ActionNode.Mode}");
                     }
@@ -4793,7 +4793,9 @@ namespace AppTestStudio
 
                 if (rdoModeRangeClick.Checked)
                 {
+                    panelKeyboard.Visible = false;
                     panelRightSwipeProperties.Visible = false;
+                    PictureBox1.Visible = true;
                     if (PanelLoadNode.ActionType == ActionType.Action)
                     {
                         chkFromCurrentMousePos.Visible = true;
@@ -4821,6 +4823,8 @@ namespace AppTestStudio
                 if (IsPanelLoading == false)
                 {
                     panelRightSwipeProperties.Visible = true;
+                    panelKeyboard.Visible = false;
+                    PictureBox1.Visible = true;
                     GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
 
                     ActionNode.Mode = Mode.ClickDragRelease;
@@ -8328,6 +8332,8 @@ namespace AppTestStudio
 
                         panelRightSwipeProperties.Visible = true;
                         panelRightClickProperties.Visible = false;
+                        panelKeyboard.Visible = false;
+                        PictureBox1.Visible = true;
 
                         if (PanelLoadNode.ActionType == ActionType.Action)
                         {
@@ -8431,6 +8437,8 @@ namespace AppTestStudio
 
                         panelRightSwipeProperties.Visible = false;
                         panelRightClickProperties.Visible = false;
+                        panelKeyboard.Visible = true;
+                        PictureBox1.Visible = false;
 
                         //if (PanelLoadNode.ActionType == ActionType.Action)
                         //{
