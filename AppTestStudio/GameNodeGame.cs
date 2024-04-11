@@ -1640,12 +1640,23 @@ namespace AppTestStudio
 
                         if (Activites.Mode == Mode.Keyboard)
                         {
-                            Debug.WriteLine("SaveEvents");
-                            Debug.WriteLine("SaveEvents");
-                            Debug.WriteLine("SaveEvents");
-                            Debug.WriteLine("SaveEvents");
-                            Debug.WriteLine("SaveEvents");
-                            Debug.WriteLine("SaveEvents");
+                            Writer.WriteStartElement("Keyboard");
+                            Writer.WriteAttributeString("KeyboardBetweenDuration", Activites.KeyboardBetweenDuration.ToString());
+                            Writer.WriteAttributeString("KeyboardBetweenDurationRandom", Activites.KeyboardBetweenDurationRandom.ToString());
+                            Writer.WriteAttributeString("KeyboardDownDuration", Activites.KeyboardDownDuration.ToString());
+                            Writer.WriteAttributeString("KeyboardDownDurationRandom", Activites.KeyboardDownDurationRandom.ToString());
+                            Writer.WriteAttributeString("KeyboardDuration", Activites.KeyboardDuration.ToString());
+                            Writer.WriteAttributeString("KeyboardLeftAlt", Activites.KeyboardLeftAlt.ToString());
+                            Writer.WriteAttributeString("KeyboardLeftCtrl", Activites.KeyboardLeftCtrl.ToString());
+                            Writer.WriteAttributeString("KeyboardLeftShift", Activites.KeyboardLeftShift.ToString());
+                            Writer.WriteAttributeString("KeyboardLeftWin", Activites.KeyboardLeftWin.ToString());
+                            Writer.WriteAttributeString("KeyboardRightAlt", Activites.KeyboardRightAlt.ToString());
+                            Writer.WriteAttributeString("KeyboardRightCtrl", Activites.KeyboardRightCtrl.ToString());
+                            Writer.WriteAttributeString("KeyboardRightShift", Activites.KeyboardRightShift.ToString());
+                            Writer.WriteAttributeString("KeyboardRightWin", Activites.KeyboardRightWin.ToString());
+                            Writer.WriteAttributeString("KeyboardScript", Activites.KeyboardScript.ToString());
+                            //'Keyboard
+                            Writer.WriteEndElement();
 
 
                         }
