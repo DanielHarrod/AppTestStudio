@@ -99,11 +99,12 @@ namespace AppTestStudio
             ThreadManager.ThreadLog.Enqueue(FormattedLog);
         }
 
-        public void LogStatus(int item, long time)
+        public void LogStatus(int item, long time, long Duration)
         {
             AppTestStudioStatusControlItem StatusControlItem = new AppTestStudioStatusControlItem();
             StatusControlItem.Index = item;
             StatusControlItem.Time = time;
+            StatusControlItem.Duration = Duration;
             StatusControlItem.Ticks = DateTime.UtcNow.Ticks;
 
             StatusControl.Enqueue(StatusControlItem);

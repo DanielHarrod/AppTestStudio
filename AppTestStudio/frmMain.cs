@@ -6656,7 +6656,6 @@ namespace AppTestStudio
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.ClickDragReleaseVelocity = numericSwipeVelocity.Value.ToInt();
             }
-
         }
 
         private void rdoObjectSearchStart_CheckedChanged(object sender, EventArgs e)

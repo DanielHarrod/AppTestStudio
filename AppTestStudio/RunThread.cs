@@ -316,6 +316,7 @@ namespace AppTestStudio
                             {
                                 Game.Log("MouseMove from ( x=" + MouseMoveResult.StartX + ",y = " + MouseMoveResult.StartY + " to x=" + MouseMoveResult.EndX + ",y=" + MouseMoveResult.EndY + ")");
                                 Utils.MouseMove(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                Game.Log("/MouseMove)");
                                 Game.MouseX = (short)MouseMoveResult.EndX;
                                 Game.MouseY = (short)MouseMoveResult.EndY;
                                 ThreadManager.IncrementMouseMove();
@@ -574,12 +575,17 @@ namespace AppTestStudio
             if ((node.ActionType == ActionType.Event && ActionTypeEventResult) || node.ActionType == ActionType.Action)
             {
                 int DelayCalc = node.CalculateDelayInMS();
+                int Addition = 0;
+                if (node.Mode == Mode.MouseMove || node.Mode == Mode.ClickDragRelease)
+                {
+                    Addition = node.ClickDragReleaseVelocity;
+                }
 
                 // Log status to status control.
-                Game.LogStatus(node.StatusNodeID, DelayCalc);
-
+                Game.LogStatus(node.StatusNodeID, DelayCalc, Addition);
                 if (DelayCalc > 0)
                 {
+                    
                     Thread.Sleep(DelayCalc);
                     ChildSleepTimeMS = ChildSleepTimeMS + DelayCalc;
                 }
@@ -887,8 +893,7 @@ namespace AppTestStudio
                 LoopDelay = Game.LoopDelay;
                 while (LoopDelay > 1000)
                 {
-
-                    Game.LogStatus(Game.StatusNodeID, LoopDelay);
+                    Game.LogStatus(Game.StatusNodeID, LoopDelay, 0);
 
                     LoopDelay = LoopDelay - 1000;
                     Thread.Sleep(1000);
@@ -897,7 +902,7 @@ namespace AppTestStudio
 
                 if (LoopDelay > 0)
                 {
-                    Game.LogStatus(Game.StatusNodeID, LoopDelay);
+                    Game.LogStatus(Game.StatusNodeID, LoopDelay, 0);
 
                     Thread.Sleep(LoopDelay.ToInt());
                     ThreadManager.AddWaitLength(LoopDelay);
