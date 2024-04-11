@@ -6,6 +6,7 @@ using AppTestStudio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 
 namespace AppTestStudioUnitTest
 {
@@ -74,6 +75,48 @@ namespace AppTestStudioUnitTest
             }
         }
 
+        [TestMethod]
+        public void StickyKeysPlayList()
+        {
+            AppTestStudio.KeyboardProcessor kp = new AppTestStudio.KeyboardProcessor();
+            String s = "{F3}w{LSHIFTDOWN}e{LCTRLDOWN}r{LWINDOWN}t{LALTDOWN}y{LSHIFTUP}i{LCTRLUP}j{LWINUP}b{LALTUP}";
 
+            KeyboardCommand[] list = kp.ParseScript(s).ToArray();
+
+            List<KeyboardCommand> CompleteList = new List<KeyboardCommand>();
+
+            GameNodeAction ActionNode = new GameNodeAction("",ActionType.Action);
+            ActionNode.KeyboardBetweenDuration = 30;
+            ActionNode.KeyboardDownDuration = 50;
+
+            Debug.WriteLine(s);
+            kp.SequenceAndApplyPreWaits(list, ActionNode, CompleteList);
+            foreach (KeyboardCommand command in CompleteList)
+            {
+                Debug.WriteLine(command);
+            }
+        }
+
+        [TestMethod]
+        public void StickyKeysPlayDanWasHere()
+        {
+            AppTestStudio.KeyboardProcessor kp = new AppTestStudio.KeyboardProcessor();
+            String s = "{LSHIFTDOWN}dan{LSHIFTUP} was here.";
+
+            KeyboardCommand[] list = kp.ParseScript(s).ToArray();
+
+            List<KeyboardCommand> CompleteList = new List<KeyboardCommand>();
+
+            GameNodeAction ActionNode = new GameNodeAction("", ActionType.Action);
+            ActionNode.KeyboardBetweenDuration = 30;
+            ActionNode.KeyboardDownDuration = 50;
+
+            Debug.WriteLine(s);
+            kp.SequenceAndApplyPreWaits(list, ActionNode, CompleteList);
+            foreach (KeyboardCommand command in CompleteList)
+            {
+                Debug.WriteLine(command);
+            }
+        }
     }
 }

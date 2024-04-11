@@ -15,6 +15,16 @@ namespace AppTestStudio
 
         public int Delayms { get; set; }
 
+        public String Origin { get; set; }
+
+        public KeyboardCommand(uint ScanCode, KeyboardButtonStates ButtonState, int Delayms, String Origin)
+        {
+            this.ScanCode = ScanCode;
+            this.ButtonState = ButtonState;
+            this.Delayms = Delayms;
+            this.Origin = Origin;
+        }
+
         public KeyboardCommand(Boolean IsError)
         {
             ButtonState = KeyboardButtonStates.Error;
@@ -22,6 +32,7 @@ namespace AppTestStudio
 
         public KeyboardCommand(String Command)
         {
+            Origin = Command;
             ButtonState = KeyboardButtonStates.Normal;
             switch (Command.ToLower())
             {
@@ -238,6 +249,7 @@ namespace AppTestStudio
 
         public KeyboardCommand(char Command)
         {
+            Origin = Command.ToString();
             ButtonState = KeyboardButtonStates.Normal;
             Command = Char.ToLower(Command);
             switch (Command)
@@ -250,11 +262,20 @@ namespace AppTestStudio
                     break;
             }
 
-            if (ScanCode==0)
+            if (ScanCode == 0)
             {
                 ButtonState = KeyboardButtonStates.Error;
             }
             Debug.WriteLine(ScanCode);
+        }
+
+        public KeyboardCommand Clone()
+        {
+            return new KeyboardCommand(ScanCode, ButtonState, Delayms, Origin);
+        }
+        public override string ToString()
+        {
+            return $"Origin: {Origin}, ButtonState: {ButtonState.ToString()}, Delayms: {Delayms}, ScanCode: {ScanCode}";
         }
     }
 }

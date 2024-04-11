@@ -104,7 +104,66 @@ namespace AppTestStudio
             }
         }
 
+        public void SequenceAndApplyPreWaits(KeyboardCommand[] list, GameNodeAction ActionNode, List<KeyboardCommand> CompletePlayList)
+        {
+            KeyboardButtonStates LastState = KeyboardButtonStates.None;
 
+            for (int i = 0; i < list.Length; i++)
+            {
+                KeyboardCommand CurrentCommand = list[i];
+                switch (CurrentCommand.ButtonState)
+                {
+                    case KeyboardButtonStates.Normal:
+                        KeyboardCommand NormalStart = CurrentCommand.Clone();
+                        if (i > 0)
+                        {
+                            // Explicit down + next key has no delay.
+                            if (LastState == KeyboardButtonStates.Down)
+                            {
+                                NormalStart.Delayms = 0;
+                            }
+                            else
+                            {
+                                NormalStart.Delayms = ActionNode.KeyboardBetweenDuration;
+                            }
+                        }
+                        else
+                        {
+                            // First don't wait.
+                            NormalStart.Delayms = 0;
+                        }
+                        KeyboardCommand NormalEnd = CurrentCommand.Clone();
+                        NormalEnd.Delayms = ActionNode.KeyboardDownDuration;
+                        CompletePlayList.Add(NormalStart);
+                        CompletePlayList.Add(NormalEnd);
+                        break;
+                    case KeyboardButtonStates.Down:
+                        KeyboardCommand Down = CurrentCommand.Clone();
+                        if (LastState == KeyboardButtonStates.Down)
+                        {
+                            // Explicit down followed by down has no delay.
+                            Down.Delayms = 0;
+                        }
+                        else
+                        {
+                            Down.Delayms = ActionNode.KeyboardBetweenDuration;
+                        }
 
+                        CompletePlayList.Add(Down);
+                        break;
+                    case KeyboardButtonStates.Up:
+                        KeyboardCommand Up = CurrentCommand.Clone();
+                        Up.Delayms = 0;
+                        CompletePlayList.Add(Up);
+                        break;
+                    case KeyboardButtonStates.Error:
+                        break;
+                    default:
+                        break;
+                }
+
+                LastState = CurrentCommand.ButtonState;
+            }
+        }
     }
 }
