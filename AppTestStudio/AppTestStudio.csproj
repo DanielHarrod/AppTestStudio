@@ -353,6 +353,7 @@
     <None Include="Resources\StatusWarning_71x71.png" />
     <Content Include="Resources\Test.png" />
     <Content Include="Resources\TestALLP.png" />
+    <Content Include="Resources\ToggleOfficeKeyboardScheme_16x.png" />
     <Content Include="Resources\UploadFile_16x_24.bmp" />
     <None Include="Resources\ATSGears.psd" />
     <None Include="Resources\DragTargetMode.png" />

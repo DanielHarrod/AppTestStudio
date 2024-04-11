@@ -181,6 +181,7 @@ namespace AppTestStudio
         public const int Group = 30;
         public const int GroupGray = 31;
         public const int Move = 32;
+        public const int Keyboard = 33;
     }
 
     public enum SystemMetric

@@ -213,14 +213,14 @@ namespace AppTestStudio
                     Debug.WriteLine("Keyboard: SetIconsActionTypeAction");
                     if (Action.Enabled)
                     {
-                        Action.ImageIndex = IconNames.Move;
-                        Action.SelectedImageIndex = IconNames.Move;
+                        Action.ImageIndex = IconNames.Keyboard;
+                        Action.SelectedImageIndex = IconNames.Keyboard;
                         Action.ForeColor = Color.Black;
                     }
                     else
                     {
-                        Action.ImageIndex = IconNames.Move;
-                        Action.SelectedImageIndex = IconNames.Move;
+                        Action.ImageIndex = IconNames.Keyboard;
+                        Action.SelectedImageIndex = IconNames.Keyboard;
                         Action.ForeColor = Color.LightGray;
                     }
                     break;
