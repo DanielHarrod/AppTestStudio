@@ -12,6 +12,14 @@ namespace AppTestStudio
     {
         public uint ScanCode { get; set; }
         public KeyboardButtonStates ButtonState { get; set; }
+
+        public int Delayms { get; set; }
+
+        public KeyboardCommand(Boolean IsError)
+        {
+            ButtonState = KeyboardButtonStates.Error;
+        }
+
         public KeyboardCommand(String Command)
         {
             ButtonState = KeyboardButtonStates.Normal;
@@ -220,6 +228,7 @@ namespace AppTestStudio
                     if (Command.Length > 0)
                     {
                         Debug.WriteLine($"KeyboardCommand = {Command}");
+                        ButtonState = KeyboardButtonStates.Error;
                     }
                     //ScanCode = (ushort)API.MapVirtualKey((uint)API.VkKeyScan(Command.ToCharArray()[0]), (uint)0);
                     break;
@@ -229,6 +238,7 @@ namespace AppTestStudio
 
         public KeyboardCommand(char Command)
         {
+            ButtonState = KeyboardButtonStates.Normal;
             Command = Char.ToLower(Command);
             switch (Command)
             {
@@ -239,8 +249,11 @@ namespace AppTestStudio
                     ScanCode = (ushort)API.MapVirtualKey((uint)API.VkKeyScan(Command), 0);
                     break;
             }
-            
 
+            if (ScanCode==0)
+            {
+                ButtonState = KeyboardButtonStates.Error;
+            }
             Debug.WriteLine(ScanCode);
         }
     }

@@ -70,7 +70,8 @@ namespace AppTestStudio
     {
         Normal,
         Down,
-        Up
+        Up,
+        Error
     }
 
     public enum WaitType
