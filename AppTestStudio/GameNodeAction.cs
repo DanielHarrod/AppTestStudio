@@ -1197,6 +1197,22 @@ namespace AppTestStudio
                 GameNodeAction CA = ChildAction.CloneMe();
                 Action.Nodes.Add(CA);
             }
+
+            Action.KeyboardBetweenDuration = KeyboardBetweenDuration;
+            Action.KeyboardBetweenDurationRandom = KeyboardBetweenDurationRandom;
+            Action.KeyboardDownDuration = KeyboardDownDuration;
+            Action.KeyboardDownDurationRandom = KeyboardDownDurationRandom;
+            Action.KeyboardDuration = KeyboardDuration;
+            Action.KeyboardLeftAlt = KeyboardLeftAlt;
+            Action.KeyboardLeftCtrl = KeyboardLeftCtrl;
+            Action.KeyboardLeftShift = KeyboardLeftShift;
+            Action.KeyboardLeftWin = KeyboardLeftWin;
+            Action.KeyboardRightAlt = KeyboardRightAlt;
+            Action.KeyboardRightCtrl = KeyboardRightCtrl;
+            Action.KeyboardRightShift = KeyboardRightShift;
+            Action.KeyboardRightWin = KeyboardRightWin;
+            Action.KeyboardScript = KeyboardScript;
+
             Action.IsLoading = false;
             return Action;
         }
