@@ -2831,6 +2831,21 @@ namespace AppTestStudio
                     case "EVENTS":
                         LoadEvents(ActionNodeChildNode, gameNode, treeActionNode, lst, loadBitmaps);
                         break;
+                    case "KEYBOARD":
+                        treeActionNode.KeyboardBetweenDuration = Convert.ToInt32(ActionNodeChildNode.Attributes["KeyboardBetweenDuration"].Value);
+                        treeActionNode.KeyboardBetweenDurationRandom = Convert.ToInt32(ActionNodeChildNode.Attributes["KeyboardBetweenDurationRandom"].Value);
+                        treeActionNode.KeyboardDownDuration = Convert.ToInt32(ActionNodeChildNode.Attributes["KeyboardDownDuration"].Value);
+                        treeActionNode.KeyboardDownDurationRandom = Convert.ToInt32(ActionNodeChildNode.Attributes["KeyboardDownDurationRandom"].Value);
+                        treeActionNode.KeyboardLeftAlt = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardLeftAlt"].Value);
+                        treeActionNode.KeyboardLeftCtrl = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardLeftCtrl"].Value);
+                        treeActionNode.KeyboardLeftShift = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardLeftShift"].Value);
+                        treeActionNode.KeyboardLeftWin = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardLeftWin"].Value);
+                        treeActionNode.KeyboardRightAlt = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardRightAlt"].Value);
+                        treeActionNode.KeyboardRightCtrl = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardRightCtrl"].Value);
+                        treeActionNode.KeyboardRightShift = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardRightShift"].Value);
+                        treeActionNode.KeyboardRightWin = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardRightWin"].Value);
+                        treeActionNode.KeyboardScript = ActionNodeChildNode.Attributes["KeyboardScript"].Value;
+                        break;
                     default:
                         break;
                 }

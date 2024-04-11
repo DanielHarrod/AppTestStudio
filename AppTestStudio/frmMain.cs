@@ -746,7 +746,10 @@ namespace AppTestStudio
                                     }
                                     break;
                                 case Mode.Keyboard:
+                                    panelRightSwipeProperties.Visible = false;
                                     panelRightClickProperties.Visible = false;
+                                    panelKeyboard.Visible = true;
+                                    PictureBox1.Visible = false;
                                     break;
                                 default:
                                     // do nothing
@@ -1190,6 +1193,19 @@ namespace AppTestStudio
                             break;
                     }
 
+                    numericKeyBetweenDuration.Value = GameNode.KeyboardBetweenDuration;
+                    numericKeyBetweenDurationRandom.Value = GameNode.KeyboardBetweenDurationRandom;
+                    numericKeyDownDuration.Value = GameNode.KeyboardDownDuration;
+                    numericKeyDownDurationRandom.Value = GameNode.KeyboardDownDurationRandom;
+                    chkLeftAlt.Checked = GameNode.KeyboardLeftAlt;
+                    chkLeftCtrl.Checked = GameNode.KeyboardLeftCtrl;
+                    chkLeftShift.Checked = GameNode.KeyboardLeftShift;
+                    chkLeftWin.Checked = GameNode.KeyboardLeftWin;
+                    chkRightAlt.Checked = GameNode.KeyboardRightAlt;
+                    chkRightCtrl.Checked = GameNode.KeyboardRightCtrl;
+                    chkRightShift.Checked = GameNode.KeyboardRightShift;
+                    chkRightWin.Checked = GameNode.KeyboardRightWin;
+                    txtKeyboard.Text = GameNode.KeyboardScript;
 
                     chkFromCurrentMousePos.Visible = true;
 
