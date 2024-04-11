@@ -8480,18 +8480,6 @@ namespace AppTestStudio
             }
         }
 
-        private void numericKeyPressDuration_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardDuration = numericKeyPressDuration.Value.ToInt();
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
 
         private void numericKeyBetweenDuration_ValueChanged(object sender, EventArgs e)
         {

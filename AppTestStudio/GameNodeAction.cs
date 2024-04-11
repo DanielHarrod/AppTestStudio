@@ -1,17 +1,14 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2023 Daniel Harrod
+//Copyright (C) 2016-2024 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using OpenCvSharp;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Diagnostics.Tracing;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 using System.IO;
-using System.Runtime.CompilerServices;
-using System.Windows.Forms;
 
 
 /*
@@ -79,7 +76,6 @@ namespace AppTestStudio
             KeyboardScript = "";
             KeyboardDownDuration = 50;
             KeyboardDownDurationRandom = 0;
-            KeyboardDuration = 500;
             KeyboardLeftAlt = false;
             KeyboardLeftCtrl = false;
             KeyboardLeftShift = false;
@@ -1218,7 +1214,6 @@ namespace AppTestStudio
             Action.KeyboardBetweenDurationRandom = KeyboardBetweenDurationRandom;
             Action.KeyboardDownDuration = KeyboardDownDuration;
             Action.KeyboardDownDurationRandom = KeyboardDownDurationRandom;
-            Action.KeyboardDuration = KeyboardDuration;
             Action.KeyboardLeftAlt = KeyboardLeftAlt;
             Action.KeyboardLeftCtrl = KeyboardLeftCtrl;
             Action.KeyboardLeftShift = KeyboardLeftShift;
@@ -1915,27 +1910,6 @@ namespace AppTestStudio
         {
             int result = DelayMS + (DelayS * 1000) + (DelayM * 60 * 1000) + (DelayH * 60 * 60 * 1000);
             return result;
-        }
-
-        private int mKeyboardDuration;
-
-        /// <summary>
-        /// Total duration of the keyboard event.
-        /// </summary>
-        public int KeyboardDuration
-        {
-            get { return mKeyboardDuration; }
-            set
-            {
-                if (IsLoading == false)
-                {
-                    if (mKeyboardDuration != value)
-                    {
-                        IsDirty = true;
-                    }
-                }
-                mKeyboardDuration = value;
-            }
         }
 
         private Boolean mKeyboardLeftShift;
