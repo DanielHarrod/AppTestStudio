@@ -83,14 +83,12 @@ namespace AppTestStudioUnitTest
 
             KeyboardCommand[] list = kp.ParseScript(s).ToArray();
 
-            List<KeyboardCommand> CompleteList = new List<KeyboardCommand>();
-
             GameNodeAction ActionNode = new GameNodeAction("",ActionType.Action);
             ActionNode.KeyboardBetweenDuration = 30;
             ActionNode.KeyboardDownDuration = 50;
 
             Debug.WriteLine(s);
-            kp.SequenceAndApplyPreWaits(list, ActionNode, CompleteList);
+            List<KeyboardCommand> CompleteList = kp.SequenceAndApplyPreWaits(list, ActionNode);
             foreach (KeyboardCommand command in CompleteList)
             {
                 Debug.WriteLine(command);
@@ -105,14 +103,12 @@ namespace AppTestStudioUnitTest
 
             KeyboardCommand[] list = kp.ParseScript(s).ToArray();
 
-            List<KeyboardCommand> CompleteList = new List<KeyboardCommand>();
-
             GameNodeAction ActionNode = new GameNodeAction("", ActionType.Action);
             ActionNode.KeyboardBetweenDuration = 30;
             ActionNode.KeyboardDownDuration = 50;
 
             Debug.WriteLine(s);
-            kp.SequenceAndApplyPreWaits(list, ActionNode, CompleteList);
+            List<KeyboardCommand> CompleteList = kp.SequenceAndApplyPreWaits(list, ActionNode);
             foreach (KeyboardCommand command in CompleteList)
             {
                 Debug.WriteLine(command);

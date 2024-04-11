@@ -104,8 +104,19 @@ namespace AppTestStudio
             }
         }
 
-        public void SequenceAndApplyPreWaits(KeyboardCommand[] list, GameNodeAction ActionNode, List<KeyboardCommand> CompletePlayList)
+
+        /// <summary>
+        /// This looks at the KeyboardCommand input in list(parameter 1), this list is the high level steps to press the keys as a user would enter them.
+        /// This function converts the user input into what's needed to process the keystrokes at the background/system level.
+        /// It also assigns Delay ms to each command, input down events such as [Ctrl Down + a] treats the Ctrl and a key as done in the same time.
+        /// Assigns appropriate ActionNode KeyboardBetween Duration and Key Down durations.
+        /// </summary>
+        /// <param name="list">(Input) User level Keyboard Commands</param>
+        /// <param name="ActionNode">(Input) Used to capture setting.</param>
+        /// <param name="CompletePlayList">(Output) Sequence of keystrokes at the system level.</param>
+        public List<KeyboardCommand> SequenceAndApplyPreWaits(KeyboardCommand[] list, GameNodeAction ActionNode)
         {
+            List<KeyboardCommand> CompletePlayList = new List<KeyboardCommand>();
             KeyboardButtonStates LastState = KeyboardButtonStates.None;
 
             for (int i = 0; i < list.Length; i++)
@@ -115,6 +126,7 @@ namespace AppTestStudio
                 {
                     case KeyboardButtonStates.Normal:
                         KeyboardCommand NormalStart = CurrentCommand.Clone();
+                        NormalStart.ButtonState = KeyboardButtonStates.Down;
                         if (i > 0)
                         {
                             // Explicit down + next key has no delay.
@@ -134,6 +146,7 @@ namespace AppTestStudio
                         }
                         KeyboardCommand NormalEnd = CurrentCommand.Clone();
                         NormalEnd.Delayms = ActionNode.KeyboardDownDuration;
+                        NormalEnd.ButtonState = KeyboardButtonStates.Up;
                         CompletePlayList.Add(NormalStart);
                         CompletePlayList.Add(NormalEnd);
                         break;
@@ -164,6 +177,7 @@ namespace AppTestStudio
 
                 LastState = CurrentCommand.ButtonState;
             }
+            return CompletePlayList;
         }
     }
 }
