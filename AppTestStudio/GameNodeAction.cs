@@ -75,6 +75,22 @@ namespace AppTestStudio
             Channel = "";
             FileName = "";
             IsLoading = false;
+
+            KeyboardScript = "";
+            KeyboardDownDuration = 50;
+            KeyboardDownDurationRandom = 0;
+            KeyboardDuration = 500;
+            KeyboardLeftAlt = false;
+            KeyboardLeftCtrl = false;
+            KeyboardLeftShift = false;
+            KeyboardLeftWin = false;
+            KeyboardRightAlt = false;
+            KeyboardRightCtrl = false;
+            KeyboardRightShift = false;
+            KeyboardRightWin = false;
+            KeyboardBetweenDuration = 30;
+            KeyboardBetweenDurationRandom = 0;
+
         }
 
 
