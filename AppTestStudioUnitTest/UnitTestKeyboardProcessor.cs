@@ -117,5 +117,28 @@ namespace AppTestStudioUnitTest
                 Debug.WriteLine(command);
             }
         }
+
+        [TestMethod]
+        public void CheckNonEndingScript()
+        {
+            AppTestStudio.KeyboardProcessor kp = new AppTestStudio.KeyboardProcessor();
+            String s = "{TAB}{TAB}{TAB}qwert{LSHIFTDOWN}s{LasdfSHIFTUdP";
+
+            KeyboardCommand[] list = kp.ParseScript(s).ToArray();
+
+            GameNodeAction ActionNode = new GameNodeAction("", ActionType.Action);
+            ActionNode.KeyboardBetweenDuration = 30;
+            ActionNode.KeyboardBetweenDurationRandom = 3;
+
+            ActionNode.KeyboardDownDuration = 50;
+            ActionNode.KeyboardDownDurationRandom = 5;
+
+            Debug.WriteLine(s);
+            List<KeyboardCommand> CompleteList = kp.SequenceAndApplyPreWaits(list, ActionNode);
+            foreach (KeyboardCommand command in CompleteList)
+            {
+                Debug.WriteLine(command);
+            }
+        }
     }
 }

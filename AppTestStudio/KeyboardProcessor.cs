@@ -67,6 +67,14 @@ namespace AppTestStudio
                 }
             }
 
+            // Should not be in a command at this point.
+            if (InCommand)
+            {
+                KeyboardCommand Error = new KeyboardCommand(Command);
+                Error.ButtonState = KeyboardButtonStates.Error;
+                list.Add(Error);
+            }
+
             if (Command.Length > 0)
             {
                 Debug.WriteLine($"Error parsing found unexpected command {Command}");
@@ -173,6 +181,8 @@ namespace AppTestStudio
                         CompletePlayList.Add(Up);
                         break;
                     case KeyboardButtonStates.Error:
+                        KeyboardCommand ErrorState = CurrentCommand.Clone();
+                        CompletePlayList.Add(ErrorState);
                         break;
                     default:
                         break;

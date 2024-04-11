@@ -1080,7 +1080,7 @@ namespace AppTestStudio
                     break;
                 case Mode.Keyboard:
                     rdoModeKeyboard.Checked = true;
-                    break;               
+                    break;
                 default:
                     break;
             }
@@ -3058,7 +3058,7 @@ namespace AppTestStudio
                     GameNode.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
                 }
                 PictureBox1.Refresh();
-                
+
                 LoadObjectNodeSection();
             }
         }
@@ -4801,7 +4801,7 @@ namespace AppTestStudio
                     GameNodeAction ActionNode = PanelLoadNode as GameNodeAction;
 
                     if (rdoModeRangeClick.Checked)
-                    {                        
+                    {
                         ActionNode.Mode = Mode.RangeClick;
                         Debug.WriteLine($"rdoRangeClick_CheckedChanged ActionNode.Mode={ActionNode.Mode}");
                     }
@@ -8004,7 +8004,7 @@ namespace AppTestStudio
                                         else
                                         {
 
-                                        }                                        
+                                        }
                                         break;
                                     case Mode.MouseMove:
                                         RT3 = RT3 + " " + Mode.MouseMove.ToString();
@@ -8431,7 +8431,7 @@ namespace AppTestStudio
                     case "{LALT}":
                         txtKeyboard.Text = txtKeyboard.Text + "{LALTUP}";
                         break;
-                    default:            
+                    default:
                         break;
                 }
             }
@@ -8566,7 +8566,7 @@ namespace AppTestStudio
             try
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardLeftAlt= chkLeftAlt.Checked;
+                ActionNode.KeyboardLeftAlt = chkLeftAlt.Checked;
             }
             catch (Exception ex)
             {
@@ -8645,6 +8645,45 @@ namespace AppTestStudio
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
                 ActionNode.KeyboardScript = txtKeyboard.Text;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void cmdKeyboardValidate_Click(object sender, EventArgs e)
+        {
+            try
+            {                
+                Log("Validating Script");
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+
+                AppTestStudio.KeyboardProcessor KeyboardProcessor = new AppTestStudio.KeyboardProcessor();
+                KeyboardCommand[] list = KeyboardProcessor.ParseScript(txtKeyboard.Text).ToArray();
+                List<KeyboardCommand> CompleteList = KeyboardProcessor.SequenceAndApplyPreWaits(list, ActionNode);
+                long Errors = 0;
+                long ms = 0;
+                foreach (KeyboardCommand command in CompleteList)
+                {
+                    if (command.ButtonState == KeyboardButtonStates.Error)
+                    {
+                        Log("Error Found");
+                        Errors = Errors + 1;
+                    }
+                    Log(command.ToString());
+                    ms = ms + command.Delayms;
+                }
+                if (Errors > 0 )
+                {
+                    Log($"{Errors} Errors found.  Please fix, Errors will be skipped and may cause unexpected behaviours.");
+                    cmdKeyboardValidate.BackColor = Color.Red;
+                }
+                else
+                {
+                    Log($"{CompleteList.Count} Steps found over {ms}ms.");
+                    cmdKeyboardValidate.BackColor = Color.Green;
+                }
             }
             catch (Exception ex)
             {
