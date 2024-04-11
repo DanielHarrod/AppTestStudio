@@ -137,6 +137,7 @@ namespace AppTestStudio
                             else
                             {
                                 NormalStart.Delayms = ActionNode.KeyboardBetweenDuration;
+                                NormalStart.MaxRNG = ActionNode.KeyboardBetweenDurationRandom;
                             }
                         }
                         else
@@ -146,6 +147,7 @@ namespace AppTestStudio
                         }
                         KeyboardCommand NormalEnd = CurrentCommand.Clone();
                         NormalEnd.Delayms = ActionNode.KeyboardDownDuration;
+                        NormalEnd.MaxRNG = ActionNode.KeyboardDownDurationRandom;
                         NormalEnd.ButtonState = KeyboardButtonStates.Up;
                         CompletePlayList.Add(NormalStart);
                         CompletePlayList.Add(NormalEnd);
@@ -160,6 +162,7 @@ namespace AppTestStudio
                         else
                         {
                             Down.Delayms = ActionNode.KeyboardBetweenDuration;
+                            Down.MaxRNG = ActionNode.KeyboardBetweenDurationRandom;
                         }
 
                         CompletePlayList.Add(Down);

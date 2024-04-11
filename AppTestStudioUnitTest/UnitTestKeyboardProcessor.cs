@@ -105,7 +105,10 @@ namespace AppTestStudioUnitTest
 
             GameNodeAction ActionNode = new GameNodeAction("", ActionType.Action);
             ActionNode.KeyboardBetweenDuration = 30;
+            ActionNode.KeyboardBetweenDurationRandom = 3;
+
             ActionNode.KeyboardDownDuration = 50;
+            ActionNode.KeyboardDownDurationRandom = 5;
 
             Debug.WriteLine(s);
             List<KeyboardCommand> CompleteList = kp.SequenceAndApplyPreWaits(list, ActionNode);

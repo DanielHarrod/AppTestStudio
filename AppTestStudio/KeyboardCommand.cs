@@ -17,12 +17,15 @@ namespace AppTestStudio
 
         public String Origin { get; set; }
 
-        public KeyboardCommand(uint ScanCode, KeyboardButtonStates ButtonState, int Delayms, String Origin)
+        public int MaxRNG { get; set; }
+
+        public KeyboardCommand(uint ScanCode, KeyboardButtonStates ButtonState, int Delayms, String Origin, int MaxRNG)
         {
             this.ScanCode = ScanCode;
             this.ButtonState = ButtonState;
             this.Delayms = Delayms;
             this.Origin = Origin;
+            this.MaxRNG = MaxRNG;
         }
 
         public KeyboardCommand(Boolean IsError)
@@ -271,11 +274,11 @@ namespace AppTestStudio
 
         public KeyboardCommand Clone()
         {
-            return new KeyboardCommand(ScanCode, ButtonState, Delayms, Origin);
+            return new KeyboardCommand(ScanCode, ButtonState, Delayms, Origin, MaxRNG);
         }
         public override string ToString()
         {
-            return $"Origin: {Origin}, ButtonState: {ButtonState.ToString()}, Delayms: {Delayms}, ScanCode: {ScanCode}";
+            return $"Origin: {Origin}, ButtonState: {ButtonState.ToString()}, Delayms: {Delayms}/{MaxRNG}, ScanCode: {ScanCode}";
         }
     }
 }
