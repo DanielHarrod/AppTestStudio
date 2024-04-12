@@ -207,10 +207,6 @@ namespace AppTestStudio
                     }
                     break;
                 case Mode.Keyboard:
-                    Debug.WriteLine("Keyboard: SetIconsActionTypeAction");
-                    Debug.WriteLine("Keyboard: SetIconsActionTypeAction");
-                    Debug.WriteLine("Keyboard: SetIconsActionTypeAction");
-                    Debug.WriteLine("Keyboard: SetIconsActionTypeAction");
                     if (Action.Enabled)
                     {
                         Action.ImageIndex = IconNames.Keyboard;

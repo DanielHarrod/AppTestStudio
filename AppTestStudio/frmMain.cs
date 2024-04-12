@@ -1384,11 +1384,7 @@ namespace AppTestStudio
                             }
                             break;
                         case Mode.Keyboard:
-                            Debug.WriteLine("TODO Put some summary information in the box.");
-                            Debug.WriteLine("TODO Put some summary information in the box.");
-                            Debug.WriteLine("TODO Put some summary information in the box.");
-                            Debug.WriteLine("TODO Put some summary information in the box.");
-                            Debug.WriteLine("TODO Put some summary information in the box.");
+                            pictureBoxInformationWarning.Visible = false;
                             break;
                         default:
                             break;
@@ -2046,13 +2042,11 @@ namespace AppTestStudio
 
         private void tv_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
-            Debug.WriteLine("tv_NodeMouseClick");
             LastNode = e.Node as GameNode;
         }
 
         private void tv_MouseUp(object sender, MouseEventArgs e)
         {
-            Debug.WriteLine("tv_MouseUp");
             //' Show menu only if Right Mouse button is clicked
             if (e.Button == MouseButtons.Right)
             {
