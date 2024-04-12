@@ -227,7 +227,7 @@ namespace AppTestStudio
 
 
         [DllImport("User32.dll")]
-        public static extern uint MapVirtualKey(uint uCode, uint uMapType);
+        public static extern ushort MapVirtualKey(uint uCode, uint uMapType);
 
     }
 }

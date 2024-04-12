@@ -10,7 +10,7 @@ namespace AppTestStudio
 
     public class KeyboardCommand
     {
-        public uint ScanCode { get; set; }
+        public ushort ScanCode { get; set; }
         public KeyboardButtonStates ButtonState { get; set; }
 
         public int Delayms { get; set; }
@@ -19,7 +19,7 @@ namespace AppTestStudio
 
         public int MaxRNG { get; set; }
 
-        public KeyboardCommand(uint ScanCode, KeyboardButtonStates ButtonState, int Delayms, String Origin, int MaxRNG)
+        public KeyboardCommand(ushort ScanCode, KeyboardButtonStates ButtonState, int Delayms, String Origin, int MaxRNG)
         {
             this.ScanCode = ScanCode;
             this.ButtonState = ButtonState;

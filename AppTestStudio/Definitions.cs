@@ -63,6 +63,13 @@ namespace AppTestStudio
             public static int WM_CHAR = 0x0102;
         }
 
+        public static class KeyboardCodes
+        {
+            public static int INPUT_KEYBOARD = 1;
+            public static uint KEYEVENTF_SCANCODE = 0x0008;
+            public static uint KEYEVENTF_KEYUP = 0x0002;
+        }
+
         //file:///C:/Users/djhar/Downloads/translate.pdf
         public static class ScanCodes
         {

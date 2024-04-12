@@ -87,8 +87,9 @@ namespace AppTestStudio
             KeyboardBetweenDuration = 30;
             KeyboardBetweenDurationRandom = 0;
 
+            RuntimeCompiledKeyboardCommands = new List<KeyboardCommand>();
+            RumtimeIsKeyboardCompiled = false;
         }
-
 
         private AnchorMode mAnchor;
 
@@ -1129,6 +1130,12 @@ namespace AppTestStudio
         }
 
         // Don't Clone
+        public Boolean RumtimeIsKeyboardCompiled { get; set; }
+
+        // Don't Clone
+        public List<KeyboardCommand> RuntimeCompiledKeyboardCommands { get; set; }
+
+        // Don't Clone
         public String LastLogicChoice { get; set; }
 
         // Don't Clone
@@ -2135,7 +2142,12 @@ namespace AppTestStudio
                     if (mKeyboardScript != value)
                     {
                         IsDirty = true;
+                        RumtimeIsKeyboardCompiled = false;
                     }
+                }
+                else
+                {
+                    RumtimeIsKeyboardCompiled = false;
                 }
                 mKeyboardScript = value;
             }

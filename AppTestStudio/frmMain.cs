@@ -25,6 +25,7 @@ using System.Windows.Forms;
 using System.Windows.Forms.VisualStyles;
 using System.Xml;
 using System.Xml.Serialization;
+using static AppTestStudio.Definitions;
 
 namespace AppTestStudio
 {
@@ -3218,10 +3219,48 @@ namespace AppTestStudio
                                     ThreadManager.IncrementSingleTestMouseMove();
                                     break;
                                 case Mode.Keyboard:
-                                    Debug.WriteLine("Run Single Test Keyboard");
-                                    Debug.WriteLine("Run Single Test Keyboard");
-                                    Debug.WriteLine("Run Single Test Keyboard");
-                                    Debug.WriteLine("Run Single Test Keyboard");
+                                    if (ActionNode.RumtimeIsKeyboardCompiled == false)
+                                    {
+                                        if (ActionNode.KeyboardScript.Length > 0)
+                                        {
+                                            AppTestStudio.KeyboardProcessor keyboardProcessor = new AppTestStudio.KeyboardProcessor();
+
+                                            KeyboardCommand[] list = keyboardProcessor.ParseScript(ActionNode.KeyboardScript).ToArray();
+                                            ActionNode.RuntimeCompiledKeyboardCommands = keyboardProcessor.SequenceAndApplyPreWaits(list, ActionNode);
+                                        }
+                                    }
+
+                                    if (ActionNode.RuntimeCompiledKeyboardCommands.Count > 0)
+                                    {
+                                        Debug.WriteLine("TODO Add RNG Here<<");
+                                        foreach (KeyboardCommand command in ActionNode.RuntimeCompiledKeyboardCommands) 
+                                        {
+                                            API.Input[] inputs = new API.Input[1];
+                                            inputs[0].Type = KeyboardCodes.INPUT_KEYBOARD;
+                                            
+                                            inputs[0].u.KeyboardInput.ScanCode = command.ScanCode;
+
+                                            if (command.Delayms > 0)
+                                            {
+                                                Thread.Sleep(command.Delayms);
+
+                                            }
+                                            if (command.ButtonState == KeyboardButtonStates.Down)
+                                            {
+                                                inputs[0].u.KeyboardInput.Flags = KeyboardCodes.KEYEVENTF_SCANCODE;                                                
+                                            }
+                                            if (command.ButtonState == KeyboardButtonStates.Up)
+                                            {
+                                                inputs[0].u.KeyboardInput.Flags = KeyboardCodes.KEYEVENTF_KEYUP | KeyboardCodes.KEYEVENTF_SCANCODE;
+                                            }
+
+                                            if (command.ButtonState == KeyboardButtonStates.Down || command.ButtonState == KeyboardButtonStates.Up)
+                                            {
+                                                uint uSent = API.SendInput(1, inputs, Marshal.SizeOf(typeof(API.Input)));
+                                            }                                            
+                                        }
+                                    }
+
                                     break;
 
                                 default:
