@@ -6,6 +6,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using static AppTestStudio.Definitions;
 
 namespace AppTestStudio
 {
@@ -127,6 +128,70 @@ namespace AppTestStudio
             List<KeyboardCommand> CompletePlayList = new List<KeyboardCommand>();
             KeyboardButtonStates LastState = KeyboardButtonStates.None;
 
+            if (ActionNode.KeyboardLeftAlt)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand LeftAltCommand = new KeyboardCommand(VirtualKeyCodeText.VK_LMENU_DOWN);
+                LeftAltCommand.ButtonState = KeyboardButtonStates.Down;
+                CompletePlayList.Add(LeftAltCommand);
+            }
+
+            if (ActionNode.KeyboardLeftCtrl)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand LeftCtrlCommand = new KeyboardCommand(VirtualKeyCodeText.VK_LCONTROL_DOWN);
+                LeftCtrlCommand.ButtonState = KeyboardButtonStates.Down;
+                CompletePlayList.Add(LeftCtrlCommand);
+            }
+
+            if (ActionNode.KeyboardLeftShift)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand LeftShiftCommand = new KeyboardCommand(VirtualKeyCodeText.VK_LSHIFT_DOWN);
+                LeftShiftCommand.ButtonState = KeyboardButtonStates.Down;
+                CompletePlayList.Add(LeftShiftCommand);
+            }
+
+            if (ActionNode.KeyboardLeftWin)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand LeftWinCommand = new KeyboardCommand(VirtualKeyCodeText.VK_LWIN_DOWN);
+                LeftWinCommand.ButtonState = KeyboardButtonStates.Down;
+                CompletePlayList.Add(LeftWinCommand);
+            }
+
+            if (ActionNode.KeyboardRightAlt)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand RightAltCommand = new KeyboardCommand(VirtualKeyCodeText.VK_RMENU_DOWN);
+                RightAltCommand.ButtonState = KeyboardButtonStates.Down;
+                CompletePlayList.Add(RightAltCommand);
+            }
+
+            if (ActionNode.KeyboardRightCtrl)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand RightCtrlCommand = new KeyboardCommand(VirtualKeyCodeText.VK_RCONTROL_DOWN);
+                RightCtrlCommand.ButtonState = KeyboardButtonStates.Down;
+                CompletePlayList.Add(RightCtrlCommand);
+            }
+
+            if (ActionNode.KeyboardRightShift)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand RightShiftCommand = new KeyboardCommand(VirtualKeyCodeText.VK_RSHIFT_DOWN);
+                RightShiftCommand.ButtonState = KeyboardButtonStates.Down;
+                CompletePlayList.Add(RightShiftCommand);
+            }
+
+            if (ActionNode.KeyboardRightWin)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand RightWinCommand = new KeyboardCommand(VirtualKeyCodeText.VK_RWIN_DOWN);
+                RightWinCommand.ButtonState = KeyboardButtonStates.Down;
+                CompletePlayList.Add(RightWinCommand);
+            }
+
             for (int i = 0; i < list.Length; i++)
             {
                 KeyboardCommand CurrentCommand = list[i];
@@ -189,6 +254,70 @@ namespace AppTestStudio
                 }
 
                 LastState = CurrentCommand.ButtonState;
+            }
+
+            if (ActionNode.KeyboardLeftAlt)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand LeftAltCommand = new KeyboardCommand(VirtualKeyCodeText.VK_LMENU_UP);
+                LeftAltCommand.ButtonState = KeyboardButtonStates.Up;
+                CompletePlayList.Add(LeftAltCommand);
+            }
+
+            if (ActionNode.KeyboardLeftCtrl)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand LeftCtrlCommand = new KeyboardCommand(VirtualKeyCodeText.VK_LCONTROL_UP);
+                LeftCtrlCommand.ButtonState = KeyboardButtonStates.Up;
+                CompletePlayList.Add(LeftCtrlCommand);
+            }
+
+            if (ActionNode.KeyboardLeftShift)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand LeftShiftCommand = new KeyboardCommand(VirtualKeyCodeText.VK_LSHIFT_UP);
+                LeftShiftCommand.ButtonState = KeyboardButtonStates.Up;
+                CompletePlayList.Add(LeftShiftCommand);
+            }
+
+            if (ActionNode.KeyboardLeftWin)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand LeftWinCommand = new KeyboardCommand(VirtualKeyCodeText.VK_LWIN_UP);
+                LeftWinCommand.ButtonState = KeyboardButtonStates.Up;
+                CompletePlayList.Add(LeftWinCommand);
+            }
+
+            if (ActionNode.KeyboardRightAlt)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand RightAltCommand = new KeyboardCommand(VirtualKeyCodeText.VK_RMENU_UP);
+                RightAltCommand.ButtonState = KeyboardButtonStates.Up;
+                CompletePlayList.Add(RightAltCommand);
+            }
+
+            if (ActionNode.KeyboardRightCtrl)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand RightCtrlCommand = new KeyboardCommand(VirtualKeyCodeText.VK_RCONTROL_UP);
+                RightCtrlCommand.ButtonState = KeyboardButtonStates.Up;
+                CompletePlayList.Add(RightCtrlCommand);
+            }
+
+            if (ActionNode.KeyboardRightShift)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand RightShiftCommand = new KeyboardCommand(VirtualKeyCodeText.VK_RSHIFT_UP);
+                RightShiftCommand.ButtonState = KeyboardButtonStates.Up;
+                CompletePlayList.Add(RightShiftCommand);
+            }
+
+            if (ActionNode.KeyboardRightWin)
+            {
+                LastState = KeyboardButtonStates.Down;
+                KeyboardCommand RightWinCommand = new KeyboardCommand(VirtualKeyCodeText.VK_RWIN_UP);
+                RightWinCommand.ButtonState = KeyboardButtonStates.Up;
+                CompletePlayList.Add(RightWinCommand);
             }
             return CompletePlayList;
         }

@@ -278,7 +278,7 @@ namespace AppTestStudio
         }
         public override string ToString()
         {
-            return $"Origin: {Origin}, ButtonState: {ButtonState.ToString()}, Delayms: {Delayms}/{MaxRNG}, ScanCode: {ScanCode}";
+            return $"Origin: {Origin}, State: {ButtonState.ToString()}, Delay ms: {Delayms}/{MaxRNG}, ScanCode: {ScanCode}";
         }
     }
 }

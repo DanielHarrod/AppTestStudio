@@ -140,5 +140,37 @@ namespace AppTestStudioUnitTest
                 Debug.WriteLine(command);
             }
         }
+
+        [TestMethod]
+        public void CheckNonEndingScriptAltCtrlShiftWin()
+        {
+            AppTestStudio.KeyboardProcessor kp = new AppTestStudio.KeyboardProcessor();
+            String s = "{TAB}{TAB}{TAB}qwerts";
+
+            KeyboardCommand[] list = kp.ParseScript(s).ToArray();
+
+            GameNodeAction ActionNode = new GameNodeAction("", ActionType.Action);
+            ActionNode.KeyboardBetweenDuration = 30;
+            ActionNode.KeyboardBetweenDurationRandom = 3;
+
+            ActionNode.KeyboardDownDuration = 50;
+            ActionNode.KeyboardDownDurationRandom = 5;
+
+            ActionNode.KeyboardLeftAlt = true;
+            ActionNode.KeyboardLeftCtrl = true;
+            ActionNode.KeyboardLeftShift = true;
+            ActionNode.KeyboardLeftWin = true;
+            ActionNode.KeyboardRightAlt = true;
+            ActionNode.KeyboardRightCtrl = true;
+            ActionNode.KeyboardRightShift = true;
+            ActionNode.KeyboardRightWin = true;
+
+            Debug.WriteLine(s);
+            List<KeyboardCommand> CompleteList = kp.SequenceAndApplyPreWaits(list, ActionNode);
+            foreach (KeyboardCommand command in CompleteList)
+            {
+                Debug.WriteLine(command);
+            }
+        }
     }
 }
