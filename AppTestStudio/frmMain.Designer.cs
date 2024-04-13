@@ -1447,7 +1447,7 @@
             this.tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelRunValues.ColumnCount = 2;
             this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 42F));
+            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue14, 0, 13);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue7, 0, 6);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue1, 0, 0);
@@ -1645,10 +1645,10 @@
             // cmdUpdateResolution
             // 
             this.cmdUpdateResolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdUpdateResolution.Location = new System.Drawing.Point(98, 148);
+            this.cmdUpdateResolution.Location = new System.Drawing.Point(97, 148);
             this.cmdUpdateResolution.Margin = new System.Windows.Forms.Padding(0);
             this.cmdUpdateResolution.Name = "cmdUpdateResolution";
-            this.cmdUpdateResolution.Size = new System.Drawing.Size(42, 20);
+            this.cmdUpdateResolution.Size = new System.Drawing.Size(43, 20);
             this.cmdUpdateResolution.TabIndex = 13;
             this.cmdUpdateResolution.Text = "...";
             this.cmdUpdateResolution.UseVisualStyleBackColor = true;
@@ -1657,10 +1657,10 @@
             // cmdRuntimeEnableToggle
             // 
             this.cmdRuntimeEnableToggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(98, 64);
+            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(97, 64);
             this.cmdRuntimeEnableToggle.Margin = new System.Windows.Forms.Padding(0);
             this.cmdRuntimeEnableToggle.Name = "cmdRuntimeEnableToggle";
-            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(42, 20);
+            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(43, 20);
             this.cmdRuntimeEnableToggle.TabIndex = 14;
             this.cmdRuntimeEnableToggle.Text = "...";
             this.cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
@@ -3115,7 +3115,7 @@
             // 
             this.groupBox20.Controls.Add(this.grpKeyboardLeft);
             this.groupBox20.Controls.Add(this.grpKeyboardRight);
-            this.groupBox20.Location = new System.Drawing.Point(504, 9);
+            this.groupBox20.Location = new System.Drawing.Point(33, 304);
             this.groupBox20.Name = "groupBox20";
             this.groupBox20.Size = new System.Drawing.Size(141, 111);
             this.groupBox20.TabIndex = 18;
@@ -3482,7 +3482,7 @@
             this.panelRightProperties.Location = new System.Drawing.Point(2, 20);
             this.panelRightProperties.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightProperties.Name = "panelRightProperties";
-            this.panelRightProperties.Size = new System.Drawing.Size(280, 87);
+            this.panelRightProperties.Size = new System.Drawing.Size(280, 121);
             this.panelRightProperties.TabIndex = 38;
             // 
             // chkFromCurrentMousePos
@@ -3595,7 +3595,7 @@
             this.panelRightAfterCompletion.Controls.Add(this.rdoAfterCompletionContinue);
             this.panelRightAfterCompletion.Controls.Add(this.rdoAfterCompletionHome);
             this.panelRightAfterCompletion.Controls.Add(this.rdoAfterCompletionParent);
-            this.panelRightAfterCompletion.Location = new System.Drawing.Point(3, 112);
+            this.panelRightAfterCompletion.Location = new System.Drawing.Point(3, 146);
             this.panelRightAfterCompletion.Name = "panelRightAfterCompletion";
             this.panelRightAfterCompletion.Size = new System.Drawing.Size(280, 169);
             this.panelRightAfterCompletion.TabIndex = 30;
@@ -4010,7 +4010,7 @@
             this.panelRightObject.Controls.Add(this.PictureBoxEventObjectSelection);
             this.panelRightObject.Controls.Add(this.Label50);
             this.panelRightObject.Controls.Add(this.cboChannel);
-            this.panelRightObject.Location = new System.Drawing.Point(2, 286);
+            this.panelRightObject.Location = new System.Drawing.Point(2, 320);
             this.panelRightObject.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightObject.Name = "panelRightObject";
             this.panelRightObject.Size = new System.Drawing.Size(280, 198);
@@ -4152,7 +4152,7 @@
             this.panelRightSwipeProperties.Controls.Add(this.groupBoxClickDragReleaseObjectSearch);
             this.panelRightSwipeProperties.Controls.Add(this.numericSwipeVelocity);
             this.panelRightSwipeProperties.Controls.Add(this.cmdRightSwipeProperties);
-            this.panelRightSwipeProperties.Location = new System.Drawing.Point(2, 488);
+            this.panelRightSwipeProperties.Location = new System.Drawing.Point(2, 522);
             this.panelRightSwipeProperties.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightSwipeProperties.Name = "panelRightSwipeProperties";
             this.panelRightSwipeProperties.Size = new System.Drawing.Size(280, 203);
@@ -4390,7 +4390,7 @@
             this.panelRightClickProperties.Controls.Add(this.NumericClickSpeed);
             this.panelRightClickProperties.Controls.Add(this.label54);
             this.panelRightClickProperties.Controls.Add(this.cmdRightClickProperties);
-            this.panelRightClickProperties.Location = new System.Drawing.Point(2, 695);
+            this.panelRightClickProperties.Location = new System.Drawing.Point(2, 729);
             this.panelRightClickProperties.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightClickProperties.Name = "panelRightClickProperties";
             this.panelRightClickProperties.Size = new System.Drawing.Size(280, 87);
@@ -4461,7 +4461,7 @@
             this.panelRightLogic.Controls.Add(this.label31);
             this.panelRightLogic.Controls.Add(this.rdoOR);
             this.panelRightLogic.Controls.Add(this.rdoAnd);
-            this.panelRightLogic.Location = new System.Drawing.Point(2, 786);
+            this.panelRightLogic.Location = new System.Drawing.Point(2, 820);
             this.panelRightLogic.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightLogic.Name = "panelRightLogic";
             this.panelRightLogic.Size = new System.Drawing.Size(280, 71);
@@ -4550,7 +4550,7 @@
             this.panelRightCustomLogic.Controls.Add(this.cmdValidate);
             this.panelRightCustomLogic.Controls.Add(this.label37);
             this.panelRightCustomLogic.Controls.Add(this.txtCustomLogic);
-            this.panelRightCustomLogic.Location = new System.Drawing.Point(2, 861);
+            this.panelRightCustomLogic.Location = new System.Drawing.Point(2, 895);
             this.panelRightCustomLogic.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightCustomLogic.Name = "panelRightCustomLogic";
             this.panelRightCustomLogic.Size = new System.Drawing.Size(279, 93);
@@ -4590,7 +4590,7 @@
             // panelRightPointGrid
             // 
             this.panelRightPointGrid.Controls.Add(this.dgv);
-            this.panelRightPointGrid.Location = new System.Drawing.Point(2, 958);
+            this.panelRightPointGrid.Location = new System.Drawing.Point(2, 992);
             this.panelRightPointGrid.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightPointGrid.Name = "panelRightPointGrid";
             this.panelRightPointGrid.Size = new System.Drawing.Size(280, 154);
@@ -4691,7 +4691,7 @@
             this.panelRightInformation.Controls.Add(this.pictureBoxInformationWarning);
             this.panelRightInformation.Controls.Add(this.lblInformation);
             this.panelRightInformation.Controls.Add(this.cmdRightInformation);
-            this.panelRightInformation.Location = new System.Drawing.Point(2, 1116);
+            this.panelRightInformation.Location = new System.Drawing.Point(2, 1150);
             this.panelRightInformation.Margin = new System.Windows.Forms.Padding(2);
             this.panelRightInformation.Name = "panelRightInformation";
             this.panelRightInformation.Size = new System.Drawing.Size(280, 87);

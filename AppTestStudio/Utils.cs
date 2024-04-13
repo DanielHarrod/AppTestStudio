@@ -12,6 +12,7 @@ using System.Threading;
 using static AppTestStudio.API;
 using System.Runtime.InteropServices;
 using System.Windows.Media.Animation;
+using static AppTestStudio.Definitions;
 
 namespace AppTestStudio
 {
@@ -300,6 +301,40 @@ namespace AppTestStudio
         {
             MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.LeftDown, (short)startX, (short)startY, (short)endX, (short)endY, velocityMS, mouseInitialClickDelayMS);
         }
+
+        public static Boolean ActivateWindowIfNecessary2(IntPtr windowHandle,int TimeOutMS, int AfterActivateTimeMS)
+        {
+            int Start = Environment.TickCount;
+            int End = Start + TimeOutMS;
+
+            IntPtr hActiveWindow = API.GetForegroundWindow();
+
+            IntPtr hActiveWindowRoot= API.GetAncestor(hActiveWindow, GetAncestorFlags.GetRoot);
+            IntPtr hActiveWindowHandleRoot = API.GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
+
+            if (hActiveWindowHandleRoot != hActiveWindowRoot)                 
+            {
+                API.SwitchToThisWindow(windowHandle, true);
+                Thread.Sleep(AfterActivateTimeMS);
+                //Boolean Result = API.SetForegroundWindow(hActiveWindowHandleRoot);
+                //Utils.SendAltUp();
+                //Debug.WriteLine($"ASFW={Result}");
+                while (hActiveWindowHandleRoot != hActiveWindowRoot)
+                {
+                    hActiveWindow = API.GetForegroundWindow();
+                    hActiveWindowRoot = API.GetAncestor(hActiveWindow, GetAncestorFlags.GetRoot);
+                    if (Environment.TickCount > End)
+                    {
+                        Debug.WriteLine("Never activated within time.");
+                        return false;
+                    }
+                    Thread.Sleep(5);
+                }
+            }
+            Debug.WriteLine($"Found in {Environment.TickCount - Start}ms");
+            return true;            
+        }
+
 
         public static Boolean ActivateWindowIfNecessary(IntPtr windowHandle, WindowAction windowAction, int startX, int startY)
         {
@@ -1662,6 +1697,25 @@ namespace AppTestStudio
             return Math.Sqrt(Math.Pow((x2 - x1), 2) + Math.Pow((y2 - y1), 2)).ToInt();
         }
 
+        public static void SendAltDown()
+        {
+            API.Input ip = new Input();
+
+            ip.Type = KeyboardCodes.INPUT_KEYBOARD;
+            ip.u.KeyboardInput.VirtualKeyCode = VirtualKeyCode.VK_MENU;
+            Input[] InputInitial = { ip };
+            SendInput(1, InputInitial, Marshal.SizeOf(typeof(Input)));
+        }
+        public static void SendAltUp()
+        {
+            API.Input ip = new Input();
+
+            ip.Type = KeyboardCodes.INPUT_KEYBOARD;
+            ip.u.KeyboardInput.VirtualKeyCode = VirtualKeyCode.VK_MENU;
+            ip.u.KeyboardInput.Flags = KeyboardCodes.KEYEVENTF_KEYUP;
+            Input[] InputInitial = { ip };
+            SendInput(1, InputInitial, Marshal.SizeOf(typeof(Input)));
+        }
 
         public static void DrawRectangleWithGuidesOnGraphics(Graphics graphics, Bitmap bitmap, Rectangle rectangle)
         {

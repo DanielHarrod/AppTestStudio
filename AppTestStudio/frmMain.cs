@@ -3233,6 +3233,19 @@ namespace AppTestStudio
                                     if (ActionNode.RuntimeCompiledKeyboardCommands.Count > 0)
                                     {
                                         Debug.WriteLine("TODO Add RNG Here<<");
+                                        if (true)
+                                        {
+                                            IntPtr hWnd = Utils.GetWindowHandleByWindowName(game);
+                                            if (hWnd.Equals(IntPtr.Zero))
+                                            {
+                                                Debug.WriteLine($"Unable to locate {game.ApplicationPrimaryWindowName}");
+                                            }
+                                            else
+                                            {
+                                                Utils.ActivateWindowIfNecessary2(hWnd, 4000,100);
+
+                                            }
+                                        }
                                         foreach (KeyboardCommand command in ActionNode.RuntimeCompiledKeyboardCommands) 
                                         {
                                             API.Input[] inputs = new API.Input[1];
