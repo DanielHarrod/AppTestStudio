@@ -301,6 +301,7 @@ namespace AppTestStudio
 
                                 kp.SequenceAndApplyPreWaits(list, node);
                                 node.RuntimeCompiledKeyboardCommands = kp.SequenceAndApplyPreWaits(list, node);
+                                node.RumtimeIsKeyboardCompiled = true;
                             }
 
                             foreach (KeyboardCommand command in node.RuntimeCompiledKeyboardCommands)
