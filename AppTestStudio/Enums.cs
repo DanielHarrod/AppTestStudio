@@ -75,6 +75,13 @@ namespace AppTestStudio
         None
     }
 
+    public enum ActivateWindowResult
+    {
+        WindowAlreadyActivated,
+        WindowActivated,
+        Timeout
+    }
+
     public enum TimeoutAction
     {
         Abort,

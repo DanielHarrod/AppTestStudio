@@ -302,7 +302,7 @@ namespace AppTestStudio
             MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.LeftDown, (short)startX, (short)startY, (short)endX, (short)endY, velocityMS, mouseInitialClickDelayMS);
         }
 
-        public static Boolean ActivateWindowIfNecessary2(IntPtr windowHandle,int TimeOutMS, int AfterActivateTimeMS)
+        public static ActivateWindowResult ActivateWindowIfNecessary2(IntPtr windowHandle,int TimeOutMS, int AfterActivateTimeMS)
         {
             int Start = Environment.TickCount;
             int End = Start + TimeOutMS;
@@ -326,13 +326,17 @@ namespace AppTestStudio
                     if (Environment.TickCount > End)
                     {
                         Debug.WriteLine("Never activated within time.");
-                        return false;
+                        return ActivateWindowResult.Timeout;
                     }
                     Thread.Sleep(5);
                 }
             }
+            else
+            {
+                return ActivateWindowResult.WindowAlreadyActivated;
+            }
             Debug.WriteLine($"Found in {Environment.TickCount - Start}ms");
-            return true;            
+            return ActivateWindowResult.WindowActivated;            
         }
 
 

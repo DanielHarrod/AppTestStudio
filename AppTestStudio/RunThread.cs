@@ -218,6 +218,7 @@ namespace AppTestStudio
                 ///             Action
                 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
                 case ActionType.Action:
+                    ActivateWindowResult ActivationResult = ActivateWindowResult.WindowAlreadyActivated;
                     Game.AbsoluteLastNode = node;
                     Game.ThreadLastNodeAction = node;
 
@@ -283,19 +284,14 @@ namespace AppTestStudio
                             break;
                         case Mode.Keyboard:
                             // Activate if needed
-                            if (node.AppActivateIfNotActive)
+                            ActivationResult = ActivateIfNecessary(node);
+                            if (ActivationResult == ActivateWindowResult.Timeout)
                             {
-                                Boolean ActivationResult = Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
-
-                                if (ActivationResult == false)
+                                if (node.PreActionFailureAction == TimeoutAction.Abort)
                                 {
-                                    if (node.PreActionFailureAction == TimeoutAction.Abort)
-                                    {
-                                        //'do nothing
-                                        return AfterCompletionType.ContinueProcess;
-                                    }
+                                    return AfterCompletionType.ContinueProcess;
                                 }
-                            }
+                            }                            
 
                             Debug.WriteLine("RunThread: Process children");
                             Debug.WriteLine("RunThread: Process children");
@@ -329,18 +325,12 @@ namespace AppTestStudio
                             }
                             else
                             {
-                                // Activate if needed
-                                if (node.AppActivateIfNotActive)
+                                ActivationResult = ActivateIfNecessary(node);
+                                if (ActivationResult == ActivateWindowResult.Timeout)
                                 {
-                                    Boolean ActivationResult = Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
-
-                                    if (ActivationResult == false)
+                                    if (node.PreActionFailureAction == TimeoutAction.Abort)
                                     {
-                                        if (node.PreActionFailureAction == TimeoutAction.Abort)
-                                        {
-                                            //'do nothing
-                                            return AfterCompletionType.ContinueProcess;
-                                        }
+                                        return AfterCompletionType.ContinueProcess;
                                     }
                                 }
 
@@ -390,18 +380,12 @@ namespace AppTestStudio
                             }
                             else
                             {
-                                // Activate if needed
-                                if (node.AppActivateIfNotActive)
+                                ActivationResult = ActivateIfNecessary(node);
+                                if (ActivationResult == ActivateWindowResult.Timeout)
                                 {
-                                    Boolean ActivationResult = Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
-
-                                    if (ActivationResult == false)
+                                    if (node.PreActionFailureAction == TimeoutAction.Abort)
                                     {
-                                        if (node.PreActionFailureAction == TimeoutAction.Abort)
-                                        {
-                                            //'do nothing
-                                            return AfterCompletionType.ContinueProcess;
-                                        }
+                                        return AfterCompletionType.ContinueProcess;
                                     }
                                 }
 
@@ -698,6 +682,38 @@ namespace AppTestStudio
             ThreadManager.IncrementGoContinue();
             return AfterCompletionType.Continue;
         } // ProcessChildren
+
+        private ActivateWindowResult ActivateIfNecessary(GameNodeAction node)
+        {
+            ActivateWindowResult Result = ActivateWindowResult.WindowAlreadyActivated;
+            if (node.AppActivateIfNotActive)
+            {
+                Result = Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
+                switch (Result)
+                {
+                    case ActivateWindowResult.WindowAlreadyActivated:
+                        // Do nothing
+                        break;
+                    case ActivateWindowResult.WindowActivated:
+                        Game.Log("Window Activated");
+                        break;
+                    case ActivateWindowResult.Timeout:
+
+                        if (node.PreActionFailureAction == TimeoutAction.Abort)
+                        {
+                            Game.Log("Window Timeout Abort");                            
+                        }
+                        else
+                        {
+                            Game.Log("Window Timeout Continue");
+                        }
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return Result;
+        }
 
         /// <summary>
         /// Restart of Emmulator Event
