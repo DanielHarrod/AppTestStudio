@@ -291,15 +291,23 @@ namespace AppTestStudio
                                 {
                                     return AfterCompletionType.ContinueProcess;
                                 }
-                            }                            
+                            }
 
-                            Debug.WriteLine("RunThread: Process children");
-                            Debug.WriteLine("RunThread: Process children");
-                            Debug.WriteLine("RunThread: Process children");
-                            Debug.WriteLine("RunThread: Process children");
-                            Debug.WriteLine("RunThread: Process children");
-                            Debug.WriteLine("RunThread: Process children");
-                            Debug.WriteLine("RunThread: Process children");
+                            if(node.RumtimeIsKeyboardCompiled==false)
+                            {
+                                Game.Log("First use Compiling keyboard script.");
+                                AppTestStudio.KeyboardProcessor kp = new AppTestStudio.KeyboardProcessor();
+                                KeyboardCommand[] list = kp.ParseScript(node.KeyboardScript).ToArray();
+
+                                kp.SequenceAndApplyPreWaits(list, node);
+                                node.RuntimeCompiledKeyboardCommands = kp.SequenceAndApplyPreWaits(list, node);
+                            }
+
+                            foreach (KeyboardCommand command in node.RuntimeCompiledKeyboardCommands)
+                            {
+                                Utils.ProcessKeyboardCommand(command);
+                            }
+
                             break;
                         case Mode.MouseMove:
                             GameNodeAction.ClickDragReleaseResult MouseMoveResult = node.CalculateClickDragReleaseResult(centerX, centerY);

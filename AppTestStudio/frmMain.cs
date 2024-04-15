@@ -3266,31 +3266,9 @@ namespace AppTestStudio
 
                                             }
                                         }
-                                        foreach (KeyboardCommand command in ActionNode.RuntimeCompiledKeyboardCommands) 
+                                        foreach (KeyboardCommand command in ActionNode.RuntimeCompiledKeyboardCommands)
                                         {
-                                            API.Input[] inputs = new API.Input[1];
-                                            inputs[0].Type = KeyboardCodes.INPUT_KEYBOARD;
-                                            
-                                            inputs[0].u.KeyboardInput.ScanCode = command.ScanCode;
-
-                                            if (command.Delayms > 0)
-                                            {
-                                                Thread.Sleep(command.Delayms);
-
-                                            }
-                                            if (command.ButtonState == KeyboardButtonStates.Down)
-                                            {
-                                                inputs[0].u.KeyboardInput.Flags = KeyboardCodes.KEYEVENTF_SCANCODE;                                                
-                                            }
-                                            if (command.ButtonState == KeyboardButtonStates.Up)
-                                            {
-                                                inputs[0].u.KeyboardInput.Flags = KeyboardCodes.KEYEVENTF_KEYUP | KeyboardCodes.KEYEVENTF_SCANCODE;
-                                            }
-
-                                            if (command.ButtonState == KeyboardButtonStates.Down || command.ButtonState == KeyboardButtonStates.Up)
-                                            {
-                                                uint uSent = API.SendInput(1, inputs, Marshal.SizeOf(typeof(API.Input)));
-                                            }                                            
+                                            Utils.ProcessKeyboardCommand(command);
                                         }
                                     }
 
@@ -3351,7 +3329,6 @@ namespace AppTestStudio
                 Log("Unable to find window with title: " + game.TargetWindow);
             }
         }
-
         private void Timer1_Tick(object sender, EventArgs e)
         {
             try
