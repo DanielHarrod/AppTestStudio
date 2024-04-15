@@ -285,7 +285,16 @@ namespace AppTestStudio
                             // Activate if needed
                             if (node.AppActivateIfNotActive)
                             {
-                                Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
+                                Boolean ActivationResult = Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
+
+                                if (ActivationResult == false)
+                                {
+                                    if (node.PreActionFailureAction == TimeoutAction.Abort)
+                                    {
+                                        //'do nothing
+                                        return AfterCompletionType.ContinueProcess;
+                                    }
+                                }
                             }
 
                             Debug.WriteLine("RunThread: Process children");
@@ -323,7 +332,16 @@ namespace AppTestStudio
                                 // Activate if needed
                                 if (node.AppActivateIfNotActive)
                                 {
-                                    Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
+                                    Boolean ActivationResult = Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
+
+                                    if (ActivationResult == false)
+                                    {
+                                        if (node.PreActionFailureAction == TimeoutAction.Abort)
+                                        {
+                                            //'do nothing
+                                            return AfterCompletionType.ContinueProcess;
+                                        }
+                                    }
                                 }
 
                                 Game.Log("MouseMove from ( x=" + MouseMoveResult.StartX + ",y = " + MouseMoveResult.StartY + " to x=" + MouseMoveResult.EndX + ",y=" + MouseMoveResult.EndY + ")");
@@ -375,7 +393,16 @@ namespace AppTestStudio
                                 // Activate if needed
                                 if (node.AppActivateIfNotActive)
                                 {
-                                    Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
+                                    Boolean ActivationResult = Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
+
+                                    if (ActivationResult == false)
+                                    {
+                                        if (node.PreActionFailureAction == TimeoutAction.Abort)
+                                        {
+                                            //'do nothing
+                                            return AfterCompletionType.ContinueProcess;
+                                        }
+                                    }
                                 }
 
                                 Game.Log("Swipe from ( x=" + CDRResult.StartX + ",y = " + CDRResult.StartY + " to x=" + CDRResult.EndX + ",y=" + CDRResult.EndY + ")");
