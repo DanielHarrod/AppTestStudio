@@ -89,7 +89,83 @@ namespace AppTestStudio
 
             RuntimeCompiledKeyboardCommands = new List<KeyboardCommand>();
             RumtimeIsKeyboardCompiled = false;
+
+            KeyboardTimeoutToActivateMS = 2000;
+            AppActivateIfNotActive = false;
+            KeyboardAfterSendingActivationMS = 50;
+            PreActionFailureAction = TimeoutAction.Continue;
         }
+
+        private TimeoutAction mPreActionFailureAction;
+        public TimeoutAction PreActionFailureAction
+        {
+            get { return mPreActionFailureAction; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPreActionFailureAction != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPreActionFailureAction = value;
+            }
+        }
+
+        private int mKeyboardAfterSendingActivationMS;
+        public int KeyboardAfterSendingActivationMS
+        {
+            get { return mKeyboardAfterSendingActivationMS; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mKeyboardAfterSendingActivationMS != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mKeyboardAfterSendingActivationMS = value;
+            }
+        }
+
+        private Boolean mAppActivateIfNotActive;
+        public Boolean AppActivateIfNotActive
+        {
+            get { return mAppActivateIfNotActive; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mAppActivateIfNotActive != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mAppActivateIfNotActive = value;
+            }
+        }
+
+        private int mKeyboardTimeoutToActivateMS;
+        public int KeyboardTimeoutToActivateMS
+        {
+            get { return mKeyboardTimeoutToActivateMS; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mKeyboardTimeoutToActivateMS != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mKeyboardTimeoutToActivateMS = value;
+            }
+        }
+
+
+
 
         private AnchorMode mAnchor;
 
@@ -1230,6 +1306,11 @@ namespace AppTestStudio
             Action.KeyboardRightShift = KeyboardRightShift;
             Action.KeyboardRightWin = KeyboardRightWin;
             Action.KeyboardScript = KeyboardScript;
+
+            Action.KeyboardTimeoutToActivateMS = KeyboardTimeoutToActivateMS;
+            Action.AppActivateIfNotActive = AppActivateIfNotActive;
+            Action.KeyboardAfterSendingActivationMS = KeyboardAfterSendingActivationMS;
+            Action.PreActionFailureAction = PreActionFailureAction;
 
             Action.IsLoading = false;
             return Action;

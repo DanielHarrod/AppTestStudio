@@ -605,7 +605,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mBlueStacksWindowName = value; }
+                mBlueStacksWindowName = value;
+            }
         }
 
         private BlueGuest mBlueGuest;
@@ -622,7 +623,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mBlueGuest = value; }
+                mBlueGuest = value;
+            }
         }
 
         /// <summary>
@@ -643,7 +645,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mMouseX = value; }
+                mMouseX = value;
+            }
         }
 
         /// <summary>
@@ -664,7 +667,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mMouseY = value; }
+                mMouseY = value;
+            }
         }
 
         /// <summary>
@@ -684,7 +688,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mMouseSpeedPixelsPerSecond = value; }
+                mMouseSpeedPixelsPerSecond = value;
+            }
         }
 
         /// <summary>
@@ -704,7 +709,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mMouseSpeedVelocityVariantPercentMax = value; }
+                mMouseSpeedVelocityVariantPercentMax = value;
+            }
         }
 
 
@@ -725,7 +731,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mMouseSpeedVelocityVariantPercentMin = value; }
+                mMouseSpeedVelocityVariantPercentMin = value;
+            }
         }
 
         public GameNodeGame CloneMe()
@@ -809,7 +816,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mVideoFrameLimit = value; }
+                mVideoFrameLimit = value;
+            }
         }
 
         // During Runtime if the window is not found don't shutdown the thread.
@@ -845,7 +853,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mSaveVideo = value; }
+                mSaveVideo = value;
+            }
         }
 
         private MouseMode mMouseMode;
@@ -862,7 +871,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mMouseMode = value; }
+                mMouseMode = value;
+            }
         }
 
         private Boolean mMoveMouseBeforeAction;
@@ -879,7 +889,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mMoveMouseBeforeAction = value; }
+                mMoveMouseBeforeAction = value;
+            }
         }
 
         private WindowAction mWindowAction;
@@ -896,7 +907,8 @@ namespace AppTestStudio
                         IsDirty = true;
                     }
                 }
-                mWindowAction = value; }
+                mWindowAction = value;
+            }
         }
 
         public static GameNodeGame LoadGameFromFile(String fileName, Boolean loadBitmaps, ThreadManager threadManager)
@@ -1592,6 +1604,13 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("IsWaitFirst", Activites.IsWaitFirst.ToString());
                         Writer.WriteAttributeString("ExecutionLimit", Activites.ExecutionLimit.ToString());
                         Writer.WriteAttributeString("LimitRepeats", Activites.LimitRepeats.ToString());
+
+                        Writer.WriteAttributeString("KeyboardTimeoutToActivateMS", Activites.KeyboardTimeoutToActivateMS.ToString());
+                        Writer.WriteAttributeString("AppActivateIfNotActive", Activites.AppActivateIfNotActive.ToString());
+                        Writer.WriteAttributeString("KeyboardAfterSendingActivationMS", Activites.KeyboardAfterSendingActivationMS.ToString());
+                        Writer.WriteAttributeString("PreActionFailureAction", Activites.PreActionFailureAction.ToString());
+
+
                         switch (Activites.WaitType)
                         {
                             case AppTestStudio.WaitType.Iteration:
@@ -2105,7 +2124,7 @@ namespace AppTestStudio
 
         private static void LoadObjects(XmlNode xmlNode, GameNodeObjects objects, string gameName, List<GameNodeAction> actionNodesWithObjects, GameNodeGame game)
         {
-            
+
             int CriticalErrorCount = 0;
             foreach (XmlNode LoadObjectNode in xmlNode.ChildNodes)
             {
@@ -2128,7 +2147,7 @@ namespace AppTestStudio
                             {
                                 Node.IsLoading = true;
                                 Node.ObjectSearchBitmap = Bitmap.FromFile(FullPathP) as Bitmap;
-                                Node.IsLoading  = false;
+                                Node.IsLoading = false;
                                 //Node.FileName = Path.GetFileName(FullPathP);
                             }
                             // Don't set Object Search filename to object search filename, --Node.FileName = Path.GetFileName(FullPathP);
@@ -2609,6 +2628,71 @@ namespace AppTestStudio
             {
                 int ClickSpeed = Convert.ToInt32(actionNode.Attributes["ClickSpeed"].Value);
                 treeActionNode.ClickSpeed = ClickSpeed;
+            }
+
+            if (actionNode.Attributes.GetNamedItem("KeyboardTimeoutToActivateMS").IsSomething())
+            {
+                try
+                {
+                    treeActionNode.KeyboardTimeoutToActivateMS = Convert.ToInt32(actionNode.Attributes["KeyboardTimeoutToActivateMS"].Value);
+                }
+                catch (Exception ex)
+                {
+
+                    Debug.WriteLine($"PreActionFailureAction: {ex.Message}");
+                }
+            }
+
+            if (actionNode.Attributes.GetNamedItem("AppActivateIfNotActive").IsSomething())
+            {
+                try
+                {
+                    treeActionNode.AppActivateIfNotActive = Convert.ToBoolean(actionNode.Attributes["AppActivateIfNotActive"].Value);
+                }
+                catch (Exception ex)
+                {
+
+                    Debug.WriteLine($"PreActionFailureAction: {ex.Message}");
+                }
+            }
+
+            if (actionNode.Attributes.GetNamedItem("KeyboardAfterSendingActivationMS").IsSomething())
+            {
+                try
+                {
+                    treeActionNode.KeyboardAfterSendingActivationMS = Convert.ToInt32(actionNode.Attributes["KeyboardAfterSendingActivationMS"].Value);
+                }
+                catch (Exception ex)
+                {
+
+                    Debug.WriteLine($"PreActionFailureAction: {ex.Message}");
+                }
+            }
+
+            if (actionNode.Attributes.GetNamedItem("PreActionFailureAction").IsSomething())
+            {
+                try
+                {
+
+                    switch (actionNode.Attributes["PreActionFailureAction"].Value.ToUpper())
+                    {
+                        case "ABORT":
+                            treeActionNode.PreActionFailureAction = TimeoutAction.Abort;
+                            break;
+                        case "CONTINUE":
+                            treeActionNode.PreActionFailureAction = TimeoutAction.Continue;
+                            break;
+
+                        default:
+                            break;
+                    }
+                }
+                catch (Exception ex)
+                {
+
+                    Debug.WriteLine($"PreActionFailureAction: {ex.Message}");
+                }
+
             }
 
 

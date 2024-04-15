@@ -282,6 +282,12 @@ namespace AppTestStudio
 
                             break;
                         case Mode.Keyboard:
+                            // Activate if needed
+                            if (node.AppActivateIfNotActive)
+                            {
+                                Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
+                            }
+
                             Debug.WriteLine("RunThread: Process children");
                             Debug.WriteLine("RunThread: Process children");
                             Debug.WriteLine("RunThread: Process children");
@@ -314,6 +320,12 @@ namespace AppTestStudio
                             }
                             else
                             {
+                                // Activate if needed
+                                if (node.AppActivateIfNotActive)
+                                {
+                                    Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
+                                }
+
                                 Game.Log("MouseMove from ( x=" + MouseMoveResult.StartX + ",y = " + MouseMoveResult.StartY + " to x=" + MouseMoveResult.EndX + ",y=" + MouseMoveResult.EndY + ")");
                                 Utils.MouseMove(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
                                 Game.Log("/MouseMove)");
@@ -360,6 +372,11 @@ namespace AppTestStudio
                             }
                             else
                             {
+                                // Activate if needed
+                                if (node.AppActivateIfNotActive)
+                                {
+                                    Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
+                                }
 
                                 Game.Log("Swipe from ( x=" + CDRResult.StartX + ",y = " + CDRResult.StartY + " to x=" + CDRResult.EndX + ",y=" + CDRResult.EndY + ")");
                                 Utils.ClickDragRelease(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);

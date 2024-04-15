@@ -1210,6 +1210,22 @@ namespace AppTestStudio
 
                     chkFromCurrentMousePos.Visible = true;
 
+                    numericKeyboardTimeoutToActivateMS.Value = GameNode.KeyboardTimeoutToActivateMS;
+                    chkAppActivateIfNotActive.Checked = GameNode.AppActivateIfNotActive;
+                    numericKeyboardAfterSendingActivationMS.Value = GameNode.KeyboardAfterSendingActivationMS;
+                    switch (GameNode.PreActionFailureAction)
+                    {
+                        case TimeoutAction.Abort:
+                            cboPreActionFailureAction.Text = "Abort";
+                            break;
+                        case TimeoutAction.Continue:
+                            cboPreActionFailureAction.Text = "Continue";
+                            break;
+                        default:
+                            cboPreActionFailureAction.Text = "Abort";
+                            break;
+                    }
+
                     break;
                 case AppTestStudio.ActionType.Event:
 
@@ -3179,6 +3195,10 @@ namespace AppTestStudio
                         }
                         else
                         {
+                            if (ActionNode.AppActivateIfNotActive)
+                            {
+                                Utils.ActivateWindowIfNecessary2(game.GetWindowHandleByWindowName(), ActionNode.KeyboardTimeoutToActivateMS, ActionNode.KeyboardAfterSendingActivationMS);
+                            }
                             switch (ActionNode.Mode)
                             {
                                 case Mode.RangeClick:
@@ -8729,6 +8749,76 @@ namespace AppTestStudio
                 {
                     Log($"{CompleteList.Count} Steps found over {ms}ms.");
                     cmdKeyboardValidate.BackColor = Color.Green;
+                }
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void test()
+        {
+            //chkAppActivateIfNotActive
+            //numericKeyboardTimeoutToActivateMS
+            //numericKeyboardAfterSendingActivationMS
+            //cboPreActionFailureAction
+        }
+
+        private void chkAppActivateIfNotActive_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.AppActivateIfNotActive = chkAppActivateIfNotActive.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void numericKeyboardTimeoutToActivateMS_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardTimeoutToActivateMS = numericKeyboardTimeoutToActivateMS.Value.ToInt();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void numericKeyboardAfterSendingActivationMS_ValueChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.KeyboardAfterSendingActivationMS = numericKeyboardAfterSendingActivationMS.Value.ToInt();
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void cboPreActionFailureAction_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                switch (cboPreActionFailureAction.SelectedValue)
+                {
+                    case "Abort":
+                        ActionNode.PreActionFailureAction = TimeoutAction.Abort;
+                        break;
+                    case "Continue":
+                            ActionNode.PreActionFailureAction = TimeoutAction.Continue;
+                        break;
+                    default:
+                        break;
                 }
             }
             catch (Exception ex)

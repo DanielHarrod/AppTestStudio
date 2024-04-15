@@ -75,6 +75,12 @@ namespace AppTestStudio
         None
     }
 
+    public enum TimeoutAction
+    {
+        Abort,
+        Continue
+    }
+
     public enum WaitType
     {
         Iteration,
