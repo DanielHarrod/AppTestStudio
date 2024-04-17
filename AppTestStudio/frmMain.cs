@@ -4978,6 +4978,18 @@ namespace AppTestStudio
             if (Game.IsSomething())
             {
                 GameNodeAction.ClickSpeed = Game.DefaultClickSpeed;
+                switch (Game.WindowAction)
+                {
+                    case WindowAction.DoNothing:
+                        GameNodeAction.AppActivateIfNotActive = false;
+                        break;
+                    case WindowAction.ActivateWindow:
+                        GameNodeAction.AppActivateIfNotActive = true;
+                        break;
+                    default:
+                        break;
+                }
+                //
             }
 
             SetPanel(PanelMode.PanelColorEvent);
