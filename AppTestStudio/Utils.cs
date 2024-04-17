@@ -397,11 +397,6 @@ namespace AppTestStudio
                     MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
                     break;
                 case MouseMode.Active:
-                    Boolean Continue = ActivateWindowIfNecessary(windowHandle, windowAction, startX, startY);
-                    if (Continue == false)
-                    {
-                        return;
-                    }
                     if (moveMouseFirst)
                     {
                         MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
@@ -422,11 +417,6 @@ namespace AppTestStudio
                     ClickDragReleasePassive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
                     break;
                 case MouseMode.Active:
-                    Boolean Continue = ActivateWindowIfNecessary(windowHandle, windowAction, startX, startY);
-                    if ( Continue == false)
-                    {
-                        return;
-                    }
                     if (moveMouseFirst)
                     {
                         MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
@@ -827,14 +817,6 @@ namespace AppTestStudio
                     break;
                 case MouseMode.Active:
                     
-                    Boolean Continue = ActivateWindowIfNecessary(windowHandle, windowAction, xTarget, yTarget);
-                    if (Continue == false)
-                    {
-                        // Project configuration indicates that if the window isn't visible: to not perform any actions.
-                        // Check the project settings checkbox [Move System Mouse To Start Location Before Action] to avoid this.
-                        return;
-                    }
-
                     if (moveMouseFirst)
                     {
                         MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, xTarget, yTarget, mouseSpeedPixelsPerSecond);

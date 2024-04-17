@@ -253,6 +253,15 @@ namespace AppTestStudio
                             }
                             else
                             {
+                                // Activate if needed
+                                ActivationResult = ActivateIfNecessary(node);
+                                if (ActivationResult == ActivateWindowResult.Timeout)
+                                {
+                                    if (node.PreActionFailureAction == TimeoutAction.Abort)
+                                    {
+                                        return AfterCompletionType.ContinueProcess;
+                                    }
+                                }
                                 if (Game.MouseMode == MouseMode.Active)
                                 {
                                     if (node.FromCurrentMousePos)
