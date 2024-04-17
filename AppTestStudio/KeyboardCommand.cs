@@ -237,6 +237,11 @@ namespace AppTestStudio
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_CAPITAL, 0);
                     break;
 
+                // Custom
+                case Definitions.VirtualKeyCodeText.VK_SPACE:
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_SPACE, 0);
+                    break;
+
 
                 default:
                     if (Command.Length > 0)
