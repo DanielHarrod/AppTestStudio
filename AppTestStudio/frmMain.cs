@@ -647,6 +647,7 @@ namespace AppTestStudio
 
                     break;
                 case GameNodeType.Action:
+                    panelPreAction.Visible = false;
                     moveToolStripMenuItem.Enabled = true;
                     toolStripButtonSaveScript.Enabled = true;
                     toolStripButtonStartEmmulatorLaunchApp.Enabled = true;
@@ -692,6 +693,7 @@ namespace AppTestStudio
                             toolAddEvent.Enabled = true;
                             toolAddAction.Enabled = true;
                             toolTest.Enabled = true;
+                            panelPreAction.Visible = true;
 
                             if (Action.IsParentObjectSearch())
                             {
