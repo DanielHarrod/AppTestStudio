@@ -594,18 +594,24 @@ namespace AppTestStudio
         }
         public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond, EasingFunctionBase easingFunction = null)
         {
-            Debug.WriteLine($"MoveMouseActiveFromSystemPosition(windowHandle={windowHandle}, mouseEventFlags={mouseEventFlags}, xClientTarget={xClientTarget}, yClientTarget={yClientTarget}, mouseSpeedPixelsPerSecond={mouseSpeedPixelsPerSecond}, easingFunction=...");
+            //Debug.WriteLine($"MoveMouseActiveFromSystemPosition(windowHandle={windowHandle}, mouseEventFlags={mouseEventFlags}, xClientTarget={xClientTarget}, yClientTarget={yClientTarget}, mouseSpeedPixelsPerSecond={mouseSpeedPixelsPerSecond}, easingFunction=...");
             API.RECT TargetWindowRectangle;
+
+            //Retrieves the dimensions of the bounding rectangle of the specified window.
+            //The dimensions are given in screen coordinates that are relative to the upper-left corner of the screen.
             Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
 
-            Debug.WriteLine(TargetWindowRectangle.ToString());
             RECT ClientRect;
+
+            //Retrieves the coordinates of a window's client area. The client coordinates specify the upper-left and lower-right corners of the client area.
+            //Because client coordinates are relative to the upper-left corner of a window's client area, the coordinates of the upper-left corner are (0,0).
             API.GetClientRect(windowHandle, out ClientRect);
 
             short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
             short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
 
+            //Retrieves the position of the mouse cursor, in screen coordinates.
             GetCursorPos(out API.Point point);
             int xStart = point.X;
             int yStart = point.Y;
@@ -615,6 +621,10 @@ namespace AppTestStudio
 
             float CurrentX = xStart;
             float CurrentY = yStart;
+
+            //Debug.WriteLine($"System Mouse is at {point.X},{point.Y}");
+            //Debug.WriteLine($"Target window is at {TargetWindowRectangle.Left},{TargetWindowRectangle.Top}");
+            //Debug.WriteLine($"Target window Client is at {xClientTarget},{yClientTarget}");
 
             int velocityMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, xSystemTarget.ToInt(), ySystemTarget.ToInt(), mouseSpeedPixelsPerSecond);
 
@@ -897,10 +907,10 @@ namespace AppTestStudio
             API.RECT TargetWindowRectangle;
             Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
 
-            Debug.WriteLine("xClientTarget:" + xClientTarget);
-            Debug.WriteLine("yClientTarget:" + yClientTarget);
-            Debug.WriteLine("Right:" + TargetWindowRectangle.Right);
-            Debug.WriteLine("Left:" + TargetWindowRectangle.Left);
+            //Debug.WriteLine("xClientTarget:" + xClientTarget);
+            //Debug.WriteLine("yClientTarget:" + yClientTarget);
+            //Debug.WriteLine("Right:" + TargetWindowRectangle.Right);
+            //Debug.WriteLine("Left:" + TargetWindowRectangle.Left);
 
             //RECT WindowFrame;
 

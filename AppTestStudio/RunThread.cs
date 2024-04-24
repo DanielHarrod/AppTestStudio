@@ -262,17 +262,17 @@ namespace AppTestStudio
                                         return AfterCompletionType.ContinueProcess;
                                     }
                                 }
-                                if (Game.MouseMode == MouseMode.Active)
-                                {
-                                    if (node.FromCurrentMousePos)
-                                    {
-                                        API.GetCursorPos(out API.Point point);
-                                        Game.MouseX = (short)point.X;
-                                        Game.MouseY = (short)point.Y;
-                                        Result.x = point.X;
-                                        Result.y = point.Y;
-                                    }
-                                }
+                                //if (Game.MouseMode == MouseMode.Active)
+                                //{
+                                //    if (node.FromCurrentMousePos)
+                                //    {
+                                //        API.GetCursorPos(out API.Point point);
+                                //        Game.MouseX = (short)point.X;
+                                //        Game.MouseY = (short)point.Y;
+                                //        Result.x = point.X;
+                                //        Result.y = point.Y;
+                                //    }
+                                //}
 
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
                                 int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
