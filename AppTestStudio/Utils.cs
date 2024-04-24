@@ -799,11 +799,11 @@ namespace AppTestStudio
         }
 
         [System.Diagnostics.DebuggerStepThrough]
-        public static void ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int xStart, int yStart, int xTarget, int yTarget, int clickDurationMS, int mouseSpeedPixelsPerSecond)
+        public static List<String> ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int xStart, int yStart, int xTarget, int yTarget, int clickDurationMS, int mouseSpeedPixelsPerSecond)
         {
-            ClickOnWindow(windowHandle, mouseMode, moveMouseFirst, windowAction, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, clickDurationMS, mouseSpeedPixelsPerSecond);
+            return ClickOnWindow(windowHandle, mouseMode, moveMouseFirst, windowAction, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, clickDurationMS, mouseSpeedPixelsPerSecond);
         }
-        public static void ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
+        public static List<String> ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
         {
             switch (mouseMode)
             {
@@ -828,6 +828,8 @@ namespace AppTestStudio
                     Debug.Assert(false);
                     break;
             }
+            // TODO !!!!
+            return null;
         }
 
         [System.Diagnostics.DebuggerStepThrough]
@@ -1746,16 +1748,17 @@ namespace AppTestStudio
 
         public static void ProcessKeyboardCommand(KeyboardCommand command)
         {
+            if (command.Delayms > 0)
+            {
+                Thread.Sleep(command.Delayms);
+                return;
+            }
+
             API.Input[] inputs = new API.Input[1];
             inputs[0].Type = KeyboardCodes.INPUT_KEYBOARD;
 
             inputs[0].u.KeyboardInput.ScanCode = command.ScanCode;
 
-            if (command.Delayms > 0)
-            {
-                Thread.Sleep(command.Delayms);
-
-            }
             if (command.ButtonState == KeyboardButtonStates.Down)
             {
                 inputs[0].u.KeyboardInput.Flags = KeyboardCodes.KEYEVENTF_SCANCODE;

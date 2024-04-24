@@ -31,16 +31,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle71 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle72 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle73 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle74 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle75 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle76 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle77 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle78 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle79 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle80 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,8 +120,13 @@
             this.cmdTest = new System.Windows.Forms.Button();
             this.cmdAddObject2 = new System.Windows.Forms.Button();
             this.PanelScreenshot = new System.Windows.Forms.Panel();
-            this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.panelKeyboard = new System.Windows.Forms.Panel();
+            this.grpInsertWeights = new System.Windows.Forms.GroupBox();
+            this.cmdWait2 = new System.Windows.Forms.Button();
+            this.cmdWait1 = new System.Windows.Forms.Button();
+            this.numericWait3 = new System.Windows.Forms.NumericUpDown();
+            this.numericWait2 = new System.Windows.Forms.NumericUpDown();
+            this.numericWait1 = new System.Windows.Forms.NumericUpDown();
             this.groupBox21 = new System.Windows.Forms.GroupBox();
             this.chkKeyboardSpace = new System.Windows.Forms.CheckBox();
             this.chkKeyboardA = new System.Windows.Forms.CheckBox();
@@ -207,31 +212,10 @@
             this.chkKeyboardS = new System.Windows.Forms.CheckBox();
             this.chkKeyboardQ = new System.Windows.Forms.CheckBox();
             this.chkKeyboardR = new System.Windows.Forms.CheckBox();
-            this.groupBox20 = new System.Windows.Forms.GroupBox();
-            this.grpKeyboardLeft = new System.Windows.Forms.GroupBox();
-            this.chkLeftWin = new System.Windows.Forms.CheckBox();
-            this.chkLeftAlt = new System.Windows.Forms.CheckBox();
-            this.chkLeftCtrl = new System.Windows.Forms.CheckBox();
-            this.chkLeftShift = new System.Windows.Forms.CheckBox();
-            this.grpKeyboardRight = new System.Windows.Forms.GroupBox();
-            this.chkRightWin = new System.Windows.Forms.CheckBox();
-            this.chkRightAlt = new System.Windows.Forms.CheckBox();
-            this.chkRightCtrl = new System.Windows.Forms.CheckBox();
-            this.chkRightShift = new System.Windows.Forms.CheckBox();
             this.cmdKeyboardValidate = new System.Windows.Forms.Button();
-            this.grpKeyboardSpeedSettings = new System.Windows.Forms.GroupBox();
-            this.groupBox19 = new System.Windows.Forms.GroupBox();
-            this.label97 = new System.Windows.Forms.Label();
-            this.label96 = new System.Windows.Forms.Label();
-            this.numericKeyDownDurationRandom = new System.Windows.Forms.NumericUpDown();
-            this.numericKeyBetweenDurationRandom = new System.Windows.Forms.NumericUpDown();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.numericKeyDownDuration = new System.Windows.Forms.NumericUpDown();
-            this.numericKeyBetweenDuration = new System.Windows.Forms.NumericUpDown();
-            this.lblBetweenKeyDuration = new System.Windows.Forms.Label();
-            this.lblKeyDownDuration = new System.Windows.Forms.Label();
             this.txtKeyboard = new System.Windows.Forms.TextBox();
             this.lblPictureMissing = new System.Windows.Forms.Label();
+            this.PictureBox1 = new System.Windows.Forms.PictureBox();
             this.label29 = new System.Windows.Forms.Label();
             this.txtEventName = new System.Windows.Forms.TextBox();
             this.chkUseParentScreenshot = new System.Windows.Forms.CheckBox();
@@ -246,6 +230,17 @@
             this.chkPropertiesEnabled = new System.Windows.Forms.CheckBox();
             this.lblResolution = new System.Windows.Forms.Label();
             this.cmdPanelRightResolution = new System.Windows.Forms.Button();
+            this.panelPreAction = new System.Windows.Forms.Panel();
+            this.groupBox22 = new System.Windows.Forms.GroupBox();
+            this.label99 = new System.Windows.Forms.Label();
+            this.cboPreActionFailureAction = new System.Windows.Forms.ComboBox();
+            this.label98 = new System.Windows.Forms.Label();
+            this.numericKeyboardAfterSendingActivationMS = new System.Windows.Forms.NumericUpDown();
+            this.label95 = new System.Windows.Forms.Label();
+            this.numericKeyboardTimeoutToActivateMS = new System.Windows.Forms.NumericUpDown();
+            this.chkAppActivateIfNotActive = new System.Windows.Forms.CheckBox();
+            this.chkFromCurrentMousePos = new System.Windows.Forms.CheckBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.panelRightAfterCompletion = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -669,17 +664,9 @@
             this.toolStripSeparatorEnableDisableToggle = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemRuntimeEnableDisableToggle = new System.Windows.Forms.ToolStripMenuItem();
             this.TimerProperties = new System.Windows.Forms.Timer(this.components);
-            this.panelPreAction = new System.Windows.Forms.Panel();
-            this.button2 = new System.Windows.Forms.Button();
-            this.chkFromCurrentMousePos = new System.Windows.Forms.CheckBox();
-            this.groupBox22 = new System.Windows.Forms.GroupBox();
-            this.chkAppActivateIfNotActive = new System.Windows.Forms.CheckBox();
-            this.numericKeyboardTimeoutToActivateMS = new System.Windows.Forms.NumericUpDown();
-            this.label95 = new System.Windows.Forms.Label();
-            this.numericKeyboardAfterSendingActivationMS = new System.Windows.Forms.NumericUpDown();
-            this.label98 = new System.Windows.Forms.Label();
-            this.cboPreActionFailureAction = new System.Windows.Forms.ComboBox();
-            this.label99 = new System.Windows.Forms.Label();
+            this.cmdWait3 = new System.Windows.Forms.Button();
+            this.label96 = new System.Windows.Forms.Label();
+            this.label97 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -714,23 +701,21 @@
             this.grpEventMode.SuspendLayout();
             this.grpMode.SuspendLayout();
             this.PanelScreenshot.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.panelKeyboard.SuspendLayout();
+            this.grpInsertWeights.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericWait3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericWait2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericWait1)).BeginInit();
             this.groupBox21.SuspendLayout();
-            this.groupBox20.SuspendLayout();
-            this.grpKeyboardLeft.SuspendLayout();
-            this.grpKeyboardRight.SuspendLayout();
-            this.grpKeyboardSpeedSettings.SuspendLayout();
-            this.groupBox19.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyDownDurationRandom)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyBetweenDurationRandom)).BeginInit();
-            this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyDownDuration)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyBetweenDuration)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).BeginInit();
             this.FlowLayoutPanelColorEvent1.SuspendLayout();
             this.panelRightProperties.SuspendLayout();
             this.grpPropertiesRepeatsUntilFalse.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericPropertiesRepeatsUntilFalse)).BeginInit();
+            this.panelPreAction.SuspendLayout();
+            this.groupBox22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyboardAfterSendingActivationMS)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyboardTimeoutToActivateMS)).BeginInit();
             this.panelRightAfterCompletion.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.panelRightObject.SuspendLayout();
@@ -857,10 +842,6 @@
             this.toolStripMain.SuspendLayout();
             this.contextMenuStripResetResolution.SuspendLayout();
             this.contextMenuStripRuntimeEnableDisable.SuspendLayout();
-            this.panelPreAction.SuspendLayout();
-            this.groupBox22.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyboardTimeoutToActivateMS)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyboardAfterSendingActivationMS)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -996,7 +977,6 @@
             // 
             // splitContainerWorkspace.Panel2
             // 
-            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelColorEvent);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObject);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelThread);
@@ -1009,6 +989,7 @@
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelSchedule);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Size = new System.Drawing.Size(1602, 743);
             this.splitContainerWorkspace.SplitterDistance = 256;
             this.splitContainerWorkspace.TabIndex = 0;
@@ -1461,7 +1442,7 @@
             this.tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelRunValues.ColumnCount = 2;
             this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 43F));
+            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue14, 0, 13);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue7, 0, 6);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue1, 0, 0);
@@ -1659,10 +1640,10 @@
             // cmdUpdateResolution
             // 
             this.cmdUpdateResolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdUpdateResolution.Location = new System.Drawing.Point(97, 148);
+            this.cmdUpdateResolution.Location = new System.Drawing.Point(95, 148);
             this.cmdUpdateResolution.Margin = new System.Windows.Forms.Padding(0);
             this.cmdUpdateResolution.Name = "cmdUpdateResolution";
-            this.cmdUpdateResolution.Size = new System.Drawing.Size(43, 20);
+            this.cmdUpdateResolution.Size = new System.Drawing.Size(45, 20);
             this.cmdUpdateResolution.TabIndex = 13;
             this.cmdUpdateResolution.Text = "...";
             this.cmdUpdateResolution.UseVisualStyleBackColor = true;
@@ -1671,10 +1652,10 @@
             // cmdRuntimeEnableToggle
             // 
             this.cmdRuntimeEnableToggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(97, 64);
+            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(95, 64);
             this.cmdRuntimeEnableToggle.Margin = new System.Windows.Forms.Padding(0);
             this.cmdRuntimeEnableToggle.Name = "cmdRuntimeEnableToggle";
-            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(43, 20);
+            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(45, 20);
             this.cmdRuntimeEnableToggle.TabIndex = 14;
             this.cmdRuntimeEnableToggle.Text = "...";
             this.cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
@@ -1882,42 +1863,114 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.PanelScreenshot.AutoScroll = true;
             this.PanelScreenshot.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.PanelScreenshot.Controls.Add(this.PictureBox1);
             this.PanelScreenshot.Controls.Add(this.panelKeyboard);
             this.PanelScreenshot.Controls.Add(this.lblPictureMissing);
+            this.PanelScreenshot.Controls.Add(this.PictureBox1);
             this.PanelScreenshot.Location = new System.Drawing.Point(4, 96);
             this.PanelScreenshot.Name = "PanelScreenshot";
             this.PanelScreenshot.Size = new System.Drawing.Size(679, 592);
             this.PanelScreenshot.TabIndex = 7;
             // 
-            // PictureBox1
-            // 
-            this.PictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
-            this.PictureBox1.Location = new System.Drawing.Point(0, 0);
-            this.PictureBox1.Name = "PictureBox1";
-            this.PictureBox1.Size = new System.Drawing.Size(100, 50);
-            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
-            this.PictureBox1.TabIndex = 0;
-            this.PictureBox1.TabStop = false;
-            this.PictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
-            this.PictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBox1_Paint);
-            this.PictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
-            this.PictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseMove);
-            this.PictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseUp);
-            // 
             // panelKeyboard
             // 
             this.panelKeyboard.BackColor = System.Drawing.SystemColors.Control;
+            this.panelKeyboard.Controls.Add(this.label97);
+            this.panelKeyboard.Controls.Add(this.grpInsertWeights);
             this.panelKeyboard.Controls.Add(this.groupBox21);
-            this.panelKeyboard.Controls.Add(this.groupBox20);
             this.panelKeyboard.Controls.Add(this.cmdKeyboardValidate);
-            this.panelKeyboard.Controls.Add(this.grpKeyboardSpeedSettings);
             this.panelKeyboard.Controls.Add(this.txtKeyboard);
             this.panelKeyboard.Location = new System.Drawing.Point(0, 0);
             this.panelKeyboard.Name = "panelKeyboard";
             this.panelKeyboard.Size = new System.Drawing.Size(769, 518);
             this.panelKeyboard.TabIndex = 2;
             this.panelKeyboard.Visible = false;
+            // 
+            // grpInsertWeights
+            // 
+            this.grpInsertWeights.Controls.Add(this.label96);
+            this.grpInsertWeights.Controls.Add(this.cmdWait3);
+            this.grpInsertWeights.Controls.Add(this.cmdWait2);
+            this.grpInsertWeights.Controls.Add(this.cmdWait1);
+            this.grpInsertWeights.Controls.Add(this.numericWait3);
+            this.grpInsertWeights.Controls.Add(this.numericWait2);
+            this.grpInsertWeights.Controls.Add(this.numericWait1);
+            this.grpInsertWeights.Location = new System.Drawing.Point(505, 14);
+            this.grpInsertWeights.Name = "grpInsertWeights";
+            this.grpInsertWeights.Size = new System.Drawing.Size(202, 293);
+            this.grpInsertWeights.TabIndex = 20;
+            this.grpInsertWeights.TabStop = false;
+            this.grpInsertWeights.Text = "Insert Wait Times (ms)";
+            // 
+            // cmdWait2
+            // 
+            this.cmdWait2.Location = new System.Drawing.Point(92, 41);
+            this.cmdWait2.Name = "cmdWait2";
+            this.cmdWait2.Size = new System.Drawing.Size(94, 23);
+            this.cmdWait2.TabIndex = 2;
+            this.cmdWait2.Text = "Normal Press";
+            this.cmdWait2.UseVisualStyleBackColor = true;
+            this.cmdWait2.Click += new System.EventHandler(this.cmdWait2_Click);
+            // 
+            // cmdWait1
+            // 
+            this.cmdWait1.Location = new System.Drawing.Point(92, 16);
+            this.cmdWait1.Name = "cmdWait1";
+            this.cmdWait1.Size = new System.Drawing.Size(95, 23);
+            this.cmdWait1.TabIndex = 1;
+            this.cmdWait1.Text = "Quick Tap";
+            this.cmdWait1.UseVisualStyleBackColor = true;
+            this.cmdWait1.Click += new System.EventHandler(this.cmdWait1_Click);
+            // 
+            // numericWait3
+            // 
+            this.numericWait3.Location = new System.Drawing.Point(8, 67);
+            this.numericWait3.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericWait3.Name = "numericWait3";
+            this.numericWait3.Size = new System.Drawing.Size(78, 20);
+            this.numericWait3.TabIndex = 0;
+            this.numericWait3.Value = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
+            // 
+            // numericWait2
+            // 
+            this.numericWait2.Location = new System.Drawing.Point(8, 41);
+            this.numericWait2.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericWait2.Name = "numericWait2";
+            this.numericWait2.Size = new System.Drawing.Size(78, 20);
+            this.numericWait2.TabIndex = 0;
+            this.numericWait2.Value = new decimal(new int[] {
+            50,
+            0,
+            0,
+            0});
+            // 
+            // numericWait1
+            // 
+            this.numericWait1.Location = new System.Drawing.Point(8, 16);
+            this.numericWait1.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericWait1.Name = "numericWait1";
+            this.numericWait1.Size = new System.Drawing.Size(78, 20);
+            this.numericWait1.TabIndex = 0;
+            this.numericWait1.Value = new decimal(new int[] {
+            30,
+            0,
+            0,
+            0});
             // 
             // groupBox21
             // 
@@ -2019,7 +2072,7 @@
             this.chkKeyboardSpace.Name = "chkKeyboardSpace";
             this.chkKeyboardSpace.Size = new System.Drawing.Size(139, 24);
             this.chkKeyboardSpace.TabIndex = 9;
-            this.chkKeyboardSpace.Tag = "{SPACE}";
+            this.chkKeyboardSpace.Tag = "SPACE";
             this.chkKeyboardSpace.Text = "Space";
             this.chkKeyboardSpace.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardSpace.UseVisualStyleBackColor = true;
@@ -2058,7 +2111,7 @@
             this.chkKeyboardTab.Name = "chkKeyboardTab";
             this.chkKeyboardTab.Size = new System.Drawing.Size(43, 24);
             this.chkKeyboardTab.TabIndex = 9;
-            this.chkKeyboardTab.Tag = "{TAB}";
+            this.chkKeyboardTab.Tag = "TAB";
             this.chkKeyboardTab.Text = "Tab";
             this.chkKeyboardTab.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardTab.UseVisualStyleBackColor = true;
@@ -2071,7 +2124,7 @@
             this.chkKeyboardCapsLock.Name = "chkKeyboardCapsLock";
             this.chkKeyboardCapsLock.Size = new System.Drawing.Size(43, 24);
             this.chkKeyboardCapsLock.TabIndex = 9;
-            this.chkKeyboardCapsLock.Tag = "{CAPS}";
+            this.chkKeyboardCapsLock.Tag = "CAPS";
             this.chkKeyboardCapsLock.Text = "Caps";
             this.chkKeyboardCapsLock.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardCapsLock.UseVisualStyleBackColor = true;
@@ -2084,7 +2137,7 @@
             this.chkKeyboardLeft.Name = "chkKeyboardLeft";
             this.chkKeyboardLeft.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardLeft.TabIndex = 13;
-            this.chkKeyboardLeft.Tag = "{LEFT}";
+            this.chkKeyboardLeft.Tag = "LEFT";
             this.chkKeyboardLeft.Text = "L";
             this.chkKeyboardLeft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardLeft.UseVisualStyleBackColor = true;
@@ -2098,7 +2151,7 @@
             this.chkKeyboardF12.Name = "chkKeyboardF12";
             this.chkKeyboardF12.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF12.TabIndex = 14;
-            this.chkKeyboardF12.Tag = "{F12}";
+            this.chkKeyboardF12.Tag = "F12";
             this.chkKeyboardF12.Text = "F12";
             this.chkKeyboardF12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF12.UseVisualStyleBackColor = true;
@@ -2111,7 +2164,7 @@
             this.chkKeyboardRight.Name = "chkKeyboardRight";
             this.chkKeyboardRight.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardRight.TabIndex = 13;
-            this.chkKeyboardRight.Tag = "{RIGHT}";
+            this.chkKeyboardRight.Tag = "RIGHT";
             this.chkKeyboardRight.Text = "R";
             this.chkKeyboardRight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardRight.UseVisualStyleBackColor = true;
@@ -2124,7 +2177,7 @@
             this.chkKeyboardDown.Name = "chkKeyboardDown";
             this.chkKeyboardDown.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardDown.TabIndex = 13;
-            this.chkKeyboardDown.Tag = "{DOWN}";
+            this.chkKeyboardDown.Tag = "DOWN";
             this.chkKeyboardDown.Text = "Down";
             this.chkKeyboardDown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardDown.UseVisualStyleBackColor = true;
@@ -2137,7 +2190,7 @@
             this.chkKeyboardLeftShift.Name = "chkKeyboardLeftShift";
             this.chkKeyboardLeftShift.Size = new System.Drawing.Size(51, 24);
             this.chkKeyboardLeftShift.TabIndex = 9;
-            this.chkKeyboardLeftShift.Tag = "{LSHIFT}";
+            this.chkKeyboardLeftShift.Tag = "LSHIFT";
             this.chkKeyboardLeftShift.Text = "L Shift";
             this.chkKeyboardLeftShift.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardLeftShift.UseVisualStyleBackColor = true;
@@ -2151,7 +2204,7 @@
             this.chkKeyboardPageDown.Name = "chkKeyboardPageDown";
             this.chkKeyboardPageDown.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardPageDown.TabIndex = 13;
-            this.chkKeyboardPageDown.Tag = "{PGDOWN}";
+            this.chkKeyboardPageDown.Tag = "PGDOWN";
             this.chkKeyboardPageDown.Text = "Do";
             this.chkKeyboardPageDown.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardPageDown.UseVisualStyleBackColor = true;
@@ -2179,7 +2232,7 @@
             this.chkKeyboardDelete.Name = "chkKeyboardDelete";
             this.chkKeyboardDelete.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardDelete.TabIndex = 13;
-            this.chkKeyboardDelete.Tag = "{DELETE}";
+            this.chkKeyboardDelete.Tag = "DELETE";
             this.chkKeyboardDelete.Text = "De";
             this.chkKeyboardDelete.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardDelete.UseVisualStyleBackColor = true;
@@ -2193,7 +2246,7 @@
             this.chkKeyboardPageUp.Name = "chkKeyboardPageUp";
             this.chkKeyboardPageUp.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardPageUp.TabIndex = 13;
-            this.chkKeyboardPageUp.Tag = "{PGUP}";
+            this.chkKeyboardPageUp.Tag = "PGUP";
             this.chkKeyboardPageUp.Text = "Up";
             this.chkKeyboardPageUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardPageUp.UseVisualStyleBackColor = true;
@@ -2207,7 +2260,7 @@
             this.chkKeyboardHome.Name = "chkKeyboardHome";
             this.chkKeyboardHome.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardHome.TabIndex = 13;
-            this.chkKeyboardHome.Tag = "{HOME}";
+            this.chkKeyboardHome.Tag = "HOME";
             this.chkKeyboardHome.Text = "Ho";
             this.chkKeyboardHome.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardHome.UseVisualStyleBackColor = true;
@@ -2221,7 +2274,7 @@
             this.chkKeyboardIns.Name = "chkKeyboardIns";
             this.chkKeyboardIns.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardIns.TabIndex = 13;
-            this.chkKeyboardIns.Tag = "{INSERT}";
+            this.chkKeyboardIns.Tag = "INSERT";
             this.chkKeyboardIns.Text = "Ins";
             this.chkKeyboardIns.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardIns.UseVisualStyleBackColor = true;
@@ -2234,7 +2287,7 @@
             this.chkKeyboardUp.Name = "chkKeyboardUp";
             this.chkKeyboardUp.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardUp.TabIndex = 13;
-            this.chkKeyboardUp.Tag = "{UP}";
+            this.chkKeyboardUp.Tag = "UP";
             this.chkKeyboardUp.Text = "U";
             this.chkKeyboardUp.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardUp.UseVisualStyleBackColor = true;
@@ -2248,7 +2301,7 @@
             this.chkKeyboardF11.Name = "chkKeyboardF11";
             this.chkKeyboardF11.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF11.TabIndex = 14;
-            this.chkKeyboardF11.Tag = "{F11}";
+            this.chkKeyboardF11.Tag = "F11";
             this.chkKeyboardF11.Text = "F11";
             this.chkKeyboardF11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF11.UseVisualStyleBackColor = true;
@@ -2261,7 +2314,7 @@
             this.chkKeyboardRightShift.Name = "chkKeyboardRightShift";
             this.chkKeyboardRightShift.Size = new System.Drawing.Size(51, 24);
             this.chkKeyboardRightShift.TabIndex = 9;
-            this.chkKeyboardRightShift.Tag = "{RSHIFT}";
+            this.chkKeyboardRightShift.Tag = "RSHIFT";
             this.chkKeyboardRightShift.Text = "R Shift";
             this.chkKeyboardRightShift.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardRightShift.UseVisualStyleBackColor = true;
@@ -2275,7 +2328,7 @@
             this.chkKeyboardF8.Name = "chkKeyboardF8";
             this.chkKeyboardF8.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF8.TabIndex = 14;
-            this.chkKeyboardF8.Tag = "{F8}";
+            this.chkKeyboardF8.Tag = "F8";
             this.chkKeyboardF8.Text = "F8";
             this.chkKeyboardF8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF8.UseVisualStyleBackColor = true;
@@ -2288,7 +2341,7 @@
             this.chkKeyboardLeftCtrl.Name = "chkKeyboardLeftCtrl";
             this.chkKeyboardLeftCtrl.Size = new System.Drawing.Size(30, 24);
             this.chkKeyboardLeftCtrl.TabIndex = 9;
-            this.chkKeyboardLeftCtrl.Tag = "{LCTRL}";
+            this.chkKeyboardLeftCtrl.Tag = "LCTRL";
             this.chkKeyboardLeftCtrl.Text = "Ctrl";
             this.chkKeyboardLeftCtrl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardLeftCtrl.UseVisualStyleBackColor = true;
@@ -2302,7 +2355,7 @@
             this.chkKeyboardF10.Name = "chkKeyboardF10";
             this.chkKeyboardF10.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF10.TabIndex = 14;
-            this.chkKeyboardF10.Tag = "{F10}";
+            this.chkKeyboardF10.Tag = "F10";
             this.chkKeyboardF10.Text = "F10";
             this.chkKeyboardF10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF10.UseVisualStyleBackColor = true;
@@ -2316,7 +2369,7 @@
             this.chkKeyboardMnu.Name = "chkKeyboardMnu";
             this.chkKeyboardMnu.Size = new System.Drawing.Size(30, 24);
             this.chkKeyboardMnu.TabIndex = 9;
-            this.chkKeyboardMnu.Tag = "";
+            this.chkKeyboardMnu.Tag = "MNU";
             this.chkKeyboardMnu.Text = "Mnu";
             this.chkKeyboardMnu.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardMnu.UseVisualStyleBackColor = true;
@@ -2329,7 +2382,7 @@
             this.chkKeyboardRightCtrl.Name = "chkKeyboardRightCtrl";
             this.chkKeyboardRightCtrl.Size = new System.Drawing.Size(30, 24);
             this.chkKeyboardRightCtrl.TabIndex = 9;
-            this.chkKeyboardRightCtrl.Tag = "{RCTRL}";
+            this.chkKeyboardRightCtrl.Tag = "RCTRL";
             this.chkKeyboardRightCtrl.Text = "Ctrl";
             this.chkKeyboardRightCtrl.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardRightCtrl.UseVisualStyleBackColor = true;
@@ -2343,7 +2396,7 @@
             this.chkKeyboardF7.Name = "chkKeyboardF7";
             this.chkKeyboardF7.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF7.TabIndex = 14;
-            this.chkKeyboardF7.Tag = "{F7}";
+            this.chkKeyboardF7.Tag = "F7";
             this.chkKeyboardF7.Text = "F7";
             this.chkKeyboardF7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF7.UseVisualStyleBackColor = true;
@@ -2356,7 +2409,7 @@
             this.chkKeyboardLeftAlt.Name = "chkKeyboardLeftAlt";
             this.chkKeyboardLeftAlt.Size = new System.Drawing.Size(30, 24);
             this.chkKeyboardLeftAlt.TabIndex = 9;
-            this.chkKeyboardLeftAlt.Tag = "{LALT}";
+            this.chkKeyboardLeftAlt.Tag = "LALT";
             this.chkKeyboardLeftAlt.Text = "Alt";
             this.chkKeyboardLeftAlt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardLeftAlt.UseVisualStyleBackColor = true;
@@ -2370,7 +2423,7 @@
             this.chkKeyboardF9.Name = "chkKeyboardF9";
             this.chkKeyboardF9.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF9.TabIndex = 14;
-            this.chkKeyboardF9.Tag = "{F9}";
+            this.chkKeyboardF9.Tag = "F9";
             this.chkKeyboardF9.Text = "F9";
             this.chkKeyboardF9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF9.UseVisualStyleBackColor = true;
@@ -2383,7 +2436,7 @@
             this.chkKeyboardRightAlt.Name = "chkKeyboardRightAlt";
             this.chkKeyboardRightAlt.Size = new System.Drawing.Size(30, 24);
             this.chkKeyboardRightAlt.TabIndex = 9;
-            this.chkKeyboardRightAlt.Tag = "{RALT}";
+            this.chkKeyboardRightAlt.Tag = "RALT";
             this.chkKeyboardRightAlt.Text = "Alt";
             this.chkKeyboardRightAlt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardRightAlt.UseVisualStyleBackColor = true;
@@ -2397,7 +2450,7 @@
             this.chkKeyboardF6.Name = "chkKeyboardF6";
             this.chkKeyboardF6.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF6.TabIndex = 14;
-            this.chkKeyboardF6.Tag = "{F6}";
+            this.chkKeyboardF6.Tag = "F6";
             this.chkKeyboardF6.Text = "F6";
             this.chkKeyboardF6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF6.UseVisualStyleBackColor = true;
@@ -2410,7 +2463,7 @@
             this.chkKeyboardLeftWin.Name = "chkKeyboardLeftWin";
             this.chkKeyboardLeftWin.Size = new System.Drawing.Size(34, 24);
             this.chkKeyboardLeftWin.TabIndex = 9;
-            this.chkKeyboardLeftWin.Tag = "{LWIN}";
+            this.chkKeyboardLeftWin.Tag = "LWIN";
             this.chkKeyboardLeftWin.Text = "Win";
             this.chkKeyboardLeftWin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardLeftWin.UseVisualStyleBackColor = true;
@@ -2424,7 +2477,7 @@
             this.chkKeyboardF5.Name = "chkKeyboardF5";
             this.chkKeyboardF5.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF5.TabIndex = 14;
-            this.chkKeyboardF5.Tag = "{F5}";
+            this.chkKeyboardF5.Tag = "F5";
             this.chkKeyboardF5.Text = "F5";
             this.chkKeyboardF5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF5.UseVisualStyleBackColor = true;
@@ -2437,7 +2490,7 @@
             this.chkKeyboardRightWin.Name = "chkKeyboardRightWin";
             this.chkKeyboardRightWin.Size = new System.Drawing.Size(34, 24);
             this.chkKeyboardRightWin.TabIndex = 9;
-            this.chkKeyboardRightWin.Tag = "{RWIN}";
+            this.chkKeyboardRightWin.Tag = "RWIN";
             this.chkKeyboardRightWin.Text = "Win";
             this.chkKeyboardRightWin.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardRightWin.UseVisualStyleBackColor = true;
@@ -2451,7 +2504,7 @@
             this.chkKeyboardF4.Name = "chkKeyboardF4";
             this.chkKeyboardF4.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF4.TabIndex = 14;
-            this.chkKeyboardF4.Tag = "{F4}";
+            this.chkKeyboardF4.Tag = "F4";
             this.chkKeyboardF4.Text = "F4";
             this.chkKeyboardF4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF4.UseVisualStyleBackColor = true;
@@ -2465,7 +2518,7 @@
             this.chkKeyboardF3.Name = "chkKeyboardF3";
             this.chkKeyboardF3.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF3.TabIndex = 14;
-            this.chkKeyboardF3.Tag = "{F3}";
+            this.chkKeyboardF3.Tag = "F3";
             this.chkKeyboardF3.Text = "F3";
             this.chkKeyboardF3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF3.UseVisualStyleBackColor = true;
@@ -2492,7 +2545,7 @@
             this.chkKeyboardF2.Name = "chkKeyboardF2";
             this.chkKeyboardF2.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF2.TabIndex = 14;
-            this.chkKeyboardF2.Tag = "{F2}";
+            this.chkKeyboardF2.Tag = "F2";
             this.chkKeyboardF2.Text = "F2";
             this.chkKeyboardF2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF2.UseVisualStyleBackColor = true;
@@ -2519,7 +2572,7 @@
             this.chkKeyboardF1.Name = "chkKeyboardF1";
             this.chkKeyboardF1.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardF1.TabIndex = 14;
-            this.chkKeyboardF1.Tag = "{F1}";
+            this.chkKeyboardF1.Tag = "F1";
             this.chkKeyboardF1.Text = "F1";
             this.chkKeyboardF1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardF1.UseVisualStyleBackColor = true;
@@ -2546,7 +2599,7 @@
             this.chkKeyboardESC.Name = "chkKeyboardESC";
             this.chkKeyboardESC.Size = new System.Drawing.Size(24, 24);
             this.chkKeyboardESC.TabIndex = 14;
-            this.chkKeyboardESC.Tag = "{ESC}";
+            this.chkKeyboardESC.Tag = "ESC";
             this.chkKeyboardESC.Text = "Esc";
             this.chkKeyboardESC.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardESC.UseVisualStyleBackColor = true;
@@ -2573,7 +2626,7 @@
             this.chkKeyboardBackspace.Name = "chkKeyboardBackspace";
             this.chkKeyboardBackspace.Size = new System.Drawing.Size(51, 24);
             this.chkKeyboardBackspace.TabIndex = 13;
-            this.chkKeyboardBackspace.Tag = "{BACKSPACE}";
+            this.chkKeyboardBackspace.Tag = "BACKSPACE";
             this.chkKeyboardBackspace.Text = "Backspace";
             this.chkKeyboardBackspace.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardBackspace.UseVisualStyleBackColor = true;
@@ -2924,7 +2977,7 @@
             this.chkKeyboardEnter.Name = "chkKeyboardEnter";
             this.chkKeyboardEnter.Size = new System.Drawing.Size(42, 24);
             this.chkKeyboardEnter.TabIndex = 13;
-            this.chkKeyboardEnter.Tag = "{ENTER}";
+            this.chkKeyboardEnter.Tag = "ENTER";
             this.chkKeyboardEnter.Text = "Enter";
             this.chkKeyboardEnter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.chkKeyboardEnter.UseVisualStyleBackColor = true;
@@ -3125,135 +3178,9 @@
             this.chkKeyboardR.UseVisualStyleBackColor = true;
             this.chkKeyboardR.CheckedChanged += new System.EventHandler(this.chkGeneralKeyboardUI_CheckChanged);
             // 
-            // groupBox20
-            // 
-            this.groupBox20.Controls.Add(this.grpKeyboardLeft);
-            this.groupBox20.Controls.Add(this.grpKeyboardRight);
-            this.groupBox20.Location = new System.Drawing.Point(504, 7);
-            this.groupBox20.Name = "groupBox20";
-            this.groupBox20.Size = new System.Drawing.Size(141, 111);
-            this.groupBox20.TabIndex = 18;
-            this.groupBox20.TabStop = false;
-            this.groupBox20.Text = "Hold";
-            // 
-            // grpKeyboardLeft
-            // 
-            this.grpKeyboardLeft.Controls.Add(this.chkLeftWin);
-            this.grpKeyboardLeft.Controls.Add(this.chkLeftAlt);
-            this.grpKeyboardLeft.Controls.Add(this.chkLeftCtrl);
-            this.grpKeyboardLeft.Controls.Add(this.chkLeftShift);
-            this.grpKeyboardLeft.Location = new System.Drawing.Point(6, 13);
-            this.grpKeyboardLeft.Name = "grpKeyboardLeft";
-            this.grpKeyboardLeft.Size = new System.Drawing.Size(56, 92);
-            this.grpKeyboardLeft.TabIndex = 1;
-            this.grpKeyboardLeft.TabStop = false;
-            this.grpKeyboardLeft.Text = "Left";
-            // 
-            // chkLeftWin
-            // 
-            this.chkLeftWin.AutoSize = true;
-            this.chkLeftWin.Location = new System.Drawing.Point(7, 73);
-            this.chkLeftWin.Name = "chkLeftWin";
-            this.chkLeftWin.Size = new System.Drawing.Size(45, 17);
-            this.chkLeftWin.TabIndex = 3;
-            this.chkLeftWin.Text = "Win";
-            this.chkLeftWin.UseVisualStyleBackColor = true;
-            this.chkLeftWin.CheckedChanged += new System.EventHandler(this.chkLeftWin_CheckedChanged);
-            // 
-            // chkLeftAlt
-            // 
-            this.chkLeftAlt.AutoSize = true;
-            this.chkLeftAlt.Location = new System.Drawing.Point(7, 53);
-            this.chkLeftAlt.Name = "chkLeftAlt";
-            this.chkLeftAlt.Size = new System.Drawing.Size(38, 17);
-            this.chkLeftAlt.TabIndex = 2;
-            this.chkLeftAlt.Text = "Alt";
-            this.chkLeftAlt.UseVisualStyleBackColor = true;
-            this.chkLeftAlt.CheckedChanged += new System.EventHandler(this.chkLeftAlt_CheckedChanged);
-            // 
-            // chkLeftCtrl
-            // 
-            this.chkLeftCtrl.AutoSize = true;
-            this.chkLeftCtrl.Location = new System.Drawing.Point(7, 35);
-            this.chkLeftCtrl.Name = "chkLeftCtrl";
-            this.chkLeftCtrl.Size = new System.Drawing.Size(41, 17);
-            this.chkLeftCtrl.TabIndex = 1;
-            this.chkLeftCtrl.Text = "Ctrl";
-            this.chkLeftCtrl.UseVisualStyleBackColor = true;
-            this.chkLeftCtrl.CheckedChanged += new System.EventHandler(this.chkLeftCtrl_CheckedChanged);
-            // 
-            // chkLeftShift
-            // 
-            this.chkLeftShift.AutoSize = true;
-            this.chkLeftShift.Location = new System.Drawing.Point(7, 17);
-            this.chkLeftShift.Name = "chkLeftShift";
-            this.chkLeftShift.Size = new System.Drawing.Size(47, 17);
-            this.chkLeftShift.TabIndex = 0;
-            this.chkLeftShift.Text = "Shift";
-            this.chkLeftShift.UseVisualStyleBackColor = true;
-            this.chkLeftShift.CheckedChanged += new System.EventHandler(this.chkLeftShift_CheckedChanged);
-            // 
-            // grpKeyboardRight
-            // 
-            this.grpKeyboardRight.Controls.Add(this.chkRightWin);
-            this.grpKeyboardRight.Controls.Add(this.chkRightAlt);
-            this.grpKeyboardRight.Controls.Add(this.chkRightCtrl);
-            this.grpKeyboardRight.Controls.Add(this.chkRightShift);
-            this.grpKeyboardRight.Location = new System.Drawing.Point(71, 13);
-            this.grpKeyboardRight.Name = "grpKeyboardRight";
-            this.grpKeyboardRight.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.grpKeyboardRight.Size = new System.Drawing.Size(62, 91);
-            this.grpKeyboardRight.TabIndex = 2;
-            this.grpKeyboardRight.TabStop = false;
-            this.grpKeyboardRight.Text = "Right";
-            // 
-            // chkRightWin
-            // 
-            this.chkRightWin.AutoSize = true;
-            this.chkRightWin.Location = new System.Drawing.Point(4, 71);
-            this.chkRightWin.Name = "chkRightWin";
-            this.chkRightWin.Size = new System.Drawing.Size(45, 17);
-            this.chkRightWin.TabIndex = 7;
-            this.chkRightWin.Text = "Win";
-            this.chkRightWin.UseVisualStyleBackColor = true;
-            this.chkRightWin.CheckedChanged += new System.EventHandler(this.chkRightWin_CheckedChanged);
-            // 
-            // chkRightAlt
-            // 
-            this.chkRightAlt.AutoSize = true;
-            this.chkRightAlt.Location = new System.Drawing.Point(11, 51);
-            this.chkRightAlt.Name = "chkRightAlt";
-            this.chkRightAlt.Size = new System.Drawing.Size(38, 17);
-            this.chkRightAlt.TabIndex = 6;
-            this.chkRightAlt.Text = "Alt";
-            this.chkRightAlt.UseVisualStyleBackColor = true;
-            this.chkRightAlt.CheckedChanged += new System.EventHandler(this.chkRightAlt_CheckedChanged);
-            // 
-            // chkRightCtrl
-            // 
-            this.chkRightCtrl.AutoSize = true;
-            this.chkRightCtrl.Location = new System.Drawing.Point(8, 33);
-            this.chkRightCtrl.Name = "chkRightCtrl";
-            this.chkRightCtrl.Size = new System.Drawing.Size(41, 17);
-            this.chkRightCtrl.TabIndex = 5;
-            this.chkRightCtrl.Text = "Ctrl";
-            this.chkRightCtrl.UseVisualStyleBackColor = true;
-            this.chkRightCtrl.CheckedChanged += new System.EventHandler(this.chkRightCtrl_CheckedChanged);
-            // 
-            // chkRightShift
-            // 
-            this.chkRightShift.AutoSize = true;
-            this.chkRightShift.Location = new System.Drawing.Point(2, 15);
-            this.chkRightShift.Name = "chkRightShift";
-            this.chkRightShift.Size = new System.Drawing.Size(47, 17);
-            this.chkRightShift.TabIndex = 4;
-            this.chkRightShift.Text = "Shift";
-            this.chkRightShift.UseVisualStyleBackColor = true;
-            this.chkRightShift.CheckedChanged += new System.EventHandler(this.chkRightShift_CheckedChanged);
-            // 
             // cmdKeyboardValidate
             // 
-            this.cmdKeyboardValidate.Location = new System.Drawing.Point(504, 240);
+            this.cmdKeyboardValidate.Location = new System.Drawing.Point(504, 313);
             this.cmdKeyboardValidate.Name = "cmdKeyboardValidate";
             this.cmdKeyboardValidate.Size = new System.Drawing.Size(75, 23);
             this.cmdKeyboardValidate.TabIndex = 15;
@@ -3261,137 +3188,12 @@
             this.cmdKeyboardValidate.UseVisualStyleBackColor = true;
             this.cmdKeyboardValidate.Click += new System.EventHandler(this.cmdKeyboardValidate_Click);
             // 
-            // grpKeyboardSpeedSettings
-            // 
-            this.grpKeyboardSpeedSettings.Controls.Add(this.groupBox19);
-            this.grpKeyboardSpeedSettings.Controls.Add(this.groupBox1);
-            this.grpKeyboardSpeedSettings.Location = new System.Drawing.Point(504, 125);
-            this.grpKeyboardSpeedSettings.Name = "grpKeyboardSpeedSettings";
-            this.grpKeyboardSpeedSettings.Size = new System.Drawing.Size(249, 112);
-            this.grpKeyboardSpeedSettings.TabIndex = 7;
-            this.grpKeyboardSpeedSettings.TabStop = false;
-            this.grpKeyboardSpeedSettings.Text = "Speed Settings";
-            // 
-            // groupBox19
-            // 
-            this.groupBox19.Controls.Add(this.label97);
-            this.groupBox19.Controls.Add(this.label96);
-            this.groupBox19.Controls.Add(this.numericKeyDownDurationRandom);
-            this.groupBox19.Controls.Add(this.numericKeyBetweenDurationRandom);
-            this.groupBox19.Location = new System.Drawing.Point(100, 13);
-            this.groupBox19.Name = "groupBox19";
-            this.groupBox19.Size = new System.Drawing.Size(146, 91);
-            this.groupBox19.TabIndex = 14;
-            this.groupBox19.TabStop = false;
-            this.groupBox19.Text = "Random Additive (ms) 0 to";
-            // 
-            // label97
-            // 
-            this.label97.AutoSize = true;
-            this.label97.Location = new System.Drawing.Point(3, 40);
-            this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(70, 13);
-            this.label97.TabIndex = 15;
-            this.label97.Text = "Between Key";
-            // 
-            // label96
-            // 
-            this.label96.AutoSize = true;
-            this.label96.Location = new System.Drawing.Point(3, 16);
-            this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(56, 13);
-            this.label96.TabIndex = 14;
-            this.label96.Text = "Key Down";
-            // 
-            // numericKeyDownDurationRandom
-            // 
-            this.numericKeyDownDurationRandom.Location = new System.Drawing.Point(72, 16);
-            this.numericKeyDownDurationRandom.Name = "numericKeyDownDurationRandom";
-            this.numericKeyDownDurationRandom.Size = new System.Drawing.Size(58, 20);
-            this.numericKeyDownDurationRandom.TabIndex = 12;
-            this.numericKeyDownDurationRandom.ValueChanged += new System.EventHandler(this.numericKeyDownDurationRandom_ValueChanged);
-            // 
-            // numericKeyBetweenDurationRandom
-            // 
-            this.numericKeyBetweenDurationRandom.Location = new System.Drawing.Point(72, 41);
-            this.numericKeyBetweenDurationRandom.Name = "numericKeyBetweenDurationRandom";
-            this.numericKeyBetweenDurationRandom.Size = new System.Drawing.Size(58, 20);
-            this.numericKeyBetweenDurationRandom.TabIndex = 13;
-            this.numericKeyBetweenDurationRandom.ValueChanged += new System.EventHandler(this.numericKeyBetweenDurationRandom_ValueChanged);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.numericKeyDownDuration);
-            this.groupBox1.Controls.Add(this.numericKeyBetweenDuration);
-            this.groupBox1.Controls.Add(this.lblBetweenKeyDuration);
-            this.groupBox1.Controls.Add(this.lblKeyDownDuration);
-            this.groupBox1.Location = new System.Drawing.Point(7, 13);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(84, 91);
-            this.groupBox1.TabIndex = 11;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Duration (ms)";
-            // 
-            // numericKeyDownDuration
-            // 
-            this.numericKeyDownDuration.Location = new System.Drawing.Point(6, 28);
-            this.numericKeyDownDuration.Maximum = new decimal(new int[] {
-            99999999,
-            0,
-            0,
-            0});
-            this.numericKeyDownDuration.Name = "numericKeyDownDuration";
-            this.numericKeyDownDuration.Size = new System.Drawing.Size(68, 20);
-            this.numericKeyDownDuration.TabIndex = 8;
-            this.numericKeyDownDuration.Value = new decimal(new int[] {
-            35,
-            0,
-            0,
-            0});
-            this.numericKeyDownDuration.ValueChanged += new System.EventHandler(this.numericKeyDownDuration_ValueChanged);
-            // 
-            // numericKeyBetweenDuration
-            // 
-            this.numericKeyBetweenDuration.Location = new System.Drawing.Point(6, 63);
-            this.numericKeyBetweenDuration.Maximum = new decimal(new int[] {
-            99999999,
-            0,
-            0,
-            0});
-            this.numericKeyBetweenDuration.Name = "numericKeyBetweenDuration";
-            this.numericKeyBetweenDuration.Size = new System.Drawing.Size(68, 20);
-            this.numericKeyBetweenDuration.TabIndex = 10;
-            this.numericKeyBetweenDuration.Value = new decimal(new int[] {
-            35,
-            0,
-            0,
-            0});
-            this.numericKeyBetweenDuration.ValueChanged += new System.EventHandler(this.numericKeyBetweenDuration_ValueChanged);
-            // 
-            // lblBetweenKeyDuration
-            // 
-            this.lblBetweenKeyDuration.AutoSize = true;
-            this.lblBetweenKeyDuration.Location = new System.Drawing.Point(6, 49);
-            this.lblBetweenKeyDuration.Name = "lblBetweenKeyDuration";
-            this.lblBetweenKeyDuration.Size = new System.Drawing.Size(70, 13);
-            this.lblBetweenKeyDuration.TabIndex = 9;
-            this.lblBetweenKeyDuration.Text = "Between Key";
-            // 
-            // lblKeyDownDuration
-            // 
-            this.lblKeyDownDuration.AutoSize = true;
-            this.lblKeyDownDuration.Location = new System.Drawing.Point(6, 12);
-            this.lblKeyDownDuration.Name = "lblKeyDownDuration";
-            this.lblKeyDownDuration.Size = new System.Drawing.Size(56, 13);
-            this.lblKeyDownDuration.TabIndex = 7;
-            this.lblKeyDownDuration.Text = "Key Down";
-            // 
             // txtKeyboard
             // 
             this.txtKeyboard.Location = new System.Drawing.Point(6, 200);
             this.txtKeyboard.Multiline = true;
             this.txtKeyboard.Name = "txtKeyboard";
-            this.txtKeyboard.Size = new System.Drawing.Size(467, 82);
+            this.txtKeyboard.Size = new System.Drawing.Size(491, 136);
             this.txtKeyboard.TabIndex = 0;
             this.txtKeyboard.TextChanged += new System.EventHandler(this.txtKeyboard_TextChanged);
             // 
@@ -3403,6 +3205,21 @@
             this.lblPictureMissing.Size = new System.Drawing.Size(632, 250);
             this.lblPictureMissing.TabIndex = 1;
             this.lblPictureMissing.Text = "lblPictureMissing";
+            // 
+            // PictureBox1
+            // 
+            this.PictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
+            this.PictureBox1.Location = new System.Drawing.Point(0, 0);
+            this.PictureBox1.Name = "PictureBox1";
+            this.PictureBox1.Size = new System.Drawing.Size(100, 50);
+            this.PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.PictureBox1.TabIndex = 0;
+            this.PictureBox1.TabStop = false;
+            this.PictureBox1.Click += new System.EventHandler(this.PictureBox1_Click);
+            this.PictureBox1.Paint += new System.Windows.Forms.PaintEventHandler(this.PictureBox1_Paint);
+            this.PictureBox1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseDown);
+            this.PictureBox1.MouseMove += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseMove);
+            this.PictureBox1.MouseUp += new System.Windows.Forms.MouseEventHandler(this.PictureBox1_MouseUp);
             // 
             // label29
             // 
@@ -3586,6 +3403,149 @@
             this.cmdPanelRightResolution.Text = "Properties";
             this.cmdPanelRightResolution.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.cmdPanelRightResolution.UseVisualStyleBackColor = false;
+            // 
+            // panelPreAction
+            // 
+            this.panelPreAction.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelPreAction.Controls.Add(this.groupBox22);
+            this.panelPreAction.Controls.Add(this.chkFromCurrentMousePos);
+            this.panelPreAction.Controls.Add(this.button2);
+            this.panelPreAction.Location = new System.Drawing.Point(2, 111);
+            this.panelPreAction.Margin = new System.Windows.Forms.Padding(2);
+            this.panelPreAction.Name = "panelPreAction";
+            this.panelPreAction.Size = new System.Drawing.Size(280, 160);
+            this.panelPreAction.TabIndex = 39;
+            this.panelPreAction.Visible = false;
+            // 
+            // groupBox22
+            // 
+            this.groupBox22.Controls.Add(this.label99);
+            this.groupBox22.Controls.Add(this.cboPreActionFailureAction);
+            this.groupBox22.Controls.Add(this.label98);
+            this.groupBox22.Controls.Add(this.numericKeyboardAfterSendingActivationMS);
+            this.groupBox22.Controls.Add(this.label95);
+            this.groupBox22.Controls.Add(this.numericKeyboardTimeoutToActivateMS);
+            this.groupBox22.Controls.Add(this.chkAppActivateIfNotActive);
+            this.groupBox22.Location = new System.Drawing.Point(7, 56);
+            this.groupBox22.Name = "groupBox22";
+            this.groupBox22.Size = new System.Drawing.Size(265, 97);
+            this.groupBox22.TabIndex = 15;
+            this.groupBox22.TabStop = false;
+            // 
+            // label99
+            // 
+            this.label99.AutoSize = true;
+            this.label99.Location = new System.Drawing.Point(78, 47);
+            this.label99.Name = "label99";
+            this.label99.Size = new System.Drawing.Size(78, 13);
+            this.label99.TabIndex = 26;
+            this.label99.Text = "Timeout Action";
+            // 
+            // cboPreActionFailureAction
+            // 
+            this.cboPreActionFailureAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboPreActionFailureAction.FormattingEnabled = true;
+            this.cboPreActionFailureAction.Items.AddRange(new object[] {
+            "Abort",
+            "Continue"});
+            this.cboPreActionFailureAction.Location = new System.Drawing.Point(8, 42);
+            this.cboPreActionFailureAction.Name = "cboPreActionFailureAction";
+            this.cboPreActionFailureAction.Size = new System.Drawing.Size(67, 21);
+            this.cboPreActionFailureAction.TabIndex = 25;
+            this.cboPreActionFailureAction.SelectedIndexChanged += new System.EventHandler(this.cboPreActionFailureAction_SelectedIndexChanged);
+            // 
+            // label98
+            // 
+            this.label98.AutoSize = true;
+            this.label98.Location = new System.Drawing.Point(60, 71);
+            this.label98.Name = "label98";
+            this.label98.Size = new System.Drawing.Size(157, 13);
+            this.label98.TabIndex = 24;
+            this.label98.Text = "Wait after sending Activate (ms)";
+            // 
+            // numericKeyboardAfterSendingActivationMS
+            // 
+            this.numericKeyboardAfterSendingActivationMS.Location = new System.Drawing.Point(6, 69);
+            this.numericKeyboardAfterSendingActivationMS.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericKeyboardAfterSendingActivationMS.Name = "numericKeyboardAfterSendingActivationMS";
+            this.numericKeyboardAfterSendingActivationMS.Size = new System.Drawing.Size(51, 20);
+            this.numericKeyboardAfterSendingActivationMS.TabIndex = 23;
+            this.numericKeyboardAfterSendingActivationMS.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
+            this.numericKeyboardAfterSendingActivationMS.ValueChanged += new System.EventHandler(this.numericKeyboardAfterSendingActivationMS_ValueChanged);
+            // 
+            // label95
+            // 
+            this.label95.AutoSize = true;
+            this.label95.Location = new System.Drawing.Point(60, 23);
+            this.label95.Name = "label95";
+            this.label95.Size = new System.Drawing.Size(67, 13);
+            this.label95.TabIndex = 22;
+            this.label95.Text = "Timeout (ms)";
+            // 
+            // numericKeyboardTimeoutToActivateMS
+            // 
+            this.numericKeyboardTimeoutToActivateMS.Location = new System.Drawing.Point(7, 18);
+            this.numericKeyboardTimeoutToActivateMS.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.numericKeyboardTimeoutToActivateMS.Name = "numericKeyboardTimeoutToActivateMS";
+            this.numericKeyboardTimeoutToActivateMS.Size = new System.Drawing.Size(50, 20);
+            this.numericKeyboardTimeoutToActivateMS.TabIndex = 21;
+            this.numericKeyboardTimeoutToActivateMS.Value = new decimal(new int[] {
+            3000,
+            0,
+            0,
+            0});
+            this.numericKeyboardTimeoutToActivateMS.ValueChanged += new System.EventHandler(this.numericKeyboardTimeoutToActivateMS_ValueChanged);
+            // 
+            // chkAppActivateIfNotActive
+            // 
+            this.chkAppActivateIfNotActive.AutoSize = true;
+            this.chkAppActivateIfNotActive.Location = new System.Drawing.Point(7, -1);
+            this.chkAppActivateIfNotActive.Name = "chkAppActivateIfNotActive";
+            this.chkAppActivateIfNotActive.Size = new System.Drawing.Size(221, 17);
+            this.chkAppActivateIfNotActive.TabIndex = 20;
+            this.chkAppActivateIfNotActive.Text = "Activate Application (if not already active)";
+            this.chkAppActivateIfNotActive.UseVisualStyleBackColor = true;
+            this.chkAppActivateIfNotActive.CheckedChanged += new System.EventHandler(this.chkAppActivateIfNotActive_CheckedChanged);
+            // 
+            // chkFromCurrentMousePos
+            // 
+            this.chkFromCurrentMousePos.Location = new System.Drawing.Point(5, 26);
+            this.chkFromCurrentMousePos.Margin = new System.Windows.Forms.Padding(2);
+            this.chkFromCurrentMousePos.Name = "chkFromCurrentMousePos";
+            this.chkFromCurrentMousePos.Size = new System.Drawing.Size(255, 32);
+            this.chkFromCurrentMousePos.TabIndex = 14;
+            this.chkFromCurrentMousePos.Text = "Move mouse from sys pos (Active Mouse Only)";
+            this.chkFromCurrentMousePos.UseVisualStyleBackColor = true;
+            this.chkFromCurrentMousePos.CheckedChanged += new System.EventHandler(this.chkFromCurrentMousePos_CheckedChanged);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.AppWorkspace;
+            this.button2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.button2.Location = new System.Drawing.Point(0, 0);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(278, 23);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Pre Action Events";
+            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.UseVisualStyleBackColor = false;
             // 
             // panelRightAfterCompletion
             // 
@@ -4626,48 +4586,48 @@
             // 
             // dgvID
             // 
-            dataGridViewCellStyle71.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvID.DefaultCellStyle = dataGridViewCellStyle71;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvID.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvID.HeaderText = "ID";
             this.dgvID.MinimumWidth = 10;
             this.dgvID.Name = "dgvID";
             // 
             // dgvRed
             // 
-            dataGridViewCellStyle72.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle72;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRed.HeaderText = "R";
             this.dgvRed.MinimumWidth = 10;
             this.dgvRed.Name = "dgvRed";
             // 
             // dgvBlue
             // 
-            dataGridViewCellStyle73.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle73;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBlue.HeaderText = "B";
             this.dgvBlue.MinimumWidth = 10;
             this.dgvBlue.Name = "dgvBlue";
             // 
             // dgvGreen
             // 
-            dataGridViewCellStyle74.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle74;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGreen.HeaderText = "G";
             this.dgvGreen.MinimumWidth = 10;
             this.dgvGreen.Name = "dgvGreen";
             // 
             // dgvX
             // 
-            dataGridViewCellStyle75.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvX.DefaultCellStyle = dataGridViewCellStyle75;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvX.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvX.HeaderText = "X";
             this.dgvX.MinimumWidth = 10;
             this.dgvX.Name = "dgvX";
             // 
             // dgvY
             // 
-            dataGridViewCellStyle76.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvY.DefaultCellStyle = dataGridViewCellStyle76;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvY.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvY.HeaderText = "Y";
             this.dgvY.MinimumWidth = 10;
             this.dgvY.Name = "dgvY";
@@ -5785,14 +5745,14 @@
             // 
             this.dgvTest.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle77.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle77.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle77.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle77.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle77.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle77.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle77.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle77;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTestID,
@@ -5803,14 +5763,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle78.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle78.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle78.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle78.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle78.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle78.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle78.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle78;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvTest.Location = new System.Drawing.Point(623, 226);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.RowHeadersWidth = 62;
@@ -5880,14 +5840,14 @@
             // dgvTestAllReference
             // 
             this.dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle79.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle79.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle79.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle79.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle79.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle79.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle79.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle79;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceID,
@@ -5896,14 +5856,14 @@
             this.dgvTestAllReferenceBlue,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle80.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle80.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle80.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle80.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle80.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle80.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle80.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle80;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvTestAllReference.Location = new System.Drawing.Point(623, 48);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.RowHeadersWidth = 62;
@@ -8405,147 +8365,31 @@
             this.TimerProperties.Interval = 1000;
             this.TimerProperties.Tick += new System.EventHandler(this.TimerProperties_Tick);
             // 
-            // panelPreAction
+            // cmdWait3
             // 
-            this.panelPreAction.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelPreAction.Controls.Add(this.groupBox22);
-            this.panelPreAction.Controls.Add(this.chkFromCurrentMousePos);
-            this.panelPreAction.Controls.Add(this.button2);
-            this.panelPreAction.Location = new System.Drawing.Point(2, 111);
-            this.panelPreAction.Margin = new System.Windows.Forms.Padding(2);
-            this.panelPreAction.Name = "panelPreAction";
-            this.panelPreAction.Size = new System.Drawing.Size(280, 160);
-            this.panelPreAction.TabIndex = 39;
-            this.panelPreAction.Visible = false;
+            this.cmdWait3.Location = new System.Drawing.Point(92, 68);
+            this.cmdWait3.Name = "cmdWait3";
+            this.cmdWait3.Size = new System.Drawing.Size(94, 23);
+            this.cmdWait3.TabIndex = 2;
+            this.cmdWait3.Text = "Custom";
+            this.cmdWait3.UseVisualStyleBackColor = true;
+            this.cmdWait3.Click += new System.EventHandler(this.cmdWait3_Click);
             // 
-            // button2
+            // label96
             // 
-            this.button2.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            this.button2.Cursor = System.Windows.Forms.Cursors.Default;
-            this.button2.Dock = System.Windows.Forms.DockStyle.Top;
-            this.button2.FlatAppearance.BorderSize = 0;
-            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.button2.Location = new System.Drawing.Point(0, 0);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(278, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Pre Action Events";
-            this.button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button2.UseVisualStyleBackColor = false;
+            this.label96.Location = new System.Drawing.Point(8, 101);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(194, 195);
+            this.label96.TabIndex = 3;
+            this.label96.Text = resources.GetString("label96.Text");
             // 
-            // chkFromCurrentMousePos
+            // label97
             // 
-            this.chkFromCurrentMousePos.Location = new System.Drawing.Point(5, 26);
-            this.chkFromCurrentMousePos.Margin = new System.Windows.Forms.Padding(2);
-            this.chkFromCurrentMousePos.Name = "chkFromCurrentMousePos";
-            this.chkFromCurrentMousePos.Size = new System.Drawing.Size(255, 32);
-            this.chkFromCurrentMousePos.TabIndex = 14;
-            this.chkFromCurrentMousePos.Text = "Move mouse from sys pos (Active Mouse Only)";
-            this.chkFromCurrentMousePos.UseVisualStyleBackColor = true;
-            // 
-            // groupBox22
-            // 
-            this.groupBox22.Controls.Add(this.label99);
-            this.groupBox22.Controls.Add(this.cboPreActionFailureAction);
-            this.groupBox22.Controls.Add(this.label98);
-            this.groupBox22.Controls.Add(this.numericKeyboardAfterSendingActivationMS);
-            this.groupBox22.Controls.Add(this.label95);
-            this.groupBox22.Controls.Add(this.numericKeyboardTimeoutToActivateMS);
-            this.groupBox22.Controls.Add(this.chkAppActivateIfNotActive);
-            this.groupBox22.Location = new System.Drawing.Point(7, 56);
-            this.groupBox22.Name = "groupBox22";
-            this.groupBox22.Size = new System.Drawing.Size(265, 97);
-            this.groupBox22.TabIndex = 15;
-            this.groupBox22.TabStop = false;
-            // 
-            // chkAppActivateIfNotActive
-            // 
-            this.chkAppActivateIfNotActive.AutoSize = true;
-            this.chkAppActivateIfNotActive.Location = new System.Drawing.Point(7, -1);
-            this.chkAppActivateIfNotActive.Name = "chkAppActivateIfNotActive";
-            this.chkAppActivateIfNotActive.Size = new System.Drawing.Size(221, 17);
-            this.chkAppActivateIfNotActive.TabIndex = 20;
-            this.chkAppActivateIfNotActive.Text = "Activate Application (if not already active)";
-            this.chkAppActivateIfNotActive.UseVisualStyleBackColor = true;
-            this.chkAppActivateIfNotActive.CheckedChanged += new System.EventHandler(this.chkAppActivateIfNotActive_CheckedChanged);
-            // 
-            // numericKeyboardTimeoutToActivateMS
-            // 
-            this.numericKeyboardTimeoutToActivateMS.Location = new System.Drawing.Point(7, 18);
-            this.numericKeyboardTimeoutToActivateMS.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.numericKeyboardTimeoutToActivateMS.Name = "numericKeyboardTimeoutToActivateMS";
-            this.numericKeyboardTimeoutToActivateMS.Size = new System.Drawing.Size(50, 20);
-            this.numericKeyboardTimeoutToActivateMS.TabIndex = 21;
-            this.numericKeyboardTimeoutToActivateMS.Value = new decimal(new int[] {
-            3000,
-            0,
-            0,
-            0});
-            this.numericKeyboardTimeoutToActivateMS.ValueChanged += new System.EventHandler(this.numericKeyboardTimeoutToActivateMS_ValueChanged);
-            // 
-            // label95
-            // 
-            this.label95.AutoSize = true;
-            this.label95.Location = new System.Drawing.Point(60, 23);
-            this.label95.Name = "label95";
-            this.label95.Size = new System.Drawing.Size(67, 13);
-            this.label95.TabIndex = 22;
-            this.label95.Text = "Timeout (ms)";
-            // 
-            // numericKeyboardAfterSendingActivationMS
-            // 
-            this.numericKeyboardAfterSendingActivationMS.Location = new System.Drawing.Point(6, 69);
-            this.numericKeyboardAfterSendingActivationMS.Maximum = new decimal(new int[] {
-            9999,
-            0,
-            0,
-            0});
-            this.numericKeyboardAfterSendingActivationMS.Name = "numericKeyboardAfterSendingActivationMS";
-            this.numericKeyboardAfterSendingActivationMS.Size = new System.Drawing.Size(51, 20);
-            this.numericKeyboardAfterSendingActivationMS.TabIndex = 23;
-            this.numericKeyboardAfterSendingActivationMS.Value = new decimal(new int[] {
-            100,
-            0,
-            0,
-            0});
-            this.numericKeyboardAfterSendingActivationMS.ValueChanged += new System.EventHandler(this.numericKeyboardAfterSendingActivationMS_ValueChanged);
-            // 
-            // label98
-            // 
-            this.label98.AutoSize = true;
-            this.label98.Location = new System.Drawing.Point(60, 71);
-            this.label98.Name = "label98";
-            this.label98.Size = new System.Drawing.Size(157, 13);
-            this.label98.TabIndex = 24;
-            this.label98.Text = "Wait after sending Activate (ms)";
-            // 
-            // cboPreActionFailureAction
-            // 
-            this.cboPreActionFailureAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboPreActionFailureAction.FormattingEnabled = true;
-            this.cboPreActionFailureAction.Items.AddRange(new object[] {
-            "Abort",
-            "Continue"});
-            this.cboPreActionFailureAction.Location = new System.Drawing.Point(8, 42);
-            this.cboPreActionFailureAction.Name = "cboPreActionFailureAction";
-            this.cboPreActionFailureAction.Size = new System.Drawing.Size(67, 21);
-            this.cboPreActionFailureAction.TabIndex = 25;
-            this.cboPreActionFailureAction.SelectedIndexChanged += new System.EventHandler(this.cboPreActionFailureAction_SelectedIndexChanged);
-            // 
-            // label99
-            // 
-            this.label99.AutoSize = true;
-            this.label99.Location = new System.Drawing.Point(78, 47);
-            this.label99.Name = "label99";
-            this.label99.Size = new System.Drawing.Size(78, 13);
-            this.label99.TabIndex = 26;
-            this.label99.Text = "Timeout Action";
+            this.label97.Location = new System.Drawing.Point(7, 339);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(536, 98);
+            this.label97.TabIndex = 21;
+            this.label97.Text = resources.GetString("label97.Text");
             // 
             // frmMain
             // 
@@ -8605,30 +8449,25 @@
             this.grpMode.PerformLayout();
             this.PanelScreenshot.ResumeLayout(false);
             this.PanelScreenshot.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.panelKeyboard.ResumeLayout(false);
             this.panelKeyboard.PerformLayout();
+            this.grpInsertWeights.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.numericWait3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericWait2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericWait1)).EndInit();
             this.groupBox21.ResumeLayout(false);
-            this.groupBox20.ResumeLayout(false);
-            this.grpKeyboardLeft.ResumeLayout(false);
-            this.grpKeyboardLeft.PerformLayout();
-            this.grpKeyboardRight.ResumeLayout(false);
-            this.grpKeyboardRight.PerformLayout();
-            this.grpKeyboardSpeedSettings.ResumeLayout(false);
-            this.groupBox19.ResumeLayout(false);
-            this.groupBox19.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyDownDurationRandom)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyBetweenDurationRandom)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyDownDuration)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyBetweenDuration)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PictureBox1)).EndInit();
             this.FlowLayoutPanelColorEvent1.ResumeLayout(false);
             this.panelRightProperties.ResumeLayout(false);
             this.panelRightProperties.PerformLayout();
             this.grpPropertiesRepeatsUntilFalse.ResumeLayout(false);
             this.grpPropertiesRepeatsUntilFalse.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericPropertiesRepeatsUntilFalse)).EndInit();
+            this.panelPreAction.ResumeLayout(false);
+            this.groupBox22.ResumeLayout(false);
+            this.groupBox22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyboardAfterSendingActivationMS)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericKeyboardTimeoutToActivateMS)).EndInit();
             this.panelRightAfterCompletion.ResumeLayout(false);
             this.panelRightAfterCompletion.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -8806,11 +8645,6 @@
             this.toolStripMain.PerformLayout();
             this.contextMenuStripResetResolution.ResumeLayout(false);
             this.contextMenuStripRuntimeEnableDisable.ResumeLayout(false);
-            this.panelPreAction.ResumeLayout(false);
-            this.groupBox22.ResumeLayout(false);
-            this.groupBox22.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyboardTimeoutToActivateMS)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericKeyboardAfterSendingActivationMS)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -9337,17 +9171,6 @@
         private System.Windows.Forms.CheckBox chkGameWindowNeverQuitIfWindowNotFound;
         private System.Windows.Forms.Panel panelKeyboard;
         private System.Windows.Forms.TextBox txtKeyboard;
-        private System.Windows.Forms.GroupBox grpKeyboardSpeedSettings;
-        private System.Windows.Forms.GroupBox groupBox19;
-        private System.Windows.Forms.Label label97;
-        private System.Windows.Forms.Label label96;
-        private System.Windows.Forms.NumericUpDown numericKeyDownDurationRandom;
-        private System.Windows.Forms.NumericUpDown numericKeyBetweenDurationRandom;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.NumericUpDown numericKeyDownDuration;
-        private System.Windows.Forms.NumericUpDown numericKeyBetweenDuration;
-        private System.Windows.Forms.Label lblBetweenKeyDuration;
-        private System.Windows.Forms.Label lblKeyDownDuration;
         private System.Windows.Forms.CheckBox chkKeyboardF4;
         private System.Windows.Forms.CheckBox chkKeyboardF3;
         private System.Windows.Forms.CheckBox chkKeyboardF2;
@@ -9421,23 +9244,12 @@
         private System.Windows.Forms.CheckBox chkKeyboardLeftCtrl;
         private System.Windows.Forms.CheckBox chkKeyboardRightShift;
         private System.Windows.Forms.CheckBox chkKeyboardLeftShift;
-        private System.Windows.Forms.GroupBox grpKeyboardRight;
-        private System.Windows.Forms.CheckBox chkRightWin;
-        private System.Windows.Forms.CheckBox chkRightAlt;
-        private System.Windows.Forms.CheckBox chkRightCtrl;
-        private System.Windows.Forms.CheckBox chkRightShift;
-        private System.Windows.Forms.GroupBox grpKeyboardLeft;
-        private System.Windows.Forms.CheckBox chkLeftWin;
-        private System.Windows.Forms.CheckBox chkLeftAlt;
-        private System.Windows.Forms.CheckBox chkLeftCtrl;
-        private System.Windows.Forms.CheckBox chkLeftShift;
         private System.Windows.Forms.Button cmdKeyboardValidate;
         private System.Windows.Forms.CheckBox chkKeyboardLeft;
         private System.Windows.Forms.CheckBox chkKeyboardRight;
         private System.Windows.Forms.CheckBox chkKeyboardDown;
         private System.Windows.Forms.CheckBox chkKeyboardUp;
         private System.Windows.Forms.GroupBox groupBox21;
-        private System.Windows.Forms.GroupBox groupBox20;
         private System.Windows.Forms.CheckBox chkKeyboardPageDown;
         private System.Windows.Forms.CheckBox chkKeyboardEnd;
         private System.Windows.Forms.CheckBox chkKeyboardDelete;
@@ -9457,5 +9269,14 @@
         private System.Windows.Forms.CheckBox chkAppActivateIfNotActive;
         private System.Windows.Forms.ComboBox cboPreActionFailureAction;
         private System.Windows.Forms.Label label99;
+        private System.Windows.Forms.GroupBox grpInsertWeights;
+        private System.Windows.Forms.Button cmdWait2;
+        private System.Windows.Forms.Button cmdWait1;
+        private System.Windows.Forms.NumericUpDown numericWait3;
+        private System.Windows.Forms.NumericUpDown numericWait2;
+        private System.Windows.Forms.NumericUpDown numericWait1;
+        private System.Windows.Forms.Button cmdWait3;
+        private System.Windows.Forms.Label label97;
+        private System.Windows.Forms.Label label96;
     }
 }

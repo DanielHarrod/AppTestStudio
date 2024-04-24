@@ -72,7 +72,8 @@ namespace AppTestStudio
         Down,
         Up,
         Error,
-        None
+        None,
+        Delay
     }
 
     public enum ActivateWindowResult

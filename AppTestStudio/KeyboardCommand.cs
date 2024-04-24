@@ -37,7 +37,39 @@ namespace AppTestStudio
         {
             Origin = Command;
             ButtonState = KeyboardButtonStates.Normal;
-            switch (Command.ToLower())
+            String KeyCommand = Command.ToLower();
+
+            if (KeyCommand.StartsWith("wait."))
+            {
+                ButtonState = KeyboardButtonStates.Delay;
+                String PotentiallyInt = KeyCommand.Substring(5, KeyCommand.Length - 5);
+                int delay = 0;
+
+                if (int.TryParse(PotentiallyInt, out delay))
+                {
+                    Delayms = delay;
+                    return;
+                }
+                else
+                {
+                    Debug.WriteLine($"Keyboard wait. Expected integer found {PotentiallyInt}");
+                    ButtonState = KeyboardButtonStates.Error;
+                    return;
+                }
+            }
+            if (KeyCommand.EndsWith("up"))
+            {
+                ButtonState = KeyboardButtonStates.Up;
+                KeyCommand = KeyCommand.Substring(0,KeyCommand.Length - 2);
+            }
+
+            if (KeyCommand.EndsWith("down"))
+            {
+                ButtonState = KeyboardButtonStates.Down;
+                KeyCommand = KeyCommand.Substring(0,KeyCommand.Length - 4);
+            }
+
+            switch (KeyCommand)
             {
                 case Definitions.VirtualKeyCodeText.VK_F1:
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_F1, 0);
@@ -123,79 +155,34 @@ namespace AppTestStudio
                 case Definitions.VirtualKeyCodeText.VK_LSHIFT:
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LSHIFT, 0);
                     break;
-                case Definitions.VirtualKeyCodeText.VK_LSHIFT_DOWN:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LSHIFT, 0);
-                    ButtonState = KeyboardButtonStates.Down;
-                    break;
-                case Definitions.VirtualKeyCodeText.VK_LSHIFT_UP:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LSHIFT, 0);
-                    ButtonState = KeyboardButtonStates.Up;
-                    break;
 
                 // RSHIFT
                 case Definitions.VirtualKeyCodeText.VK_RSHIFT:
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RSHIFT, 0);
-                    break;
-                case Definitions.VirtualKeyCodeText.VK_RSHIFT_DOWN:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RSHIFT, 0);
-                    ButtonState = KeyboardButtonStates.Down;
-                    break;
-                case Definitions.VirtualKeyCodeText.VK_RSHIFT_UP:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RSHIFT, 0);
-                    ButtonState = KeyboardButtonStates.Up;
                     break;
 
                 //LCONTROL
                 case Definitions.VirtualKeyCodeText.VK_LCONTROL:
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LCONTROL, 0);
                     break;
-                case Definitions.VirtualKeyCodeText.VK_LCONTROL_DOWN:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LCONTROL, 0);
-                    ButtonState = KeyboardButtonStates.Down;
-                    break;
-                case Definitions.VirtualKeyCodeText.VK_LCONTROL_UP:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LCONTROL, 0);
-                    ButtonState = KeyboardButtonStates.Up;
-                    break;
 
                 // RCONTROL
                 case Definitions.VirtualKeyCodeText.VK_RCONTROL:
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RCONTROL, 0);
                     break;
-                case Definitions.VirtualKeyCodeText.VK_RCONTROL_DOWN:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RCONTROL, 0);
-                    ButtonState = KeyboardButtonStates.Down;
-                    break;
-                case Definitions.VirtualKeyCodeText.VK_RCONTROL_UP:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RCONTROL, 0);
-                    ButtonState = KeyboardButtonStates.Up;
-                    break;
+
 
                 // LMENU
                 case Definitions.VirtualKeyCodeText.VK_LMENU:
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LMENU, 0);
                     break;
-                case Definitions.VirtualKeyCodeText.VK_LMENU_DOWN:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LMENU, 0);
-                    ButtonState = KeyboardButtonStates.Down;
-                    break;
-                case Definitions.VirtualKeyCodeText.VK_LMENU_UP:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LMENU, 0);
-                    ButtonState = KeyboardButtonStates.Up;
-                    break;
+
 
                 // RMENU
                 case Definitions.VirtualKeyCodeText.VK_RMENU:
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RMENU, 0);
                     break;
-                case Definitions.VirtualKeyCodeText.VK_RMENU_DOWN:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RMENU, 0);
-                    ButtonState = KeyboardButtonStates.Down;
-                    break;
-                case Definitions.VirtualKeyCodeText.VK_RMENU_UP:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RMENU, 0);
-                    ButtonState = KeyboardButtonStates.Up;
-                    break;
+
 
                 case Definitions.VirtualKeyCodeText.VK_ESCAPE:
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_ESCAPE, 0);
@@ -205,26 +192,10 @@ namespace AppTestStudio
                 case Definitions.VirtualKeyCodeText.VK_RWIN:
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RWIN, 0);
                     break;
-                case Definitions.VirtualKeyCodeText.VK_RWIN_DOWN:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RWIN, 0);
-                    ButtonState = KeyboardButtonStates.Down;
-                    break;
-                case Definitions.VirtualKeyCodeText.VK_RWIN_UP:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_RWIN, 0);
-                    ButtonState = KeyboardButtonStates.Up;
-                    break;
 
                 // LWIN
                 case Definitions.VirtualKeyCodeText.VK_LWIN:
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LWIN, 0);
-                    break;
-                case Definitions.VirtualKeyCodeText.VK_LWIN_DOWN:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LWIN, 0);
-                    ButtonState = KeyboardButtonStates.Down;
-                    break;
-                case Definitions.VirtualKeyCodeText.VK_LWIN_UP:
-                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_LWIN, 0);
-                    ButtonState = KeyboardButtonStates.Up;
                     break;
 
                 case Definitions.VirtualKeyCodeText.VK_INSERT:
@@ -241,7 +212,158 @@ namespace AppTestStudio
                 case Definitions.VirtualKeyCodeText.VK_SPACE:
                     ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_SPACE, 0);
                     break;
+                case "a":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_A, 0);
+                    break;
+                case "b":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_B, 0);
+                    break;
+                case "c":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_C, 0);
+                    break;
+                case "d":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_D, 0);
+                    break;
+                case "e":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_E, 0);
+                    break;
 
+                case "f":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_F, 0);
+                    break;
+                case "g":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_G, 0);
+                    break;
+                case "h":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_H, 0);
+                    break;
+                case "i":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_I, 0);
+                    break;
+                case "j":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_J, 0);
+                    break;
+                case "k":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_K, 0);
+                    break;
+                case "l":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_L, 0);
+                    break;
+                case "m":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_M, 0);
+                    break;
+                case "n":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_N, 0);
+                    break;
+                case "o":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_O, 0);
+                    break;
+                case "p":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_P, 0);
+                    break;
+                case "q":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_Q, 0);
+                    break;
+                case "r":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_R, 0);
+                    break;
+                case "s":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_S, 0);
+                    break;
+                case "t":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_T, 0);
+                    break;
+                case "u":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_U, 0);
+                    break;
+                case "v":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_V, 0);
+                    break;
+                case "w":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_W, 0);
+                    break;
+                case "x":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_X, 0);
+                    break;
+                case "y":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_Y, 0);
+                    break;
+                case "z":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_Z, 0);
+                    break;
+
+                case "`":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_BACK_QUOTE, 0);
+                    break;
+                case "~":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_BACK_QUOTE, 0);
+                    break;
+                case "-":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_SUBTRACT, 0);
+                    break;
+                case "+":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_OEM_PLUS, 0);
+                    break;
+                case "[":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_OPEN_BRACKET, 0);
+                    break;
+                case "]":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_CLOSE_BRACKET, 0);
+                    break;
+                case "\\":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_BACK_SLASH, 0);
+                    break;
+                case ":":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_COLON, 0);
+                    break;
+                case ";":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_COLON, 0);
+                    break;
+                case "'":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_QUOTE, 0);
+                    break;
+                case ",":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_OEM_COMMA, 0);
+                    break;
+                case ".":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_OEM_PERIOD, 0);
+                    break;
+                case "/":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_SLASH, 0);
+                    break;
+                case "=":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_OEM_PLUS, 0);
+                    break;
+                case "0":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_0, 0);
+                    break;
+                case "1":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_1, 0);
+                    break;
+                case "2":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_2, 0);
+                    break;
+                case "3":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_3, 0);
+                    break;
+                case "4":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_4, 0);
+                    break;
+                case "5":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_5, 0);
+                    break;
+                case "6":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_6, 0);
+                    break;
+                case "7":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_7, 0);
+                    break;
+                case "8":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_8, 0);
+                    break;
+                case "9":
+                    ScanCode = API.MapVirtualKey(Definitions.VirtualKeyCode.VK_9, 0);
+                    break;
 
                 default:
                     if (Command.Length > 0)
@@ -263,7 +385,7 @@ namespace AppTestStudio
             switch (Command)
             {
                 case '~':
-                    ScanCode = (ushort)API.MapVirtualKey(Definitions.VirtualKeyCode.VK_OEM_3, 0);
+                    ScanCode = (ushort)API.MapVirtualKey(Definitions.VirtualKeyCode.VK_BACK_QUOTE, 0);
                     break;
                 default:
                     ScanCode = (ushort)API.MapVirtualKey((uint)API.VkKeyScan(Command), 0);

@@ -145,36 +145,19 @@ namespace AppTestStudio
             public const string VK_SCROLL = "scroll"; //Scroll-Lock
             
             public const string VK_LSHIFT = "lshift";
-            public const string VK_LSHIFT_DOWN = "lshiftdown";
-            public const string VK_LSHIFT_UP = "lshiftup";
 
             public const string VK_RSHIFT = "rshift";
-            public const string VK_RSHIFT_DOWN = "rshiftdown";
-            public const string VK_RSHIFT_UP = "rshiftup";
 
             public const string VK_LCONTROL = "lctrl";
-            public const string VK_LCONTROL_DOWN = "lctrldown";
-            public const string VK_LCONTROL_UP = "lctrlup";
 
             public const string VK_RCONTROL = "rctrl";
-            public const string VK_RCONTROL_DOWN = "rctrldown";
-            public const string VK_RCONTROL_UP = "rctrlup";
 
             public const string VK_LMENU = "lalt"; // Left Alt key
-            public const string VK_LMENU_DOWN = "laltdown"; 
-            public const string VK_LMENU_UP = "laltup";
 
             public const string VK_RMENU = "ralt"; // Right Alt key
-            public const string VK_RMENU_DOWN = "raltdown"; // Right Alt key
-            public const string VK_RMENU_UP = "raltup"; // Right Alt key
 
             public const string VK_LWIN = "lwin";
-            public const string VK_LWIN_DOWN = "lwindown";
-            public const string VK_LWIN_UP = "lwinup";
-
             public const string VK_RWIN = "rwin";
-            public const string VK_RWIN_DOWN = "rwindown";
-            public const string VK_RWIN_UP = "rwinup";
 
             public const string VK_INSERT = "insert"; // Insert Key
             public const string VK_DELETE = "delete";
@@ -326,13 +309,16 @@ namespace AppTestStudio
             public static ushort VK_OEM_MINUS = 0XBC; // -
             public static ushort VK_OEM_PERIOD = 0XBE; // -
 
-            public static ushort VK_OEM_2 = 0XBF; // / or ?
-            public static ushort VK_OEM_3 = 0XC0; // ` or ~
-            public static ushort VK_OEM_4 = 0XDB; // [ or {
-            public static ushort VK_OEM_5 = 0XDC; // \ or |
-            public static ushort VK_OEM_6 = 0XDD; // ] or }
-            public static ushort VK_OEM_7 = 0XDE; // ' or "
+            public static ushort VK_SLASH = 0XBF; // / or ?
+            public static ushort VK_BACK_QUOTE = 0XC0; // ` or ~
+            public static ushort VK_OPEN_BRACKET = 0XDB; // [ or {
+            public static ushort VK_BACK_SLASH = 0XDC; // \ or |
+            public static ushort VK_CLOSE_BRACKET = 0XDD; // ] or }
+            public static ushort VK_QUOTE = 0XDE; // ' or "
             public static ushort VK_OEM_102 = 0XE2; // <> (US)
+            public static ushort VK_COLON = 513;
+            public static ushort VK_EQUALS = 61;
+
 
 
 

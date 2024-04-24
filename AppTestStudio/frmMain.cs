@@ -1196,18 +1196,6 @@ namespace AppTestStudio
                             break;
                     }
 
-                    numericKeyBetweenDuration.Value = GameNode.KeyboardBetweenDuration;
-                    numericKeyBetweenDurationRandom.Value = GameNode.KeyboardBetweenDurationRandom;
-                    numericKeyDownDuration.Value = GameNode.KeyboardDownDuration;
-                    numericKeyDownDurationRandom.Value = GameNode.KeyboardDownDurationRandom;
-                    chkLeftAlt.Checked = GameNode.KeyboardLeftAlt;
-                    chkLeftCtrl.Checked = GameNode.KeyboardLeftCtrl;
-                    chkLeftShift.Checked = GameNode.KeyboardLeftShift;
-                    chkLeftWin.Checked = GameNode.KeyboardLeftWin;
-                    chkRightAlt.Checked = GameNode.KeyboardRightAlt;
-                    chkRightCtrl.Checked = GameNode.KeyboardRightCtrl;
-                    chkRightShift.Checked = GameNode.KeyboardRightShift;
-                    chkRightWin.Checked = GameNode.KeyboardRightWin;
                     txtKeyboard.Text = GameNode.KeyboardScript;
 
                     chkFromCurrentMousePos.Visible = true;
@@ -3247,8 +3235,7 @@ namespace AppTestStudio
                                         {
                                             AppTestStudio.KeyboardProcessor keyboardProcessor = new AppTestStudio.KeyboardProcessor();
 
-                                            KeyboardCommand[] list = keyboardProcessor.ParseScript(ActionNode.KeyboardScript).ToArray();
-                                            ActionNode.RuntimeCompiledKeyboardCommands = keyboardProcessor.SequenceAndApplyPreWaits(list, ActionNode);
+                                            ActionNode.RuntimeCompiledKeyboardCommands = keyboardProcessor.ParseScript(ActionNode.KeyboardScript);
                                         }
                                     }
 
@@ -7920,11 +7907,6 @@ namespace AppTestStudio
             }
         }
 
-        private void cmdAnimatePIxelsPerSecond_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void chkFromCurrentMousePos_CheckedChanged(object sender, EventArgs e)
         {
             if (IsPanelLoading == false)
@@ -8462,8 +8444,11 @@ namespace AppTestStudio
                     case "{LALT}":
                         Tag = "{LALTDOWN}";
                         break;
+                    case "q":
+                        Tag = "{QDOWN}";
+                        break;
                     default:
-                        chk.Checked = false;
+                        Tag = $"{{{Tag.ToUpper()}DOWN}}";
                         break;
                 }
                 if (Tag.Length > 0)
@@ -8488,7 +8473,10 @@ namespace AppTestStudio
                     case "{LALT}":
                         txtKeyboard.Text = txtKeyboard.Text + "{LALTUP}";
                         break;
+
+
                     default:
+                        txtKeyboard.Text = txtKeyboard.Text + $"{{{Tag.ToUpper()}UP}}";
                         break;
                 }
             }
@@ -8539,163 +8527,6 @@ namespace AppTestStudio
             }
         }
 
-        private void numericKeyDownDurationRandom_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardDownDurationRandom = numericKeyDownDurationRandom.Value.ToInt();
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-
-        private void numericKeyBetweenDuration_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardBetweenDuration = numericKeyBetweenDuration.Value.ToInt();
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void numericKeyBetweenDurationRandom_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardBetweenDurationRandom = numericKeyBetweenDurationRandom.Value.ToInt();
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void numericKeyDownDuration_ValueChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardDownDuration = numericKeyDownDuration.Value.ToInt();
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void chkLeftShift_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardLeftShift = chkLeftShift.Checked;
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void chkLeftCtrl_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardLeftCtrl = chkLeftCtrl.Checked;
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void chkLeftAlt_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardLeftAlt = chkLeftAlt.Checked;
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void chkLeftWin_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardLeftWin = chkLeftWin.Checked;
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void chkRightShift_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardRightShift = chkRightShift.Checked;
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void chkRightCtrl_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardRightCtrl = chkRightCtrl.Checked;
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void chkRightAlt_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardRightAlt = chkRightAlt.Checked;
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
-        private void chkRightWin_CheckedChanged(object sender, EventArgs e)
-        {
-            try
-            {
-                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.KeyboardRightWin = chkRightWin.Checked;
-            }
-            catch (Exception ex)
-            {
-                Log(ex.Message);
-            }
-        }
-
         private void txtKeyboard_TextChanged(object sender, EventArgs e)
         {
             try
@@ -8717,8 +8548,7 @@ namespace AppTestStudio
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
 
                 AppTestStudio.KeyboardProcessor KeyboardProcessor = new AppTestStudio.KeyboardProcessor();
-                KeyboardCommand[] list = KeyboardProcessor.ParseScript(txtKeyboard.Text).ToArray();
-                List<KeyboardCommand> CompleteList = KeyboardProcessor.SequenceAndApplyPreWaits(list, ActionNode);
+                List<KeyboardCommand> CompleteList = KeyboardProcessor.ParseScript(txtKeyboard.Text);
                 long Errors = 0;
                 long ms = 0;
                 foreach (KeyboardCommand command in CompleteList)
@@ -8816,6 +8646,21 @@ namespace AppTestStudio
             {
                 Log(ex.Message);
             }
+        }
+
+        private void cmdWait1_Click(object sender, EventArgs e)
+        {
+            txtKeyboard.Text = txtKeyboard.Text + $"{{WAIT.{numericWait1.Value}}}";
+        }
+
+        private void cmdWait2_Click(object sender, EventArgs e)
+        {
+            txtKeyboard.Text = txtKeyboard.Text + $"{{WAIT.{numericWait2.Value}}}";
+        }
+
+        private void cmdWait3_Click(object sender, EventArgs e)
+        {
+            txtKeyboard.Text = txtKeyboard.Text + $"{{WAIT.{numericWait3.Value}}}";
         }
     }
 }

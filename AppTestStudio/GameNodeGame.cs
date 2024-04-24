@@ -1661,18 +1661,6 @@ namespace AppTestStudio
                         if (Activites.Mode == Mode.Keyboard)
                         {
                             Writer.WriteStartElement("Keyboard");
-                            Writer.WriteAttributeString("KeyboardBetweenDuration", Activites.KeyboardBetweenDuration.ToString());
-                            Writer.WriteAttributeString("KeyboardBetweenDurationRandom", Activites.KeyboardBetweenDurationRandom.ToString());
-                            Writer.WriteAttributeString("KeyboardDownDuration", Activites.KeyboardDownDuration.ToString());
-                            Writer.WriteAttributeString("KeyboardDownDurationRandom", Activites.KeyboardDownDurationRandom.ToString());
-                            Writer.WriteAttributeString("KeyboardLeftAlt", Activites.KeyboardLeftAlt.ToString());
-                            Writer.WriteAttributeString("KeyboardLeftCtrl", Activites.KeyboardLeftCtrl.ToString());
-                            Writer.WriteAttributeString("KeyboardLeftShift", Activites.KeyboardLeftShift.ToString());
-                            Writer.WriteAttributeString("KeyboardLeftWin", Activites.KeyboardLeftWin.ToString());
-                            Writer.WriteAttributeString("KeyboardRightAlt", Activites.KeyboardRightAlt.ToString());
-                            Writer.WriteAttributeString("KeyboardRightCtrl", Activites.KeyboardRightCtrl.ToString());
-                            Writer.WriteAttributeString("KeyboardRightShift", Activites.KeyboardRightShift.ToString());
-                            Writer.WriteAttributeString("KeyboardRightWin", Activites.KeyboardRightWin.ToString());
                             Writer.WriteAttributeString("KeyboardScript", Activites.KeyboardScript.ToString());
                             //'Keyboard
                             Writer.WriteEndElement();
@@ -2916,18 +2904,6 @@ namespace AppTestStudio
                         LoadEvents(ActionNodeChildNode, gameNode, treeActionNode, lst, loadBitmaps);
                         break;
                     case "KEYBOARD":
-                        treeActionNode.KeyboardBetweenDuration = Convert.ToInt32(ActionNodeChildNode.Attributes["KeyboardBetweenDuration"].Value);
-                        treeActionNode.KeyboardBetweenDurationRandom = Convert.ToInt32(ActionNodeChildNode.Attributes["KeyboardBetweenDurationRandom"].Value);
-                        treeActionNode.KeyboardDownDuration = Convert.ToInt32(ActionNodeChildNode.Attributes["KeyboardDownDuration"].Value);
-                        treeActionNode.KeyboardDownDurationRandom = Convert.ToInt32(ActionNodeChildNode.Attributes["KeyboardDownDurationRandom"].Value);
-                        treeActionNode.KeyboardLeftAlt = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardLeftAlt"].Value);
-                        treeActionNode.KeyboardLeftCtrl = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardLeftCtrl"].Value);
-                        treeActionNode.KeyboardLeftShift = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardLeftShift"].Value);
-                        treeActionNode.KeyboardLeftWin = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardLeftWin"].Value);
-                        treeActionNode.KeyboardRightAlt = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardRightAlt"].Value);
-                        treeActionNode.KeyboardRightCtrl = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardRightCtrl"].Value);
-                        treeActionNode.KeyboardRightShift = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardRightShift"].Value);
-                        treeActionNode.KeyboardRightWin = Convert.ToBoolean(ActionNodeChildNode.Attributes["KeyboardRightWin"].Value);
                         treeActionNode.KeyboardScript = ActionNodeChildNode.Attributes["KeyboardScript"].Value;
                         break;
                     default:

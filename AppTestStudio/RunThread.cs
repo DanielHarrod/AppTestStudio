@@ -273,6 +273,7 @@ namespace AppTestStudio
                                         Result.y = point.Y;
                                     }
                                 }
+
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
                                 int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
                                 Utils.ClickOnWindow(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
@@ -306,10 +307,7 @@ namespace AppTestStudio
                             {
                                 Game.Log("First use Compiling keyboard script.");
                                 AppTestStudio.KeyboardProcessor kp = new AppTestStudio.KeyboardProcessor();
-                                KeyboardCommand[] list = kp.ParseScript(node.KeyboardScript).ToArray();
-
-                                kp.SequenceAndApplyPreWaits(list, node);
-                                node.RuntimeCompiledKeyboardCommands = kp.SequenceAndApplyPreWaits(list, node);
+                                node.RuntimeCompiledKeyboardCommands = kp.ParseScript(node.KeyboardScript);
                                 node.RumtimeIsKeyboardCompiled = true;
                             }
 

@@ -15,17 +15,11 @@ namespace AppTestStudioUnitTest
             AppTestStudio.KeyboardProcessor kp = new AppTestStudio.KeyboardProcessor();
             String s = " ";
 
-            KeyboardCommand[] list = kp.ParseScript(s).ToArray();
+            List<KeyboardCommand> list = kp.ParseScript(s);
 
             GameNodeAction ActionNode = new GameNodeAction("", ActionType.Action);
-            ActionNode.KeyboardBetweenDuration = 30;
-            ActionNode.KeyboardBetweenDurationRandom = 3;
 
-            ActionNode.KeyboardDownDuration = 50;
-            ActionNode.KeyboardDownDurationRandom = 5;
-
-
-            List<KeyboardCommand> CompleteList = kp.SequenceAndApplyPreWaits(list, ActionNode);
+            List<KeyboardCommand> CompleteList = list;
             for (int i = 0; i < 10; i++)
             {
                 foreach (KeyboardCommand command in CompleteList)
