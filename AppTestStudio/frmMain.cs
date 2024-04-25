@@ -4836,6 +4836,23 @@ namespace AppTestStudio
                     {
                         ActionNode.Mode = Mode.RangeClick;
                         Debug.WriteLine($"rdoRangeClick_CheckedChanged ActionNode.Mode={ActionNode.Mode}");
+
+                        String EventName = txtEventName.Text;
+                        if (EventName.StartsWith("Swipe "))
+                        {
+                            // Remove 'Swipe' add Click
+                            txtEventName.Text = $"Click {txtEventName.Text.Substring(6, txtEventName.Text.Length - 6)}";
+                        }
+                        if (EventName.StartsWith("Move "))
+                        {
+                            // Remove 'Move' add Click
+                            txtEventName.Text = $"Click {txtEventName.Text.Substring(5, txtEventName.Text.Length - 5)}";
+                        }
+                        if (EventName.StartsWith("Keyboard "))
+                        {
+                            // Remove 'Keyboard' add Click
+                            txtEventName.Text = $"Click {txtEventName.Text.Substring(9, txtEventName.Text.Length - 9)}";
+                        }
                     }
                 }
 
@@ -4889,6 +4906,22 @@ namespace AppTestStudio
                         ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.None;
                     }
 
+                    String EventName = txtEventName.Text;
+                    if (EventName.StartsWith("Move "))
+                    {
+                        // Remove 'Move' add Swipe
+                        txtEventName.Text = $"Swipe {txtEventName.Text.Substring(5, txtEventName.Text.Length - 5)}";
+                    }
+                    if (EventName.StartsWith("Keyboard "))
+                    {
+                        // Remove 'Keyboard' add Swipe
+                        txtEventName.Text = $"Swipe {txtEventName.Text.Substring(9, txtEventName.Text.Length - 9)}";
+                    }
+                    if (EventName.StartsWith("Click "))
+                    {
+                        // Remove 'Click' add Swipe
+                        txtEventName.Text = $"Swipe {txtEventName.Text.Substring(6, txtEventName.Text.Length - 6)}";
+                    }
                 }
                 panelRightClickProperties.Visible = false;
             }
@@ -8405,6 +8438,23 @@ namespace AppTestStudio
                             groupBoxClickDragReleaseObjectSearch.Enabled = false;
                             ActionNode.ClickDragReleaseMode = ClickDragReleaseMode.None;
                         }
+
+                        String EventName = txtEventName.Text;
+                        if (EventName.StartsWith("Swipe "))
+                        {
+                            // Remove 'Swipe' add Move
+                            txtEventName.Text = $"Move {txtEventName.Text.Substring(6, txtEventName.Text.Length - 6)}";
+                        }
+                        if (EventName.StartsWith("Keyboard "))
+                        {
+                            // Remove 'Keyboard' add Move
+                            txtEventName.Text = $"Move {txtEventName.Text.Substring(9, txtEventName.Text.Length - 9)}";
+                        }
+                        if (EventName.StartsWith("Click "))
+                        {
+                            // Remove 'Keyboard' add Move
+                            txtEventName.Text = $"Move {txtEventName.Text.Substring(6, txtEventName.Text.Length - 6)}";
+                        }
                     }
                     PictureBox1.Refresh();
                 }
@@ -8499,6 +8549,23 @@ namespace AppTestStudio
                         panelRightClickProperties.Visible = false;
                         panelKeyboard.Visible = true;
                         PictureBox1.Visible = false;
+
+                        String EventName = txtEventName.Text;
+                        if (EventName.StartsWith("Swipe "))
+                        {
+                            // Remove 'Swipe' add Keyboard
+                            txtEventName.Text = $"Keyboard {txtEventName.Text.Substring(6, txtEventName.Text.Length - 6)}";
+                        }
+                        if (EventName.StartsWith("Move "))
+                        {
+                            // Remove 'Move' add Keyboard
+                            txtEventName.Text = $"Keyboard {txtEventName.Text.Substring(5, txtEventName.Text.Length - 5)}";
+                        }
+                        if (EventName.StartsWith("Click "))
+                        {
+                            // Remove 'Click' add Keyboard
+                            txtEventName.Text = $"Keyboard {txtEventName.Text.Substring(6, txtEventName.Text.Length - 6)}";
+                        }
 
                         //if (PanelLoadNode.ActionType == ActionType.Action)
                         //{

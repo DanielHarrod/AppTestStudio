@@ -121,7 +121,10 @@
             this.cmdAddObject2 = new System.Windows.Forms.Button();
             this.PanelScreenshot = new System.Windows.Forms.Panel();
             this.panelKeyboard = new System.Windows.Forms.Panel();
+            this.label97 = new System.Windows.Forms.Label();
             this.grpInsertWeights = new System.Windows.Forms.GroupBox();
+            this.label96 = new System.Windows.Forms.Label();
+            this.cmdWait3 = new System.Windows.Forms.Button();
             this.cmdWait2 = new System.Windows.Forms.Button();
             this.cmdWait1 = new System.Windows.Forms.Button();
             this.numericWait3 = new System.Windows.Forms.NumericUpDown();
@@ -664,9 +667,6 @@
             this.toolStripSeparatorEnableDisableToggle = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemRuntimeEnableDisableToggle = new System.Windows.Forms.ToolStripMenuItem();
             this.TimerProperties = new System.Windows.Forms.Timer(this.components);
-            this.cmdWait3 = new System.Windows.Forms.Button();
-            this.label96 = new System.Windows.Forms.Label();
-            this.label97 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -1442,7 +1442,7 @@
             this.tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelRunValues.ColumnCount = 2;
             this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 45F));
+            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue14, 0, 13);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue7, 0, 6);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue1, 0, 0);
@@ -1640,10 +1640,10 @@
             // cmdUpdateResolution
             // 
             this.cmdUpdateResolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdUpdateResolution.Location = new System.Drawing.Point(95, 148);
+            this.cmdUpdateResolution.Location = new System.Drawing.Point(94, 148);
             this.cmdUpdateResolution.Margin = new System.Windows.Forms.Padding(0);
             this.cmdUpdateResolution.Name = "cmdUpdateResolution";
-            this.cmdUpdateResolution.Size = new System.Drawing.Size(45, 20);
+            this.cmdUpdateResolution.Size = new System.Drawing.Size(46, 20);
             this.cmdUpdateResolution.TabIndex = 13;
             this.cmdUpdateResolution.Text = "...";
             this.cmdUpdateResolution.UseVisualStyleBackColor = true;
@@ -1652,10 +1652,10 @@
             // cmdRuntimeEnableToggle
             // 
             this.cmdRuntimeEnableToggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(95, 64);
+            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(94, 64);
             this.cmdRuntimeEnableToggle.Margin = new System.Windows.Forms.Padding(0);
             this.cmdRuntimeEnableToggle.Name = "cmdRuntimeEnableToggle";
-            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(45, 20);
+            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(46, 20);
             this.cmdRuntimeEnableToggle.TabIndex = 14;
             this.cmdRuntimeEnableToggle.Text = "...";
             this.cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
@@ -1885,6 +1885,14 @@
             this.panelKeyboard.TabIndex = 2;
             this.panelKeyboard.Visible = false;
             // 
+            // label97
+            // 
+            this.label97.Location = new System.Drawing.Point(7, 339);
+            this.label97.Name = "label97";
+            this.label97.Size = new System.Drawing.Size(536, 98);
+            this.label97.TabIndex = 21;
+            this.label97.Text = resources.GetString("label97.Text");
+            // 
             // grpInsertWeights
             // 
             this.grpInsertWeights.Controls.Add(this.label96);
@@ -1900,6 +1908,24 @@
             this.grpInsertWeights.TabIndex = 20;
             this.grpInsertWeights.TabStop = false;
             this.grpInsertWeights.Text = "Insert Wait Times (ms)";
+            // 
+            // label96
+            // 
+            this.label96.Location = new System.Drawing.Point(8, 101);
+            this.label96.Name = "label96";
+            this.label96.Size = new System.Drawing.Size(194, 195);
+            this.label96.TabIndex = 3;
+            this.label96.Text = resources.GetString("label96.Text");
+            // 
+            // cmdWait3
+            // 
+            this.cmdWait3.Location = new System.Drawing.Point(92, 68);
+            this.cmdWait3.Name = "cmdWait3";
+            this.cmdWait3.Size = new System.Drawing.Size(94, 23);
+            this.cmdWait3.TabIndex = 2;
+            this.cmdWait3.Text = "Custom";
+            this.cmdWait3.UseVisualStyleBackColor = true;
+            this.cmdWait3.Click += new System.EventHandler(this.cmdWait3_Click);
             // 
             // cmdWait2
             // 
@@ -8364,32 +8390,6 @@
             this.TimerProperties.Enabled = true;
             this.TimerProperties.Interval = 1000;
             this.TimerProperties.Tick += new System.EventHandler(this.TimerProperties_Tick);
-            // 
-            // cmdWait3
-            // 
-            this.cmdWait3.Location = new System.Drawing.Point(92, 68);
-            this.cmdWait3.Name = "cmdWait3";
-            this.cmdWait3.Size = new System.Drawing.Size(94, 23);
-            this.cmdWait3.TabIndex = 2;
-            this.cmdWait3.Text = "Custom";
-            this.cmdWait3.UseVisualStyleBackColor = true;
-            this.cmdWait3.Click += new System.EventHandler(this.cmdWait3_Click);
-            // 
-            // label96
-            // 
-            this.label96.Location = new System.Drawing.Point(8, 101);
-            this.label96.Name = "label96";
-            this.label96.Size = new System.Drawing.Size(194, 195);
-            this.label96.TabIndex = 3;
-            this.label96.Text = resources.GetString("label96.Text");
-            // 
-            // label97
-            // 
-            this.label97.Location = new System.Drawing.Point(7, 339);
-            this.label97.Name = "label97";
-            this.label97.Size = new System.Drawing.Size(536, 98);
-            this.label97.TabIndex = 21;
-            this.label97.Text = resources.GetString("label97.Text");
             // 
             // frmMain
             // 
