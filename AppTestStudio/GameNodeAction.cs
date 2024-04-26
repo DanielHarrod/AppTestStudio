@@ -1197,6 +1197,9 @@ namespace AppTestStudio
         public Boolean RumtimeIsKeyboardCompiled { get; set; }
 
         // Don't Clone
+        public int RuntimeKeyboardMS { get; set; }
+
+        // Don't Clone
         public List<KeyboardCommand> RuntimeCompiledKeyboardCommands { get; set; }
 
         // Don't Clone

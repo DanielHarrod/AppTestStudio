@@ -42,6 +42,7 @@ namespace AppTestStudioControls
         private List<long> Modes { get; set; }
 
         private List<Brush> Brushes { get; set; }
+        private List<Brush> ShadowBrushes { get; set; }
         private List<Pen> Pens { get; set; }
 
         private static int HeaderArea = 200;
@@ -68,62 +69,79 @@ namespace AppTestStudioControls
         {
             Queue = new List<AppTestStudioStatusControlItem>();
             Brushes = new List<Brush>();
+            ShadowBrushes = new List<Brush>();
             Pens = new List<Pen>();
             Modes = new List<long>();
             Items = new List<string>();
 
+            int ShadowAlpha = 70;
             int BrushAlpha = 140;
             SolidBrush AquaBrush = new SolidBrush(Color.FromArgb(BrushAlpha, 115, 132, 129));
+            SolidBrush AquaBrushShadow = new SolidBrush(Color.FromArgb(ShadowAlpha, 115, 132, 129));
             Pen AquaHighlight = new Pen(Color.FromArgb(92, 107, 105));
-
             Brushes.Add(AquaBrush);
+            ShadowBrushes.Add(AquaBrushShadow);
             Pens.Add(AquaHighlight);
 
             SolidBrush RedBrush = new SolidBrush(Color.FromArgb(BrushAlpha, 121, 58, 58));
+            SolidBrush RedBrushShadow = new SolidBrush(Color.FromArgb(ShadowAlpha, 121, 58, 58));
             Pen RedHighlight = new Pen(Color.FromArgb(97, 41, 41));
             Brushes.Add(RedBrush);
+            ShadowBrushes.Add(RedBrushShadow);
             Pens.Add(RedHighlight);
 
             SolidBrush YellowBrush = new SolidBrush(Color.FromArgb(BrushAlpha, 144, 138, 68));
+            SolidBrush YellowBrushShadow = new SolidBrush(Color.FromArgb(ShadowAlpha, 144, 138, 68));
             Pen YellowHighlight = new Pen(Color.FromArgb(118, 113, 50));
             Brushes.Add(YellowBrush);
+            ShadowBrushes.Add(YellowBrushShadow);
             Pens.Add(YellowHighlight);
 
             SolidBrush PinkBrush = new SolidBrush(Color.FromArgb(BrushAlpha, 145, 124, 131));
+            SolidBrush PinkBrushShadow = new SolidBrush(Color.FromArgb(ShadowAlpha, 145, 124, 131));
             Pen PinkHighlight = new Pen(Color.FromArgb(119, 100, 106));
             Brushes.Add(PinkBrush);
+            ShadowBrushes.Add(PinkBrushShadow);
             Pens.Add(PinkHighlight);
 
             //'lavendar
             Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 115, 115, 131)));
+            ShadowBrushes.Add(new SolidBrush(Color.FromArgb(ShadowAlpha, 115, 115, 131)));
             Pens.Add(new Pen(Color.FromArgb(92, 92, 107)));
 
             //'peach
             Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 146, 127, 109)));
+            ShadowBrushes.Add(new SolidBrush(Color.FromArgb(ShadowAlpha, 146, 127, 109)));
             Pens.Add(new Pen(Color.FromArgb(120, 103, 87)));
 
             //'sea foam
             Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 120, 130, 120)));
+            ShadowBrushes.Add(new SolidBrush(Color.FromArgb(ShadowAlpha, 120, 130, 120)));
             Pens.Add(new Pen(Color.FromArgb(96, 105, 96)));
 
             //'blue
             Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 82, 93, 142)));
+            ShadowBrushes.Add(new SolidBrush(Color.FromArgb(ShadowAlpha, 82, 93, 142)));
             Pens.Add(new Pen(Color.FromArgb(62, 72, 117)));
 
             //'green
             Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 67, 112, 68)));
+            ShadowBrushes.Add(new SolidBrush(Color.FromArgb(ShadowAlpha, 67, 112, 68)));
             Pens.Add(new Pen(Color.FromArgb(49, 90, 50)));
 
             //'brown
             Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 94, 65, 51)));
+            ShadowBrushes.Add(new SolidBrush(Color.FromArgb(ShadowAlpha, 94, 65, 51)));
             Pens.Add(new Pen(Color.FromArgb(73, 47, 35)));
 
             //'cyan
             Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 152, 85, 137)));
+            ShadowBrushes.Add(new SolidBrush(Color.FromArgb(ShadowAlpha, 152, 85, 137)));
             Pens.Add(new Pen(Color.FromArgb(126, 65, 112)));
 
             //'sandstone
             Brushes.Add(new SolidBrush(Color.FromArgb(BrushAlpha, 114, 105, 90)));
+            ShadowBrushes.Add(new SolidBrush(Color.FromArgb(ShadowAlpha, 114, 105, 90)));
             Pens.Add(new Pen(Color.FromArgb(91, 83, 69)));
 
             //'Dim te As New StatusControlItem With {.Index = 8, .Time = 1000}
@@ -222,8 +240,6 @@ namespace AppTestStudioControls
 
         }
 
-
-
         private HashMode CalcModeIncrement()
         {
             HashMode Result = new HashMode();
@@ -267,12 +283,17 @@ namespace AppTestStudioControls
         {
             return rowHeight - RowSeparaterHeight;
         }
-
+        
 
         private Boolean DrawCell(PaintEventArgs e, long startTime, int yPositionIndex, long Ticks, long length, long rowHeight)
         {
             Brush Brush = Brushes[yPositionIndex % Brushes.Count];
             Pen Pen = Pens[yPositionIndex % Pens.Count];
+
+            if (length < 0)
+            {
+                Brush = ShadowBrushes[yPositionIndex % Brushes.Count];
+            }
 
             long TimeInSeconds = ShowPercent;
 
@@ -320,9 +341,15 @@ namespace AppTestStudioControls
                 e.Graphics.FillRectangle(Brush, StartX, RectangelY1, PaintWidth, Height);
             }
             else
-            {
+            {                
+                // If we passed a negative width need to move the StartX over.
+                if (PaintWidth < 0)
+                {
+                    StartX = StartX + PaintWidth;
+                }
+
                 // make room for the shadow
-                e.Graphics.FillRectangle(Brush, StartX, RectangelY1, PaintWidth - 1, Height);
+                e.Graphics.FillRectangle(Brush, StartX, RectangelY1, Math.Abs(PaintWidth - 1), Height);
             }
 
             if (FirstWidth == 1)
@@ -332,11 +359,11 @@ namespace AppTestStudioControls
 
             //'underneath Shadow
             long x1 = StartX + RowShadowOffSet;
-            long x2 = x1 + PaintWidth -1 -RowShadowOffSet - 1 ;
+            long x2 = x1 + Math.Abs( PaintWidth) - 1 - RowShadowOffSet - 1 ;
             long y1 = HeaderHeight + RowHeaderSeparatorLine + RowShadowTop(yPositionIndex, rowHeight);
             long y2 = HeaderHeight + RowHeaderSeparatorLine + RowShadowTop(yPositionIndex, rowHeight);
             e.Graphics.DrawLine(Pen, x1, y1, x2, y2);
-
+            //Debug.WriteLine($"{x1},{y1},{x2},{y2}");
             //'rigth hilight
             //y1 = RowTop(1 + yPositionIndex)
             //y2 = RowShadowTop(1 + yPositionIndex)

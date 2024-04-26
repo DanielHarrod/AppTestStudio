@@ -308,6 +308,15 @@ namespace AppTestStudio
                                 Game.Log("First use Compiling keyboard script.");
                                 AppTestStudio.KeyboardProcessor kp = new AppTestStudio.KeyboardProcessor();
                                 node.RuntimeCompiledKeyboardCommands = kp.ParseScript(node.KeyboardScript);
+
+                                // Calculate how long the keyboard command will take.
+                                int RuntimeKeyboardMS = 0;
+                                foreach (KeyboardCommand keyboardCommand in node.RuntimeCompiledKeyboardCommands)
+                                {
+                                    RuntimeKeyboardMS = RuntimeKeyboardMS + keyboardCommand.Delayms;
+                                }
+                                node.RuntimeKeyboardMS = RuntimeKeyboardMS;
+
                                 node.RumtimeIsKeyboardCompiled = true;
                             }
 
@@ -626,6 +635,11 @@ namespace AppTestStudio
                 }
 
                 // Log status to status control.
+                if (node.RuntimeKeyboardMS > 0)
+                {
+                    // Pass in negative keyboard runtime.
+                    Game.LogStatus(node.StatusNodeID, -node.RuntimeKeyboardMS, Addition);
+                }
                 Game.LogStatus(node.StatusNodeID, DelayCalc, Addition);
                 if (DelayCalc > 0)
                 {
