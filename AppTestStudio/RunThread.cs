@@ -51,6 +51,7 @@ namespace AppTestStudio
             IntPtr hdcSrc = API.GetWindowDC(WindowHandle);
             if (hdcSrc.ToInt32() == 0)
             {
+                // Likely the WindowHandle was lost, refetch a window handle.
                 Game.Log("GetWindowDC = 0 " + WindowHandle);
                 Game.Log("Refetching Window for " + Game.TargetWindow);
                 WindowHandle = Game.GetWindowHandleByWindowName();
@@ -447,6 +448,7 @@ namespace AppTestStudio
 
                     Boolean AlwaysTakeScreenshot = false;
 
+                // This is a GOTO Tag not commonly used.  Greatly simplifies the code to use it.
                 RepeatAction:
                     if (node.UseParentPicture == false || AlwaysTakeScreenshot)
                     {
@@ -637,9 +639,11 @@ namespace AppTestStudio
                 // Log status to status control.
                 if (node.RuntimeKeyboardMS > 0)
                 {
-                    // Pass in negative keyboard runtime.
+                    // Pass in negative keyboard runtime, this will generate a block on the tracking board of the keyboard time.
                     Game.LogStatus(node.StatusNodeID, -node.RuntimeKeyboardMS, Addition);
                 }
+
+                //This adds a tracking artifact on the runtime screen, but this only shows the wait time after an action/event.
                 Game.LogStatus(node.StatusNodeID, DelayCalc, Addition);
                 if (DelayCalc > 0)
                 {
