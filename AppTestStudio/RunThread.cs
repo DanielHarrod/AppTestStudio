@@ -162,6 +162,8 @@ namespace AppTestStudio
         /// <returns></returns>
         private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS)
         {
+            //Debug.WriteLine($"ProcessChildren: {node.Name}");
+            Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
             while (Game.IsPaused)
             {
                 Thread.Sleep(1000);
@@ -249,6 +251,7 @@ namespace AppTestStudio
 
                             if (Failed)
                             {
+                                //Debug.WriteLine($"ProcessChildren.ActionTypeAction.RangeClick.Failed: {node.Name},{Watch.ElapsedMilliseconds}");
                                 //'do nothing
                                 return AfterCompletionType.ContinueProcess;
                             }
@@ -260,6 +263,7 @@ namespace AppTestStudio
                                 {
                                     if (node.PreActionFailureAction == TimeoutAction.Abort)
                                     {
+                                        //Debug.WriteLine($"ProcessChildren.ActionTypeAction.RangeClick.Abort: {node.Name},{Watch.ElapsedMilliseconds}");
                                         return AfterCompletionType.ContinueProcess;
                                     }
                                 }
@@ -277,7 +281,7 @@ namespace AppTestStudio
 
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
                                 int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                                Utils.ClickOnWindow(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
+                                node.RuntimeMouseMS = Utils.ClickOnWindow(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
                                 Game.MouseX = (short)Result.x;
                                 Game.MouseY = (short)Result.y;
 
@@ -300,6 +304,7 @@ namespace AppTestStudio
                             {
                                 if (node.PreActionFailureAction == TimeoutAction.Abort)
                                 {
+                                    //Debug.WriteLine($"ProcessChildren.ActionTypeAction.Keyboard.Abort: {node.Name},{Watch.ElapsedMilliseconds}");
                                     return AfterCompletionType.ContinueProcess;
                                 }
                             }
@@ -356,12 +361,13 @@ namespace AppTestStudio
                                 {
                                     if (node.PreActionFailureAction == TimeoutAction.Abort)
                                     {
+                                        //Debug.WriteLine($"ProcessChildren.ActionTypeAction.MouseMove.Abort: {node.Name},{Watch.ElapsedMilliseconds}");
                                         return AfterCompletionType.ContinueProcess;
                                     }
                                 }
 
                                 Game.Log("MouseMove from ( x=" + MouseMoveResult.StartX + ",y = " + MouseMoveResult.StartY + " to x=" + MouseMoveResult.EndX + ",y=" + MouseMoveResult.EndY + ")");
-                                Utils.MouseMove(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                node.RuntimeMouseMS = Utils.MouseMove(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
                                 Game.Log("/MouseMove)");
                                 Game.MouseX = (short)MouseMoveResult.EndX;
                                 Game.MouseY = (short)MouseMoveResult.EndY;
@@ -411,12 +417,13 @@ namespace AppTestStudio
                                 {
                                     if (node.PreActionFailureAction == TimeoutAction.Abort)
                                     {
+                                        //Debug.WriteLine($"ProcessChildren.ActionTypeAction.ClickDragRelease.Abort: {node.Name},{Watch.ElapsedMilliseconds}");
                                         return AfterCompletionType.ContinueProcess;
                                     }
                                 }
 
                                 Game.Log("Swipe from ( x=" + CDRResult.StartX + ",y = " + CDRResult.StartY + " to x=" + CDRResult.EndX + ",y=" + CDRResult.EndY + ")");
-                                Utils.ClickDragRelease(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                node.RuntimeMouseMS = Utils.ClickDragRelease(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
                                 Game.MouseX = (short)CDRResult.EndX;
                                 Game.MouseY = (short)CDRResult.EndY;
                                 ThreadManager.IncrementClickDragRelease();
@@ -459,6 +466,7 @@ namespace AppTestStudio
                         {
                             Game.Log(node.Name + " Lost Window");
                             Game.Log(node.Name + " Lost Returning to Home");
+                            //Debug.WriteLine($"ProcessChildren.RepeatAction.Failure: {node.Name},{Watch.ElapsedMilliseconds}");
                             return AfterCompletionType.Home;
                         }
                         else
@@ -574,6 +582,7 @@ namespace AppTestStudio
 
                         if (RNGNode.Enabled == false)
                         {
+                            //Debug.WriteLine($"ProcessChildren.RngNode.!.Enabled: {node.Name},{Watch.ElapsedMilliseconds}");
                             return AfterCompletionType.Continue;
                         }
 
@@ -586,6 +595,7 @@ namespace AppTestStudio
                                     // do nothing
                                     break;
                                 default:
+                                    //Debug.WriteLine($"ProcessChildren.RngNode.IsLimited.!ContinueProcess {node.Name},{Watch.ElapsedMilliseconds}");
                                     return Result;
                             }
                         }
@@ -643,16 +653,26 @@ namespace AppTestStudio
                     Game.LogStatus(node.StatusNodeID, -node.RuntimeKeyboardMS, Addition);
                 }
 
+                // Log status to stats control for positioning.
+                if (node.RuntimeMouseMS > 0)
+                {
+                    // Pass in negative mouseMS runtime, this will generate a block on the tracking board of the keyboard time.
+                    Game.LogStatus(node.StatusNodeID, -node.RuntimeMouseMS, Addition);
+
+                }
+
                 //This adds a tracking artifact on the runtime screen, but this only shows the wait time after an action/event.
                 Game.LogStatus(node.StatusNodeID, DelayCalc, Addition);
                 if (DelayCalc > 0)
                 {
                     
                     Thread.Sleep(DelayCalc);
+                    //Debug.WriteLine($"ProcessChildren, Sleep={DelayCalc}");
                     ChildSleepTimeMS = ChildSleepTimeMS + DelayCalc;
                 }
                 ThreadManager.AddWaitLength(DelayCalc);
 
+                //Debug.WriteLine($"ProcessChildren.ATCReturns: {node.Name},{Watch.ElapsedMilliseconds}");
                 switch (node.AfterCompletionType)
                 {
                     case AfterCompletionType.Continue:
@@ -713,6 +733,7 @@ namespace AppTestStudio
                 }
             }
 
+            //Debug.WriteLine($"ProcessChildren./: {node.Name},{Watch.ElapsedMilliseconds}");
             ThreadManager.IncrementGoContinue();
             return AfterCompletionType.Continue;
         } // ProcessChildren
@@ -924,6 +945,7 @@ namespace AppTestStudio
                 Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
 
                 Bitmap bmp = GetBitMap(ref BitMapSuccess);
+                //Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
                 if (BitMapSuccess)
                 {
                     ThreadManager.IncrementScreenShots();
@@ -935,7 +957,10 @@ namespace AppTestStudio
 
                     foreach (TreeNode node in Game.Events.Nodes)
                     {
+                        //long PreProcessChildren = Watch.ElapsedMilliseconds;
                         AfterCompletionType ACT = ProcessChildren(bmp, node as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS);
+                        //long PostProcessChildren = Watch.ElapsedMilliseconds;
+                        //Debug.WriteLine($"Main Processchildren time{PostProcessChildren - PreProcessChildren}");
                         Boolean ExitFor = false;
                         switch (ACT)
                         {
@@ -980,9 +1005,9 @@ namespace AppTestStudio
 
                 Watch.Stop();
                 long ProcessingTimeMS = Watch.ElapsedMilliseconds - ChildSleepTimeMS;
-                //Debug.WriteLine("Main Loop ms: " + Watch.ElapsedMilliseconds);
-                //Debug.WriteLine("Child Sleep Time ms:" + ChildSleepTimeMS);
-                //Debug.WriteLine("Processing Time ms:" + ProcessingTimeMS);
+                Debug.WriteLine("Main Loop ms: " + Watch.ElapsedMilliseconds);
+                Debug.WriteLine("Child Sleep Time ms:" + ChildSleepTimeMS);
+                Debug.WriteLine("Processing Time ms:" + ProcessingTimeMS);
 
                 LoopDelay = Game.LoopDelay;
                 while (LoopDelay > 1000)

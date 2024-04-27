@@ -15,7 +15,7 @@ namespace AppTestStudio
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
-        [STAThread]
+        [STAThread] 
         static void Main()
         {
             Application.EnableVisualStyles();

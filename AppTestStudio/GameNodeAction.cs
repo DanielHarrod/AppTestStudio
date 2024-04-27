@@ -1200,6 +1200,9 @@ namespace AppTestStudio
         public int RuntimeKeyboardMS { get; set; }
 
         // Don't Clone
+        public int RuntimeMouseMS { get; set; }
+
+        // Don't Clone
         public List<KeyboardCommand> RuntimeCompiledKeyboardCommands { get; set; }
 
         // Don't Clone

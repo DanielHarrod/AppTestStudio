@@ -561,7 +561,7 @@ namespace AppTestStudio
 
         private void tv_AfterSelect(object sender, TreeViewEventArgs e)
         {
-            Debug.WriteLine("tv_AfterSelect");
+            //Debug.WriteLine("tv_AfterSelect");
 
             if (e.IsNothing())
             {
@@ -594,7 +594,7 @@ namespace AppTestStudio
             {
                 return;
             }
-            Console.WriteLine(Node.GameNodeType);
+            //Console.WriteLine(Node.GameNodeType);
 
             // Do we have any thing to test?
             GameNodeGame GameNodeGameNode = Node.GetGameNodeGame();
