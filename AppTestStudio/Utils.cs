@@ -297,9 +297,9 @@ namespace AppTestStudio
         // 1. Mouse Down at startx/y
         // 2. Mouse Move to endx/y
         // 3. Mouse Up at endx/y
-        public static void ClickDragReleaseActive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS)
+        public static int ClickDragReleaseActive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS)
         {
-            MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.LeftDown, (short)startX, (short)startY, (short)endX, (short)endY, velocityMS, mouseInitialClickDelayMS);
+            return MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.LeftDown, (short)startX, (short)startY, (short)endX, (short)endY, velocityMS, mouseInitialClickDelayMS);
         }
 
         public static ActivateWindowResult ActivateWindowIfNecessary2(IntPtr windowHandle,int TimeOutMS, int AfterActivateTimeMS)
@@ -376,57 +376,63 @@ namespace AppTestStudio
             return Result;
         }
 
-        public static void ClickDragReleasePassive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS)
+        public static int ClickDragReleasePassive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS)
         {
             API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWord(startX, startY));
 
             //'Send Mouse Down
             API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(startX, startY));
 
-            MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
+            int MouseMoveTimeMS = MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
 
             //' Send mouse Up
             API.SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWordIntptr(endX, endY));
+
+            return MouseMoveTimeMS;
         }
 
-        public static void MouseMove(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
+        public static int MouseMove(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
         {
+            int MouseMoveTimeMS = 0;
             switch (mouseMode)
             {
                 case MouseMode.Passive:
-                    MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
+                    MouseMoveTimeMS = MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
                     break;
                 case MouseMode.Active:
                     if (moveMouseFirst)
                     {
-                        MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
+                        MouseMoveTimeMS = MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
                     }
-                    MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.Blank, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
+                    MouseMoveTimeMS = MouseMoveTimeMS + MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.Blank, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
                     break;
                 default:
                     Debug.Assert(false);
                     break;
             }
+            return MouseMoveTimeMS;
         }
 
-        public static void ClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
+        public static int ClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
         {
+            int MouseTimeMS = 0;
             switch (mouseMode)
             {
                 case MouseMode.Passive:
-                    ClickDragReleasePassive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
+                    MouseTimeMS = ClickDragReleasePassive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
                     break;
                 case MouseMode.Active:
                     if (moveMouseFirst)
                     {
-                        MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
+                        MouseTimeMS = MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
                     }
-                    ClickDragReleaseActive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
+                    MouseTimeMS = MouseTimeMS + ClickDragReleaseActive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
                     break;
                 default:
                     Debug.Assert(false);
                     break;
             }
+            return MouseTimeMS;
         }
 
         public static int MoveMousePassive(IntPtr windowHandle, int mouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int velocityMS, int mouseInitialClickDelayMS)
@@ -759,7 +765,9 @@ namespace AppTestStudio
             SendInput((uint)InputEnd.Length, InputEnd, Marshal.SizeOf(typeof(Input)));
             PostCount++;
 
-            return PostCount;
+            //Debug.WriteLine($"MoveMouseActiveFromSystemPostion,PostCount={PostCount}");
+
+            return velocityMS;
         }
 
 
@@ -809,12 +817,13 @@ namespace AppTestStudio
         }
 
         [System.Diagnostics.DebuggerStepThrough]
-        public static List<String> ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int xStart, int yStart, int xTarget, int yTarget, int clickDurationMS, int mouseSpeedPixelsPerSecond)
+        public static int ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int xStart, int yStart, int xTarget, int yTarget, int clickDurationMS, int mouseSpeedPixelsPerSecond)
         {
             return ClickOnWindow(windowHandle, mouseMode, moveMouseFirst, windowAction, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, clickDurationMS, mouseSpeedPixelsPerSecond);
         }
-        public static List<String> ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
+        public static int ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
         {
+            int TotalMs = 0;
             switch (mouseMode)
             {
                 case MouseMode.Passive:
@@ -823,23 +832,22 @@ namespace AppTestStudio
                     //    int MoveDurationMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, xTarget, yTarget, mouseSpeedPixelsPerSecond);
                     //    MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_NONE, xStart, yStart, xTarget, yTarget, MoveDurationMS);
                     //}
-                    ClickOnWindowPassiveMode(windowHandle, xTarget, yTarget, clickDuration);
+                    TotalMs = ClickOnWindowPassiveMode(windowHandle, xTarget, yTarget, clickDuration);
                     break;
                 case MouseMode.Active:
                     
                     if (moveMouseFirst)
                     {
-                        MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, xTarget, yTarget, mouseSpeedPixelsPerSecond);
+                        TotalMs = MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, xTarget, yTarget, mouseSpeedPixelsPerSecond);
                     }
 
-                    ClickOnWindowActiveMode(windowHandle, xTarget, yTarget, clickDuration);
+                    TotalMs = TotalMs + ClickOnWindowActiveMode(windowHandle, xTarget, yTarget, clickDuration);
                     break;
                 default:
                     Debug.Assert(false);
                     break;
             }
-            // TODO !!!!
-            return null;
+            return TotalMs;
         }
 
         [System.Diagnostics.DebuggerStepThrough]
@@ -902,7 +910,7 @@ namespace AppTestStudio
             return (y * 65536) / YScreen;
         }
 
-        public static void ClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS)
+        public static int ClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS)
         {
             API.RECT TargetWindowRectangle;
             Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
@@ -929,7 +937,7 @@ namespace AppTestStudio
             int AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
             int AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
 
-            Debug.Write($"AbsoluteX={AbsoluteX},AbsoluteY={AbsoluteY}");
+            //Debug.Write($"AbsoluteX={AbsoluteX},AbsoluteY={AbsoluteY}");
             int INPUT_MOUSE = 0;
             Input MouseMove = new Input();
             MouseMove.Type = INPUT_MOUSE;
@@ -960,9 +968,11 @@ namespace AppTestStudio
             Input[] InputsPostTimeout = { LeftUp };
 
             SendInput((uint)InputsPostTimeout.Length, InputsPostTimeout, Marshal.SizeOf(typeof(Input)));
+
+            return mouseUpDelayMS;
         }
 
-        public static void ClickOnWindowPassiveMode(IntPtr windowHandle, short xTarget, short yTarget, int mouseUpDelayMS)
+        public static int ClickOnWindowPassiveMode(IntPtr windowHandle, short xTarget, short yTarget, int mouseUpDelayMS)
         {
              //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(HTCLIENT, Definitions.WM_MOUSEMOVE))
 
@@ -974,6 +984,7 @@ namespace AppTestStudio
                 Thread.Sleep(mouseUpDelayMS);
             }
             API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
+            return mouseUpDelayMS;
         }
 
         static System.Random Generator = new System.Random();
