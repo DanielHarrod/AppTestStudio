@@ -587,9 +587,7 @@
             this.lblFrameLimit = new System.Windows.Forms.Label();
             this.NumericVideoFrameLimit = new System.Windows.Forms.NumericUpDown();
             this.chkSaveVideo = new System.Windows.Forms.CheckBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.Label33 = new System.Windows.Forms.Label();
-            this.txtGamePanelVersion = new System.Windows.Forms.TextBox();
             this.cmdStartEmmulatorAndPackage = new System.Windows.Forms.Button();
             this.cmdStartEmmulatorPackageAndRunScript = new System.Windows.Forms.Button();
             this.cmdStartEmmulator = new System.Windows.Forms.Button();
@@ -667,6 +665,7 @@
             this.toolStripSeparatorEnableDisableToggle = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemRuntimeEnableDisableToggle = new System.Windows.Forms.ToolStripMenuItem();
             this.TimerProperties = new System.Windows.Forms.Timer(this.components);
+            this.chkDontTakeScreenshot = new System.Windows.Forms.CheckBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -977,6 +976,7 @@
             // 
             // splitContainerWorkspace.Panel2
             // 
+            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelColorEvent);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelObject);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelThread);
@@ -989,7 +989,6 @@
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelEvents);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelSchedule);
             this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelWorkspace);
-            this.splitContainerWorkspace.Panel2.Controls.Add(this.PanelGame);
             this.splitContainerWorkspace.Size = new System.Drawing.Size(1602, 743);
             this.splitContainerWorkspace.SplitterDistance = 256;
             this.splitContainerWorkspace.TabIndex = 0;
@@ -1442,7 +1441,7 @@
             this.tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelRunValues.ColumnCount = 2;
             this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 46F));
+            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 47F));
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue14, 0, 13);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue7, 0, 6);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue1, 0, 0);
@@ -1640,10 +1639,10 @@
             // cmdUpdateResolution
             // 
             this.cmdUpdateResolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdUpdateResolution.Location = new System.Drawing.Point(94, 148);
+            this.cmdUpdateResolution.Location = new System.Drawing.Point(93, 148);
             this.cmdUpdateResolution.Margin = new System.Windows.Forms.Padding(0);
             this.cmdUpdateResolution.Name = "cmdUpdateResolution";
-            this.cmdUpdateResolution.Size = new System.Drawing.Size(46, 20);
+            this.cmdUpdateResolution.Size = new System.Drawing.Size(47, 20);
             this.cmdUpdateResolution.TabIndex = 13;
             this.cmdUpdateResolution.Text = "...";
             this.cmdUpdateResolution.UseVisualStyleBackColor = true;
@@ -1652,10 +1651,10 @@
             // cmdRuntimeEnableToggle
             // 
             this.cmdRuntimeEnableToggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(94, 64);
+            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(93, 64);
             this.cmdRuntimeEnableToggle.Margin = new System.Windows.Forms.Padding(0);
             this.cmdRuntimeEnableToggle.Name = "cmdRuntimeEnableToggle";
-            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(46, 20);
+            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(47, 20);
             this.cmdRuntimeEnableToggle.TabIndex = 14;
             this.cmdRuntimeEnableToggle.Text = "...";
             this.cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
@@ -7658,11 +7657,10 @@
             // 
             // groupBox11
             // 
+            this.groupBox11.Controls.Add(this.chkDontTakeScreenshot);
             this.groupBox11.Controls.Add(this.chkGameWindowNeverQuitIfWindowNotFound);
             this.groupBox11.Controls.Add(this.grpVideo);
-            this.groupBox11.Controls.Add(this.label17);
             this.groupBox11.Controls.Add(this.Label33);
-            this.groupBox11.Controls.Add(this.txtGamePanelVersion);
             this.groupBox11.Controls.Add(this.cmdStartEmmulatorAndPackage);
             this.groupBox11.Controls.Add(this.cmdStartEmmulatorPackageAndRunScript);
             this.groupBox11.Controls.Add(this.cmdStartEmmulator);
@@ -7679,7 +7677,7 @@
             // chkGameWindowNeverQuitIfWindowNotFound
             // 
             this.chkGameWindowNeverQuitIfWindowNotFound.AutoSize = true;
-            this.chkGameWindowNeverQuitIfWindowNotFound.Location = new System.Drawing.Point(12, 118);
+            this.chkGameWindowNeverQuitIfWindowNotFound.Location = new System.Drawing.Point(16, 70);
             this.chkGameWindowNeverQuitIfWindowNotFound.Name = "chkGameWindowNeverQuitIfWindowNotFound";
             this.chkGameWindowNeverQuitIfWindowNotFound.Size = new System.Drawing.Size(180, 17);
             this.chkGameWindowNeverQuitIfWindowNotFound.TabIndex = 45;
@@ -7692,7 +7690,7 @@
             this.grpVideo.Controls.Add(this.lblFrameLimit);
             this.grpVideo.Controls.Add(this.NumericVideoFrameLimit);
             this.grpVideo.Controls.Add(this.chkSaveVideo);
-            this.grpVideo.Location = new System.Drawing.Point(12, 37);
+            this.grpVideo.Location = new System.Drawing.Point(23, 165);
             this.grpVideo.Name = "grpVideo";
             this.grpVideo.Size = new System.Drawing.Size(200, 76);
             this.grpVideo.TabIndex = 32;
@@ -7733,16 +7731,6 @@
             this.chkSaveVideo.UseVisualStyleBackColor = true;
             this.chkSaveVideo.CheckedChanged += new System.EventHandler(this.chkSaveVideo_CheckedChanged);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(14, 139);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(107, 13);
-            this.label17.TabIndex = 5;
-            this.label17.Text = "Target Game Version";
-            this.label17.Visible = false;
-            // 
             // Label33
             // 
             this.Label33.AutoSize = true;
@@ -7751,15 +7739,6 @@
             this.Label33.Size = new System.Drawing.Size(88, 13);
             this.Label33.TabIndex = 44;
             this.Label33.Text = "1,000 ms = 1 sec";
-            // 
-            // txtGamePanelVersion
-            // 
-            this.txtGamePanelVersion.BackColor = System.Drawing.SystemColors.Window;
-            this.txtGamePanelVersion.Location = new System.Drawing.Point(134, 136);
-            this.txtGamePanelVersion.Name = "txtGamePanelVersion";
-            this.txtGamePanelVersion.Size = new System.Drawing.Size(180, 20);
-            this.txtGamePanelVersion.TabIndex = 6;
-            this.txtGamePanelVersion.Visible = false;
             // 
             // cmdStartEmmulatorAndPackage
             // 
@@ -8390,6 +8369,17 @@
             this.TimerProperties.Enabled = true;
             this.TimerProperties.Interval = 1000;
             this.TimerProperties.Tick += new System.EventHandler(this.TimerProperties_Tick);
+            // 
+            // chkDontTakeScreenshot
+            // 
+            this.chkDontTakeScreenshot.AutoSize = true;
+            this.chkDontTakeScreenshot.Location = new System.Drawing.Point(17, 44);
+            this.chkDontTakeScreenshot.Name = "chkDontTakeScreenshot";
+            this.chkDontTakeScreenshot.Size = new System.Drawing.Size(286, 17);
+            this.chkDontTakeScreenshot.TabIndex = 46;
+            this.chkDontTakeScreenshot.Text = "Don\'t Take Screenshot at Runtime (Use Empty Events)";
+            this.chkDontTakeScreenshot.UseVisualStyleBackColor = true;
+            this.chkDontTakeScreenshot.CheckedChanged += new System.EventHandler(this.chkDontTakeScreenshot_CheckedChanged);
             // 
             // frmMain
             // 
@@ -9037,9 +9027,7 @@
         internal System.Windows.Forms.Label lblFrameLimit;
         internal System.Windows.Forms.NumericUpDown NumericVideoFrameLimit;
         internal System.Windows.Forms.CheckBox chkSaveVideo;
-        internal System.Windows.Forms.Label label17;
         internal System.Windows.Forms.Label Label33;
-        internal System.Windows.Forms.TextBox txtGamePanelVersion;
         internal System.Windows.Forms.Button cmdStartEmmulatorAndPackage;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Label label42;
@@ -9278,5 +9266,6 @@
         private System.Windows.Forms.Button cmdWait3;
         private System.Windows.Forms.Label label97;
         private System.Windows.Forms.Label label96;
+        private System.Windows.Forms.CheckBox chkDontTakeScreenshot;
     }
 }

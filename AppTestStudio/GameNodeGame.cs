@@ -26,7 +26,6 @@ namespace AppTestStudio
             BitmapClones = new ConcurrentQueue<Bitmap>();
 
             StartTime = DateTime.Now;
-            TargetGameBuild = "";
             LoopDelay = 1000;
             Resolution = "1024x768";
             InstanceToLaunch = "0";
@@ -64,6 +63,7 @@ namespace AppTestStudio
             IsPaused = false;
             IsLoading = false;
             NeverQuitIfWindowNotFound = false;
+            DontTakeScreenshot = false;
         }
 
         public ThreadManager ThreadManager { get; set; }
@@ -159,24 +159,6 @@ namespace AppTestStudio
                 // should not come here.
                 Debug.Assert(false);
                 return "ATS" + InstanceToLaunch + "Window";
-            }
-        }
-
-        private String mTargetGameBuild;
-
-        public String TargetGameBuild
-        {
-            get { return mTargetGameBuild; }
-            set
-            {
-                if (IsLoading == false)
-                {
-                    if (mTargetGameBuild != value)
-                    {
-                        IsDirty = true;
-                    }
-                }
-                mTargetGameBuild = value;
             }
         }
 
@@ -739,7 +721,6 @@ namespace AppTestStudio
         {
             GameNodeGame Target = new GameNodeGame(Name, ThreadManager);
             Target.IsLoading = true;
-            Target.TargetGameBuild = TargetGameBuild;
             Target.LoopDelay = LoopDelay;
             Target.PackageName = PackageName;
             Target.InstanceToLaunch = InstanceToLaunch;
@@ -793,6 +774,7 @@ namespace AppTestStudio
             Target.IsLoading = false;
 
             Target.NeverQuitIfWindowNotFound = NeverQuitIfWindowNotFound;
+            Target.DontTakeScreenshot = DontTakeScreenshot;
             return Target;
         }
 
@@ -836,6 +818,25 @@ namespace AppTestStudio
                     }
                 }
                 mNeverQuitIfWindowNotFound = value;
+            }
+        }
+
+        // During Runtime Don't take a screenshot to reduce loop delay.
+        private Boolean mDontTakeScreenshot;
+
+        public Boolean DontTakeScreenshot
+        {
+            get { return mDontTakeScreenshot; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mDontTakeScreenshot != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mDontTakeScreenshot = value;
             }
         }
 
@@ -944,16 +945,7 @@ namespace AppTestStudio
                 GameName = overrideGameName;
             }
 
-            String TargetGameBuild = "";
 
-            try
-            {
-                TargetGameBuild = childNode.Attributes["TargetGameBuild"].Value;
-            }
-            catch (Exception ex)
-            {
-                Debug.WriteLine(ex.Message);
-            }
 
             String PackageName = "";
             long LoopDelay = 1000;
@@ -1368,6 +1360,19 @@ namespace AppTestStudio
                 }
             }
 
+            Boolean DontTakeScreenshot = false;
+            if (childNode.Attributes.GetNamedItem("DontTakeScreenshot").IsSomething())
+            {
+                try
+                {
+                    DontTakeScreenshot = Convert.ToBoolean(childNode.Attributes["DontTakeScreenshot"].Value);
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex.Message);
+                }
+            }
+
             WindowAction WindowAction = WindowAction.DoNothing;
             //WindowAction
             if (childNode.Attributes.GetNamedItem("WindowAction").IsSomething())
@@ -1396,7 +1401,6 @@ namespace AppTestStudio
 
             GameNodeGame Game = new GameNodeGame(GameName, threadManager);
             Game.IsLoading = true;
-            Game.TargetGameBuild = TargetGameBuild;
             Game.PackageName = PackageName;
 
             Game.InstanceToLaunch = LaunchInstance;
@@ -1418,6 +1422,7 @@ namespace AppTestStudio
             Game.MoveMouseBeforeAction = MoveMouseBeforeAction;
             Game.WindowAction = WindowAction;
             Game.NeverQuitIfWindowNotFound = NeverQuitIfWindowNotFound;
+            Game.DontTakeScreenshot = DontTakeScreenshot;
 
             switch (Game.Platform)
             {
@@ -1501,7 +1506,6 @@ namespace AppTestStudio
 
             Writer.WriteStartElement("App");
             Writer.WriteAttributeString("Name", Text);
-            Writer.WriteAttributeString("TargetGameBuild", TargetGameBuild);
             Writer.WriteAttributeString("PackageName", PackageName);
             Writer.WriteAttributeString("LaunchInstance", InstanceToLaunch);
             Writer.WriteAttributeString("LoopDelay", LoopDelay.ToString());
@@ -1521,6 +1525,7 @@ namespace AppTestStudio
             Writer.WriteAttributeString("WindowAction", WindowAction.ToString());
             Writer.WriteAttributeString("MoveMouseBeforeAction", MoveMouseBeforeAction.ToString());
             Writer.WriteAttributeString("NeverQuitIfWindowNotFound", NeverQuitIfWindowNotFound.ToString());
+            Writer.WriteAttributeString("DontTakeScreenshot", DontTakeScreenshot.ToString());
 
             switch (Platform)
             {

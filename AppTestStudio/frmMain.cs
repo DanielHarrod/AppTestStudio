@@ -802,8 +802,6 @@ namespace AppTestStudio
 
         private void LoadGamePanel(GameNodeGame gameNode)
         {
-            txtGamePanelVersion.Text = gameNode.TargetGameBuild;
-
             SetPackageNameControls(gameNode.PackageName);
 
             txtGamePanelLaunchInstance.Text = gameNode.InstanceToLaunch;
@@ -851,6 +849,7 @@ namespace AppTestStudio
             cboWindowAction.Text = gameNode.WindowAction.ToString();
 
             chkGameWindowNeverQuitIfWindowNotFound.Checked = gameNode.NeverQuitIfWindowNotFound;
+            chkDontTakeScreenshot.Checked = gameNode.DontTakeScreenshot;
 
             cboPlatform_TextChanged(null, null);
         }
@@ -8728,6 +8727,12 @@ namespace AppTestStudio
         private void cmdWait3_Click(object sender, EventArgs e)
         {
             txtKeyboard.Text = txtKeyboard.Text + $"{{WAIT.{numericWait3.Value}}}";
+        }
+
+        private void chkDontTakeScreenshot_CheckedChanged(object sender, EventArgs e)
+        {
+            GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+            GameNode.DontTakeScreenshot = chkDontTakeScreenshot.Checked;
         }
     }
 }

@@ -461,7 +461,17 @@ namespace AppTestStudio
                     {
                         Boolean Success = false;
                         //bmp.Dispose();// not good
-                        bmp = GetBitMap(ref Success);
+                        if (Game.DontTakeScreenshot)
+                        {
+                            Game.Log("Don't Take Screenshot is incompaibile with Repeats");
+                            bmp = null;
+                            Success = true;
+                        }
+                        else
+                        {
+                            bmp = GetBitMap(ref Success);
+                        }
+                        
                         if (Success == false)
                         {
                             Game.Log(node.Name + " Lost Window");
@@ -924,7 +934,7 @@ namespace AppTestStudio
                     else
                     {
                         RunTimeWindowTimeout = RunTimeWindowTimeout - 1;
-                    }                    
+                    }
 
                     if (RunTimeWindowTimeout < 0)
                     {
@@ -944,8 +954,17 @@ namespace AppTestStudio
 
                 Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
 
-                Bitmap bmp = GetBitMap(ref BitMapSuccess);
+                Bitmap bmp = null;
+                if (Game.DontTakeScreenshot)
+                {
+                    BitMapSuccess = true;
+                }
+                else
+                {
+                    bmp = GetBitMap(ref BitMapSuccess);
+                }
                 //Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
+
                 if (BitMapSuccess)
                 {
                     ThreadManager.IncrementScreenShots();
