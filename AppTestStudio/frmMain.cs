@@ -8326,6 +8326,9 @@ namespace AppTestStudio
                     TreeViewEventArgs tvea = new TreeViewEventArgs(tvRun.SelectedNode);
                     tvRun_AfterSelect(null, tvea);
                 }
+                // Force redraw
+                atsGraph1.Queue.Add(this.ThreadManager.DequeueProcessingTime());
+                atsGraph1.Invalidate();
             }
             catch (Exception ex)
             {

@@ -1027,6 +1027,7 @@ namespace AppTestStudio
                 Debug.WriteLine("Main Loop ms: " + Watch.ElapsedMilliseconds);
                 Debug.WriteLine("Child Sleep Time ms:" + ChildSleepTimeMS);
                 Debug.WriteLine("Processing Time ms:" + ProcessingTimeMS);
+                ThreadManager.AddProcessingTime(ProcessingTimeMS.ToInt());
 
                 LoopDelay = Game.LoopDelay;
                 while (LoopDelay > 1000)

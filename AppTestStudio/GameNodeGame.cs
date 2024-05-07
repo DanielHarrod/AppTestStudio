@@ -945,8 +945,6 @@ namespace AppTestStudio
                 GameName = overrideGameName;
             }
 
-
-
             String PackageName = "";
             long LoopDelay = 1000;
             String Resolution = "1024x768";

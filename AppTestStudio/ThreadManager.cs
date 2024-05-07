@@ -23,6 +23,7 @@ namespace AppTestStudio
 			Games = new List<GameNodeGame>();
 			RemoveGameLock = new object();
 			ThreadLog = new ConcurrentQueue<String>();
+			ProcessingTime = new ConcurrentQueue<int>();
 		}
 		[XmlIgnore] public List<GameNodeGame> Games { get; set; }
 
@@ -39,6 +40,29 @@ namespace AppTestStudio
 		[XmlIgnore] public Boolean IsDirty { get; set; }
 
 		[XmlIgnore] public ConcurrentQueue<String> ThreadLog { get; set; }
+
+		[XmlIgnore] public ConcurrentQueue<int> ProcessingTime { get; set; }
+
+		public void AddProcessingTime(int time)
+        {
+			if (ProcessingTime.Count() > 5000)
+			{
+				int result = 0;
+				ProcessingTime.TryDequeue(out result);
+			}
+			ProcessingTime.Enqueue(time);
+        }
+
+		public int DequeueProcessingTime()
+        {
+			int Total = 0;
+			int result = 0;
+			while (ProcessingTime.TryDequeue(out result))
+            {
+				Total += result;
+            }
+			return Total;
+        }
 
 		public void RemoveGame(GameNodeGame Game)
 		{

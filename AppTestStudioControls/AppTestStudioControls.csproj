@@ -69,6 +69,12 @@
     <Compile Include="AppTestStudioToolStrip.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ATSGraph.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ATSGraph.Designer.cs">
+      <DependentUpon>ATSGraph.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -81,6 +87,9 @@
   <ItemGroup>
     <EmbeddedResource Include="AppTestStudioStatusControl.resx">
       <DependentUpon>AppTestStudioStatusControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ATSGraph.resx">
+      <DependentUpon>ATSGraph.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
