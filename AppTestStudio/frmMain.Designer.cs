@@ -31,16 +31,16 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.fileToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.newToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -104,6 +104,43 @@
             this.cmdUpdateResolution = new System.Windows.Forms.Button();
             this.cmdRuntimeEnableToggle = new System.Windows.Forms.Button();
             this.tabSchedule = new System.Windows.Forms.TabPage();
+            this.PanelThread = new System.Windows.Forms.Panel();
+            this.splitContainerThread = new System.Windows.Forms.SplitContainer();
+            this.splitContainerStatsNScrollie = new System.Windows.Forms.SplitContainer();
+            this.tableLayoutStats = new System.Windows.Forms.TableLayoutPanel();
+            this.groupTotal = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.label13 = new System.Windows.Forms.Label();
+            this.lblHomeTotal = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.lblChildTotal = new System.Windows.Forms.Label();
+            this.lblContinueTotal = new System.Windows.Forms.Label();
+            this.label21 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
+            this.lblWaitingTotal = new System.Windows.Forms.Label();
+            this.lblScreenshotsTotal = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.lblClickCountTotal = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.groupSession = new System.Windows.Forms.GroupBox();
+            this.tableLayoutPanelSession = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblWaiting = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.lblHome = new System.Windows.Forms.Label();
+            this.lblScreenshots = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.lblContinue = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblChild = new System.Windows.Forms.Label();
+            this.lblClickCount = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.grpCPU = new System.Windows.Forms.GroupBox();
+            this.atsGraph1 = new AppTestStudioControls.ATSGraph();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.splitContainerSeconds = new System.Windows.Forms.SplitContainer();
+            this.appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
             this.PanelGame = new System.Windows.Forms.Panel();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.groupBox18 = new System.Windows.Forms.GroupBox();
@@ -463,39 +500,6 @@
             this.txtObjectName = new System.Windows.Forms.TextBox();
             this.Label47 = new System.Windows.Forms.Label();
             this.Label46 = new System.Windows.Forms.Label();
-            this.PanelThread = new System.Windows.Forms.Panel();
-            this.splitContainerThread = new System.Windows.Forms.SplitContainer();
-            this.splitContainerStatsNScrollie = new System.Windows.Forms.SplitContainer();
-            this.tableLayoutStats = new System.Windows.Forms.TableLayoutPanel();
-            this.groupTotal = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.label13 = new System.Windows.Forms.Label();
-            this.lblHomeTotal = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.lblChildTotal = new System.Windows.Forms.Label();
-            this.lblContinueTotal = new System.Windows.Forms.Label();
-            this.label21 = new System.Windows.Forms.Label();
-            this.label20 = new System.Windows.Forms.Label();
-            this.lblWaitingTotal = new System.Windows.Forms.Label();
-            this.lblScreenshotsTotal = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
-            this.lblClickCountTotal = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.groupSession = new System.Windows.Forms.GroupBox();
-            this.tableLayoutPanelSession = new System.Windows.Forms.TableLayoutPanel();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lblWaiting = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.lblHome = new System.Windows.Forms.Label();
-            this.lblScreenshots = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.lblContinue = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblChild = new System.Windows.Forms.Label();
-            this.lblClickCount = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.splitContainerSeconds = new System.Windows.Forms.SplitContainer();
             this.PanelTestAllEvents = new System.Windows.Forms.Panel();
             this.SplitContainer6 = new System.Windows.Forms.SplitContainer();
             this.SplitContainer7 = new System.Windows.Forms.SplitContainer();
@@ -640,9 +644,6 @@
             this.toolStripSeparatorEnableDisableToggle = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItemRuntimeEnableDisableToggle = new System.Windows.Forms.ToolStripMenuItem();
             this.TimerProperties = new System.Windows.Forms.Timer(this.components);
-            this.grpCPU = new System.Windows.Forms.GroupBox();
-            this.atsGraph1 = new AppTestStudioControls.ATSGraph();
-            this.appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
             this.appTestStudioToolStrip1 = new AppTestStudioControls.AppTestStudioToolStrip();
             this.toolAddEvent = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator9 = new System.Windows.Forms.ToolStripSeparator();
@@ -668,7 +669,6 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripCurrentDesignInstance = new System.Windows.Forms.ToolStripLabel();
             this.toolStripInstances = new System.Windows.Forms.ToolStripDropDownButton();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -697,6 +697,23 @@
             this.splitContainerRunProperties.SuspendLayout();
             this.tableLayoutPanelRunLabels.SuspendLayout();
             this.tableLayoutPanelRunValues.SuspendLayout();
+            this.PanelThread.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).BeginInit();
+            this.splitContainerThread.Panel1.SuspendLayout();
+            this.splitContainerThread.Panel2.SuspendLayout();
+            this.splitContainerThread.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerStatsNScrollie)).BeginInit();
+            this.splitContainerStatsNScrollie.Panel1.SuspendLayout();
+            this.splitContainerStatsNScrollie.Panel2.SuspendLayout();
+            this.splitContainerStatsNScrollie.SuspendLayout();
+            this.tableLayoutStats.SuspendLayout();
+            this.groupTotal.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.groupSession.SuspendLayout();
+            this.tableLayoutPanelSession.SuspendLayout();
+            this.grpCPU.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSeconds)).BeginInit();
+            this.splitContainerSeconds.SuspendLayout();
             this.PanelGame.SuspendLayout();
             this.flowLayoutPanel1.SuspendLayout();
             this.groupBox18.SuspendLayout();
@@ -777,22 +794,6 @@
             this.PanelObject.SuspendLayout();
             this.Panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).BeginInit();
-            this.PanelThread.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).BeginInit();
-            this.splitContainerThread.Panel1.SuspendLayout();
-            this.splitContainerThread.Panel2.SuspendLayout();
-            this.splitContainerThread.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerStatsNScrollie)).BeginInit();
-            this.splitContainerStatsNScrollie.Panel1.SuspendLayout();
-            this.splitContainerStatsNScrollie.Panel2.SuspendLayout();
-            this.splitContainerStatsNScrollie.SuspendLayout();
-            this.tableLayoutStats.SuspendLayout();
-            this.groupTotal.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            this.groupSession.SuspendLayout();
-            this.tableLayoutPanelSession.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSeconds)).BeginInit();
-            this.splitContainerSeconds.SuspendLayout();
             this.PanelTestAllEvents.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.SplitContainer6)).BeginInit();
             this.SplitContainer6.Panel1.SuspendLayout();
@@ -842,7 +843,6 @@
             this.mnuObjects.SuspendLayout();
             this.contextMenuStripResetResolution.SuspendLayout();
             this.contextMenuStripRuntimeEnableDisable.SuspendLayout();
-            this.grpCPU.SuspendLayout();
             this.appTestStudioToolStrip1.SuspendLayout();
             this.toolStripMain.SuspendLayout();
             this.SuspendLayout();
@@ -1445,7 +1445,7 @@
             this.tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelRunValues.ColumnCount = 2;
             this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 51F));
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue14, 0, 13);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue7, 0, 6);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue1, 0, 0);
@@ -1643,10 +1643,10 @@
             // cmdUpdateResolution
             // 
             this.cmdUpdateResolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdUpdateResolution.Location = new System.Drawing.Point(90, 148);
+            this.cmdUpdateResolution.Location = new System.Drawing.Point(89, 148);
             this.cmdUpdateResolution.Margin = new System.Windows.Forms.Padding(0);
             this.cmdUpdateResolution.Name = "cmdUpdateResolution";
-            this.cmdUpdateResolution.Size = new System.Drawing.Size(50, 20);
+            this.cmdUpdateResolution.Size = new System.Drawing.Size(51, 20);
             this.cmdUpdateResolution.TabIndex = 13;
             this.cmdUpdateResolution.Text = "...";
             this.cmdUpdateResolution.UseVisualStyleBackColor = true;
@@ -1655,10 +1655,10 @@
             // cmdRuntimeEnableToggle
             // 
             this.cmdRuntimeEnableToggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(90, 64);
+            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(89, 64);
             this.cmdRuntimeEnableToggle.Margin = new System.Windows.Forms.Padding(0);
             this.cmdRuntimeEnableToggle.Name = "cmdRuntimeEnableToggle";
-            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(50, 20);
+            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(51, 20);
             this.cmdRuntimeEnableToggle.TabIndex = 14;
             this.cmdRuntimeEnableToggle.Text = "...";
             this.cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
@@ -1672,6 +1672,428 @@
             this.tabSchedule.TabIndex = 2;
             this.tabSchedule.Text = "Schedule";
             this.tabSchedule.UseVisualStyleBackColor = true;
+            // 
+            // PanelThread
+            // 
+            this.PanelThread.Controls.Add(this.splitContainerThread);
+            this.PanelThread.Location = new System.Drawing.Point(5, 154);
+            this.PanelThread.Name = "PanelThread";
+            this.PanelThread.Size = new System.Drawing.Size(1426, 658);
+            this.PanelThread.TabIndex = 0;
+            // 
+            // splitContainerThread
+            // 
+            this.splitContainerThread.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerThread.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainerThread.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerThread.Name = "splitContainerThread";
+            this.splitContainerThread.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerThread.Panel1
+            // 
+            this.splitContainerThread.Panel1.Controls.Add(this.splitContainerStatsNScrollie);
+            // 
+            // splitContainerThread.Panel2
+            // 
+            this.splitContainerThread.Panel2.Controls.Add(this.appTestStudioStatusControl1);
+            this.splitContainerThread.Size = new System.Drawing.Size(1426, 658);
+            this.splitContainerThread.SplitterDistance = 184;
+            this.splitContainerThread.TabIndex = 0;
+            // 
+            // splitContainerStatsNScrollie
+            // 
+            this.splitContainerStatsNScrollie.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerStatsNScrollie.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainerStatsNScrollie.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerStatsNScrollie.Name = "splitContainerStatsNScrollie";
+            this.splitContainerStatsNScrollie.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerStatsNScrollie.Panel1
+            // 
+            this.splitContainerStatsNScrollie.Panel1.Controls.Add(this.tableLayoutStats);
+            // 
+            // splitContainerStatsNScrollie.Panel2
+            // 
+            this.splitContainerStatsNScrollie.Panel2.Controls.Add(this.splitContainerSeconds);
+            this.splitContainerStatsNScrollie.Size = new System.Drawing.Size(1426, 184);
+            this.splitContainerStatsNScrollie.SplitterDistance = 113;
+            this.splitContainerStatsNScrollie.TabIndex = 2;
+            // 
+            // tableLayoutStats
+            // 
+            this.tableLayoutStats.AutoSize = true;
+            this.tableLayoutStats.ColumnCount = 4;
+            this.tableLayoutStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutStats.Controls.Add(this.groupTotal, 0, 0);
+            this.tableLayoutStats.Controls.Add(this.groupSession, 0, 0);
+            this.tableLayoutStats.Controls.Add(this.grpCPU, 2, 0);
+            this.tableLayoutStats.Controls.Add(this.groupBox1, 3, 0);
+            this.tableLayoutStats.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutStats.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutStats.Name = "tableLayoutStats";
+            this.tableLayoutStats.RowCount = 1;
+            this.tableLayoutStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutStats.Size = new System.Drawing.Size(1426, 113);
+            this.tableLayoutStats.TabIndex = 3;
+            // 
+            // groupTotal
+            // 
+            this.groupTotal.Controls.Add(this.tableLayoutPanel1);
+            this.groupTotal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupTotal.Location = new System.Drawing.Point(359, 3);
+            this.groupTotal.Name = "groupTotal";
+            this.groupTotal.Size = new System.Drawing.Size(350, 107);
+            this.groupTotal.TabIndex = 2;
+            this.groupTotal.TabStop = false;
+            this.groupTotal.Text = "Total";
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.AutoSize = true;
+            this.tableLayoutPanel1.ColumnCount = 4;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel1.Controls.Add(this.label13, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.lblHomeTotal, 3, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblChildTotal, 3, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblContinueTotal, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label21, 2, 2);
+            this.tableLayoutPanel1.Controls.Add(this.label20, 0, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblWaitingTotal, 1, 2);
+            this.tableLayoutPanel1.Controls.Add(this.lblScreenshotsTotal, 1, 0);
+            this.tableLayoutPanel1.Controls.Add(this.label19, 2, 1);
+            this.tableLayoutPanel1.Controls.Add(this.lblClickCountTotal, 1, 1);
+            this.tableLayoutPanel1.Controls.Add(this.label14, 2, 0);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(344, 88);
+            this.tableLayoutPanel1.TabIndex = 4;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(3, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(69, 13);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Screenshots:";
+            // 
+            // lblHomeTotal
+            // 
+            this.lblHomeTotal.AutoSize = true;
+            this.lblHomeTotal.Location = new System.Drawing.Point(305, 58);
+            this.lblHomeTotal.Name = "lblHomeTotal";
+            this.lblHomeTotal.Size = new System.Drawing.Size(34, 30);
+            this.lblHomeTotal.TabIndex = 2;
+            this.lblHomeTotal.Text = "lblHomeTotal";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(3, 29);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(38, 13);
+            this.label15.TabIndex = 1;
+            this.label15.Text = "Clicks:";
+            // 
+            // lblChildTotal
+            // 
+            this.lblChildTotal.AutoSize = true;
+            this.lblChildTotal.Location = new System.Drawing.Point(305, 29);
+            this.lblChildTotal.Name = "lblChildTotal";
+            this.lblChildTotal.Size = new System.Drawing.Size(35, 29);
+            this.lblChildTotal.TabIndex = 1;
+            this.lblChildTotal.Text = "lblChildTotal";
+            // 
+            // lblContinueTotal
+            // 
+            this.lblContinueTotal.AutoSize = true;
+            this.lblContinueTotal.Location = new System.Drawing.Point(305, 0);
+            this.lblContinueTotal.Name = "lblContinueTotal";
+            this.lblContinueTotal.Size = new System.Drawing.Size(36, 29);
+            this.lblContinueTotal.TabIndex = 0;
+            this.lblContinueTotal.Text = "lblContinueTotal";
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(175, 58);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(38, 13);
+            this.label21.TabIndex = 2;
+            this.label21.Text = "Home:";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(3, 58);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(46, 13);
+            this.label20.TabIndex = 2;
+            this.label20.Text = "Waiting:";
+            // 
+            // lblWaitingTotal
+            // 
+            this.lblWaitingTotal.AutoSize = true;
+            this.lblWaitingTotal.Location = new System.Drawing.Point(133, 58);
+            this.lblWaitingTotal.Name = "lblWaitingTotal";
+            this.lblWaitingTotal.Size = new System.Drawing.Size(36, 30);
+            this.lblWaitingTotal.TabIndex = 2;
+            this.lblWaitingTotal.Text = "lblWaitingTotal";
+            // 
+            // lblScreenshotsTotal
+            // 
+            this.lblScreenshotsTotal.AutoSize = true;
+            this.lblScreenshotsTotal.Location = new System.Drawing.Point(133, 0);
+            this.lblScreenshotsTotal.Name = "lblScreenshotsTotal";
+            this.lblScreenshotsTotal.Size = new System.Drawing.Size(36, 29);
+            this.lblScreenshotsTotal.TabIndex = 0;
+            this.lblScreenshotsTotal.Text = "lblScreenshotsTotal";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(175, 29);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(33, 13);
+            this.label19.TabIndex = 1;
+            this.label19.Text = "Child:";
+            // 
+            // lblClickCountTotal
+            // 
+            this.lblClickCountTotal.AutoSize = true;
+            this.lblClickCountTotal.Location = new System.Drawing.Point(133, 29);
+            this.lblClickCountTotal.Name = "lblClickCountTotal";
+            this.lblClickCountTotal.Size = new System.Drawing.Size(34, 29);
+            this.lblClickCountTotal.TabIndex = 1;
+            this.lblClickCountTotal.Text = "lblClickCountTotal";
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(175, 0);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(52, 13);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Continue:";
+            // 
+            // groupSession
+            // 
+            this.groupSession.Controls.Add(this.tableLayoutPanelSession);
+            this.groupSession.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupSession.Location = new System.Drawing.Point(3, 3);
+            this.groupSession.Name = "groupSession";
+            this.groupSession.Size = new System.Drawing.Size(350, 107);
+            this.groupSession.TabIndex = 1;
+            this.groupSession.TabStop = false;
+            this.groupSession.Text = "Session";
+            // 
+            // tableLayoutPanelSession
+            // 
+            this.tableLayoutPanelSession.AutoSize = true;
+            this.tableLayoutPanelSession.ColumnCount = 4;
+            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
+            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanelSession.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanelSession.Controls.Add(this.label3, 0, 2);
+            this.tableLayoutPanelSession.Controls.Add(this.lblWaiting, 1, 2);
+            this.tableLayoutPanelSession.Controls.Add(this.label9, 2, 2);
+            this.tableLayoutPanelSession.Controls.Add(this.lblHome, 3, 2);
+            this.tableLayoutPanelSession.Controls.Add(this.lblScreenshots, 1, 0);
+            this.tableLayoutPanelSession.Controls.Add(this.label7, 2, 0);
+            this.tableLayoutPanelSession.Controls.Add(this.lblContinue, 3, 0);
+            this.tableLayoutPanelSession.Controls.Add(this.label2, 0, 1);
+            this.tableLayoutPanelSession.Controls.Add(this.lblChild, 3, 1);
+            this.tableLayoutPanelSession.Controls.Add(this.lblClickCount, 1, 1);
+            this.tableLayoutPanelSession.Controls.Add(this.label8, 2, 1);
+            this.tableLayoutPanelSession.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanelSession.Location = new System.Drawing.Point(3, 16);
+            this.tableLayoutPanelSession.Name = "tableLayoutPanelSession";
+            this.tableLayoutPanelSession.RowCount = 3;
+            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
+            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanelSession.Size = new System.Drawing.Size(344, 88);
+            this.tableLayoutPanelSession.TabIndex = 3;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(69, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Screenshots:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(3, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(46, 13);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Waiting:";
+            // 
+            // lblWaiting
+            // 
+            this.lblWaiting.AutoSize = true;
+            this.lblWaiting.Location = new System.Drawing.Point(133, 58);
+            this.lblWaiting.Name = "lblWaiting";
+            this.lblWaiting.Size = new System.Drawing.Size(36, 26);
+            this.lblWaiting.TabIndex = 2;
+            this.lblWaiting.Text = "lblWaiting";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(175, 58);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(38, 13);
+            this.label9.TabIndex = 2;
+            this.label9.Text = "Home:";
+            // 
+            // lblHome
+            // 
+            this.lblHome.AutoSize = true;
+            this.lblHome.Location = new System.Drawing.Point(305, 58);
+            this.lblHome.Name = "lblHome";
+            this.lblHome.Size = new System.Drawing.Size(31, 26);
+            this.lblHome.TabIndex = 2;
+            this.lblHome.Text = "lblHome";
+            // 
+            // lblScreenshots
+            // 
+            this.lblScreenshots.AutoSize = true;
+            this.lblScreenshots.Location = new System.Drawing.Point(133, 0);
+            this.lblScreenshots.Name = "lblScreenshots";
+            this.lblScreenshots.Size = new System.Drawing.Size(36, 29);
+            this.lblScreenshots.TabIndex = 0;
+            this.lblScreenshots.Text = "lblScreenshots";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(175, 0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(52, 13);
+            this.label7.TabIndex = 0;
+            this.label7.Text = "Continue:";
+            // 
+            // lblContinue
+            // 
+            this.lblContinue.AutoSize = true;
+            this.lblContinue.Location = new System.Drawing.Point(305, 0);
+            this.lblContinue.Name = "lblContinue";
+            this.lblContinue.Size = new System.Drawing.Size(36, 26);
+            this.lblContinue.TabIndex = 0;
+            this.lblContinue.Text = "lblContinue";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(3, 29);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(38, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Clicks:";
+            // 
+            // lblChild
+            // 
+            this.lblChild.AutoSize = true;
+            this.lblChild.Location = new System.Drawing.Point(305, 29);
+            this.lblChild.Name = "lblChild";
+            this.lblChild.Size = new System.Drawing.Size(34, 26);
+            this.lblChild.TabIndex = 1;
+            this.lblChild.Text = "lblChild";
+            // 
+            // lblClickCount
+            // 
+            this.lblClickCount.AutoSize = true;
+            this.lblClickCount.Location = new System.Drawing.Point(133, 29);
+            this.lblClickCount.Name = "lblClickCount";
+            this.lblClickCount.Size = new System.Drawing.Size(34, 29);
+            this.lblClickCount.TabIndex = 1;
+            this.lblClickCount.Text = "lblClickCount";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(175, 29);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(33, 13);
+            this.label8.TabIndex = 1;
+            this.label8.Text = "Child:";
+            // 
+            // grpCPU
+            // 
+            this.grpCPU.Controls.Add(this.atsGraph1);
+            this.grpCPU.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.grpCPU.Location = new System.Drawing.Point(715, 3);
+            this.grpCPU.Name = "grpCPU";
+            this.grpCPU.Size = new System.Drawing.Size(350, 107);
+            this.grpCPU.TabIndex = 3;
+            this.grpCPU.TabStop = false;
+            this.grpCPU.Text = "CPU";
+            // 
+            // atsGraph1
+            // 
+            this.atsGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.atsGraph1.Location = new System.Drawing.Point(3, 16);
+            this.atsGraph1.Name = "atsGraph1";
+            this.atsGraph1.Size = new System.Drawing.Size(344, 88);
+            this.atsGraph1.TabIndex = 0;
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Location = new System.Drawing.Point(1071, 3);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(200, 100);
+            this.groupBox1.TabIndex = 4;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Todo";
+            // 
+            // splitContainerSeconds
+            // 
+            this.splitContainerSeconds.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.splitContainerSeconds.Location = new System.Drawing.Point(0, 48);
+            this.splitContainerSeconds.Name = "splitContainerSeconds";
+            // 
+            // splitContainerSeconds.Panel1
+            // 
+            this.splitContainerSeconds.Panel1.BackColor = System.Drawing.SystemColors.ControlLight;
+            // 
+            // splitContainerSeconds.Panel2
+            // 
+            this.splitContainerSeconds.Panel2.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.splitContainerSeconds.Size = new System.Drawing.Size(1426, 19);
+            this.splitContainerSeconds.SplitterDistance = 222;
+            this.splitContainerSeconds.TabIndex = 0;
+            this.splitContainerSeconds.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainerSeconds_SplitterMoving);
+            // 
+            // appTestStudioStatusControl1
+            // 
+            this.appTestStudioStatusControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.appTestStudioStatusControl1.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("appTestStudioStatusControl1.Items")));
+            this.appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
+            this.appTestStudioStatusControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
+            this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
+            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(1426, 470);
+            this.appTestStudioStatusControl1.TabIndex = 0;
             // 
             // PanelGame
             // 
@@ -5681,48 +6103,48 @@
             // 
             // dgvID
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvID.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvID.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgvID.HeaderText = "ID";
             this.dgvID.MinimumWidth = 10;
             this.dgvID.Name = "dgvID";
             // 
             // dgvRed
             // 
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvRed.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgvRed.HeaderText = "R";
             this.dgvRed.MinimumWidth = 10;
             this.dgvRed.Name = "dgvRed";
             // 
             // dgvBlue
             // 
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvBlue.DefaultCellStyle = dataGridViewCellStyle3;
             this.dgvBlue.HeaderText = "B";
             this.dgvBlue.MinimumWidth = 10;
             this.dgvBlue.Name = "dgvBlue";
             // 
             // dgvGreen
             // 
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvGreen.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgvGreen.HeaderText = "G";
             this.dgvGreen.MinimumWidth = 10;
             this.dgvGreen.Name = "dgvGreen";
             // 
             // dgvX
             // 
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvX.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvX.DefaultCellStyle = dataGridViewCellStyle5;
             this.dgvX.HeaderText = "X";
             this.dgvX.MinimumWidth = 10;
             this.dgvX.Name = "dgvX";
             // 
             // dgvY
             // 
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
-            this.dgvY.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.TopCenter;
+            this.dgvY.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgvY.HeaderText = "Y";
             this.dgvY.MinimumWidth = 10;
             this.dgvY.Name = "dgvY";
@@ -6365,389 +6787,6 @@
             this.Label46.TabIndex = 0;
             this.Label46.Text = "Object";
             // 
-            // PanelThread
-            // 
-            this.PanelThread.Controls.Add(this.splitContainerThread);
-            this.PanelThread.Location = new System.Drawing.Point(5, 154);
-            this.PanelThread.Name = "PanelThread";
-            this.PanelThread.Size = new System.Drawing.Size(1426, 658);
-            this.PanelThread.TabIndex = 0;
-            // 
-            // splitContainerThread
-            // 
-            this.splitContainerThread.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerThread.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainerThread.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerThread.Name = "splitContainerThread";
-            this.splitContainerThread.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerThread.Panel1
-            // 
-            this.splitContainerThread.Panel1.Controls.Add(this.splitContainerStatsNScrollie);
-            // 
-            // splitContainerThread.Panel2
-            // 
-            this.splitContainerThread.Panel2.Controls.Add(this.appTestStudioStatusControl1);
-            this.splitContainerThread.Size = new System.Drawing.Size(1426, 658);
-            this.splitContainerThread.SplitterDistance = 184;
-            this.splitContainerThread.TabIndex = 0;
-            // 
-            // splitContainerStatsNScrollie
-            // 
-            this.splitContainerStatsNScrollie.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainerStatsNScrollie.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
-            this.splitContainerStatsNScrollie.Location = new System.Drawing.Point(0, 0);
-            this.splitContainerStatsNScrollie.Name = "splitContainerStatsNScrollie";
-            this.splitContainerStatsNScrollie.Orientation = System.Windows.Forms.Orientation.Horizontal;
-            // 
-            // splitContainerStatsNScrollie.Panel1
-            // 
-            this.splitContainerStatsNScrollie.Panel1.Controls.Add(this.tableLayoutStats);
-            // 
-            // splitContainerStatsNScrollie.Panel2
-            // 
-            this.splitContainerStatsNScrollie.Panel2.Controls.Add(this.splitContainerSeconds);
-            this.splitContainerStatsNScrollie.Size = new System.Drawing.Size(1426, 184);
-            this.splitContainerStatsNScrollie.SplitterDistance = 113;
-            this.splitContainerStatsNScrollie.TabIndex = 2;
-            // 
-            // tableLayoutStats
-            // 
-            this.tableLayoutStats.AutoSize = true;
-            this.tableLayoutStats.ColumnCount = 4;
-            this.tableLayoutStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutStats.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
-            this.tableLayoutStats.Controls.Add(this.groupTotal, 0, 0);
-            this.tableLayoutStats.Controls.Add(this.groupSession, 0, 0);
-            this.tableLayoutStats.Controls.Add(this.grpCPU, 2, 0);
-            this.tableLayoutStats.Controls.Add(this.groupBox1, 3, 0);
-            this.tableLayoutStats.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutStats.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutStats.Name = "tableLayoutStats";
-            this.tableLayoutStats.RowCount = 1;
-            this.tableLayoutStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutStats.Size = new System.Drawing.Size(1426, 113);
-            this.tableLayoutStats.TabIndex = 3;
-            // 
-            // groupTotal
-            // 
-            this.groupTotal.Controls.Add(this.tableLayoutPanel1);
-            this.groupTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupTotal.Location = new System.Drawing.Point(359, 3);
-            this.groupTotal.Name = "groupTotal";
-            this.groupTotal.Size = new System.Drawing.Size(350, 107);
-            this.groupTotal.TabIndex = 2;
-            this.groupTotal.TabStop = false;
-            this.groupTotal.Text = "Total";
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.AutoSize = true;
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel1.Controls.Add(this.label13, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.lblHomeTotal, 3, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label15, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblChildTotal, 3, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblContinueTotal, 3, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label21, 2, 2);
-            this.tableLayoutPanel1.Controls.Add(this.label20, 0, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblWaitingTotal, 1, 2);
-            this.tableLayoutPanel1.Controls.Add(this.lblScreenshotsTotal, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.label19, 2, 1);
-            this.tableLayoutPanel1.Controls.Add(this.lblClickCountTotal, 1, 1);
-            this.tableLayoutPanel1.Controls.Add(this.label14, 2, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(344, 88);
-            this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(3, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(69, 13);
-            this.label13.TabIndex = 0;
-            this.label13.Text = "Screenshots:";
-            // 
-            // lblHomeTotal
-            // 
-            this.lblHomeTotal.AutoSize = true;
-            this.lblHomeTotal.Location = new System.Drawing.Point(305, 58);
-            this.lblHomeTotal.Name = "lblHomeTotal";
-            this.lblHomeTotal.Size = new System.Drawing.Size(34, 30);
-            this.lblHomeTotal.TabIndex = 2;
-            this.lblHomeTotal.Text = "lblHomeTotal";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(3, 29);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(38, 13);
-            this.label15.TabIndex = 1;
-            this.label15.Text = "Clicks:";
-            // 
-            // lblChildTotal
-            // 
-            this.lblChildTotal.AutoSize = true;
-            this.lblChildTotal.Location = new System.Drawing.Point(305, 29);
-            this.lblChildTotal.Name = "lblChildTotal";
-            this.lblChildTotal.Size = new System.Drawing.Size(35, 29);
-            this.lblChildTotal.TabIndex = 1;
-            this.lblChildTotal.Text = "lblChildTotal";
-            // 
-            // lblContinueTotal
-            // 
-            this.lblContinueTotal.AutoSize = true;
-            this.lblContinueTotal.Location = new System.Drawing.Point(305, 0);
-            this.lblContinueTotal.Name = "lblContinueTotal";
-            this.lblContinueTotal.Size = new System.Drawing.Size(36, 29);
-            this.lblContinueTotal.TabIndex = 0;
-            this.lblContinueTotal.Text = "lblContinueTotal";
-            // 
-            // label21
-            // 
-            this.label21.AutoSize = true;
-            this.label21.Location = new System.Drawing.Point(175, 58);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(38, 13);
-            this.label21.TabIndex = 2;
-            this.label21.Text = "Home:";
-            // 
-            // label20
-            // 
-            this.label20.AutoSize = true;
-            this.label20.Location = new System.Drawing.Point(3, 58);
-            this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(46, 13);
-            this.label20.TabIndex = 2;
-            this.label20.Text = "Waiting:";
-            // 
-            // lblWaitingTotal
-            // 
-            this.lblWaitingTotal.AutoSize = true;
-            this.lblWaitingTotal.Location = new System.Drawing.Point(133, 58);
-            this.lblWaitingTotal.Name = "lblWaitingTotal";
-            this.lblWaitingTotal.Size = new System.Drawing.Size(36, 30);
-            this.lblWaitingTotal.TabIndex = 2;
-            this.lblWaitingTotal.Text = "lblWaitingTotal";
-            // 
-            // lblScreenshotsTotal
-            // 
-            this.lblScreenshotsTotal.AutoSize = true;
-            this.lblScreenshotsTotal.Location = new System.Drawing.Point(133, 0);
-            this.lblScreenshotsTotal.Name = "lblScreenshotsTotal";
-            this.lblScreenshotsTotal.Size = new System.Drawing.Size(36, 29);
-            this.lblScreenshotsTotal.TabIndex = 0;
-            this.lblScreenshotsTotal.Text = "lblScreenshotsTotal";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(175, 29);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(33, 13);
-            this.label19.TabIndex = 1;
-            this.label19.Text = "Child:";
-            // 
-            // lblClickCountTotal
-            // 
-            this.lblClickCountTotal.AutoSize = true;
-            this.lblClickCountTotal.Location = new System.Drawing.Point(133, 29);
-            this.lblClickCountTotal.Name = "lblClickCountTotal";
-            this.lblClickCountTotal.Size = new System.Drawing.Size(34, 29);
-            this.lblClickCountTotal.TabIndex = 1;
-            this.lblClickCountTotal.Text = "lblClickCountTotal";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(175, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(52, 13);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Continue:";
-            // 
-            // groupSession
-            // 
-            this.groupSession.Controls.Add(this.tableLayoutPanelSession);
-            this.groupSession.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupSession.Location = new System.Drawing.Point(3, 3);
-            this.groupSession.Name = "groupSession";
-            this.groupSession.Size = new System.Drawing.Size(350, 107);
-            this.groupSession.TabIndex = 1;
-            this.groupSession.TabStop = false;
-            this.groupSession.Text = "Session";
-            // 
-            // tableLayoutPanelSession
-            // 
-            this.tableLayoutPanelSession.AutoSize = true;
-            this.tableLayoutPanelSession.ColumnCount = 4;
-            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 130F));
-            this.tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanelSession.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanelSession.Controls.Add(this.label3, 0, 2);
-            this.tableLayoutPanelSession.Controls.Add(this.lblWaiting, 1, 2);
-            this.tableLayoutPanelSession.Controls.Add(this.label9, 2, 2);
-            this.tableLayoutPanelSession.Controls.Add(this.lblHome, 3, 2);
-            this.tableLayoutPanelSession.Controls.Add(this.lblScreenshots, 1, 0);
-            this.tableLayoutPanelSession.Controls.Add(this.label7, 2, 0);
-            this.tableLayoutPanelSession.Controls.Add(this.lblContinue, 3, 0);
-            this.tableLayoutPanelSession.Controls.Add(this.label2, 0, 1);
-            this.tableLayoutPanelSession.Controls.Add(this.lblChild, 3, 1);
-            this.tableLayoutPanelSession.Controls.Add(this.lblClickCount, 1, 1);
-            this.tableLayoutPanelSession.Controls.Add(this.label8, 2, 1);
-            this.tableLayoutPanelSession.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanelSession.Location = new System.Drawing.Point(3, 16);
-            this.tableLayoutPanelSession.Name = "tableLayoutPanelSession";
-            this.tableLayoutPanelSession.RowCount = 3;
-            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
-            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
-            this.tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanelSession.Size = new System.Drawing.Size(344, 88);
-            this.tableLayoutPanelSession.TabIndex = 3;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(69, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Screenshots:";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(3, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 13);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Waiting:";
-            // 
-            // lblWaiting
-            // 
-            this.lblWaiting.AutoSize = true;
-            this.lblWaiting.Location = new System.Drawing.Point(133, 58);
-            this.lblWaiting.Name = "lblWaiting";
-            this.lblWaiting.Size = new System.Drawing.Size(36, 26);
-            this.lblWaiting.TabIndex = 2;
-            this.lblWaiting.Text = "lblWaiting";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(175, 58);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(38, 13);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Home:";
-            // 
-            // lblHome
-            // 
-            this.lblHome.AutoSize = true;
-            this.lblHome.Location = new System.Drawing.Point(305, 58);
-            this.lblHome.Name = "lblHome";
-            this.lblHome.Size = new System.Drawing.Size(31, 26);
-            this.lblHome.TabIndex = 2;
-            this.lblHome.Text = "lblHome";
-            // 
-            // lblScreenshots
-            // 
-            this.lblScreenshots.AutoSize = true;
-            this.lblScreenshots.Location = new System.Drawing.Point(133, 0);
-            this.lblScreenshots.Name = "lblScreenshots";
-            this.lblScreenshots.Size = new System.Drawing.Size(36, 29);
-            this.lblScreenshots.TabIndex = 0;
-            this.lblScreenshots.Text = "lblScreenshots";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(175, 0);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(52, 13);
-            this.label7.TabIndex = 0;
-            this.label7.Text = "Continue:";
-            // 
-            // lblContinue
-            // 
-            this.lblContinue.AutoSize = true;
-            this.lblContinue.Location = new System.Drawing.Point(305, 0);
-            this.lblContinue.Name = "lblContinue";
-            this.lblContinue.Size = new System.Drawing.Size(36, 26);
-            this.lblContinue.TabIndex = 0;
-            this.lblContinue.Text = "lblContinue";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(3, 29);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(38, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Clicks:";
-            // 
-            // lblChild
-            // 
-            this.lblChild.AutoSize = true;
-            this.lblChild.Location = new System.Drawing.Point(305, 29);
-            this.lblChild.Name = "lblChild";
-            this.lblChild.Size = new System.Drawing.Size(34, 26);
-            this.lblChild.TabIndex = 1;
-            this.lblChild.Text = "lblChild";
-            // 
-            // lblClickCount
-            // 
-            this.lblClickCount.AutoSize = true;
-            this.lblClickCount.Location = new System.Drawing.Point(133, 29);
-            this.lblClickCount.Name = "lblClickCount";
-            this.lblClickCount.Size = new System.Drawing.Size(34, 29);
-            this.lblClickCount.TabIndex = 1;
-            this.lblClickCount.Text = "lblClickCount";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(175, 29);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(33, 13);
-            this.label8.TabIndex = 1;
-            this.label8.Text = "Child:";
-            // 
-            // splitContainerSeconds
-            // 
-            this.splitContainerSeconds.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.splitContainerSeconds.Location = new System.Drawing.Point(0, 48);
-            this.splitContainerSeconds.Name = "splitContainerSeconds";
-            // 
-            // splitContainerSeconds.Panel1
-            // 
-            this.splitContainerSeconds.Panel1.BackColor = System.Drawing.SystemColors.ControlLight;
-            // 
-            // splitContainerSeconds.Panel2
-            // 
-            this.splitContainerSeconds.Panel2.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.splitContainerSeconds.Size = new System.Drawing.Size(1426, 19);
-            this.splitContainerSeconds.SplitterDistance = 222;
-            this.splitContainerSeconds.TabIndex = 0;
-            this.splitContainerSeconds.SplitterMoving += new System.Windows.Forms.SplitterCancelEventHandler(this.splitContainerSeconds_SplitterMoving);
-            // 
             // PanelTestAllEvents
             // 
             this.PanelTestAllEvents.Controls.Add(this.SplitContainer6);
@@ -6836,14 +6875,14 @@
             // 
             this.dgvTest.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvTest.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvColorTestID,
@@ -6854,14 +6893,14 @@
             this.dgvYTest,
             this.dgvPassFail,
             this.dvgRange});
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
             this.dgvTest.Location = new System.Drawing.Point(623, 226);
             this.dgvTest.Name = "dgvTest";
             this.dgvTest.RowHeadersWidth = 62;
@@ -6931,14 +6970,14 @@
             // dgvTestAllReference
             // 
             this.dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgvTestAllReference.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dgvTestAllReferenceID,
@@ -6947,14 +6986,14 @@
             this.dgvTestAllReferenceBlue,
             this.dgvTestAllReferenceX,
             this.dgvTestAllReferenceY});
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgvTestAllReference.Location = new System.Drawing.Point(623, 48);
             this.dgvTestAllReference.Name = "dgvTestAllReference";
             this.dgvTestAllReference.RowHeadersWidth = 62;
@@ -8154,36 +8193,6 @@
             this.TimerProperties.Interval = 1000;
             this.TimerProperties.Tick += new System.EventHandler(this.TimerProperties_Tick);
             // 
-            // grpCPU
-            // 
-            this.grpCPU.Controls.Add(this.atsGraph1);
-            this.grpCPU.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.grpCPU.Location = new System.Drawing.Point(715, 3);
-            this.grpCPU.Name = "grpCPU";
-            this.grpCPU.Size = new System.Drawing.Size(350, 107);
-            this.grpCPU.TabIndex = 3;
-            this.grpCPU.TabStop = false;
-            this.grpCPU.Text = "CPU";
-            // 
-            // atsGraph1
-            // 
-            this.atsGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.atsGraph1.Location = new System.Drawing.Point(3, 16);
-            this.atsGraph1.Name = "atsGraph1";
-            this.atsGraph1.Size = new System.Drawing.Size(344, 88);
-            this.atsGraph1.TabIndex = 0;
-            // 
-            // appTestStudioStatusControl1
-            // 
-            this.appTestStudioStatusControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.appTestStudioStatusControl1.Items = ((System.Collections.Generic.List<string>)(resources.GetObject("appTestStudioStatusControl1.Items")));
-            this.appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
-            this.appTestStudioStatusControl1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
-            this.appTestStudioStatusControl1.ShowPercent = ((long)(10));
-            this.appTestStudioStatusControl1.Size = new System.Drawing.Size(1426, 470);
-            this.appTestStudioStatusControl1.TabIndex = 0;
-            // 
             // appTestStudioToolStrip1
             // 
             this.appTestStudioToolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
@@ -8411,15 +8420,6 @@
             this.toolStripInstances.Text = "Instance #";
             this.toolStripInstances.Visible = false;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(1071, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 4;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
             // frmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -8468,6 +8468,28 @@
             this.tableLayoutPanelRunLabels.PerformLayout();
             this.tableLayoutPanelRunValues.ResumeLayout(false);
             this.tableLayoutPanelRunValues.PerformLayout();
+            this.PanelThread.ResumeLayout(false);
+            this.splitContainerThread.Panel1.ResumeLayout(false);
+            this.splitContainerThread.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).EndInit();
+            this.splitContainerThread.ResumeLayout(false);
+            this.splitContainerStatsNScrollie.Panel1.ResumeLayout(false);
+            this.splitContainerStatsNScrollie.Panel1.PerformLayout();
+            this.splitContainerStatsNScrollie.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerStatsNScrollie)).EndInit();
+            this.splitContainerStatsNScrollie.ResumeLayout(false);
+            this.tableLayoutStats.ResumeLayout(false);
+            this.groupTotal.ResumeLayout(false);
+            this.groupTotal.PerformLayout();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel1.PerformLayout();
+            this.groupSession.ResumeLayout(false);
+            this.groupSession.PerformLayout();
+            this.tableLayoutPanelSession.ResumeLayout(false);
+            this.tableLayoutPanelSession.PerformLayout();
+            this.grpCPU.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSeconds)).EndInit();
+            this.splitContainerSeconds.ResumeLayout(false);
             this.PanelGame.ResumeLayout(false);
             this.PanelGame.PerformLayout();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -8585,27 +8607,6 @@
             this.Panel5.ResumeLayout(false);
             this.Panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PictureBoxObject)).EndInit();
-            this.PanelThread.ResumeLayout(false);
-            this.splitContainerThread.Panel1.ResumeLayout(false);
-            this.splitContainerThread.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerThread)).EndInit();
-            this.splitContainerThread.ResumeLayout(false);
-            this.splitContainerStatsNScrollie.Panel1.ResumeLayout(false);
-            this.splitContainerStatsNScrollie.Panel1.PerformLayout();
-            this.splitContainerStatsNScrollie.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerStatsNScrollie)).EndInit();
-            this.splitContainerStatsNScrollie.ResumeLayout(false);
-            this.tableLayoutStats.ResumeLayout(false);
-            this.groupTotal.ResumeLayout(false);
-            this.groupTotal.PerformLayout();
-            this.tableLayoutPanel1.ResumeLayout(false);
-            this.tableLayoutPanel1.PerformLayout();
-            this.groupSession.ResumeLayout(false);
-            this.groupSession.PerformLayout();
-            this.tableLayoutPanelSession.ResumeLayout(false);
-            this.tableLayoutPanelSession.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainerSeconds)).EndInit();
-            this.splitContainerSeconds.ResumeLayout(false);
             this.PanelTestAllEvents.ResumeLayout(false);
             this.SplitContainer6.Panel1.ResumeLayout(false);
             this.SplitContainer6.Panel2.ResumeLayout(false);
@@ -8673,7 +8674,6 @@
             this.mnuObjects.ResumeLayout(false);
             this.contextMenuStripResetResolution.ResumeLayout(false);
             this.contextMenuStripRuntimeEnableDisable.ResumeLayout(false);
-            this.grpCPU.ResumeLayout(false);
             this.appTestStudioToolStrip1.ResumeLayout(false);
             this.appTestStudioToolStrip1.PerformLayout();
             this.toolStripMain.ResumeLayout(false);

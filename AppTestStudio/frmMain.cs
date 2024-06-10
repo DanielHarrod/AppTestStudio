@@ -3370,7 +3370,7 @@ namespace AppTestStudio
 
             Boolean NeedRedraw = false;
 
-            foreach (GameNodeGame game in ThreadManager.Games)
+            foreach (GameNodeGame game in ThreadManager.Games.ToList())
             {
                 if (game.IsSomething())
                 {
@@ -3620,7 +3620,7 @@ namespace AppTestStudio
             //'}
 
 
-            foreach (GameNodeGame game in ThreadManager.Games)
+            foreach (GameNodeGame game in ThreadManager.Games.ToList())
             {
                 if (game.IsSomething())
                 {
