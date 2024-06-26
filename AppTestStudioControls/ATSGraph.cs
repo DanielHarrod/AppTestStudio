@@ -52,7 +52,7 @@ namespace AppTestStudioControls
         private void ProcessVisualization_Paint(object sender, PaintEventArgs e)
         {
             Buckets[currentIndex % MaxBuckets] = (int)Queue.Sum();
-            Debug.WriteLine(Queue.Count);
+            //Debug.WriteLine(Queue.Count);
             Queue.Clear();
             currentIndex++;
 
