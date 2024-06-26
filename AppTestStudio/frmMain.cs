@@ -2116,7 +2116,15 @@ namespace AppTestStudio
                             GameNodeAction Action = node as GameNodeAction;
                             toolStripMenuCopy.Visible = true;
                             toolStripMenuCut.Visible = true;
-                            toolStripMenuPaste.Visible = true;
+                            if (cutCopyOption == CutCopyOption.None)
+                            {
+                                toolStripMenuPaste.Visible = false;
+                            }
+                            else
+                            {
+                                toolStripMenuPaste.Visible = true;
+                            }
+                            
                             toolStripSeparatorCutCopyPaste.Visible = true;
                             switch (Action.ActionType)
                             {
@@ -2125,6 +2133,10 @@ namespace AppTestStudio
                                 case ActionType.Event:
                                     break;
                                 case ActionType.RNG:
+                                    // Copy/Paste a RNG node has special rules, too much work for little use.
+                                    toolStripMenuCopy.Visible = false;
+                                    toolStripMenuCut.Visible = false;
+
                                     break;
                                 case ActionType.RNGContainer:
                                     switch (cutCopyOption)
@@ -8791,6 +8803,10 @@ namespace AppTestStudio
         {
             cutCopyOption = CutCopyOption.Cut;
             cutCopyActionNode = tv.SelectedNode as GameNodeAction;
+
+            // Cut so remove from tree.
+            GameNode Parent = cutCopyActionNode.Parent as GameNode;
+            Parent.Nodes.Remove(cutCopyActionNode);
         }
 
         private void toolStripMenuCopy_Click(object sender, EventArgs e)
@@ -8801,15 +8817,98 @@ namespace AppTestStudio
 
         private void toolStripMenuPasteChild_Click(object sender, EventArgs e)
         {
+            GameNode DestinationNode = tv.SelectedNode as GameNode;
 
+            switch (cutCopyOption)
+            {
+                case CutCopyOption.Cut:
+                    DestinationNode.Nodes.Add(cutCopyActionNode);
+                    break;
+                case CutCopyOption.Copy:
+                    GameNodeAction NewNode = cutCopyActionNode.CloneMe();
+                    DestinationNode.Nodes.Add(NewNode);
+                    break;
+                default:
+                    break;
+            }
+            PasteCleanup();
         }
 
         private void toolStripMenuPasteSibling_Click(object sender, EventArgs e)
         {
+            GameNode DestinationNode = tv.SelectedNode as GameNode;
+            GameNode ParentNode = DestinationNode.Parent as GameNode;
+
+            // Find location of the child relative to the parent.
+            int NodeIndex = 0;
+            foreach (GameNode node in ParentNode.Nodes)
+            {
+                if (DestinationNode == node)
+                {
+                    break;
+                }
+                NodeIndex++;
+            }
+
+            PasteSibling(ParentNode, NodeIndex);
+
+            PasteCleanup();
+
 
         }
+        void PasteSibling(GameNode ParentNode, int NodeIndex)
+        {
+            switch (cutCopyOption)
+            {
+                case CutCopyOption.Cut:
+                    ParentNode.Nodes.Insert(NodeIndex, cutCopyActionNode);
+                    break;
+                case CutCopyOption.Copy:
+                    GameNodeAction NewNode = cutCopyActionNode.CloneMe();
 
+                    ParentNode.Nodes.Insert(NodeIndex, NewNode);
+                    break;
+                default:
+                    break;
+            }
+        }
 
+        private void PasteCleanup()
+        {
+            switch (cutCopyOption)
+            {
+                case CutCopyOption.None:
+                    break;
+                case CutCopyOption.Cut:
+                    cutCopyOption = CutCopyOption.None;
+                    break;
+                case CutCopyOption.Copy:
+                    break;
+                default:
+                    break;
+            }
+        }
+
+        private void toolStripMenuPasteSiblingBelow_Click(object sender, EventArgs e)
+        {
+            GameNode DestinationNode = tv.SelectedNode as GameNode;
+            GameNode ParentNode = DestinationNode.Parent as GameNode;
+
+            // Find location of the child relative to the parent.
+            int NodeIndex = 0;
+            foreach (GameNode node in ParentNode.Nodes)
+            {
+                if (DestinationNode == node)
+                {
+                    break;
+                }
+                NodeIndex++;
+            }
+
+            PasteSibling(ParentNode, NodeIndex+1);
+
+            PasteCleanup();
+        }
     }
 }
 

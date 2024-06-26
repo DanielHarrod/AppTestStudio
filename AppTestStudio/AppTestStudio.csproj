@@ -343,6 +343,7 @@
     <Content Include="Resources\ATSGroupGR.png" />
     <Content Include="Resources\BranchRelationshipChild_16x.png" />
     <Content Include="Resources\BranchRelationshipSibling_16x.png" />
+    <Content Include="Resources\BranchRelationshipSibling_16x_reverse.png" />
     <Content Include="Resources\ButtonClick_16xGR.png" />
     <Content Include="Resources\CollapseChevronLeft_16x.png" />
     <Content Include="Resources\Cut_16x.png" />
