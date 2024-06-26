@@ -940,6 +940,7 @@ namespace AppTestStudio
                     {
                         Game.Log("Unable to locate window during startup met timeout limit");
                         Game.Log("Exiting thread");
+                        Game.Log("You can disable early stopping by setting [Never Quit if Window Not Found] on the General Settings for the project.");
                         Thread.Sleep(1000);
                         ShutdownThread(Game, true);
                     }
