@@ -297,4 +297,10 @@ namespace AppTestStudio
         SM_SYSTEMDOCKED = 0x2004,
     }
 
+    public enum CutCopyOption
+    {
+        None,
+        Cut,
+        Copy
+    }
 }

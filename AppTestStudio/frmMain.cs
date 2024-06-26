@@ -2056,7 +2056,6 @@ namespace AppTestStudio
             //' Show menu only if Right Mouse button is clicked
             if (e.Button == MouseButtons.Right)
             {
-
                 //' Point where mouse is clicked
                 Point p = new Point(e.X, e.Y);
 
@@ -2086,10 +2085,39 @@ namespace AppTestStudio
                             break;
                         case GameNodeType.Events:
                             mnuAddAction.Visible = false;
+
+                            // No Copy/Cut Events 
+                            toolStripMenuCopy.Visible = false;
+                            toolStripMenuCut.Visible = false;
+
+                            // On events tab don't show paste if there is something to paste.
+                            switch (cutCopyOption)
+                            {
+                                case CutCopyOption.None:
+                                    toolStripMenuPaste.Visible = false;
+                                    toolStripSeparatorCutCopyPaste.Visible = false;
+                                    break;
+                                case CutCopyOption.Cut:
+                                    toolStripMenuPaste.Visible = true;
+                                    toolStripSeparatorCutCopyPaste.Visible = true;
+                                    break;
+                                case CutCopyOption.Copy:
+                                    toolStripMenuPaste.Visible = true;
+                                    toolStripSeparatorCutCopyPaste.Visible = true;
+
+                                    break;
+                                default:
+                                    break;
+                            }
+
                             mnuEvents.Show(tv, p);
                             break;
                         case GameNodeType.Action:
                             GameNodeAction Action = node as GameNodeAction;
+                            toolStripMenuCopy.Visible = true;
+                            toolStripMenuCut.Visible = true;
+                            toolStripMenuPaste.Visible = true;
+                            toolStripSeparatorCutCopyPaste.Visible = true;
                             switch (Action.ActionType)
                             {
                                 case ActionType.Action:
@@ -2099,11 +2127,30 @@ namespace AppTestStudio
                                 case ActionType.RNG:
                                     break;
                                 case ActionType.RNGContainer:
+                                    switch (cutCopyOption)
+                                    {
+                                        case CutCopyOption.None:
+                                            break;
+                                        case CutCopyOption.Cut:
+                                        case CutCopyOption.Copy:
+                                            if(cutCopyActionNode.ActionType == ActionType.RNG)
+                                            {
+                                                // Can copyCut Rng node into RNG Container
+                                            }
+                                            else
+                                            {
+                                                toolStripMenuPaste.Visible = false;
+                                            }
+                                            break;
+                                        default:
+                                            break;
+                                    }
                                     mnuAddRNG.Visible = false;
                                     break;
                                 default:
                                     break;
                             }
+
                             mnuEvents.Show(tv, p);
                             break;
                         case GameNodeType.Objects:
@@ -2121,7 +2168,6 @@ namespace AppTestStudio
                     }
                 }
             }
-
         }
 
         private void tv_ItemDrag(object sender, ItemDragEventArgs e)
@@ -8738,20 +8784,32 @@ namespace AppTestStudio
             GameNode.DontTakeScreenshot = chkDontTakeScreenshot.Checked;
         }
 
+        public CutCopyOption cutCopyOption { get; set; } = CutCopyOption.None;
+        public GameNodeAction cutCopyActionNode { get; set; }
+
         private void toolStripMenuCut_Click(object sender, EventArgs e)
         {
-
+            cutCopyOption = CutCopyOption.Cut;
+            cutCopyActionNode = tv.SelectedNode as GameNodeAction;
         }
 
         private void toolStripMenuCopy_Click(object sender, EventArgs e)
         {
-
+            cutCopyOption = CutCopyOption.Copy;
+            cutCopyActionNode = tv.SelectedNode as GameNodeAction;
         }
 
-        private void toolStripMenuPaste_Click(object sender, EventArgs e)
+        private void toolStripMenuPasteChild_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void toolStripMenuPasteSibling_Click(object sender, EventArgs e)
+        {
+
+        }
+
+
     }
 }
 

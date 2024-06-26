@@ -142,6 +142,12 @@
   <data name="ASX_Paste_blue_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ASX_Paste_blue_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="BranchRelationshipChild_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BranchRelationshipChild_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="BranchRelationshipSibling_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\BranchRelationshipSibling_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="CollapseChevronLeft_16x" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CollapseChevronLeft_16x.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>

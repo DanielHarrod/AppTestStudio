@@ -152,9 +152,6 @@ namespace AppTestStudio
             }
         }
 
-
-
-
         private AnchorMode mAnchor;
 
         public AnchorMode Anchor
