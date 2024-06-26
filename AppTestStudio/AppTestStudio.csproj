@@ -251,6 +251,11 @@
     <Compile Include="NoxRegistry.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="RunThread.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="ScheduleItem.cs" />
@@ -298,14 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
     <None Include="app.manifest" />
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -335,12 +335,15 @@
     <Content Include="Resources\AddRNGP.png" />
     <Content Include="Resources\Angular_lightningboltGR.png" />
     <Content Include="Resources\ASX_CollapseChevronDown_grey_16x.png" />
+    <Content Include="Resources\ASX_Copy_blue_16x.png" />
+    <Content Include="Resources\ASX_Paste_blue_16x.png" />
     <Content Include="Resources\ATSGears.ico" />
     <Content Include="Resources\ATSGears.png" />
     <Content Include="Resources\ATSGroup.png" />
     <Content Include="Resources\ATSGroupGR.png" />
     <Content Include="Resources\ButtonClick_16xGR.png" />
     <Content Include="Resources\CollapseChevronLeft_16x.png" />
+    <Content Include="Resources\Cut_16x.png" />
     <Content Include="Resources\DependencyArrow_16xGR.png" />
     <Content Include="Resources\MoveGlyph_16x.png" />
     <Content Include="Resources\Next_16x.png" />

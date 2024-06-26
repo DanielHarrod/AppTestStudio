@@ -8737,6 +8737,21 @@ namespace AppTestStudio
             GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
             GameNode.DontTakeScreenshot = chkDontTakeScreenshot.Checked;
         }
+
+        private void toolStripMenuCut_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuCopy_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuPaste_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
