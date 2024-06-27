@@ -29,6 +29,7 @@ namespace AppTestStudio
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTreePicker));
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.cmdCancel = new System.Windows.Forms.Button();
             this.cmdAccept = new System.Windows.Forms.Button();
@@ -100,10 +101,9 @@ namespace AppTestStudio
             // 
             this.label3.Location = new System.Drawing.Point(438, 54);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(280, 50);
+            this.label3.Size = new System.Drawing.Size(280, 107);
             this.label3.TabIndex = 6;
-            this.label3.Text = "Information: This will search for the first occurrance of each not listed, if it " +
-    "finds a node then it follows that node down the tree.";
+            this.label3.Text = resources.GetString("label3.Text");
             // 
             // frmTreePicker
             // 

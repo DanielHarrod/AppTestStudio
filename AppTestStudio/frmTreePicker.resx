@@ -117,4 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Information: At runtime, this will search one section at a time for the node listed and pick the first instance it finds.  Recommended that you use unique names on each node so that this will pick the node you need.  
+
+If the node is not found all nodes in that section will be ignored due to attempting to match on something that does not exist.
+
+</value>
+  </data>
 </root>
