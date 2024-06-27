@@ -8951,6 +8951,7 @@ namespace AppTestStudio
             if (picker.AcceptedText.Length > 0)
             {
                 txtAfterCompletionGoTo.Text = picker.AcceptedText;
+                rdoAfterCompletionGoTo.Checked = true;
             }
             picker = null;            
         }
