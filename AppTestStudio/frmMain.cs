@@ -550,7 +550,15 @@ namespace AppTestStudio
         private void RecentScripts_Click(object sender, EventArgs e)
         {
             ToolStripItem menu = sender as ToolStripItem;
-            LoadExistingGameFromFile(menu.Text);
+            if (System.IO.File.Exists(menu.Text))
+            {
+                LoadExistingGameFromFile(menu.Text);
+            }
+            else
+            {
+                Log($"File does not exist unable to load {menu.Text}");
+            }
+            
         }
 
 
