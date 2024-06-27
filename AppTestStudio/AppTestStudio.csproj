@@ -251,6 +251,7 @@
     <Compile Include="GameNodeObject.cs" />
     <Compile Include="GameNodeObjects.cs" />
     <Compile Include="GameNodeWorkspace.cs" />
+    <Compile Include="HistoryManager.cs" />
     <Compile Include="KeyboardCommand.cs" />
     <Compile Include="KeyboardProcessor.cs" />
     <Compile Include="MinimalBitmapNode.cs" />

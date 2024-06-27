@@ -119,6 +119,8 @@ namespace AppTestStudio
             PictureObjectScreenshotRectangle = new Rectangle();
         }
 
+        private HistoryManager HistoryManager;
+
         private void frmMain_Load(object sender, EventArgs e)
         {
             ShowTermsOfServiceIfNecessary();
@@ -207,6 +209,10 @@ namespace AppTestStudio
 
             tableLayoutPanelRunLabels.BackColor = Color.FromArgb(60, 60, 60);
             tableLayoutPanelRunValues.BackColor = Color.FromArgb(60, 60, 60);
+
+
+            HistoryManager = new HistoryManager(WorkspaceNode.WorkspaceFolder);
+            UpdateRecentScripts();
 
             InitializeRunLabels();
         }
@@ -500,13 +506,7 @@ namespace AppTestStudio
                 try
                 {
                     String FileName = openDLG.FileName;
-                    const Boolean LoadBitmaps = false;
-                    GameNodeGame Game = GameNodeGame.LoadGameFromFile(FileName, LoadBitmaps, ThreadManager);
-
-                    if (Game.IsSomething())
-                    {
-                        LoadGameToTree(Game);
-                    }
+                    LoadExistingGameFromFile(FileName);
                 }
                 catch (Exception Ex)
                 {
@@ -516,6 +516,43 @@ namespace AppTestStudio
                 }
             }
         }
+
+        private void LoadExistingGameFromFile(string FileName)
+        {
+            const Boolean LoadBitmaps = false;
+            GameNodeGame Game = GameNodeGame.LoadGameFromFile(FileName, LoadBitmaps, ThreadManager);
+            HistoryManager.AddNew(FileName);
+
+            if (Game.IsSomething())
+            {
+                LoadGameToTree(Game);
+            }
+            UpdateRecentScripts();
+        }
+
+        private void UpdateRecentScripts()
+        {
+            List<String> FileNames = HistoryManager.GetOutputFiles();
+            int Lines = FileNames.Count;
+            while (Lines > mnuRecentScripts.DropDownItems.Count)
+            {
+                ToolStripItem Item = mnuRecentScripts.DropDownItems.Add("");
+                Item.Click += new System.EventHandler(this.RecentScripts_Click);
+
+            }
+
+            for (int i = 0; i < Lines; i++)
+            {
+                mnuRecentScripts.DropDownItems[i].Text = FileNames[i];
+            }
+        }
+
+        private void RecentScripts_Click(object sender, EventArgs e)
+        {
+            ToolStripItem menu = sender as ToolStripItem;
+            LoadExistingGameFromFile(menu.Text);
+        }
+
 
         private void LoadGameToTree(GameNodeGame game)
         {
@@ -6329,6 +6366,8 @@ namespace AppTestStudio
                 {
                     Game.Thread.Abort();
                 }
+                HistoryManager.Save();
+
                 Thread.Sleep(100);
 
                 // threads must be turned off off during saving.
