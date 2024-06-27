@@ -82,6 +82,8 @@ namespace AppTestStudio
             AppActivateIfNotActive = false;
             KeyboardAfterSendingActivationMS = 50;
             PreActionFailureAction = TimeoutAction.Continue;
+
+            GotoNode = "";
         }
 
         private TimeoutAction mPreActionFailureAction;
@@ -1106,6 +1108,24 @@ namespace AppTestStudio
             }
         }
 
+        private String mGotoNode;
+
+        public String GotoNode
+        {
+            get { return mGotoNode; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mGotoNode != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mGotoNode = value;
+            }
+        }
+
         //public MouseMode MouseMode { get; set; }
 
         //public Boolean MoveMouseBeforeAction { get; set; }
@@ -1290,6 +1310,8 @@ namespace AppTestStudio
             Action.AppActivateIfNotActive = AppActivateIfNotActive;
             Action.KeyboardAfterSendingActivationMS = KeyboardAfterSendingActivationMS;
             Action.PreActionFailureAction = PreActionFailureAction;
+
+            Action.GotoNode = GotoNode;
 
             Action.IsLoading = false;
             return Action;
@@ -2000,7 +2022,6 @@ namespace AppTestStudio
                 mKeyboardScript = value;
             }
         }
-
 
     }
 }

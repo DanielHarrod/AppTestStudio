@@ -55,7 +55,9 @@ namespace AppTestStudio
         Parent,
         Stop,
         ContinueProcess,
-        Recycle
+        Recycle,
+        GoToParent, // Parent Goto when unwinding the call stack
+        GoToChild   // Child Goto when unwinding the call stack
     }
 
     public enum ActionType

@@ -31,6 +31,8 @@ namespace AppTestStudio
 
         private static Object GetBitMapLock;
 
+        private String GoToNodeName { get; set; }
+
         static RunThread()
         {
             GetBitMapLock = new Object();
@@ -160,7 +162,7 @@ namespace AppTestStudio
         /// <param name="centerX"></param>
         /// <param name="centerY"></param>
         /// <returns></returns>
-        private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS)
+        private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS, List<String> NodeList)
         {
             //Debug.WriteLine($"ProcessChildren: {node.Name}");
             Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
@@ -534,7 +536,18 @@ namespace AppTestStudio
                                 // Process children and throw away the result
                                 foreach (GameNodeAction ChildNode in node.Nodes)
                                 {
-                                    ProcessChildren(bmp, ChildNode as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS);
+                                    if (NodeList.Count > 0)
+                                    {
+                                        if (ChildNode.Name == NodeList[0])
+                                        {
+                                            NodeList.RemoveAt(0);
+                                        }
+                                        else
+                                        {
+                                            continue;
+                                        }
+                                    }
+                                    ProcessChildren(bmp, ChildNode as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
                                 }
                                 CurrentRepeatsUntilFalseLimit--;
                                 goto RepeatAction;
@@ -612,7 +625,18 @@ namespace AppTestStudio
 
                         foreach (TreeNode t in RNGNode.Nodes)
                         {
-                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS);
+                            if (NodeList.Count > 0)
+                            {
+                                if (t.Name == NodeList[0])
+                                {
+                                    NodeList.RemoveAt(0);
+                                }
+                                else
+                                {
+                                    continue;
+                                }
+                            }
+                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
 
                             switch (ACT)
                             {
@@ -690,7 +714,18 @@ namespace AppTestStudio
                         Boolean ExitFor = false;
                         foreach (TreeNode t in node.Nodes)
                         {
-                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS);
+                            if (NodeList.Count > 0)
+                            {
+                                if (t.Name == NodeList[0])
+                                {
+                                    NodeList.RemoveAt(0);
+                                }
+                                else
+                                {
+                                    continue;
+                                }
+                            }
+                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
 
                             switch (ACT)
                             {
@@ -713,6 +748,14 @@ namespace AppTestStudio
                                     break;
                                 case AfterCompletionType.ContinueProcess:
                                     ThreadManager.IncrementGoContinue();
+                                    break;
+                                case AfterCompletionType.GoToParent:
+
+                                    GoToNodeName = (t as GameNodeAction).GotoNode;
+                                    return AfterCompletionType.GoToChild;
+                                    break;
+                                case AfterCompletionType.GoToChild:
+                                    return AfterCompletionType.GoToChild;
                                     break;
                                 default:
                                     Debug.Assert(false);
@@ -738,7 +781,12 @@ namespace AppTestStudio
                     case AfterCompletionType.Recycle:
                         Recycle(node, WindowHandle);
                         break;
+                    case AfterCompletionType.GoToParent:
+                        GoToNodeName = (node as GameNodeAction).GotoNode;
+                        return AfterCompletionType.GoToChild;
+                        break;
                     default:
+                        Debug.Assert(false);
                         break;
                 }
             }
@@ -972,49 +1020,20 @@ namespace AppTestStudio
                     Game.ScreenShotsTaken++;
                     Game.GameLoops++;
 
-                    int CenterX = 0;
-                    int CenterY = 0;
+                    AfterCompletionType afterCompletionType = ProcessTreeNodes(ref ChildSleepTimeMS, bmp, new List<String>());
 
-                    foreach (TreeNode node in Game.Events.Nodes)
+                    int GotoLimit = 50;
+                    while( afterCompletionType == AfterCompletionType.GoToChild && GotoLimit > 0)
                     {
-                        //long PreProcessChildren = Watch.ElapsedMilliseconds;
-                        AfterCompletionType ACT = ProcessChildren(bmp, node as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS);
-                        //long PostProcessChildren = Watch.ElapsedMilliseconds;
-                        //Debug.WriteLine($"Main Processchildren time{PostProcessChildren - PreProcessChildren}");
-                        Boolean ExitFor = false;
-                        switch (ACT)
-                        {
-                            case AppTestStudio.AfterCompletionType.Continue:
-                                ThreadManager.IncrementGoContinue();
-                                break;
-                            case AppTestStudio.AfterCompletionType.Home:
-                                ThreadManager.IncrementGoHome();
-                                ExitFor = true;  // Exit for in C#?
-                                break;
-                            case AppTestStudio.AfterCompletionType.Parent:
-                                ThreadManager.IncrementGoParent();
-                                break;
-                            case AppTestStudio.AfterCompletionType.Stop:
-                                ThreadManager.IncrementGoStop();
-                                ExitFor = true;
-                                break;
-                            case AfterCompletionType.Recycle:
-                                Recycle(node as GameNodeAction, WindowHandle);
-                                break;
-                            case AppTestStudio.AfterCompletionType.ContinueProcess:
-                                // should not be here?
-                                Debug.Assert(false);
-                                break;
-                            default:
-                                Debug.Assert(false);
-                                break;
-                        }
+                        List<String> NodeList = new List<String>(GoToNodeName.Split('\\'));
 
-                        if (ExitFor)
+                        afterCompletionType = ProcessTreeNodes(ref ChildSleepTimeMS, bmp, NodeList);
+                        GotoLimit--;
+                        if(GotoLimit == 0)
                         {
-                            break;
+                            Game.Log("Recursive/Chaining/Circular GoTo only supported up to 50 iterations.");
+                            Game.Log("Please try to limit Recursive/Chaining/Circular GoTo use or modify ATS by setting the GotoLimit to a higher value.");
                         }
-
                     }
                 }
                 else
@@ -1067,6 +1086,72 @@ namespace AppTestStudio
                 bmp = null;
             }  // ThreadIsShuttingDown == false
         }  // Run()
+
+        private AfterCompletionType ProcessTreeNodes(ref long ChildSleepTimeMS, Bitmap bmp, List<String> NodeList)
+        {
+            int CenterX = 0;
+            int CenterY = 0;
+            AfterCompletionType afterCompletionType = AfterCompletionType.Continue;
+            foreach (TreeNode node in Game.Events.Nodes)
+            {
+                if (NodeList.Count > 0 )
+                {
+                    if (node.Name == NodeList[0])
+                    {
+                        NodeList.RemoveAt(0);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                }
+                //long PreProcessChildren = Watch.ElapsedMilliseconds;
+                afterCompletionType = ProcessChildren(bmp, node as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS, NodeList);
+                //long PostProcessChildren = Watch.ElapsedMilliseconds;
+                //Debug.WriteLine($"Main Processchildren time{PostProcessChildren - PreProcessChildren}");
+                Boolean ExitFor = false;
+                switch (afterCompletionType)
+                {
+                    case AppTestStudio.AfterCompletionType.Continue:
+                        ThreadManager.IncrementGoContinue();
+                        break;
+                    case AppTestStudio.AfterCompletionType.Home:
+                        ThreadManager.IncrementGoHome();
+                        ExitFor = true;  // Exit for in C#?
+                        break;
+                    case AppTestStudio.AfterCompletionType.Parent:
+                        ThreadManager.IncrementGoParent();
+                        break;
+                    case AppTestStudio.AfterCompletionType.Stop:
+                        ThreadManager.IncrementGoStop();
+                        ExitFor = true;
+                        break;
+                    case AfterCompletionType.Recycle:
+                        Recycle(node as GameNodeAction, WindowHandle);
+                        break;
+                    case AppTestStudio.AfterCompletionType.ContinueProcess:
+                        // should not be here?
+                        Debug.Assert(false);
+                        break;
+                    case AfterCompletionType.GoToParent:
+                        ExitFor = true;
+                        break;
+                    case AfterCompletionType.GoToChild:
+                        ExitFor = true;
+                        break;
+                    default:
+                        Debug.Assert(false);
+                        break;
+                }
+
+                if (ExitFor)
+                {
+                    break;
+                }
+            }
+
+            return afterCompletionType;
+        }
 
         // Initialize runtime values
         private void InitializeChildren(GameNodeAction node)

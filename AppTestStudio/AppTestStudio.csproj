@@ -232,6 +232,12 @@
     <Compile Include="frmTimeCapture.Designer.cs">
       <DependentUpon>frmTimeCapture.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTreePicker.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTreePicker.Designer.cs">
+      <DependentUpon>frmTreePicker.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmWindowWizard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -297,6 +303,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmTimeCapture.resx">
       <DependentUpon>frmTimeCapture.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTreePicker.resx">
+      <DependentUpon>frmTreePicker.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmWindowWizard.resx">
       <DependentUpon>frmWindowWizard.cs</DependentUpon>

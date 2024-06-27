@@ -4271,6 +4271,11 @@ namespace AppTestStudio
                     ChosenAfterCompletionType = AfterCompletionType.Recycle;
                 }
 
+                if (rdoAfterCompletionGoTo.Checked )
+                {
+                    ChosenAfterCompletionType = AfterCompletionType.GoToParent;
+                }
+
                 GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
 
                 Picturable.AfterCompletionType = ChosenAfterCompletionType;
@@ -8908,6 +8913,46 @@ namespace AppTestStudio
             PasteSibling(ParentNode, NodeIndex+1);
 
             PasteCleanup();
+        }
+
+        private void cmdAfterCompletionHelp_Click(object sender, EventArgs e)
+        {
+            frmTreePicker picker = new frmTreePicker();
+            GameNode Node = tv.SelectedNode as GameNode;
+            GameNodeGame GameNode = Node.GetGameNodeGame();
+
+            picker.treeView1.Nodes.Clear();
+            TreeNode TestAllEventsGameNode = GameNode.CloneMe().Nodes[0];
+
+            picker.treeView1.Nodes.Add(TestAllEventsGameNode);
+            picker.treeView1.ExpandAll();
+            picker.ShowDialog();
+            if (picker.AcceptedText.Length > 0)
+            {
+                txtAfterCompletionGoTo.Text = picker.AcceptedText;
+            }
+            picker = null;            
+        }
+
+        private void rdoAfterCompletionGoTo_CheckedChanged(object sender, EventArgs e)
+        {
+            if (IsPanelLoading == false)
+            {
+                RDOAfterCompletionChange();
+            }
+        }
+
+        private void txtAfterCompletionGoTo_TextChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.GotoNode = txtAfterCompletionGoTo.Text;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
         }
     }
 }
