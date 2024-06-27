@@ -1034,6 +1034,10 @@ namespace AppTestStudio
                             Game.Log("Recursive/Chaining/Circular GoTo only supported up to 100 iterations.");
                             Game.Log("Please try to limit Recursive/Chaining/Circular GoTo use or modify ATS by setting the GotoLimit to a higher value.");
                         }
+                        while (Game.IsPaused)
+                        {
+                            Thread.Sleep(1000);
+                        }
                     }
                 }
                 else
@@ -1071,8 +1075,6 @@ namespace AppTestStudio
                 {
                     Thread.Sleep(1000);
                 }
-
-
 
                 // Clean up Screenshot
                 if (bmp.IsNothing())
