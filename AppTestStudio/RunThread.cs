@@ -1091,13 +1091,17 @@ namespace AppTestStudio
         {
             int CenterX = 0;
             int CenterY = 0;
+            int InitialNodeListCount = NodeList.Count;
+            Boolean FoundNode = false;
             AfterCompletionType afterCompletionType = AfterCompletionType.Continue;
             foreach (TreeNode node in Game.Events.Nodes)
             {
+
                 if (NodeList.Count > 0 )
                 {
                     if (node.Name == NodeList[0])
                     {
+                        FoundNode = true;
                         NodeList.RemoveAt(0);
                     }
                     else
@@ -1105,6 +1109,7 @@ namespace AppTestStudio
                         continue;
                     }
                 }
+
                 //long PreProcessChildren = Watch.ElapsedMilliseconds;
                 afterCompletionType = ProcessChildren(bmp, node as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS, NodeList);
                 //long PostProcessChildren = Watch.ElapsedMilliseconds;
@@ -1148,6 +1153,17 @@ namespace AppTestStudio
                 {
                     break;
                 }
+            }
+
+            if ( InitialNodeListCount > 0 && FoundNode == false)
+            {
+                Game.Log($"Expected to see node {NodeList[0]} but didn't find it.");
+                Game.Log($"Since we are looking for {NodeList[0]} no nodes were processed on this section.");
+                Game.Log($"This indicates a problem with the following with the Goto node.");
+            }
+            else
+            {
+                Debug.WriteLine("hrml.");
             }
 
             return afterCompletionType;
