@@ -1039,6 +1039,9 @@ namespace AppTestStudio
                 case AfterCompletionType.Recycle:
                     rdoAfterCompletionRecycle.Checked = true;
                     break;
+                case AfterCompletionType.GoToParent:
+                    rdoAfterCompletionGoTo.Checked = true;
+                    break;
                 default:
                     rdoAfterCompletionParent.Checked = true;
                     break;
@@ -1088,6 +1091,8 @@ namespace AppTestStudio
             }
 
             chkPropertiesEnabled.Checked = GameNode.Enabled;
+
+            txtAfterCompletionGoTo.Text = GameNode.GotoNode;
 
             AnchorChange(GameNode);
 
@@ -3460,13 +3465,16 @@ namespace AppTestStudio
                             {
                                 GameNodeAction ActionNode = tns[0] as GameNodeAction;
 
-                                if (mbmc.ResolutionHeight == ActionNode.ResolutionHeight)
+                                if (mbmc.ResolutionHeight > 0)
                                 {
-                                    if (mbmc.ResolutionWidth == ActionNode.ResolutionWidth)
+                                    if (mbmc.ResolutionHeight == ActionNode.ResolutionHeight)
                                     {
-                                        ActionNode.Bitmap = mbmc.Bitmap.Clone() as Bitmap;
-                                        Log("Synching Screenshot: " + ActionNode.Name);
-                                        BitmapChildren(ActionNode, ActionNode.Bitmap);
+                                        if (mbmc.ResolutionWidth == ActionNode.ResolutionWidth)
+                                        {
+                                            ActionNode.Bitmap = mbmc.Bitmap.Clone() as Bitmap;
+                                            Log("Synching Screenshot: " + ActionNode.Name);
+                                            BitmapChildren(ActionNode, ActionNode.Bitmap);
+                                        }
                                     }
                                 }
                             }

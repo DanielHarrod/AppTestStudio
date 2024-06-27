@@ -1797,6 +1797,7 @@ namespace AppTestStudio
                         }
 
                         Writer.WriteAttributeString("IsColorPoint", Activites.IsColorPoint.ToString());
+                        Writer.WriteAttributeString("GotoNode", Activites.GotoNode.ToString());
                         if (Activites.RepeatsUntilFalse)
                         {
                             Writer.WriteAttributeString("Repeats", Activites.RepeatsUntilFalse.ToString());
@@ -2326,6 +2327,11 @@ namespace AppTestStudio
                 newEvent.IsColorPoint = IsColorPoint;
             }
 
+            if (eventNode.Attributes.GetNamedItem("GotoNode").IsSomething())
+            {
+                newEvent.GotoNode = eventNode.Attributes["GotoNode"].Value;
+            }
+
             if (eventNode.Attributes.GetNamedItem("LimitRepeats").IsSomething())
             {
                 switch (eventNode.Attributes["LimitRepeats"].Value.ToUpper())
@@ -2568,6 +2574,9 @@ namespace AppTestStudio
                         break;
                     case "RECYCLE":
                         treeActionNode.AfterCompletionType = AfterCompletionType.Recycle;
+                        break;
+                    case "GOTOPARENT":
+                        treeActionNode.AfterCompletionType = AfterCompletionType.GoToParent;
                         break;
 
                     default:

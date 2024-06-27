@@ -1022,7 +1022,7 @@ namespace AppTestStudio
 
                     AfterCompletionType afterCompletionType = ProcessTreeNodes(ref ChildSleepTimeMS, bmp, new List<String>());
 
-                    int GotoLimit = 50;
+                    int GotoLimit = 100;
                     while( afterCompletionType == AfterCompletionType.GoToChild && GotoLimit > 0)
                     {
                         List<String> NodeList = new List<String>(GoToNodeName.Split('\\'));
@@ -1031,7 +1031,7 @@ namespace AppTestStudio
                         GotoLimit--;
                         if(GotoLimit == 0)
                         {
-                            Game.Log("Recursive/Chaining/Circular GoTo only supported up to 50 iterations.");
+                            Game.Log("Recursive/Chaining/Circular GoTo only supported up to 100 iterations.");
                             Game.Log("Please try to limit Recursive/Chaining/Circular GoTo use or modify ATS by setting the GotoLimit to a higher value.");
                         }
                     }
