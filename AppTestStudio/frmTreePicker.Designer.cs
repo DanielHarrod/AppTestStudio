@@ -118,7 +118,7 @@ namespace AppTestStudio
             this.Controls.Add(this.cmdCancel);
             this.Controls.Add(this.treeView1);
             this.Name = "frmTreePicker";
-            this.Text = "frmTreePicker";
+            this.Text = "Pick the Node to Jump to";
             this.Load += new System.EventHandler(this.frmTreePicker_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
