@@ -2263,6 +2263,9 @@ namespace AppTestStudio
                     case "RECYCLE":
                         newEvent.AfterCompletionType = AfterCompletionType.Recycle;
                         break;
+                    case "GOTOPARENT":
+                        newEvent.AfterCompletionType = AfterCompletionType.GoToParent;
+                        break;
                     default:
                         Debug.WriteLine("Unexpected GameNodeGame.LoadEvent.AfterCompletionType {0}", eventNode.Attributes["AfterCompletionType"].Value);
                         newEvent.AfterCompletionType = AfterCompletionType.Home;
