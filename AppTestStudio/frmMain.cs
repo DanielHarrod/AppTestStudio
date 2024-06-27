@@ -8863,11 +8863,16 @@ namespace AppTestStudio
                 NodeIndex++;
             }
 
-            PasteSibling(ParentNode, NodeIndex);
-
-            PasteCleanup();
-
-
+            if (DestinationNode.GameNodeType == GameNodeType.Events)
+            {
+                // user used the wrong paste but we will fix it for them.
+                toolStripMenuPasteChild_Click(sender, e);
+            }
+            else
+            {
+                PasteSibling(ParentNode, NodeIndex);
+                PasteCleanup();
+            }     
         }
         void PasteSibling(GameNode ParentNode, int NodeIndex)
         {
@@ -8918,9 +8923,17 @@ namespace AppTestStudio
                 NodeIndex++;
             }
 
-            PasteSibling(ParentNode, NodeIndex+1);
+            if (DestinationNode.GameNodeType == GameNodeType.Events)
+            {
+                // user used the wrong paste but we will fix it for them.
+                toolStripMenuPasteChild_Click(sender, e);
+            }
+            else
+            {
+                PasteSibling(ParentNode, NodeIndex + 1);
+                PasteCleanup();
+            }
 
-            PasteCleanup();
         }
 
         private void cmdAfterCompletionHelp_Click(object sender, EventArgs e)
