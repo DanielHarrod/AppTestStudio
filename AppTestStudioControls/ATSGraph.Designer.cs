@@ -84,7 +84,7 @@ namespace AppTestStudioControls
             // 
             this.lblHighest.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblHighest.AutoSize = true;
-            this.lblHighest.Location = new System.Drawing.Point(18, 18);
+            this.lblHighest.Location = new System.Drawing.Point(36, 0);
             this.lblHighest.Name = "lblHighest";
             this.lblHighest.Size = new System.Drawing.Size(53, 13);
             this.lblHighest.TabIndex = 4;
@@ -95,6 +95,7 @@ namespace AppTestStudioControls
             // 
             this.flowLayoutPanel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.flowLayoutPanel1.Controls.Add(this.lblMax);
+            this.flowLayoutPanel1.Controls.Add(this.lblHighest);
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
@@ -109,7 +110,6 @@ namespace AppTestStudioControls
             this.lblLowest.Size = new System.Drawing.Size(41, 13);
             this.lblLowest.TabIndex = 7;
             this.lblLowest.Text = "Lowest";
-            this.lblLowest.Visible = false;
             // 
             // ATSGraph
             // 
@@ -117,7 +117,6 @@ namespace AppTestStudioControls
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblAverage);
-            this.Controls.Add(this.lblHighest);
             this.Controls.Add(this.lblMid);
             this.Controls.Add(this.lblLowest);
             this.Controls.Add(this.lblCurrent);

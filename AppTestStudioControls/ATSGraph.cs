@@ -49,6 +49,11 @@ namespace AppTestStudioControls
         public string Prepender = " ms";
         public int TopShift = 50;
 
+        public int MaxLimit = 2000;
+        public int SnapToScale = 100;
+
+        public Boolean AveragingMode = true;
+
         private void ProcessVisualization_Paint(object sender, PaintEventArgs e)
         {
             Buckets[currentIndex % MaxBuckets] = (int)Queue.Sum();
@@ -61,17 +66,15 @@ namespace AppTestStudioControls
             if (MaxFound > Highest)
             {
                 Highest = MaxFound;
-            }
-            
-
+            }            
 
             if (MaxFound > 0)
             {
-                if (MaxFound > 1000)
+                if (MaxFound > MaxLimit)
                 {
-                    MaxFound = 1000;
+                    MaxFound = MaxLimit;
                 }
-                int MaxSnapTo100s = (int)Math.Ceiling((double)MaxFound / 100d) * 100;
+                int MaxSnapTo100s = (int)Math.Ceiling((double)MaxFound / (double)SnapToScale) * SnapToScale;
                 lblMax.Text = MaxSnapTo100s.ToString() + Prepender; ;
                 lblMid.Text = (MaxSnapTo100s / 2).ToString() + Prepender; ;
                 MaxFound = MaxSnapTo100s;
@@ -209,7 +212,8 @@ namespace AppTestStudioControls
                 {
                     LowestMax = LowestCurrent; 
                 }
-                lblLowest.Text = $"Low: {LowestCurrent}/{LowestMax} {Prepender}" ;
+                //lblLowest.Text = $"Low: {LowestCurrent}/{LowestMax} {Prepender}";
+                lblLowest.Text = $"Low: {LowestCurrent} {Prepender}";
             }
         }
 
