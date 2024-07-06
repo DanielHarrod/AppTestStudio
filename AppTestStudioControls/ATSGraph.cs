@@ -63,8 +63,14 @@ namespace AppTestStudioControls
                 Highest = MaxFound;
             }
             
+
+
             if (MaxFound > 0)
             {
+                if (MaxFound > 1000)
+                {
+                    MaxFound = 1000;
+                }
                 int MaxSnapTo100s = (int)Math.Ceiling((double)MaxFound / 100d) * 100;
                 lblMax.Text = MaxSnapTo100s.ToString() + Prepender; ;
                 lblMid.Text = (MaxSnapTo100s / 2).ToString() + Prepender; ;
@@ -122,28 +128,32 @@ namespace AppTestStudioControls
                 int LowestCurrent = 0;
 
                 List<Point> points = new List<Point>();
+                List<Point> verticalPoints = new List<Point>();
                 for (int i = 0; i < MaxBuckets; i++)
                 {
                     int kIndex = (currentIndex + i) % MaxBuckets;
                     if (i == (MaxBuckets-1))
                     {
-                        lblCurrent.Text = "Last:" + Buckets[kIndex].ToString() + Prepender; ;
+                        lblCurrent.Text = "Last:" + Buckets[kIndex].ToString() + Prepender;
                         //lblAverage.Text = "Average:" + Buckets.Average().ToString();
                     }
 
+                    // Find Lowest Value
+                    // First or has data.
                     if (LowestCurrent ==0 || Buckets[kIndex] > 0)
                     {
+                        // First
                         if (LowestCurrent == 0)
                         {
                             LowestCurrent = Buckets[kIndex];
                         }
                         else
                         {
+                            // Lowest
                             if (Buckets[kIndex] < LowestCurrent)
                             {
                                 LowestCurrent = Buckets[kIndex];
                             }
-
                         }
                     }
 
@@ -153,6 +163,21 @@ namespace AppTestStudioControls
                     point.X =  WorkAreaWidth - (int)(i * XSpacing);
 
                     point.Y = WorkAreaHeight + VerticalMargin - (int)((YSingleUnitSpacing * Buckets[kIndex]) *0.99)+1;
+
+                    if (point.Y < 0)
+                    {
+                        point.Y = 0;
+                    }
+
+                    // Every 10th
+                    if (kIndex % 4 == 0)
+                    {
+                        Point verticalPoint = new Point();
+                        verticalPoint.X = point.X;
+                        verticalPoint.Y = point.Y;
+                        verticalPoints.Add(verticalPoint);
+                    }
+
                     // Move the (cursor)
                     points.Add(point);
 
@@ -169,8 +194,13 @@ namespace AppTestStudioControls
                     e.Graphics.DrawLines(GreenPen, points.ToArray());
                     if (AverageCount > 0)
                     {
-                        lblAverage.Text = "Average: " + (Average / AverageCount) + Prepender; ;
-                    }                    
+                        lblAverage.Text = "Avg: " + (Average / AverageCount) + Prepender; ;
+                    }
+
+                    foreach (Point point in verticalPoints)
+                    {
+                        e.Graphics.DrawLine(LightGreenPen, point.X, point.Y, point.X, WorkAreaHeight);
+                    }
                 }
                 lblHighest.Text = $"Highest: {Highest}/{MaxFound} {Prepender}"; 
 

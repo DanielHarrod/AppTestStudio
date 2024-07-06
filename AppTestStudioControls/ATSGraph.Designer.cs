@@ -45,7 +45,7 @@ namespace AppTestStudioControls
             this.lblMax.AutoSize = true;
             this.lblMax.Location = new System.Drawing.Point(3, 0);
             this.lblMax.Name = "lblMax";
-            this.lblMax.Size = new System.Drawing.Size(30, 15);
+            this.lblMax.Size = new System.Drawing.Size(27, 13);
             this.lblMax.TabIndex = 0;
             this.lblMax.Text = "Max";
             // 
@@ -53,9 +53,9 @@ namespace AppTestStudioControls
             // 
             this.lblCurrent.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCurrent.AutoSize = true;
-            this.lblCurrent.Location = new System.Drawing.Point(21, 143);
+            this.lblCurrent.Location = new System.Drawing.Point(18, 124);
             this.lblCurrent.Name = "lblCurrent";
-            this.lblCurrent.Size = new System.Drawing.Size(47, 15);
+            this.lblCurrent.Size = new System.Drawing.Size(41, 13);
             this.lblCurrent.TabIndex = 1;
             this.lblCurrent.Text = "Current";
             this.lblCurrent.Visible = false;
@@ -63,9 +63,9 @@ namespace AppTestStudioControls
             // lblMid
             // 
             this.lblMid.AutoSize = true;
-            this.lblMid.Location = new System.Drawing.Point(18, 126);
+            this.lblMid.Location = new System.Drawing.Point(15, 109);
             this.lblMid.Name = "lblMid";
-            this.lblMid.Size = new System.Drawing.Size(28, 15);
+            this.lblMid.Size = new System.Drawing.Size(24, 13);
             this.lblMid.TabIndex = 2;
             this.lblMid.Text = "Mid";
             // 
@@ -73,21 +73,20 @@ namespace AppTestStudioControls
             // 
             this.lblAverage.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblAverage.AutoSize = true;
-            this.lblAverage.Location = new System.Drawing.Point(21, 158);
+            this.lblAverage.Location = new System.Drawing.Point(18, 137);
             this.lblAverage.Name = "lblAverage";
             this.lblAverage.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.lblAverage.Size = new System.Drawing.Size(50, 15);
+            this.lblAverage.Size = new System.Drawing.Size(26, 13);
             this.lblAverage.TabIndex = 3;
-            this.lblAverage.Text = "Average";
-            this.lblAverage.Visible = false;
+            this.lblAverage.Text = "Avg";
             // 
             // lblHighest
             // 
             this.lblHighest.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblHighest.AutoSize = true;
-            this.lblHighest.Location = new System.Drawing.Point(21, 21);
+            this.lblHighest.Location = new System.Drawing.Point(18, 18);
             this.lblHighest.Name = "lblHighest";
-            this.lblHighest.Size = new System.Drawing.Size(61, 15);
+            this.lblHighest.Size = new System.Drawing.Size(53, 13);
             this.lblHighest.TabIndex = 4;
             this.lblHighest.Text = "lblHighest";
             this.lblHighest.Visible = false;
@@ -99,22 +98,22 @@ namespace AppTestStudioControls
             this.flowLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(440, 18);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(377, 16);
             this.flowLayoutPanel1.TabIndex = 6;
             // 
             // lblLowest
             // 
             this.lblLowest.AutoSize = true;
-            this.lblLowest.Location = new System.Drawing.Point(21, 272);
+            this.lblLowest.Location = new System.Drawing.Point(18, 236);
             this.lblLowest.Name = "lblLowest";
-            this.lblLowest.Size = new System.Drawing.Size(44, 15);
+            this.lblLowest.Size = new System.Drawing.Size(41, 13);
             this.lblLowest.TabIndex = 7;
             this.lblLowest.Text = "Lowest";
             this.lblLowest.Visible = false;
             // 
             // ATSGraph
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.lblAverage);
@@ -124,7 +123,7 @@ namespace AppTestStudioControls
             this.Controls.Add(this.lblCurrent);
             this.DoubleBuffered = true;
             this.Name = "ATSGraph";
-            this.Size = new System.Drawing.Size(440, 296);
+            this.Size = new System.Drawing.Size(377, 257);
             this.Load += new System.EventHandler(this.ProcessVisualization_Load);
             this.SizeChanged += new System.EventHandler(this.ProcessVisualization_SizeChanged);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.ProcessVisualization_Paint);
