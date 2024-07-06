@@ -215,6 +215,20 @@ namespace AppTestStudio
             UpdateRecentScripts();
 
             InitializeRunLabels();
+
+            InitializeActionsPerSecondGraph();
+
+        }
+
+        private void InitializeActionsPerSecondGraph()
+        {
+            // hide the ms default.
+            atsGraphActions.Prepender = "";
+
+            // Potentially impossible limit
+            atsGraphActions.MaxLimit = 30000;
+
+            atsGraphActions.SnapToScale = 10;
         }
 
         private void ShowTermsOfServiceIfNecessary()
@@ -8435,6 +8449,8 @@ namespace AppTestStudio
             }
         }
 
+        static long LastClickCount = 0;
+
         private void TimerProperties_Tick(object sender, EventArgs e)
         {
             try
@@ -8444,9 +8460,15 @@ namespace AppTestStudio
                     TreeViewEventArgs tvea = new TreeViewEventArgs(tvRun.SelectedNode);
                     tvRun_AfterSelect(null, tvea);
                 }
+
                 // Force redraw
                 atsGraph1.Queue.Add(this.ThreadManager.DequeueProcessingTime());
                 atsGraph1.Invalidate();
+
+                long TickCoundDifference = this.ThreadManager.ClickCount - LastClickCount;
+                LastClickCount = this.ThreadManager.ClickCount;
+                atsGraphActions.Queue.Add(TickCoundDifference);
+                atsGraphActions.Invalidate();
             }
             catch (Exception ex)
             {
