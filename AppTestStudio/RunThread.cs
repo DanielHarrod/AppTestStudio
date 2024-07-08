@@ -14,6 +14,7 @@ using OpenCvSharp;
 using System.Threading;
 using System.Windows.Forms;
 using System.Web.Hosting;
+using static AppTestStudio.API;
 
 namespace AppTestStudio
 {
@@ -942,6 +943,15 @@ namespace AppTestStudio
                 if (WindowHandle == IntPtr.Zero)
                 {
                     WindowHandle = Game.GetWindowHandleByWindowName();
+                }
+                else
+                {
+                    // verify window exists.
+                    IntPtr ParentHwnd = API.GetAncestor(WindowHandle, GetAncestorFlags.GetRoot);
+                    if (ParentHwnd == IntPtr.Zero)
+                    {
+                        WindowHandle = IntPtr.Zero;
+                    }
                 }
 
                 while (WindowHandle.ToInt32() == 0)
