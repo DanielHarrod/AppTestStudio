@@ -87,7 +87,7 @@ namespace AppTestStudio
 
 
         [DllImport("user32.dll", EntryPoint = "GetDC")]
-        public static extern IntPtr GetDC(IntPtr ptr);
+        internal static extern IntPtr GetDC(IntPtr ptr);
 
         [DllImport("user32.dll")]
         public static extern IntPtr GetWindowDC(IntPtr hWnd);

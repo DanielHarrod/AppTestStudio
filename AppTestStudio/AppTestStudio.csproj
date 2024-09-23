@@ -1,20 +1,7 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="..\packages\OpenCvSharp4.runtime.win.4.6.0.20220608\build\netstandard\OpenCvSharp4.runtime.win.props" Condition="Exists('..\packages\OpenCvSharp4.runtime.win.4.6.0.20220608\build\netstandard\OpenCvSharp4.runtime.win.props')" />
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C8DDE312-B0B6-4173-BCC0-27BC26EA3498}</ProjectGuid>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>AppTestStudio</RootNamespace>
-    <AssemblyName>AppTestStudio</AssemblyName>
-    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-    <Deterministic>true</Deterministic>
-    <NuGetPackageImportStamp>
-    </NuGetPackageImportStamp>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>publish\</PublishUrl>
     <Install>true</Install>
@@ -30,72 +17,20 @@
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <UseWindowsForms>true</UseWindowsForms>
+    <UseWPF>true</UseWPF>
+    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <DebugSymbols>true</DebugSymbols>
     <OutputPath>bin\x86\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
     <OutputPath>bin\x86\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x86</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>true</Prefer32Bit>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
-    <DebugSymbols>true</DebugSymbols>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DebugType>full</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>true</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <Optimize>true</Optimize>
-    <DebugType>pdbonly</DebugType>
-    <PlatformTarget>x64</PlatformTarget>
-    <LangVersion>7.3</LangVersion>
-    <ErrorReport>prompt</ErrorReport>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-    <Prefer32Bit>true</Prefer32Bit>
-  </PropertyGroup>
-  <PropertyGroup />
   <PropertyGroup>
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
@@ -103,239 +38,7 @@
     <ApplicationIcon>Resources\ATSGears.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Gma.System.MouseKeyHook, Version=5.6.130.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\MouseKeyHook.5.6.0\lib\net40\Gma.System.MouseKeyHook.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCvSharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenCvSharp4.4.6.0.20220608\lib\netstandard2.0\OpenCvSharp.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenCvSharp.Extensions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=6adad1e807fea099, processorArchitecture=MSIL">
-      <HintPath>..\packages\OpenCvSharp4.Extensions.4.6.0.20220608\lib\netstandard2.0\OpenCvSharp.Extensions.dll</HintPath>
-    </Reference>
-    <Reference Include="PresentationCore" />
-    <Reference Include="System" />
-    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Configuration" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Drawing.Common, Version=4.0.0.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Drawing.Common.5.0.3\lib\net461\System.Drawing.Common.dll</HintPath>
-    </Reference>
-    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
-      <Private>True</Private>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="System.IO.Compression.FileSystem" />
-    <Reference Include="System.Memory, Version=4.0.1.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Memory.4.5.4\lib\net461\System.Memory.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Numerics" />
-    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
-    </Reference>
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.ServiceModel" />
-    <Reference Include="System.Transactions" />
-    <Reference Include="System.Web" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
-    <Reference Include="System.Xml" />
-    <Reference Include="WindowsBase" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="API.cs" />
-    <Compile Include="BlueGuest.cs" />
-    <Compile Include="BlueRegistry.cs" />
-    <Compile Include="BooleanParser\Parser.cs" />
-    <Compile Include="BooleanParser\ParsingHelpers.cs" />
-    <Compile Include="BooleanParser\TokenEnumerator.cs" />
-    <Compile Include="BooleanParser\UnexpectedTokenException.cs" />
-    <Compile Include="ColorPoint.cs" />
-    <Compile Include="Definitions.cs" />
-    <Compile Include="Enums.cs" />
-    <Compile Include="ExportGameResults.cs" />
-    <Compile Include="Extensions.cs" />
-    <Compile Include="frmAbout.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAbout.Designer.cs">
-      <DependentUpon>frmAbout.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAddNewGame.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAddNewGame.Designer.cs">
-      <DependentUpon>frmAddNewGame.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmAddNewGameWizard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmAddNewGameWizard.Designer.cs">
-      <DependentUpon>frmAddNewGameWizard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmImportProjectName.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmImportProjectName.Designer.cs">
-      <DependentUpon>frmImportProjectName.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmLoadCheck.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmLoadCheck.Designer.cs">
-      <DependentUpon>frmLoadCheck.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmMain.Designer.cs">
-      <DependentUpon>frmMain.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmNotify.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmNotify.Designer.cs">
-      <DependentUpon>frmNotify.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmScheduler.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmScheduler.Designer.cs">
-      <DependentUpon>frmScheduler.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTest.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTest.Designer.cs">
-      <DependentUpon>frmTest.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTestObjectSearch.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTestObjectSearch.Designer.cs">
-      <DependentUpon>frmTestObjectSearch.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTimeCapture.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTimeCapture.Designer.cs">
-      <DependentUpon>frmTimeCapture.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmTreePicker.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmTreePicker.Designer.cs">
-      <DependentUpon>frmTreePicker.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmWindowWizard.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmWindowWizard.Designer.cs">
-      <DependentUpon>frmWindowWizard.cs</DependentUpon>
-    </Compile>
-    <Compile Include="GameNode.cs" />
-    <Compile Include="GameNodeAction.cs" />
-    <Compile Include="GameNodeEvents.cs" />
-    <Compile Include="GameNodeGame.cs" />
-    <Compile Include="GameNodeObject.cs" />
-    <Compile Include="GameNodeObjects.cs" />
-    <Compile Include="GameNodeWorkspace.cs" />
-    <Compile Include="HistoryManager.cs" />
-    <Compile Include="KeyboardCommand.cs" />
-    <Compile Include="KeyboardProcessor.cs" />
-    <Compile Include="MinimalBitmapNode.cs" />
-    <Compile Include="NoxRegistry.cs" />
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="RunThread.cs" />
-    <Compile Include="Schedule.cs" />
-    <Compile Include="ScheduleItem.cs" />
-    <Compile Include="SingleClick.cs" />
-    <Compile Include="SteamRegistry.cs" />
-    <Compile Include="WindowHandleInfo.cs" />
-    <Compile Include="ThreadManager.cs" />
-    <Compile Include="Utils.cs" />
-    <EmbeddedResource Include="frmAbout.resx">
-      <DependentUpon>frmAbout.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAddNewGame.resx">
-      <DependentUpon>frmAddNewGame.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmAddNewGameWizard.resx">
-      <DependentUpon>frmAddNewGameWizard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmImportProjectName.resx">
-      <DependentUpon>frmImportProjectName.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmLoadCheck.resx">
-      <DependentUpon>frmLoadCheck.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmMain.resx">
-      <DependentUpon>frmMain.cs</DependentUpon>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmNotify.resx">
-      <DependentUpon>frmNotify.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmScheduler.resx">
-      <DependentUpon>frmScheduler.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTest.resx">
-      <DependentUpon>frmTest.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTestObjectSearch.resx">
-      <DependentUpon>frmTestObjectSearch.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTimeCapture.resx">
-      <DependentUpon>frmTimeCapture.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmTreePicker.resx">
-      <DependentUpon>frmTreePicker.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmWindowWizard.resx">
-      <DependentUpon>frmWindowWizard.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <SubType>Designer</SubType>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
-    <None Include="app.manifest" />
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\AppTestStudioControls\AppTestStudioControls.csproj">
-      <Project>{1f7cc8a4-8227-45eb-bea8-ccc26b3d1f46}</Project>
-      <Name>AppTestStudioControls</Name>
-    </ProjectReference>
+    <ProjectReference Include="..\AppTestStudioControls\AppTestStudioControls.csproj" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Build Notes.txt" />
@@ -366,13 +69,10 @@
     <Content Include="Resources\RNGGR.png" />
     <Content Include="Resources\SearchAndApps_16xGR.png" />
     <Content Include="Resources\StartEmmulator.bmp" />
-    <None Include="Resources\StatusWarning_71x71.png" />
     <Content Include="Resources\Test.png" />
     <Content Include="Resources\TestALLP.png" />
     <Content Include="Resources\ToggleOfficeKeyboardScheme_16x.png" />
     <Content Include="Resources\UploadFile_16x_24.bmp" />
-    <None Include="Resources\ATSGears.psd" />
-    <None Include="Resources\DragTargetMode.png" />
     <Content Include="Resources\ImportCatalogPart_16x_24.bmp" />
     <Content Include="Resources\Pause_64x_64.bmp" />
     <Content Include="Resources\Save_16x_24.bmp" />
@@ -390,14 +90,28 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
-    <PropertyGroup>
-      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
-    </PropertyGroup>
-    <Error Condition="!Exists('..\packages\OpenCvSharp4.runtime.win.4.6.0.20220608\build\netstandard\OpenCvSharp4.runtime.win.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\OpenCvSharp4.runtime.win.4.6.0.20220608\build\netstandard\OpenCvSharp4.runtime.win.props'))" />
-  </Target>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="MouseKeyHook" Version="5.7.1" />
+    <PackageReference Include="OpenCvSharp4" Version="4.6.0.20220608" />
+    <PackageReference Include="OpenCvSharp4.Extensions" Version="4.6.0.20220608" />
+    <PackageReference Include="OpenCvSharp4.runtime.win" Version="4.6.0.20220608" />
+    <PackageReference Include="OpenCvSharp4.Windows" Version="4.6.0.20220608" />
+    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
+    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="1.3.0" />
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="8.0.0" />
+    <PackageReference Include="System.ServiceModel.Primitives" Version="6.2.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="6.2.0" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="6.2.0" />
+    <PackageReference Include="System.ServiceModel.Security" Version="6.0.0" />
+    <PackageReference Include="System.ServiceModel.Federation" Version="6.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="AppTestStudioApplicationContext.cs" />
+  </ItemGroup>
   <PropertyGroup>
-    <PostBuildEvent>copy /Y "$(TargetDir)\dll\x64\*.* ..\..</PostBuildEvent>
+    <PostBuildEvent>echo copy /Y $(TargetDir)\dll\x64\*.*  $(TargetDir)\bin\debug\</PostBuildEvent>
   </PropertyGroup>
 </Project>

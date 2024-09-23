@@ -682,6 +682,7 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripCurrentDesignInstance = new System.Windows.Forms.ToolStripLabel();
             this.toolStripInstances = new System.Windows.Forms.ToolStripDropDownButton();
+            this.mnuMouseRecording = new System.Windows.Forms.ToolStripButton();
             this.menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainerMain)).BeginInit();
             this.splitContainerMain.Panel1.SuspendLayout();
@@ -1473,7 +1474,7 @@
             this.tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.tableLayoutPanelRunValues.ColumnCount = 2;
             this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 71F));
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue14, 0, 13);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue7, 0, 6);
             this.tableLayoutPanelRunValues.Controls.Add(this.lblRunValue1, 0, 0);
@@ -1671,10 +1672,10 @@
             // cmdUpdateResolution
             // 
             this.cmdUpdateResolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdUpdateResolution.Location = new System.Drawing.Point(71, 148);
+            this.cmdUpdateResolution.Location = new System.Drawing.Point(69, 148);
             this.cmdUpdateResolution.Margin = new System.Windows.Forms.Padding(0);
             this.cmdUpdateResolution.Name = "cmdUpdateResolution";
-            this.cmdUpdateResolution.Size = new System.Drawing.Size(69, 20);
+            this.cmdUpdateResolution.Size = new System.Drawing.Size(71, 20);
             this.cmdUpdateResolution.TabIndex = 13;
             this.cmdUpdateResolution.Text = "...";
             this.cmdUpdateResolution.UseVisualStyleBackColor = true;
@@ -1683,10 +1684,10 @@
             // cmdRuntimeEnableToggle
             // 
             this.cmdRuntimeEnableToggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(71, 64);
+            this.cmdRuntimeEnableToggle.Location = new System.Drawing.Point(69, 64);
             this.cmdRuntimeEnableToggle.Margin = new System.Windows.Forms.Padding(0);
             this.cmdRuntimeEnableToggle.Name = "cmdRuntimeEnableToggle";
-            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(69, 20);
+            this.cmdRuntimeEnableToggle.Size = new System.Drawing.Size(71, 20);
             this.cmdRuntimeEnableToggle.TabIndex = 14;
             this.cmdRuntimeEnableToggle.Text = "...";
             this.cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
@@ -8433,7 +8434,8 @@
             this.toolSchedulerRunning,
             this.toolStripSeparator8,
             this.toolStripCurrentDesignInstance,
-            this.toolStripInstances});
+            this.toolStripInstances,
+            this.mnuMouseRecording});
             this.toolStripMain.Location = new System.Drawing.Point(0, 24);
             this.toolStripMain.Name = "toolStripMain";
             this.toolStripMain.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
@@ -8553,6 +8555,16 @@
             this.toolStripInstances.Size = new System.Drawing.Size(74, 28);
             this.toolStripInstances.Text = "Instance #";
             this.toolStripInstances.Visible = false;
+            // 
+            // mnuMouseRecording
+            // 
+            this.mnuMouseRecording.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.mnuMouseRecording.Image = ((System.Drawing.Image)(resources.GetObject("mnuMouseRecording.Image")));
+            this.mnuMouseRecording.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.mnuMouseRecording.Name = "mnuMouseRecording";
+            this.mnuMouseRecording.Size = new System.Drawing.Size(101, 28);
+            this.mnuMouseRecording.Text = "MouseRecording";
+            this.mnuMouseRecording.Click += new System.EventHandler(this.mnuMouseRecording_Click);
             // 
             // frmMain
             // 
@@ -9461,5 +9473,6 @@
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator14;
         private System.Windows.Forms.Label label7;
         private AppTestStudioControls.ATSGraph atsGraphActions;
+        private System.Windows.Forms.ToolStripButton mnuMouseRecording;
     }
 }

@@ -508,7 +508,7 @@ namespace AppTestStudio
                     }
                 }
             }
-            OpenFileDialog openDLG = new OpenFileDialog();
+            System.Windows.Forms.OpenFileDialog openDLG = new System.Windows.Forms.OpenFileDialog();
             openDLG.InitialDirectory = Utils.GetApplicationFolder();
             openDLG.Filter = "App Test Studio files|Default.xml";
             openDLG.RestoreDirectory = true;
@@ -7723,20 +7723,9 @@ namespace AppTestStudio
             GlobalMouseKeyHook = Hook.GlobalEvents();
 
             // GlobalMouseKeyHook.MouseDownExt += GlobalHookMouseDownExt;
-            //GlobalMouseKeyHook.KeyPress += GlobalMouseKeyHook_KeyPress;
             GlobalMouseKeyHook.KeyDown += GlobalMouseKeyHook_KeyDown;
-            //GlobalMouseKeyHook.KeyUp += GlobalMouseKeyHook_KeyUp;
         }
 
-        //private void GlobalMouseKeyHook_KeyPress(object sender, KeyPressEventArgs e)
-        //{
-        //    Debug.WriteLine("GlobalMouseKeyHook_KeyPress:"+ e.KeyChar);
-        //}
-
-        //private void GlobalMouseKeyHook_KeyUp(object sender, KeyEventArgs e)
-        //{
-        //    Debug.WriteLine("GlobalMouseKeyHook_KeyUp:" + e.ToString());
-        //}
 
 
         Boolean IsNotifying = false;
@@ -7744,6 +7733,7 @@ namespace AppTestStudio
         frmNotify frmNotify;
         private void GlobalMouseKeyHook_KeyDown(object sender, KeyEventArgs e)
         {
+            Debug.WriteLine($"GlobalMouseKeyHook_KeyDown: {e.KeyCode},{e.SuppressKeyPress},{e.KeyData}");
             try
             {
                 // Not sure why this fires true for F5 sometimes.
@@ -7876,7 +7866,7 @@ namespace AppTestStudio
         {
             //GlobalMouseKeyHook.MouseDownExt -= GlobalHookMouseDownExt;
             //GlobalMouseKeyHook.KeyPress -= GlobalMouseKeyHook_KeyPress;
-            GlobalMouseKeyHook.KeyDown += GlobalMouseKeyHook_KeyDown;
+            GlobalMouseKeyHook.KeyDown -= GlobalMouseKeyHook_KeyDown;
             //GlobalMouseKeyHook.KeyUp += GlobalMouseKeyHook_KeyUp;
 
             //It is recommened to dispose it
