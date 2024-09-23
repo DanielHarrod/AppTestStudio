@@ -90,40 +90,40 @@ namespace AppTestStudio
         internal static extern IntPtr GetDC(IntPtr ptr);
 
         [DllImport("user32.dll")]
-        public static extern IntPtr GetWindowDC(IntPtr hWnd);
+        internal static extern IntPtr GetWindowDC(IntPtr hWnd);
 
         [DllImport("gdi32.dll", EntryPoint = "CreateCompatibleDC", SetLastError = true)]
-        public static extern IntPtr CreateCompatibleDC([In] IntPtr hdc);
+        internal static extern IntPtr CreateCompatibleDC([In] IntPtr hdc);
 
         [DllImport("gdi32.dll", EntryPoint = "CreateCompatibleBitmap")]
-        public static extern IntPtr CreateCompatibleBitmap([In] IntPtr hdc, int nWidth, int nHeight);
+        internal static extern IntPtr CreateCompatibleBitmap([In] IntPtr hdc, int nWidth, int nHeight);
 
         [DllImport("gdi32.dll", EntryPoint = "SelectObject")]
-        public static extern IntPtr SelectObject([In] IntPtr hdc, [In] IntPtr hgdiobj);
+        internal static extern IntPtr SelectObject([In] IntPtr hdc, [In] IntPtr hgdiobj);
 
         [DllImport("user32.dll")]
-        public static extern bool PrintWindow(IntPtr hWnd, IntPtr hdcBlt, int nFlags);
+        internal static extern bool PrintWindow(IntPtr hWnd, IntPtr hdcBlt, int nFlags);
 
         [DllImport("user32.dll")]
-        public static extern bool ReleaseDC(IntPtr hWnd, IntPtr hDC);
+        internal static extern bool ReleaseDC(IntPtr hWnd, IntPtr hDC);
 
         [DllImport("gdi32.dll", EntryPoint = "DeleteDC")]
-        public static extern bool DeleteDC([In] IntPtr hdc);
+        internal static extern bool DeleteDC([In] IntPtr hdc);
 
         [DllImport("gdi32.dll", EntryPoint = "DeleteObject")]
-        public static extern bool DeleteObject([In] IntPtr hObject);
+        internal static extern bool DeleteObject([In] IntPtr hObject);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
-        public static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, IntPtr lParam);
+        internal static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, IntPtr lParam);
 
         [DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
-        public static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
+        internal static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
 
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
+        internal static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
 
         [DllImport("user32.dll")]
-        public static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
+        internal static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);
 
         public static bool PostMessage(IntPtr hwnd, int Msg, int wParam, int lParam)
         {
@@ -134,40 +134,40 @@ namespace AppTestStudio
 
         [DllImport("user32")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool EnumChildWindows(IntPtr window, EnumWindowsProc callback, IntPtr i);
+        internal static extern bool EnumChildWindows(IntPtr window, EnumWindowsProc callback, IntPtr i);
 
         [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
-        public static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+        internal static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
         [DllImport("user32.dll")]
-        public static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
+        internal static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
 
         [DllImport("user32.dll")]
-        public static extern bool ClientToScreen(IntPtr hWnd, ref Point lpPoint);
+        internal static extern bool ClientToScreen(IntPtr hWnd, ref Point lpPoint);
 
         [DllImport("user32.dll", SetLastError = true, CharSet = CharSet.Auto)]
-        public static extern int GetWindowTextLength(IntPtr hWnd);
+        internal static extern int GetWindowTextLength(IntPtr hWnd);
 
         [DllImport("user32.dll")]
-        public static extern int GetSystemMetrics(SystemMetric smIndex);
+        internal static extern int GetSystemMetrics(SystemMetric smIndex);
 
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int Width, int Height, bool Repaint);
+        internal static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int Width, int Height, bool Repaint);
 
         [DllImport("user32.dll", SetLastError = true)]
-        public static extern uint SendInput(uint nInputs, Input[] pInputs, int cbSize);
+        internal static extern uint SendInput(uint nInputs, Input[] pInputs, int cbSize);
 
         [DllImport("user32.dll")]
-        public static extern IntPtr GetMessageExtraInfo();
+        internal static extern IntPtr GetMessageExtraInfo();
 
         [DllImport("user32.dll")]
-        public static extern bool GetCursorPos(out Point lpPoint);
+        internal static extern bool GetCursorPos(out Point lpPoint);
 
         [DllImport("user32.dll")]
-        public static extern bool SetForegroundWindow(IntPtr hWnd);
+        internal static extern bool SetForegroundWindow(IntPtr hWnd);
 
         [DllImport("user32.dll")]
-        public static extern IntPtr GetForegroundWindow();
+        internal static extern IntPtr GetForegroundWindow();
 
         public enum GetAncestorFlags
         {
@@ -177,7 +177,7 @@ namespace AppTestStudio
         }
 
         [DllImport("user32.dll", ExactSpelling = true)]
-        public static extern IntPtr GetAncestor(IntPtr hwnd, GetAncestorFlags flags);
+        internal static extern IntPtr GetAncestor(IntPtr hwnd, GetAncestorFlags flags);
 
         public enum DWMWINDOWATTRIBUTE : uint
         {
@@ -199,45 +199,45 @@ namespace AppTestStudio
         }
 
         [DllImport("dwmapi.dll")]
-        public static extern int DwmGetWindowAttribute(IntPtr hwnd, DWMWINDOWATTRIBUTE dwAttribute, out RECT pvAttribute, int cbAttribute);
+        internal static extern int DwmGetWindowAttribute(IntPtr hwnd, DWMWINDOWATTRIBUTE dwAttribute, out RECT pvAttribute, int cbAttribute);
 
         [DllImport("User32.dll")]
-        public static extern bool SystemParametersInfo(int uiAction, int uiParam, ref int ipParam, int fWinIni);
+        internal static extern bool SystemParametersInfo(int uiAction, int uiParam, ref int ipParam, int fWinIni);
 
         [DllImport("user32.dll")]
-        public static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        internal static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
 
         [DllImport("user32.dll", EntryPoint = "SetWindowPos")]
-        public static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
+        internal static extern bool SetWindowPos(IntPtr hWnd, IntPtr hWndInsertAfter, int X, int Y, int cx, int cy, uint uFlags);
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool IsWindowVisible(IntPtr hWnd);
+        internal static extern bool IsWindowVisible(IntPtr hWnd);
 
         [DllImport("user32.dll")]
-        public static extern IntPtr WindowFromPoint(System.Drawing.Point p);
+        internal static extern IntPtr WindowFromPoint(System.Drawing.Point p);
 
 
         [DllImport("user32.dll", EntryPoint = "GetDesktopWindow")]
-        public static extern IntPtr GetDesktopWindow();
+        internal static extern IntPtr GetDesktopWindow();
 
         
         [DllImport("user32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
-        public static extern short VkKeyScan(char ch);
+        internal static extern short VkKeyScan(char ch);
 
 
         [DllImport("User32.dll")]
-        public static extern ushort MapVirtualKey(uint uCode, uint uMapType);
+        internal static extern ushort MapVirtualKey(uint uCode, uint uMapType);
 
         [DllImport("user32.dll")]
-        public static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);
+        internal static extern void keybd_event(byte bVk, byte bScan, uint dwFlags, int dwExtraInfo);
 
         [DllImport("user32.dll")]
         [return: MarshalAs(UnmanagedType.Bool)]
-        public static extern bool LockSetForegroundWindow(uint LockCode);
+        internal static extern bool LockSetForegroundWindow(uint LockCode);
 
         [DllImport("user32.dll")]
-        public static extern void SwitchToThisWindow(IntPtr hWnd, bool fAltTab);
+        internal static extern void SwitchToThisWindow(IntPtr hWnd, bool fAltTab);
 
     }
 }
