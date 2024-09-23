@@ -9045,6 +9045,20 @@ namespace AppTestStudio
                 Log(ex.Message);
             }
         }
+
+        static int MouseRecordingCount = 0;
+        private void mnuMouseRecording_Click(object sender, EventArgs e)
+        {
+            if (MouseRecordingCount == 0)
+            {
+                MouseRecordingCount++;
+                frmMouseRecorder MouseRecorder = new frmMouseRecorder();
+
+                // Non blocking window.
+                MouseRecorder.Show();
+                MouseRecordingCount--;
+            }
+        }
     }
 }
 
