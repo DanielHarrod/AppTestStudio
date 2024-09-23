@@ -116,8 +116,8 @@ namespace AppTestStudio
         [DllImport("user32.dll", CharSet = CharSet.Auto)]
         internal static extern IntPtr SendMessage(IntPtr hWnd, int Msg, int wParam, IntPtr lParam);
 
-        [DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
-        internal static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
+        //[DllImport("user32.dll", EntryPoint = "FindWindow", SetLastError = true)]
+        //internal static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
 
         [DllImport("user32.dll", SetLastError = true)]
         internal static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
@@ -136,7 +136,7 @@ namespace AppTestStudio
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool EnumChildWindows(IntPtr window, EnumWindowsProc callback, IntPtr i);
 
-        [DllImport("user32.dll", CharSet = CharSet.Auto, SetLastError = true)]
+        [DllImport("user32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
         internal static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
         [DllImport("user32.dll")]
