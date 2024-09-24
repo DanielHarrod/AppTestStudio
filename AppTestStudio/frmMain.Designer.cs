@@ -1,4 +1,6 @@
-﻿namespace AppTestStudio
+﻿using System.Diagnostics;
+
+namespace AppTestStudio
 {
 
     partial class frmMain
@@ -17,6 +19,18 @@
             if (disposing && (components != null))
             {
                 components.Dispose();
+            }
+            if (disposing)
+            {
+                try
+                {
+                    GlobalMouseKeyHook.Dispose();
+                    frmNotify.Dispose();
+                }
+                catch (System.Exception ex)
+                {
+                    Debug.WriteLine(ex.ToString());
+                }
             }
             base.Dispose(disposing);
         }
