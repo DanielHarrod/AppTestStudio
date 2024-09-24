@@ -961,7 +961,7 @@ namespace AppTestStudio
 
                 while (WindowHandle.ToInt32() == 0)
                 {
-                    while (Game.IsPaused)
+                    while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
                     {
                         Thread.Sleep(1000);
                     }
@@ -977,7 +977,7 @@ namespace AppTestStudio
                     }
 
                     LoopDelay = Game.LoopDelay;
-                    while (LoopDelay > 1000)
+                    while (LoopDelay > 1000 && CancellationTokenSource.Token.IsCancellationRequested == false)
                     {
                         LoopDelay = LoopDelay - 1000;
                         Thread.Sleep(1000);
@@ -1049,7 +1049,7 @@ namespace AppTestStudio
                             Game.Log("Recursive/Chaining/Circular GoTo only supported up to 100 iterations.");
                             Game.Log("Please try to limit Recursive/Chaining/Circular GoTo use or modify ATS by setting the GotoLimit to a higher value.");
                         }
-                        while (Game.IsPaused)
+                        while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
                         {
                             Thread.Sleep(1000);
                         }
@@ -1069,7 +1069,7 @@ namespace AppTestStudio
                 ThreadManager.AddProcessingTime(ProcessingTimeMS.ToInt());
 
                 LoopDelay = Game.LoopDelay;
-                while (LoopDelay > 1000)
+                while (LoopDelay > 1000 && CancellationTokenSource.Token.IsCancellationRequested == false)
                 {
                     Game.LogStatus(Game.StatusNodeID, LoopDelay, 0);
 
@@ -1086,7 +1086,7 @@ namespace AppTestStudio
                     ThreadManager.AddWaitLength(LoopDelay);
                 }
 
-                while (Game.IsPaused)
+                while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
                 {
                     Thread.Sleep(1000);
                 }
