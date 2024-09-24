@@ -112,6 +112,8 @@ namespace AppTestStudio
 
         public Thread Thread { get; set; }
 
+        public RunThread RunThread { get; set; }
+
         public String ThreadandWindowName
         {
             get

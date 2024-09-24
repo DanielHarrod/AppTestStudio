@@ -1,5 +1,5 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2023 Daniel Harrod
+//Copyright (C) 2016-2024 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using System;
@@ -22,8 +22,7 @@ namespace AppTestStudio
     {
         public GameNodeGame Game { get; set; }
         public IntPtr WindowHandle { get; set; }
-
-        public bool ThreadIsShuttingDown { get; set; }
+        private CancellationTokenSource CancellationTokenSource { get; set; }
 
         // number of times to look for a window before closing the thread.
         public long RunTimeWindowTimeout { get; set; }
@@ -39,12 +38,17 @@ namespace AppTestStudio
             GetBitMapLock = new Object();
         }
 
-        public RunThread(GameNodeGame Game)
+        public RunThread(GameNodeGame Game, CancellationTokenSource cancellationTokenSource)
         {
             this.Game = Game;
-            ThreadIsShuttingDown = false;
+            CancellationTokenSource = cancellationTokenSource;
             RunTimeWindowTimeout = 100;
-            WindowHandle = IntPtr.Zero;
+            WindowHandle = IntPtr.Zero;            
+        }
+
+        public void ShutDownThread()
+        {
+            CancellationTokenSource.Cancel();
         }
 
         private Bitmap GetBitMap(ref Boolean Success)
@@ -138,7 +142,8 @@ namespace AppTestStudio
         {
             if (abortThread)
             {
-                ThreadIsShuttingDown = true;
+
+                CancellationTokenSource.Cancel();
 
                 if (Game.SaveVideo)
                 {
@@ -150,8 +155,6 @@ namespace AppTestStudio
 
                 Game.Log("Shutting down thread:" + Game.GameNodeName + " on instance " + Game.InstanceToLaunch);
                 //Debug.WriteLine("Shutting down thread:" + Game.GameNodeName + " on instance " + Game.InstanceToLaunch);
-
-                Thread.CurrentThread.Abort();
             }
         }
 
@@ -937,7 +940,7 @@ namespace AppTestStudio
             }
 
             long LoopDelay = 0;
-            while (ThreadIsShuttingDown == false)
+            while ( CancellationTokenSource.Token.IsCancellationRequested == false)
             {
                 long ChildSleepTimeMS = 0;
                 if (WindowHandle == IntPtr.Zero)

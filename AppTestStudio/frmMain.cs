@@ -1781,19 +1781,21 @@ namespace AppTestStudio
                 if (RunningThreadGames.ThreadandWindowName == gameNode.ThreadandWindowName)
                 {
                     ThreadManager.RemoveGame(RunningThreadGames);
-                    RunningThreadGames.Thread.Abort();
+                    RunningThreadGames.RunThread.ShutDownThread();
                     Log("Stopping existing Instance" + RunningThreadGames.GameNodeName);
                     break;
                 }
             }
 
             GameNodeGame GameCopy = gameNode.CloneMe();
+            CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
-            RunThread RT = new RunThread(GameCopy);
+            RunThread RT = new RunThread(GameCopy, cancellationTokenSource);
             RT.ThreadManager = ThreadManager;
 
             Thread t = new Thread(new ThreadStart(RT.Run));
             GameCopy.Thread = t;
+            GameCopy.RunThread = RT;
             ThreadManager.Games.Add(GameCopy);
 
             RefreshThreadList();
@@ -6167,7 +6169,8 @@ namespace AppTestStudio
                 if (Game.ThreadandWindowName == git)
                 {
                     GameFound = Game;
-                    Game.Thread.Abort();
+
+                    Game.RunThread.ShutDownThread();
 
                     break; // exit for
                 }
@@ -6388,7 +6391,7 @@ namespace AppTestStudio
                 Timer1.Enabled = false;
                 foreach (GameNodeGame Game in ThreadManager.Games)
                 {
-                    Game.Thread.Abort();
+                    Game.RunThread.ShutDownThread();
                 }
                 HistoryManager.Save();
 

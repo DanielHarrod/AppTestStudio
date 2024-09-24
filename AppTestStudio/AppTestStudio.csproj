@@ -113,5 +113,6 @@
   </ItemGroup>
   <PropertyGroup>
     <PostBuildEvent>echo copy /Y $(TargetDir)\dll\x64\*.*  $(TargetDir)\bin\debug\</PostBuildEvent>
+    <PlatformTarget>x64</PlatformTarget>
   </PropertyGroup>
 </Project>
