@@ -25,7 +25,10 @@ namespace AppTestStudio
                 try
                 {
                     GlobalMouseKeyHook.Dispose();
-                    frmNotify.Dispose();
+                    if (frmNotify != null)
+                    {
+                        frmNotify.Dispose();
+                    }                    
                 }
                 catch (System.Exception ex)
                 {
@@ -153,7 +156,9 @@ namespace AppTestStudio
             lblClickCount = new System.Windows.Forms.Label();
             label8 = new System.Windows.Forms.Label();
             grpCPU = new System.Windows.Forms.GroupBox();
+            atsGraph1 = new AppTestStudioControls.ATSGraph();
             grpAPS = new System.Windows.Forms.GroupBox();
+            atsGraphActions1 = new AppTestStudioControls.ATSGraph();
             splitContainerSeconds = new System.Windows.Forms.SplitContainer();
             appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
             PanelColorEvent = new System.Windows.Forms.Panel();
@@ -737,6 +742,8 @@ namespace AppTestStudio
             tableLayoutPanel1.SuspendLayout();
             groupSession.SuspendLayout();
             tableLayoutPanelSession.SuspendLayout();
+            grpCPU.SuspendLayout();
+            grpAPS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).BeginInit();
             splitContainerSeconds.SuspendLayout();
             PanelColorEvent.SuspendLayout();
@@ -990,7 +997,7 @@ namespace AppTestStudio
             // 
             splitContainerMain.Panel2.Controls.Add(txtLog);
             splitContainerMain.Size = new System.Drawing.Size(1869, 957);
-            splitContainerMain.SplitterDistance = 869;
+            splitContainerMain.SplitterDistance = 868;
             splitContainerMain.SplitterWidth = 5;
             splitContainerMain.TabIndex = 2;
             // 
@@ -1020,7 +1027,7 @@ namespace AppTestStudio
             splitContainerWorkspace.Panel2.Controls.Add(PanelEvents);
             splitContainerWorkspace.Panel2.Controls.Add(PanelSchedule);
             splitContainerWorkspace.Panel2.Controls.Add(PanelWorkspace);
-            splitContainerWorkspace.Size = new System.Drawing.Size(1869, 869);
+            splitContainerWorkspace.Size = new System.Drawing.Size(1869, 868);
             splitContainerWorkspace.SplitterDistance = 298;
             splitContainerWorkspace.SplitterWidth = 5;
             splitContainerWorkspace.TabIndex = 0;
@@ -1035,7 +1042,7 @@ namespace AppTestStudio
             tabTree.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabTree.Name = "tabTree";
             tabTree.SelectedIndex = 0;
-            tabTree.Size = new System.Drawing.Size(298, 869);
+            tabTree.Size = new System.Drawing.Size(298, 868);
             tabTree.TabIndex = 0;
             tabTree.SelectedIndexChanged += tabTree_SelectedIndexChanged;
             // 
@@ -1046,7 +1053,7 @@ namespace AppTestStudio
             tabDesign.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabDesign.Name = "tabDesign";
             tabDesign.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabDesign.Size = new System.Drawing.Size(290, 841);
+            tabDesign.Size = new System.Drawing.Size(290, 840);
             tabDesign.TabIndex = 0;
             tabDesign.Text = "Design";
             tabDesign.UseVisualStyleBackColor = true;
@@ -1066,7 +1073,7 @@ namespace AppTestStudio
             tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            tableLayoutPanelDesign.Size = new System.Drawing.Size(282, 835);
+            tableLayoutPanelDesign.Size = new System.Drawing.Size(282, 834);
             tableLayoutPanelDesign.TabIndex = 1;
             // 
             // cmdPatron
@@ -1076,7 +1083,7 @@ namespace AppTestStudio
             cmdPatron.Dock = System.Windows.Forms.DockStyle.Fill;
             cmdPatron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cmdPatron.Image = Properties.Resources.Patron;
-            cmdPatron.Location = new System.Drawing.Point(0, 789);
+            cmdPatron.Location = new System.Drawing.Point(0, 788);
             cmdPatron.Margin = new System.Windows.Forms.Padding(0);
             cmdPatron.Name = "cmdPatron";
             cmdPatron.Size = new System.Drawing.Size(282, 46);
@@ -1095,7 +1102,7 @@ namespace AppTestStudio
             tv.Margin = new System.Windows.Forms.Padding(0);
             tv.Name = "tv";
             tv.SelectedImageIndex = 0;
-            tv.Size = new System.Drawing.Size(282, 752);
+            tv.Size = new System.Drawing.Size(282, 751);
             tv.TabIndex = 0;
             tv.ItemDrag += tv_ItemDrag;
             tv.AfterSelect += tv_AfterSelect;
@@ -1183,7 +1190,7 @@ namespace AppTestStudio
             tabRun.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabRun.Name = "tabRun";
             tabRun.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabRun.Size = new System.Drawing.Size(291, 829);
+            tabRun.Size = new System.Drawing.Size(290, 840);
             tabRun.TabIndex = 1;
             tabRun.Text = "Run";
             tabRun.UseVisualStyleBackColor = true;
@@ -1205,8 +1212,8 @@ namespace AppTestStudio
             // 
             splitContainerRunTab.Panel2.AutoScroll = true;
             splitContainerRunTab.Panel2.Controls.Add(splitContainerRunProperties);
-            splitContainerRunTab.Size = new System.Drawing.Size(283, 823);
-            splitContainerRunTab.SplitterDistance = 410;
+            splitContainerRunTab.Size = new System.Drawing.Size(282, 834);
+            splitContainerRunTab.SplitterDistance = 414;
             splitContainerRunTab.SplitterWidth = 5;
             splitContainerRunTab.TabIndex = 1;
             // 
@@ -1230,7 +1237,7 @@ namespace AppTestStudio
             // splitContainerRunTabThread.Panel2
             // 
             splitContainerRunTabThread.Panel2.Controls.Add(tvRun);
-            splitContainerRunTabThread.Size = new System.Drawing.Size(283, 410);
+            splitContainerRunTabThread.Size = new System.Drawing.Size(282, 414);
             splitContainerRunTabThread.SplitterDistance = 25;
             splitContainerRunTabThread.SplitterWidth = 1;
             splitContainerRunTabThread.TabIndex = 2;
@@ -1243,7 +1250,7 @@ namespace AppTestStudio
             cboThreads.Location = new System.Drawing.Point(0, 0);
             cboThreads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboThreads.Name = "cboThreads";
-            cboThreads.Size = new System.Drawing.Size(283, 23);
+            cboThreads.Size = new System.Drawing.Size(282, 23);
             cboThreads.TabIndex = 1;
             cboThreads.SelectedIndexChanged += cboThreads_SelectedIndexChanged;
             // 
@@ -1257,7 +1264,7 @@ namespace AppTestStudio
             tvRun.Margin = new System.Windows.Forms.Padding(2);
             tvRun.Name = "tvRun";
             tvRun.SelectedImageIndex = 0;
-            tvRun.Size = new System.Drawing.Size(283, 384);
+            tvRun.Size = new System.Drawing.Size(282, 388);
             tvRun.TabIndex = 0;
             tvRun.AfterSelect += tvRun_AfterSelect;
             // 
@@ -1275,8 +1282,8 @@ namespace AppTestStudio
             // splitContainerRunProperties.Panel2
             // 
             splitContainerRunProperties.Panel2.Controls.Add(tableLayoutPanelRunValues);
-            splitContainerRunProperties.Size = new System.Drawing.Size(283, 406);
-            splitContainerRunProperties.SplitterDistance = 116;
+            splitContainerRunProperties.Size = new System.Drawing.Size(282, 406);
+            splitContainerRunProperties.SplitterDistance = 115;
             splitContainerRunProperties.SplitterWidth = 1;
             splitContainerRunProperties.TabIndex = 1;
             // 
@@ -1320,7 +1327,7 @@ namespace AppTestStudio
             tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.Size = new System.Drawing.Size(116, 406);
+            tableLayoutPanelRunLabels.Size = new System.Drawing.Size(115, 406);
             tableLayoutPanelRunLabels.TabIndex = 1;
             // 
             // lblRunLabel11
@@ -1708,7 +1715,7 @@ namespace AppTestStudio
             tabSchedule.Location = new System.Drawing.Point(4, 24);
             tabSchedule.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabSchedule.Name = "tabSchedule";
-            tabSchedule.Size = new System.Drawing.Size(291, 829);
+            tabSchedule.Size = new System.Drawing.Size(290, 840);
             tabSchedule.TabIndex = 2;
             tabSchedule.Text = "Schedule";
             tabSchedule.UseVisualStyleBackColor = true;
@@ -1760,7 +1767,7 @@ namespace AppTestStudio
             // 
             splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
             splitContainerStatsNScrollie.Size = new System.Drawing.Size(1664, 184);
-            splitContainerStatsNScrollie.SplitterDistance = 134;
+            splitContainerStatsNScrollie.SplitterDistance = 126;
             splitContainerStatsNScrollie.SplitterWidth = 5;
             splitContainerStatsNScrollie.TabIndex = 2;
             // 
@@ -1782,7 +1789,7 @@ namespace AppTestStudio
             tableLayoutStats.Name = "tableLayoutStats";
             tableLayoutStats.RowCount = 1;
             tableLayoutStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutStats.Size = new System.Drawing.Size(1664, 134);
+            tableLayoutStats.Size = new System.Drawing.Size(1664, 126);
             tableLayoutStats.TabIndex = 3;
             // 
             // groupTotal
@@ -1793,7 +1800,7 @@ namespace AppTestStudio
             groupTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupTotal.Name = "groupTotal";
             groupTotal.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupTotal.Size = new System.Drawing.Size(408, 128);
+            groupTotal.Size = new System.Drawing.Size(408, 120);
             groupTotal.TabIndex = 2;
             groupTotal.TabStop = false;
             groupTotal.Text = "Total";
@@ -1828,7 +1835,7 @@ namespace AppTestStudio
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(400, 106);
+            tableLayoutPanel1.Size = new System.Drawing.Size(400, 98);
             tableLayoutPanel1.TabIndex = 4;
             // 
             // label13
@@ -1959,7 +1966,7 @@ namespace AppTestStudio
             groupSession.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupSession.Name = "groupSession";
             groupSession.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupSession.Size = new System.Drawing.Size(408, 128);
+            groupSession.Size = new System.Drawing.Size(408, 120);
             groupSession.TabIndex = 1;
             groupSession.TabStop = false;
             groupSession.Text = "Session";
@@ -1994,7 +2001,7 @@ namespace AppTestStudio
             tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelSession.Size = new System.Drawing.Size(400, 106);
+            tableLayoutPanelSession.Size = new System.Drawing.Size(400, 98);
             tableLayoutPanelSession.TabIndex = 3;
             // 
             // label1
@@ -2119,32 +2126,52 @@ namespace AppTestStudio
             // 
             // grpCPU
             // 
+            grpCPU.Controls.Add(atsGraph1);
             grpCPU.Dock = System.Windows.Forms.DockStyle.Fill;
             grpCPU.Location = new System.Drawing.Point(836, 3);
             grpCPU.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpCPU.Name = "grpCPU";
             grpCPU.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpCPU.Size = new System.Drawing.Size(408, 128);
+            grpCPU.Size = new System.Drawing.Size(408, 120);
             grpCPU.TabIndex = 3;
             grpCPU.TabStop = false;
             grpCPU.Text = "CPU";
             // 
+            // atsGraph1
+            // 
+            atsGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
+            atsGraph1.Location = new System.Drawing.Point(4, 19);
+            atsGraph1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            atsGraph1.Name = "atsGraph1";
+            atsGraph1.Size = new System.Drawing.Size(400, 98);
+            atsGraph1.TabIndex = 0;
+            // 
             // grpAPS
             // 
+            grpAPS.Controls.Add(atsGraphActions1);
             grpAPS.Dock = System.Windows.Forms.DockStyle.Fill;
             grpAPS.Location = new System.Drawing.Point(1252, 3);
             grpAPS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpAPS.Name = "grpAPS";
             grpAPS.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpAPS.Size = new System.Drawing.Size(408, 128);
+            grpAPS.Size = new System.Drawing.Size(408, 120);
             grpAPS.TabIndex = 4;
             grpAPS.TabStop = false;
             grpAPS.Text = "Clicks Per Second";
             // 
+            // atsGraphActions1
+            // 
+            atsGraphActions1.Dock = System.Windows.Forms.DockStyle.Fill;
+            atsGraphActions1.Location = new System.Drawing.Point(4, 19);
+            atsGraphActions1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            atsGraphActions1.Name = "atsGraphActions1";
+            atsGraphActions1.Size = new System.Drawing.Size(400, 98);
+            atsGraphActions1.TabIndex = 0;
+            // 
             // splitContainerSeconds
             // 
             splitContainerSeconds.Dock = System.Windows.Forms.DockStyle.Bottom;
-            splitContainerSeconds.Location = new System.Drawing.Point(0, 23);
+            splitContainerSeconds.Location = new System.Drawing.Point(0, 31);
             splitContainerSeconds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             splitContainerSeconds.Name = "splitContainerSeconds";
             // 
@@ -8013,7 +8040,7 @@ namespace AppTestStudio
             txtLog.Location = new System.Drawing.Point(0, 0);
             txtLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtLog.Name = "txtLog";
-            txtLog.Size = new System.Drawing.Size(1869, 83);
+            txtLog.Size = new System.Drawing.Size(1869, 84);
             txtLog.TabIndex = 1;
             txtLog.Text = "";
             // 
@@ -8611,6 +8638,8 @@ namespace AppTestStudio
             groupSession.PerformLayout();
             tableLayoutPanelSession.ResumeLayout(false);
             tableLayoutPanelSession.PerformLayout();
+            grpCPU.ResumeLayout(false);
+            grpAPS.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).EndInit();
             splitContainerSeconds.ResumeLayout(false);
             PanelColorEvent.ResumeLayout(false);
@@ -9432,7 +9461,6 @@ namespace AppTestStudio
         private System.Windows.Forms.Label label96;
         private System.Windows.Forms.CheckBox chkDontTakeScreenshot;
         private System.Windows.Forms.GroupBox grpCPU;
-        private AppTestStudioControls.ATSGraph atsGraph1;
         private System.Windows.Forms.GroupBox grpAPS;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparatorCutCopyPaste;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuCopy;
@@ -9449,5 +9477,7 @@ namespace AppTestStudio
         private System.Windows.Forms.Label label7;
         private AppTestStudioControls.ATSGraph atsGraphActions;
         private System.Windows.Forms.ToolStripButton mnuMouseRecording;
+        private AppTestStudioControls.ATSGraph atsGraph1;
+        private AppTestStudioControls.ATSGraph atsGraphActions1;
     }
 }

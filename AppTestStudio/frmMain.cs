@@ -125,6 +125,7 @@ namespace AppTestStudio
 
         private void frmMain_Load(object sender, EventArgs e)
         {
+            mnuMouseRecording.Visible = false; // Hide for now.
             ShowTermsOfServiceIfNecessary();
 
             ThreadManager.Load();
@@ -225,12 +226,12 @@ namespace AppTestStudio
         private void InitializeActionsPerSecondGraph()
         {
             // hide the ms default.
-            atsGraphActions.Prepender = "";
+            atsGraphActions1.Prepender = "";
 
             // Potentially impossible limit
-            atsGraphActions.MaxLimit = 30000;
+            atsGraphActions1.MaxLimit = 30000;
 
-            atsGraphActions.SnapToScale = 10;
+            atsGraphActions1.SnapToScale = 10;
         }
 
         private void ShowTermsOfServiceIfNecessary()
@@ -8462,8 +8463,8 @@ namespace AppTestStudio
 
                 long TickCoundDifference = this.ThreadManager.ClickCount - LastClickCount;
                 LastClickCount = this.ThreadManager.ClickCount;
-                atsGraphActions.Queue.Add(TickCoundDifference);
-                atsGraphActions.Invalidate();
+                atsGraphActions1.Queue.Add(TickCoundDifference);
+                atsGraphActions1.Invalidate();
             }
             catch (Exception ex)
             {
