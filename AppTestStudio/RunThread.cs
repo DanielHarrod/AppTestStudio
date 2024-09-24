@@ -15,9 +15,11 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Web.Hosting;
 using static AppTestStudio.API;
+using System.Runtime.Versioning;
 
 namespace AppTestStudio
 {
+    [SupportedOSPlatform("windows")]
     public class RunThread
     {
         public GameNodeGame Game { get; set; }

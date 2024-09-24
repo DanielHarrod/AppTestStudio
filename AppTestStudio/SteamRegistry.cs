@@ -7,11 +7,13 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Runtime.Versioning;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace AppTestStudio
 {
+    [SupportedOSPlatform("windows")]
     public class SteamRegistry
     {
         public String ErrorMessage { get; set; }
