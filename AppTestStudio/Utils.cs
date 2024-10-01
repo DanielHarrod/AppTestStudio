@@ -13,9 +13,11 @@ using static AppTestStudio.API;
 using System.Runtime.InteropServices;
 using System.Windows.Media.Animation;
 using static AppTestStudio.Definitions;
+using System.Runtime.Versioning;
 
 namespace AppTestStudio
 {
+    [SupportedOSPlatform("windows")]
     public static class Utils
     {
         public static void SetIcons(GameNode Node)
