@@ -316,8 +316,6 @@ namespace AppTestStudioControls
             //' no need to draw off the screen
             if (StartPosition > RangeArea)
             {
-                Brush = null;
-                Pen = null;
                 return false;
             }
 
