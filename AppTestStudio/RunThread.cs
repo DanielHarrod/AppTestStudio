@@ -759,10 +759,9 @@ namespace AppTestStudio
 
                                     GoToNodeName = (t as GameNodeAction).GotoNode;
                                     return AfterCompletionType.GoToChild;
-                                    break;
                                 case AfterCompletionType.GoToChild:
                                     return AfterCompletionType.GoToChild;
-                                    break;
+
                                 default:
                                     Debug.Assert(false);
                                     break;
@@ -790,7 +789,6 @@ namespace AppTestStudio
                     case AfterCompletionType.GoToParent:
                         GoToNodeName = (node as GameNodeAction).GotoNode;
                         return AfterCompletionType.GoToChild;
-                        break;
                     default:
                         Debug.Assert(false);
                         break;
