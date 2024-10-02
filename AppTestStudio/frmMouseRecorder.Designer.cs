@@ -17,6 +17,7 @@ namespace AppTestStudio
             if (disposing && (components != null))
             {
                 components.Dispose();
+                GlobalMouseKeyHook.Dispose();
             }
             base.Dispose(disposing);
         }
