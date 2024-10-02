@@ -62,11 +62,6 @@ namespace AppTestStudio
         {
             get { return mIsDirty; }
             protected set {
-                if (value == true)
-                {
-                    // for debugging
-                    int k = 3;
-                }
                 mIsDirty = value; 
             }
         }
