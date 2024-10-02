@@ -9,7 +9,6 @@ using System.Windows.Forms;
 
 namespace AppTestStudio
 {
-    [SupportedOSPlatform("windows")]
     public class GameNode : TreeNode
     {
         // To Track between components

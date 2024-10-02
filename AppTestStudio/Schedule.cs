@@ -10,8 +10,7 @@ using System.Xml.Serialization;
 
 namespace AppTestStudio
 {
-    [SupportedOSPlatform("windows")]
-    public class Schedule
+        public class Schedule
     {
         public Boolean IsEnabled { get; set; }
 

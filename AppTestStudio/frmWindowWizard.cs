@@ -12,7 +12,6 @@ using static AppTestStudio.Utils;
 
 namespace AppTestStudio
 {
-    [SupportedOSPlatform("windows")]
     public partial class frmWindowWizard : Form
     {
 

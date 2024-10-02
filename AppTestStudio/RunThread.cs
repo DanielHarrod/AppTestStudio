@@ -6,19 +6,12 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Drawing.Drawing2D;
-using OpenCvSharp;
 using System.Threading;
 using System.Windows.Forms;
-using System.Web.Hosting;
-using System.Runtime.Versioning;
 
 namespace AppTestStudio
 {
-    [SupportedOSPlatform("windows")]
+    
     public class RunThread
     {
         public GameNodeGame Game { get; set; }

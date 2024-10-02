@@ -6,13 +6,9 @@ using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Runtime.Versioning;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace AppTestStudio
 {
-    [SupportedOSPlatform("windows")]
     public class BlueRegistry
     {
         //Computer\HKEY_LOCAL_MACHINE\SOFTWARE\BlueStacks\Config\PartnerExePath

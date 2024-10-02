@@ -4,20 +4,12 @@
 
 using OpenCvSharp;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Linq;
-using System.Runtime.Versioning;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AppTestStudio
 {
-    [SupportedOSPlatform("windows")]
     public partial class frmTestObjectSearch : Form
     {
         public frmTestObjectSearch(GameNodeGame game, GameNodeAction node, frmMain frm, IntPtr mainWindowHandle, GameNodeAction parent)

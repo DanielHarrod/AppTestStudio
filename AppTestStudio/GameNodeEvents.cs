@@ -11,7 +11,6 @@ using System.Threading.Tasks;
 
 namespace AppTestStudio
 {
-    [SupportedOSPlatform("windows")]
     public class GameNodeEvents: GameNode
     {
         public GameNodeEvents(String name) : base(name, GameNodeType.Events)

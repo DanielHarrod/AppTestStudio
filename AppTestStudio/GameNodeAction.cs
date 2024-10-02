@@ -29,7 +29,6 @@ using System.Runtime.Versioning;
 
 namespace AppTestStudio
 {
-    [SupportedOSPlatform("windows")]
     public class GameNodeAction : GameNode
     {
         public GameNodeAction(string name, ActionType actionType)

@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 
 namespace AppTestStudio
 {
-    [SupportedOSPlatform("windows")]
     public class SteamRegistry
     {
         public String ErrorMessage { get; set; }

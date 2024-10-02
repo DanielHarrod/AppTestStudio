@@ -4,12 +4,10 @@
 
 using System;
 using System.Drawing;
-using System.Runtime.Versioning;
 
 namespace AppTestStudio
 {
-    // Game Node Object represents a bitmap to be used for searching.
-    [SupportedOSPlatform("windows")]
+    // Game Node Object represents a bitmap to be used for searching.    
     class GameNodeObject: GameNode 
     {
         public GameNodeObject(String name) : base(name, GameNodeType.Object)

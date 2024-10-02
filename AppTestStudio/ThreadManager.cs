@@ -17,7 +17,6 @@ using System.Xml.Serialization;
 
 namespace AppTestStudio
 {
-    [SupportedOSPlatform("windows")]
     public class ThreadManager
     {
 		public ThreadManager()

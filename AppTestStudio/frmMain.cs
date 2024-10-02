@@ -12,7 +12,6 @@ using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Runtime.Versioning;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
@@ -22,7 +21,6 @@ using static AppTestStudio.Definitions;
 
 namespace AppTestStudio
 {
-    [SupportedOSPlatform("windows")]
     public partial class frmMain : Form
     {
         private enum PanelMode
