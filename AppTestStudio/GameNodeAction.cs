@@ -29,6 +29,7 @@ using System.Runtime.Versioning;
 
 namespace AppTestStudio
 {
+
     public class GameNodeAction : GameNode
     {
         public GameNodeAction(string name, ActionType actionType)

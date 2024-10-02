@@ -7,7 +7,7 @@ using System.Diagnostics;
 using AppTestStudio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Runtime.InteropServices;
-using static AppTestStudio.NativeMethods;
+using static AppTestStudio.API;
 
 namespace AppTestStudioUnitTest
 {
@@ -35,7 +35,7 @@ namespace AppTestStudioUnitTest
         //The pvParam parameter must point to an integer that receives a value which ranges between 1(slowest) and 20(fastest).
 //            A value of 10 is the default.
   //              The value can be set by an end - user using the mouse control panel application or by an application using SPI_SETMOUSESPEED.
-        SystemParametersInfo(SPI_GETMOUSESPEED, 0, ref x, 0);
+        API.SystemParametersInfo(SPI_GETMOUSESPEED, 0, ref x, 0);
 
         }
 

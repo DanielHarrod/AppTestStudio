@@ -5,7 +5,7 @@
 using System;
 using System.Drawing;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using static AppTestStudio.NativeMethods;
+using static AppTestStudio.API;
 
 namespace AppTestStudioUnitTest
 {
@@ -34,11 +34,11 @@ namespace AppTestStudioUnitTest
             GetWindowRect(hwnd, out wrect);
             RECT crect;
             GetClientRect(hwnd,  out crect);
-            AppTestStudio.NativeMethods.Point lefttop; // Practicaly both are 0
+            AppTestStudio.API.Point lefttop; // Practicaly both are 0
             lefttop.X = crect.Left;
             lefttop.Y = crect.Top;
             ClientToScreen(hwnd, ref lefttop);
-            AppTestStudio.NativeMethods.Point rightbottom;
+            AppTestStudio.API.Point rightbottom;
             rightbottom.X = crect.Right;
             rightbottom.Y = crect.Bottom;
             ClientToScreen(hwnd, ref rightbottom);

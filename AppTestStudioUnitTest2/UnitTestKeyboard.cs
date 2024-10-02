@@ -8,7 +8,7 @@ using System;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Threading;
-using static AppTestStudio.NativeMethods;
+using static AppTestStudio.API;
 using static AppTestStudio.Definitions;
 
 namespace AppTestStudioUnitTest
@@ -41,9 +41,9 @@ namespace AppTestStudioUnitTest
                 int previousStateFalse = 0x0;
                 IntPtr lparam = new IntPtr(previousStateFalse | repeatcount | ScanCodes.SK_A);
                 Debug.WriteLine(AppTestStudio.Utils.ActivateWindowIfNecessary((IntPtr)0xCF0696, WindowAction.ActivateWindow, 20, 20));
-                SendMessage(hWnd, KeyboardStates.WM_KEYDOWN, VirtualKeyCode.VK_A, lparam);
-                SendMessage(hWnd, KeyboardStates.WM_CHAR,0x61, lparam);
-                SendMessage(hWnd, KeyboardStates.WM_KEYUP, VirtualKeyCode.VK_A, lparam);
+                AppTestStudio.API.SendMessage(hWnd, KeyboardStates.WM_KEYDOWN, VirtualKeyCode.VK_A, lparam);
+                AppTestStudio.API.SendMessage(hWnd, KeyboardStates.WM_CHAR,0x61, lparam);
+                AppTestStudio.API.SendMessage(hWnd, KeyboardStates.WM_KEYUP, VirtualKeyCode.VK_A, lparam);
             }
         }
 
@@ -79,11 +79,12 @@ namespace AppTestStudioUnitTest
                 inputs[3].u.KeyboardInput.VirtualKeyCode = VirtualKeyCode.VK_A;
                 inputs[3].u.KeyboardInput.Flags = KEYEVENTF_KEYUP;
 
-                IntPtr root = GetAncestor(hWnd, GetAncestorFlags.GetRoot);
-                bool Worked = SetForegroundWindow(root);
+                IntPtr root = API.GetAncestor(hWnd, GetAncestorFlags.GetRoot);
+                bool Worked = API.SetForegroundWindow(root);
 
                 Debug.WriteLine($"Worked={Worked}");
-                Worked = SetForegroundWindow(hWnd);
+
+                Worked = API.SetForegroundWindow(hWnd);
 
                 Debug.WriteLine($"Worked={Worked}");
 
@@ -115,12 +116,12 @@ namespace AppTestStudioUnitTest
                 inputs[0].Type = INPUT_KEYBOARD;
                 inputs[0].u.KeyboardInput.Flags = 0;
 
-                IntPtr root = GetAncestor(hWnd, GetAncestorFlags.GetRoot);
-                bool Worked = SetForegroundWindow(root);
+                IntPtr root = API.GetAncestor(hWnd, GetAncestorFlags.GetRoot);
+                bool Worked = API.SetForegroundWindow(root);
 
                 Debug.WriteLine($"Worked={Worked}");
 
-                Worked = SetForegroundWindow(hWnd);
+                Worked = API.SetForegroundWindow(hWnd);
 
                 Debug.WriteLine($"Worked={Worked}");
                 for (int i = 0; i < 10; i++)
@@ -152,7 +153,7 @@ namespace AppTestStudioUnitTest
             Input[] inputs = new Input[1];
             inputs[0].Type = INPUT_KEYBOARD;
             inputs[0].u.KeyboardInput.Flags = KEYEVENTF_SCANCODE;
-            inputs[0].u.KeyboardInput.ScanCode = (ushort)MapVirtualKey((uint)VkKeyScan(key),(uint) 0);
+            inputs[0].u.KeyboardInput.ScanCode = (ushort)API.MapVirtualKey((uint)VkKeyScan(key),(uint) 0);
             uint uSent = SendInput(1, inputs, Marshal.SizeOf(typeof(Input)));
             Thread.Sleep(delay); ;
             inputs[0].u.KeyboardInput.Flags = KEYEVENTF_KEYUP | KEYEVENTF_SCANCODE;

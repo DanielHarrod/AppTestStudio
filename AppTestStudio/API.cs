@@ -137,7 +137,7 @@ namespace AppTestStudio
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool EnumChildWindows(IntPtr window, EnumWindowsProc callback, IntPtr i);
 
-        [DllImport("user32.dll", CharSet = CharSet.Ansi, SetLastError = true)]
+        [DllImport("user32.dll", CharSet = CharSet.Unicode, SetLastError = true)]
         internal static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
         [DllImport("user32.dll")]

@@ -4,11 +4,13 @@
 
 using System;
 using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.Versioning;
 using System.Windows.Forms;
 
 [assembly: AssemblyVersionAttribute("1.0.0.0")]
 [assembly: SupportedOSPlatform("windows")]
+[assembly: InternalsVisibleTo("AppTestStudioUnitTest")]
 namespace AppTestStudio
 {
     static class Program
