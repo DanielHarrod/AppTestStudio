@@ -17,6 +17,7 @@ using System.Xml;
 
 namespace AppTestStudio
 {
+    [Serializable]
     public class GameNodeGame : GameNode
     {
         public GameNodeGame(String name, ThreadManager threadManager) : base(name, GameNodeType.Game)

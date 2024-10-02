@@ -6,6 +6,7 @@ using System;
 
 namespace AppTestStudio
 {
+    [Serializable]
     public class GameNodeWorkspace : GameNode
     {
         public GameNodeWorkspace(String name)

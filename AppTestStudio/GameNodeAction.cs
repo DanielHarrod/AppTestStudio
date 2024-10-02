@@ -29,7 +29,7 @@ using System.Runtime.Versioning;
 
 namespace AppTestStudio
 {
-
+    [Serializable]
     public class GameNodeAction : GameNode
     {
         public GameNodeAction(string name, ActionType actionType)

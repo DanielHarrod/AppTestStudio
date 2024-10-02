@@ -11,6 +11,7 @@ using System.Threading.Tasks;
 
 namespace AppTestStudio
 {
+    [Serializable]
     public class GameNodeEvents: GameNode
     {
         public GameNodeEvents(String name) : base(name, GameNodeType.Events)
