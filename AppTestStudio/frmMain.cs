@@ -3083,7 +3083,6 @@ namespace AppTestStudio
             if (chkUseParentScreenshot.Checked || AlwaysPull)
             {
                 GameNode CurrentParent = PanelLoadNode.Parent as GameNode;
-                Bitmap CurrentBitmap = null;
 
                 while (CurrentParent is GameNodeAction)
                 {
@@ -3320,17 +3319,14 @@ namespace AppTestStudio
                                 case Mode.RangeClick:
                                     Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
                                     GameNodeAction.RangeClickResult RangeClickResult = ActionNode.CalculateRangeClickResult(bmp, 0, 0);
-                                    Boolean Failed = false;
                                     if (RangeClickResult.x < 0)
                                     {
                                         Log("Check Relative offset X, calculated to a negative position " + RangeClickResult.x);
-                                        Failed = true;
                                     }
 
                                     if (RangeClickResult.y < 0)
                                     {
                                         Log("Check Relative offset Y, calculated to a negative position " + RangeClickResult.y);
-                                        Failed = true;
                                     }
 
                                     int MousePixelSpeedPerSecond = game.CalculateNextMousePixelSpeedPerSecond();
@@ -3494,9 +3490,6 @@ namespace AppTestStudio
 
             toolStripButtonToggleScript.Enabled = true;
 
-
-            Boolean NeedRedraw = false;
-
             foreach (GameNodeGame game in ThreadManager.Games.ToList())
             {
                 if (game.IsSomething())
@@ -3509,11 +3502,6 @@ namespace AppTestStudio
                         {
                             appTestStudioStatusControl1.Queue.Add(sci);
                         }
-                    }
-
-                    if (OriginalCount > 0)
-                    {
-                        NeedRedraw = true;
                     }
 
                     if (game.MinimalBitmapClones.Count > 0)
@@ -4163,7 +4151,7 @@ namespace AppTestStudio
             }
             catch (System.InvalidOperationException ex)
             {
-                Log("Can't remove on the Insert row");
+                Log($"Can't remove on the Insert row {ex.Message}");
             }
             catch (Exception ex)
             {
@@ -5433,7 +5421,6 @@ namespace AppTestStudio
 
                 // Result is the calculation of true with OR or AND Logic
                 // It does not short circuit on first true for OR or first false for AND.
-                Boolean Result = false;
 
                 // Final result 
                 Boolean FinalResult = false;
@@ -5502,12 +5489,11 @@ namespace AppTestStudio
                         {
                             if (FinalResult == false)
                             {
-                                Result = true;
+                                // do nothing
                             }
                         }
                         else
                         {
-                            Result = false;
                             FinalResult = true;
                         }
                     }
@@ -5515,7 +5501,7 @@ namespace AppTestStudio
                     {
                         if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
                         {
-                            Result = true;
+                            // do nothing
                         }
                     }
                     else
@@ -5979,8 +5965,6 @@ namespace AppTestStudio
             String Result = "";
             isValid = false;
 
-
-            GameNodeGame Game = null;
             XmlDocument doc = new XmlDocument();
             doc.LoadXml(s);
             frmImportProjectName frm = null;

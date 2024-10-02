@@ -2221,11 +2221,6 @@ namespace AppTestStudio
                 newEvent.Enabled = Convert.ToBoolean(eventNode.Attributes["IsEnabled"].Value);
             }
 
-            if (EventName == "White X")
-            {
-                // for debugging
-                int i = 1;
-            }
             String LogicChoice = "";
             if (eventNode.Attributes.GetNamedItem("LogicChoice").IsSomething())
             {

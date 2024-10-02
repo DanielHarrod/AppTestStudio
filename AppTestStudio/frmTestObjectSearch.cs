@@ -46,7 +46,6 @@ namespace AppTestStudio
         IntPtr MainWindowHandle;
         GameNodeAction Node;
         GameNodeGame Game;
-        Bitmap CropImage;
         OpenCvSharp.Point DetectedPoint;
         GameNodeAction Parent;
 
@@ -302,7 +301,7 @@ namespace AppTestStudio
             }
             catch (DllNotFoundException ex)
             {
-                Debug.Assert(false, "Deleting the BIN folder and rebuilding typically will fix this issue.");
+                Debug.Assert(false, $"Deleting the BIN folder and rebuilding typically will fix this issue.\n{ex.Message}");
                 return false;
             }
 
