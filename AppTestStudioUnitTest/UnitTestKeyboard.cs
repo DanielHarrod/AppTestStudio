@@ -37,7 +37,7 @@ namespace AppTestStudioUnitTest
 
                 //0100 0000 0000 0000 0000 0000 0000 0000 - Previous Key State
                 int repeatcount = 0x1;
-                int previousStateTrue = 0x40000000;
+                //int previousStateTrue = 0x40000000;
                 int previousStateFalse = 0x0;
                 IntPtr lparam = new IntPtr(previousStateFalse | repeatcount | ScanCodes.SK_A);
                 Debug.WriteLine(AppTestStudio.Utils.ActivateWindowIfNecessary((IntPtr)0xCF0696, WindowAction.ActivateWindow, 20, 20));
