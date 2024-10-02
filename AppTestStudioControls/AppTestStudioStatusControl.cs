@@ -20,6 +20,12 @@ namespace AppTestStudioControls
         public AppTestStudioStatusControl()
         {
             InitializeComponent();
+            Queue = new List<AppTestStudioStatusControlItem>();
+            Brushes = new List<Brush>();
+            ShadowBrushes = new List<Brush>();
+            Pens = new List<Pen>();
+            Modes = new List<long>();
+            Items = new List<string>();
         }
 
         private long mShowPercent;
@@ -67,12 +73,6 @@ namespace AppTestStudioControls
 
         private void AppTestStudioStatusControl_Load(object sender, EventArgs e)
         {
-            Queue = new List<AppTestStudioStatusControlItem>();
-            Brushes = new List<Brush>();
-            ShadowBrushes = new List<Brush>();
-            Pens = new List<Pen>();
-            Modes = new List<long>();
-            Items = new List<string>();
 
             int ShadowAlpha = 70;
             int BrushAlpha = 140;

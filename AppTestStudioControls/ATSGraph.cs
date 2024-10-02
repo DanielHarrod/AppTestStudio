@@ -16,6 +16,7 @@ namespace AppTestStudioControls
         public ATSGraph()
         {
             InitializeComponent();
+            Buckets = new int[1];
         }
 
         private void ProcessVisualization_Load(object sender, EventArgs e)
