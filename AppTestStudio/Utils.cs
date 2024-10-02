@@ -1444,7 +1444,7 @@ namespace AppTestStudio
         }
 
         [System.Diagnostics.DebuggerStepThrough]
-        public static int HiLoWord(short lo, short hi)
+        public static int HiLoWord(ushort lo, ushort hi)
         {
             int hi2 = hi << 16;
             hi2 = hi2 | lo;
