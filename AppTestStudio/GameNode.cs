@@ -9,6 +9,7 @@ using System.Windows.Forms;
 
 namespace AppTestStudio
 {
+    [Serializable]
     public class GameNode : TreeNode
     {
         // To Track between components
