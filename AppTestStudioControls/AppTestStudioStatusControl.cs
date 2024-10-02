@@ -367,8 +367,6 @@ namespace AppTestStudioControls
             //y2 = RowShadowTop(1 + yPositionIndex)
             //e.Graphics.DrawLine(Pen, x2, y1, x2, y2)
 
-            Brush = null;
-            Pen = null;
             return true;
 
         }
