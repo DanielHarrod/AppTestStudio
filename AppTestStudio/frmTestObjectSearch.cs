@@ -20,7 +20,7 @@ namespace AppTestStudio
             this.MainWindowHandle = mainWindowHandle;
             this.Node = node;
             this.Game = game;
-            this.Parent = parent;
+            this.GameNodeActionParent = parent;
         }
 
         Mat m1;
@@ -39,7 +39,7 @@ namespace AppTestStudio
         GameNodeAction Node;
         GameNodeGame Game;
         OpenCvSharp.Point DetectedPoint;
-        GameNodeAction Parent;
+        GameNodeAction GameNodeActionParent;
 
         private void cmdUpdateScreenshot_Click(object sender, EventArgs e)
         {
@@ -63,12 +63,12 @@ namespace AppTestStudio
             int CenterY = 0;
             Boolean IsPassed = false; ;
 
-            if (Parent.IsSomething())
+            if (GameNodeActionParent.IsSomething())
             {
-                RunTest(Parent, UseCurrentWindow);
-                if (LoadData(Parent, Parent.Rectangle))
+                RunTest(GameNodeActionParent, UseCurrentWindow);
+                if (LoadData(GameNodeActionParent, GameNodeActionParent.Rectangle))
                 {
-                    Search(Parent, ref CenterX, ref CenterY, ref IsPassed);
+                    Search(GameNodeActionParent, ref CenterX, ref CenterY, ref IsPassed);
                 }
                 else
                 {
@@ -345,10 +345,10 @@ namespace AppTestStudio
         {
             lblDetectedThreashold.Text = "";
             lblPoint.Text = "";
-            if (Parent.IsSomething())
+            if (GameNodeActionParent.IsSomething())
             {
-                NumericUpDown1.Value = Parent.ObjectThreshold;
-                switch (Parent.Channel.ToUpper())
+                NumericUpDown1.Value = GameNodeActionParent.ObjectThreshold;
+                switch (GameNodeActionParent.Channel.ToUpper())
                 {
                     case "RED":
                         cboChannel.Text = "Red Channel";
@@ -400,9 +400,9 @@ namespace AppTestStudio
             Rectangle rectangle = new Rectangle();
 
             Rectangle SourceMask;
-            if (Parent.IsSomething())
+            if (GameNodeActionParent.IsSomething())
             {
-                SourceMask = Parent.Rectangle;
+                SourceMask = GameNodeActionParent.Rectangle;
             }
             else
             {
