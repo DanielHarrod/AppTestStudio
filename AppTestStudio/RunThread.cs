@@ -14,7 +14,6 @@ using OpenCvSharp;
 using System.Threading;
 using System.Windows.Forms;
 using System.Web.Hosting;
-using static AppTestStudio.API;
 using System.Runtime.Versioning;
 
 namespace AppTestStudio
@@ -57,7 +56,7 @@ namespace AppTestStudio
         {
             Success = false;
 
-            IntPtr hdcSrc = API.GetWindowDC(WindowHandle);
+            IntPtr hdcSrc = NativeMethods.GetWindowDC(WindowHandle);
             if (hdcSrc.ToInt32() == 0)
             {
                 // Likely the WindowHandle was lost, refetch a window handle.
@@ -65,9 +64,9 @@ namespace AppTestStudio
                 Game.Log("Refetching Window for " + Game.TargetWindow);
                 WindowHandle = Game.GetWindowHandleByWindowName();
             }
-            API.RECT WindowRectangle = new API.RECT();
+            NativeMethods.RECT WindowRectangle = new NativeMethods.RECT();
 
-            API.GetWindowRect(WindowHandle, out WindowRectangle);
+            NativeMethods.GetWindowRect(WindowHandle, out WindowRectangle);
 
             int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
             int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
@@ -77,28 +76,28 @@ namespace AppTestStudio
                 return null;
             }
 
-            IntPtr hdcDest = API.CreateCompatibleDC(hdcSrc);
+            IntPtr hdcDest = NativeMethods.CreateCompatibleDC(hdcSrc);
 
-            IntPtr hBitmap = API.CreateCompatibleBitmap(hdcSrc, TargetWindowWidth, TargetWindowHeight);
+            IntPtr hBitmap = NativeMethods.CreateCompatibleBitmap(hdcSrc, TargetWindowWidth, TargetWindowHeight);
 
             if (hBitmap.ToInt32() == 0)
             {
-                API.DeleteDC(hdcDest);
+                NativeMethods.DeleteDC(hdcDest);
                 return null;
             }
 
-            IntPtr hOld = API.SelectObject(hdcDest, hBitmap);
+            IntPtr hOld = NativeMethods.SelectObject(hdcDest, hBitmap);
 
             //'modAPI.BitBlt(hdcDest, 0, 0, TargetWindowWidth, TargetWindowHeight, hdcSrc, 0, 0, &HCC0020)
 
-            API.PrintWindow(WindowHandle, hdcDest, 2);
+            NativeMethods.PrintWindow(WindowHandle, hdcDest, 2);
 
-            API.SelectObject(hdcDest, hOld);
-            API.DeleteDC(hdcDest);
-            API.ReleaseDC(WindowHandle, hdcSrc);
+            NativeMethods.SelectObject(hdcDest, hOld);
+            NativeMethods.DeleteDC(hdcDest);
+            NativeMethods.ReleaseDC(WindowHandle, hdcSrc);
 
             Bitmap bmp = Image.FromHbitmap(hBitmap);
-            API.DeleteObject(hBitmap);
+            NativeMethods.DeleteObject(hBitmap);
 
             Success = true;
 
@@ -950,7 +949,7 @@ namespace AppTestStudio
                 else
                 {
                     // verify window exists.
-                    IntPtr ParentHwnd = API.GetAncestor(WindowHandle, GetAncestorFlags.GetRoot);
+                    IntPtr ParentHwnd = NativeMethods.GetAncestor(WindowHandle, NativeMethods.GetAncestorFlags.GetRoot);
                     if (ParentHwnd == IntPtr.Zero)
                     {
                         WindowHandle = IntPtr.Zero;

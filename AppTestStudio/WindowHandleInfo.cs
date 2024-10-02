@@ -8,16 +8,12 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
+using static AppTestStudio.NativeMethods;
 
 namespace AppTestStudio
 {
     public class WindowHandleInfo
     {
-        private delegate bool EnumWindowProc(IntPtr hwnd, IntPtr lParam);
-
-        [DllImport("user32")]
-        [return: MarshalAs(UnmanagedType.Bool)]
-        private static extern bool EnumChildWindows(IntPtr window, EnumWindowProc callback, IntPtr lParam);
 
         private IntPtr _MainHandle;
 

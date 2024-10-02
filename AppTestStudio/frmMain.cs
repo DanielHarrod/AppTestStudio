@@ -4,26 +4,18 @@
 
 using AppTestStudioControls;
 using Gma.System.MouseKeyHook;
-using Microsoft.Win32;
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Diagnostics;
 using System.Drawing;
-using System.Drawing.Drawing2D;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
-using System.Runtime.CompilerServices;
-using System.Runtime.InteropServices;
 using System.Runtime.Versioning;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
 using System.Xml;
 using System.Xml.Serialization;
 using static AppTestStudio.Definitions;
@@ -8324,7 +8316,7 @@ namespace AppTestStudio
                     }
 
                     Log("Attempting to resize window to " + gameNodeAction.ResolutionWidth + "x" + gameNodeAction.ResolutionHeight);
-                    API.MoveWindow(MainWindowHandle, 0, 0, gameNodeAction.ResolutionWidth, gameNodeAction.ResolutionHeight, true);
+                    NativeMethods.MoveWindow(MainWindowHandle, 0, 0, gameNodeAction.ResolutionWidth, gameNodeAction.ResolutionHeight, true);
                 }
             }
             catch (Exception ex)

@@ -5,10 +5,11 @@
 using System;
 using System.Runtime.InteropServices;
 using System.Text;
+using static AppTestStudio.NativeMethods;
 
 namespace AppTestStudio
 {
-    public static class API
+    public static class NativeMethods
     {
         [StructLayout(LayoutKind.Sequential)]
         public struct RECT
@@ -238,6 +239,12 @@ namespace AppTestStudio
 
         [DllImport("user32.dll")]
         internal static extern void SwitchToThisWindow(IntPtr hWnd, bool fAltTab);
+
+        internal delegate bool EnumWindowProc(IntPtr hwnd, IntPtr lParam);
+
+        [DllImport("user32")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool EnumChildWindows(IntPtr window, EnumWindowProc callback, IntPtr lParam);
 
     }
 }

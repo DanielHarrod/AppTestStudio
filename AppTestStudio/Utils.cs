@@ -9,11 +9,11 @@ using System.Drawing;
 using System.Text;
 using System.Windows.Forms;
 using System.Threading;
-using static AppTestStudio.API;
 using System.Runtime.InteropServices;
 using System.Windows.Media.Animation;
 using static AppTestStudio.Definitions;
 using System.Runtime.Versioning;
+using static AppTestStudio.NativeMethods;
 
 namespace AppTestStudio
 {
@@ -309,22 +309,22 @@ namespace AppTestStudio
             int Start = Environment.TickCount;
             int End = Start + TimeOutMS;
 
-            IntPtr hActiveWindow = API.GetForegroundWindow();
+            IntPtr hActiveWindow = GetForegroundWindow();
 
-            IntPtr hActiveWindowRoot= API.GetAncestor(hActiveWindow, GetAncestorFlags.GetRoot);
-            IntPtr hActiveWindowHandleRoot = API.GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
+            IntPtr hActiveWindowRoot= GetAncestor(hActiveWindow, GetAncestorFlags.GetRoot);
+            IntPtr hActiveWindowHandleRoot = GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
 
             if (hActiveWindowHandleRoot != hActiveWindowRoot)                 
             {
-                API.SwitchToThisWindow(windowHandle, true);
+                SwitchToThisWindow(windowHandle, true);
                 Thread.Sleep(AfterActivateTimeMS);
-                //Boolean Result = API.SetForegroundWindow(hActiveWindowHandleRoot);
+                //Boolean Result = SetForegroundWindow(hActiveWindowHandleRoot);
                 //Utils.SendAltUp();
                 //Debug.WriteLine($"ASFW={Result}");
                 while (hActiveWindowHandleRoot != hActiveWindowRoot)
                 {
-                    hActiveWindow = API.GetForegroundWindow();
-                    hActiveWindowRoot = API.GetAncestor(hActiveWindow, GetAncestorFlags.GetRoot);
+                    hActiveWindow = GetForegroundWindow();
+                    hActiveWindowRoot = GetAncestor(hActiveWindow, GetAncestorFlags.GetRoot);
                     if (Environment.TickCount > End)
                     {
                         Debug.WriteLine("Never activated within time.");
@@ -345,17 +345,17 @@ namespace AppTestStudio
         public static Boolean ActivateWindowIfNecessary(IntPtr windowHandle, WindowAction windowAction, int startX, int startY)
         {
             Boolean Result = false;
-            API.RECT TargetWindowRectangle;
-            Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
+            RECT TargetWindowRectangle;
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
             short xSystemTargetStartPosition = (short)(startX + TargetWindowRectangle.Left);
             short ySystemTargetStartPosition = (short)(startY + +TargetWindowRectangle.Top);
             System.Drawing.Point p = new System.Drawing.Point();
             p.X = xSystemTargetStartPosition;
             p.Y = ySystemTargetStartPosition;
-            IntPtr WindowHandleAtStartPosition = API.WindowFromPoint(p);
+            IntPtr WindowHandleAtStartPosition = WindowFromPoint(p);
 
-            IntPtr ParentWindowHandleAtStartPosition = API.GetAncestor(WindowHandleAtStartPosition, GetAncestorFlags.GetRoot);
-            IntPtr ParentWindowHandleOfApplication = API.GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
+            IntPtr ParentWindowHandleAtStartPosition = GetAncestor(WindowHandleAtStartPosition, GetAncestorFlags.GetRoot);
+            IntPtr ParentWindowHandleOfApplication = GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
             if (ParentWindowHandleOfApplication != ParentWindowHandleAtStartPosition)
             {
                 switch (windowAction)
@@ -363,7 +363,7 @@ namespace AppTestStudio
                     case WindowAction.DoNothing:
                         break;
                     case WindowAction.ActivateWindow:
-                        API.SetForegroundWindow(ParentWindowHandleOfApplication);
+                        SetForegroundWindow(ParentWindowHandleOfApplication);
                         Result = true;
                         break;
                     default:
@@ -380,15 +380,15 @@ namespace AppTestStudio
 
         public static int ClickDragReleasePassive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS)
         {
-            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWord(startX, startY));
+            PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWord(startX, startY));
 
             //'Send Mouse Down
-            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(startX, startY));
+            PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(startX, startY));
 
             int MouseMoveTimeMS = MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
 
             //' Send mouse Up
-            API.SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWordIntptr(endX, endY));
+            SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWordIntptr(endX, endY));
 
             return MouseMoveTimeMS;
         }
@@ -451,8 +451,8 @@ namespace AppTestStudio
         public static int MoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientStart, short yClientStart, short xClientTarget, short yClientTarget, int velocityMS, int mouseInitialClickDelayMS)
         {
             //windowHandle = GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
-            API.RECT TargetWindowRectangle;
-            Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
+            RECT TargetWindowRectangle;
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
 
             //Debug.WriteLine("xClientTarget:" + xClientTarget);
             //Debug.WriteLine("yClientTarget:" + yClientTarget);
@@ -461,10 +461,10 @@ namespace AppTestStudio
 
             //RECT WindowFrame;
 
-            //int Result = API.DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
+            //int Result = DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
 
             RECT ClientRect;
-            API.GetClientRect(windowHandle, out ClientRect);
+            GetClientRect(windowHandle, out ClientRect);
 
             short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);
 
@@ -603,24 +603,24 @@ namespace AppTestStudio
         public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond, EasingFunctionBase easingFunction = null)
         {
             //Debug.WriteLine($"MoveMouseActiveFromSystemPosition(windowHandle={windowHandle}, mouseEventFlags={mouseEventFlags}, xClientTarget={xClientTarget}, yClientTarget={yClientTarget}, mouseSpeedPixelsPerSecond={mouseSpeedPixelsPerSecond}, easingFunction=...");
-            API.RECT TargetWindowRectangle;
+            RECT TargetWindowRectangle;
 
             //Retrieves the dimensions of the bounding rectangle of the specified window.
             //The dimensions are given in screen coordinates that are relative to the upper-left corner of the screen.
-            Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
 
             RECT ClientRect;
 
             //Retrieves the coordinates of a window's client area. The client coordinates specify the upper-left and lower-right corners of the client area.
             //Because client coordinates are relative to the upper-left corner of a window's client area, the coordinates of the upper-left corner are (0,0).
-            API.GetClientRect(windowHandle, out ClientRect);
+            GetClientRect(windowHandle, out ClientRect);
 
             short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
             short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
 
             //Retrieves the position of the mouse cursor, in screen coordinates.
-            GetCursorPos(out API.Point point);
+            GetCursorPos(out NativeMethods.Point point);
             int xStart = point.X;
             int yStart = point.Y;
 
@@ -787,7 +787,7 @@ namespace AppTestStudio
             // Don't post the Start move if there's a 0ms delay
             if (velocityMS > 0)
             {
-                API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
+                PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
                 PostCount++;
             }
 
@@ -798,7 +798,7 @@ namespace AppTestStudio
                 int CurrentAction = 0;
                 for (CurrentAction = 0; CurrentAction < NumberOfActions; CurrentAction++)
                 {
-                    API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
+                    PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
                     PostCount++;
 
                     if (CurrentAction == 0)
@@ -813,7 +813,7 @@ namespace AppTestStudio
                 }
             }
 
-            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(xTarget, yTarget));
+            PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(xTarget, yTarget));
             PostCount++;
             return PostCount;
         }
@@ -914,8 +914,8 @@ namespace AppTestStudio
 
         public static int ClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS)
         {
-            API.RECT TargetWindowRectangle;
-            Boolean WindowRectResult = AppTestStudio.API.GetWindowRect(windowHandle, out TargetWindowRectangle);
+            RECT TargetWindowRectangle;
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
 
             //Debug.WriteLine("xClientTarget:" + xClientTarget);
             //Debug.WriteLine("yClientTarget:" + yClientTarget);
@@ -926,11 +926,11 @@ namespace AppTestStudio
 
             ////Retrieves the current value of a specified Desktop Window Manager(DWM) attribute applied to a window.
             ////Retrieves the extended frame bounds rectangle in screen space.
-            //int Result = API.DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
+            //int Result = DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
 
             RECT ClientRect;
             //Retrieves the coordinates of a window's client area.
-            API.GetClientRect(windowHandle, out ClientRect);
+            GetClientRect(windowHandle, out ClientRect);
 
             short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
@@ -978,14 +978,14 @@ namespace AppTestStudio
         {
              //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(HTCLIENT, Definitions.WM_MOUSEMOVE))
 
-            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, 0, Utils.HiLoWord(xTarget, yTarget));
+            PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, 0, Utils.HiLoWord(xTarget, yTarget));
 
-            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(xTarget, yTarget));
+            PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(xTarget, yTarget));
             if (mouseUpDelayMS > 0)
             {
                 Thread.Sleep(mouseUpDelayMS);
             }
-            API.PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
+            PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
             return mouseUpDelayMS;
         }
 
@@ -1012,9 +1012,9 @@ namespace AppTestStudio
         public static string GetText(IntPtr hWnd)
         {
             // Allocate correct string length first
-            int length = API.GetWindowTextLength(hWnd);
+            int length = GetWindowTextLength(hWnd);
             StringBuilder sb = new StringBuilder(length + 1);
-            API.GetWindowText(hWnd, sb, sb.Capacity);
+            GetWindowText(hWnd, sb, sb.Capacity);
             return sb.ToString();
         }
 
@@ -1241,27 +1241,27 @@ namespace AppTestStudio
 
         public static Bitmap GetBitmapFromWindowHandle(IntPtr WindowHandle)
         {
-            IntPtr IntPtrDeviceContext = API.GetDC(WindowHandle);  //GDI Alloc 1
-            IntPtr IntPtrContext = API.CreateCompatibleDC(IntPtrDeviceContext);  // GDI Alloc 2
+            IntPtr IntPtrDeviceContext = GetDC(WindowHandle);  //GDI Alloc 1
+            IntPtr IntPtrContext = CreateCompatibleDC(IntPtrDeviceContext);  // GDI Alloc 2
 
-            API.RECT WindowRectangle = new API.RECT();
+            RECT WindowRectangle = new RECT();
 
-            API.GetWindowRect(WindowHandle, out WindowRectangle);
+            GetWindowRect(WindowHandle, out WindowRectangle);
 
             int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
             int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
 
-            IntPtr CompatibleBitmap = API.CreateCompatibleBitmap(IntPtrDeviceContext, TargetWindowWidth, TargetWindowHeight);   // GDI Alloc 3
+            IntPtr CompatibleBitmap = CreateCompatibleBitmap(IntPtrDeviceContext, TargetWindowWidth, TargetWindowHeight);   // GDI Alloc 3
 
-            API.SelectObject(IntPtrContext, CompatibleBitmap);
+            SelectObject(IntPtrContext, CompatibleBitmap);
 
-            API.PrintWindow(WindowHandle, IntPtrContext, 2);
+            PrintWindow(WindowHandle, IntPtrContext, 2);
 
             Bitmap bmp = System.Drawing.Image.FromHbitmap(CompatibleBitmap);
 
-            API.DeleteObject(CompatibleBitmap);  // GDI Dealloc 3
-            API.DeleteDC(IntPtrContext); // GDI DeAlloc 2
-            API.ReleaseDC(WindowHandle, IntPtrDeviceContext);  //GDI Dealloc 1
+            DeleteObject(CompatibleBitmap);  // GDI Dealloc 3
+            DeleteDC(IntPtrContext); // GDI DeAlloc 2
+            ReleaseDC(WindowHandle, IntPtrDeviceContext);  //GDI Dealloc 1
 
             return bmp;
         }
@@ -1691,11 +1691,11 @@ namespace AppTestStudio
             const int SW_SHOWNOACTIVATE = 4;
             const int HWND_TOPMOST = -1;
             const uint SWP_NOACTIVATE = 0x0010;
-            API.ShowWindow(frm.Handle, SW_SHOWNOACTIVATE);
+            ShowWindow(frm.Handle, SW_SHOWNOACTIVATE);
             int Left = (Screen.PrimaryScreen.WorkingArea.Width - frm.Width) / 2;
             int Top = (Screen.PrimaryScreen.WorkingArea.Height - frm.Height) / 2;
 
-            API.SetWindowPos(frm.Handle, new IntPtr(HWND_TOPMOST), Left, Top, frm.Width, frm.Height, SWP_NOACTIVATE);             
+            SetWindowPos(frm.Handle, new IntPtr(HWND_TOPMOST), Left, Top, frm.Width, frm.Height, SWP_NOACTIVATE);             
         }
 
         public static int GetDistanceABS(int x1, int y1, int x2, int y2)
@@ -1710,7 +1710,7 @@ namespace AppTestStudio
 
         public static void SendAltDown()
         {
-            API.Input ip = new Input();
+            Input ip = new Input();
 
             ip.Type = KeyboardCodes.INPUT_KEYBOARD;
             ip.u.KeyboardInput.VirtualKeyCode = VirtualKeyCode.VK_MENU;
@@ -1719,7 +1719,7 @@ namespace AppTestStudio
         }
         public static void SendAltUp()
         {
-            API.Input ip = new Input();
+            Input ip = new Input();
 
             ip.Type = KeyboardCodes.INPUT_KEYBOARD;
             ip.u.KeyboardInput.VirtualKeyCode = VirtualKeyCode.VK_MENU;
@@ -1777,7 +1777,7 @@ namespace AppTestStudio
                 return;
             }
 
-            API.Input[] inputs = new API.Input[1];
+            Input[] inputs = new Input[1];
             inputs[0].Type = KeyboardCodes.INPUT_KEYBOARD;
 
             inputs[0].u.KeyboardInput.ScanCode = command.ScanCode;
@@ -1793,7 +1793,7 @@ namespace AppTestStudio
 
             if (command.ButtonState == KeyboardButtonStates.Down || command.ButtonState == KeyboardButtonStates.Up)
             {
-                uint uSent = API.SendInput(1, inputs, Marshal.SizeOf(typeof(API.Input)));
+                uint uSent = SendInput(1, inputs, Marshal.SizeOf(typeof(Input)));
             }
         }
     }
