@@ -5,10 +5,12 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.Versioning;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+[assembly: AssemblyVersionAttribute("1.0.0.0")]
 namespace AppTestStudio
 {
     static class Program
@@ -17,7 +19,7 @@ namespace AppTestStudio
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        [SupportedOSPlatform("windows")]
+        [SupportedOSPlatform("windows")]        
         static void Main()
         {
             Application.EnableVisualStyles();
