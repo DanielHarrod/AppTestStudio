@@ -2,6 +2,9 @@
 
 AppTestStudio (ATS) is a automated development environment, you can builder, tester, and can automate windows applications and android emmulators.
 
+## Oct 10 update.
+Converted the code to Microsoft Visual Studio Community Edition 2022 (64-bit) with .NET 6.0 framework.
+
 ## Finally a Complete Tutorial 
 Youtube tutorials cover how to go from a beginner to an expert.
 
