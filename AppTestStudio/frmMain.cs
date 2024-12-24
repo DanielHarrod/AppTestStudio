@@ -3496,7 +3496,7 @@ namespace AppTestStudio
 
                     if (game.MinimalBitmapClones.Count > 0)
                     {
-                        //'walk the tree to find a bitmpa
+                        //'walk the tree to find a bitmap
 
                         MinimalBitmapNode mbmc = null;
                         if (game.MinimalBitmapClones.TryDequeue(out mbmc))
@@ -3506,18 +3506,25 @@ namespace AppTestStudio
                             if (tns.Length == 1)
                             {
                                 GameNodeAction ActionNode = tns[0] as GameNodeAction;
-
-                                if (mbmc.ResolutionHeight > 0)
+                                if (ActionNode != null)
                                 {
-                                    if (mbmc.ResolutionHeight == ActionNode.ResolutionHeight)
+
+                                    if (mbmc.ResolutionHeight > 0)
                                     {
-                                        if (mbmc.ResolutionWidth == ActionNode.ResolutionWidth)
+                                        if (mbmc.ResolutionHeight == ActionNode.ResolutionHeight)
                                         {
-                                            ActionNode.Bitmap = mbmc.Bitmap.Clone() as Bitmap;
-                                            Log("Synching Screenshot: " + ActionNode.Name);
-                                            BitmapChildren(ActionNode, ActionNode.Bitmap);
+                                            if (mbmc.ResolutionWidth == ActionNode.ResolutionWidth)
+                                            {
+                                                ActionNode.Bitmap = mbmc.Bitmap.Clone() as Bitmap;
+                                                Log("Synching Screenshot: " + ActionNode.Name);
+                                                BitmapChildren(ActionNode, ActionNode.Bitmap);
+                                            }
                                         }
                                     }
+                                } 
+                                else
+                                {
+                                    Log("Node is not of type GameNodeAction: " + mbmc.NodeName);
                                 }
                             }
                             else
