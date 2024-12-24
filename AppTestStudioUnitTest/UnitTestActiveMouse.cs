@@ -23,35 +23,35 @@ namespace AppTestStudioUnitTest
         public void TestGetWindowRectOnDualMonitor()
         {
             IntPtr x = new IntPtr(0x028B2682);
-            AppTestStudio.API.RECT R;
-            AppTestStudio.API.GetWindowRect(x, out R);
+            NativeMethods.RECT R;
+            NativeMethods.GetWindowRect(x, out R);
         }
 
         [TestMethod]
         public void TestSetForegroundWindow()
         {
             IntPtr x = new IntPtr(0x028B2682);
-            bool Result = AppTestStudio.API.SetForegroundWindow(x);
+            bool Result = NativeMethods.SetForegroundWindow(x);
             Debug.WriteLine("SetForegroundWindow returns:" +Result);
         }
 
         [TestMethod]
         public void TestGetForegroundWindow()
         {
-            IntPtr x = AppTestStudio.API.GetForegroundWindow();
+            IntPtr x = NativeMethods.GetForegroundWindow();
             Debug.WriteLine("GetForegroundWindow returns:" + x.ToInt32().ToString("X"));
         }
 
         [TestMethod]
         public void GetAncestor()
         {
-            IntPtr x = AppTestStudio.API.GetForegroundWindow();
+            IntPtr x = NativeMethods.GetForegroundWindow();
 
             x = AppTestStudio.Utils.GetWindowHandleByWindowName("Hades' Star", "");
 
-            IntPtr Parent = API.GetAncestor(x, API.GetAncestorFlags.GetParent);
-            IntPtr Root = API.GetAncestor(x, API.GetAncestorFlags.GetRoot);
-            IntPtr RootOwner = API.GetAncestor(x, API.GetAncestorFlags.GetRootOwner);
+            IntPtr Parent = NativeMethods.GetAncestor(x, NativeMethods.GetAncestorFlags.GetParent);
+            IntPtr Root = NativeMethods.GetAncestor(x, NativeMethods.GetAncestorFlags.GetRoot);
+            IntPtr RootOwner = NativeMethods.GetAncestor(x, NativeMethods.GetAncestorFlags.GetRootOwner);
 
 
         }
@@ -59,7 +59,7 @@ namespace AppTestStudioUnitTest
         [TestMethod]
         public void MouseMove()
         {
-            IntPtr x = AppTestStudio.API.GetForegroundWindow();
+            IntPtr x = NativeMethods.GetForegroundWindow();
 
             int Count = AppTestStudio.Utils.MoveMousePassive(x, 0, 3843, 746, 1927, 784, 485, 10);  // needs to be ~150
             int Count2 = AppTestStudio.Utils.MoveMousePassive(x, 0, 1934, 784, 1927, 3848, 125, 10);  // needs to be ~20

@@ -13,7 +13,7 @@ namespace AppTestStudioUnitTest
         [TestMethod]
         public void TestMethod1()
         {
-            IntPtr DesktopHWND = AppTestStudio.API.GetDesktopWindow();
+            IntPtr DesktopHWND = AppTestStudio.NativeMethods.GetDesktopWindow();
 
             Bitmap bmp = AppTestStudio.Utils.GetBitmapFromWindowHandle(DesktopHWND);
             bmp.Save("C:\\test\\Test.bmp");

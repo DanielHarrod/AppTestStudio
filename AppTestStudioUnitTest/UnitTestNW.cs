@@ -13,7 +13,7 @@ namespace AppTestStudioUnitTest
             System.Threading.Thread.Sleep(1000);
             IntPtr k = AppTestStudio.Utils.GetWindowHandleByWindowName("World of New", "");
 
-            API.GetCursorPos(out API.Point point);
+            NativeMethods.GetCursorPos(out NativeMethods.Point point);
             short xStart = (short) point.X;
             short yStart = (short) point.Y;
             //Utils.ClickOnWindow(k,MouseMode.Active,false)
@@ -27,7 +27,7 @@ namespace AppTestStudioUnitTest
 
             //System.Drawing.Bitmap b = AppTestStudio.Utils.GetBitmapFromWindowHandle(k);
 
-            API.GetCursorPos(out point);
+            NativeMethods.GetCursorPos(out point);
              xStart = (short)point.X;
              yStart = (short)point.Y;
             Utils.ClickOnWindowActiveMode(k, xStart, yStart, 200);
