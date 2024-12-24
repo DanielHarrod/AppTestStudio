@@ -1455,13 +1455,13 @@ namespace AppTestStudio
         [System.Diagnostics.DebuggerStepThrough]
         public static int HiLoWord(int lo, int hi)
         {
-            return HiLoWord((short)lo, (short)hi);
+            return HiLoWord((ushort)lo, (ushort)hi);
         }
 
         [System.Diagnostics.DebuggerStepThrough]
         public static int HiLoWord(float lo, float hi)
         {
-            return HiLoWord((short)lo, (short)hi);
+            return HiLoWord((short)lo, (ushort)hi);
         }
 
         [System.Diagnostics.DebuggerStepThrough]
