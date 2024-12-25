@@ -15,11 +15,16 @@ namespace AppTestStudioUnitTest
     {
         GameNodeAction Parent;
         GameNodeAction Action;
-        [TestInitialize]
-        public void TestInitialize()
+
+        public UnitTestClickDragRelease()
         {
             Parent = new GameNodeAction("Parent", ActionType.Event);
             Action = new GameNodeAction("TestBaselineCalculation", ActionType.Action);
+        }
+
+        [TestInitialize]
+        public void TestInitialize()
+        {
             Parent.Nodes.Add(Action);
         }
 
