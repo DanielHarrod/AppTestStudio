@@ -997,7 +997,7 @@ namespace AppTestStudio
             // 
             splitContainerMain.Panel2.Controls.Add(txtLog);
             splitContainerMain.Size = new System.Drawing.Size(1869, 957);
-            splitContainerMain.SplitterDistance = 868;
+            splitContainerMain.SplitterDistance = 867;
             splitContainerMain.SplitterWidth = 5;
             splitContainerMain.TabIndex = 2;
             // 
@@ -1027,8 +1027,8 @@ namespace AppTestStudio
             splitContainerWorkspace.Panel2.Controls.Add(PanelEvents);
             splitContainerWorkspace.Panel2.Controls.Add(PanelSchedule);
             splitContainerWorkspace.Panel2.Controls.Add(PanelWorkspace);
-            splitContainerWorkspace.Size = new System.Drawing.Size(1869, 868);
-            splitContainerWorkspace.SplitterDistance = 298;
+            splitContainerWorkspace.Size = new System.Drawing.Size(1869, 867);
+            splitContainerWorkspace.SplitterDistance = 297;
             splitContainerWorkspace.SplitterWidth = 5;
             splitContainerWorkspace.TabIndex = 0;
             // 
@@ -1042,7 +1042,7 @@ namespace AppTestStudio
             tabTree.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabTree.Name = "tabTree";
             tabTree.SelectedIndex = 0;
-            tabTree.Size = new System.Drawing.Size(298, 868);
+            tabTree.Size = new System.Drawing.Size(297, 867);
             tabTree.TabIndex = 0;
             tabTree.SelectedIndexChanged += tabTree_SelectedIndexChanged;
             // 
@@ -1053,7 +1053,7 @@ namespace AppTestStudio
             tabDesign.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabDesign.Name = "tabDesign";
             tabDesign.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabDesign.Size = new System.Drawing.Size(290, 840);
+            tabDesign.Size = new System.Drawing.Size(289, 839);
             tabDesign.TabIndex = 0;
             tabDesign.Text = "Design";
             tabDesign.UseVisualStyleBackColor = true;
@@ -1073,7 +1073,7 @@ namespace AppTestStudio
             tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            tableLayoutPanelDesign.Size = new System.Drawing.Size(282, 834);
+            tableLayoutPanelDesign.Size = new System.Drawing.Size(281, 833);
             tableLayoutPanelDesign.TabIndex = 1;
             // 
             // cmdPatron
@@ -1083,10 +1083,10 @@ namespace AppTestStudio
             cmdPatron.Dock = System.Windows.Forms.DockStyle.Fill;
             cmdPatron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cmdPatron.Image = Properties.Resources.Patron;
-            cmdPatron.Location = new System.Drawing.Point(0, 788);
+            cmdPatron.Location = new System.Drawing.Point(0, 787);
             cmdPatron.Margin = new System.Windows.Forms.Padding(0);
             cmdPatron.Name = "cmdPatron";
-            cmdPatron.Size = new System.Drawing.Size(282, 46);
+            cmdPatron.Size = new System.Drawing.Size(281, 46);
             cmdPatron.TabIndex = 0;
             cmdPatron.UseVisualStyleBackColor = false;
             cmdPatron.Click += cmdPatron_Click;
@@ -1102,7 +1102,7 @@ namespace AppTestStudio
             tv.Margin = new System.Windows.Forms.Padding(0);
             tv.Name = "tv";
             tv.SelectedImageIndex = 0;
-            tv.Size = new System.Drawing.Size(282, 751);
+            tv.Size = new System.Drawing.Size(281, 750);
             tv.TabIndex = 0;
             tv.ItemDrag += tv_ItemDrag;
             tv.AfterSelect += tv_AfterSelect;
@@ -1160,7 +1160,7 @@ namespace AppTestStudio
             panel3.Location = new System.Drawing.Point(0, 0);
             panel3.Margin = new System.Windows.Forms.Padding(0);
             panel3.Name = "panel3";
-            panel3.Size = new System.Drawing.Size(282, 37);
+            panel3.Size = new System.Drawing.Size(281, 37);
             panel3.TabIndex = 0;
             // 
             // txtFilter
@@ -1169,7 +1169,7 @@ namespace AppTestStudio
             txtFilter.Location = new System.Drawing.Point(41, 3);
             txtFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtFilter.Name = "txtFilter";
-            txtFilter.Size = new System.Drawing.Size(238, 23);
+            txtFilter.Size = new System.Drawing.Size(236, 23);
             txtFilter.TabIndex = 0;
             txtFilter.KeyUp += txtSearch_KeyUp;
             // 
@@ -1190,7 +1190,7 @@ namespace AppTestStudio
             tabRun.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabRun.Name = "tabRun";
             tabRun.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabRun.Size = new System.Drawing.Size(290, 840);
+            tabRun.Size = new System.Drawing.Size(289, 839);
             tabRun.TabIndex = 1;
             tabRun.Text = "Run";
             tabRun.UseVisualStyleBackColor = true;
@@ -1212,8 +1212,8 @@ namespace AppTestStudio
             // 
             splitContainerRunTab.Panel2.AutoScroll = true;
             splitContainerRunTab.Panel2.Controls.Add(splitContainerRunProperties);
-            splitContainerRunTab.Size = new System.Drawing.Size(282, 834);
-            splitContainerRunTab.SplitterDistance = 414;
+            splitContainerRunTab.Size = new System.Drawing.Size(281, 833);
+            splitContainerRunTab.SplitterDistance = 412;
             splitContainerRunTab.SplitterWidth = 5;
             splitContainerRunTab.TabIndex = 1;
             // 
@@ -1237,7 +1237,7 @@ namespace AppTestStudio
             // splitContainerRunTabThread.Panel2
             // 
             splitContainerRunTabThread.Panel2.Controls.Add(tvRun);
-            splitContainerRunTabThread.Size = new System.Drawing.Size(282, 414);
+            splitContainerRunTabThread.Size = new System.Drawing.Size(281, 412);
             splitContainerRunTabThread.SplitterDistance = 25;
             splitContainerRunTabThread.SplitterWidth = 1;
             splitContainerRunTabThread.TabIndex = 2;
@@ -1250,7 +1250,7 @@ namespace AppTestStudio
             cboThreads.Location = new System.Drawing.Point(0, 0);
             cboThreads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cboThreads.Name = "cboThreads";
-            cboThreads.Size = new System.Drawing.Size(282, 23);
+            cboThreads.Size = new System.Drawing.Size(281, 23);
             cboThreads.TabIndex = 1;
             cboThreads.SelectedIndexChanged += cboThreads_SelectedIndexChanged;
             // 
@@ -1264,7 +1264,7 @@ namespace AppTestStudio
             tvRun.Margin = new System.Windows.Forms.Padding(2);
             tvRun.Name = "tvRun";
             tvRun.SelectedImageIndex = 0;
-            tvRun.Size = new System.Drawing.Size(282, 388);
+            tvRun.Size = new System.Drawing.Size(281, 386);
             tvRun.TabIndex = 0;
             tvRun.AfterSelect += tvRun_AfterSelect;
             // 
@@ -1282,8 +1282,8 @@ namespace AppTestStudio
             // splitContainerRunProperties.Panel2
             // 
             splitContainerRunProperties.Panel2.Controls.Add(tableLayoutPanelRunValues);
-            splitContainerRunProperties.Size = new System.Drawing.Size(282, 406);
-            splitContainerRunProperties.SplitterDistance = 115;
+            splitContainerRunProperties.Size = new System.Drawing.Size(281, 406);
+            splitContainerRunProperties.SplitterDistance = 113;
             splitContainerRunProperties.SplitterWidth = 1;
             splitContainerRunProperties.TabIndex = 1;
             // 
@@ -1327,7 +1327,7 @@ namespace AppTestStudio
             tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.Size = new System.Drawing.Size(115, 406);
+            tableLayoutPanelRunLabels.Size = new System.Drawing.Size(113, 406);
             tableLayoutPanelRunLabels.TabIndex = 1;
             // 
             // lblRunLabel11
@@ -1490,7 +1490,7 @@ namespace AppTestStudio
             tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanelRunValues.ColumnCount = 2;
             tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 85F));
             tableLayoutPanelRunValues.Controls.Add(lblRunValue14, 0, 13);
             tableLayoutPanelRunValues.Controls.Add(lblRunValue7, 0, 6);
             tableLayoutPanelRunValues.Controls.Add(lblRunValue1, 0, 0);
@@ -1529,7 +1529,7 @@ namespace AppTestStudio
             tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
             tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.Size = new System.Drawing.Size(166, 406);
+            tableLayoutPanelRunValues.Size = new System.Drawing.Size(167, 406);
             tableLayoutPanelRunValues.TabIndex = 0;
             // 
             // lblRunValue14
@@ -1692,7 +1692,7 @@ namespace AppTestStudio
             cmdUpdateResolution.Location = new System.Drawing.Point(81, 169);
             cmdUpdateResolution.Margin = new System.Windows.Forms.Padding(0);
             cmdUpdateResolution.Name = "cmdUpdateResolution";
-            cmdUpdateResolution.Size = new System.Drawing.Size(84, 23);
+            cmdUpdateResolution.Size = new System.Drawing.Size(85, 23);
             cmdUpdateResolution.TabIndex = 13;
             cmdUpdateResolution.Text = "...";
             cmdUpdateResolution.UseVisualStyleBackColor = true;
@@ -1704,7 +1704,7 @@ namespace AppTestStudio
             cmdRuntimeEnableToggle.Location = new System.Drawing.Point(81, 73);
             cmdRuntimeEnableToggle.Margin = new System.Windows.Forms.Padding(0);
             cmdRuntimeEnableToggle.Name = "cmdRuntimeEnableToggle";
-            cmdRuntimeEnableToggle.Size = new System.Drawing.Size(84, 23);
+            cmdRuntimeEnableToggle.Size = new System.Drawing.Size(85, 23);
             cmdRuntimeEnableToggle.TabIndex = 14;
             cmdRuntimeEnableToggle.Text = "...";
             cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
@@ -1715,7 +1715,7 @@ namespace AppTestStudio
             tabSchedule.Location = new System.Drawing.Point(4, 24);
             tabSchedule.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tabSchedule.Name = "tabSchedule";
-            tabSchedule.Size = new System.Drawing.Size(290, 840);
+            tabSchedule.Size = new System.Drawing.Size(289, 839);
             tabSchedule.TabIndex = 2;
             tabSchedule.Text = "Schedule";
             tabSchedule.UseVisualStyleBackColor = true;
@@ -1767,7 +1767,7 @@ namespace AppTestStudio
             // 
             splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
             splitContainerStatsNScrollie.Size = new System.Drawing.Size(1664, 184);
-            splitContainerStatsNScrollie.SplitterDistance = 120;
+            splitContainerStatsNScrollie.SplitterDistance = 107;
             splitContainerStatsNScrollie.SplitterWidth = 5;
             splitContainerStatsNScrollie.TabIndex = 2;
             // 
@@ -1789,7 +1789,7 @@ namespace AppTestStudio
             tableLayoutStats.Name = "tableLayoutStats";
             tableLayoutStats.RowCount = 1;
             tableLayoutStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutStats.Size = new System.Drawing.Size(1664, 120);
+            tableLayoutStats.Size = new System.Drawing.Size(1664, 107);
             tableLayoutStats.TabIndex = 3;
             // 
             // groupTotal
@@ -1800,7 +1800,7 @@ namespace AppTestStudio
             groupTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupTotal.Name = "groupTotal";
             groupTotal.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupTotal.Size = new System.Drawing.Size(408, 114);
+            groupTotal.Size = new System.Drawing.Size(408, 101);
             groupTotal.TabIndex = 2;
             groupTotal.TabStop = false;
             groupTotal.Text = "Total";
@@ -1835,7 +1835,7 @@ namespace AppTestStudio
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(400, 92);
+            tableLayoutPanel1.Size = new System.Drawing.Size(400, 79);
             tableLayoutPanel1.TabIndex = 4;
             // 
             // label13
@@ -1966,7 +1966,7 @@ namespace AppTestStudio
             groupSession.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             groupSession.Name = "groupSession";
             groupSession.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupSession.Size = new System.Drawing.Size(408, 114);
+            groupSession.Size = new System.Drawing.Size(408, 101);
             groupSession.TabIndex = 1;
             groupSession.TabStop = false;
             groupSession.Text = "Session";
@@ -2001,7 +2001,7 @@ namespace AppTestStudio
             tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
             tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelSession.Size = new System.Drawing.Size(400, 92);
+            tableLayoutPanelSession.Size = new System.Drawing.Size(400, 79);
             tableLayoutPanelSession.TabIndex = 3;
             // 
             // label1
@@ -2132,7 +2132,7 @@ namespace AppTestStudio
             grpCPU.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpCPU.Name = "grpCPU";
             grpCPU.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpCPU.Size = new System.Drawing.Size(408, 114);
+            grpCPU.Size = new System.Drawing.Size(408, 101);
             grpCPU.TabIndex = 3;
             grpCPU.TabStop = false;
             grpCPU.Text = "CPU";
@@ -2143,7 +2143,7 @@ namespace AppTestStudio
             atsGraph1.Location = new System.Drawing.Point(4, 19);
             atsGraph1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             atsGraph1.Name = "atsGraph1";
-            atsGraph1.Size = new System.Drawing.Size(400, 92);
+            atsGraph1.Size = new System.Drawing.Size(400, 79);
             atsGraph1.TabIndex = 0;
             // 
             // grpAPS
@@ -2154,7 +2154,7 @@ namespace AppTestStudio
             grpAPS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             grpAPS.Name = "grpAPS";
             grpAPS.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpAPS.Size = new System.Drawing.Size(408, 114);
+            grpAPS.Size = new System.Drawing.Size(408, 101);
             grpAPS.TabIndex = 4;
             grpAPS.TabStop = false;
             grpAPS.Text = "Clicks Per Second";
@@ -2165,13 +2165,13 @@ namespace AppTestStudio
             atsGraphActions1.Location = new System.Drawing.Point(4, 19);
             atsGraphActions1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             atsGraphActions1.Name = "atsGraphActions1";
-            atsGraphActions1.Size = new System.Drawing.Size(400, 92);
+            atsGraphActions1.Size = new System.Drawing.Size(400, 79);
             atsGraphActions1.TabIndex = 0;
             // 
             // splitContainerSeconds
             // 
             splitContainerSeconds.Dock = System.Windows.Forms.DockStyle.Bottom;
-            splitContainerSeconds.Location = new System.Drawing.Point(0, 37);
+            splitContainerSeconds.Location = new System.Drawing.Point(0, 50);
             splitContainerSeconds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             splitContainerSeconds.Name = "splitContainerSeconds";
             // 
@@ -2183,7 +2183,7 @@ namespace AppTestStudio
             // 
             splitContainerSeconds.Panel2.BackColor = System.Drawing.SystemColors.ControlDark;
             splitContainerSeconds.Size = new System.Drawing.Size(1664, 22);
-            splitContainerSeconds.SplitterDistance = 259;
+            splitContainerSeconds.SplitterDistance = 258;
             splitContainerSeconds.SplitterWidth = 5;
             splitContainerSeconds.TabIndex = 0;
             splitContainerSeconds.SplitterMoving += splitContainerSeconds_SplitterMoving;
@@ -2378,7 +2378,7 @@ namespace AppTestStudio
             // cmdTest
             // 
             cmdTest.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            cmdTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cmdTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             cmdTest.Location = new System.Drawing.Point(569, 36);
             cmdTest.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             cmdTest.Name = "cmdTest";
@@ -2710,7 +2710,7 @@ namespace AppTestStudio
             // chkKeyboardF12
             // 
             chkKeyboardF12.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF12.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF12.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
             chkKeyboardF12.Location = new System.Drawing.Point(428, 22);
             chkKeyboardF12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF12.Name = "chkKeyboardF12";
@@ -2767,7 +2767,7 @@ namespace AppTestStudio
             // chkKeyboardPageDown
             // 
             chkKeyboardPageDown.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardPageDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardPageDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardPageDown.Location = new System.Drawing.Point(536, 119);
             chkKeyboardPageDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardPageDown.Name = "chkKeyboardPageDown";
@@ -2782,7 +2782,7 @@ namespace AppTestStudio
             // chkKeyboardEnd
             // 
             chkKeyboardEnd.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardEnd.Location = new System.Drawing.Point(505, 119);
             chkKeyboardEnd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardEnd.Name = "chkKeyboardEnd";
@@ -2797,7 +2797,7 @@ namespace AppTestStudio
             // chkKeyboardDelete
             // 
             chkKeyboardDelete.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardDelete.Location = new System.Drawing.Point(475, 119);
             chkKeyboardDelete.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardDelete.Name = "chkKeyboardDelete";
@@ -2812,7 +2812,7 @@ namespace AppTestStudio
             // chkKeyboardPageUp
             // 
             chkKeyboardPageUp.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardPageUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardPageUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardPageUp.Location = new System.Drawing.Point(536, 87);
             chkKeyboardPageUp.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardPageUp.Name = "chkKeyboardPageUp";
@@ -2827,7 +2827,7 @@ namespace AppTestStudio
             // chkKeyboardHome
             // 
             chkKeyboardHome.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardHome.Location = new System.Drawing.Point(505, 87);
             chkKeyboardHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardHome.Name = "chkKeyboardHome";
@@ -2842,7 +2842,7 @@ namespace AppTestStudio
             // chkKeyboardIns
             // 
             chkKeyboardIns.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardIns.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardIns.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardIns.Location = new System.Drawing.Point(475, 87);
             chkKeyboardIns.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardIns.Name = "chkKeyboardIns";
@@ -2871,7 +2871,7 @@ namespace AppTestStudio
             // chkKeyboardF11
             // 
             chkKeyboardF11.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF11.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF11.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
             chkKeyboardF11.Location = new System.Drawing.Point(399, 22);
             chkKeyboardF11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF11.Name = "chkKeyboardF11";
@@ -2900,7 +2900,7 @@ namespace AppTestStudio
             // chkKeyboardF8
             // 
             chkKeyboardF8.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardF8.Location = new System.Drawing.Point(303, 22);
             chkKeyboardF8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF8.Name = "chkKeyboardF8";
@@ -2929,7 +2929,7 @@ namespace AppTestStudio
             // chkKeyboardF10
             // 
             chkKeyboardF10.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF10.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF10.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
             chkKeyboardF10.Location = new System.Drawing.Point(370, 22);
             chkKeyboardF10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF10.Name = "chkKeyboardF10";
@@ -2973,7 +2973,7 @@ namespace AppTestStudio
             // chkKeyboardF7
             // 
             chkKeyboardF7.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardF7.Location = new System.Drawing.Point(274, 22);
             chkKeyboardF7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF7.Name = "chkKeyboardF7";
@@ -3002,7 +3002,7 @@ namespace AppTestStudio
             // chkKeyboardF9
             // 
             chkKeyboardF9.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardF9.Location = new System.Drawing.Point(341, 22);
             chkKeyboardF9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF9.Name = "chkKeyboardF9";
@@ -3031,7 +3031,7 @@ namespace AppTestStudio
             // chkKeyboardF6
             // 
             chkKeyboardF6.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardF6.Location = new System.Drawing.Point(245, 22);
             chkKeyboardF6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF6.Name = "chkKeyboardF6";
@@ -3060,7 +3060,7 @@ namespace AppTestStudio
             // chkKeyboardF5
             // 
             chkKeyboardF5.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardF5.Location = new System.Drawing.Point(216, 22);
             chkKeyboardF5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF5.Name = "chkKeyboardF5";
@@ -3089,7 +3089,7 @@ namespace AppTestStudio
             // chkKeyboardF4
             // 
             chkKeyboardF4.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardF4.Location = new System.Drawing.Point(176, 22);
             chkKeyboardF4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF4.Name = "chkKeyboardF4";
@@ -3104,7 +3104,7 @@ namespace AppTestStudio
             // chkKeyboardF3
             // 
             chkKeyboardF3.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardF3.Location = new System.Drawing.Point(146, 22);
             chkKeyboardF3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF3.Name = "chkKeyboardF3";
@@ -3133,7 +3133,7 @@ namespace AppTestStudio
             // chkKeyboardF2
             // 
             chkKeyboardF2.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardF2.Location = new System.Drawing.Point(115, 22);
             chkKeyboardF2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF2.Name = "chkKeyboardF2";
@@ -3162,7 +3162,7 @@ namespace AppTestStudio
             // chkKeyboardF1
             // 
             chkKeyboardF1.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardF1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardF1.Location = new System.Drawing.Point(85, 22);
             chkKeyboardF1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardF1.Name = "chkKeyboardF1";
@@ -3191,7 +3191,7 @@ namespace AppTestStudio
             // chkKeyboardESC
             // 
             chkKeyboardESC.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardESC.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardESC.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.5F);
             chkKeyboardESC.Location = new System.Drawing.Point(33, 22);
             chkKeyboardESC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardESC.Name = "chkKeyboardESC";
@@ -3220,7 +3220,7 @@ namespace AppTestStudio
             // chkKeyboardBackspace
             // 
             chkKeyboardBackspace.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardBackspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            chkKeyboardBackspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
             chkKeyboardBackspace.Location = new System.Drawing.Point(399, 54);
             chkKeyboardBackspace.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             chkKeyboardBackspace.Name = "chkKeyboardBackspace";
@@ -3843,7 +3843,7 @@ namespace AppTestStudio
             // 
             // lblPictureMissing
             // 
-            lblPictureMissing.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblPictureMissing.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             lblPictureMissing.Location = new System.Drawing.Point(0, 58);
             lblPictureMissing.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblPictureMissing.Name = "lblPictureMissing";
@@ -3940,7 +3940,7 @@ namespace AppTestStudio
             cmdFlowLayoutPanelColorEvent1.Cursor = System.Windows.Forms.Cursors.Hand;
             cmdFlowLayoutPanelColorEvent1.FlatAppearance.BorderSize = 0;
             cmdFlowLayoutPanelColorEvent1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdFlowLayoutPanelColorEvent1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cmdFlowLayoutPanelColorEvent1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             cmdFlowLayoutPanelColorEvent1.Location = new System.Drawing.Point(4, 0);
             cmdFlowLayoutPanelColorEvent1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             cmdFlowLayoutPanelColorEvent1.Name = "cmdFlowLayoutPanelColorEvent1";
@@ -4001,7 +4001,7 @@ namespace AppTestStudio
             // 
             // numericPropertiesRepeatsUntilFalse
             // 
-            numericPropertiesRepeatsUntilFalse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            numericPropertiesRepeatsUntilFalse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             numericPropertiesRepeatsUntilFalse.Location = new System.Drawing.Point(10, 18);
             numericPropertiesRepeatsUntilFalse.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numericPropertiesRepeatsUntilFalse.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
@@ -4040,7 +4040,7 @@ namespace AppTestStudio
             cmdPanelRightResolution.Dock = System.Windows.Forms.DockStyle.Top;
             cmdPanelRightResolution.FlatAppearance.BorderSize = 0;
             cmdPanelRightResolution.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdPanelRightResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdPanelRightResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdPanelRightResolution.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdPanelRightResolution.Location = new System.Drawing.Point(0, 0);
             cmdPanelRightResolution.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -4174,7 +4174,7 @@ namespace AppTestStudio
             button2.Dock = System.Windows.Forms.DockStyle.Top;
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             button2.Location = new System.Drawing.Point(0, 0);
             button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
@@ -4377,7 +4377,7 @@ namespace AppTestStudio
             cmdRightAfterCompletion.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightAfterCompletion.FlatAppearance.BorderSize = 0;
             cmdRightAfterCompletion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightAfterCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightAfterCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightAfterCompletion.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightAfterCompletion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightAfterCompletion.ImageIndex = 22;
@@ -4481,7 +4481,7 @@ namespace AppTestStudio
             // 
             // NumericObjectThreshold
             // 
-            NumericObjectThreshold.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            NumericObjectThreshold.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             NumericObjectThreshold.Location = new System.Drawing.Point(120, 92);
             NumericObjectThreshold.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             NumericObjectThreshold.Name = "NumericObjectThreshold";
@@ -4496,7 +4496,7 @@ namespace AppTestStudio
             cmdRightObject.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightObject.FlatAppearance.BorderSize = 0;
             cmdRightObject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightObject.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightObject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightObject.ImageIndex = 22;
@@ -4676,7 +4676,7 @@ namespace AppTestStudio
             // 
             // numericSwipeEndWidth
             // 
-            numericSwipeEndWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            numericSwipeEndWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             numericSwipeEndWidth.Location = new System.Drawing.Point(9, 53);
             numericSwipeEndWidth.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numericSwipeEndWidth.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
@@ -4687,7 +4687,7 @@ namespace AppTestStudio
             // 
             // numericSwipeEndHeight
             // 
-            numericSwipeEndHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            numericSwipeEndHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             numericSwipeEndHeight.Location = new System.Drawing.Point(9, 21);
             numericSwipeEndHeight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numericSwipeEndHeight.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
@@ -4733,7 +4733,7 @@ namespace AppTestStudio
             // 
             // numericSwipeStartWidth
             // 
-            numericSwipeStartWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            numericSwipeStartWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             numericSwipeStartWidth.Location = new System.Drawing.Point(9, 55);
             numericSwipeStartWidth.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numericSwipeStartWidth.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
@@ -4744,7 +4744,7 @@ namespace AppTestStudio
             // 
             // numericSwipeStartHeight
             // 
-            numericSwipeStartHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            numericSwipeStartHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             numericSwipeStartHeight.Location = new System.Drawing.Point(9, 21);
             numericSwipeStartHeight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numericSwipeStartHeight.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
@@ -4808,7 +4808,7 @@ namespace AppTestStudio
             // 
             // numericSwipeVelocity
             // 
-            numericSwipeVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            numericSwipeVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             numericSwipeVelocity.Location = new System.Drawing.Point(145, 60);
             numericSwipeVelocity.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numericSwipeVelocity.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
@@ -4824,7 +4824,7 @@ namespace AppTestStudio
             cmdRightSwipeProperties.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightSwipeProperties.FlatAppearance.BorderSize = 0;
             cmdRightSwipeProperties.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightSwipeProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightSwipeProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightSwipeProperties.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightSwipeProperties.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightSwipeProperties.ImageIndex = 22;
@@ -4864,7 +4864,7 @@ namespace AppTestStudio
             // 
             // NumericClickSpeed
             // 
-            NumericClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            NumericClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             NumericClickSpeed.Location = new System.Drawing.Point(127, 28);
             NumericClickSpeed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             NumericClickSpeed.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
@@ -4890,7 +4890,7 @@ namespace AppTestStudio
             cmdRightClickProperties.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightClickProperties.FlatAppearance.BorderSize = 0;
             cmdRightClickProperties.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightClickProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightClickProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightClickProperties.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightClickProperties.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightClickProperties.ImageIndex = 22;
@@ -4928,7 +4928,7 @@ namespace AppTestStudio
             cmdRightLogic.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightLogic.FlatAppearance.BorderSize = 0;
             cmdRightLogic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightLogic.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightLogic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightLogic.ImageIndex = 22;
@@ -5181,7 +5181,7 @@ namespace AppTestStudio
             cmdRightInformation.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightInformation.FlatAppearance.BorderSize = 0;
             cmdRightInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightInformation.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightInformation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightInformation.ImageIndex = 22;
@@ -5221,7 +5221,7 @@ namespace AppTestStudio
             cmdFlowLayoutPanelColorEvent2.Cursor = System.Windows.Forms.Cursors.Hand;
             cmdFlowLayoutPanelColorEvent2.FlatAppearance.BorderSize = 0;
             cmdFlowLayoutPanelColorEvent2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdFlowLayoutPanelColorEvent2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cmdFlowLayoutPanelColorEvent2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
             cmdFlowLayoutPanelColorEvent2.Location = new System.Drawing.Point(4, 0);
             cmdFlowLayoutPanelColorEvent2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             cmdFlowLayoutPanelColorEvent2.Name = "cmdFlowLayoutPanelColorEvent2";
@@ -5251,7 +5251,7 @@ namespace AppTestStudio
             cmdRightColorAtPointer.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightColorAtPointer.FlatAppearance.BorderSize = 0;
             cmdRightColorAtPointer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightColorAtPointer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightColorAtPointer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightColorAtPointer.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightColorAtPointer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightColorAtPointer.ImageIndex = 22;
@@ -5414,7 +5414,7 @@ namespace AppTestStudio
             cmdRightLimit.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightLimit.FlatAppearance.BorderSize = 0;
             cmdRightLimit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightLimit.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightLimit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightLimit.ImageIndex = 22;
@@ -5499,7 +5499,7 @@ namespace AppTestStudio
             cmdRightAnchor.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightAnchor.FlatAppearance.BorderSize = 0;
             cmdRightAnchor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightAnchor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightAnchor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightAnchor.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightAnchor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightAnchor.ImageIndex = 22;
@@ -5609,7 +5609,7 @@ namespace AppTestStudio
             // 
             // NumericYOffset
             // 
-            NumericYOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            NumericYOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             NumericYOffset.Location = new System.Drawing.Point(209, 33);
             NumericYOffset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             NumericYOffset.Name = "NumericYOffset";
@@ -5619,7 +5619,7 @@ namespace AppTestStudio
             // 
             // NumericXOffset
             // 
-            NumericXOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            NumericXOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             NumericXOffset.Location = new System.Drawing.Point(56, 33);
             NumericXOffset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             NumericXOffset.Name = "NumericXOffset";
@@ -5654,7 +5654,7 @@ namespace AppTestStudio
             cmdRightOffset.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightOffset.FlatAppearance.BorderSize = 0;
             cmdRightOffset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightOffset.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightOffset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightOffset.ImageIndex = 22;
@@ -5688,7 +5688,7 @@ namespace AppTestStudio
             cmdRightDragMode.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightDragMode.FlatAppearance.BorderSize = 0;
             cmdRightDragMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightDragMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightDragMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightDragMode.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightDragMode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightDragMode.ImageIndex = 22;
@@ -5776,7 +5776,7 @@ namespace AppTestStudio
             // 
             // numericApplicationDefaultClickSpeed
             // 
-            numericApplicationDefaultClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            numericApplicationDefaultClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             numericApplicationDefaultClickSpeed.Location = new System.Drawing.Point(14, 21);
             numericApplicationDefaultClickSpeed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             numericApplicationDefaultClickSpeed.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
@@ -6050,7 +6050,7 @@ namespace AppTestStudio
             // cmdPathToExePicker
             // 
             cmdPathToExePicker.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            cmdPathToExePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            cmdPathToExePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
             cmdPathToExePicker.Location = new System.Drawing.Point(757, 33);
             cmdPathToExePicker.Margin = new System.Windows.Forms.Padding(2);
             cmdPathToExePicker.Name = "cmdPathToExePicker";
@@ -6626,7 +6626,7 @@ namespace AppTestStudio
             // 
             // NumericVideoFrameLimit
             // 
-            NumericVideoFrameLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            NumericVideoFrameLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
             NumericVideoFrameLimit.Location = new System.Drawing.Point(89, 40);
             NumericVideoFrameLimit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             NumericVideoFrameLimit.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
@@ -6766,7 +6766,7 @@ namespace AppTestStudio
             // label22
             // 
             label22.AutoSize = true;
-            label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             label22.Location = new System.Drawing.Point(4, 0);
             label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label22.Name = "label22";
@@ -6907,7 +6907,7 @@ namespace AppTestStudio
             SplitContainer6.Panel2.Controls.Add(Panel1);
             SplitContainer6.Panel2.Resize += SplitContainer6_Panel2_Resize;
             SplitContainer6.Size = new System.Drawing.Size(1223, 591);
-            SplitContainer6.SplitterDistance = 212;
+            SplitContainer6.SplitterDistance = 211;
             SplitContainer6.SplitterWidth = 5;
             SplitContainer6.TabIndex = 2;
             // 
@@ -6926,15 +6926,15 @@ namespace AppTestStudio
             // SplitContainer7.Panel2
             // 
             SplitContainer7.Panel2.Controls.Add(tvTestAllEvents);
-            SplitContainer7.Size = new System.Drawing.Size(212, 591);
-            SplitContainer7.SplitterDistance = 28;
+            SplitContainer7.Size = new System.Drawing.Size(211, 591);
+            SplitContainer7.SplitterDistance = 27;
             SplitContainer7.SplitterWidth = 5;
             SplitContainer7.TabIndex = 0;
             // 
             // label35
             // 
             label35.AutoSize = true;
-            label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             label35.Location = new System.Drawing.Point(1, 1);
             label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label35.Name = "label35";
@@ -6951,7 +6951,7 @@ namespace AppTestStudio
             tvTestAllEvents.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             tvTestAllEvents.Name = "tvTestAllEvents";
             tvTestAllEvents.SelectedImageIndex = 0;
-            tvTestAllEvents.Size = new System.Drawing.Size(212, 558);
+            tvTestAllEvents.Size = new System.Drawing.Size(211, 559);
             tvTestAllEvents.TabIndex = 1;
             tvTestAllEvents.AfterSelect += tvTestAllEvents_AfterSelect;
             tvTestAllEvents.MouseUp += tvTestAllEvents_MouseUp;
@@ -6972,7 +6972,7 @@ namespace AppTestStudio
             dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -6982,13 +6982,13 @@ namespace AppTestStudio
             dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { dgvColorTestID, dgvColorTestRed, dgvColorTestGreen, dgvColorTestBlue, dgvXTest, dgvYTest, dgvPassFail, dvgRange });
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
-            dgvTest.Location = new System.Drawing.Point(727, 261);
+            dgvTest.Location = new System.Drawing.Point(723, 261);
             dgvTest.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dgvTest.Name = "dgvTest";
             dgvTest.RowHeadersWidth = 62;
@@ -7060,7 +7060,7 @@ namespace AppTestStudio
             dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -7070,13 +7070,13 @@ namespace AppTestStudio
             dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { dgvTestAllReferenceID, dgvTestAllReferenceRed, dgvTestAllReferenceGreen, dgvTestAllReferenceBlue, dgvTestAllReferenceX, dgvTestAllReferenceY });
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
-            dgvTestAllReference.Location = new System.Drawing.Point(727, 55);
+            dgvTestAllReference.Location = new System.Drawing.Point(723, 55);
             dgvTestAllReference.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             dgvTestAllReference.Name = "dgvTestAllReference";
             dgvTestAllReference.RowHeadersWidth = 62;
@@ -7161,7 +7161,7 @@ namespace AppTestStudio
             Panel2.AutoScroll = true;
             Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Panel2.Controls.Add(PictureTestAllTest);
-            Panel2.Location = new System.Drawing.Point(-6, 316);
+            Panel2.Location = new System.Drawing.Point(-11, 316);
             Panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Panel2.Name = "Panel2";
             Panel2.Size = new System.Drawing.Size(570, 272);
@@ -7181,7 +7181,7 @@ namespace AppTestStudio
             // lblTestWindow
             // 
             lblTestWindow.AutoSize = true;
-            lblTestWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblTestWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             lblTestWindow.Location = new System.Drawing.Point(13, 9);
             lblTestWindow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblTestWindow.Name = "lblTestWindow";
@@ -7192,7 +7192,7 @@ namespace AppTestStudio
             // lblReference
             // 
             lblReference.AutoSize = true;
-            lblReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            lblReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
             lblReference.Location = new System.Drawing.Point(9, 271);
             lblReference.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             lblReference.Name = "lblReference";
@@ -7207,7 +7207,7 @@ namespace AppTestStudio
             Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             Panel1.Controls.Add(PictureTestAllReference);
-            Panel1.Location = new System.Drawing.Point(-1, 48);
+            Panel1.Location = new System.Drawing.Point(-5, 48);
             Panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             Panel1.Name = "Panel1";
             Panel1.Size = new System.Drawing.Size(566, 219);
@@ -7237,7 +7237,7 @@ namespace AppTestStudio
             // label43
             // 
             label43.AutoSize = true;
-            label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             label43.Location = new System.Drawing.Point(4, 3);
             label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label43.Name = "label43";
@@ -7257,7 +7257,7 @@ namespace AppTestStudio
             // label41
             // 
             label41.AutoSize = true;
-            label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             label41.Location = new System.Drawing.Point(4, 0);
             label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label41.Name = "label41";
@@ -7434,7 +7434,7 @@ namespace AppTestStudio
             // Label44
             // 
             Label44.AutoSize = true;
-            Label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            Label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             Label44.Location = new System.Drawing.Point(18, 5);
             Label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             Label44.Name = "Label44";
@@ -7484,7 +7484,7 @@ namespace AppTestStudio
             // label38
             // 
             label38.AutoSize = true;
-            label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             label38.Location = new System.Drawing.Point(4, 0);
             label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label38.Name = "label38";
@@ -7515,7 +7515,7 @@ namespace AppTestStudio
             // label32
             // 
             label32.AutoSize = true;
-            label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             label32.Location = new System.Drawing.Point(4, 0);
             label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label32.Name = "label32";
@@ -7557,7 +7557,7 @@ namespace AppTestStudio
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             label10.Location = new System.Drawing.Point(4, 6);
             label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label10.Name = "label10";
@@ -7595,7 +7595,7 @@ namespace AppTestStudio
             // 
             splitContainerSchedule.Panel2.Controls.Add(splitContainerRuntimeSchedule);
             splitContainerSchedule.Size = new System.Drawing.Size(716, 388);
-            splitContainerSchedule.SplitterDistance = 194;
+            splitContainerSchedule.SplitterDistance = 193;
             splitContainerSchedule.SplitterWidth = 5;
             splitContainerSchedule.TabIndex = 8;
             // 
@@ -7613,7 +7613,7 @@ namespace AppTestStudio
             dgSchedule.Name = "dgSchedule";
             dgSchedule.ReadOnly = true;
             dgSchedule.RowHeadersWidth = 62;
-            dgSchedule.Size = new System.Drawing.Size(716, 194);
+            dgSchedule.Size = new System.Drawing.Size(716, 193);
             dgSchedule.TabIndex = 3;
             dgSchedule.CellContentClick += dgSchedule_CellContentClick;
             // 
@@ -7660,8 +7660,10 @@ namespace AppTestStudio
             // colScheduleEnabled
             // 
             colScheduleEnabled.HeaderText = "Enabled";
+            colScheduleEnabled.MinimumWidth = 8;
             colScheduleEnabled.Name = "colScheduleEnabled";
             colScheduleEnabled.ReadOnly = true;
+            colScheduleEnabled.Width = 150;
             // 
             // colEdit
             // 
@@ -7691,7 +7693,7 @@ namespace AppTestStudio
             // splitContainerRuntimeSchedule.Panel2
             // 
             splitContainerRuntimeSchedule.Panel2.Controls.Add(dgRuntimeSchedule);
-            splitContainerRuntimeSchedule.Size = new System.Drawing.Size(716, 189);
+            splitContainerRuntimeSchedule.Size = new System.Drawing.Size(716, 190);
             splitContainerRuntimeSchedule.SplitterDistance = 25;
             splitContainerRuntimeSchedule.SplitterWidth = 5;
             splitContainerRuntimeSchedule.TabIndex = 0;
@@ -7721,7 +7723,7 @@ namespace AppTestStudio
             dgRuntimeSchedule.Name = "dgRuntimeSchedule";
             dgRuntimeSchedule.ReadOnly = true;
             dgRuntimeSchedule.RowHeadersWidth = 62;
-            dgRuntimeSchedule.Size = new System.Drawing.Size(716, 159);
+            dgRuntimeSchedule.Size = new System.Drawing.Size(716, 160);
             dgRuntimeSchedule.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
@@ -7805,7 +7807,7 @@ namespace AppTestStudio
             // label40
             // 
             label40.AutoSize = true;
-            label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
             label40.Location = new System.Drawing.Point(4, 2);
             label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label40.Name = "label40";
@@ -8026,7 +8028,7 @@ namespace AppTestStudio
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
             label4.Location = new System.Drawing.Point(5, 5);
             label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             label4.Name = "label4";
@@ -8040,7 +8042,7 @@ namespace AppTestStudio
             txtLog.Location = new System.Drawing.Point(0, 0);
             txtLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             txtLog.Name = "txtLog";
-            txtLog.Size = new System.Drawing.Size(1869, 84);
+            txtLog.Size = new System.Drawing.Size(1869, 85);
             txtLog.TabIndex = 1;
             txtLog.Text = "";
             // 
@@ -8304,6 +8306,7 @@ namespace AppTestStudio
             // 
             // contextMenuStripResetResolution
             // 
+            contextMenuStripResetResolution.ImageScalingSize = new System.Drawing.Size(24, 24);
             contextMenuStripResetResolution.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem1, toolStripSeparator13, toolStripMenuItemResetResolution });
             contextMenuStripResetResolution.Name = "contextMenuStripResetResolution";
             contextMenuStripResetResolution.Size = new System.Drawing.Size(219, 54);
@@ -8329,6 +8332,7 @@ namespace AppTestStudio
             // 
             // contextMenuStripRuntimeEnableDisable
             // 
+            contextMenuStripRuntimeEnableDisable.ImageScalingSize = new System.Drawing.Size(24, 24);
             contextMenuStripRuntimeEnableDisable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItemEnableDisableToggleLabel, toolStripSeparatorEnableDisableToggle, toolStripMenuItemRuntimeEnableDisableToggle });
             contextMenuStripRuntimeEnableDisable.Name = "contextMenuStripRuntimeEnableDisable";
             contextMenuStripRuntimeEnableDisable.Size = new System.Drawing.Size(196, 54);

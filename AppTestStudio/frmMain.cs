@@ -112,9 +112,9 @@ namespace AppTestStudio
         }
 
         private HistoryManager HistoryManager;
-
         private void frmMain_Load(object sender, EventArgs e)
         {
+
             mnuMouseRecording.Visible = false; // Hide for now.
             ShowTermsOfServiceIfNecessary();
 
@@ -210,6 +210,53 @@ namespace AppTestStudio
             InitializeRunLabels();
 
             InitializeActionsPerSecondGraph();
+
+            ResolutionCheck();
+
+        }
+
+        private void ResolutionCheck()
+        {
+            try
+            {
+
+
+                List<uint> DPICheck = new List<uint>();
+                Boolean DPIVariance = false;
+                foreach (var screen in Screen.AllScreens)
+                {
+                    var pnt = new System.Drawing.Point(screen.Bounds.Left + 1, screen.Bounds.Top + 1);
+                    var mon = NativeMethods.MonitorFromPoint(pnt, MonitorFromPointFlags.MONITOR_DEFAULTTONEAREST);
+                    uint dpiX = 0;
+                    uint dpiY = 0;
+                    NativeMethods.GetDpiForMonitor(mon, NativeMethods.DpiType.Raw, out dpiX, out dpiY);
+                    Debug.WriteLine($"DPI{dpiX},{dpiY} {screen.Bounds},{screen.WorkingArea}");
+          
+                    if (DPICheck.Count > 0)
+                    {
+                        if (DPICheck.Contains(dpiX))
+                        {
+                            // good.
+                        }
+                        else
+                        {
+                            // not good.
+                            DPIVariance = true;
+                        }
+                    }
+                    DPICheck.Add(dpiX);
+                }
+
+                if (DPIVariance)
+                {
+                    Log("This is just a basic check, and can false positive with multiple resolution monitors.");
+                    Log("WARNING: A variation in dpi was found, verify all monitors have the same 'Scale and Layout' settings. Settings->Display->Scale and Layout.");                    
+                }
+            }
+            catch (Exception ex)
+            {
+                Log($"ResolutionCheck {ex.Message}");
+            }
 
         }
 

@@ -3,6 +3,7 @@
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using System;
+using System.Data;
 using System.Runtime.InteropServices;
 using System.Text;
 using static AppTestStudio.NativeMethods;
@@ -245,6 +246,38 @@ namespace AppTestStudio
         [DllImport("user32")]
         [return: MarshalAs(UnmanagedType.Bool)]
         internal static extern bool EnumChildWindows(IntPtr window, EnumWindowProc callback, IntPtr lParam);
+
+        internal delegate bool EnumMonitorsDelegate(IntPtr hMonitor, IntPtr hdcMonitor, NativeMethods.RECT rect, IntPtr dwData);
+
+        [DllImport("user32.dll")]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool EnumDisplayMonitors(IntPtr hdc, IntPtr lprcClip, EnumMonitorsDelegate lpfnEnum, IntPtr dwData);
+
+        [DllImport("user32.dll", CharSet = CharSet.Auto)]
+        [return: MarshalAs(UnmanagedType.Bool)]
+        internal static extern bool GetMonitorInfo(IntPtr hmonitor, [In, Out] NativeMethods.MONITORINFO info);
+
+        [StructLayout(LayoutKind.Sequential, CharSet = CharSet.Auto, Pack = 4)]
+        internal class MONITORINFO
+        {
+            internal int Size = Marshal.SizeOf(typeof(NativeMethods.MONITORINFO));
+            internal NativeMethods.RECT rcMonitor = new NativeMethods.RECT();
+            internal NativeMethods.RECT rcWork = new NativeMethods.RECT();
+            internal int dwFlags;
+        }
+
+        internal enum DpiType
+        {
+            Effective = 0,
+            Angular = 1,
+            Raw = 2,
+        }
+
+        [DllImport("Shcore.dll")]
+        internal static extern IntPtr GetDpiForMonitor([In] IntPtr hmonitor, [In] DpiType dpiType, [Out] out uint dpiX, [Out] out uint dpiY);
+
+        [DllImport("User32.dll")]
+        internal static extern IntPtr MonitorFromPoint([In] System.Drawing.Point pt, [In] uint dwFlags);
 
     }
 }
