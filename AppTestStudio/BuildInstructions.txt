@@ -1,0 +1,3 @@
+﻿Build Release and Debug.
+AppTestStudio.1.0.##.Debug.zip
+AppTestStudio.1.0.##.zip
