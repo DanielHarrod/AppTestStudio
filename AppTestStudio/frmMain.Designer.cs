@@ -1766,7 +1766,7 @@ namespace AppTestStudio
             // 
             splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
             splitContainerStatsNScrollie.Size = new System.Drawing.Size(2377, 184);
-            splitContainerStatsNScrollie.SplitterDistance = 66;
+            splitContainerStatsNScrollie.SplitterDistance = 62;
             splitContainerStatsNScrollie.SplitterWidth = 8;
             splitContainerStatsNScrollie.TabIndex = 2;
             // 
@@ -1788,7 +1788,7 @@ namespace AppTestStudio
             tableLayoutStats.Name = "tableLayoutStats";
             tableLayoutStats.RowCount = 1;
             tableLayoutStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutStats.Size = new System.Drawing.Size(2377, 66);
+            tableLayoutStats.Size = new System.Drawing.Size(2377, 62);
             tableLayoutStats.TabIndex = 3;
             // 
             // groupTotal
@@ -1799,7 +1799,7 @@ namespace AppTestStudio
             groupTotal.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupTotal.Name = "groupTotal";
             groupTotal.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            groupTotal.Size = new System.Drawing.Size(582, 56);
+            groupTotal.Size = new System.Drawing.Size(582, 52);
             groupTotal.TabIndex = 2;
             groupTotal.TabStop = false;
             groupTotal.Text = "Total";
@@ -1834,7 +1834,7 @@ namespace AppTestStudio
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(570, 22);
+            tableLayoutPanel1.Size = new System.Drawing.Size(570, 18);
             tableLayoutPanel1.TabIndex = 4;
             // 
             // label13
@@ -1965,7 +1965,7 @@ namespace AppTestStudio
             groupSession.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupSession.Name = "groupSession";
             groupSession.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            groupSession.Size = new System.Drawing.Size(582, 56);
+            groupSession.Size = new System.Drawing.Size(582, 52);
             groupSession.TabIndex = 1;
             groupSession.TabStop = false;
             groupSession.Text = "Session";
@@ -2000,7 +2000,7 @@ namespace AppTestStudio
             tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
             tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
-            tableLayoutPanelSession.Size = new System.Drawing.Size(570, 22);
+            tableLayoutPanelSession.Size = new System.Drawing.Size(570, 18);
             tableLayoutPanelSession.TabIndex = 3;
             // 
             // label1
@@ -2131,7 +2131,7 @@ namespace AppTestStudio
             grpCPU.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             grpCPU.Name = "grpCPU";
             grpCPU.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            grpCPU.Size = new System.Drawing.Size(582, 56);
+            grpCPU.Size = new System.Drawing.Size(582, 52);
             grpCPU.TabIndex = 3;
             grpCPU.TabStop = false;
             grpCPU.Text = "CPU";
@@ -2142,7 +2142,7 @@ namespace AppTestStudio
             atsGraph1.Location = new System.Drawing.Point(6, 29);
             atsGraph1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             atsGraph1.Name = "atsGraph1";
-            atsGraph1.Size = new System.Drawing.Size(570, 22);
+            atsGraph1.Size = new System.Drawing.Size(570, 18);
             atsGraph1.TabIndex = 0;
             // 
             // grpAPS
@@ -2153,7 +2153,7 @@ namespace AppTestStudio
             grpAPS.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             grpAPS.Name = "grpAPS";
             grpAPS.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
-            grpAPS.Size = new System.Drawing.Size(583, 56);
+            grpAPS.Size = new System.Drawing.Size(583, 52);
             grpAPS.TabIndex = 4;
             grpAPS.TabStop = false;
             grpAPS.Text = "Clicks Per Second";
@@ -2164,13 +2164,13 @@ namespace AppTestStudio
             atsGraphActions1.Location = new System.Drawing.Point(6, 29);
             atsGraphActions1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             atsGraphActions1.Name = "atsGraphActions1";
-            atsGraphActions1.Size = new System.Drawing.Size(571, 22);
+            atsGraphActions1.Size = new System.Drawing.Size(571, 18);
             atsGraphActions1.TabIndex = 0;
             // 
             // splitContainerSeconds
             // 
             splitContainerSeconds.Dock = System.Windows.Forms.DockStyle.Bottom;
-            splitContainerSeconds.Location = new System.Drawing.Point(0, 73);
+            splitContainerSeconds.Location = new System.Drawing.Point(0, 77);
             splitContainerSeconds.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             splitContainerSeconds.Name = "splitContainerSeconds";
             // 
@@ -6908,7 +6908,7 @@ namespace AppTestStudio
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
-            dgvTest.Location = new System.Drawing.Point(1012, 435);
+            dgvTest.Location = new System.Drawing.Point(1010, 435);
             dgvTest.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             dgvTest.Name = "dgvTest";
             dgvTest.RowHeadersWidth = 62;
@@ -6996,7 +6996,7 @@ namespace AppTestStudio
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
-            dgvTestAllReference.Location = new System.Drawing.Point(1012, 92);
+            dgvTestAllReference.Location = new System.Drawing.Point(1010, 92);
             dgvTestAllReference.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             dgvTestAllReference.Name = "dgvTestAllReference";
             dgvTestAllReference.RowHeadersWidth = 62;
@@ -7081,7 +7081,7 @@ namespace AppTestStudio
             Panel2.AutoScroll = true;
             Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Panel2.Controls.Add(PictureTestAllTest);
-            Panel2.Location = new System.Drawing.Point(-37, 527);
+            Panel2.Location = new System.Drawing.Point(-39, 527);
             Panel2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             Panel2.Name = "Panel2";
             Panel2.Size = new System.Drawing.Size(814, 453);
@@ -7127,7 +7127,7 @@ namespace AppTestStudio
             Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             Panel1.Controls.Add(PictureTestAllReference);
-            Panel1.Location = new System.Drawing.Point(-28, 80);
+            Panel1.Location = new System.Drawing.Point(-30, 80);
             Panel1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             Panel1.Name = "Panel1";
             Panel1.Size = new System.Drawing.Size(809, 365);

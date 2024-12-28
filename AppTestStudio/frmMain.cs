@@ -211,18 +211,30 @@ namespace AppTestStudio
 
             InitializeActionsPerSecondGraph();
 
-            ResolutionCheck();
+            //ResolutionCheck();
 
         }
 
+        /// <summary>
+        /// When monitors have scaling enabled it can mess up the clicking.
+        /// In the future I may add an informational startup message.
+        /// </summary>
         private void ResolutionCheck()
         {
             try
             {
 
+                if (Screen.AllScreens.Count() == 1)
+                {
+                    return;
+                }
 
-                List<uint> DPICheck = new List<uint>();
+                List<int> DPICheck = new List<int>();
                 Boolean DPIVariance = false;
+
+                List<int> ResolutionWidthCheck = new List<int>();
+                Boolean ResolutionVariance = false;
+
                 foreach (var screen in Screen.AllScreens)
                 {
                     var pnt = new System.Drawing.Point(screen.Bounds.Left + 1, screen.Bounds.Top + 1);
@@ -231,10 +243,11 @@ namespace AppTestStudio
                     uint dpiY = 0;
                     NativeMethods.GetDpiForMonitor(mon, NativeMethods.DpiType.Raw, out dpiX, out dpiY);
                     Debug.WriteLine($"DPI{dpiX},{dpiY} {screen.Bounds},{screen.WorkingArea}");
-          
+                    int CalculatedKey = (int)((float)screen.Bounds.Width / (float)dpiX) * 100;
+
                     if (DPICheck.Count > 0)
-                    {
-                        if (DPICheck.Contains(dpiX))
+                    {                        
+                        if (DPICheck.Contains(CalculatedKey))
                         {
                             // good.
                         }
@@ -244,7 +257,14 @@ namespace AppTestStudio
                             DPIVariance = true;
                         }
                     }
-                    DPICheck.Add(dpiX);
+                    DPICheck.Add(CalculatedKey);
+
+                    if (ResolutionWidthCheck.Count > 0)
+                    {
+
+
+                    }
+
                 }
 
                 if (DPIVariance)
