@@ -885,8 +885,8 @@ namespace AppTestStudio
             menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { fileToolStripMenuItem, aboutToolStripMenuItem });
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Padding = new System.Windows.Forms.Padding(5, 1, 0, 1);
-            menuStrip1.Size = new System.Drawing.Size(1869, 24);
+            menuStrip1.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            menuStrip1.Size = new System.Drawing.Size(2670, 33);
             menuStrip1.TabIndex = 0;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -894,32 +894,32 @@ namespace AppTestStudio
             // 
             fileToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { newToolStripMenuItem, toolStripSeparator1, importExportToolStripMenuItem, toolStripSeparator2, mnuRecentScripts, toolStripSeparator14, exitToolStripMenuItem });
             fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            fileToolStripMenuItem.Size = new System.Drawing.Size(37, 22);
+            fileToolStripMenuItem.Size = new System.Drawing.Size(54, 29);
             fileToolStripMenuItem.Text = "File";
             // 
             // newToolStripMenuItem
             // 
             newToolStripMenuItem.Name = "newToolStripMenuItem";
-            newToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            newToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
             newToolStripMenuItem.Text = "New";
             newToolStripMenuItem.Click += newToolStripMenuItem_Click;
             // 
             // toolStripSeparator1
             // 
             toolStripSeparator1.Name = "toolStripSeparator1";
-            toolStripSeparator1.Size = new System.Drawing.Size(146, 6);
+            toolStripSeparator1.Size = new System.Drawing.Size(224, 6);
             // 
             // importExportToolStripMenuItem
             // 
             importExportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { importToolStripMenuItem, exportToolStripMenuItem });
             importExportToolStripMenuItem.Name = "importExportToolStripMenuItem";
-            importExportToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            importExportToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
             importExportToolStripMenuItem.Text = "Import/Export";
             // 
             // importToolStripMenuItem
             // 
             importToolStripMenuItem.Name = "importToolStripMenuItem";
-            importToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            importToolStripMenuItem.Size = new System.Drawing.Size(169, 34);
             importToolStripMenuItem.Text = "Import";
             importToolStripMenuItem.Click += importToolStripMenuItem_Click;
             // 
@@ -927,43 +927,43 @@ namespace AppTestStudio
             // 
             exportToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { fullExportToolStripMenuItem, minimalExportToolStripMenuItem });
             exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            exportToolStripMenuItem.Size = new System.Drawing.Size(110, 22);
+            exportToolStripMenuItem.Size = new System.Drawing.Size(169, 34);
             exportToolStripMenuItem.Text = "Export";
             // 
             // fullExportToolStripMenuItem
             // 
             fullExportToolStripMenuItem.Name = "fullExportToolStripMenuItem";
-            fullExportToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            fullExportToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
             fullExportToolStripMenuItem.Text = "Full Export";
             fullExportToolStripMenuItem.Click += fullExportToolStripMenuItem_Click;
             // 
             // minimalExportToolStripMenuItem
             // 
             minimalExportToolStripMenuItem.Name = "minimalExportToolStripMenuItem";
-            minimalExportToolStripMenuItem.Size = new System.Drawing.Size(155, 22);
+            minimalExportToolStripMenuItem.Size = new System.Drawing.Size(233, 34);
             minimalExportToolStripMenuItem.Text = "Minimal Export";
             minimalExportToolStripMenuItem.Click += minimalExportToolStripMenuItem_Click;
             // 
             // toolStripSeparator2
             // 
             toolStripSeparator2.Name = "toolStripSeparator2";
-            toolStripSeparator2.Size = new System.Drawing.Size(146, 6);
+            toolStripSeparator2.Size = new System.Drawing.Size(224, 6);
             // 
             // mnuRecentScripts
             // 
             mnuRecentScripts.Name = "mnuRecentScripts";
-            mnuRecentScripts.Size = new System.Drawing.Size(149, 22);
+            mnuRecentScripts.Size = new System.Drawing.Size(227, 34);
             mnuRecentScripts.Text = "Recent Scripts";
             // 
             // toolStripSeparator14
             // 
             toolStripSeparator14.Name = "toolStripSeparator14";
-            toolStripSeparator14.Size = new System.Drawing.Size(146, 6);
+            toolStripSeparator14.Size = new System.Drawing.Size(224, 6);
             // 
             // exitToolStripMenuItem
             // 
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
-            exitToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
+            exitToolStripMenuItem.Size = new System.Drawing.Size(227, 34);
             exitToolStripMenuItem.Text = "Exit";
             exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
             // 
@@ -971,21 +971,21 @@ namespace AppTestStudio
             // 
             aboutToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { aboutAppTestStudioToolStripMenuItem });
             aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            aboutToolStripMenuItem.Size = new System.Drawing.Size(44, 22);
+            aboutToolStripMenuItem.Size = new System.Drawing.Size(65, 29);
             aboutToolStripMenuItem.Text = "Help";
             // 
             // aboutAppTestStudioToolStripMenuItem
             // 
             aboutAppTestStudioToolStripMenuItem.Name = "aboutAppTestStudioToolStripMenuItem";
-            aboutAppTestStudioToolStripMenuItem.Size = new System.Drawing.Size(192, 22);
+            aboutAppTestStudioToolStripMenuItem.Size = new System.Drawing.Size(294, 34);
             aboutAppTestStudioToolStripMenuItem.Text = "About App Test Studio";
             aboutAppTestStudioToolStripMenuItem.Click += aboutAppTestStudioToolStripMenuItem_Click;
             // 
             // splitContainerMain
             // 
             splitContainerMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            splitContainerMain.Location = new System.Drawing.Point(0, 86);
-            splitContainerMain.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitContainerMain.Location = new System.Drawing.Point(0, 101);
+            splitContainerMain.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             splitContainerMain.Name = "splitContainerMain";
             splitContainerMain.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -996,16 +996,16 @@ namespace AppTestStudio
             // splitContainerMain.Panel2
             // 
             splitContainerMain.Panel2.Controls.Add(txtLog);
-            splitContainerMain.Size = new System.Drawing.Size(1869, 957);
-            splitContainerMain.SplitterDistance = 868;
-            splitContainerMain.SplitterWidth = 5;
+            splitContainerMain.Size = new System.Drawing.Size(2670, 1637);
+            splitContainerMain.SplitterDistance = 1482;
+            splitContainerMain.SplitterWidth = 8;
             splitContainerMain.TabIndex = 2;
             // 
             // splitContainerWorkspace
             // 
             splitContainerWorkspace.Dock = System.Windows.Forms.DockStyle.Fill;
             splitContainerWorkspace.Location = new System.Drawing.Point(0, 0);
-            splitContainerWorkspace.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitContainerWorkspace.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             splitContainerWorkspace.Name = "splitContainerWorkspace";
             // 
             // splitContainerWorkspace.Panel1
@@ -1027,9 +1027,9 @@ namespace AppTestStudio
             splitContainerWorkspace.Panel2.Controls.Add(PanelEvents);
             splitContainerWorkspace.Panel2.Controls.Add(PanelSchedule);
             splitContainerWorkspace.Panel2.Controls.Add(PanelWorkspace);
-            splitContainerWorkspace.Size = new System.Drawing.Size(1869, 868);
-            splitContainerWorkspace.SplitterDistance = 298;
-            splitContainerWorkspace.SplitterWidth = 5;
+            splitContainerWorkspace.Size = new System.Drawing.Size(2670, 1482);
+            splitContainerWorkspace.SplitterDistance = 424;
+            splitContainerWorkspace.SplitterWidth = 7;
             splitContainerWorkspace.TabIndex = 0;
             // 
             // tabTree
@@ -1039,21 +1039,21 @@ namespace AppTestStudio
             tabTree.Controls.Add(tabSchedule);
             tabTree.Dock = System.Windows.Forms.DockStyle.Fill;
             tabTree.Location = new System.Drawing.Point(0, 0);
-            tabTree.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabTree.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             tabTree.Name = "tabTree";
             tabTree.SelectedIndex = 0;
-            tabTree.Size = new System.Drawing.Size(298, 868);
+            tabTree.Size = new System.Drawing.Size(424, 1482);
             tabTree.TabIndex = 0;
             tabTree.SelectedIndexChanged += tabTree_SelectedIndexChanged;
             // 
             // tabDesign
             // 
             tabDesign.Controls.Add(tableLayoutPanelDesign);
-            tabDesign.Location = new System.Drawing.Point(4, 24);
-            tabDesign.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabDesign.Location = new System.Drawing.Point(4, 34);
+            tabDesign.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             tabDesign.Name = "tabDesign";
-            tabDesign.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabDesign.Size = new System.Drawing.Size(290, 840);
+            tabDesign.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            tabDesign.Size = new System.Drawing.Size(416, 1444);
             tabDesign.TabIndex = 0;
             tabDesign.Text = "Design";
             tabDesign.UseVisualStyleBackColor = true;
@@ -1066,14 +1066,14 @@ namespace AppTestStudio
             tableLayoutPanelDesign.Controls.Add(tv, 0, 1);
             tableLayoutPanelDesign.Controls.Add(panel3, 0, 0);
             tableLayoutPanelDesign.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableLayoutPanelDesign.Location = new System.Drawing.Point(4, 3);
-            tableLayoutPanelDesign.Margin = new System.Windows.Forms.Padding(1);
+            tableLayoutPanelDesign.Location = new System.Drawing.Point(6, 5);
+            tableLayoutPanelDesign.Margin = new System.Windows.Forms.Padding(1, 2, 1, 2);
             tableLayoutPanelDesign.Name = "tableLayoutPanelDesign";
             tableLayoutPanelDesign.RowCount = 3;
-            tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 46F));
-            tableLayoutPanelDesign.Size = new System.Drawing.Size(282, 834);
+            tableLayoutPanelDesign.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 77F));
+            tableLayoutPanelDesign.Size = new System.Drawing.Size(404, 1434);
             tableLayoutPanelDesign.TabIndex = 1;
             // 
             // cmdPatron
@@ -1083,10 +1083,10 @@ namespace AppTestStudio
             cmdPatron.Dock = System.Windows.Forms.DockStyle.Fill;
             cmdPatron.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             cmdPatron.Image = Properties.Resources.Patron;
-            cmdPatron.Location = new System.Drawing.Point(0, 788);
+            cmdPatron.Location = new System.Drawing.Point(0, 1357);
             cmdPatron.Margin = new System.Windows.Forms.Padding(0);
             cmdPatron.Name = "cmdPatron";
-            cmdPatron.Size = new System.Drawing.Size(282, 46);
+            cmdPatron.Size = new System.Drawing.Size(404, 77);
             cmdPatron.TabIndex = 0;
             cmdPatron.UseVisualStyleBackColor = false;
             cmdPatron.Click += cmdPatron_Click;
@@ -1098,11 +1098,11 @@ namespace AppTestStudio
             tv.Dock = System.Windows.Forms.DockStyle.Fill;
             tv.ImageIndex = 0;
             tv.ImageList = ImageList1;
-            tv.Location = new System.Drawing.Point(0, 37);
+            tv.Location = new System.Drawing.Point(0, 62);
             tv.Margin = new System.Windows.Forms.Padding(0);
             tv.Name = "tv";
             tv.SelectedImageIndex = 0;
-            tv.Size = new System.Drawing.Size(282, 751);
+            tv.Size = new System.Drawing.Size(404, 1295);
             tv.TabIndex = 0;
             tv.ItemDrag += tv_ItemDrag;
             tv.AfterSelect += tv_AfterSelect;
@@ -1160,37 +1160,37 @@ namespace AppTestStudio
             panel3.Location = new System.Drawing.Point(0, 0);
             panel3.Margin = new System.Windows.Forms.Padding(0);
             panel3.Name = "panel3";
-            panel3.Size = new System.Drawing.Size(282, 37);
+            panel3.Size = new System.Drawing.Size(404, 62);
             panel3.TabIndex = 0;
             // 
             // txtFilter
             // 
             txtFilter.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtFilter.Location = new System.Drawing.Point(41, 3);
-            txtFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtFilter.Location = new System.Drawing.Point(59, 5);
+            txtFilter.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtFilter.Name = "txtFilter";
-            txtFilter.Size = new System.Drawing.Size(238, 23);
+            txtFilter.Size = new System.Drawing.Size(338, 31);
             txtFilter.TabIndex = 0;
             txtFilter.KeyUp += txtSearch_KeyUp;
             // 
             // label93
             // 
             label93.AutoSize = true;
-            label93.Location = new System.Drawing.Point(4, 6);
-            label93.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label93.Location = new System.Drawing.Point(6, 10);
+            label93.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label93.Name = "label93";
-            label93.Size = new System.Drawing.Size(33, 15);
+            label93.Size = new System.Drawing.Size(50, 25);
             label93.TabIndex = 0;
             label93.Text = "Filter";
             // 
             // tabRun
             // 
             tabRun.Controls.Add(splitContainerRunTab);
-            tabRun.Location = new System.Drawing.Point(4, 24);
-            tabRun.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabRun.Location = new System.Drawing.Point(4, 34);
+            tabRun.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             tabRun.Name = "tabRun";
-            tabRun.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            tabRun.Size = new System.Drawing.Size(290, 840);
+            tabRun.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            tabRun.Size = new System.Drawing.Size(416, 1444);
             tabRun.TabIndex = 1;
             tabRun.Text = "Run";
             tabRun.UseVisualStyleBackColor = true;
@@ -1198,8 +1198,8 @@ namespace AppTestStudio
             // splitContainerRunTab
             // 
             splitContainerRunTab.Dock = System.Windows.Forms.DockStyle.Fill;
-            splitContainerRunTab.Location = new System.Drawing.Point(4, 3);
-            splitContainerRunTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitContainerRunTab.Location = new System.Drawing.Point(6, 5);
+            splitContainerRunTab.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             splitContainerRunTab.Name = "splitContainerRunTab";
             splitContainerRunTab.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1212,9 +1212,9 @@ namespace AppTestStudio
             // 
             splitContainerRunTab.Panel2.AutoScroll = true;
             splitContainerRunTab.Panel2.Controls.Add(splitContainerRunProperties);
-            splitContainerRunTab.Size = new System.Drawing.Size(282, 834);
-            splitContainerRunTab.SplitterDistance = 414;
-            splitContainerRunTab.SplitterWidth = 5;
+            splitContainerRunTab.Size = new System.Drawing.Size(404, 1434);
+            splitContainerRunTab.SplitterDistance = 707;
+            splitContainerRunTab.SplitterWidth = 8;
             splitContainerRunTab.TabIndex = 1;
             // 
             // splitContainerRunTabThread
@@ -1224,7 +1224,7 @@ namespace AppTestStudio
             splitContainerRunTabThread.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             splitContainerRunTabThread.IsSplitterFixed = true;
             splitContainerRunTabThread.Location = new System.Drawing.Point(0, 0);
-            splitContainerRunTabThread.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitContainerRunTabThread.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             splitContainerRunTabThread.Name = "splitContainerRunTabThread";
             splitContainerRunTabThread.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1237,9 +1237,9 @@ namespace AppTestStudio
             // splitContainerRunTabThread.Panel2
             // 
             splitContainerRunTabThread.Panel2.Controls.Add(tvRun);
-            splitContainerRunTabThread.Size = new System.Drawing.Size(282, 414);
+            splitContainerRunTabThread.Size = new System.Drawing.Size(404, 707);
             splitContainerRunTabThread.SplitterDistance = 25;
-            splitContainerRunTabThread.SplitterWidth = 1;
+            splitContainerRunTabThread.SplitterWidth = 2;
             splitContainerRunTabThread.TabIndex = 2;
             // 
             // cboThreads
@@ -1248,9 +1248,9 @@ namespace AppTestStudio
             cboThreads.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboThreads.FormattingEnabled = true;
             cboThreads.Location = new System.Drawing.Point(0, 0);
-            cboThreads.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboThreads.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboThreads.Name = "cboThreads";
-            cboThreads.Size = new System.Drawing.Size(282, 23);
+            cboThreads.Size = new System.Drawing.Size(404, 33);
             cboThreads.TabIndex = 1;
             cboThreads.SelectedIndexChanged += cboThreads_SelectedIndexChanged;
             // 
@@ -1261,10 +1261,9 @@ namespace AppTestStudio
             tvRun.ImageIndex = 0;
             tvRun.ImageList = ImageList1;
             tvRun.Location = new System.Drawing.Point(0, 0);
-            tvRun.Margin = new System.Windows.Forms.Padding(2);
             tvRun.Name = "tvRun";
             tvRun.SelectedImageIndex = 0;
-            tvRun.Size = new System.Drawing.Size(282, 388);
+            tvRun.Size = new System.Drawing.Size(404, 680);
             tvRun.TabIndex = 0;
             tvRun.AfterSelect += tvRun_AfterSelect;
             // 
@@ -1272,7 +1271,7 @@ namespace AppTestStudio
             // 
             splitContainerRunProperties.Dock = System.Windows.Forms.DockStyle.Top;
             splitContainerRunProperties.Location = new System.Drawing.Point(0, 0);
-            splitContainerRunProperties.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitContainerRunProperties.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             splitContainerRunProperties.Name = "splitContainerRunProperties";
             // 
             // splitContainerRunProperties.Panel1
@@ -1282,8 +1281,8 @@ namespace AppTestStudio
             // splitContainerRunProperties.Panel2
             // 
             splitContainerRunProperties.Panel2.Controls.Add(tableLayoutPanelRunValues);
-            splitContainerRunProperties.Size = new System.Drawing.Size(282, 406);
-            splitContainerRunProperties.SplitterDistance = 115;
+            splitContainerRunProperties.Size = new System.Drawing.Size(404, 677);
+            splitContainerRunProperties.SplitterDistance = 162;
             splitContainerRunProperties.SplitterWidth = 1;
             splitContainerRunProperties.TabIndex = 1;
             // 
@@ -1309,35 +1308,35 @@ namespace AppTestStudio
             tableLayoutPanelRunLabels.Controls.Add(lblRunLabel5, 0, 4);
             tableLayoutPanelRunLabels.Controls.Add(lblRunLabel6, 0, 5);
             tableLayoutPanelRunLabels.Location = new System.Drawing.Point(0, 0);
-            tableLayoutPanelRunLabels.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanelRunLabels.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             tableLayoutPanelRunLabels.Name = "tableLayoutPanelRunLabels";
             tableLayoutPanelRunLabels.RowCount = 15;
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunLabels.Size = new System.Drawing.Size(115, 406);
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunLabels.Size = new System.Drawing.Size(162, 677);
             tableLayoutPanelRunLabels.TabIndex = 1;
             // 
             // lblRunLabel11
             // 
             lblRunLabel11.AutoSize = true;
             lblRunLabel11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel11.Location = new System.Drawing.Point(5, 244);
-            lblRunLabel11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel11.Location = new System.Drawing.Point(7, 396);
+            lblRunLabel11.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel11.Name = "lblRunLabel11";
-            lblRunLabel11.Size = new System.Drawing.Size(81, 15);
+            lblRunLabel11.Size = new System.Drawing.Size(123, 25);
             lblRunLabel11.TabIndex = 13;
             lblRunLabel11.Text = "lblRunLabel11";
             // 
@@ -1345,10 +1344,10 @@ namespace AppTestStudio
             // 
             lblRunLabel12.AutoSize = true;
             lblRunLabel12.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel12.Location = new System.Drawing.Point(5, 268);
-            lblRunLabel12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel12.Location = new System.Drawing.Point(7, 435);
+            lblRunLabel12.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel12.Name = "lblRunLabel12";
-            lblRunLabel12.Size = new System.Drawing.Size(81, 15);
+            lblRunLabel12.Size = new System.Drawing.Size(123, 25);
             lblRunLabel12.TabIndex = 2;
             lblRunLabel12.Text = "lblRunLabel12";
             // 
@@ -1356,10 +1355,10 @@ namespace AppTestStudio
             // 
             lblRunLabel13.AutoSize = true;
             lblRunLabel13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel13.Location = new System.Drawing.Point(5, 292);
-            lblRunLabel13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel13.Location = new System.Drawing.Point(7, 474);
+            lblRunLabel13.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel13.Name = "lblRunLabel13";
-            lblRunLabel13.Size = new System.Drawing.Size(81, 15);
+            lblRunLabel13.Size = new System.Drawing.Size(123, 25);
             lblRunLabel13.TabIndex = 3;
             lblRunLabel13.Text = "lblRunLabel13";
             // 
@@ -1367,10 +1366,10 @@ namespace AppTestStudio
             // 
             lblRunLabel10.AutoSize = true;
             lblRunLabel10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel10.Location = new System.Drawing.Point(5, 220);
-            lblRunLabel10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel10.Location = new System.Drawing.Point(7, 357);
+            lblRunLabel10.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel10.Name = "lblRunLabel10";
-            lblRunLabel10.Size = new System.Drawing.Size(81, 15);
+            lblRunLabel10.Size = new System.Drawing.Size(123, 25);
             lblRunLabel10.TabIndex = 12;
             lblRunLabel10.Text = "lblRunLabel10";
             // 
@@ -1378,10 +1377,10 @@ namespace AppTestStudio
             // 
             lblRunLabel9.AutoSize = true;
             lblRunLabel9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel9.Location = new System.Drawing.Point(5, 196);
-            lblRunLabel9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel9.Location = new System.Drawing.Point(7, 318);
+            lblRunLabel9.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel9.Name = "lblRunLabel9";
-            lblRunLabel9.Size = new System.Drawing.Size(75, 15);
+            lblRunLabel9.Size = new System.Drawing.Size(113, 25);
             lblRunLabel9.TabIndex = 11;
             lblRunLabel9.Text = "lblRunLabel9";
             // 
@@ -1389,10 +1388,10 @@ namespace AppTestStudio
             // 
             lblRunLabel7.AutoSize = true;
             lblRunLabel7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel7.Location = new System.Drawing.Point(5, 148);
-            lblRunLabel7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel7.Location = new System.Drawing.Point(7, 240);
+            lblRunLabel7.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel7.Name = "lblRunLabel7";
-            lblRunLabel7.Size = new System.Drawing.Size(75, 15);
+            lblRunLabel7.Size = new System.Drawing.Size(113, 25);
             lblRunLabel7.TabIndex = 1;
             lblRunLabel7.Text = "lblRunLabel7";
             // 
@@ -1400,10 +1399,10 @@ namespace AppTestStudio
             // 
             lblRunLabel14.AutoSize = true;
             lblRunLabel14.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel14.Location = new System.Drawing.Point(5, 316);
-            lblRunLabel14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel14.Location = new System.Drawing.Point(7, 513);
+            lblRunLabel14.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel14.Name = "lblRunLabel14";
-            lblRunLabel14.Size = new System.Drawing.Size(81, 15);
+            lblRunLabel14.Size = new System.Drawing.Size(123, 25);
             lblRunLabel14.TabIndex = 5;
             lblRunLabel14.Text = "lblRunLabel14";
             // 
@@ -1411,10 +1410,10 @@ namespace AppTestStudio
             // 
             lblRunLabel2.AutoSize = true;
             lblRunLabel2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel2.Location = new System.Drawing.Point(5, 28);
-            lblRunLabel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel2.Location = new System.Drawing.Point(7, 45);
+            lblRunLabel2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel2.Name = "lblRunLabel2";
-            lblRunLabel2.Size = new System.Drawing.Size(75, 15);
+            lblRunLabel2.Size = new System.Drawing.Size(113, 25);
             lblRunLabel2.TabIndex = 1;
             lblRunLabel2.Text = "lblRunLabel2";
             // 
@@ -1422,10 +1421,10 @@ namespace AppTestStudio
             // 
             lblRunLabel8.AutoSize = true;
             lblRunLabel8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel8.Location = new System.Drawing.Point(5, 172);
-            lblRunLabel8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel8.Location = new System.Drawing.Point(7, 279);
+            lblRunLabel8.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel8.Name = "lblRunLabel8";
-            lblRunLabel8.Size = new System.Drawing.Size(75, 15);
+            lblRunLabel8.Size = new System.Drawing.Size(113, 25);
             lblRunLabel8.TabIndex = 6;
             lblRunLabel8.Text = "lblRunLabel8";
             // 
@@ -1433,10 +1432,10 @@ namespace AppTestStudio
             // 
             lblRunLabel1.AutoSize = true;
             lblRunLabel1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel1.Location = new System.Drawing.Point(5, 4);
-            lblRunLabel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel1.Location = new System.Drawing.Point(7, 6);
+            lblRunLabel1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel1.Name = "lblRunLabel1";
-            lblRunLabel1.Size = new System.Drawing.Size(75, 15);
+            lblRunLabel1.Size = new System.Drawing.Size(113, 25);
             lblRunLabel1.TabIndex = 0;
             lblRunLabel1.Text = "lblRunLabel1";
             // 
@@ -1444,10 +1443,10 @@ namespace AppTestStudio
             // 
             lblRunLabel3.AutoSize = true;
             lblRunLabel3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel3.Location = new System.Drawing.Point(5, 52);
-            lblRunLabel3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel3.Location = new System.Drawing.Point(7, 84);
+            lblRunLabel3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel3.Name = "lblRunLabel3";
-            lblRunLabel3.Size = new System.Drawing.Size(75, 15);
+            lblRunLabel3.Size = new System.Drawing.Size(113, 25);
             lblRunLabel3.TabIndex = 4;
             lblRunLabel3.Text = "lblRunLabel3";
             // 
@@ -1455,10 +1454,10 @@ namespace AppTestStudio
             // 
             lblRunLabel4.AutoSize = true;
             lblRunLabel4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel4.Location = new System.Drawing.Point(5, 76);
-            lblRunLabel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel4.Location = new System.Drawing.Point(7, 123);
+            lblRunLabel4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel4.Name = "lblRunLabel4";
-            lblRunLabel4.Size = new System.Drawing.Size(75, 15);
+            lblRunLabel4.Size = new System.Drawing.Size(113, 25);
             lblRunLabel4.TabIndex = 6;
             lblRunLabel4.Text = "lblRunLabel4";
             // 
@@ -1466,10 +1465,10 @@ namespace AppTestStudio
             // 
             lblRunLabel5.AutoSize = true;
             lblRunLabel5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel5.Location = new System.Drawing.Point(5, 100);
-            lblRunLabel5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel5.Location = new System.Drawing.Point(7, 162);
+            lblRunLabel5.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel5.Name = "lblRunLabel5";
-            lblRunLabel5.Size = new System.Drawing.Size(75, 15);
+            lblRunLabel5.Size = new System.Drawing.Size(113, 25);
             lblRunLabel5.TabIndex = 8;
             lblRunLabel5.Text = "lblRunLabel5";
             // 
@@ -1477,10 +1476,10 @@ namespace AppTestStudio
             // 
             lblRunLabel6.AutoSize = true;
             lblRunLabel6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunLabel6.Location = new System.Drawing.Point(5, 124);
-            lblRunLabel6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunLabel6.Location = new System.Drawing.Point(7, 201);
+            lblRunLabel6.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunLabel6.Name = "lblRunLabel6";
-            lblRunLabel6.Size = new System.Drawing.Size(75, 15);
+            lblRunLabel6.Size = new System.Drawing.Size(113, 25);
             lblRunLabel6.TabIndex = 10;
             lblRunLabel6.Text = "lblRunLabel6";
             // 
@@ -1490,7 +1489,7 @@ namespace AppTestStudio
             tableLayoutPanelRunValues.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanelRunValues.ColumnCount = 2;
             tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 84F));
+            tableLayoutPanelRunValues.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 123F));
             tableLayoutPanelRunValues.Controls.Add(lblRunValue14, 0, 13);
             tableLayoutPanelRunValues.Controls.Add(lblRunValue7, 0, 6);
             tableLayoutPanelRunValues.Controls.Add(lblRunValue1, 0, 0);
@@ -1509,37 +1508,37 @@ namespace AppTestStudio
             tableLayoutPanelRunValues.Controls.Add(cmdRuntimeEnableToggle, 1, 3);
             tableLayoutPanelRunValues.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutPanelRunValues.Location = new System.Drawing.Point(0, 0);
-            tableLayoutPanelRunValues.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanelRunValues.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             tableLayoutPanelRunValues.Name = "tableLayoutPanelRunValues";
             tableLayoutPanelRunValues.RowCount = 17;
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelRunValues.Size = new System.Drawing.Size(166, 406);
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelRunValues.Size = new System.Drawing.Size(241, 677);
             tableLayoutPanelRunValues.TabIndex = 0;
             // 
             // lblRunValue14
             // 
             lblRunValue14.AutoSize = true;
             lblRunValue14.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue14.Location = new System.Drawing.Point(5, 316);
-            lblRunValue14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue14.Location = new System.Drawing.Point(7, 513);
+            lblRunValue14.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue14.Name = "lblRunValue14";
-            lblRunValue14.Size = new System.Drawing.Size(69, 20);
+            lblRunValue14.Size = new System.Drawing.Size(95, 33);
             lblRunValue14.TabIndex = 12;
             lblRunValue14.Text = "lblRunValue14";
             // 
@@ -1547,10 +1546,10 @@ namespace AppTestStudio
             // 
             lblRunValue7.AutoSize = true;
             lblRunValue7.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue7.Location = new System.Drawing.Point(5, 148);
-            lblRunValue7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue7.Location = new System.Drawing.Point(7, 240);
+            lblRunValue7.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue7.Name = "lblRunValue7";
-            lblRunValue7.Size = new System.Drawing.Size(69, 20);
+            lblRunValue7.Size = new System.Drawing.Size(95, 33);
             lblRunValue7.TabIndex = 0;
             lblRunValue7.Text = "lblRunValue7";
             // 
@@ -1558,10 +1557,10 @@ namespace AppTestStudio
             // 
             lblRunValue1.AutoSize = true;
             lblRunValue1.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue1.Location = new System.Drawing.Point(5, 4);
-            lblRunValue1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue1.Location = new System.Drawing.Point(7, 6);
+            lblRunValue1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue1.Name = "lblRunValue1";
-            lblRunValue1.Size = new System.Drawing.Size(69, 20);
+            lblRunValue1.Size = new System.Drawing.Size(95, 33);
             lblRunValue1.TabIndex = 2;
             lblRunValue1.Text = "lblRunValue1";
             // 
@@ -1569,10 +1568,10 @@ namespace AppTestStudio
             // 
             lblRunValue2.AutoSize = true;
             lblRunValue2.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue2.Location = new System.Drawing.Point(5, 28);
-            lblRunValue2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue2.Location = new System.Drawing.Point(7, 45);
+            lblRunValue2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue2.Name = "lblRunValue2";
-            lblRunValue2.Size = new System.Drawing.Size(69, 20);
+            lblRunValue2.Size = new System.Drawing.Size(95, 33);
             lblRunValue2.TabIndex = 3;
             lblRunValue2.Text = "lblRunValue2";
             // 
@@ -1580,10 +1579,10 @@ namespace AppTestStudio
             // 
             lblRunValue8.AutoSize = true;
             lblRunValue8.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue8.Location = new System.Drawing.Point(5, 172);
-            lblRunValue8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue8.Location = new System.Drawing.Point(7, 279);
+            lblRunValue8.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue8.Name = "lblRunValue8";
-            lblRunValue8.Size = new System.Drawing.Size(69, 20);
+            lblRunValue8.Size = new System.Drawing.Size(95, 33);
             lblRunValue8.TabIndex = 4;
             lblRunValue8.Text = "lblRunValue8";
             // 
@@ -1591,10 +1590,10 @@ namespace AppTestStudio
             // 
             lblRunValue3.AutoSize = true;
             lblRunValue3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue3.Location = new System.Drawing.Point(5, 52);
-            lblRunValue3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue3.Location = new System.Drawing.Point(7, 84);
+            lblRunValue3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue3.Name = "lblRunValue3";
-            lblRunValue3.Size = new System.Drawing.Size(69, 20);
+            lblRunValue3.Size = new System.Drawing.Size(95, 33);
             lblRunValue3.TabIndex = 5;
             lblRunValue3.Text = "lblRunValue3";
             // 
@@ -1602,10 +1601,10 @@ namespace AppTestStudio
             // 
             lblRunValue12.AutoSize = true;
             lblRunValue12.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue12.Location = new System.Drawing.Point(5, 268);
-            lblRunValue12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue12.Location = new System.Drawing.Point(7, 435);
+            lblRunValue12.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue12.Name = "lblRunValue12";
-            lblRunValue12.Size = new System.Drawing.Size(69, 20);
+            lblRunValue12.Size = new System.Drawing.Size(95, 33);
             lblRunValue12.TabIndex = 9;
             lblRunValue12.Text = "lblRunValue12";
             // 
@@ -1613,10 +1612,10 @@ namespace AppTestStudio
             // 
             lblRunValue9.AutoSize = true;
             lblRunValue9.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue9.Location = new System.Drawing.Point(5, 196);
-            lblRunValue9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue9.Location = new System.Drawing.Point(7, 318);
+            lblRunValue9.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue9.Name = "lblRunValue9";
-            lblRunValue9.Size = new System.Drawing.Size(69, 20);
+            lblRunValue9.Size = new System.Drawing.Size(95, 33);
             lblRunValue9.TabIndex = 8;
             lblRunValue9.Text = "lblRunValue9";
             // 
@@ -1624,10 +1623,10 @@ namespace AppTestStudio
             // 
             lblRunValue13.AutoSize = true;
             lblRunValue13.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue13.Location = new System.Drawing.Point(5, 292);
-            lblRunValue13.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue13.Location = new System.Drawing.Point(7, 474);
+            lblRunValue13.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue13.Name = "lblRunValue13";
-            lblRunValue13.Size = new System.Drawing.Size(69, 20);
+            lblRunValue13.Size = new System.Drawing.Size(95, 33);
             lblRunValue13.TabIndex = 7;
             lblRunValue13.Text = "lblRunValue13";
             // 
@@ -1635,10 +1634,10 @@ namespace AppTestStudio
             // 
             lblRunValue4.AutoSize = true;
             lblRunValue4.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue4.Location = new System.Drawing.Point(5, 76);
-            lblRunValue4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue4.Location = new System.Drawing.Point(7, 123);
+            lblRunValue4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue4.Name = "lblRunValue4";
-            lblRunValue4.Size = new System.Drawing.Size(69, 20);
+            lblRunValue4.Size = new System.Drawing.Size(95, 33);
             lblRunValue4.TabIndex = 7;
             lblRunValue4.Text = "lblRunValue4";
             // 
@@ -1646,10 +1645,10 @@ namespace AppTestStudio
             // 
             lblRunValue5.AutoSize = true;
             lblRunValue5.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue5.Location = new System.Drawing.Point(5, 100);
-            lblRunValue5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue5.Location = new System.Drawing.Point(7, 162);
+            lblRunValue5.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue5.Name = "lblRunValue5";
-            lblRunValue5.Size = new System.Drawing.Size(69, 20);
+            lblRunValue5.Size = new System.Drawing.Size(95, 33);
             lblRunValue5.TabIndex = 9;
             lblRunValue5.Text = "lblRunValue5";
             // 
@@ -1657,10 +1656,10 @@ namespace AppTestStudio
             // 
             lblRunValue11.AutoSize = true;
             lblRunValue11.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue11.Location = new System.Drawing.Point(5, 244);
-            lblRunValue11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue11.Location = new System.Drawing.Point(7, 396);
+            lblRunValue11.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue11.Name = "lblRunValue11";
-            lblRunValue11.Size = new System.Drawing.Size(69, 20);
+            lblRunValue11.Size = new System.Drawing.Size(95, 33);
             lblRunValue11.TabIndex = 11;
             lblRunValue11.Text = "lblRunValue11";
             // 
@@ -1668,10 +1667,10 @@ namespace AppTestStudio
             // 
             lblRunValue10.AutoSize = true;
             lblRunValue10.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue10.Location = new System.Drawing.Point(5, 220);
-            lblRunValue10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue10.Location = new System.Drawing.Point(7, 357);
+            lblRunValue10.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue10.Name = "lblRunValue10";
-            lblRunValue10.Size = new System.Drawing.Size(69, 20);
+            lblRunValue10.Size = new System.Drawing.Size(95, 33);
             lblRunValue10.TabIndex = 10;
             lblRunValue10.Text = "lblRunValue10";
             // 
@@ -1679,20 +1678,20 @@ namespace AppTestStudio
             // 
             lblRunValue6.AutoSize = true;
             lblRunValue6.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            lblRunValue6.Location = new System.Drawing.Point(5, 124);
-            lblRunValue6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 0);
+            lblRunValue6.Location = new System.Drawing.Point(7, 201);
+            lblRunValue6.Margin = new System.Windows.Forms.Padding(6, 5, 6, 0);
             lblRunValue6.Name = "lblRunValue6";
-            lblRunValue6.Size = new System.Drawing.Size(69, 20);
+            lblRunValue6.Size = new System.Drawing.Size(95, 33);
             lblRunValue6.TabIndex = 11;
             lblRunValue6.Text = "lblRunValue6";
             // 
             // cmdUpdateResolution
             // 
             cmdUpdateResolution.Dock = System.Windows.Forms.DockStyle.Fill;
-            cmdUpdateResolution.Location = new System.Drawing.Point(81, 169);
+            cmdUpdateResolution.Location = new System.Drawing.Point(117, 274);
             cmdUpdateResolution.Margin = new System.Windows.Forms.Padding(0);
             cmdUpdateResolution.Name = "cmdUpdateResolution";
-            cmdUpdateResolution.Size = new System.Drawing.Size(84, 23);
+            cmdUpdateResolution.Size = new System.Drawing.Size(123, 38);
             cmdUpdateResolution.TabIndex = 13;
             cmdUpdateResolution.Text = "...";
             cmdUpdateResolution.UseVisualStyleBackColor = true;
@@ -1701,10 +1700,10 @@ namespace AppTestStudio
             // cmdRuntimeEnableToggle
             // 
             cmdRuntimeEnableToggle.Dock = System.Windows.Forms.DockStyle.Fill;
-            cmdRuntimeEnableToggle.Location = new System.Drawing.Point(81, 73);
+            cmdRuntimeEnableToggle.Location = new System.Drawing.Point(117, 118);
             cmdRuntimeEnableToggle.Margin = new System.Windows.Forms.Padding(0);
             cmdRuntimeEnableToggle.Name = "cmdRuntimeEnableToggle";
-            cmdRuntimeEnableToggle.Size = new System.Drawing.Size(84, 23);
+            cmdRuntimeEnableToggle.Size = new System.Drawing.Size(123, 38);
             cmdRuntimeEnableToggle.TabIndex = 14;
             cmdRuntimeEnableToggle.Text = "...";
             cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
@@ -1712,10 +1711,10 @@ namespace AppTestStudio
             // 
             // tabSchedule
             // 
-            tabSchedule.Location = new System.Drawing.Point(4, 24);
-            tabSchedule.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tabSchedule.Location = new System.Drawing.Point(4, 34);
+            tabSchedule.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             tabSchedule.Name = "tabSchedule";
-            tabSchedule.Size = new System.Drawing.Size(290, 840);
+            tabSchedule.Size = new System.Drawing.Size(416, 1444);
             tabSchedule.TabIndex = 2;
             tabSchedule.Text = "Schedule";
             tabSchedule.UseVisualStyleBackColor = true;
@@ -1723,10 +1722,10 @@ namespace AppTestStudio
             // PanelThread
             // 
             PanelThread.Controls.Add(splitContainerThread);
-            PanelThread.Location = new System.Drawing.Point(6, 178);
-            PanelThread.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelThread.Location = new System.Drawing.Point(9, 297);
+            PanelThread.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelThread.Name = "PanelThread";
-            PanelThread.Size = new System.Drawing.Size(1664, 759);
+            PanelThread.Size = new System.Drawing.Size(2377, 1265);
             PanelThread.TabIndex = 0;
             // 
             // splitContainerThread
@@ -1734,7 +1733,7 @@ namespace AppTestStudio
             splitContainerThread.Dock = System.Windows.Forms.DockStyle.Fill;
             splitContainerThread.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             splitContainerThread.Location = new System.Drawing.Point(0, 0);
-            splitContainerThread.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitContainerThread.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             splitContainerThread.Name = "splitContainerThread";
             splitContainerThread.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1745,9 +1744,9 @@ namespace AppTestStudio
             // splitContainerThread.Panel2
             // 
             splitContainerThread.Panel2.Controls.Add(appTestStudioStatusControl1);
-            splitContainerThread.Size = new System.Drawing.Size(1664, 759);
+            splitContainerThread.Size = new System.Drawing.Size(2377, 1265);
             splitContainerThread.SplitterDistance = 184;
-            splitContainerThread.SplitterWidth = 5;
+            splitContainerThread.SplitterWidth = 8;
             splitContainerThread.TabIndex = 0;
             // 
             // splitContainerStatsNScrollie
@@ -1755,7 +1754,7 @@ namespace AppTestStudio
             splitContainerStatsNScrollie.Dock = System.Windows.Forms.DockStyle.Fill;
             splitContainerStatsNScrollie.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             splitContainerStatsNScrollie.Location = new System.Drawing.Point(0, 0);
-            splitContainerStatsNScrollie.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitContainerStatsNScrollie.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             splitContainerStatsNScrollie.Name = "splitContainerStatsNScrollie";
             splitContainerStatsNScrollie.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -1766,9 +1765,9 @@ namespace AppTestStudio
             // splitContainerStatsNScrollie.Panel2
             // 
             splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
-            splitContainerStatsNScrollie.Size = new System.Drawing.Size(1664, 184);
-            splitContainerStatsNScrollie.SplitterDistance = 120;
-            splitContainerStatsNScrollie.SplitterWidth = 5;
+            splitContainerStatsNScrollie.Size = new System.Drawing.Size(2377, 184);
+            splitContainerStatsNScrollie.SplitterDistance = 62;
+            splitContainerStatsNScrollie.SplitterWidth = 8;
             splitContainerStatsNScrollie.TabIndex = 2;
             // 
             // tableLayoutStats
@@ -1785,22 +1784,22 @@ namespace AppTestStudio
             tableLayoutStats.Controls.Add(grpAPS, 3, 0);
             tableLayoutStats.Dock = System.Windows.Forms.DockStyle.Fill;
             tableLayoutStats.Location = new System.Drawing.Point(0, 0);
-            tableLayoutStats.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutStats.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             tableLayoutStats.Name = "tableLayoutStats";
             tableLayoutStats.RowCount = 1;
             tableLayoutStats.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableLayoutStats.Size = new System.Drawing.Size(1664, 120);
+            tableLayoutStats.Size = new System.Drawing.Size(2377, 62);
             tableLayoutStats.TabIndex = 3;
             // 
             // groupTotal
             // 
             groupTotal.Controls.Add(tableLayoutPanel1);
             groupTotal.Dock = System.Windows.Forms.DockStyle.Fill;
-            groupTotal.Location = new System.Drawing.Point(420, 3);
-            groupTotal.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupTotal.Location = new System.Drawing.Point(600, 5);
+            groupTotal.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupTotal.Name = "groupTotal";
-            groupTotal.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupTotal.Size = new System.Drawing.Size(408, 114);
+            groupTotal.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupTotal.Size = new System.Drawing.Size(582, 52);
             groupTotal.TabIndex = 2;
             groupTotal.TabStop = false;
             groupTotal.Text = "Total";
@@ -1809,7 +1808,7 @@ namespace AppTestStudio
             // 
             tableLayoutPanel1.AutoSize = true;
             tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
+            tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
             tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tableLayoutPanel1.Controls.Add(label13, 0, 0);
             tableLayoutPanel1.Controls.Add(lblHomeTotal, 1, 2);
@@ -1824,137 +1823,137 @@ namespace AppTestStudio
             tableLayoutPanel1.Controls.Add(lblClickCountTotal, 1, 1);
             tableLayoutPanel1.Controls.Add(label14, 0, 3);
             tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableLayoutPanel1.Location = new System.Drawing.Point(4, 19);
-            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanel1.Location = new System.Drawing.Point(6, 29);
+            tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             tableLayoutPanel1.Name = "tableLayoutPanel1";
             tableLayoutPanel1.RowCount = 6;
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanel1.Size = new System.Drawing.Size(400, 92);
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanel1.Size = new System.Drawing.Size(570, 18);
             tableLayoutPanel1.TabIndex = 4;
             // 
             // label13
             // 
             label13.AutoSize = true;
-            label13.Location = new System.Drawing.Point(4, 0);
-            label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label13.Location = new System.Drawing.Point(6, 0);
+            label13.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label13.Name = "label13";
-            label13.Size = new System.Drawing.Size(73, 15);
+            label13.Size = new System.Drawing.Size(111, 25);
             label13.TabIndex = 0;
             label13.Text = "Screenshots:";
             // 
             // lblHomeTotal
             // 
             lblHomeTotal.AutoSize = true;
-            lblHomeTotal.Location = new System.Drawing.Point(92, 44);
-            lblHomeTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHomeTotal.Location = new System.Drawing.Point(132, 74);
+            lblHomeTotal.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblHomeTotal.Name = "lblHomeTotal";
-            lblHomeTotal.Size = new System.Drawing.Size(78, 15);
+            lblHomeTotal.Size = new System.Drawing.Size(117, 25);
             lblHomeTotal.TabIndex = 2;
             lblHomeTotal.Text = "lblHomeTotal";
             // 
             // label15
             // 
             label15.AutoSize = true;
-            label15.Location = new System.Drawing.Point(4, 22);
-            label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label15.Location = new System.Drawing.Point(6, 37);
+            label15.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label15.Name = "label15";
-            label15.Size = new System.Drawing.Size(41, 15);
+            label15.Size = new System.Drawing.Size(60, 25);
             label15.TabIndex = 1;
             label15.Text = "Clicks:";
             // 
             // lblChildTotal
             // 
             lblChildTotal.AutoSize = true;
-            lblChildTotal.Location = new System.Drawing.Point(92, 88);
-            lblChildTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblChildTotal.Location = new System.Drawing.Point(132, 148);
+            lblChildTotal.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblChildTotal.Name = "lblChildTotal";
-            lblChildTotal.Size = new System.Drawing.Size(73, 15);
+            lblChildTotal.Size = new System.Drawing.Size(108, 25);
             lblChildTotal.TabIndex = 1;
             lblChildTotal.Text = "lblChildTotal";
             // 
             // lblContinueTotal
             // 
             lblContinueTotal.AutoSize = true;
-            lblContinueTotal.Location = new System.Drawing.Point(92, 66);
-            lblContinueTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblContinueTotal.Location = new System.Drawing.Point(132, 111);
+            lblContinueTotal.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblContinueTotal.Name = "lblContinueTotal";
-            lblContinueTotal.Size = new System.Drawing.Size(94, 15);
+            lblContinueTotal.Size = new System.Drawing.Size(139, 25);
             lblContinueTotal.TabIndex = 0;
             lblContinueTotal.Text = "lblContinueTotal";
             // 
             // label21
             // 
             label21.AutoSize = true;
-            label21.Location = new System.Drawing.Point(4, 44);
-            label21.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label21.Location = new System.Drawing.Point(6, 74);
+            label21.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label21.Name = "label21";
-            label21.Size = new System.Drawing.Size(43, 15);
+            label21.Size = new System.Drawing.Size(65, 25);
             label21.TabIndex = 2;
             label21.Text = "Home:";
             // 
             // label20
             // 
             label20.AutoSize = true;
-            label20.Location = new System.Drawing.Point(4, 110);
-            label20.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label20.Location = new System.Drawing.Point(6, 185);
+            label20.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label20.Name = "label20";
-            label20.Size = new System.Drawing.Size(51, 15);
+            label20.Size = new System.Drawing.Size(76, 25);
             label20.TabIndex = 2;
             label20.Text = "Waiting:";
             // 
             // lblWaitingTotal
             // 
             lblWaitingTotal.AutoSize = true;
-            lblWaitingTotal.Location = new System.Drawing.Point(92, 110);
-            lblWaitingTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWaitingTotal.Location = new System.Drawing.Point(132, 185);
+            lblWaitingTotal.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblWaitingTotal.Name = "lblWaitingTotal";
-            lblWaitingTotal.Size = new System.Drawing.Size(86, 15);
+            lblWaitingTotal.Size = new System.Drawing.Size(128, 25);
             lblWaitingTotal.TabIndex = 2;
             lblWaitingTotal.Text = "lblWaitingTotal";
             // 
             // lblScreenshotsTotal
             // 
             lblScreenshotsTotal.AutoSize = true;
-            lblScreenshotsTotal.Location = new System.Drawing.Point(92, 0);
-            lblScreenshotsTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblScreenshotsTotal.Location = new System.Drawing.Point(132, 0);
+            lblScreenshotsTotal.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblScreenshotsTotal.Name = "lblScreenshotsTotal";
-            lblScreenshotsTotal.Size = new System.Drawing.Size(108, 15);
+            lblScreenshotsTotal.Size = new System.Drawing.Size(163, 25);
             lblScreenshotsTotal.TabIndex = 0;
             lblScreenshotsTotal.Text = "lblScreenshotsTotal";
             // 
             // label19
             // 
             label19.AutoSize = true;
-            label19.Location = new System.Drawing.Point(4, 88);
-            label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label19.Location = new System.Drawing.Point(6, 148);
+            label19.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label19.Name = "label19";
-            label19.Size = new System.Drawing.Size(38, 15);
+            label19.Size = new System.Drawing.Size(56, 25);
             label19.TabIndex = 1;
             label19.Text = "Child:";
             // 
             // lblClickCountTotal
             // 
             lblClickCountTotal.AutoSize = true;
-            lblClickCountTotal.Location = new System.Drawing.Point(92, 22);
-            lblClickCountTotal.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblClickCountTotal.Location = new System.Drawing.Point(132, 37);
+            lblClickCountTotal.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblClickCountTotal.Name = "lblClickCountTotal";
-            lblClickCountTotal.Size = new System.Drawing.Size(104, 15);
+            lblClickCountTotal.Size = new System.Drawing.Size(152, 25);
             lblClickCountTotal.TabIndex = 1;
             lblClickCountTotal.Text = "lblClickCountTotal";
             // 
             // label14
             // 
             label14.AutoSize = true;
-            label14.Location = new System.Drawing.Point(4, 66);
-            label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label14.Location = new System.Drawing.Point(6, 111);
+            label14.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label14.Name = "label14";
-            label14.Size = new System.Drawing.Size(59, 15);
+            label14.Size = new System.Drawing.Size(87, 25);
             label14.TabIndex = 0;
             label14.Text = "Continue:";
             // 
@@ -1962,11 +1961,11 @@ namespace AppTestStudio
             // 
             groupSession.Controls.Add(tableLayoutPanelSession);
             groupSession.Dock = System.Windows.Forms.DockStyle.Fill;
-            groupSession.Location = new System.Drawing.Point(4, 3);
-            groupSession.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupSession.Location = new System.Drawing.Point(6, 5);
+            groupSession.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupSession.Name = "groupSession";
-            groupSession.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupSession.Size = new System.Drawing.Size(408, 114);
+            groupSession.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupSession.Size = new System.Drawing.Size(582, 52);
             groupSession.TabIndex = 1;
             groupSession.TabStop = false;
             groupSession.Text = "Session";
@@ -1975,7 +1974,7 @@ namespace AppTestStudio
             // 
             tableLayoutPanelSession.AutoSize = true;
             tableLayoutPanelSession.ColumnCount = 2;
-            tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 88F));
+            tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 126F));
             tableLayoutPanelSession.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             tableLayoutPanelSession.Controls.Add(label1, 0, 0);
             tableLayoutPanelSession.Controls.Add(label3, 0, 5);
@@ -1990,137 +1989,137 @@ namespace AppTestStudio
             tableLayoutPanelSession.Controls.Add(lblClickCount, 1, 1);
             tableLayoutPanelSession.Controls.Add(label8, 0, 4);
             tableLayoutPanelSession.Dock = System.Windows.Forms.DockStyle.Fill;
-            tableLayoutPanelSession.Location = new System.Drawing.Point(4, 19);
-            tableLayoutPanelSession.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tableLayoutPanelSession.Location = new System.Drawing.Point(6, 29);
+            tableLayoutPanelSession.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             tableLayoutPanelSession.Name = "tableLayoutPanelSession";
             tableLayoutPanelSession.RowCount = 6;
-            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 23F));
-            tableLayoutPanelSession.Size = new System.Drawing.Size(400, 92);
+            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 37F));
+            tableLayoutPanelSession.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 38F));
+            tableLayoutPanelSession.Size = new System.Drawing.Size(570, 18);
             tableLayoutPanelSession.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new System.Drawing.Point(4, 0);
-            label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label1.Location = new System.Drawing.Point(6, 0);
+            label1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label1.Name = "label1";
-            label1.Size = new System.Drawing.Size(73, 15);
+            label1.Size = new System.Drawing.Size(111, 25);
             label1.TabIndex = 0;
             label1.Text = "Screenshots:";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new System.Drawing.Point(4, 110);
-            label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label3.Location = new System.Drawing.Point(6, 185);
+            label3.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label3.Name = "label3";
-            label3.Size = new System.Drawing.Size(51, 15);
+            label3.Size = new System.Drawing.Size(76, 25);
             label3.TabIndex = 2;
             label3.Text = "Waiting:";
             // 
             // lblWaiting
             // 
             lblWaiting.AutoSize = true;
-            lblWaiting.Location = new System.Drawing.Point(92, 110);
-            lblWaiting.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWaiting.Location = new System.Drawing.Point(132, 185);
+            lblWaiting.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblWaiting.Name = "lblWaiting";
-            lblWaiting.Size = new System.Drawing.Size(61, 15);
+            lblWaiting.Size = new System.Drawing.Size(91, 25);
             lblWaiting.TabIndex = 2;
             lblWaiting.Text = "lblWaiting";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new System.Drawing.Point(4, 44);
-            label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label9.Location = new System.Drawing.Point(6, 74);
+            label9.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label9.Name = "label9";
-            label9.Size = new System.Drawing.Size(43, 15);
+            label9.Size = new System.Drawing.Size(65, 25);
             label9.TabIndex = 2;
             label9.Text = "Home:";
             // 
             // lblHome
             // 
             lblHome.AutoSize = true;
-            lblHome.Location = new System.Drawing.Point(92, 44);
-            lblHome.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblHome.Location = new System.Drawing.Point(132, 74);
+            lblHome.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblHome.Name = "lblHome";
-            lblHome.Size = new System.Drawing.Size(53, 15);
+            lblHome.Size = new System.Drawing.Size(80, 25);
             lblHome.TabIndex = 2;
             lblHome.Text = "lblHome";
             // 
             // lblScreenshots
             // 
             lblScreenshots.AutoSize = true;
-            lblScreenshots.Location = new System.Drawing.Point(92, 0);
-            lblScreenshots.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblScreenshots.Location = new System.Drawing.Point(132, 0);
+            lblScreenshots.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblScreenshots.Name = "lblScreenshots";
-            lblScreenshots.Size = new System.Drawing.Size(83, 15);
+            lblScreenshots.Size = new System.Drawing.Size(126, 25);
             lblScreenshots.TabIndex = 0;
             lblScreenshots.Text = "lblScreenshots";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new System.Drawing.Point(4, 66);
-            label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label7.Location = new System.Drawing.Point(6, 111);
+            label7.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label7.Name = "label7";
-            label7.Size = new System.Drawing.Size(59, 15);
+            label7.Size = new System.Drawing.Size(87, 25);
             label7.TabIndex = 0;
             label7.Text = "Continue:";
             // 
             // lblContinue
             // 
             lblContinue.AutoSize = true;
-            lblContinue.Location = new System.Drawing.Point(92, 66);
-            lblContinue.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblContinue.Location = new System.Drawing.Point(132, 111);
+            lblContinue.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblContinue.Name = "lblContinue";
-            lblContinue.Size = new System.Drawing.Size(69, 15);
+            lblContinue.Size = new System.Drawing.Size(102, 25);
             lblContinue.TabIndex = 0;
             lblContinue.Text = "lblContinue";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new System.Drawing.Point(4, 22);
-            label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label2.Location = new System.Drawing.Point(6, 37);
+            label2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label2.Name = "label2";
-            label2.Size = new System.Drawing.Size(41, 15);
+            label2.Size = new System.Drawing.Size(60, 25);
             label2.TabIndex = 1;
             label2.Text = "Clicks:";
             // 
             // lblChild
             // 
             lblChild.AutoSize = true;
-            lblChild.Location = new System.Drawing.Point(92, 88);
-            lblChild.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblChild.Location = new System.Drawing.Point(132, 148);
+            lblChild.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblChild.Name = "lblChild";
-            lblChild.Size = new System.Drawing.Size(48, 15);
+            lblChild.Size = new System.Drawing.Size(71, 25);
             lblChild.TabIndex = 1;
             lblChild.Text = "lblChild";
             // 
             // lblClickCount
             // 
             lblClickCount.AutoSize = true;
-            lblClickCount.Location = new System.Drawing.Point(92, 22);
-            lblClickCount.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblClickCount.Location = new System.Drawing.Point(132, 37);
+            lblClickCount.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblClickCount.Name = "lblClickCount";
-            lblClickCount.Size = new System.Drawing.Size(79, 15);
+            lblClickCount.Size = new System.Drawing.Size(115, 25);
             lblClickCount.TabIndex = 1;
             lblClickCount.Text = "lblClickCount";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new System.Drawing.Point(4, 88);
-            label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label8.Location = new System.Drawing.Point(6, 148);
+            label8.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label8.Name = "label8";
-            label8.Size = new System.Drawing.Size(38, 15);
+            label8.Size = new System.Drawing.Size(56, 25);
             label8.TabIndex = 1;
             label8.Text = "Child:";
             // 
@@ -2128,11 +2127,11 @@ namespace AppTestStudio
             // 
             grpCPU.Controls.Add(atsGraph1);
             grpCPU.Dock = System.Windows.Forms.DockStyle.Fill;
-            grpCPU.Location = new System.Drawing.Point(836, 3);
-            grpCPU.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpCPU.Location = new System.Drawing.Point(1194, 5);
+            grpCPU.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             grpCPU.Name = "grpCPU";
-            grpCPU.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpCPU.Size = new System.Drawing.Size(408, 114);
+            grpCPU.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            grpCPU.Size = new System.Drawing.Size(582, 52);
             grpCPU.TabIndex = 3;
             grpCPU.TabStop = false;
             grpCPU.Text = "CPU";
@@ -2140,21 +2139,21 @@ namespace AppTestStudio
             // atsGraph1
             // 
             atsGraph1.Dock = System.Windows.Forms.DockStyle.Fill;
-            atsGraph1.Location = new System.Drawing.Point(4, 19);
-            atsGraph1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            atsGraph1.Location = new System.Drawing.Point(6, 29);
+            atsGraph1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             atsGraph1.Name = "atsGraph1";
-            atsGraph1.Size = new System.Drawing.Size(400, 92);
+            atsGraph1.Size = new System.Drawing.Size(570, 18);
             atsGraph1.TabIndex = 0;
             // 
             // grpAPS
             // 
             grpAPS.Controls.Add(atsGraphActions1);
             grpAPS.Dock = System.Windows.Forms.DockStyle.Fill;
-            grpAPS.Location = new System.Drawing.Point(1252, 3);
-            grpAPS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpAPS.Location = new System.Drawing.Point(1788, 5);
+            grpAPS.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             grpAPS.Name = "grpAPS";
-            grpAPS.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpAPS.Size = new System.Drawing.Size(408, 114);
+            grpAPS.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            grpAPS.Size = new System.Drawing.Size(583, 52);
             grpAPS.TabIndex = 4;
             grpAPS.TabStop = false;
             grpAPS.Text = "Clicks Per Second";
@@ -2162,17 +2161,17 @@ namespace AppTestStudio
             // atsGraphActions1
             // 
             atsGraphActions1.Dock = System.Windows.Forms.DockStyle.Fill;
-            atsGraphActions1.Location = new System.Drawing.Point(4, 19);
-            atsGraphActions1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            atsGraphActions1.Location = new System.Drawing.Point(6, 29);
+            atsGraphActions1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             atsGraphActions1.Name = "atsGraphActions1";
-            atsGraphActions1.Size = new System.Drawing.Size(400, 92);
+            atsGraphActions1.Size = new System.Drawing.Size(571, 18);
             atsGraphActions1.TabIndex = 0;
             // 
             // splitContainerSeconds
             // 
             splitContainerSeconds.Dock = System.Windows.Forms.DockStyle.Bottom;
-            splitContainerSeconds.Location = new System.Drawing.Point(0, 37);
-            splitContainerSeconds.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitContainerSeconds.Location = new System.Drawing.Point(0, 77);
+            splitContainerSeconds.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             splitContainerSeconds.Name = "splitContainerSeconds";
             // 
             // splitContainerSeconds.Panel1
@@ -2182,9 +2181,9 @@ namespace AppTestStudio
             // splitContainerSeconds.Panel2
             // 
             splitContainerSeconds.Panel2.BackColor = System.Drawing.SystemColors.ControlDark;
-            splitContainerSeconds.Size = new System.Drawing.Size(1664, 22);
-            splitContainerSeconds.SplitterDistance = 259;
-            splitContainerSeconds.SplitterWidth = 5;
+            splitContainerSeconds.Size = new System.Drawing.Size(2377, 37);
+            splitContainerSeconds.SplitterDistance = 368;
+            splitContainerSeconds.SplitterWidth = 7;
             splitContainerSeconds.TabIndex = 0;
             splitContainerSeconds.SplitterMoving += splitContainerSeconds_SplitterMoving;
             // 
@@ -2193,37 +2192,36 @@ namespace AppTestStudio
             appTestStudioStatusControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             appTestStudioStatusControl1.Items = (System.Collections.Generic.List<string>)resources.GetObject("appTestStudioStatusControl1.Items");
             appTestStudioStatusControl1.Location = new System.Drawing.Point(0, 0);
-            appTestStudioStatusControl1.Margin = new System.Windows.Forms.Padding(5, 6, 5, 6);
+            appTestStudioStatusControl1.Margin = new System.Windows.Forms.Padding(7, 10, 7, 10);
             appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
             appTestStudioStatusControl1.ShowPercent = 10L;
-            appTestStudioStatusControl1.Size = new System.Drawing.Size(1664, 570);
+            appTestStudioStatusControl1.Size = new System.Drawing.Size(2377, 1073);
             appTestStudioStatusControl1.TabIndex = 0;
             // 
             // PanelColorEvent
             // 
             PanelColorEvent.Controls.Add(tableColorEvent);
-            PanelColorEvent.Location = new System.Drawing.Point(18, 84);
-            PanelColorEvent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelColorEvent.Location = new System.Drawing.Point(26, 140);
+            PanelColorEvent.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelColorEvent.Name = "PanelColorEvent";
-            PanelColorEvent.Size = new System.Drawing.Size(1493, 802);
+            PanelColorEvent.Size = new System.Drawing.Size(2133, 1337);
             PanelColorEvent.TabIndex = 14;
             // 
             // tableColorEvent
             // 
             tableColorEvent.ColumnCount = 3;
             tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 350F));
-            tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 338F));
+            tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 500F));
+            tableColorEvent.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 483F));
             tableColorEvent.Controls.Add(panelColorEventChild1, 0, 0);
             tableColorEvent.Controls.Add(FlowLayoutPanelColorEvent1, 1, 0);
             tableColorEvent.Controls.Add(FlowLayoutPanelColorEvent2, 2, 0);
             tableColorEvent.Dock = System.Windows.Forms.DockStyle.Fill;
             tableColorEvent.Location = new System.Drawing.Point(0, 0);
-            tableColorEvent.Margin = new System.Windows.Forms.Padding(2);
             tableColorEvent.Name = "tableColorEvent";
             tableColorEvent.RowCount = 1;
             tableColorEvent.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            tableColorEvent.Size = new System.Drawing.Size(1493, 802);
+            tableColorEvent.Size = new System.Drawing.Size(2133, 1337);
             tableColorEvent.TabIndex = 33;
             tableColorEvent.Paint += tableLayoutPanel2_Paint;
             // 
@@ -2240,18 +2238,17 @@ namespace AppTestStudio
             panelColorEventChild1.Controls.Add(chkUseParentScreenshot);
             panelColorEventChild1.Controls.Add(cmdAddSingleColorAtSingleLocationTakeASceenshot);
             panelColorEventChild1.Dock = System.Windows.Forms.DockStyle.Fill;
-            panelColorEventChild1.Location = new System.Drawing.Point(2, 2);
-            panelColorEventChild1.Margin = new System.Windows.Forms.Padding(2);
+            panelColorEventChild1.Location = new System.Drawing.Point(3, 3);
             panelColorEventChild1.Name = "panelColorEventChild1";
-            panelColorEventChild1.Size = new System.Drawing.Size(801, 798);
+            panelColorEventChild1.Size = new System.Drawing.Size(1144, 1331);
             panelColorEventChild1.TabIndex = 0;
             // 
             // cmdTakeParentScreenshot
             // 
-            cmdTakeParentScreenshot.Location = new System.Drawing.Point(5, 52);
-            cmdTakeParentScreenshot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdTakeParentScreenshot.Location = new System.Drawing.Point(7, 87);
+            cmdTakeParentScreenshot.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdTakeParentScreenshot.Name = "cmdTakeParentScreenshot";
-            cmdTakeParentScreenshot.Size = new System.Drawing.Size(154, 27);
+            cmdTakeParentScreenshot.Size = new System.Drawing.Size(220, 45);
             cmdTakeParentScreenshot.TabIndex = 32;
             cmdTakeParentScreenshot.Text = "Take Parent Screenshot";
             cmdTakeParentScreenshot.UseVisualStyleBackColor = true;
@@ -2262,11 +2259,11 @@ namespace AppTestStudio
             grpEventMode.Controls.Add(rdoObjectSearch);
             grpEventMode.Controls.Add(rdoColorPoint);
             grpEventMode.Controls.Add(lblMode);
-            grpEventMode.Location = new System.Drawing.Point(162, 7);
-            grpEventMode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpEventMode.Location = new System.Drawing.Point(231, 12);
+            grpEventMode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             grpEventMode.Name = "grpEventMode";
-            grpEventMode.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpEventMode.Size = new System.Drawing.Size(131, 69);
+            grpEventMode.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            grpEventMode.Size = new System.Drawing.Size(187, 115);
             grpEventMode.TabIndex = 28;
             grpEventMode.TabStop = false;
             grpEventMode.Text = "Event Mode";
@@ -2274,10 +2271,10 @@ namespace AppTestStudio
             // rdoObjectSearch
             // 
             rdoObjectSearch.AutoSize = true;
-            rdoObjectSearch.Location = new System.Drawing.Point(12, 44);
-            rdoObjectSearch.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoObjectSearch.Location = new System.Drawing.Point(17, 73);
+            rdoObjectSearch.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoObjectSearch.Name = "rdoObjectSearch";
-            rdoObjectSearch.Size = new System.Drawing.Size(98, 19);
+            rdoObjectSearch.Size = new System.Drawing.Size(146, 29);
             rdoObjectSearch.TabIndex = 1;
             rdoObjectSearch.TabStop = true;
             rdoObjectSearch.Text = "Object Search";
@@ -2287,10 +2284,10 @@ namespace AppTestStudio
             // rdoColorPoint
             // 
             rdoColorPoint.AutoSize = true;
-            rdoColorPoint.Location = new System.Drawing.Point(12, 17);
-            rdoColorPoint.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoColorPoint.Location = new System.Drawing.Point(17, 28);
+            rdoColorPoint.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoColorPoint.Name = "rdoColorPoint";
-            rdoColorPoint.Size = new System.Drawing.Size(87, 19);
+            rdoColorPoint.Size = new System.Drawing.Size(127, 29);
             rdoColorPoint.TabIndex = 0;
             rdoColorPoint.TabStop = true;
             rdoColorPoint.Text = "Color/Point";
@@ -2300,10 +2297,10 @@ namespace AppTestStudio
             // lblMode
             // 
             lblMode.AutoSize = true;
-            lblMode.Location = new System.Drawing.Point(146, -2);
-            lblMode.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblMode.Location = new System.Drawing.Point(209, -3);
+            lblMode.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblMode.Name = "lblMode";
-            lblMode.Size = new System.Drawing.Size(51, 15);
+            lblMode.Size = new System.Drawing.Size(78, 25);
             lblMode.TabIndex = 12;
             lblMode.Text = "lblMode";
             lblMode.Visible = false;
@@ -2314,11 +2311,11 @@ namespace AppTestStudio
             grpMode.Controls.Add(rdoModeMove);
             grpMode.Controls.Add(rdoModeClickDragRelease);
             grpMode.Controls.Add(rdoModeRangeClick);
-            grpMode.Location = new System.Drawing.Point(300, 7);
-            grpMode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpMode.Location = new System.Drawing.Point(429, 12);
+            grpMode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             grpMode.Name = "grpMode";
-            grpMode.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpMode.Size = new System.Drawing.Size(161, 69);
+            grpMode.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            grpMode.Size = new System.Drawing.Size(230, 115);
             grpMode.TabIndex = 21;
             grpMode.TabStop = false;
             grpMode.Text = "Mode";
@@ -2326,10 +2323,10 @@ namespace AppTestStudio
             // rdoModeKeyboard
             // 
             rdoModeKeyboard.AutoSize = true;
-            rdoModeKeyboard.Location = new System.Drawing.Point(78, 40);
-            rdoModeKeyboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoModeKeyboard.Location = new System.Drawing.Point(111, 67);
+            rdoModeKeyboard.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoModeKeyboard.Name = "rdoModeKeyboard";
-            rdoModeKeyboard.Size = new System.Drawing.Size(75, 19);
+            rdoModeKeyboard.Size = new System.Drawing.Size(113, 29);
             rdoModeKeyboard.TabIndex = 3;
             rdoModeKeyboard.TabStop = true;
             rdoModeKeyboard.Text = "Keyboard";
@@ -2339,10 +2336,10 @@ namespace AppTestStudio
             // rdoModeMove
             // 
             rdoModeMove.AutoSize = true;
-            rdoModeMove.Location = new System.Drawing.Point(78, 17);
-            rdoModeMove.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoModeMove.Location = new System.Drawing.Point(111, 28);
+            rdoModeMove.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoModeMove.Name = "rdoModeMove";
-            rdoModeMove.Size = new System.Drawing.Size(55, 19);
+            rdoModeMove.Size = new System.Drawing.Size(82, 29);
             rdoModeMove.TabIndex = 2;
             rdoModeMove.TabStop = true;
             rdoModeMove.Text = "Move";
@@ -2352,10 +2349,10 @@ namespace AppTestStudio
             // rdoModeClickDragRelease
             // 
             rdoModeClickDragRelease.AutoSize = true;
-            rdoModeClickDragRelease.Location = new System.Drawing.Point(7, 40);
-            rdoModeClickDragRelease.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoModeClickDragRelease.Location = new System.Drawing.Point(10, 67);
+            rdoModeClickDragRelease.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoModeClickDragRelease.Name = "rdoModeClickDragRelease";
-            rdoModeClickDragRelease.Size = new System.Drawing.Size(56, 19);
+            rdoModeClickDragRelease.Size = new System.Drawing.Size(84, 29);
             rdoModeClickDragRelease.TabIndex = 1;
             rdoModeClickDragRelease.Text = "Swipe";
             rdoModeClickDragRelease.UseVisualStyleBackColor = true;
@@ -2365,10 +2362,10 @@ namespace AppTestStudio
             // 
             rdoModeRangeClick.AutoSize = true;
             rdoModeRangeClick.Checked = true;
-            rdoModeRangeClick.Location = new System.Drawing.Point(7, 17);
-            rdoModeRangeClick.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoModeRangeClick.Location = new System.Drawing.Point(10, 28);
+            rdoModeRangeClick.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoModeRangeClick.Name = "rdoModeRangeClick";
-            rdoModeRangeClick.Size = new System.Drawing.Size(51, 19);
+            rdoModeRangeClick.Size = new System.Drawing.Size(73, 29);
             rdoModeRangeClick.TabIndex = 0;
             rdoModeRangeClick.TabStop = true;
             rdoModeRangeClick.Text = "Click";
@@ -2378,11 +2375,11 @@ namespace AppTestStudio
             // cmdTest
             // 
             cmdTest.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            cmdTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            cmdTest.Location = new System.Drawing.Point(569, 36);
-            cmdTest.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdTest.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
+            cmdTest.Location = new System.Drawing.Point(813, 60);
+            cmdTest.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdTest.Name = "cmdTest";
-            cmdTest.Size = new System.Drawing.Size(229, 38);
+            cmdTest.Size = new System.Drawing.Size(327, 63);
             cmdTest.TabIndex = 16;
             cmdTest.Text = "Test";
             cmdTest.UseVisualStyleBackColor = true;
@@ -2391,10 +2388,10 @@ namespace AppTestStudio
             // cmdAddObject2
             // 
             cmdAddObject2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            cmdAddObject2.Location = new System.Drawing.Point(569, 6);
-            cmdAddObject2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdAddObject2.Location = new System.Drawing.Point(813, 10);
+            cmdAddObject2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdAddObject2.Name = "cmdAddObject2";
-            cmdAddObject2.Size = new System.Drawing.Size(229, 27);
+            cmdAddObject2.Size = new System.Drawing.Size(327, 45);
             cmdAddObject2.TabIndex = 31;
             cmdAddObject2.Text = "Create New Object With This Image";
             cmdAddObject2.UseVisualStyleBackColor = true;
@@ -2408,10 +2405,10 @@ namespace AppTestStudio
             PanelScreenshot.Controls.Add(panelKeyboard);
             PanelScreenshot.Controls.Add(lblPictureMissing);
             PanelScreenshot.Controls.Add(PictureBox1);
-            PanelScreenshot.Location = new System.Drawing.Point(5, 111);
-            PanelScreenshot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelScreenshot.Location = new System.Drawing.Point(7, 185);
+            PanelScreenshot.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelScreenshot.Name = "PanelScreenshot";
-            PanelScreenshot.Size = new System.Drawing.Size(793, 684);
+            PanelScreenshot.Size = new System.Drawing.Size(1133, 1141);
             PanelScreenshot.TabIndex = 7;
             // 
             // panelKeyboard
@@ -2423,18 +2420,18 @@ namespace AppTestStudio
             panelKeyboard.Controls.Add(cmdKeyboardValidate);
             panelKeyboard.Controls.Add(txtKeyboard);
             panelKeyboard.Location = new System.Drawing.Point(0, 0);
-            panelKeyboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelKeyboard.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             panelKeyboard.Name = "panelKeyboard";
-            panelKeyboard.Size = new System.Drawing.Size(897, 598);
+            panelKeyboard.Size = new System.Drawing.Size(1281, 997);
             panelKeyboard.TabIndex = 2;
             panelKeyboard.Visible = false;
             // 
             // label97
             // 
-            label97.Location = new System.Drawing.Point(8, 391);
-            label97.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label97.Location = new System.Drawing.Point(11, 652);
+            label97.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label97.Name = "label97";
-            label97.Size = new System.Drawing.Size(625, 113);
+            label97.Size = new System.Drawing.Size(893, 188);
             label97.TabIndex = 21;
             label97.Text = resources.GetString("label97.Text");
             // 
@@ -2447,30 +2444,30 @@ namespace AppTestStudio
             grpInsertWeights.Controls.Add(numericWait3);
             grpInsertWeights.Controls.Add(numericWait2);
             grpInsertWeights.Controls.Add(numericWait1);
-            grpInsertWeights.Location = new System.Drawing.Point(589, 16);
-            grpInsertWeights.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpInsertWeights.Location = new System.Drawing.Point(841, 27);
+            grpInsertWeights.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             grpInsertWeights.Name = "grpInsertWeights";
-            grpInsertWeights.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpInsertWeights.Size = new System.Drawing.Size(236, 338);
+            grpInsertWeights.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            grpInsertWeights.Size = new System.Drawing.Size(337, 563);
             grpInsertWeights.TabIndex = 20;
             grpInsertWeights.TabStop = false;
             grpInsertWeights.Text = "Insert Wait Times (ms)";
             // 
             // label96
             // 
-            label96.Location = new System.Drawing.Point(9, 117);
-            label96.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label96.Location = new System.Drawing.Point(13, 195);
+            label96.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label96.Name = "label96";
-            label96.Size = new System.Drawing.Size(226, 225);
+            label96.Size = new System.Drawing.Size(323, 375);
             label96.TabIndex = 3;
             label96.Text = resources.GetString("label96.Text");
             // 
             // cmdWait3
             // 
-            cmdWait3.Location = new System.Drawing.Point(107, 78);
-            cmdWait3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdWait3.Location = new System.Drawing.Point(153, 130);
+            cmdWait3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdWait3.Name = "cmdWait3";
-            cmdWait3.Size = new System.Drawing.Size(110, 27);
+            cmdWait3.Size = new System.Drawing.Size(157, 45);
             cmdWait3.TabIndex = 2;
             cmdWait3.Text = "Custom";
             cmdWait3.UseVisualStyleBackColor = true;
@@ -2478,10 +2475,10 @@ namespace AppTestStudio
             // 
             // cmdWait2
             // 
-            cmdWait2.Location = new System.Drawing.Point(107, 47);
-            cmdWait2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdWait2.Location = new System.Drawing.Point(153, 78);
+            cmdWait2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdWait2.Name = "cmdWait2";
-            cmdWait2.Size = new System.Drawing.Size(110, 27);
+            cmdWait2.Size = new System.Drawing.Size(157, 45);
             cmdWait2.TabIndex = 2;
             cmdWait2.Text = "Normal Press";
             cmdWait2.UseVisualStyleBackColor = true;
@@ -2489,10 +2486,10 @@ namespace AppTestStudio
             // 
             // cmdWait1
             // 
-            cmdWait1.Location = new System.Drawing.Point(107, 18);
-            cmdWait1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdWait1.Location = new System.Drawing.Point(153, 30);
+            cmdWait1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdWait1.Name = "cmdWait1";
-            cmdWait1.Size = new System.Drawing.Size(111, 27);
+            cmdWait1.Size = new System.Drawing.Size(159, 45);
             cmdWait1.TabIndex = 1;
             cmdWait1.Text = "Quick Tap";
             cmdWait1.UseVisualStyleBackColor = true;
@@ -2500,31 +2497,31 @@ namespace AppTestStudio
             // 
             // numericWait3
             // 
-            numericWait3.Location = new System.Drawing.Point(9, 77);
-            numericWait3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericWait3.Location = new System.Drawing.Point(13, 128);
+            numericWait3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericWait3.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             numericWait3.Name = "numericWait3";
-            numericWait3.Size = new System.Drawing.Size(91, 23);
+            numericWait3.Size = new System.Drawing.Size(130, 31);
             numericWait3.TabIndex = 0;
             numericWait3.Value = new decimal(new int[] { 1000, 0, 0, 0 });
             // 
             // numericWait2
             // 
-            numericWait2.Location = new System.Drawing.Point(9, 47);
-            numericWait2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericWait2.Location = new System.Drawing.Point(13, 78);
+            numericWait2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericWait2.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             numericWait2.Name = "numericWait2";
-            numericWait2.Size = new System.Drawing.Size(91, 23);
+            numericWait2.Size = new System.Drawing.Size(130, 31);
             numericWait2.TabIndex = 0;
             numericWait2.Value = new decimal(new int[] { 50, 0, 0, 0 });
             // 
             // numericWait1
             // 
-            numericWait1.Location = new System.Drawing.Point(9, 18);
-            numericWait1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericWait1.Location = new System.Drawing.Point(13, 30);
+            numericWait1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericWait1.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             numericWait1.Name = "numericWait1";
-            numericWait1.Size = new System.Drawing.Size(91, 23);
+            numericWait1.Size = new System.Drawing.Size(130, 31);
             numericWait1.TabIndex = 0;
             numericWait1.Value = new decimal(new int[] { 30, 0, 0, 0 });
             // 
@@ -2614,11 +2611,11 @@ namespace AppTestStudio
             groupBox21.Controls.Add(chkKeyboardS);
             groupBox21.Controls.Add(chkKeyboardQ);
             groupBox21.Controls.Add(chkKeyboardR);
-            groupBox21.Location = new System.Drawing.Point(7, 7);
-            groupBox21.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox21.Location = new System.Drawing.Point(10, 12);
+            groupBox21.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox21.Name = "groupBox21";
-            groupBox21.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox21.Size = new System.Drawing.Size(574, 220);
+            groupBox21.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox21.Size = new System.Drawing.Size(820, 367);
             groupBox21.TabIndex = 19;
             groupBox21.TabStop = false;
             groupBox21.Text = "Press";
@@ -2626,10 +2623,10 @@ namespace AppTestStudio
             // chkKeyboardSpace
             // 
             chkKeyboardSpace.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardSpace.Location = new System.Drawing.Point(138, 183);
-            chkKeyboardSpace.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardSpace.Location = new System.Drawing.Point(197, 305);
+            chkKeyboardSpace.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardSpace.Name = "chkKeyboardSpace";
-            chkKeyboardSpace.Size = new System.Drawing.Size(162, 28);
+            chkKeyboardSpace.Size = new System.Drawing.Size(231, 47);
             chkKeyboardSpace.TabIndex = 9;
             chkKeyboardSpace.Tag = "SPACE";
             chkKeyboardSpace.Text = "Space";
@@ -2640,10 +2637,10 @@ namespace AppTestStudio
             // chkKeyboardA
             // 
             chkKeyboardA.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardA.Location = new System.Drawing.Point(72, 119);
-            chkKeyboardA.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardA.Location = new System.Drawing.Point(103, 198);
+            chkKeyboardA.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardA.Name = "chkKeyboardA";
-            chkKeyboardA.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardA.Size = new System.Drawing.Size(40, 47);
             chkKeyboardA.TabIndex = 9;
             chkKeyboardA.Tag = "a";
             chkKeyboardA.Text = "A";
@@ -2654,10 +2651,10 @@ namespace AppTestStudio
             // chkKeyboardTilde
             // 
             chkKeyboardTilde.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardTilde.Location = new System.Drawing.Point(20, 54);
-            chkKeyboardTilde.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardTilde.Location = new System.Drawing.Point(29, 90);
+            chkKeyboardTilde.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardTilde.Name = "chkKeyboardTilde";
-            chkKeyboardTilde.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardTilde.Size = new System.Drawing.Size(40, 47);
             chkKeyboardTilde.TabIndex = 9;
             chkKeyboardTilde.Tag = "~";
             chkKeyboardTilde.Text = "~";
@@ -2668,10 +2665,10 @@ namespace AppTestStudio
             // chkKeyboardTab
             // 
             chkKeyboardTab.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardTab.Location = new System.Drawing.Point(19, 87);
-            chkKeyboardTab.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardTab.Location = new System.Drawing.Point(27, 145);
+            chkKeyboardTab.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardTab.Name = "chkKeyboardTab";
-            chkKeyboardTab.Size = new System.Drawing.Size(50, 28);
+            chkKeyboardTab.Size = new System.Drawing.Size(71, 47);
             chkKeyboardTab.TabIndex = 9;
             chkKeyboardTab.Tag = "TAB";
             chkKeyboardTab.Text = "Tab";
@@ -2682,10 +2679,10 @@ namespace AppTestStudio
             // chkKeyboardCapsLock
             // 
             chkKeyboardCapsLock.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardCapsLock.Location = new System.Drawing.Point(20, 119);
-            chkKeyboardCapsLock.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardCapsLock.Location = new System.Drawing.Point(29, 198);
+            chkKeyboardCapsLock.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardCapsLock.Name = "chkKeyboardCapsLock";
-            chkKeyboardCapsLock.Size = new System.Drawing.Size(50, 28);
+            chkKeyboardCapsLock.Size = new System.Drawing.Size(71, 47);
             chkKeyboardCapsLock.TabIndex = 9;
             chkKeyboardCapsLock.Tag = "CAPS";
             chkKeyboardCapsLock.Text = "Caps";
@@ -2696,10 +2693,10 @@ namespace AppTestStudio
             // chkKeyboardLeft
             // 
             chkKeyboardLeft.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardLeft.Location = new System.Drawing.Point(474, 183);
-            chkKeyboardLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardLeft.Location = new System.Drawing.Point(677, 305);
+            chkKeyboardLeft.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardLeft.Name = "chkKeyboardLeft";
-            chkKeyboardLeft.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardLeft.Size = new System.Drawing.Size(40, 47);
             chkKeyboardLeft.TabIndex = 13;
             chkKeyboardLeft.Tag = "LEFT";
             chkKeyboardLeft.Text = "L";
@@ -2710,11 +2707,11 @@ namespace AppTestStudio
             // chkKeyboardF12
             // 
             chkKeyboardF12.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF12.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF12.Location = new System.Drawing.Point(428, 22);
-            chkKeyboardF12.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF12.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
+            chkKeyboardF12.Location = new System.Drawing.Point(611, 37);
+            chkKeyboardF12.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF12.Name = "chkKeyboardF12";
-            chkKeyboardF12.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF12.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF12.TabIndex = 14;
             chkKeyboardF12.Tag = "F12";
             chkKeyboardF12.Text = "F12";
@@ -2725,10 +2722,10 @@ namespace AppTestStudio
             // chkKeyboardRight
             // 
             chkKeyboardRight.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardRight.Location = new System.Drawing.Point(537, 183);
-            chkKeyboardRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardRight.Location = new System.Drawing.Point(767, 305);
+            chkKeyboardRight.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardRight.Name = "chkKeyboardRight";
-            chkKeyboardRight.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardRight.Size = new System.Drawing.Size(40, 47);
             chkKeyboardRight.TabIndex = 13;
             chkKeyboardRight.Tag = "RIGHT";
             chkKeyboardRight.Text = "R";
@@ -2739,10 +2736,10 @@ namespace AppTestStudio
             // chkKeyboardDown
             // 
             chkKeyboardDown.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardDown.Location = new System.Drawing.Point(505, 183);
-            chkKeyboardDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardDown.Location = new System.Drawing.Point(721, 305);
+            chkKeyboardDown.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardDown.Name = "chkKeyboardDown";
-            chkKeyboardDown.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardDown.Size = new System.Drawing.Size(40, 47);
             chkKeyboardDown.TabIndex = 13;
             chkKeyboardDown.Tag = "DOWN";
             chkKeyboardDown.Text = "Down";
@@ -2753,10 +2750,10 @@ namespace AppTestStudio
             // chkKeyboardLeftShift
             // 
             chkKeyboardLeftShift.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardLeftShift.Location = new System.Drawing.Point(20, 151);
-            chkKeyboardLeftShift.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardLeftShift.Location = new System.Drawing.Point(29, 252);
+            chkKeyboardLeftShift.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardLeftShift.Name = "chkKeyboardLeftShift";
-            chkKeyboardLeftShift.Size = new System.Drawing.Size(59, 28);
+            chkKeyboardLeftShift.Size = new System.Drawing.Size(84, 47);
             chkKeyboardLeftShift.TabIndex = 9;
             chkKeyboardLeftShift.Tag = "LSHIFT";
             chkKeyboardLeftShift.Text = "L Shift";
@@ -2767,11 +2764,11 @@ namespace AppTestStudio
             // chkKeyboardPageDown
             // 
             chkKeyboardPageDown.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardPageDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardPageDown.Location = new System.Drawing.Point(536, 119);
-            chkKeyboardPageDown.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardPageDown.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardPageDown.Location = new System.Drawing.Point(766, 198);
+            chkKeyboardPageDown.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardPageDown.Name = "chkKeyboardPageDown";
-            chkKeyboardPageDown.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardPageDown.Size = new System.Drawing.Size(40, 47);
             chkKeyboardPageDown.TabIndex = 13;
             chkKeyboardPageDown.Tag = "PGDOWN";
             chkKeyboardPageDown.Text = "Do";
@@ -2782,11 +2779,11 @@ namespace AppTestStudio
             // chkKeyboardEnd
             // 
             chkKeyboardEnd.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardEnd.Location = new System.Drawing.Point(505, 119);
-            chkKeyboardEnd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardEnd.Location = new System.Drawing.Point(721, 198);
+            chkKeyboardEnd.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardEnd.Name = "chkKeyboardEnd";
-            chkKeyboardEnd.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardEnd.Size = new System.Drawing.Size(40, 47);
             chkKeyboardEnd.TabIndex = 13;
             chkKeyboardEnd.Tag = "{END}";
             chkKeyboardEnd.Text = "En";
@@ -2797,11 +2794,11 @@ namespace AppTestStudio
             // chkKeyboardDelete
             // 
             chkKeyboardDelete.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardDelete.Location = new System.Drawing.Point(475, 119);
-            chkKeyboardDelete.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardDelete.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardDelete.Location = new System.Drawing.Point(679, 198);
+            chkKeyboardDelete.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardDelete.Name = "chkKeyboardDelete";
-            chkKeyboardDelete.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardDelete.Size = new System.Drawing.Size(40, 47);
             chkKeyboardDelete.TabIndex = 13;
             chkKeyboardDelete.Tag = "DELETE";
             chkKeyboardDelete.Text = "De";
@@ -2812,11 +2809,11 @@ namespace AppTestStudio
             // chkKeyboardPageUp
             // 
             chkKeyboardPageUp.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardPageUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardPageUp.Location = new System.Drawing.Point(536, 87);
-            chkKeyboardPageUp.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardPageUp.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardPageUp.Location = new System.Drawing.Point(766, 145);
+            chkKeyboardPageUp.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardPageUp.Name = "chkKeyboardPageUp";
-            chkKeyboardPageUp.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardPageUp.Size = new System.Drawing.Size(40, 47);
             chkKeyboardPageUp.TabIndex = 13;
             chkKeyboardPageUp.Tag = "PGUP";
             chkKeyboardPageUp.Text = "Up";
@@ -2827,11 +2824,11 @@ namespace AppTestStudio
             // chkKeyboardHome
             // 
             chkKeyboardHome.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardHome.Location = new System.Drawing.Point(505, 87);
-            chkKeyboardHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardHome.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardHome.Location = new System.Drawing.Point(721, 145);
+            chkKeyboardHome.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardHome.Name = "chkKeyboardHome";
-            chkKeyboardHome.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardHome.Size = new System.Drawing.Size(40, 47);
             chkKeyboardHome.TabIndex = 13;
             chkKeyboardHome.Tag = "HOME";
             chkKeyboardHome.Text = "Ho";
@@ -2842,11 +2839,11 @@ namespace AppTestStudio
             // chkKeyboardIns
             // 
             chkKeyboardIns.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardIns.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardIns.Location = new System.Drawing.Point(475, 87);
-            chkKeyboardIns.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardIns.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardIns.Location = new System.Drawing.Point(679, 145);
+            chkKeyboardIns.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardIns.Name = "chkKeyboardIns";
-            chkKeyboardIns.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardIns.Size = new System.Drawing.Size(40, 47);
             chkKeyboardIns.TabIndex = 13;
             chkKeyboardIns.Tag = "INSERT";
             chkKeyboardIns.Text = "Ins";
@@ -2857,10 +2854,10 @@ namespace AppTestStudio
             // chkKeyboardUp
             // 
             chkKeyboardUp.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardUp.Location = new System.Drawing.Point(505, 152);
-            chkKeyboardUp.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardUp.Location = new System.Drawing.Point(721, 253);
+            chkKeyboardUp.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardUp.Name = "chkKeyboardUp";
-            chkKeyboardUp.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardUp.Size = new System.Drawing.Size(40, 47);
             chkKeyboardUp.TabIndex = 13;
             chkKeyboardUp.Tag = "UP";
             chkKeyboardUp.Text = "U";
@@ -2871,11 +2868,11 @@ namespace AppTestStudio
             // chkKeyboardF11
             // 
             chkKeyboardF11.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF11.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF11.Location = new System.Drawing.Point(399, 22);
-            chkKeyboardF11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF11.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
+            chkKeyboardF11.Location = new System.Drawing.Point(570, 37);
+            chkKeyboardF11.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF11.Name = "chkKeyboardF11";
-            chkKeyboardF11.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF11.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF11.TabIndex = 14;
             chkKeyboardF11.Tag = "F11";
             chkKeyboardF11.Text = "F11";
@@ -2886,10 +2883,10 @@ namespace AppTestStudio
             // chkKeyboardRightShift
             // 
             chkKeyboardRightShift.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardRightShift.Location = new System.Drawing.Point(398, 151);
-            chkKeyboardRightShift.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardRightShift.Location = new System.Drawing.Point(569, 252);
+            chkKeyboardRightShift.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardRightShift.Name = "chkKeyboardRightShift";
-            chkKeyboardRightShift.Size = new System.Drawing.Size(59, 28);
+            chkKeyboardRightShift.Size = new System.Drawing.Size(84, 47);
             chkKeyboardRightShift.TabIndex = 9;
             chkKeyboardRightShift.Tag = "RSHIFT";
             chkKeyboardRightShift.Text = "R Shift";
@@ -2900,11 +2897,11 @@ namespace AppTestStudio
             // chkKeyboardF8
             // 
             chkKeyboardF8.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF8.Location = new System.Drawing.Point(303, 22);
-            chkKeyboardF8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF8.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardF8.Location = new System.Drawing.Point(433, 37);
+            chkKeyboardF8.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF8.Name = "chkKeyboardF8";
-            chkKeyboardF8.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF8.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF8.TabIndex = 14;
             chkKeyboardF8.Tag = "F8";
             chkKeyboardF8.Text = "F8";
@@ -2915,10 +2912,10 @@ namespace AppTestStudio
             // chkKeyboardLeftCtrl
             // 
             chkKeyboardLeftCtrl.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardLeftCtrl.Location = new System.Drawing.Point(20, 183);
-            chkKeyboardLeftCtrl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardLeftCtrl.Location = new System.Drawing.Point(29, 305);
+            chkKeyboardLeftCtrl.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardLeftCtrl.Name = "chkKeyboardLeftCtrl";
-            chkKeyboardLeftCtrl.Size = new System.Drawing.Size(35, 28);
+            chkKeyboardLeftCtrl.Size = new System.Drawing.Size(50, 47);
             chkKeyboardLeftCtrl.TabIndex = 9;
             chkKeyboardLeftCtrl.Tag = "LCTRL";
             chkKeyboardLeftCtrl.Text = "Ctrl";
@@ -2929,11 +2926,11 @@ namespace AppTestStudio
             // chkKeyboardF10
             // 
             chkKeyboardF10.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF10.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF10.Location = new System.Drawing.Point(370, 22);
-            chkKeyboardF10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF10.Font = new System.Drawing.Font("Microsoft Sans Serif", 5F);
+            chkKeyboardF10.Location = new System.Drawing.Point(529, 37);
+            chkKeyboardF10.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF10.Name = "chkKeyboardF10";
-            chkKeyboardF10.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF10.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF10.TabIndex = 14;
             chkKeyboardF10.Tag = "F10";
             chkKeyboardF10.Text = "F10";
@@ -2945,10 +2942,10 @@ namespace AppTestStudio
             // 
             chkKeyboardMnu.Appearance = System.Windows.Forms.Appearance.Button;
             chkKeyboardMnu.Enabled = false;
-            chkKeyboardMnu.Location = new System.Drawing.Point(385, 183);
-            chkKeyboardMnu.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardMnu.Location = new System.Drawing.Point(550, 305);
+            chkKeyboardMnu.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardMnu.Name = "chkKeyboardMnu";
-            chkKeyboardMnu.Size = new System.Drawing.Size(35, 28);
+            chkKeyboardMnu.Size = new System.Drawing.Size(50, 47);
             chkKeyboardMnu.TabIndex = 9;
             chkKeyboardMnu.Tag = "MNU";
             chkKeyboardMnu.Text = "Mnu";
@@ -2959,10 +2956,10 @@ namespace AppTestStudio
             // chkKeyboardRightCtrl
             // 
             chkKeyboardRightCtrl.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardRightCtrl.Location = new System.Drawing.Point(422, 183);
-            chkKeyboardRightCtrl.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardRightCtrl.Location = new System.Drawing.Point(603, 305);
+            chkKeyboardRightCtrl.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardRightCtrl.Name = "chkKeyboardRightCtrl";
-            chkKeyboardRightCtrl.Size = new System.Drawing.Size(35, 28);
+            chkKeyboardRightCtrl.Size = new System.Drawing.Size(50, 47);
             chkKeyboardRightCtrl.TabIndex = 9;
             chkKeyboardRightCtrl.Tag = "RCTRL";
             chkKeyboardRightCtrl.Text = "Ctrl";
@@ -2973,11 +2970,11 @@ namespace AppTestStudio
             // chkKeyboardF7
             // 
             chkKeyboardF7.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF7.Location = new System.Drawing.Point(274, 22);
-            chkKeyboardF7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF7.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardF7.Location = new System.Drawing.Point(391, 37);
+            chkKeyboardF7.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF7.Name = "chkKeyboardF7";
-            chkKeyboardF7.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF7.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF7.TabIndex = 14;
             chkKeyboardF7.Tag = "F7";
             chkKeyboardF7.Text = "F7";
@@ -2988,10 +2985,10 @@ namespace AppTestStudio
             // chkKeyboardLeftAlt
             // 
             chkKeyboardLeftAlt.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardLeftAlt.Location = new System.Drawing.Point(100, 183);
-            chkKeyboardLeftAlt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardLeftAlt.Location = new System.Drawing.Point(143, 305);
+            chkKeyboardLeftAlt.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardLeftAlt.Name = "chkKeyboardLeftAlt";
-            chkKeyboardLeftAlt.Size = new System.Drawing.Size(35, 28);
+            chkKeyboardLeftAlt.Size = new System.Drawing.Size(50, 47);
             chkKeyboardLeftAlt.TabIndex = 9;
             chkKeyboardLeftAlt.Tag = "LALT";
             chkKeyboardLeftAlt.Text = "Alt";
@@ -3002,11 +2999,11 @@ namespace AppTestStudio
             // chkKeyboardF9
             // 
             chkKeyboardF9.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF9.Location = new System.Drawing.Point(341, 22);
-            chkKeyboardF9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF9.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardF9.Location = new System.Drawing.Point(487, 37);
+            chkKeyboardF9.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF9.Name = "chkKeyboardF9";
-            chkKeyboardF9.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF9.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF9.TabIndex = 14;
             chkKeyboardF9.Tag = "F9";
             chkKeyboardF9.Text = "F9";
@@ -3017,10 +3014,10 @@ namespace AppTestStudio
             // chkKeyboardRightAlt
             // 
             chkKeyboardRightAlt.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardRightAlt.Location = new System.Drawing.Point(303, 183);
-            chkKeyboardRightAlt.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardRightAlt.Location = new System.Drawing.Point(433, 305);
+            chkKeyboardRightAlt.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardRightAlt.Name = "chkKeyboardRightAlt";
-            chkKeyboardRightAlt.Size = new System.Drawing.Size(35, 28);
+            chkKeyboardRightAlt.Size = new System.Drawing.Size(50, 47);
             chkKeyboardRightAlt.TabIndex = 9;
             chkKeyboardRightAlt.Tag = "RALT";
             chkKeyboardRightAlt.Text = "Alt";
@@ -3031,11 +3028,11 @@ namespace AppTestStudio
             // chkKeyboardF6
             // 
             chkKeyboardF6.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF6.Location = new System.Drawing.Point(245, 22);
-            chkKeyboardF6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF6.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardF6.Location = new System.Drawing.Point(350, 37);
+            chkKeyboardF6.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF6.Name = "chkKeyboardF6";
-            chkKeyboardF6.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF6.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF6.TabIndex = 14;
             chkKeyboardF6.Tag = "F6";
             chkKeyboardF6.Text = "F6";
@@ -3046,10 +3043,10 @@ namespace AppTestStudio
             // chkKeyboardLeftWin
             // 
             chkKeyboardLeftWin.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardLeftWin.Location = new System.Drawing.Point(58, 183);
-            chkKeyboardLeftWin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardLeftWin.Location = new System.Drawing.Point(83, 305);
+            chkKeyboardLeftWin.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardLeftWin.Name = "chkKeyboardLeftWin";
-            chkKeyboardLeftWin.Size = new System.Drawing.Size(40, 28);
+            chkKeyboardLeftWin.Size = new System.Drawing.Size(57, 47);
             chkKeyboardLeftWin.TabIndex = 9;
             chkKeyboardLeftWin.Tag = "LWIN";
             chkKeyboardLeftWin.Text = "Win";
@@ -3060,11 +3057,11 @@ namespace AppTestStudio
             // chkKeyboardF5
             // 
             chkKeyboardF5.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF5.Location = new System.Drawing.Point(216, 22);
-            chkKeyboardF5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF5.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardF5.Location = new System.Drawing.Point(309, 37);
+            chkKeyboardF5.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF5.Name = "chkKeyboardF5";
-            chkKeyboardF5.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF5.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF5.TabIndex = 14;
             chkKeyboardF5.Tag = "F5";
             chkKeyboardF5.Text = "F5";
@@ -3075,10 +3072,10 @@ namespace AppTestStudio
             // chkKeyboardRightWin
             // 
             chkKeyboardRightWin.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardRightWin.Location = new System.Drawing.Point(342, 183);
-            chkKeyboardRightWin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardRightWin.Location = new System.Drawing.Point(489, 305);
+            chkKeyboardRightWin.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardRightWin.Name = "chkKeyboardRightWin";
-            chkKeyboardRightWin.Size = new System.Drawing.Size(40, 28);
+            chkKeyboardRightWin.Size = new System.Drawing.Size(57, 47);
             chkKeyboardRightWin.TabIndex = 9;
             chkKeyboardRightWin.Tag = "RWIN";
             chkKeyboardRightWin.Text = "Win";
@@ -3089,11 +3086,11 @@ namespace AppTestStudio
             // chkKeyboardF4
             // 
             chkKeyboardF4.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF4.Location = new System.Drawing.Point(176, 22);
-            chkKeyboardF4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF4.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardF4.Location = new System.Drawing.Point(251, 37);
+            chkKeyboardF4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF4.Name = "chkKeyboardF4";
-            chkKeyboardF4.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF4.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF4.TabIndex = 14;
             chkKeyboardF4.Tag = "F4";
             chkKeyboardF4.Text = "F4";
@@ -3104,11 +3101,11 @@ namespace AppTestStudio
             // chkKeyboardF3
             // 
             chkKeyboardF3.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF3.Location = new System.Drawing.Point(146, 22);
-            chkKeyboardF3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF3.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardF3.Location = new System.Drawing.Point(209, 37);
+            chkKeyboardF3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF3.Name = "chkKeyboardF3";
-            chkKeyboardF3.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF3.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF3.TabIndex = 14;
             chkKeyboardF3.Tag = "F3";
             chkKeyboardF3.Text = "F3";
@@ -3119,10 +3116,10 @@ namespace AppTestStudio
             // chkKeyboardB
             // 
             chkKeyboardB.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardB.Location = new System.Drawing.Point(209, 151);
-            chkKeyboardB.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardB.Location = new System.Drawing.Point(299, 252);
+            chkKeyboardB.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardB.Name = "chkKeyboardB";
-            chkKeyboardB.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardB.Size = new System.Drawing.Size(40, 47);
             chkKeyboardB.TabIndex = 10;
             chkKeyboardB.Tag = "b";
             chkKeyboardB.Text = "B";
@@ -3133,11 +3130,11 @@ namespace AppTestStudio
             // chkKeyboardF2
             // 
             chkKeyboardF2.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF2.Location = new System.Drawing.Point(115, 22);
-            chkKeyboardF2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF2.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardF2.Location = new System.Drawing.Point(164, 37);
+            chkKeyboardF2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF2.Name = "chkKeyboardF2";
-            chkKeyboardF2.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF2.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF2.TabIndex = 14;
             chkKeyboardF2.Tag = "F2";
             chkKeyboardF2.Text = "F2";
@@ -3148,10 +3145,10 @@ namespace AppTestStudio
             // chkKeyboardC
             // 
             chkKeyboardC.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardC.Location = new System.Drawing.Point(146, 151);
-            chkKeyboardC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardC.Location = new System.Drawing.Point(209, 252);
+            chkKeyboardC.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardC.Name = "chkKeyboardC";
-            chkKeyboardC.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardC.Size = new System.Drawing.Size(40, 47);
             chkKeyboardC.TabIndex = 11;
             chkKeyboardC.Tag = "c";
             chkKeyboardC.Text = "C";
@@ -3162,11 +3159,11 @@ namespace AppTestStudio
             // chkKeyboardF1
             // 
             chkKeyboardF1.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardF1.Location = new System.Drawing.Point(85, 22);
-            chkKeyboardF1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF1.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardF1.Location = new System.Drawing.Point(121, 37);
+            chkKeyboardF1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF1.Name = "chkKeyboardF1";
-            chkKeyboardF1.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF1.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF1.TabIndex = 14;
             chkKeyboardF1.Tag = "F1";
             chkKeyboardF1.Text = "F1";
@@ -3177,10 +3174,10 @@ namespace AppTestStudio
             // chkKeyboardD
             // 
             chkKeyboardD.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardD.Location = new System.Drawing.Point(133, 119);
-            chkKeyboardD.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardD.Location = new System.Drawing.Point(190, 198);
+            chkKeyboardD.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardD.Name = "chkKeyboardD";
-            chkKeyboardD.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardD.Size = new System.Drawing.Size(40, 47);
             chkKeyboardD.TabIndex = 12;
             chkKeyboardD.Tag = "d";
             chkKeyboardD.Text = "D";
@@ -3191,11 +3188,11 @@ namespace AppTestStudio
             // chkKeyboardESC
             // 
             chkKeyboardESC.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardESC.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardESC.Location = new System.Drawing.Point(33, 22);
-            chkKeyboardESC.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardESC.Font = new System.Drawing.Font("Microsoft Sans Serif", 4.5F);
+            chkKeyboardESC.Location = new System.Drawing.Point(47, 37);
+            chkKeyboardESC.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardESC.Name = "chkKeyboardESC";
-            chkKeyboardESC.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardESC.Size = new System.Drawing.Size(40, 47);
             chkKeyboardESC.TabIndex = 14;
             chkKeyboardESC.Tag = "ESC";
             chkKeyboardESC.Text = "Esc";
@@ -3206,10 +3203,10 @@ namespace AppTestStudio
             // chkKeyboardE
             // 
             chkKeyboardE.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardE.Location = new System.Drawing.Point(128, 87);
-            chkKeyboardE.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardE.Location = new System.Drawing.Point(183, 145);
+            chkKeyboardE.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardE.Name = "chkKeyboardE";
-            chkKeyboardE.Size = new System.Drawing.Size(29, 28);
+            chkKeyboardE.Size = new System.Drawing.Size(41, 47);
             chkKeyboardE.TabIndex = 13;
             chkKeyboardE.Tag = "e";
             chkKeyboardE.Text = "E";
@@ -3220,11 +3217,11 @@ namespace AppTestStudio
             // chkKeyboardBackspace
             // 
             chkKeyboardBackspace.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardBackspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            chkKeyboardBackspace.Location = new System.Drawing.Point(399, 54);
-            chkKeyboardBackspace.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardBackspace.Font = new System.Drawing.Font("Microsoft Sans Serif", 6F);
+            chkKeyboardBackspace.Location = new System.Drawing.Point(570, 90);
+            chkKeyboardBackspace.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardBackspace.Name = "chkKeyboardBackspace";
-            chkKeyboardBackspace.Size = new System.Drawing.Size(59, 28);
+            chkKeyboardBackspace.Size = new System.Drawing.Size(84, 47);
             chkKeyboardBackspace.TabIndex = 13;
             chkKeyboardBackspace.Tag = "BACKSPACE";
             chkKeyboardBackspace.Text = "Backspace";
@@ -3235,10 +3232,10 @@ namespace AppTestStudio
             // chkKeyboardF
             // 
             chkKeyboardF.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardF.Location = new System.Drawing.Point(163, 119);
-            chkKeyboardF.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardF.Location = new System.Drawing.Point(233, 198);
+            chkKeyboardF.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardF.Name = "chkKeyboardF";
-            chkKeyboardF.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardF.Size = new System.Drawing.Size(40, 47);
             chkKeyboardF.TabIndex = 13;
             chkKeyboardF.Tag = "f";
             chkKeyboardF.Text = "F";
@@ -3249,10 +3246,10 @@ namespace AppTestStudio
             // chkKeyboardPlus
             // 
             chkKeyboardPlus.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardPlus.Location = new System.Drawing.Point(370, 54);
-            chkKeyboardPlus.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardPlus.Location = new System.Drawing.Point(529, 90);
+            chkKeyboardPlus.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardPlus.Name = "chkKeyboardPlus";
-            chkKeyboardPlus.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardPlus.Size = new System.Drawing.Size(40, 47);
             chkKeyboardPlus.TabIndex = 13;
             chkKeyboardPlus.Tag = "=";
             chkKeyboardPlus.Text = "=";
@@ -3263,10 +3260,10 @@ namespace AppTestStudio
             // chkKeyboardG
             // 
             chkKeyboardG.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardG.Location = new System.Drawing.Point(194, 119);
-            chkKeyboardG.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardG.Location = new System.Drawing.Point(277, 198);
+            chkKeyboardG.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardG.Name = "chkKeyboardG";
-            chkKeyboardG.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardG.Size = new System.Drawing.Size(40, 47);
             chkKeyboardG.TabIndex = 13;
             chkKeyboardG.Tag = "g";
             chkKeyboardG.Text = "G";
@@ -3277,10 +3274,10 @@ namespace AppTestStudio
             // chkKeyboardDash
             // 
             chkKeyboardDash.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardDash.Location = new System.Drawing.Point(341, 54);
-            chkKeyboardDash.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardDash.Location = new System.Drawing.Point(487, 90);
+            chkKeyboardDash.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardDash.Name = "chkKeyboardDash";
-            chkKeyboardDash.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardDash.Size = new System.Drawing.Size(40, 47);
             chkKeyboardDash.TabIndex = 13;
             chkKeyboardDash.Tag = "-";
             chkKeyboardDash.Text = "-";
@@ -3291,10 +3288,10 @@ namespace AppTestStudio
             // chkKeyboardH
             // 
             chkKeyboardH.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardH.Location = new System.Drawing.Point(224, 119);
-            chkKeyboardH.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardH.Location = new System.Drawing.Point(320, 198);
+            chkKeyboardH.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardH.Name = "chkKeyboardH";
-            chkKeyboardH.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardH.Size = new System.Drawing.Size(40, 47);
             chkKeyboardH.TabIndex = 13;
             chkKeyboardH.Tag = "h";
             chkKeyboardH.Text = "H";
@@ -3305,10 +3302,10 @@ namespace AppTestStudio
             // chkKeyboard0
             // 
             chkKeyboard0.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboard0.Location = new System.Drawing.Point(312, 54);
-            chkKeyboard0.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboard0.Location = new System.Drawing.Point(446, 90);
+            chkKeyboard0.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboard0.Name = "chkKeyboard0";
-            chkKeyboard0.Size = new System.Drawing.Size(28, 28);
+            chkKeyboard0.Size = new System.Drawing.Size(40, 47);
             chkKeyboard0.TabIndex = 13;
             chkKeyboard0.Tag = "0";
             chkKeyboard0.Text = "0";
@@ -3319,10 +3316,10 @@ namespace AppTestStudio
             // chkKeyboardI
             // 
             chkKeyboardI.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardI.Location = new System.Drawing.Point(275, 87);
-            chkKeyboardI.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardI.Location = new System.Drawing.Point(393, 145);
+            chkKeyboardI.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardI.Name = "chkKeyboardI";
-            chkKeyboardI.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardI.Size = new System.Drawing.Size(40, 47);
             chkKeyboardI.TabIndex = 13;
             chkKeyboardI.Tag = "i";
             chkKeyboardI.Text = "I";
@@ -3333,10 +3330,10 @@ namespace AppTestStudio
             // chkKeyboard9
             // 
             chkKeyboard9.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboard9.Location = new System.Drawing.Point(282, 54);
-            chkKeyboard9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboard9.Location = new System.Drawing.Point(403, 90);
+            chkKeyboard9.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboard9.Name = "chkKeyboard9";
-            chkKeyboard9.Size = new System.Drawing.Size(28, 28);
+            chkKeyboard9.Size = new System.Drawing.Size(40, 47);
             chkKeyboard9.TabIndex = 13;
             chkKeyboard9.Tag = "9";
             chkKeyboard9.Text = "9";
@@ -3347,10 +3344,10 @@ namespace AppTestStudio
             // chkKeyboardJ
             // 
             chkKeyboardJ.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardJ.Location = new System.Drawing.Point(254, 119);
-            chkKeyboardJ.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardJ.Location = new System.Drawing.Point(363, 198);
+            chkKeyboardJ.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardJ.Name = "chkKeyboardJ";
-            chkKeyboardJ.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardJ.Size = new System.Drawing.Size(40, 47);
             chkKeyboardJ.TabIndex = 13;
             chkKeyboardJ.Tag = "j";
             chkKeyboardJ.Text = "J";
@@ -3361,10 +3358,10 @@ namespace AppTestStudio
             // chkKeyboard8
             // 
             chkKeyboard8.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboard8.Location = new System.Drawing.Point(253, 54);
-            chkKeyboard8.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboard8.Location = new System.Drawing.Point(361, 90);
+            chkKeyboard8.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboard8.Name = "chkKeyboard8";
-            chkKeyboard8.Size = new System.Drawing.Size(28, 28);
+            chkKeyboard8.Size = new System.Drawing.Size(40, 47);
             chkKeyboard8.TabIndex = 13;
             chkKeyboard8.Tag = "8";
             chkKeyboard8.Text = "8";
@@ -3375,10 +3372,10 @@ namespace AppTestStudio
             // chkKeyboardK
             // 
             chkKeyboardK.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardK.Location = new System.Drawing.Point(285, 119);
-            chkKeyboardK.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardK.Location = new System.Drawing.Point(407, 198);
+            chkKeyboardK.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardK.Name = "chkKeyboardK";
-            chkKeyboardK.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardK.Size = new System.Drawing.Size(40, 47);
             chkKeyboardK.TabIndex = 13;
             chkKeyboardK.Tag = "k";
             chkKeyboardK.Text = "K";
@@ -3389,10 +3386,10 @@ namespace AppTestStudio
             // chkKeyboard7
             // 
             chkKeyboard7.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboard7.Location = new System.Drawing.Point(224, 54);
-            chkKeyboard7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboard7.Location = new System.Drawing.Point(320, 90);
+            chkKeyboard7.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboard7.Name = "chkKeyboard7";
-            chkKeyboard7.Size = new System.Drawing.Size(28, 28);
+            chkKeyboard7.Size = new System.Drawing.Size(40, 47);
             chkKeyboard7.TabIndex = 13;
             chkKeyboard7.Tag = "7";
             chkKeyboard7.Text = "7";
@@ -3403,10 +3400,10 @@ namespace AppTestStudio
             // chkKeyboardL
             // 
             chkKeyboardL.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardL.Location = new System.Drawing.Point(315, 119);
-            chkKeyboardL.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardL.Location = new System.Drawing.Point(450, 198);
+            chkKeyboardL.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardL.Name = "chkKeyboardL";
-            chkKeyboardL.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardL.Size = new System.Drawing.Size(40, 47);
             chkKeyboardL.TabIndex = 13;
             chkKeyboardL.Tag = "l";
             chkKeyboardL.Text = "L";
@@ -3417,10 +3414,10 @@ namespace AppTestStudio
             // chkKeyboard6
             // 
             chkKeyboard6.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboard6.Location = new System.Drawing.Point(195, 54);
-            chkKeyboard6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboard6.Location = new System.Drawing.Point(279, 90);
+            chkKeyboard6.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboard6.Name = "chkKeyboard6";
-            chkKeyboard6.Size = new System.Drawing.Size(28, 28);
+            chkKeyboard6.Size = new System.Drawing.Size(40, 47);
             chkKeyboard6.TabIndex = 13;
             chkKeyboard6.Tag = "6";
             chkKeyboard6.Text = "6";
@@ -3431,10 +3428,10 @@ namespace AppTestStudio
             // chkKeyboardM
             // 
             chkKeyboardM.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardM.Location = new System.Drawing.Point(272, 151);
-            chkKeyboardM.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardM.Location = new System.Drawing.Point(389, 252);
+            chkKeyboardM.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardM.Name = "chkKeyboardM";
-            chkKeyboardM.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardM.Size = new System.Drawing.Size(40, 47);
             chkKeyboardM.TabIndex = 13;
             chkKeyboardM.Tag = "m";
             chkKeyboardM.Text = "M";
@@ -3445,10 +3442,10 @@ namespace AppTestStudio
             // chkKeyboard5
             // 
             chkKeyboard5.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboard5.Location = new System.Drawing.Point(166, 54);
-            chkKeyboard5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboard5.Location = new System.Drawing.Point(237, 90);
+            chkKeyboard5.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboard5.Name = "chkKeyboard5";
-            chkKeyboard5.Size = new System.Drawing.Size(28, 28);
+            chkKeyboard5.Size = new System.Drawing.Size(40, 47);
             chkKeyboard5.TabIndex = 13;
             chkKeyboard5.Tag = "5";
             chkKeyboard5.Text = "5";
@@ -3459,10 +3456,10 @@ namespace AppTestStudio
             // chkKeyboardComma
             // 
             chkKeyboardComma.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardComma.Location = new System.Drawing.Point(303, 151);
-            chkKeyboardComma.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardComma.Location = new System.Drawing.Point(433, 252);
+            chkKeyboardComma.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardComma.Name = "chkKeyboardComma";
-            chkKeyboardComma.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardComma.Size = new System.Drawing.Size(40, 47);
             chkKeyboardComma.TabIndex = 13;
             chkKeyboardComma.Tag = ",";
             chkKeyboardComma.Text = ",";
@@ -3473,10 +3470,10 @@ namespace AppTestStudio
             // chkKeyboard4
             // 
             chkKeyboard4.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboard4.Location = new System.Drawing.Point(136, 54);
-            chkKeyboard4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboard4.Location = new System.Drawing.Point(194, 90);
+            chkKeyboard4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboard4.Name = "chkKeyboard4";
-            chkKeyboard4.Size = new System.Drawing.Size(28, 28);
+            chkKeyboard4.Size = new System.Drawing.Size(40, 47);
             chkKeyboard4.TabIndex = 13;
             chkKeyboard4.Tag = "4";
             chkKeyboard4.Text = "4";
@@ -3487,10 +3484,10 @@ namespace AppTestStudio
             // chkKeyboardPeriod
             // 
             chkKeyboardPeriod.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardPeriod.Location = new System.Drawing.Point(335, 151);
-            chkKeyboardPeriod.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardPeriod.Location = new System.Drawing.Point(479, 252);
+            chkKeyboardPeriod.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardPeriod.Name = "chkKeyboardPeriod";
-            chkKeyboardPeriod.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardPeriod.Size = new System.Drawing.Size(40, 47);
             chkKeyboardPeriod.TabIndex = 13;
             chkKeyboardPeriod.Tag = ".";
             chkKeyboardPeriod.Text = ".";
@@ -3501,10 +3498,10 @@ namespace AppTestStudio
             // chkKeyboard3
             // 
             chkKeyboard3.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboard3.Location = new System.Drawing.Point(107, 54);
-            chkKeyboard3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboard3.Location = new System.Drawing.Point(153, 90);
+            chkKeyboard3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboard3.Name = "chkKeyboard3";
-            chkKeyboard3.Size = new System.Drawing.Size(28, 28);
+            chkKeyboard3.Size = new System.Drawing.Size(40, 47);
             chkKeyboard3.TabIndex = 13;
             chkKeyboard3.Tag = "3";
             chkKeyboard3.Text = "3";
@@ -3515,10 +3512,10 @@ namespace AppTestStudio
             // chkKeyboardSlash
             // 
             chkKeyboardSlash.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardSlash.Location = new System.Drawing.Point(366, 151);
-            chkKeyboardSlash.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardSlash.Location = new System.Drawing.Point(523, 252);
+            chkKeyboardSlash.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardSlash.Name = "chkKeyboardSlash";
-            chkKeyboardSlash.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardSlash.Size = new System.Drawing.Size(40, 47);
             chkKeyboardSlash.TabIndex = 13;
             chkKeyboardSlash.Tag = "/";
             chkKeyboardSlash.Text = "/";
@@ -3529,10 +3526,10 @@ namespace AppTestStudio
             // chkKeyboard2
             // 
             chkKeyboard2.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboard2.Location = new System.Drawing.Point(78, 54);
-            chkKeyboard2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboard2.Location = new System.Drawing.Point(111, 90);
+            chkKeyboard2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboard2.Name = "chkKeyboard2";
-            chkKeyboard2.Size = new System.Drawing.Size(28, 28);
+            chkKeyboard2.Size = new System.Drawing.Size(40, 47);
             chkKeyboard2.TabIndex = 13;
             chkKeyboard2.Tag = "2";
             chkKeyboard2.Text = "2";
@@ -3543,10 +3540,10 @@ namespace AppTestStudio
             // chkKeyboardSemicolon
             // 
             chkKeyboardSemicolon.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardSemicolon.Location = new System.Drawing.Point(345, 119);
-            chkKeyboardSemicolon.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardSemicolon.Location = new System.Drawing.Point(493, 198);
+            chkKeyboardSemicolon.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardSemicolon.Name = "chkKeyboardSemicolon";
-            chkKeyboardSemicolon.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardSemicolon.Size = new System.Drawing.Size(40, 47);
             chkKeyboardSemicolon.TabIndex = 13;
             chkKeyboardSemicolon.Tag = ";";
             chkKeyboardSemicolon.Text = ";";
@@ -3557,10 +3554,10 @@ namespace AppTestStudio
             // chkKeyboard1
             // 
             chkKeyboard1.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboard1.Location = new System.Drawing.Point(49, 54);
-            chkKeyboard1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboard1.Location = new System.Drawing.Point(70, 90);
+            chkKeyboard1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboard1.Name = "chkKeyboard1";
-            chkKeyboard1.Size = new System.Drawing.Size(28, 28);
+            chkKeyboard1.Size = new System.Drawing.Size(40, 47);
             chkKeyboard1.TabIndex = 13;
             chkKeyboard1.Tag = "1";
             chkKeyboard1.Text = "1";
@@ -3571,10 +3568,10 @@ namespace AppTestStudio
             // chkKeyboardQuote
             // 
             chkKeyboardQuote.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardQuote.Location = new System.Drawing.Point(376, 119);
-            chkKeyboardQuote.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardQuote.Location = new System.Drawing.Point(537, 198);
+            chkKeyboardQuote.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardQuote.Name = "chkKeyboardQuote";
-            chkKeyboardQuote.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardQuote.Size = new System.Drawing.Size(40, 47);
             chkKeyboardQuote.TabIndex = 13;
             chkKeyboardQuote.Tag = "'";
             chkKeyboardQuote.Text = "'";
@@ -3585,10 +3582,10 @@ namespace AppTestStudio
             // chkKeyboardZ
             // 
             chkKeyboardZ.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardZ.Location = new System.Drawing.Point(83, 151);
-            chkKeyboardZ.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardZ.Location = new System.Drawing.Point(119, 252);
+            chkKeyboardZ.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardZ.Name = "chkKeyboardZ";
-            chkKeyboardZ.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardZ.Size = new System.Drawing.Size(40, 47);
             chkKeyboardZ.TabIndex = 13;
             chkKeyboardZ.Tag = "z";
             chkKeyboardZ.Text = "Z";
@@ -3599,10 +3596,10 @@ namespace AppTestStudio
             // chkKeyboardEnter
             // 
             chkKeyboardEnter.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardEnter.Location = new System.Drawing.Point(406, 119);
-            chkKeyboardEnter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardEnter.Location = new System.Drawing.Point(580, 198);
+            chkKeyboardEnter.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardEnter.Name = "chkKeyboardEnter";
-            chkKeyboardEnter.Size = new System.Drawing.Size(49, 28);
+            chkKeyboardEnter.Size = new System.Drawing.Size(70, 47);
             chkKeyboardEnter.TabIndex = 13;
             chkKeyboardEnter.Tag = "ENTER";
             chkKeyboardEnter.Text = "Enter";
@@ -3613,10 +3610,10 @@ namespace AppTestStudio
             // chkKeyboardY
             // 
             chkKeyboardY.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardY.Location = new System.Drawing.Point(217, 87);
-            chkKeyboardY.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardY.Location = new System.Drawing.Point(310, 145);
+            chkKeyboardY.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardY.Name = "chkKeyboardY";
-            chkKeyboardY.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardY.Size = new System.Drawing.Size(40, 47);
             chkKeyboardY.TabIndex = 13;
             chkKeyboardY.Tag = "y";
             chkKeyboardY.Text = "Y";
@@ -3627,10 +3624,10 @@ namespace AppTestStudio
             // chkKeyboardN
             // 
             chkKeyboardN.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardN.Location = new System.Drawing.Point(240, 151);
-            chkKeyboardN.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardN.Location = new System.Drawing.Point(343, 252);
+            chkKeyboardN.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardN.Name = "chkKeyboardN";
-            chkKeyboardN.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardN.Size = new System.Drawing.Size(40, 47);
             chkKeyboardN.TabIndex = 13;
             chkKeyboardN.Tag = "n";
             chkKeyboardN.Text = "N";
@@ -3641,10 +3638,10 @@ namespace AppTestStudio
             // chkKeyboardX
             // 
             chkKeyboardX.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardX.Location = new System.Drawing.Point(114, 151);
-            chkKeyboardX.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardX.Location = new System.Drawing.Point(163, 252);
+            chkKeyboardX.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardX.Name = "chkKeyboardX";
-            chkKeyboardX.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardX.Size = new System.Drawing.Size(40, 47);
             chkKeyboardX.TabIndex = 13;
             chkKeyboardX.Tag = "x";
             chkKeyboardX.Text = "X";
@@ -3655,10 +3652,10 @@ namespace AppTestStudio
             // chkKeyboardO
             // 
             chkKeyboardO.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardO.Location = new System.Drawing.Point(304, 87);
-            chkKeyboardO.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardO.Location = new System.Drawing.Point(434, 145);
+            chkKeyboardO.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardO.Name = "chkKeyboardO";
-            chkKeyboardO.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardO.Size = new System.Drawing.Size(40, 47);
             chkKeyboardO.TabIndex = 13;
             chkKeyboardO.Tag = "o";
             chkKeyboardO.Text = "O";
@@ -3669,10 +3666,10 @@ namespace AppTestStudio
             // chkKeyboardW
             // 
             chkKeyboardW.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardW.Location = new System.Drawing.Point(99, 87);
-            chkKeyboardW.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardW.Location = new System.Drawing.Point(141, 145);
+            chkKeyboardW.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardW.Name = "chkKeyboardW";
-            chkKeyboardW.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardW.Size = new System.Drawing.Size(40, 47);
             chkKeyboardW.TabIndex = 13;
             chkKeyboardW.Tag = "w";
             chkKeyboardW.Text = "W";
@@ -3683,10 +3680,10 @@ namespace AppTestStudio
             // chkKeyboardP
             // 
             chkKeyboardP.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardP.Location = new System.Drawing.Point(334, 87);
-            chkKeyboardP.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardP.Location = new System.Drawing.Point(477, 145);
+            chkKeyboardP.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardP.Name = "chkKeyboardP";
-            chkKeyboardP.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardP.Size = new System.Drawing.Size(40, 47);
             chkKeyboardP.TabIndex = 13;
             chkKeyboardP.Tag = "p";
             chkKeyboardP.Text = "P";
@@ -3697,10 +3694,10 @@ namespace AppTestStudio
             // chkKeyboardV
             // 
             chkKeyboardV.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardV.Location = new System.Drawing.Point(177, 151);
-            chkKeyboardV.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardV.Location = new System.Drawing.Point(253, 252);
+            chkKeyboardV.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardV.Name = "chkKeyboardV";
-            chkKeyboardV.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardV.Size = new System.Drawing.Size(40, 47);
             chkKeyboardV.TabIndex = 13;
             chkKeyboardV.Tag = "v";
             chkKeyboardV.Text = "V";
@@ -3711,10 +3708,10 @@ namespace AppTestStudio
             // chkKeyboardLeftBracket
             // 
             chkKeyboardLeftBracket.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardLeftBracket.Location = new System.Drawing.Point(363, 87);
-            chkKeyboardLeftBracket.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardLeftBracket.Location = new System.Drawing.Point(519, 145);
+            chkKeyboardLeftBracket.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardLeftBracket.Name = "chkKeyboardLeftBracket";
-            chkKeyboardLeftBracket.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardLeftBracket.Size = new System.Drawing.Size(40, 47);
             chkKeyboardLeftBracket.TabIndex = 13;
             chkKeyboardLeftBracket.Tag = "[";
             chkKeyboardLeftBracket.Text = "[";
@@ -3725,10 +3722,10 @@ namespace AppTestStudio
             // chkKeyboardU
             // 
             chkKeyboardU.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardU.Location = new System.Drawing.Point(246, 87);
-            chkKeyboardU.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardU.Location = new System.Drawing.Point(351, 145);
+            chkKeyboardU.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardU.Name = "chkKeyboardU";
-            chkKeyboardU.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardU.Size = new System.Drawing.Size(40, 47);
             chkKeyboardU.TabIndex = 13;
             chkKeyboardU.Tag = "u";
             chkKeyboardU.Text = "U";
@@ -3739,10 +3736,10 @@ namespace AppTestStudio
             // chkKeyboardRightBracket
             // 
             chkKeyboardRightBracket.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardRightBracket.Location = new System.Drawing.Point(392, 87);
-            chkKeyboardRightBracket.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardRightBracket.Location = new System.Drawing.Point(560, 145);
+            chkKeyboardRightBracket.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardRightBracket.Name = "chkKeyboardRightBracket";
-            chkKeyboardRightBracket.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardRightBracket.Size = new System.Drawing.Size(40, 47);
             chkKeyboardRightBracket.TabIndex = 13;
             chkKeyboardRightBracket.Tag = "]";
             chkKeyboardRightBracket.Text = "]";
@@ -3753,10 +3750,10 @@ namespace AppTestStudio
             // chkKeyboardT
             // 
             chkKeyboardT.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardT.Location = new System.Drawing.Point(188, 87);
-            chkKeyboardT.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardT.Location = new System.Drawing.Point(269, 145);
+            chkKeyboardT.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardT.Name = "chkKeyboardT";
-            chkKeyboardT.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardT.Size = new System.Drawing.Size(40, 47);
             chkKeyboardT.TabIndex = 13;
             chkKeyboardT.Tag = "t";
             chkKeyboardT.Text = "T";
@@ -3767,10 +3764,10 @@ namespace AppTestStudio
             // chkKeyboardBackslash
             // 
             chkKeyboardBackslash.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardBackslash.Location = new System.Drawing.Point(421, 87);
-            chkKeyboardBackslash.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardBackslash.Location = new System.Drawing.Point(601, 145);
+            chkKeyboardBackslash.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardBackslash.Name = "chkKeyboardBackslash";
-            chkKeyboardBackslash.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardBackslash.Size = new System.Drawing.Size(40, 47);
             chkKeyboardBackslash.TabIndex = 13;
             chkKeyboardBackslash.Tag = "\\";
             chkKeyboardBackslash.Text = "\\";
@@ -3781,10 +3778,10 @@ namespace AppTestStudio
             // chkKeyboardS
             // 
             chkKeyboardS.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardS.Location = new System.Drawing.Point(103, 119);
-            chkKeyboardS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardS.Location = new System.Drawing.Point(147, 198);
+            chkKeyboardS.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardS.Name = "chkKeyboardS";
-            chkKeyboardS.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardS.Size = new System.Drawing.Size(40, 47);
             chkKeyboardS.TabIndex = 13;
             chkKeyboardS.Tag = "s";
             chkKeyboardS.Text = "S";
@@ -3795,10 +3792,10 @@ namespace AppTestStudio
             // chkKeyboardQ
             // 
             chkKeyboardQ.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardQ.Location = new System.Drawing.Point(70, 87);
-            chkKeyboardQ.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardQ.Location = new System.Drawing.Point(100, 145);
+            chkKeyboardQ.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardQ.Name = "chkKeyboardQ";
-            chkKeyboardQ.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardQ.Size = new System.Drawing.Size(40, 47);
             chkKeyboardQ.TabIndex = 13;
             chkKeyboardQ.Tag = "q";
             chkKeyboardQ.Text = "Q";
@@ -3809,10 +3806,10 @@ namespace AppTestStudio
             // chkKeyboardR
             // 
             chkKeyboardR.Appearance = System.Windows.Forms.Appearance.Button;
-            chkKeyboardR.Location = new System.Drawing.Point(159, 87);
-            chkKeyboardR.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkKeyboardR.Location = new System.Drawing.Point(227, 145);
+            chkKeyboardR.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkKeyboardR.Name = "chkKeyboardR";
-            chkKeyboardR.Size = new System.Drawing.Size(28, 28);
+            chkKeyboardR.Size = new System.Drawing.Size(40, 47);
             chkKeyboardR.TabIndex = 13;
             chkKeyboardR.Tag = "r";
             chkKeyboardR.Text = "R";
@@ -3822,10 +3819,10 @@ namespace AppTestStudio
             // 
             // cmdKeyboardValidate
             // 
-            cmdKeyboardValidate.Location = new System.Drawing.Point(588, 361);
-            cmdKeyboardValidate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdKeyboardValidate.Location = new System.Drawing.Point(840, 602);
+            cmdKeyboardValidate.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdKeyboardValidate.Name = "cmdKeyboardValidate";
-            cmdKeyboardValidate.Size = new System.Drawing.Size(88, 27);
+            cmdKeyboardValidate.Size = new System.Drawing.Size(126, 45);
             cmdKeyboardValidate.TabIndex = 15;
             cmdKeyboardValidate.Text = "Validate";
             cmdKeyboardValidate.UseVisualStyleBackColor = true;
@@ -3833,21 +3830,21 @@ namespace AppTestStudio
             // 
             // txtKeyboard
             // 
-            txtKeyboard.Location = new System.Drawing.Point(7, 231);
-            txtKeyboard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtKeyboard.Location = new System.Drawing.Point(10, 385);
+            txtKeyboard.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtKeyboard.Multiline = true;
             txtKeyboard.Name = "txtKeyboard";
-            txtKeyboard.Size = new System.Drawing.Size(572, 156);
+            txtKeyboard.Size = new System.Drawing.Size(815, 257);
             txtKeyboard.TabIndex = 0;
             txtKeyboard.TextChanged += txtKeyboard_TextChanged;
             // 
             // lblPictureMissing
             // 
-            lblPictureMissing.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblPictureMissing.Location = new System.Drawing.Point(0, 58);
-            lblPictureMissing.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblPictureMissing.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            lblPictureMissing.Location = new System.Drawing.Point(0, 97);
+            lblPictureMissing.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblPictureMissing.Name = "lblPictureMissing";
-            lblPictureMissing.Size = new System.Drawing.Size(737, 288);
+            lblPictureMissing.Size = new System.Drawing.Size(1053, 480);
             lblPictureMissing.TabIndex = 1;
             lblPictureMissing.Text = "lblPictureMissing";
             // 
@@ -3855,7 +3852,7 @@ namespace AppTestStudio
             // 
             PictureBox1.Cursor = System.Windows.Forms.Cursors.Cross;
             PictureBox1.Location = new System.Drawing.Point(0, 0);
-            PictureBox1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PictureBox1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PictureBox1.Name = "PictureBox1";
             PictureBox1.Size = new System.Drawing.Size(100, 50);
             PictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -3870,10 +3867,10 @@ namespace AppTestStudio
             // label29
             // 
             label29.AutoSize = true;
-            label29.Location = new System.Drawing.Point(5, 87);
-            label29.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label29.Location = new System.Drawing.Point(7, 145);
+            label29.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label29.Name = "label29";
-            label29.Size = new System.Drawing.Size(71, 15);
+            label29.Size = new System.Drawing.Size(107, 25);
             label29.TabIndex = 9;
             label29.Text = "Event Name";
             // 
@@ -3881,20 +3878,20 @@ namespace AppTestStudio
             // 
             txtEventName.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
             txtEventName.BackColor = System.Drawing.SystemColors.Window;
-            txtEventName.Location = new System.Drawing.Point(88, 83);
-            txtEventName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtEventName.Location = new System.Drawing.Point(126, 138);
+            txtEventName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtEventName.Name = "txtEventName";
-            txtEventName.Size = new System.Drawing.Size(710, 23);
+            txtEventName.Size = new System.Drawing.Size(1013, 31);
             txtEventName.TabIndex = 10;
             txtEventName.TextChanged += txtEventName_TextChanged;
             // 
             // chkUseParentScreenshot
             // 
             chkUseParentScreenshot.AutoSize = true;
-            chkUseParentScreenshot.Location = new System.Drawing.Point(5, 6);
-            chkUseParentScreenshot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkUseParentScreenshot.Location = new System.Drawing.Point(7, 10);
+            chkUseParentScreenshot.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkUseParentScreenshot.Name = "chkUseParentScreenshot";
-            chkUseParentScreenshot.Size = new System.Drawing.Size(143, 19);
+            chkUseParentScreenshot.Size = new System.Drawing.Size(213, 29);
             chkUseParentScreenshot.TabIndex = 15;
             chkUseParentScreenshot.Text = "Use Parent Screenshot";
             chkUseParentScreenshot.UseVisualStyleBackColor = true;
@@ -3902,10 +3899,10 @@ namespace AppTestStudio
             // 
             // cmdAddSingleColorAtSingleLocationTakeASceenshot
             // 
-            cmdAddSingleColorAtSingleLocationTakeASceenshot.Location = new System.Drawing.Point(5, 24);
-            cmdAddSingleColorAtSingleLocationTakeASceenshot.Margin = new System.Windows.Forms.Padding(4, 1, 4, 1);
+            cmdAddSingleColorAtSingleLocationTakeASceenshot.Location = new System.Drawing.Point(7, 40);
+            cmdAddSingleColorAtSingleLocationTakeASceenshot.Margin = new System.Windows.Forms.Padding(6, 2, 6, 2);
             cmdAddSingleColorAtSingleLocationTakeASceenshot.Name = "cmdAddSingleColorAtSingleLocationTakeASceenshot";
-            cmdAddSingleColorAtSingleLocationTakeASceenshot.Size = new System.Drawing.Size(154, 27);
+            cmdAddSingleColorAtSingleLocationTakeASceenshot.Size = new System.Drawing.Size(220, 45);
             cmdAddSingleColorAtSingleLocationTakeASceenshot.TabIndex = 6;
             cmdAddSingleColorAtSingleLocationTakeASceenshot.Text = "Take a Screenshot";
             cmdAddSingleColorAtSingleLocationTakeASceenshot.UseVisualStyleBackColor = true;
@@ -3927,10 +3924,10 @@ namespace AppTestStudio
             FlowLayoutPanelColorEvent1.Controls.Add(panelRightInformation);
             FlowLayoutPanelColorEvent1.Dock = System.Windows.Forms.DockStyle.Fill;
             FlowLayoutPanelColorEvent1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            FlowLayoutPanelColorEvent1.Location = new System.Drawing.Point(809, 3);
-            FlowLayoutPanelColorEvent1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            FlowLayoutPanelColorEvent1.Location = new System.Drawing.Point(1156, 5);
+            FlowLayoutPanelColorEvent1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             FlowLayoutPanelColorEvent1.Name = "FlowLayoutPanelColorEvent1";
-            FlowLayoutPanelColorEvent1.Size = new System.Drawing.Size(342, 796);
+            FlowLayoutPanelColorEvent1.Size = new System.Drawing.Size(488, 1327);
             FlowLayoutPanelColorEvent1.TabIndex = 32;
             FlowLayoutPanelColorEvent1.WrapContents = false;
             // 
@@ -3940,11 +3937,11 @@ namespace AppTestStudio
             cmdFlowLayoutPanelColorEvent1.Cursor = System.Windows.Forms.Cursors.Hand;
             cmdFlowLayoutPanelColorEvent1.FlatAppearance.BorderSize = 0;
             cmdFlowLayoutPanelColorEvent1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdFlowLayoutPanelColorEvent1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            cmdFlowLayoutPanelColorEvent1.Location = new System.Drawing.Point(4, 0);
-            cmdFlowLayoutPanelColorEvent1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            cmdFlowLayoutPanelColorEvent1.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            cmdFlowLayoutPanelColorEvent1.Location = new System.Drawing.Point(6, 0);
+            cmdFlowLayoutPanelColorEvent1.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             cmdFlowLayoutPanelColorEvent1.Name = "cmdFlowLayoutPanelColorEvent1";
-            cmdFlowLayoutPanelColorEvent1.Size = new System.Drawing.Size(327, 21);
+            cmdFlowLayoutPanelColorEvent1.Size = new System.Drawing.Size(467, 35);
             cmdFlowLayoutPanelColorEvent1.TabIndex = 13;
             cmdFlowLayoutPanelColorEvent1.Text = "<<  ";
             cmdFlowLayoutPanelColorEvent1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -3959,19 +3956,17 @@ namespace AppTestStudio
             panelRightProperties.Controls.Add(chkPropertiesEnabled);
             panelRightProperties.Controls.Add(lblResolution);
             panelRightProperties.Controls.Add(cmdPanelRightResolution);
-            panelRightProperties.Location = new System.Drawing.Point(2, 23);
-            panelRightProperties.Margin = new System.Windows.Forms.Padding(2);
+            panelRightProperties.Location = new System.Drawing.Point(3, 38);
             panelRightProperties.Name = "panelRightProperties";
-            panelRightProperties.Size = new System.Drawing.Size(326, 100);
+            panelRightProperties.Size = new System.Drawing.Size(465, 165);
             panelRightProperties.TabIndex = 38;
             // 
             // chkPropertiesRepeatsUntilFalse
             // 
             chkPropertiesRepeatsUntilFalse.AutoSize = true;
-            chkPropertiesRepeatsUntilFalse.Location = new System.Drawing.Point(176, 33);
-            chkPropertiesRepeatsUntilFalse.Margin = new System.Windows.Forms.Padding(2);
+            chkPropertiesRepeatsUntilFalse.Location = new System.Drawing.Point(251, 55);
             chkPropertiesRepeatsUntilFalse.Name = "chkPropertiesRepeatsUntilFalse";
-            chkPropertiesRepeatsUntilFalse.Size = new System.Drawing.Size(124, 19);
+            chkPropertiesRepeatsUntilFalse.Size = new System.Drawing.Size(184, 29);
             chkPropertiesRepeatsUntilFalse.TabIndex = 11;
             chkPropertiesRepeatsUntilFalse.Text = "Repeats Until False";
             chkPropertiesRepeatsUntilFalse.UseVisualStyleBackColor = true;
@@ -3981,42 +3976,38 @@ namespace AppTestStudio
             // 
             grpPropertiesRepeatsUntilFalse.Controls.Add(lblPropertiesRepeatsUntilFalse);
             grpPropertiesRepeatsUntilFalse.Controls.Add(numericPropertiesRepeatsUntilFalse);
-            grpPropertiesRepeatsUntilFalse.Location = new System.Drawing.Point(169, 37);
-            grpPropertiesRepeatsUntilFalse.Margin = new System.Windows.Forms.Padding(2);
+            grpPropertiesRepeatsUntilFalse.Location = new System.Drawing.Point(241, 62);
             grpPropertiesRepeatsUntilFalse.Name = "grpPropertiesRepeatsUntilFalse";
-            grpPropertiesRepeatsUntilFalse.Padding = new System.Windows.Forms.Padding(2);
-            grpPropertiesRepeatsUntilFalse.Size = new System.Drawing.Size(145, 55);
+            grpPropertiesRepeatsUntilFalse.Size = new System.Drawing.Size(207, 92);
             grpPropertiesRepeatsUntilFalse.TabIndex = 12;
             grpPropertiesRepeatsUntilFalse.TabStop = false;
             // 
             // lblPropertiesRepeatsUntilFalse
             // 
             lblPropertiesRepeatsUntilFalse.AutoSize = true;
-            lblPropertiesRepeatsUntilFalse.Location = new System.Drawing.Point(89, 23);
-            lblPropertiesRepeatsUntilFalse.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblPropertiesRepeatsUntilFalse.Location = new System.Drawing.Point(127, 38);
             lblPropertiesRepeatsUntilFalse.Name = "lblPropertiesRepeatsUntilFalse";
-            lblPropertiesRepeatsUntilFalse.Size = new System.Drawing.Size(34, 15);
+            lblPropertiesRepeatsUntilFalse.Size = new System.Drawing.Size(50, 25);
             lblPropertiesRepeatsUntilFalse.TabIndex = 12;
             lblPropertiesRepeatsUntilFalse.Text = "Limit";
             // 
             // numericPropertiesRepeatsUntilFalse
             // 
-            numericPropertiesRepeatsUntilFalse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            numericPropertiesRepeatsUntilFalse.Location = new System.Drawing.Point(10, 18);
-            numericPropertiesRepeatsUntilFalse.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericPropertiesRepeatsUntilFalse.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            numericPropertiesRepeatsUntilFalse.Location = new System.Drawing.Point(14, 30);
+            numericPropertiesRepeatsUntilFalse.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericPropertiesRepeatsUntilFalse.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             numericPropertiesRepeatsUntilFalse.Name = "numericPropertiesRepeatsUntilFalse";
-            numericPropertiesRepeatsUntilFalse.Size = new System.Drawing.Size(74, 26);
+            numericPropertiesRepeatsUntilFalse.Size = new System.Drawing.Size(106, 35);
             numericPropertiesRepeatsUntilFalse.TabIndex = 11;
             numericPropertiesRepeatsUntilFalse.ValueChanged += numericPropertiesRepeatsUntilFalse_ValueChanged;
             // 
             // chkPropertiesEnabled
             // 
             chkPropertiesEnabled.AutoSize = true;
-            chkPropertiesEnabled.Location = new System.Drawing.Point(6, 31);
-            chkPropertiesEnabled.Margin = new System.Windows.Forms.Padding(2);
+            chkPropertiesEnabled.Location = new System.Drawing.Point(9, 52);
             chkPropertiesEnabled.Name = "chkPropertiesEnabled";
-            chkPropertiesEnabled.Size = new System.Drawing.Size(68, 19);
+            chkPropertiesEnabled.Size = new System.Drawing.Size(101, 29);
             chkPropertiesEnabled.TabIndex = 9;
             chkPropertiesEnabled.Text = "Enabled";
             chkPropertiesEnabled.UseVisualStyleBackColor = true;
@@ -4026,10 +4017,10 @@ namespace AppTestStudio
             // 
             lblResolution.AutoSize = true;
             lblResolution.BackColor = System.Drawing.SystemColors.AppWorkspace;
-            lblResolution.Location = new System.Drawing.Point(225, 6);
-            lblResolution.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblResolution.Location = new System.Drawing.Point(321, 10);
+            lblResolution.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblResolution.Name = "lblResolution";
-            lblResolution.Size = new System.Drawing.Size(76, 15);
+            lblResolution.Size = new System.Drawing.Size(114, 25);
             lblResolution.TabIndex = 1;
             lblResolution.Text = "lblResolution";
             lblResolution.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -4040,12 +4031,12 @@ namespace AppTestStudio
             cmdPanelRightResolution.Dock = System.Windows.Forms.DockStyle.Top;
             cmdPanelRightResolution.FlatAppearance.BorderSize = 0;
             cmdPanelRightResolution.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdPanelRightResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdPanelRightResolution.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdPanelRightResolution.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdPanelRightResolution.Location = new System.Drawing.Point(0, 0);
-            cmdPanelRightResolution.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdPanelRightResolution.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdPanelRightResolution.Name = "cmdPanelRightResolution";
-            cmdPanelRightResolution.Size = new System.Drawing.Size(324, 27);
+            cmdPanelRightResolution.Size = new System.Drawing.Size(463, 45);
             cmdPanelRightResolution.TabIndex = 8;
             cmdPanelRightResolution.Text = "Properties";
             cmdPanelRightResolution.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4057,10 +4048,9 @@ namespace AppTestStudio
             panelPreAction.Controls.Add(groupBox22);
             panelPreAction.Controls.Add(chkFromCurrentMousePos);
             panelPreAction.Controls.Add(button2);
-            panelPreAction.Location = new System.Drawing.Point(2, 127);
-            panelPreAction.Margin = new System.Windows.Forms.Padding(2);
+            panelPreAction.Location = new System.Drawing.Point(3, 209);
             panelPreAction.Name = "panelPreAction";
-            panelPreAction.Size = new System.Drawing.Size(326, 184);
+            panelPreAction.Size = new System.Drawing.Size(465, 305);
             panelPreAction.TabIndex = 39;
             panelPreAction.Visible = false;
             // 
@@ -4073,21 +4063,21 @@ namespace AppTestStudio
             groupBox22.Controls.Add(label95);
             groupBox22.Controls.Add(numericKeyboardTimeoutToActivateMS);
             groupBox22.Controls.Add(chkAppActivateIfNotActive);
-            groupBox22.Location = new System.Drawing.Point(8, 65);
-            groupBox22.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox22.Location = new System.Drawing.Point(11, 108);
+            groupBox22.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox22.Name = "groupBox22";
-            groupBox22.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox22.Size = new System.Drawing.Size(309, 112);
+            groupBox22.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox22.Size = new System.Drawing.Size(441, 187);
             groupBox22.TabIndex = 15;
             groupBox22.TabStop = false;
             // 
             // label99
             // 
             label99.AutoSize = true;
-            label99.Location = new System.Drawing.Point(91, 54);
-            label99.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label99.Location = new System.Drawing.Point(130, 90);
+            label99.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label99.Name = "label99";
-            label99.Size = new System.Drawing.Size(89, 15);
+            label99.Size = new System.Drawing.Size(133, 25);
             label99.TabIndex = 26;
             label99.Text = "Timeout Action";
             // 
@@ -4096,30 +4086,30 @@ namespace AppTestStudio
             cboPreActionFailureAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboPreActionFailureAction.FormattingEnabled = true;
             cboPreActionFailureAction.Items.AddRange(new object[] { "Abort", "Continue" });
-            cboPreActionFailureAction.Location = new System.Drawing.Point(9, 48);
-            cboPreActionFailureAction.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboPreActionFailureAction.Location = new System.Drawing.Point(13, 80);
+            cboPreActionFailureAction.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboPreActionFailureAction.Name = "cboPreActionFailureAction";
-            cboPreActionFailureAction.Size = new System.Drawing.Size(78, 23);
+            cboPreActionFailureAction.Size = new System.Drawing.Size(110, 33);
             cboPreActionFailureAction.TabIndex = 25;
             cboPreActionFailureAction.SelectedIndexChanged += cboPreActionFailureAction_SelectedIndexChanged;
             // 
             // label98
             // 
             label98.AutoSize = true;
-            label98.Location = new System.Drawing.Point(70, 82);
-            label98.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label98.Location = new System.Drawing.Point(100, 137);
+            label98.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label98.Name = "label98";
-            label98.Size = new System.Drawing.Size(176, 15);
+            label98.Size = new System.Drawing.Size(263, 25);
             label98.TabIndex = 24;
             label98.Text = "Wait after sending Activate (ms)";
             // 
             // numericKeyboardAfterSendingActivationMS
             // 
-            numericKeyboardAfterSendingActivationMS.Location = new System.Drawing.Point(7, 80);
-            numericKeyboardAfterSendingActivationMS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericKeyboardAfterSendingActivationMS.Location = new System.Drawing.Point(10, 133);
+            numericKeyboardAfterSendingActivationMS.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericKeyboardAfterSendingActivationMS.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericKeyboardAfterSendingActivationMS.Name = "numericKeyboardAfterSendingActivationMS";
-            numericKeyboardAfterSendingActivationMS.Size = new System.Drawing.Size(59, 23);
+            numericKeyboardAfterSendingActivationMS.Size = new System.Drawing.Size(84, 31);
             numericKeyboardAfterSendingActivationMS.TabIndex = 23;
             numericKeyboardAfterSendingActivationMS.Value = new decimal(new int[] { 100, 0, 0, 0 });
             numericKeyboardAfterSendingActivationMS.ValueChanged += numericKeyboardAfterSendingActivationMS_ValueChanged;
@@ -4127,20 +4117,20 @@ namespace AppTestStudio
             // label95
             // 
             label95.AutoSize = true;
-            label95.Location = new System.Drawing.Point(70, 27);
-            label95.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label95.Location = new System.Drawing.Point(100, 45);
+            label95.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label95.Name = "label95";
-            label95.Size = new System.Drawing.Size(78, 15);
+            label95.Size = new System.Drawing.Size(116, 25);
             label95.TabIndex = 22;
             label95.Text = "Timeout (ms)";
             // 
             // numericKeyboardTimeoutToActivateMS
             // 
-            numericKeyboardTimeoutToActivateMS.Location = new System.Drawing.Point(8, 21);
-            numericKeyboardTimeoutToActivateMS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericKeyboardTimeoutToActivateMS.Location = new System.Drawing.Point(11, 35);
+            numericKeyboardTimeoutToActivateMS.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericKeyboardTimeoutToActivateMS.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             numericKeyboardTimeoutToActivateMS.Name = "numericKeyboardTimeoutToActivateMS";
-            numericKeyboardTimeoutToActivateMS.Size = new System.Drawing.Size(58, 23);
+            numericKeyboardTimeoutToActivateMS.Size = new System.Drawing.Size(83, 31);
             numericKeyboardTimeoutToActivateMS.TabIndex = 21;
             numericKeyboardTimeoutToActivateMS.Value = new decimal(new int[] { 3000, 0, 0, 0 });
             numericKeyboardTimeoutToActivateMS.ValueChanged += numericKeyboardTimeoutToActivateMS_ValueChanged;
@@ -4148,10 +4138,10 @@ namespace AppTestStudio
             // chkAppActivateIfNotActive
             // 
             chkAppActivateIfNotActive.AutoSize = true;
-            chkAppActivateIfNotActive.Location = new System.Drawing.Point(8, -1);
-            chkAppActivateIfNotActive.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkAppActivateIfNotActive.Location = new System.Drawing.Point(11, -2);
+            chkAppActivateIfNotActive.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkAppActivateIfNotActive.Name = "chkAppActivateIfNotActive";
-            chkAppActivateIfNotActive.Size = new System.Drawing.Size(247, 19);
+            chkAppActivateIfNotActive.Size = new System.Drawing.Size(365, 29);
             chkAppActivateIfNotActive.TabIndex = 20;
             chkAppActivateIfNotActive.Text = "Activate Application (if not already active)";
             chkAppActivateIfNotActive.UseVisualStyleBackColor = true;
@@ -4159,10 +4149,9 @@ namespace AppTestStudio
             // 
             // chkFromCurrentMousePos
             // 
-            chkFromCurrentMousePos.Location = new System.Drawing.Point(6, 30);
-            chkFromCurrentMousePos.Margin = new System.Windows.Forms.Padding(2);
+            chkFromCurrentMousePos.Location = new System.Drawing.Point(9, 50);
             chkFromCurrentMousePos.Name = "chkFromCurrentMousePos";
-            chkFromCurrentMousePos.Size = new System.Drawing.Size(298, 37);
+            chkFromCurrentMousePos.Size = new System.Drawing.Size(426, 62);
             chkFromCurrentMousePos.TabIndex = 14;
             chkFromCurrentMousePos.Text = "Move mouse from sys pos (Active Mouse Only)";
             chkFromCurrentMousePos.UseVisualStyleBackColor = true;
@@ -4174,12 +4163,12 @@ namespace AppTestStudio
             button2.Dock = System.Windows.Forms.DockStyle.Top;
             button2.FlatAppearance.BorderSize = 0;
             button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            button2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             button2.ForeColor = System.Drawing.SystemColors.ButtonFace;
             button2.Location = new System.Drawing.Point(0, 0);
-            button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            button2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             button2.Name = "button2";
-            button2.Size = new System.Drawing.Size(324, 27);
+            button2.Size = new System.Drawing.Size(463, 45);
             button2.TabIndex = 8;
             button2.Text = "Pre Action Events";
             button2.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4199,18 +4188,18 @@ namespace AppTestStudio
             panelRightAfterCompletion.Controls.Add(rdoAfterCompletionContinue);
             panelRightAfterCompletion.Controls.Add(rdoAfterCompletionHome);
             panelRightAfterCompletion.Controls.Add(rdoAfterCompletionParent);
-            panelRightAfterCompletion.Location = new System.Drawing.Point(4, 316);
-            panelRightAfterCompletion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelRightAfterCompletion.Location = new System.Drawing.Point(6, 522);
+            panelRightAfterCompletion.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             panelRightAfterCompletion.Name = "panelRightAfterCompletion";
-            panelRightAfterCompletion.Size = new System.Drawing.Size(326, 229);
+            panelRightAfterCompletion.Size = new System.Drawing.Size(465, 380);
             panelRightAfterCompletion.TabIndex = 30;
             // 
             // cmdAfterCompletionHelp
             // 
-            cmdAfterCompletionHelp.Location = new System.Drawing.Point(295, 192);
-            cmdAfterCompletionHelp.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdAfterCompletionHelp.Location = new System.Drawing.Point(421, 320);
+            cmdAfterCompletionHelp.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdAfterCompletionHelp.Name = "cmdAfterCompletionHelp";
-            cmdAfterCompletionHelp.Size = new System.Drawing.Size(29, 27);
+            cmdAfterCompletionHelp.Size = new System.Drawing.Size(41, 45);
             cmdAfterCompletionHelp.TabIndex = 11;
             cmdAfterCompletionHelp.Text = "...";
             cmdAfterCompletionHelp.UseVisualStyleBackColor = true;
@@ -4218,20 +4207,20 @@ namespace AppTestStudio
             // 
             // txtAfterCompletionGoTo
             // 
-            txtAfterCompletionGoTo.Location = new System.Drawing.Point(68, 194);
-            txtAfterCompletionGoTo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtAfterCompletionGoTo.Location = new System.Drawing.Point(97, 323);
+            txtAfterCompletionGoTo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtAfterCompletionGoTo.Name = "txtAfterCompletionGoTo";
-            txtAfterCompletionGoTo.Size = new System.Drawing.Size(226, 23);
+            txtAfterCompletionGoTo.Size = new System.Drawing.Size(321, 31);
             txtAfterCompletionGoTo.TabIndex = 10;
             txtAfterCompletionGoTo.TextChanged += txtAfterCompletionGoTo_TextChanged;
             // 
             // rdoAfterCompletionGoTo
             // 
             rdoAfterCompletionGoTo.AutoSize = true;
-            rdoAfterCompletionGoTo.Location = new System.Drawing.Point(9, 195);
-            rdoAfterCompletionGoTo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoAfterCompletionGoTo.Location = new System.Drawing.Point(13, 325);
+            rdoAfterCompletionGoTo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoAfterCompletionGoTo.Name = "rdoAfterCompletionGoTo";
-            rdoAfterCompletionGoTo.Size = new System.Drawing.Size(52, 19);
+            rdoAfterCompletionGoTo.Size = new System.Drawing.Size(78, 29);
             rdoAfterCompletionGoTo.TabIndex = 9;
             rdoAfterCompletionGoTo.TabStop = true;
             rdoAfterCompletionGoTo.Text = "GoTo";
@@ -4240,11 +4229,9 @@ namespace AppTestStudio
             // 
             // groupBox4
             // 
-            groupBox4.Location = new System.Drawing.Point(15, 114);
-            groupBox4.Margin = new System.Windows.Forms.Padding(2);
+            groupBox4.Location = new System.Drawing.Point(21, 190);
             groupBox4.Name = "groupBox4";
-            groupBox4.Padding = new System.Windows.Forms.Padding(2);
-            groupBox4.Size = new System.Drawing.Size(92, 1);
+            groupBox4.Size = new System.Drawing.Size(131, 2);
             groupBox4.TabIndex = 8;
             groupBox4.TabStop = false;
             // 
@@ -4259,11 +4246,11 @@ namespace AppTestStudio
             groupBox6.Controls.Add(cboDelayS);
             groupBox6.Controls.Add(label28);
             groupBox6.Controls.Add(cboDelayMS);
-            groupBox6.Location = new System.Drawing.Point(134, 28);
-            groupBox6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox6.Location = new System.Drawing.Point(191, 47);
+            groupBox6.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox6.Name = "groupBox6";
-            groupBox6.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox6.Size = new System.Drawing.Size(154, 162);
+            groupBox6.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox6.Size = new System.Drawing.Size(220, 270);
             groupBox6.TabIndex = 5;
             groupBox6.TabStop = false;
             groupBox6.Text = "Delay (Additive)";
@@ -4271,40 +4258,40 @@ namespace AppTestStudio
             // lblDelayCalc
             // 
             lblDelayCalc.AutoSize = true;
-            lblDelayCalc.Location = new System.Drawing.Point(12, 141);
-            lblDelayCalc.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblDelayCalc.Location = new System.Drawing.Point(17, 235);
+            lblDelayCalc.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblDelayCalc.Name = "lblDelayCalc";
-            lblDelayCalc.Size = new System.Drawing.Size(80, 15);
+            lblDelayCalc.Size = new System.Drawing.Size(117, 25);
             lblDelayCalc.TabIndex = 10;
             lblDelayCalc.Text = "[lblDelayCalc]";
             // 
             // label23
             // 
             label23.AutoSize = true;
-            label23.Location = new System.Drawing.Point(9, 114);
-            label23.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label23.Location = new System.Drawing.Point(13, 190);
+            label23.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label23.Name = "label23";
-            label23.Size = new System.Drawing.Size(39, 15);
+            label23.Size = new System.Drawing.Size(60, 25);
             label23.TabIndex = 9;
             label23.Text = "Hours";
             // 
             // label24
             // 
             label24.AutoSize = true;
-            label24.Location = new System.Drawing.Point(9, 83);
-            label24.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label24.Location = new System.Drawing.Point(13, 138);
+            label24.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label24.Name = "label24";
-            label24.Size = new System.Drawing.Size(50, 15);
+            label24.Size = new System.Drawing.Size(75, 25);
             label24.TabIndex = 8;
             label24.Text = "Minutes";
             // 
             // label27
             // 
             label27.AutoSize = true;
-            label27.Location = new System.Drawing.Point(9, 52);
-            label27.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label27.Location = new System.Drawing.Point(13, 87);
+            label27.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label27.Name = "label27";
-            label27.Size = new System.Drawing.Size(51, 15);
+            label27.Size = new System.Drawing.Size(79, 25);
             label27.TabIndex = 7;
             label27.Text = "Seconds";
             // 
@@ -4313,11 +4300,11 @@ namespace AppTestStudio
             cboDelayH.BackColor = System.Drawing.SystemColors.Window;
             cboDelayH.FormattingEnabled = true;
             cboDelayH.Items.AddRange(new object[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" });
-            cboDelayH.Location = new System.Drawing.Point(88, 111);
-            cboDelayH.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboDelayH.Location = new System.Drawing.Point(126, 185);
+            cboDelayH.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboDelayH.MaxLength = 3;
             cboDelayH.Name = "cboDelayH";
-            cboDelayH.Size = new System.Drawing.Size(56, 23);
+            cboDelayH.Size = new System.Drawing.Size(78, 33);
             cboDelayH.TabIndex = 6;
             cboDelayH.TextChanged += cboDelayH_TextChanged;
             // 
@@ -4326,11 +4313,11 @@ namespace AppTestStudio
             cboDelayM.BackColor = System.Drawing.SystemColors.Window;
             cboDelayM.FormattingEnabled = true;
             cboDelayM.Items.AddRange(new object[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" });
-            cboDelayM.Location = new System.Drawing.Point(88, 80);
-            cboDelayM.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboDelayM.Location = new System.Drawing.Point(126, 133);
+            cboDelayM.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboDelayM.MaxLength = 2;
             cboDelayM.Name = "cboDelayM";
-            cboDelayM.Size = new System.Drawing.Size(56, 23);
+            cboDelayM.Size = new System.Drawing.Size(78, 33);
             cboDelayM.TabIndex = 6;
             cboDelayM.TextChanged += cboDelayM_TextChanged;
             // 
@@ -4339,21 +4326,21 @@ namespace AppTestStudio
             cboDelayS.BackColor = System.Drawing.SystemColors.Window;
             cboDelayS.FormattingEnabled = true;
             cboDelayS.Items.AddRange(new object[] { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40", "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59" });
-            cboDelayS.Location = new System.Drawing.Point(88, 48);
-            cboDelayS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboDelayS.Location = new System.Drawing.Point(126, 80);
+            cboDelayS.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboDelayS.MaxLength = 2;
             cboDelayS.Name = "cboDelayS";
-            cboDelayS.Size = new System.Drawing.Size(56, 23);
+            cboDelayS.Size = new System.Drawing.Size(78, 33);
             cboDelayS.TabIndex = 6;
             cboDelayS.TextChanged += cboDelayS_TextChanged;
             // 
             // label28
             // 
             label28.AutoSize = true;
-            label28.Location = new System.Drawing.Point(9, 23);
-            label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label28.Location = new System.Drawing.Point(13, 38);
+            label28.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label28.Name = "label28";
-            label28.Size = new System.Drawing.Size(62, 15);
+            label28.Size = new System.Drawing.Size(99, 25);
             label28.TabIndex = 5;
             label28.Text = "1/1000 sec";
             // 
@@ -4362,11 +4349,11 @@ namespace AppTestStudio
             cboDelayMS.BackColor = System.Drawing.SystemColors.Window;
             cboDelayMS.FormattingEnabled = true;
             cboDelayMS.Items.AddRange(new object[] { "0", "50", "100", "200", "300", "400", "500", "600", "700", "800", "900", "950" });
-            cboDelayMS.Location = new System.Drawing.Point(88, 20);
-            cboDelayMS.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboDelayMS.Location = new System.Drawing.Point(126, 33);
+            cboDelayMS.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboDelayMS.MaxLength = 3;
             cboDelayMS.Name = "cboDelayMS";
-            cboDelayMS.Size = new System.Drawing.Size(56, 23);
+            cboDelayMS.Size = new System.Drawing.Size(78, 33);
             cboDelayMS.TabIndex = 4;
             cboDelayMS.TextChanged += cboDelayMS_TextChanged;
             // 
@@ -4377,15 +4364,15 @@ namespace AppTestStudio
             cmdRightAfterCompletion.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightAfterCompletion.FlatAppearance.BorderSize = 0;
             cmdRightAfterCompletion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightAfterCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightAfterCompletion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightAfterCompletion.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightAfterCompletion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightAfterCompletion.ImageIndex = 22;
             cmdRightAfterCompletion.ImageList = ImageList1;
             cmdRightAfterCompletion.Location = new System.Drawing.Point(0, 0);
-            cmdRightAfterCompletion.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRightAfterCompletion.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRightAfterCompletion.Name = "cmdRightAfterCompletion";
-            cmdRightAfterCompletion.Size = new System.Drawing.Size(324, 27);
+            cmdRightAfterCompletion.Size = new System.Drawing.Size(463, 45);
             cmdRightAfterCompletion.TabIndex = 7;
             cmdRightAfterCompletion.Text = "After Completion";
             cmdRightAfterCompletion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4396,10 +4383,10 @@ namespace AppTestStudio
             // rdoAfterCompletionRecycle
             // 
             rdoAfterCompletionRecycle.AutoSize = true;
-            rdoAfterCompletionRecycle.Location = new System.Drawing.Point(8, 147);
-            rdoAfterCompletionRecycle.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoAfterCompletionRecycle.Location = new System.Drawing.Point(11, 245);
+            rdoAfterCompletionRecycle.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoAfterCompletionRecycle.Name = "rdoAfterCompletionRecycle";
-            rdoAfterCompletionRecycle.Size = new System.Drawing.Size(65, 19);
+            rdoAfterCompletionRecycle.Size = new System.Drawing.Size(94, 29);
             rdoAfterCompletionRecycle.TabIndex = 6;
             rdoAfterCompletionRecycle.TabStop = true;
             rdoAfterCompletionRecycle.Text = "Recycle";
@@ -4409,10 +4396,10 @@ namespace AppTestStudio
             // rdoAfterCompletionStop
             // 
             rdoAfterCompletionStop.AutoSize = true;
-            rdoAfterCompletionStop.Location = new System.Drawing.Point(8, 121);
-            rdoAfterCompletionStop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoAfterCompletionStop.Location = new System.Drawing.Point(11, 202);
+            rdoAfterCompletionStop.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoAfterCompletionStop.Name = "rdoAfterCompletionStop";
-            rdoAfterCompletionStop.Size = new System.Drawing.Size(88, 19);
+            rdoAfterCompletionStop.Size = new System.Drawing.Size(133, 29);
             rdoAfterCompletionStop.TabIndex = 6;
             rdoAfterCompletionStop.TabStop = true;
             rdoAfterCompletionStop.Text = "Stop Thread";
@@ -4422,10 +4409,10 @@ namespace AppTestStudio
             // rdoAfterCompletionContinue
             // 
             rdoAfterCompletionContinue.AutoSize = true;
-            rdoAfterCompletionContinue.Location = new System.Drawing.Point(8, 38);
-            rdoAfterCompletionContinue.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoAfterCompletionContinue.Location = new System.Drawing.Point(11, 63);
+            rdoAfterCompletionContinue.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoAfterCompletionContinue.Name = "rdoAfterCompletionContinue";
-            rdoAfterCompletionContinue.Size = new System.Drawing.Size(74, 19);
+            rdoAfterCompletionContinue.Size = new System.Drawing.Size(108, 29);
             rdoAfterCompletionContinue.TabIndex = 0;
             rdoAfterCompletionContinue.TabStop = true;
             rdoAfterCompletionContinue.Text = "Continue";
@@ -4435,10 +4422,10 @@ namespace AppTestStudio
             // rdoAfterCompletionHome
             // 
             rdoAfterCompletionHome.AutoSize = true;
-            rdoAfterCompletionHome.Location = new System.Drawing.Point(8, 66);
-            rdoAfterCompletionHome.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoAfterCompletionHome.Location = new System.Drawing.Point(11, 110);
+            rdoAfterCompletionHome.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoAfterCompletionHome.Name = "rdoAfterCompletionHome";
-            rdoAfterCompletionHome.Size = new System.Drawing.Size(100, 19);
+            rdoAfterCompletionHome.Size = new System.Drawing.Size(149, 29);
             rdoAfterCompletionHome.TabIndex = 1;
             rdoAfterCompletionHome.TabStop = true;
             rdoAfterCompletionHome.Text = "Back to Home";
@@ -4448,10 +4435,10 @@ namespace AppTestStudio
             // rdoAfterCompletionParent
             // 
             rdoAfterCompletionParent.AutoSize = true;
-            rdoAfterCompletionParent.Location = new System.Drawing.Point(8, 93);
-            rdoAfterCompletionParent.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoAfterCompletionParent.Location = new System.Drawing.Point(11, 155);
+            rdoAfterCompletionParent.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoAfterCompletionParent.Name = "rdoAfterCompletionParent";
-            rdoAfterCompletionParent.Size = new System.Drawing.Size(101, 19);
+            rdoAfterCompletionParent.Size = new System.Drawing.Size(149, 29);
             rdoAfterCompletionParent.TabIndex = 2;
             rdoAfterCompletionParent.TabStop = true;
             rdoAfterCompletionParent.Text = "Back to Parent";
@@ -4473,19 +4460,18 @@ namespace AppTestStudio
             panelRightObject.Controls.Add(PictureBoxEventObjectSelection);
             panelRightObject.Controls.Add(Label50);
             panelRightObject.Controls.Add(cboChannel);
-            panelRightObject.Location = new System.Drawing.Point(2, 550);
-            panelRightObject.Margin = new System.Windows.Forms.Padding(2);
+            panelRightObject.Location = new System.Drawing.Point(3, 910);
             panelRightObject.Name = "panelRightObject";
-            panelRightObject.Size = new System.Drawing.Size(326, 228);
+            panelRightObject.Size = new System.Drawing.Size(465, 379);
             panelRightObject.TabIndex = 34;
             // 
             // NumericObjectThreshold
             // 
-            NumericObjectThreshold.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            NumericObjectThreshold.Location = new System.Drawing.Point(120, 92);
-            NumericObjectThreshold.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            NumericObjectThreshold.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            NumericObjectThreshold.Location = new System.Drawing.Point(171, 153);
+            NumericObjectThreshold.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             NumericObjectThreshold.Name = "NumericObjectThreshold";
-            NumericObjectThreshold.Size = new System.Drawing.Size(160, 26);
+            NumericObjectThreshold.Size = new System.Drawing.Size(229, 35);
             NumericObjectThreshold.TabIndex = 10;
             NumericObjectThreshold.ValueChanged += NumericObjectThreshold_ValueChanged;
             // 
@@ -4496,15 +4482,15 @@ namespace AppTestStudio
             cmdRightObject.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightObject.FlatAppearance.BorderSize = 0;
             cmdRightObject.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightObject.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightObject.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightObject.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightObject.ImageIndex = 22;
             cmdRightObject.ImageList = ImageList1;
             cmdRightObject.Location = new System.Drawing.Point(0, 0);
-            cmdRightObject.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRightObject.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRightObject.Name = "cmdRightObject";
-            cmdRightObject.Size = new System.Drawing.Size(324, 25);
+            cmdRightObject.Size = new System.Drawing.Size(463, 42);
             cmdRightObject.TabIndex = 11;
             cmdRightObject.Text = "Object";
             cmdRightObject.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4515,10 +4501,10 @@ namespace AppTestStudio
             // Label52
             // 
             Label52.AutoSize = true;
-            Label52.Location = new System.Drawing.Point(26, 102);
-            Label52.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label52.Location = new System.Drawing.Point(37, 170);
+            Label52.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label52.Name = "Label52";
-            Label52.Size = new System.Drawing.Size(59, 15);
+            Label52.Size = new System.Drawing.Size(90, 25);
             Label52.TabIndex = 9;
             Label52.Text = "Threshold";
             // 
@@ -4526,19 +4512,19 @@ namespace AppTestStudio
             // 
             cboObject.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboObject.FormattingEnabled = true;
-            cboObject.Location = new System.Drawing.Point(120, 35);
-            cboObject.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboObject.Location = new System.Drawing.Point(171, 58);
+            cboObject.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboObject.Name = "cboObject";
-            cboObject.Size = new System.Drawing.Size(162, 23);
+            cboObject.Size = new System.Drawing.Size(230, 33);
             cboObject.TabIndex = 0;
             cboObject.SelectedIndexChanged += cboObject_SelectedIndexChanged;
             // 
             // cmdMaxMask
             // 
-            cmdMaxMask.Location = new System.Drawing.Point(120, 141);
-            cmdMaxMask.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdMaxMask.Location = new System.Drawing.Point(171, 235);
+            cmdMaxMask.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdMaxMask.Name = "cmdMaxMask";
-            cmdMaxMask.Size = new System.Drawing.Size(158, 27);
+            cmdMaxMask.Size = new System.Drawing.Size(226, 45);
             cmdMaxMask.TabIndex = 8;
             cmdMaxMask.Text = "Set Mask to Max";
             cmdMaxMask.UseVisualStyleBackColor = true;
@@ -4546,46 +4532,46 @@ namespace AppTestStudio
             // 
             // lblSearchObject
             // 
-            lblSearchObject.Location = new System.Drawing.Point(26, 35);
-            lblSearchObject.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblSearchObject.Location = new System.Drawing.Point(37, 58);
+            lblSearchObject.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblSearchObject.Name = "lblSearchObject";
-            lblSearchObject.Size = new System.Drawing.Size(146, 24);
+            lblSearchObject.Size = new System.Drawing.Size(209, 40);
             lblSearchObject.TabIndex = 2;
             lblSearchObject.Text = "Search Object";
             // 
             // lblMaskSize
             // 
             lblMaskSize.AutoSize = true;
-            lblMaskSize.Location = new System.Drawing.Point(118, 123);
-            lblMaskSize.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblMaskSize.Location = new System.Drawing.Point(169, 205);
+            lblMaskSize.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblMaskSize.Name = "lblMaskSize";
-            lblMaskSize.Size = new System.Drawing.Size(68, 15);
+            lblMaskSize.Size = new System.Drawing.Size(104, 25);
             lblMaskSize.TabIndex = 7;
             lblMaskSize.Text = "lblMaskSize";
             // 
             // lblColorChannel
             // 
-            lblColorChannel.Location = new System.Drawing.Point(26, 67);
-            lblColorChannel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblColorChannel.Location = new System.Drawing.Point(37, 112);
+            lblColorChannel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblColorChannel.Name = "lblColorChannel";
-            lblColorChannel.Size = new System.Drawing.Size(92, 24);
+            lblColorChannel.Size = new System.Drawing.Size(131, 40);
             lblColorChannel.TabIndex = 4;
             lblColorChannel.Text = "Color Channel";
             // 
             // Label51
             // 
             Label51.AutoSize = true;
-            Label51.Location = new System.Drawing.Point(26, 123);
-            Label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label51.Location = new System.Drawing.Point(37, 205);
+            Label51.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label51.Name = "Label51";
-            Label51.Size = new System.Drawing.Size(58, 15);
+            Label51.Size = new System.Drawing.Size(90, 25);
             Label51.TabIndex = 6;
             Label51.Text = "Mask Size";
             // 
             // PictureBoxEventObjectSelection
             // 
-            PictureBoxEventObjectSelection.Location = new System.Drawing.Point(120, 174);
-            PictureBoxEventObjectSelection.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PictureBoxEventObjectSelection.Location = new System.Drawing.Point(171, 290);
+            PictureBoxEventObjectSelection.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PictureBoxEventObjectSelection.Name = "PictureBoxEventObjectSelection";
             PictureBoxEventObjectSelection.Size = new System.Drawing.Size(100, 50);
             PictureBoxEventObjectSelection.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -4595,10 +4581,10 @@ namespace AppTestStudio
             // Label50
             // 
             Label50.AutoSize = true;
-            Label50.Location = new System.Drawing.Point(29, 174);
-            Label50.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label50.Location = new System.Drawing.Point(41, 290);
+            Label50.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label50.Name = "Label50";
-            Label50.Size = new System.Drawing.Size(42, 15);
+            Label50.Size = new System.Drawing.Size(64, 25);
             Label50.TabIndex = 5;
             Label50.Text = "Object";
             // 
@@ -4607,10 +4593,10 @@ namespace AppTestStudio
             cboChannel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboChannel.FormattingEnabled = true;
             cboChannel.Items.AddRange(new object[] { "Choose a Channel", "Red Channel", "Green Channel", "Blue Channel" });
-            cboChannel.Location = new System.Drawing.Point(120, 67);
-            cboChannel.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboChannel.Location = new System.Drawing.Point(171, 112);
+            cboChannel.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboChannel.Name = "cboChannel";
-            cboChannel.Size = new System.Drawing.Size(162, 23);
+            cboChannel.Size = new System.Drawing.Size(230, 33);
             cboChannel.TabIndex = 3;
             cboChannel.SelectedIndexChanged += cboChannel_SelectedIndexChanged;
             // 
@@ -4623,19 +4609,17 @@ namespace AppTestStudio
             panelRightSwipeProperties.Controls.Add(groupBoxClickDragReleaseObjectSearch);
             panelRightSwipeProperties.Controls.Add(numericSwipeVelocity);
             panelRightSwipeProperties.Controls.Add(cmdRightSwipeProperties);
-            panelRightSwipeProperties.Location = new System.Drawing.Point(2, 782);
-            panelRightSwipeProperties.Margin = new System.Windows.Forms.Padding(2);
+            panelRightSwipeProperties.Location = new System.Drawing.Point(3, 1295);
             panelRightSwipeProperties.Name = "panelRightSwipeProperties";
-            panelRightSwipeProperties.Size = new System.Drawing.Size(326, 234);
+            panelRightSwipeProperties.Size = new System.Drawing.Size(465, 389);
             panelRightSwipeProperties.TabIndex = 40;
             // 
             // label60
             // 
             label60.AutoSize = true;
-            label60.Location = new System.Drawing.Point(146, 38);
-            label60.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label60.Location = new System.Drawing.Point(209, 63);
             label60.Name = "label60";
-            label60.Size = new System.Drawing.Size(142, 15);
+            label60.Size = new System.Drawing.Size(219, 25);
             label60.TabIndex = 16;
             label60.Text = "Velocity (ms)  1000 = 1sec";
             // 
@@ -4645,11 +4629,9 @@ namespace AppTestStudio
             groupBox8.Controls.Add(label57);
             groupBox8.Controls.Add(numericSwipeEndWidth);
             groupBox8.Controls.Add(numericSwipeEndHeight);
-            groupBox8.Location = new System.Drawing.Point(14, 138);
-            groupBox8.Margin = new System.Windows.Forms.Padding(2);
+            groupBox8.Location = new System.Drawing.Point(20, 230);
             groupBox8.Name = "groupBox8";
-            groupBox8.Padding = new System.Windows.Forms.Padding(2);
-            groupBox8.Size = new System.Drawing.Size(125, 83);
+            groupBox8.Size = new System.Drawing.Size(179, 138);
             groupBox8.TabIndex = 15;
             groupBox8.TabStop = false;
             groupBox8.Text = "End Size";
@@ -4657,42 +4639,40 @@ namespace AppTestStudio
             // label59
             // 
             label59.AutoSize = true;
-            label59.Location = new System.Drawing.Point(80, 57);
-            label59.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label59.Location = new System.Drawing.Point(114, 95);
             label59.Name = "label59";
-            label59.Size = new System.Drawing.Size(39, 15);
+            label59.Size = new System.Drawing.Size(60, 25);
             label59.TabIndex = 11;
             label59.Text = "Width";
             // 
             // label57
             // 
             label57.AutoSize = true;
-            label57.Location = new System.Drawing.Point(80, 24);
-            label57.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label57.Location = new System.Drawing.Point(114, 40);
             label57.Name = "label57";
-            label57.Size = new System.Drawing.Size(43, 15);
+            label57.Size = new System.Drawing.Size(65, 25);
             label57.TabIndex = 11;
             label57.Text = "Height";
             // 
             // numericSwipeEndWidth
             // 
-            numericSwipeEndWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            numericSwipeEndWidth.Location = new System.Drawing.Point(9, 53);
-            numericSwipeEndWidth.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericSwipeEndWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            numericSwipeEndWidth.Location = new System.Drawing.Point(13, 88);
+            numericSwipeEndWidth.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericSwipeEndWidth.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericSwipeEndWidth.Name = "numericSwipeEndWidth";
-            numericSwipeEndWidth.Size = new System.Drawing.Size(66, 26);
+            numericSwipeEndWidth.Size = new System.Drawing.Size(94, 35);
             numericSwipeEndWidth.TabIndex = 10;
             numericSwipeEndWidth.ValueChanged += numericSwipeEndWidth_ValueChanged;
             // 
             // numericSwipeEndHeight
             // 
-            numericSwipeEndHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            numericSwipeEndHeight.Location = new System.Drawing.Point(9, 21);
-            numericSwipeEndHeight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericSwipeEndHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            numericSwipeEndHeight.Location = new System.Drawing.Point(13, 35);
+            numericSwipeEndHeight.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericSwipeEndHeight.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericSwipeEndHeight.Name = "numericSwipeEndHeight";
-            numericSwipeEndHeight.Size = new System.Drawing.Size(66, 26);
+            numericSwipeEndHeight.Size = new System.Drawing.Size(94, 35);
             numericSwipeEndHeight.TabIndex = 10;
             numericSwipeEndHeight.ValueChanged += numericSwipeEndHeight_ValueChanged;
             // 
@@ -4702,11 +4682,9 @@ namespace AppTestStudio
             groupBox5.Controls.Add(label56);
             groupBox5.Controls.Add(numericSwipeStartWidth);
             groupBox5.Controls.Add(numericSwipeStartHeight);
-            groupBox5.Location = new System.Drawing.Point(14, 36);
-            groupBox5.Margin = new System.Windows.Forms.Padding(2);
+            groupBox5.Location = new System.Drawing.Point(20, 60);
             groupBox5.Name = "groupBox5";
-            groupBox5.Padding = new System.Windows.Forms.Padding(2);
-            groupBox5.Size = new System.Drawing.Size(125, 90);
+            groupBox5.Size = new System.Drawing.Size(179, 150);
             groupBox5.TabIndex = 15;
             groupBox5.TabStop = false;
             groupBox5.Text = "Start Size";
@@ -4714,42 +4692,40 @@ namespace AppTestStudio
             // label58
             // 
             label58.AutoSize = true;
-            label58.Location = new System.Drawing.Point(80, 60);
-            label58.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label58.Location = new System.Drawing.Point(114, 100);
             label58.Name = "label58";
-            label58.Size = new System.Drawing.Size(39, 15);
+            label58.Size = new System.Drawing.Size(60, 25);
             label58.TabIndex = 11;
             label58.Text = "Width";
             // 
             // label56
             // 
             label56.AutoSize = true;
-            label56.Location = new System.Drawing.Point(80, 24);
-            label56.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label56.Location = new System.Drawing.Point(114, 40);
             label56.Name = "label56";
-            label56.Size = new System.Drawing.Size(43, 15);
+            label56.Size = new System.Drawing.Size(65, 25);
             label56.TabIndex = 11;
             label56.Text = "Height";
             // 
             // numericSwipeStartWidth
             // 
-            numericSwipeStartWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            numericSwipeStartWidth.Location = new System.Drawing.Point(9, 55);
-            numericSwipeStartWidth.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericSwipeStartWidth.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            numericSwipeStartWidth.Location = new System.Drawing.Point(13, 92);
+            numericSwipeStartWidth.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericSwipeStartWidth.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericSwipeStartWidth.Name = "numericSwipeStartWidth";
-            numericSwipeStartWidth.Size = new System.Drawing.Size(66, 26);
+            numericSwipeStartWidth.Size = new System.Drawing.Size(94, 35);
             numericSwipeStartWidth.TabIndex = 10;
             numericSwipeStartWidth.ValueChanged += numericSwipeStartWidth_ValueChanged;
             // 
             // numericSwipeStartHeight
             // 
-            numericSwipeStartHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            numericSwipeStartHeight.Location = new System.Drawing.Point(9, 21);
-            numericSwipeStartHeight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericSwipeStartHeight.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            numericSwipeStartHeight.Location = new System.Drawing.Point(13, 35);
+            numericSwipeStartHeight.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericSwipeStartHeight.Maximum = new decimal(new int[] { 9999, 0, 0, 0 });
             numericSwipeStartHeight.Name = "numericSwipeStartHeight";
-            numericSwipeStartHeight.Size = new System.Drawing.Size(66, 26);
+            numericSwipeStartHeight.Size = new System.Drawing.Size(94, 35);
             numericSwipeStartHeight.TabIndex = 10;
             numericSwipeStartHeight.ValueChanged += numericSwipeStartHeight_ValueChanged;
             // 
@@ -4758,11 +4734,9 @@ namespace AppTestStudio
             groupBoxClickDragReleaseObjectSearch.Controls.Add(rdoObjectSearchNone);
             groupBoxClickDragReleaseObjectSearch.Controls.Add(rdoObjectSearchEnd);
             groupBoxClickDragReleaseObjectSearch.Controls.Add(rdoObjectSearchStart);
-            groupBoxClickDragReleaseObjectSearch.Location = new System.Drawing.Point(158, 96);
-            groupBoxClickDragReleaseObjectSearch.Margin = new System.Windows.Forms.Padding(2);
+            groupBoxClickDragReleaseObjectSearch.Location = new System.Drawing.Point(226, 160);
             groupBoxClickDragReleaseObjectSearch.Name = "groupBoxClickDragReleaseObjectSearch";
-            groupBoxClickDragReleaseObjectSearch.Padding = new System.Windows.Forms.Padding(2);
-            groupBoxClickDragReleaseObjectSearch.Size = new System.Drawing.Size(132, 126);
+            groupBoxClickDragReleaseObjectSearch.Size = new System.Drawing.Size(189, 210);
             groupBoxClickDragReleaseObjectSearch.TabIndex = 14;
             groupBoxClickDragReleaseObjectSearch.TabStop = false;
             groupBoxClickDragReleaseObjectSearch.Text = "Object Search";
@@ -4770,10 +4744,9 @@ namespace AppTestStudio
             // rdoObjectSearchNone
             // 
             rdoObjectSearchNone.AutoSize = true;
-            rdoObjectSearchNone.Location = new System.Drawing.Point(12, 70);
-            rdoObjectSearchNone.Margin = new System.Windows.Forms.Padding(2);
+            rdoObjectSearchNone.Location = new System.Drawing.Point(17, 117);
             rdoObjectSearchNone.Name = "rdoObjectSearchNone";
-            rdoObjectSearchNone.Size = new System.Drawing.Size(54, 19);
+            rdoObjectSearchNone.Size = new System.Drawing.Size(80, 29);
             rdoObjectSearchNone.TabIndex = 1;
             rdoObjectSearchNone.TabStop = true;
             rdoObjectSearchNone.Text = "None";
@@ -4783,10 +4756,9 @@ namespace AppTestStudio
             // rdoObjectSearchEnd
             // 
             rdoObjectSearchEnd.AutoSize = true;
-            rdoObjectSearchEnd.Location = new System.Drawing.Point(12, 48);
-            rdoObjectSearchEnd.Margin = new System.Windows.Forms.Padding(2);
+            rdoObjectSearchEnd.Location = new System.Drawing.Point(17, 80);
             rdoObjectSearchEnd.Name = "rdoObjectSearchEnd";
-            rdoObjectSearchEnd.Size = new System.Drawing.Size(67, 19);
+            rdoObjectSearchEnd.Size = new System.Drawing.Size(101, 29);
             rdoObjectSearchEnd.TabIndex = 1;
             rdoObjectSearchEnd.TabStop = true;
             rdoObjectSearchEnd.Text = "Use End";
@@ -4796,10 +4768,9 @@ namespace AppTestStudio
             // rdoObjectSearchStart
             // 
             rdoObjectSearchStart.AutoSize = true;
-            rdoObjectSearchStart.Location = new System.Drawing.Point(12, 24);
-            rdoObjectSearchStart.Margin = new System.Windows.Forms.Padding(2);
+            rdoObjectSearchStart.Location = new System.Drawing.Point(17, 40);
             rdoObjectSearchStart.Name = "rdoObjectSearchStart";
-            rdoObjectSearchStart.Size = new System.Drawing.Size(71, 19);
+            rdoObjectSearchStart.Size = new System.Drawing.Size(107, 29);
             rdoObjectSearchStart.TabIndex = 0;
             rdoObjectSearchStart.TabStop = true;
             rdoObjectSearchStart.Text = "Use Start";
@@ -4808,12 +4779,12 @@ namespace AppTestStudio
             // 
             // numericSwipeVelocity
             // 
-            numericSwipeVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            numericSwipeVelocity.Location = new System.Drawing.Point(145, 60);
-            numericSwipeVelocity.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericSwipeVelocity.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            numericSwipeVelocity.Location = new System.Drawing.Point(207, 100);
+            numericSwipeVelocity.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericSwipeVelocity.Maximum = new decimal(new int[] { 99999, 0, 0, 0 });
             numericSwipeVelocity.Name = "numericSwipeVelocity";
-            numericSwipeVelocity.Size = new System.Drawing.Size(83, 26);
+            numericSwipeVelocity.Size = new System.Drawing.Size(119, 35);
             numericSwipeVelocity.TabIndex = 10;
             numericSwipeVelocity.ValueChanged += numericSwipeVelocity_ValueChanged;
             // 
@@ -4824,15 +4795,15 @@ namespace AppTestStudio
             cmdRightSwipeProperties.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightSwipeProperties.FlatAppearance.BorderSize = 0;
             cmdRightSwipeProperties.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightSwipeProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightSwipeProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightSwipeProperties.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightSwipeProperties.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightSwipeProperties.ImageIndex = 22;
             cmdRightSwipeProperties.ImageList = ImageList1;
             cmdRightSwipeProperties.Location = new System.Drawing.Point(0, 0);
-            cmdRightSwipeProperties.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRightSwipeProperties.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRightSwipeProperties.Name = "cmdRightSwipeProperties";
-            cmdRightSwipeProperties.Size = new System.Drawing.Size(324, 25);
+            cmdRightSwipeProperties.Size = new System.Drawing.Size(463, 42);
             cmdRightSwipeProperties.TabIndex = 13;
             cmdRightSwipeProperties.Text = "Mouse Positioning";
             cmdRightSwipeProperties.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4847,39 +4818,36 @@ namespace AppTestStudio
             panelRightClickProperties.Controls.Add(NumericClickSpeed);
             panelRightClickProperties.Controls.Add(label54);
             panelRightClickProperties.Controls.Add(cmdRightClickProperties);
-            panelRightClickProperties.Location = new System.Drawing.Point(2, 1020);
-            panelRightClickProperties.Margin = new System.Windows.Forms.Padding(2);
+            panelRightClickProperties.Location = new System.Drawing.Point(3, 1690);
             panelRightClickProperties.Name = "panelRightClickProperties";
-            panelRightClickProperties.Size = new System.Drawing.Size(326, 100);
+            panelRightClickProperties.Size = new System.Drawing.Size(465, 165);
             panelRightClickProperties.TabIndex = 39;
             // 
             // label55
             // 
-            label55.Location = new System.Drawing.Point(10, 63);
-            label55.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label55.Location = new System.Drawing.Point(14, 105);
             label55.Name = "label55";
-            label55.Size = new System.Drawing.Size(284, 38);
+            label55.Size = new System.Drawing.Size(406, 63);
             label55.TabIndex = 15;
             label55.Text = "How long to hold the mouse down during a click event, some applications won't respond to 0.";
             // 
             // NumericClickSpeed
             // 
-            NumericClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            NumericClickSpeed.Location = new System.Drawing.Point(127, 28);
-            NumericClickSpeed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            NumericClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            NumericClickSpeed.Location = new System.Drawing.Point(181, 47);
+            NumericClickSpeed.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             NumericClickSpeed.Maximum = new decimal(new int[] { 999999, 0, 0, 0 });
             NumericClickSpeed.Name = "NumericClickSpeed";
-            NumericClickSpeed.Size = new System.Drawing.Size(74, 30);
+            NumericClickSpeed.Size = new System.Drawing.Size(106, 41);
             NumericClickSpeed.TabIndex = 14;
             NumericClickSpeed.ValueChanged += NumericClickSpeed_ValueChanged;
             // 
             // label54
             // 
             label54.AutoSize = true;
-            label54.Location = new System.Drawing.Point(10, 36);
-            label54.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label54.Location = new System.Drawing.Point(14, 60);
             label54.Name = "label54";
-            label54.Size = new System.Drawing.Size(109, 15);
+            label54.Size = new System.Drawing.Size(161, 25);
             label54.TabIndex = 13;
             label54.Text = "Click Duration (ms)";
             // 
@@ -4890,15 +4858,15 @@ namespace AppTestStudio
             cmdRightClickProperties.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightClickProperties.FlatAppearance.BorderSize = 0;
             cmdRightClickProperties.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightClickProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightClickProperties.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightClickProperties.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightClickProperties.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightClickProperties.ImageIndex = 22;
             cmdRightClickProperties.ImageList = ImageList1;
             cmdRightClickProperties.Location = new System.Drawing.Point(0, 0);
-            cmdRightClickProperties.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRightClickProperties.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRightClickProperties.Name = "cmdRightClickProperties";
-            cmdRightClickProperties.Size = new System.Drawing.Size(324, 25);
+            cmdRightClickProperties.Size = new System.Drawing.Size(463, 42);
             cmdRightClickProperties.TabIndex = 12;
             cmdRightClickProperties.Text = "Click Properties";
             cmdRightClickProperties.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4915,10 +4883,9 @@ namespace AppTestStudio
             panelRightLogic.Controls.Add(label31);
             panelRightLogic.Controls.Add(rdoOR);
             panelRightLogic.Controls.Add(rdoAnd);
-            panelRightLogic.Location = new System.Drawing.Point(2, 1124);
-            panelRightLogic.Margin = new System.Windows.Forms.Padding(2);
+            panelRightLogic.Location = new System.Drawing.Point(3, 1861);
             panelRightLogic.Name = "panelRightLogic";
-            panelRightLogic.Size = new System.Drawing.Size(326, 82);
+            panelRightLogic.Size = new System.Drawing.Size(465, 135);
             panelRightLogic.TabIndex = 35;
             // 
             // cmdRightLogic
@@ -4928,15 +4895,15 @@ namespace AppTestStudio
             cmdRightLogic.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightLogic.FlatAppearance.BorderSize = 0;
             cmdRightLogic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightLogic.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightLogic.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightLogic.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightLogic.ImageIndex = 22;
             cmdRightLogic.ImageList = ImageList1;
             cmdRightLogic.Location = new System.Drawing.Point(0, 0);
-            cmdRightLogic.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRightLogic.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRightLogic.Name = "cmdRightLogic";
-            cmdRightLogic.Size = new System.Drawing.Size(324, 25);
+            cmdRightLogic.Size = new System.Drawing.Size(463, 42);
             cmdRightLogic.TabIndex = 12;
             cmdRightLogic.Text = "Logic";
             cmdRightLogic.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -4948,20 +4915,20 @@ namespace AppTestStudio
             // 
             cboPoints.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboPoints.FormattingEnabled = true;
-            cboPoints.Location = new System.Drawing.Point(230, 54);
-            cboPoints.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboPoints.Location = new System.Drawing.Point(329, 90);
+            cboPoints.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboPoints.Name = "cboPoints";
-            cboPoints.Size = new System.Drawing.Size(72, 23);
+            cboPoints.Size = new System.Drawing.Size(101, 33);
             cboPoints.TabIndex = 2;
             cboPoints.TextChanged += cboPoints_TextChanged;
             // 
             // rdoCustom
             // 
             rdoCustom.AutoSize = true;
-            rdoCustom.Location = new System.Drawing.Point(106, 33);
-            rdoCustom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoCustom.Location = new System.Drawing.Point(151, 55);
+            rdoCustom.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoCustom.Name = "rdoCustom";
-            rdoCustom.Size = new System.Drawing.Size(67, 19);
+            rdoCustom.Size = new System.Drawing.Size(99, 29);
             rdoCustom.TabIndex = 5;
             rdoCustom.TabStop = true;
             rdoCustom.Text = "Custom";
@@ -4971,20 +4938,20 @@ namespace AppTestStudio
             // label31
             // 
             label31.AutoSize = true;
-            label31.Location = new System.Drawing.Point(230, 33);
-            label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label31.Location = new System.Drawing.Point(329, 55);
+            label31.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label31.Name = "label31";
-            label31.Size = new System.Drawing.Size(64, 15);
+            label31.Size = new System.Drawing.Size(95, 25);
             label31.TabIndex = 3;
             label31.Text = "Points +/-.";
             // 
             // rdoOR
             // 
             rdoOR.AutoSize = true;
-            rdoOR.Location = new System.Drawing.Point(59, 33);
-            rdoOR.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoOR.Location = new System.Drawing.Point(84, 55);
+            rdoOR.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoOR.Name = "rdoOR";
-            rdoOR.Size = new System.Drawing.Size(41, 19);
+            rdoOR.Size = new System.Drawing.Size(62, 29);
             rdoOR.TabIndex = 1;
             rdoOR.TabStop = true;
             rdoOR.Text = "OR";
@@ -4994,10 +4961,10 @@ namespace AppTestStudio
             // rdoAnd
             // 
             rdoAnd.AutoSize = true;
-            rdoAnd.Location = new System.Drawing.Point(7, 33);
-            rdoAnd.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            rdoAnd.Location = new System.Drawing.Point(10, 55);
+            rdoAnd.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             rdoAnd.Name = "rdoAnd";
-            rdoAnd.Size = new System.Drawing.Size(50, 19);
+            rdoAnd.Size = new System.Drawing.Size(75, 29);
             rdoAnd.TabIndex = 0;
             rdoAnd.TabStop = true;
             rdoAnd.Text = "AND";
@@ -5010,18 +4977,17 @@ namespace AppTestStudio
             panelRightCustomLogic.Controls.Add(cmdValidate);
             panelRightCustomLogic.Controls.Add(label37);
             panelRightCustomLogic.Controls.Add(txtCustomLogic);
-            panelRightCustomLogic.Location = new System.Drawing.Point(2, 1210);
-            panelRightCustomLogic.Margin = new System.Windows.Forms.Padding(2);
+            panelRightCustomLogic.Location = new System.Drawing.Point(3, 2002);
             panelRightCustomLogic.Name = "panelRightCustomLogic";
-            panelRightCustomLogic.Size = new System.Drawing.Size(325, 107);
+            panelRightCustomLogic.Size = new System.Drawing.Size(463, 177);
             panelRightCustomLogic.TabIndex = 36;
             // 
             // cmdValidate
             // 
-            cmdValidate.Location = new System.Drawing.Point(234, 1);
-            cmdValidate.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdValidate.Location = new System.Drawing.Point(334, 2);
+            cmdValidate.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdValidate.Name = "cmdValidate";
-            cmdValidate.Size = new System.Drawing.Size(68, 21);
+            cmdValidate.Size = new System.Drawing.Size(97, 35);
             cmdValidate.TabIndex = 7;
             cmdValidate.Text = "Validate";
             cmdValidate.UseVisualStyleBackColor = true;
@@ -5030,10 +4996,9 @@ namespace AppTestStudio
             // label37
             // 
             label37.AutoSize = true;
-            label37.Location = new System.Drawing.Point(7, 7);
-            label37.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label37.Location = new System.Drawing.Point(10, 12);
             label37.Name = "label37";
-            label37.Size = new System.Drawing.Size(201, 15);
+            label37.Size = new System.Drawing.Size(308, 25);
             label37.TabIndex = 7;
             label37.Text = "Custom Logic:  NOT 1 AND ( 2 OR 3 )";
             label37.Click += label37_Click;
@@ -5041,21 +5006,20 @@ namespace AppTestStudio
             // txtCustomLogic
             // 
             txtCustomLogic.Dock = System.Windows.Forms.DockStyle.Bottom;
-            txtCustomLogic.Location = new System.Drawing.Point(0, 23);
-            txtCustomLogic.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtCustomLogic.Location = new System.Drawing.Point(0, 41);
+            txtCustomLogic.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtCustomLogic.Multiline = true;
             txtCustomLogic.Name = "txtCustomLogic";
-            txtCustomLogic.Size = new System.Drawing.Size(323, 82);
+            txtCustomLogic.Size = new System.Drawing.Size(461, 134);
             txtCustomLogic.TabIndex = 6;
             txtCustomLogic.TextChanged += txtCustom_TextChanged;
             // 
             // panelRightPointGrid
             // 
             panelRightPointGrid.Controls.Add(dgv);
-            panelRightPointGrid.Location = new System.Drawing.Point(2, 1321);
-            panelRightPointGrid.Margin = new System.Windows.Forms.Padding(2);
+            panelRightPointGrid.Location = new System.Drawing.Point(3, 2185);
             panelRightPointGrid.Name = "panelRightPointGrid";
-            panelRightPointGrid.Size = new System.Drawing.Size(327, 178);
+            panelRightPointGrid.Size = new System.Drawing.Size(467, 297);
             panelRightPointGrid.TabIndex = 37;
             // 
             // dgv
@@ -5067,12 +5031,12 @@ namespace AppTestStudio
             dgv.Cursor = System.Windows.Forms.Cursors.Hand;
             dgv.Dock = System.Windows.Forms.DockStyle.Fill;
             dgv.Location = new System.Drawing.Point(0, 0);
-            dgv.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            dgv.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             dgv.Name = "dgv";
             dgv.RowHeadersVisible = false;
             dgv.RowHeadersWidth = 62;
             dgv.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgv.Size = new System.Drawing.Size(327, 178);
+            dgv.Size = new System.Drawing.Size(467, 297);
             dgv.TabIndex = 4;
             dgv.CellClick += dgv_CellClick;
             // 
@@ -5146,20 +5110,19 @@ namespace AppTestStudio
             panelRightInformation.Controls.Add(pictureBoxInformationWarning);
             panelRightInformation.Controls.Add(lblInformation);
             panelRightInformation.Controls.Add(cmdRightInformation);
-            panelRightInformation.Location = new System.Drawing.Point(2, 1503);
-            panelRightInformation.Margin = new System.Windows.Forms.Padding(2);
+            panelRightInformation.Location = new System.Drawing.Point(3, 2488);
             panelRightInformation.Name = "panelRightInformation";
-            panelRightInformation.Size = new System.Drawing.Size(326, 100);
+            panelRightInformation.Size = new System.Drawing.Size(465, 165);
             panelRightInformation.TabIndex = 41;
             // 
             // pictureBoxInformationWarning
             // 
             pictureBoxInformationWarning.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             pictureBoxInformationWarning.Image = Properties.Resources.StatusWarning_71x71;
-            pictureBoxInformationWarning.Location = new System.Drawing.Point(7, 36);
-            pictureBoxInformationWarning.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pictureBoxInformationWarning.Location = new System.Drawing.Point(10, 60);
+            pictureBoxInformationWarning.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             pictureBoxInformationWarning.Name = "pictureBoxInformationWarning";
-            pictureBoxInformationWarning.Size = new System.Drawing.Size(47, 39);
+            pictureBoxInformationWarning.Size = new System.Drawing.Size(67, 65);
             pictureBoxInformationWarning.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureBoxInformationWarning.TabIndex = 14;
             pictureBoxInformationWarning.TabStop = false;
@@ -5167,10 +5130,10 @@ namespace AppTestStudio
             // 
             // lblInformation
             // 
-            lblInformation.Location = new System.Drawing.Point(56, 36);
-            lblInformation.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblInformation.Location = new System.Drawing.Point(80, 60);
+            lblInformation.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblInformation.Name = "lblInformation";
-            lblInformation.Size = new System.Drawing.Size(261, 54);
+            lblInformation.Size = new System.Drawing.Size(373, 90);
             lblInformation.TabIndex = 13;
             lblInformation.Text = "lblInformation";
             // 
@@ -5181,15 +5144,15 @@ namespace AppTestStudio
             cmdRightInformation.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightInformation.FlatAppearance.BorderSize = 0;
             cmdRightInformation.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightInformation.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightInformation.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightInformation.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightInformation.ImageIndex = 22;
             cmdRightInformation.ImageList = ImageList1;
             cmdRightInformation.Location = new System.Drawing.Point(0, 0);
-            cmdRightInformation.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRightInformation.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRightInformation.Name = "cmdRightInformation";
-            cmdRightInformation.Size = new System.Drawing.Size(324, 25);
+            cmdRightInformation.Size = new System.Drawing.Size(463, 42);
             cmdRightInformation.TabIndex = 12;
             cmdRightInformation.Text = "Information";
             cmdRightInformation.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -5208,10 +5171,9 @@ namespace AppTestStudio
             FlowLayoutPanelColorEvent2.Controls.Add(panelRightDragMode);
             FlowLayoutPanelColorEvent2.Dock = System.Windows.Forms.DockStyle.Fill;
             FlowLayoutPanelColorEvent2.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            FlowLayoutPanelColorEvent2.Location = new System.Drawing.Point(1157, 2);
-            FlowLayoutPanelColorEvent2.Margin = new System.Windows.Forms.Padding(2);
+            FlowLayoutPanelColorEvent2.Location = new System.Drawing.Point(1653, 3);
             FlowLayoutPanelColorEvent2.Name = "FlowLayoutPanelColorEvent2";
-            FlowLayoutPanelColorEvent2.Size = new System.Drawing.Size(334, 798);
+            FlowLayoutPanelColorEvent2.Size = new System.Drawing.Size(477, 1331);
             FlowLayoutPanelColorEvent2.TabIndex = 33;
             FlowLayoutPanelColorEvent2.WrapContents = false;
             // 
@@ -5221,11 +5183,11 @@ namespace AppTestStudio
             cmdFlowLayoutPanelColorEvent2.Cursor = System.Windows.Forms.Cursors.Hand;
             cmdFlowLayoutPanelColorEvent2.FlatAppearance.BorderSize = 0;
             cmdFlowLayoutPanelColorEvent2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdFlowLayoutPanelColorEvent2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            cmdFlowLayoutPanelColorEvent2.Location = new System.Drawing.Point(4, 0);
-            cmdFlowLayoutPanelColorEvent2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            cmdFlowLayoutPanelColorEvent2.Font = new System.Drawing.Font("Microsoft Sans Serif", 7F);
+            cmdFlowLayoutPanelColorEvent2.Location = new System.Drawing.Point(6, 0);
+            cmdFlowLayoutPanelColorEvent2.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             cmdFlowLayoutPanelColorEvent2.Name = "cmdFlowLayoutPanelColorEvent2";
-            cmdFlowLayoutPanelColorEvent2.Size = new System.Drawing.Size(327, 21);
+            cmdFlowLayoutPanelColorEvent2.Size = new System.Drawing.Size(467, 35);
             cmdFlowLayoutPanelColorEvent2.TabIndex = 2;
             cmdFlowLayoutPanelColorEvent2.Text = "<<  ";
             cmdFlowLayoutPanelColorEvent2.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -5238,10 +5200,10 @@ namespace AppTestStudio
             panelRightColorAtPointer.Controls.Add(cmdRightColorAtPointer);
             panelRightColorAtPointer.Controls.Add(PictureBox2);
             panelRightColorAtPointer.Controls.Add(PanelSelectedColor);
-            panelRightColorAtPointer.Location = new System.Drawing.Point(4, 24);
-            panelRightColorAtPointer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelRightColorAtPointer.Location = new System.Drawing.Point(6, 40);
+            panelRightColorAtPointer.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             panelRightColorAtPointer.Name = "panelRightColorAtPointer";
-            panelRightColorAtPointer.Size = new System.Drawing.Size(326, 251);
+            panelRightColorAtPointer.Size = new System.Drawing.Size(465, 417);
             panelRightColorAtPointer.TabIndex = 0;
             // 
             // cmdRightColorAtPointer
@@ -5251,15 +5213,15 @@ namespace AppTestStudio
             cmdRightColorAtPointer.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightColorAtPointer.FlatAppearance.BorderSize = 0;
             cmdRightColorAtPointer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightColorAtPointer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightColorAtPointer.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightColorAtPointer.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightColorAtPointer.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightColorAtPointer.ImageIndex = 22;
             cmdRightColorAtPointer.ImageList = ImageList1;
             cmdRightColorAtPointer.Location = new System.Drawing.Point(0, 0);
-            cmdRightColorAtPointer.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRightColorAtPointer.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRightColorAtPointer.Name = "cmdRightColorAtPointer";
-            cmdRightColorAtPointer.Size = new System.Drawing.Size(324, 27);
+            cmdRightColorAtPointer.Size = new System.Drawing.Size(463, 45);
             cmdRightColorAtPointer.TabIndex = 0;
             cmdRightColorAtPointer.Text = "Color At Pointer";
             cmdRightColorAtPointer.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -5271,10 +5233,10 @@ namespace AppTestStudio
             // 
             PictureBox2.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             PictureBox2.Image = (System.Drawing.Image)resources.GetObject("PictureBox2.Image");
-            PictureBox2.Location = new System.Drawing.Point(72, 27);
-            PictureBox2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PictureBox2.Location = new System.Drawing.Point(103, 45);
+            PictureBox2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PictureBox2.Name = "PictureBox2";
-            PictureBox2.Size = new System.Drawing.Size(187, 185);
+            PictureBox2.Size = new System.Drawing.Size(267, 308);
             PictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureBox2.TabIndex = 0;
             PictureBox2.TabStop = false;
@@ -5284,20 +5246,20 @@ namespace AppTestStudio
             PanelSelectedColor.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             PanelSelectedColor.Controls.Add(lblRHSColor);
             PanelSelectedColor.Controls.Add(lblRHSXY);
-            PanelSelectedColor.Location = new System.Drawing.Point(72, 210);
-            PanelSelectedColor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelSelectedColor.Location = new System.Drawing.Point(103, 350);
+            PanelSelectedColor.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelSelectedColor.Name = "PanelSelectedColor";
-            PanelSelectedColor.Size = new System.Drawing.Size(187, 42);
+            PanelSelectedColor.Size = new System.Drawing.Size(267, 70);
             PanelSelectedColor.TabIndex = 1;
             // 
             // lblRHSColor
             // 
             lblRHSColor.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblRHSColor.AutoSize = true;
-            lblRHSColor.Location = new System.Drawing.Point(5, 23);
-            lblRHSColor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblRHSColor.Location = new System.Drawing.Point(7, 38);
+            lblRHSColor.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblRHSColor.Name = "lblRHSColor";
-            lblRHSColor.Size = new System.Drawing.Size(71, 15);
+            lblRHSColor.Size = new System.Drawing.Size(105, 25);
             lblRHSColor.TabIndex = 2;
             lblRHSColor.Text = "[lblColorXY]";
             // 
@@ -5305,10 +5267,10 @@ namespace AppTestStudio
             // 
             lblRHSXY.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblRHSXY.AutoSize = true;
-            lblRHSXY.Location = new System.Drawing.Point(6, 8);
-            lblRHSXY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblRHSXY.Location = new System.Drawing.Point(9, 13);
+            lblRHSXY.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblRHSXY.Name = "lblRHSXY";
-            lblRHSXY.Size = new System.Drawing.Size(64, 15);
+            lblRHSXY.Size = new System.Drawing.Size(96, 25);
             lblRHSXY.TabIndex = 3;
             lblRHSXY.Text = "[lblRHSXY]";
             // 
@@ -5320,10 +5282,10 @@ namespace AppTestStudio
             panelRightLimit.Controls.Add(lblLimitWaitType);
             panelRightLimit.Controls.Add(chkUseLimit);
             panelRightLimit.Controls.Add(cboWaitType);
-            panelRightLimit.Location = new System.Drawing.Point(4, 281);
-            panelRightLimit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelRightLimit.Location = new System.Drawing.Point(6, 467);
+            panelRightLimit.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             panelRightLimit.Name = "panelRightLimit";
-            panelRightLimit.Size = new System.Drawing.Size(326, 137);
+            panelRightLimit.Size = new System.Drawing.Size(465, 227);
             panelRightLimit.TabIndex = 31;
             // 
             // GroupBox7
@@ -5334,21 +5296,21 @@ namespace AppTestStudio
             GroupBox7.Controls.Add(lblLimitTimeLabel);
             GroupBox7.Controls.Add(lblLimitIterationsLabel);
             GroupBox7.Controls.Add(chkWaitFirst);
-            GroupBox7.Location = new System.Drawing.Point(133, 33);
-            GroupBox7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            GroupBox7.Location = new System.Drawing.Point(190, 55);
+            GroupBox7.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             GroupBox7.Name = "GroupBox7";
-            GroupBox7.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            GroupBox7.Size = new System.Drawing.Size(158, 97);
+            GroupBox7.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            GroupBox7.Size = new System.Drawing.Size(226, 162);
             GroupBox7.TabIndex = 30;
             GroupBox7.TabStop = false;
             // 
             // chkLimitRepeats
             // 
             chkLimitRepeats.AutoSize = true;
-            chkLimitRepeats.Location = new System.Drawing.Point(10, 73);
-            chkLimitRepeats.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkLimitRepeats.Location = new System.Drawing.Point(14, 122);
+            chkLimitRepeats.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkLimitRepeats.Name = "chkLimitRepeats";
-            chkLimitRepeats.Size = new System.Drawing.Size(67, 19);
+            chkLimitRepeats.Size = new System.Drawing.Size(100, 29);
             chkLimitRepeats.TabIndex = 31;
             chkLimitRepeats.Text = "Repeats";
             chkLimitRepeats.UseVisualStyleBackColor = true;
@@ -5357,10 +5319,10 @@ namespace AppTestStudio
             // lnkLimitTime
             // 
             lnkLimitTime.AutoSize = true;
-            lnkLimitTime.Location = new System.Drawing.Point(69, 50);
-            lnkLimitTime.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lnkLimitTime.Location = new System.Drawing.Point(99, 83);
+            lnkLimitTime.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lnkLimitTime.Name = "lnkLimitTime";
-            lnkLimitTime.Size = new System.Drawing.Size(63, 15);
+            lnkLimitTime.Size = new System.Drawing.Size(94, 25);
             lnkLimitTime.TabIndex = 30;
             lnkLimitTime.TabStop = true;
             lnkLimitTime.Text = "LinkLabel1";
@@ -5368,40 +5330,40 @@ namespace AppTestStudio
             // 
             // numIterations
             // 
-            numIterations.Location = new System.Drawing.Point(66, 20);
-            numIterations.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numIterations.Location = new System.Drawing.Point(94, 33);
+            numIterations.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numIterations.Name = "numIterations";
-            numIterations.Size = new System.Drawing.Size(80, 23);
+            numIterations.Size = new System.Drawing.Size(114, 31);
             numIterations.TabIndex = 29;
             numIterations.ValueChanged += numIterations_ValueChanged;
             // 
             // lblLimitTimeLabel
             // 
             lblLimitTimeLabel.AutoSize = true;
-            lblLimitTimeLabel.Location = new System.Drawing.Point(6, 48);
-            lblLimitTimeLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblLimitTimeLabel.Location = new System.Drawing.Point(9, 80);
+            lblLimitTimeLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblLimitTimeLabel.Name = "lblLimitTimeLabel";
-            lblLimitTimeLabel.Size = new System.Drawing.Size(36, 15);
+            lblLimitTimeLabel.Size = new System.Drawing.Size(54, 25);
             lblLimitTimeLabel.TabIndex = 28;
             lblLimitTimeLabel.Text = "Time:";
             // 
             // lblLimitIterationsLabel
             // 
             lblLimitIterationsLabel.AutoSize = true;
-            lblLimitIterationsLabel.Location = new System.Drawing.Point(6, 24);
-            lblLimitIterationsLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblLimitIterationsLabel.Location = new System.Drawing.Point(9, 40);
+            lblLimitIterationsLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblLimitIterationsLabel.Name = "lblLimitIterationsLabel";
-            lblLimitIterationsLabel.Size = new System.Drawing.Size(59, 15);
+            lblLimitIterationsLabel.Size = new System.Drawing.Size(90, 25);
             lblLimitIterationsLabel.TabIndex = 28;
             lblLimitIterationsLabel.Text = "Iterations:";
             // 
             // chkWaitFirst
             // 
             chkWaitFirst.AutoSize = true;
-            chkWaitFirst.Location = new System.Drawing.Point(6, 0);
-            chkWaitFirst.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkWaitFirst.Location = new System.Drawing.Point(9, 0);
+            chkWaitFirst.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkWaitFirst.Name = "chkWaitFirst";
-            chkWaitFirst.Size = new System.Drawing.Size(75, 19);
+            chkWaitFirst.Size = new System.Drawing.Size(111, 29);
             chkWaitFirst.TabIndex = 4;
             chkWaitFirst.Text = "Wait First";
             chkWaitFirst.UseVisualStyleBackColor = true;
@@ -5414,15 +5376,15 @@ namespace AppTestStudio
             cmdRightLimit.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightLimit.FlatAppearance.BorderSize = 0;
             cmdRightLimit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightLimit.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightLimit.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightLimit.ImageIndex = 22;
             cmdRightLimit.ImageList = ImageList1;
             cmdRightLimit.Location = new System.Drawing.Point(0, 0);
-            cmdRightLimit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRightLimit.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRightLimit.Name = "cmdRightLimit";
-            cmdRightLimit.Size = new System.Drawing.Size(324, 25);
+            cmdRightLimit.Size = new System.Drawing.Size(463, 42);
             cmdRightLimit.TabIndex = 8;
             cmdRightLimit.Text = "Limit";
             cmdRightLimit.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -5433,20 +5395,20 @@ namespace AppTestStudio
             // lblLimitWaitType
             // 
             lblLimitWaitType.AutoSize = true;
-            lblLimitWaitType.Location = new System.Drawing.Point(12, 60);
-            lblLimitWaitType.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblLimitWaitType.Location = new System.Drawing.Point(17, 100);
+            lblLimitWaitType.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblLimitWaitType.Name = "lblLimitWaitType";
-            lblLimitWaitType.Size = new System.Drawing.Size(61, 15);
+            lblLimitWaitType.Size = new System.Drawing.Size(92, 25);
             lblLimitWaitType.TabIndex = 29;
             lblLimitWaitType.Text = "Limit Type";
             // 
             // chkUseLimit
             // 
             chkUseLimit.AutoSize = true;
-            chkUseLimit.Location = new System.Drawing.Point(13, 36);
-            chkUseLimit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkUseLimit.Location = new System.Drawing.Point(19, 60);
+            chkUseLimit.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkUseLimit.Name = "chkUseLimit";
-            chkUseLimit.Size = new System.Drawing.Size(96, 19);
+            chkUseLimit.Size = new System.Drawing.Size(141, 29);
             chkUseLimit.TabIndex = 3;
             chkUseLimit.Text = "Enable Limits";
             chkUseLimit.UseVisualStyleBackColor = true;
@@ -5457,10 +5419,10 @@ namespace AppTestStudio
             cboWaitType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboWaitType.FormattingEnabled = true;
             cboWaitType.Items.AddRange(new object[] { "Iteration", "Time", "Once Per Session" });
-            cboWaitType.Location = new System.Drawing.Point(13, 78);
-            cboWaitType.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboWaitType.Location = new System.Drawing.Point(19, 130);
+            cboWaitType.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboWaitType.Name = "cboWaitType";
-            cboWaitType.Size = new System.Drawing.Size(104, 23);
+            cboWaitType.Size = new System.Drawing.Size(147, 33);
             cboWaitType.TabIndex = 28;
             cboWaitType.SelectedIndexChanged += cboWaitType_SelectedIndexChanged;
             // 
@@ -5474,19 +5436,19 @@ namespace AppTestStudio
             panelRightAnchor.Controls.Add(cmdAnchorBottom);
             panelRightAnchor.Controls.Add(cmdAnchorTop);
             panelRightAnchor.Controls.Add(cmdAnchorNone);
-            panelRightAnchor.Location = new System.Drawing.Point(4, 424);
-            panelRightAnchor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelRightAnchor.Location = new System.Drawing.Point(6, 704);
+            panelRightAnchor.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             panelRightAnchor.Name = "panelRightAnchor";
-            panelRightAnchor.Size = new System.Drawing.Size(326, 149);
+            panelRightAnchor.Size = new System.Drawing.Size(465, 247);
             panelRightAnchor.TabIndex = 34;
             // 
             // cmdAnchorDefault
             // 
             cmdAnchorDefault.Cursor = System.Windows.Forms.Cursors.Hand;
-            cmdAnchorDefault.Location = new System.Drawing.Point(6, 31);
-            cmdAnchorDefault.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdAnchorDefault.Location = new System.Drawing.Point(9, 52);
+            cmdAnchorDefault.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdAnchorDefault.Name = "cmdAnchorDefault";
-            cmdAnchorDefault.Size = new System.Drawing.Size(70, 27);
+            cmdAnchorDefault.Size = new System.Drawing.Size(100, 45);
             cmdAnchorDefault.TabIndex = 13;
             cmdAnchorDefault.Text = "Default";
             cmdAnchorDefault.UseVisualStyleBackColor = true;
@@ -5499,15 +5461,15 @@ namespace AppTestStudio
             cmdRightAnchor.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightAnchor.FlatAppearance.BorderSize = 0;
             cmdRightAnchor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightAnchor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightAnchor.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightAnchor.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightAnchor.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightAnchor.ImageIndex = 22;
             cmdRightAnchor.ImageList = ImageList1;
             cmdRightAnchor.Location = new System.Drawing.Point(0, 0);
-            cmdRightAnchor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRightAnchor.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRightAnchor.Name = "cmdRightAnchor";
-            cmdRightAnchor.Size = new System.Drawing.Size(324, 25);
+            cmdRightAnchor.Size = new System.Drawing.Size(463, 42);
             cmdRightAnchor.TabIndex = 9;
             cmdRightAnchor.Text = "Anchor";
             cmdRightAnchor.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -5518,10 +5480,10 @@ namespace AppTestStudio
             // cmdAnchorLeft
             // 
             cmdAnchorLeft.Cursor = System.Windows.Forms.Cursors.Hand;
-            cmdAnchorLeft.Location = new System.Drawing.Point(0, 81);
-            cmdAnchorLeft.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdAnchorLeft.Location = new System.Drawing.Point(0, 135);
+            cmdAnchorLeft.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdAnchorLeft.Name = "cmdAnchorLeft";
-            cmdAnchorLeft.Size = new System.Drawing.Size(111, 12);
+            cmdAnchorLeft.Size = new System.Drawing.Size(159, 20);
             cmdAnchorLeft.TabIndex = 12;
             cmdAnchorLeft.UseVisualStyleBackColor = true;
             cmdAnchorLeft.Click += cmdAnchorLeft_Click;
@@ -5529,10 +5491,10 @@ namespace AppTestStudio
             // cmdAnchorRight
             // 
             cmdAnchorRight.Cursor = System.Windows.Forms.Cursors.Hand;
-            cmdAnchorRight.Location = new System.Drawing.Point(192, 81);
-            cmdAnchorRight.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdAnchorRight.Location = new System.Drawing.Point(274, 135);
+            cmdAnchorRight.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdAnchorRight.Name = "cmdAnchorRight";
-            cmdAnchorRight.Size = new System.Drawing.Size(113, 12);
+            cmdAnchorRight.Size = new System.Drawing.Size(161, 20);
             cmdAnchorRight.TabIndex = 12;
             cmdAnchorRight.UseVisualStyleBackColor = true;
             cmdAnchorRight.Click += cmdAnchorRight_Click;
@@ -5540,10 +5502,10 @@ namespace AppTestStudio
             // cmdAnchorBottom
             // 
             cmdAnchorBottom.Cursor = System.Windows.Forms.Cursors.Hand;
-            cmdAnchorBottom.Location = new System.Drawing.Point(147, 102);
-            cmdAnchorBottom.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdAnchorBottom.Location = new System.Drawing.Point(210, 170);
+            cmdAnchorBottom.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdAnchorBottom.Name = "cmdAnchorBottom";
-            cmdAnchorBottom.Size = new System.Drawing.Size(12, 47);
+            cmdAnchorBottom.Size = new System.Drawing.Size(17, 78);
             cmdAnchorBottom.TabIndex = 11;
             cmdAnchorBottom.UseVisualStyleBackColor = true;
             cmdAnchorBottom.Click += cmdAnchorBottom_Click;
@@ -5551,10 +5513,10 @@ namespace AppTestStudio
             // cmdAnchorTop
             // 
             cmdAnchorTop.Cursor = System.Windows.Forms.Cursors.Hand;
-            cmdAnchorTop.Location = new System.Drawing.Point(147, 23);
-            cmdAnchorTop.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdAnchorTop.Location = new System.Drawing.Point(210, 38);
+            cmdAnchorTop.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdAnchorTop.Name = "cmdAnchorTop";
-            cmdAnchorTop.Size = new System.Drawing.Size(12, 47);
+            cmdAnchorTop.Size = new System.Drawing.Size(17, 78);
             cmdAnchorTop.TabIndex = 11;
             cmdAnchorTop.UseVisualStyleBackColor = true;
             cmdAnchorTop.Click += cmdAnchorTop_Click;
@@ -5562,10 +5524,10 @@ namespace AppTestStudio
             // cmdAnchorNone
             // 
             cmdAnchorNone.Cursor = System.Windows.Forms.Cursors.Hand;
-            cmdAnchorNone.Location = new System.Drawing.Point(107, 68);
-            cmdAnchorNone.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdAnchorNone.Location = new System.Drawing.Point(153, 113);
+            cmdAnchorNone.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdAnchorNone.Name = "cmdAnchorNone";
-            cmdAnchorNone.Size = new System.Drawing.Size(88, 37);
+            cmdAnchorNone.Size = new System.Drawing.Size(126, 62);
             cmdAnchorNone.TabIndex = 10;
             cmdAnchorNone.Text = "None";
             cmdAnchorNone.UseVisualStyleBackColor = true;
@@ -5581,69 +5543,68 @@ namespace AppTestStudio
             panelRightOffset.Controls.Add(Label49);
             panelRightOffset.Controls.Add(Label48);
             panelRightOffset.Controls.Add(cmdRightOffset);
-            panelRightOffset.Location = new System.Drawing.Point(2, 578);
-            panelRightOffset.Margin = new System.Windows.Forms.Padding(2);
+            panelRightOffset.Location = new System.Drawing.Point(3, 959);
             panelRightOffset.Name = "panelRightOffset";
-            panelRightOffset.Size = new System.Drawing.Size(326, 97);
+            panelRightOffset.Size = new System.Drawing.Size(465, 160);
             panelRightOffset.TabIndex = 32;
             // 
             // lblYOffsetRange
             // 
-            lblYOffsetRange.Location = new System.Drawing.Point(178, 69);
-            lblYOffsetRange.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblYOffsetRange.Location = new System.Drawing.Point(254, 115);
+            lblYOffsetRange.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblYOffsetRange.Name = "lblYOffsetRange";
-            lblYOffsetRange.Size = new System.Drawing.Size(91, 22);
+            lblYOffsetRange.Size = new System.Drawing.Size(130, 37);
             lblYOffsetRange.TabIndex = 9;
             lblYOffsetRange.Text = "lblYOffsetRange";
             lblYOffsetRange.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // lblXOffsetRange
             // 
-            lblXOffsetRange.Location = new System.Drawing.Point(22, 69);
-            lblXOffsetRange.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblXOffsetRange.Location = new System.Drawing.Point(31, 115);
+            lblXOffsetRange.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblXOffsetRange.Name = "lblXOffsetRange";
-            lblXOffsetRange.Size = new System.Drawing.Size(99, 18);
+            lblXOffsetRange.Size = new System.Drawing.Size(141, 30);
             lblXOffsetRange.TabIndex = 9;
             lblXOffsetRange.Text = "lblXOffsetRange";
             lblXOffsetRange.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // NumericYOffset
             // 
-            NumericYOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            NumericYOffset.Location = new System.Drawing.Point(209, 33);
-            NumericYOffset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            NumericYOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            NumericYOffset.Location = new System.Drawing.Point(299, 55);
+            NumericYOffset.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             NumericYOffset.Name = "NumericYOffset";
-            NumericYOffset.Size = new System.Drawing.Size(76, 30);
+            NumericYOffset.Size = new System.Drawing.Size(109, 41);
             NumericYOffset.TabIndex = 8;
             NumericYOffset.ValueChanged += NumericYOffset_ValueChanged;
             // 
             // NumericXOffset
             // 
-            NumericXOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            NumericXOffset.Location = new System.Drawing.Point(56, 33);
-            NumericXOffset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            NumericXOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            NumericXOffset.Location = new System.Drawing.Point(80, 55);
+            NumericXOffset.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             NumericXOffset.Name = "NumericXOffset";
-            NumericXOffset.Size = new System.Drawing.Size(74, 30);
+            NumericXOffset.Size = new System.Drawing.Size(106, 41);
             NumericXOffset.TabIndex = 8;
             NumericXOffset.ValueChanged += NumericXOffset_ValueChanged;
             // 
             // Label49
             // 
             Label49.AutoSize = true;
-            Label49.Location = new System.Drawing.Point(158, 40);
-            Label49.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label49.Location = new System.Drawing.Point(226, 67);
+            Label49.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label49.Name = "Label49";
-            Label49.Size = new System.Drawing.Size(49, 15);
+            Label49.Size = new System.Drawing.Size(76, 25);
             Label49.TabIndex = 7;
             Label49.Text = "Y Offset";
             // 
             // Label48
             // 
             Label48.AutoSize = true;
-            Label48.Location = new System.Drawing.Point(4, 40);
-            Label48.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label48.Location = new System.Drawing.Point(6, 67);
+            Label48.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label48.Name = "Label48";
-            Label48.Size = new System.Drawing.Size(49, 15);
+            Label48.Size = new System.Drawing.Size(77, 25);
             Label48.TabIndex = 7;
             Label48.Text = "X Offset";
             // 
@@ -5654,15 +5615,15 @@ namespace AppTestStudio
             cmdRightOffset.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightOffset.FlatAppearance.BorderSize = 0;
             cmdRightOffset.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightOffset.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightOffset.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightOffset.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightOffset.ImageIndex = 22;
             cmdRightOffset.ImageList = ImageList1;
             cmdRightOffset.Location = new System.Drawing.Point(0, 0);
-            cmdRightOffset.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRightOffset.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRightOffset.Name = "cmdRightOffset";
-            cmdRightOffset.Size = new System.Drawing.Size(324, 25);
+            cmdRightOffset.Size = new System.Drawing.Size(463, 42);
             cmdRightOffset.TabIndex = 9;
             cmdRightOffset.Text = "Offset";
             cmdRightOffset.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -5674,10 +5635,9 @@ namespace AppTestStudio
             // 
             panelRightDragMode.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             panelRightDragMode.Controls.Add(cmdRightDragMode);
-            panelRightDragMode.Location = new System.Drawing.Point(2, 679);
-            panelRightDragMode.Margin = new System.Windows.Forms.Padding(2);
+            panelRightDragMode.Location = new System.Drawing.Point(3, 1125);
             panelRightDragMode.Name = "panelRightDragMode";
-            panelRightDragMode.Size = new System.Drawing.Size(306, 189);
+            panelRightDragMode.Size = new System.Drawing.Size(436, 314);
             panelRightDragMode.TabIndex = 33;
             panelRightDragMode.Visible = false;
             // 
@@ -5688,15 +5648,15 @@ namespace AppTestStudio
             cmdRightDragMode.Dock = System.Windows.Forms.DockStyle.Top;
             cmdRightDragMode.FlatAppearance.BorderSize = 0;
             cmdRightDragMode.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            cmdRightDragMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            cmdRightDragMode.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold);
             cmdRightDragMode.ForeColor = System.Drawing.SystemColors.ButtonFace;
             cmdRightDragMode.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             cmdRightDragMode.ImageIndex = 22;
             cmdRightDragMode.ImageList = ImageList1;
             cmdRightDragMode.Location = new System.Drawing.Point(0, 0);
-            cmdRightDragMode.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRightDragMode.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRightDragMode.Name = "cmdRightDragMode";
-            cmdRightDragMode.Size = new System.Drawing.Size(304, 25);
+            cmdRightDragMode.Size = new System.Drawing.Size(434, 42);
             cmdRightDragMode.TabIndex = 10;
             cmdRightDragMode.Text = "Drag Mode";
             cmdRightDragMode.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -5712,10 +5672,10 @@ namespace AppTestStudio
             PanelGame.Controls.Add(label62);
             PanelGame.Controls.Add(label18);
             PanelGame.Controls.Add(label22);
-            PanelGame.Location = new System.Drawing.Point(37, 67);
-            PanelGame.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelGame.Location = new System.Drawing.Point(53, 112);
+            PanelGame.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelGame.Name = "PanelGame";
-            PanelGame.Size = new System.Drawing.Size(1002, 692);
+            PanelGame.Size = new System.Drawing.Size(1431, 1153);
             PanelGame.TabIndex = 13;
             // 
             // flowLayoutPanel1
@@ -5729,10 +5689,10 @@ namespace AppTestStudio
             flowLayoutPanel1.Controls.Add(grpBlue);
             flowLayoutPanel1.Controls.Add(groupBox11);
             flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            flowLayoutPanel1.Location = new System.Drawing.Point(10, 83);
-            flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            flowLayoutPanel1.Location = new System.Drawing.Point(14, 138);
+            flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new System.Drawing.Size(988, 602);
+            flowLayoutPanel1.Size = new System.Drawing.Size(1411, 1003);
             flowLayoutPanel1.TabIndex = 45;
             flowLayoutPanel1.WrapContents = false;
             // 
@@ -5743,11 +5703,11 @@ namespace AppTestStudio
             groupBox18.Controls.Add(grpActiveMouseSettings);
             groupBox18.Controls.Add(label70);
             groupBox18.Controls.Add(cboMouseMode);
-            groupBox18.Location = new System.Drawing.Point(4, 3);
-            groupBox18.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox18.Location = new System.Drawing.Point(6, 5);
+            groupBox18.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox18.Name = "groupBox18";
-            groupBox18.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox18.Size = new System.Drawing.Size(948, 261);
+            groupBox18.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox18.Size = new System.Drawing.Size(1354, 435);
             groupBox18.TabIndex = 50;
             groupBox18.TabStop = false;
             groupBox18.Text = "Mouse";
@@ -5756,32 +5716,29 @@ namespace AppTestStudio
             // 
             groupBox2.Controls.Add(label42);
             groupBox2.Controls.Add(numericApplicationDefaultClickSpeed);
-            groupBox2.Location = new System.Drawing.Point(15, 52);
-            groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            groupBox2.Location = new System.Drawing.Point(21, 87);
             groupBox2.Name = "groupBox2";
-            groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            groupBox2.Size = new System.Drawing.Size(430, 66);
+            groupBox2.Size = new System.Drawing.Size(614, 110);
             groupBox2.TabIndex = 34;
             groupBox2.TabStop = false;
             groupBox2.Text = "Default Click Speed (ms)";
             // 
             // label42
             // 
-            label42.Location = new System.Drawing.Point(139, 16);
-            label42.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label42.Location = new System.Drawing.Point(199, 27);
             label42.Name = "label42";
-            label42.Size = new System.Drawing.Size(244, 45);
+            label42.Size = new System.Drawing.Size(349, 75);
             label42.TabIndex = 34;
             label42.Text = "How long to hold the mouse down during a click event.  Some applications do not respond to 0ms.";
             // 
             // numericApplicationDefaultClickSpeed
             // 
-            numericApplicationDefaultClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            numericApplicationDefaultClickSpeed.Location = new System.Drawing.Point(14, 21);
-            numericApplicationDefaultClickSpeed.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericApplicationDefaultClickSpeed.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            numericApplicationDefaultClickSpeed.Location = new System.Drawing.Point(20, 35);
+            numericApplicationDefaultClickSpeed.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericApplicationDefaultClickSpeed.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             numericApplicationDefaultClickSpeed.Name = "numericApplicationDefaultClickSpeed";
-            numericApplicationDefaultClickSpeed.Size = new System.Drawing.Size(110, 30);
+            numericApplicationDefaultClickSpeed.Size = new System.Drawing.Size(157, 41);
             numericApplicationDefaultClickSpeed.TabIndex = 33;
             numericApplicationDefaultClickSpeed.ValueChanged += numericApplicationDefaultClickSpeed_ValueChanged;
             // 
@@ -5791,11 +5748,11 @@ namespace AppTestStudio
             groupBox16.Controls.Add(numericMouseSpeedPixelsPerSecond);
             groupBox16.Controls.Add(groupBox17);
             groupBox16.Controls.Add(label87);
-            groupBox16.Location = new System.Drawing.Point(456, 115);
-            groupBox16.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox16.Location = new System.Drawing.Point(651, 192);
+            groupBox16.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox16.Name = "groupBox16";
-            groupBox16.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox16.Size = new System.Drawing.Size(484, 141);
+            groupBox16.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox16.Size = new System.Drawing.Size(691, 235);
             groupBox16.TabIndex = 45;
             groupBox16.TabStop = false;
             groupBox16.Text = "Mouse Movement Speed";
@@ -5803,21 +5760,21 @@ namespace AppTestStudio
             // label92
             // 
             label92.AutoSize = true;
-            label92.Location = new System.Drawing.Point(250, 32);
-            label92.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label92.Location = new System.Drawing.Point(357, 53);
+            label92.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label92.Name = "label92";
-            label92.Size = new System.Drawing.Size(68, 15);
+            label92.Size = new System.Drawing.Size(109, 25);
             label92.TabIndex = 3;
             label92.Text = "(1 to 50000)";
             // 
             // numericMouseSpeedPixelsPerSecond
             // 
-            numericMouseSpeedPixelsPerSecond.Location = new System.Drawing.Point(127, 25);
-            numericMouseSpeedPixelsPerSecond.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericMouseSpeedPixelsPerSecond.Location = new System.Drawing.Point(181, 42);
+            numericMouseSpeedPixelsPerSecond.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericMouseSpeedPixelsPerSecond.Maximum = new decimal(new int[] { 50000, 0, 0, 0 });
             numericMouseSpeedPixelsPerSecond.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
             numericMouseSpeedPixelsPerSecond.Name = "numericMouseSpeedPixelsPerSecond";
-            numericMouseSpeedPixelsPerSecond.Size = new System.Drawing.Size(114, 23);
+            numericMouseSpeedPixelsPerSecond.Size = new System.Drawing.Size(163, 31);
             numericMouseSpeedPixelsPerSecond.TabIndex = 2;
             numericMouseSpeedPixelsPerSecond.Value = new decimal(new int[] { 1, 0, 0, 0 });
             numericMouseSpeedPixelsPerSecond.ValueChanged += numericMouseSpeedPixelsPerSecond_ValueChanged;
@@ -5830,11 +5787,11 @@ namespace AppTestStudio
             groupBox17.Controls.Add(numericMouseSpeedVelocityVariantPercentMax);
             groupBox17.Controls.Add(label88);
             groupBox17.Controls.Add(label89);
-            groupBox17.Location = new System.Drawing.Point(15, 57);
-            groupBox17.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox17.Location = new System.Drawing.Point(21, 95);
+            groupBox17.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox17.Name = "groupBox17";
-            groupBox17.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox17.Size = new System.Drawing.Size(281, 77);
+            groupBox17.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox17.Size = new System.Drawing.Size(401, 128);
             groupBox17.TabIndex = 1;
             groupBox17.TabStop = false;
             groupBox17.Text = "Random Speed Modification Per Action";
@@ -5842,71 +5799,71 @@ namespace AppTestStudio
             // label91
             // 
             label91.AutoSize = true;
-            label91.Location = new System.Drawing.Point(146, 52);
-            label91.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label91.Location = new System.Drawing.Point(209, 87);
+            label91.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label91.Name = "label91";
-            label91.Size = new System.Drawing.Size(61, 15);
+            label91.Size = new System.Drawing.Size(96, 25);
             label91.TabIndex = 2;
             label91.Text = "(-500 to 0)";
             // 
             // label90
             // 
             label90.AutoSize = true;
-            label90.Location = new System.Drawing.Point(146, 25);
-            label90.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label90.Location = new System.Drawing.Point(209, 42);
+            label90.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label90.Name = "label90";
-            label90.Size = new System.Drawing.Size(56, 15);
+            label90.Size = new System.Drawing.Size(89, 25);
             label90.TabIndex = 2;
             label90.Text = "(0 to 500)";
             // 
             // numericMouseSpeedVelocityVariantPercentMin
             // 
-            numericMouseSpeedVelocityVariantPercentMin.Location = new System.Drawing.Point(56, 52);
-            numericMouseSpeedVelocityVariantPercentMin.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericMouseSpeedVelocityVariantPercentMin.Location = new System.Drawing.Point(80, 87);
+            numericMouseSpeedVelocityVariantPercentMin.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericMouseSpeedVelocityVariantPercentMin.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
             numericMouseSpeedVelocityVariantPercentMin.Minimum = new decimal(new int[] { 500, 0, 0, int.MinValue });
             numericMouseSpeedVelocityVariantPercentMin.Name = "numericMouseSpeedVelocityVariantPercentMin";
-            numericMouseSpeedVelocityVariantPercentMin.Size = new System.Drawing.Size(80, 23);
+            numericMouseSpeedVelocityVariantPercentMin.Size = new System.Drawing.Size(114, 31);
             numericMouseSpeedVelocityVariantPercentMin.TabIndex = 1;
             numericMouseSpeedVelocityVariantPercentMin.ValueChanged += numericMouseSpeedVelocityVariantPercentMin_ValueChanged;
             // 
             // numericMouseSpeedVelocityVariantPercentMax
             // 
-            numericMouseSpeedVelocityVariantPercentMax.Location = new System.Drawing.Point(55, 23);
-            numericMouseSpeedVelocityVariantPercentMax.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            numericMouseSpeedVelocityVariantPercentMax.Location = new System.Drawing.Point(79, 38);
+            numericMouseSpeedVelocityVariantPercentMax.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             numericMouseSpeedVelocityVariantPercentMax.Maximum = new decimal(new int[] { 500, 0, 0, 0 });
             numericMouseSpeedVelocityVariantPercentMax.Name = "numericMouseSpeedVelocityVariantPercentMax";
-            numericMouseSpeedVelocityVariantPercentMax.Size = new System.Drawing.Size(82, 23);
+            numericMouseSpeedVelocityVariantPercentMax.Size = new System.Drawing.Size(117, 31);
             numericMouseSpeedVelocityVariantPercentMax.TabIndex = 1;
             numericMouseSpeedVelocityVariantPercentMax.ValueChanged += numericMouseSpeedVelocityVariantPercentMax_ValueChanged;
             // 
             // label88
             // 
             label88.AutoSize = true;
-            label88.Location = new System.Drawing.Point(7, 25);
-            label88.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label88.Location = new System.Drawing.Point(10, 42);
+            label88.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label88.Name = "label88";
-            label88.Size = new System.Drawing.Size(43, 15);
+            label88.Size = new System.Drawing.Size(65, 25);
             label88.TabIndex = 0;
             label88.Text = "Max %";
             // 
             // label89
             // 
             label89.AutoSize = true;
-            label89.Location = new System.Drawing.Point(7, 57);
-            label89.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label89.Location = new System.Drawing.Point(10, 95);
+            label89.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label89.Name = "label89";
-            label89.Size = new System.Drawing.Size(41, 15);
+            label89.Size = new System.Drawing.Size(62, 25);
             label89.TabIndex = 0;
             label89.Text = "Min %";
             // 
             // label87
             // 
             label87.AutoSize = true;
-            label87.Location = new System.Drawing.Point(12, 31);
-            label87.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label87.Location = new System.Drawing.Point(17, 52);
+            label87.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label87.Name = "label87";
-            label87.Size = new System.Drawing.Size(99, 15);
+            label87.Size = new System.Drawing.Size(148, 25);
             label87.TabIndex = 0;
             label87.Text = "Pixels Per Second";
             // 
@@ -5915,11 +5872,11 @@ namespace AppTestStudio
             grpActiveMouseSettings.Controls.Add(cboWindowAction);
             grpActiveMouseSettings.Controls.Add(chkMoveMouseBeforeAction);
             grpActiveMouseSettings.Controls.Add(lblWindowNotVisibleAction);
-            grpActiveMouseSettings.Location = new System.Drawing.Point(456, 21);
-            grpActiveMouseSettings.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpActiveMouseSettings.Location = new System.Drawing.Point(651, 35);
+            grpActiveMouseSettings.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             grpActiveMouseSettings.Name = "grpActiveMouseSettings";
-            grpActiveMouseSettings.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpActiveMouseSettings.Size = new System.Drawing.Size(485, 88);
+            grpActiveMouseSettings.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            grpActiveMouseSettings.Size = new System.Drawing.Size(693, 147);
             grpActiveMouseSettings.TabIndex = 50;
             grpActiveMouseSettings.TabStop = false;
             grpActiveMouseSettings.Text = "Mouse Mode Mouse Settings";
@@ -5928,20 +5885,20 @@ namespace AppTestStudio
             // 
             cboWindowAction.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboWindowAction.FormattingEnabled = true;
-            cboWindowAction.Location = new System.Drawing.Point(167, 22);
-            cboWindowAction.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboWindowAction.Location = new System.Drawing.Point(239, 37);
+            cboWindowAction.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboWindowAction.Name = "cboWindowAction";
-            cboWindowAction.Size = new System.Drawing.Size(269, 23);
+            cboWindowAction.Size = new System.Drawing.Size(383, 33);
             cboWindowAction.TabIndex = 47;
             cboWindowAction.SelectedIndexChanged += cboWindowAction_SelectedIndexChanged;
             // 
             // chkMoveMouseBeforeAction
             // 
             chkMoveMouseBeforeAction.AutoSize = true;
-            chkMoveMouseBeforeAction.Location = new System.Drawing.Point(15, 58);
-            chkMoveMouseBeforeAction.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkMoveMouseBeforeAction.Location = new System.Drawing.Point(21, 97);
+            chkMoveMouseBeforeAction.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkMoveMouseBeforeAction.Name = "chkMoveMouseBeforeAction";
-            chkMoveMouseBeforeAction.Size = new System.Drawing.Size(423, 19);
+            chkMoveMouseBeforeAction.Size = new System.Drawing.Size(631, 29);
             chkMoveMouseBeforeAction.TabIndex = 49;
             chkMoveMouseBeforeAction.Text = "Default - Move System Mouse To Start Location Before Action (Active Only)";
             chkMoveMouseBeforeAction.UseVisualStyleBackColor = true;
@@ -5950,20 +5907,19 @@ namespace AppTestStudio
             // lblWindowNotVisibleAction
             // 
             lblWindowNotVisibleAction.AutoSize = true;
-            lblWindowNotVisibleAction.Location = new System.Drawing.Point(9, 25);
-            lblWindowNotVisibleAction.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblWindowNotVisibleAction.Location = new System.Drawing.Point(13, 42);
+            lblWindowNotVisibleAction.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblWindowNotVisibleAction.Name = "lblWindowNotVisibleAction";
-            lblWindowNotVisibleAction.Size = new System.Drawing.Size(149, 15);
+            lblWindowNotVisibleAction.Size = new System.Drawing.Size(225, 25);
             lblWindowNotVisibleAction.TabIndex = 48;
             lblWindowNotVisibleAction.Text = "Window Not Visible Action";
             // 
             // label70
             // 
             label70.AutoSize = true;
-            label70.Location = new System.Drawing.Point(16, 24);
-            label70.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label70.Location = new System.Drawing.Point(23, 40);
             label70.Name = "label70";
-            label70.Size = new System.Drawing.Size(77, 15);
+            label70.Size = new System.Drawing.Size(118, 25);
             label70.TabIndex = 46;
             label70.Text = "Mouse Mode";
             // 
@@ -5971,10 +5927,9 @@ namespace AppTestStudio
             // 
             cboMouseMode.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboMouseMode.FormattingEnabled = true;
-            cboMouseMode.Location = new System.Drawing.Point(174, 21);
-            cboMouseMode.Margin = new System.Windows.Forms.Padding(2);
+            cboMouseMode.Location = new System.Drawing.Point(249, 35);
             cboMouseMode.Name = "cboMouseMode";
-            cboMouseMode.Size = new System.Drawing.Size(269, 23);
+            cboMouseMode.Size = new System.Drawing.Size(383, 33);
             cboMouseMode.TabIndex = 37;
             cboMouseMode.SelectedIndexChanged += cboClickMode_SelectedIndexChanged;
             cboMouseMode.TextChanged += cboPlatform_TextChanged;
@@ -5983,11 +5938,9 @@ namespace AppTestStudio
             // 
             grpApplication.Controls.Add(groupBox13);
             grpApplication.Controls.Add(groupBox10);
-            grpApplication.Location = new System.Drawing.Point(2, 269);
-            grpApplication.Margin = new System.Windows.Forms.Padding(2);
+            grpApplication.Location = new System.Drawing.Point(3, 448);
             grpApplication.Name = "grpApplication";
-            grpApplication.Padding = new System.Windows.Forms.Padding(2);
-            grpApplication.Size = new System.Drawing.Size(817, 339);
+            grpApplication.Size = new System.Drawing.Size(1167, 565);
             grpApplication.TabIndex = 40;
             grpApplication.TabStop = false;
             grpApplication.Text = "Application";
@@ -6000,61 +5953,54 @@ namespace AppTestStudio
             groupBox13.Controls.Add(txtApplicationParameters);
             groupBox13.Controls.Add(cmdPathToExePicker);
             groupBox13.Controls.Add(label72);
-            groupBox13.Location = new System.Drawing.Point(6, 166);
-            groupBox13.Margin = new System.Windows.Forms.Padding(2);
+            groupBox13.Location = new System.Drawing.Point(9, 277);
             groupBox13.Name = "groupBox13";
-            groupBox13.Padding = new System.Windows.Forms.Padding(2);
-            groupBox13.Size = new System.Drawing.Size(805, 162);
+            groupBox13.Size = new System.Drawing.Size(1150, 270);
             groupBox13.TabIndex = 11;
             groupBox13.TabStop = false;
             groupBox13.Text = "Start Configuration - Not Required";
             // 
             // label71
             // 
-            label71.Location = new System.Drawing.Point(458, 102);
-            label71.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label71.Location = new System.Drawing.Point(654, 170);
             label71.Name = "label71";
-            label71.Size = new System.Drawing.Size(313, 51);
+            label71.Size = new System.Drawing.Size(447, 85);
             label71.TabIndex = 8;
             label71.Text = "Used to automatically launch application when scheduler is used, or Toolbar \"Start\" buttons.";
             // 
             // label69
             // 
             label69.AutoSize = true;
-            label69.Location = new System.Drawing.Point(8, 18);
-            label69.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label69.Location = new System.Drawing.Point(11, 30);
             label69.Name = "label69";
-            label69.Size = new System.Drawing.Size(67, 15);
+            label69.Size = new System.Drawing.Size(102, 25);
             label69.TabIndex = 0;
             label69.Text = "Path to EXE";
             // 
             // txtPathToApplicationExe
             // 
             txtPathToApplicationExe.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            txtPathToApplicationExe.Location = new System.Drawing.Point(14, 37);
-            txtPathToApplicationExe.Margin = new System.Windows.Forms.Padding(2);
+            txtPathToApplicationExe.Location = new System.Drawing.Point(20, 62);
             txtPathToApplicationExe.Name = "txtPathToApplicationExe";
-            txtPathToApplicationExe.Size = new System.Drawing.Size(741, 23);
+            txtPathToApplicationExe.Size = new System.Drawing.Size(1057, 31);
             txtPathToApplicationExe.TabIndex = 4;
             txtPathToApplicationExe.TextChanged += txtPathToApplicationExe_TextChanged;
             // 
             // txtApplicationParameters
             // 
-            txtApplicationParameters.Location = new System.Drawing.Point(14, 91);
-            txtApplicationParameters.Margin = new System.Windows.Forms.Padding(2);
+            txtApplicationParameters.Location = new System.Drawing.Point(20, 152);
             txtApplicationParameters.Name = "txtApplicationParameters";
-            txtApplicationParameters.Size = new System.Drawing.Size(318, 23);
+            txtApplicationParameters.Size = new System.Drawing.Size(453, 31);
             txtApplicationParameters.TabIndex = 7;
             txtApplicationParameters.TextChanged += txtApplicationParameters_TextChanged;
             // 
             // cmdPathToExePicker
             // 
             cmdPathToExePicker.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            cmdPathToExePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            cmdPathToExePicker.Location = new System.Drawing.Point(757, 33);
-            cmdPathToExePicker.Margin = new System.Windows.Forms.Padding(2);
+            cmdPathToExePicker.Font = new System.Drawing.Font("Microsoft Sans Serif", 14F);
+            cmdPathToExePicker.Location = new System.Drawing.Point(1081, 55);
             cmdPathToExePicker.Name = "cmdPathToExePicker";
-            cmdPathToExePicker.Size = new System.Drawing.Size(41, 30);
+            cmdPathToExePicker.Size = new System.Drawing.Size(59, 50);
             cmdPathToExePicker.TabIndex = 5;
             cmdPathToExePicker.Text = "...";
             cmdPathToExePicker.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -6064,10 +6010,9 @@ namespace AppTestStudio
             // label72
             // 
             label72.AutoSize = true;
-            label72.Location = new System.Drawing.Point(8, 67);
-            label72.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label72.Location = new System.Drawing.Point(11, 112);
             label72.Name = "label72";
-            label72.Size = new System.Drawing.Size(66, 15);
+            label72.Size = new System.Drawing.Size(99, 25);
             label72.TabIndex = 6;
             label72.Text = "Parameters";
             // 
@@ -6082,21 +6027,21 @@ namespace AppTestStudio
             groupBox10.Controls.Add(txtApplicationPrimaryWindowName);
             groupBox10.Controls.Add(label78);
             groupBox10.Controls.Add(label79);
-            groupBox10.Location = new System.Drawing.Point(6, 21);
-            groupBox10.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox10.Location = new System.Drawing.Point(9, 35);
+            groupBox10.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox10.Name = "groupBox10";
-            groupBox10.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox10.Size = new System.Drawing.Size(555, 137);
+            groupBox10.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox10.Size = new System.Drawing.Size(793, 228);
             groupBox10.TabIndex = 10;
             groupBox10.TabStop = false;
             groupBox10.Text = "Window";
             // 
             // cmdApplicationWindowWizard
             // 
-            cmdApplicationWindowWizard.Location = new System.Drawing.Point(457, 12);
-            cmdApplicationWindowWizard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdApplicationWindowWizard.Location = new System.Drawing.Point(653, 20);
+            cmdApplicationWindowWizard.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdApplicationWindowWizard.Name = "cmdApplicationWindowWizard";
-            cmdApplicationWindowWizard.Size = new System.Drawing.Size(88, 27);
+            cmdApplicationWindowWizard.Size = new System.Drawing.Size(126, 45);
             cmdApplicationWindowWizard.TabIndex = 12;
             cmdApplicationWindowWizard.Text = "Wizard";
             cmdApplicationWindowWizard.UseVisualStyleBackColor = true;
@@ -6107,39 +6052,36 @@ namespace AppTestStudio
             cboApplicationSecondaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboApplicationSecondaryWindowNameFilter.FormattingEnabled = true;
             cboApplicationSecondaryWindowNameFilter.Items.AddRange(new object[] { "Equals", "Starts With", "Contains" });
-            cboApplicationSecondaryWindowNameFilter.Location = new System.Drawing.Point(162, 77);
-            cboApplicationSecondaryWindowNameFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboApplicationSecondaryWindowNameFilter.Location = new System.Drawing.Point(231, 128);
+            cboApplicationSecondaryWindowNameFilter.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboApplicationSecondaryWindowNameFilter.Name = "cboApplicationSecondaryWindowNameFilter";
-            cboApplicationSecondaryWindowNameFilter.Size = new System.Drawing.Size(87, 23);
+            cboApplicationSecondaryWindowNameFilter.Size = new System.Drawing.Size(123, 33);
             cboApplicationSecondaryWindowNameFilter.TabIndex = 11;
             cboApplicationSecondaryWindowNameFilter.SelectedIndexChanged += cboApplicationSecondaryWindowNameFilter_SelectedIndexChanged;
             // 
             // txtApplicationSecondaryWindowName
             // 
-            txtApplicationSecondaryWindowName.Location = new System.Drawing.Point(162, 107);
-            txtApplicationSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            txtApplicationSecondaryWindowName.Location = new System.Drawing.Point(231, 178);
             txtApplicationSecondaryWindowName.Name = "txtApplicationSecondaryWindowName";
-            txtApplicationSecondaryWindowName.Size = new System.Drawing.Size(383, 23);
+            txtApplicationSecondaryWindowName.Size = new System.Drawing.Size(545, 31);
             txtApplicationSecondaryWindowName.TabIndex = 10;
             txtApplicationSecondaryWindowName.TextChanged += txtApplicationSecondaryWindowName_TextChanged;
             // 
             // label76
             // 
             label76.AutoSize = true;
-            label76.Location = new System.Drawing.Point(6, 113);
-            label76.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label76.Location = new System.Drawing.Point(9, 188);
             label76.Name = "label76";
-            label76.Size = new System.Drawing.Size(144, 15);
+            label76.Size = new System.Drawing.Size(218, 25);
             label76.TabIndex = 8;
             label76.Text = "Secondary Window Name";
             // 
             // label77
             // 
             label77.AutoSize = true;
-            label77.Location = new System.Drawing.Point(6, 83);
-            label77.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label77.Location = new System.Drawing.Point(9, 138);
             label77.Name = "label77";
-            label77.Size = new System.Drawing.Size(138, 15);
+            label77.Size = new System.Drawing.Size(209, 25);
             label77.TabIndex = 9;
             label77.Text = "Secondary Window Filter";
             // 
@@ -6148,39 +6090,36 @@ namespace AppTestStudio
             cboApplicationPrimaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboApplicationPrimaryWindowNameFilter.FormattingEnabled = true;
             cboApplicationPrimaryWindowNameFilter.Items.AddRange(new object[] { "Equals", "Starts With", "Contains" });
-            cboApplicationPrimaryWindowNameFilter.Location = new System.Drawing.Point(162, 17);
-            cboApplicationPrimaryWindowNameFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboApplicationPrimaryWindowNameFilter.Location = new System.Drawing.Point(231, 28);
+            cboApplicationPrimaryWindowNameFilter.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboApplicationPrimaryWindowNameFilter.Name = "cboApplicationPrimaryWindowNameFilter";
-            cboApplicationPrimaryWindowNameFilter.Size = new System.Drawing.Size(87, 23);
+            cboApplicationPrimaryWindowNameFilter.Size = new System.Drawing.Size(123, 33);
             cboApplicationPrimaryWindowNameFilter.TabIndex = 7;
             cboApplicationPrimaryWindowNameFilter.SelectedIndexChanged += cboApplicationPrimaryWindowNameFilter_SelectedIndexChanged;
             // 
             // txtApplicationPrimaryWindowName
             // 
-            txtApplicationPrimaryWindowName.Location = new System.Drawing.Point(162, 48);
-            txtApplicationPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            txtApplicationPrimaryWindowName.Location = new System.Drawing.Point(231, 80);
             txtApplicationPrimaryWindowName.Name = "txtApplicationPrimaryWindowName";
-            txtApplicationPrimaryWindowName.Size = new System.Drawing.Size(383, 23);
+            txtApplicationPrimaryWindowName.Size = new System.Drawing.Size(545, 31);
             txtApplicationPrimaryWindowName.TabIndex = 7;
             txtApplicationPrimaryWindowName.TextChanged += txtApplicationWindowName_TextChanged;
             // 
             // label78
             // 
             label78.AutoSize = true;
-            label78.Location = new System.Drawing.Point(6, 53);
-            label78.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label78.Location = new System.Drawing.Point(9, 88);
             label78.Name = "label78";
-            label78.Size = new System.Drawing.Size(130, 15);
+            label78.Size = new System.Drawing.Size(195, 25);
             label78.TabIndex = 0;
             label78.Text = "Primary Window Name";
             // 
             // label79
             // 
             label79.AutoSize = true;
-            label79.Location = new System.Drawing.Point(6, 23);
-            label79.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label79.Location = new System.Drawing.Point(9, 38);
             label79.Name = "label79";
-            label79.Size = new System.Drawing.Size(124, 15);
+            label79.Size = new System.Drawing.Size(186, 25);
             label79.TabIndex = 0;
             label79.Text = "Primary Window Filter";
             // 
@@ -6197,21 +6136,18 @@ namespace AppTestStudio
             grpNox.Controls.Add(txtPackageName);
             grpNox.Controls.Add(label63);
             grpNox.Controls.Add(Label25);
-            grpNox.Location = new System.Drawing.Point(2, 612);
-            grpNox.Margin = new System.Windows.Forms.Padding(2);
+            grpNox.Location = new System.Drawing.Point(3, 1019);
             grpNox.Name = "grpNox";
-            grpNox.Padding = new System.Windows.Forms.Padding(2);
-            grpNox.Size = new System.Drawing.Size(817, 155);
+            grpNox.Size = new System.Drawing.Size(1167, 258);
             grpNox.TabIndex = 38;
             grpNox.TabStop = false;
             grpNox.Text = "Nox Player";
             // 
             // label61
             // 
-            label61.Location = new System.Drawing.Point(300, 120);
-            label61.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label61.Location = new System.Drawing.Point(429, 200);
             label61.Name = "label61";
-            label61.Size = new System.Drawing.Size(391, 37);
+            label61.Size = new System.Drawing.Size(559, 62);
             label61.TabIndex = 36;
             label61.Text = "DPI: some apps are DPI aware and adjust.  Those apps need consistent dpi for transportability.  Most apps do not use this setting.";
             // 
@@ -6220,20 +6156,20 @@ namespace AppTestStudio
             cboDPI.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboDPI.FormattingEnabled = true;
             cboDPI.Items.AddRange(new object[] { "96", "120", "144", "192", "240", "288", "384", "480" });
-            cboDPI.Location = new System.Drawing.Point(174, 120);
-            cboDPI.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboDPI.Location = new System.Drawing.Point(249, 200);
+            cboDPI.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboDPI.Name = "cboDPI";
-            cboDPI.Size = new System.Drawing.Size(114, 23);
+            cboDPI.Size = new System.Drawing.Size(161, 33);
             cboDPI.TabIndex = 35;
             cboDPI.SelectedIndexChanged += cboDPI_SelectedIndexChanged;
             // 
             // Label26
             // 
             Label26.AutoSize = true;
-            Label26.Location = new System.Drawing.Point(257, 59);
-            Label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label26.Location = new System.Drawing.Point(367, 98);
+            Label26.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label26.Name = "Label26";
-            Label26.Size = new System.Drawing.Size(103, 15);
+            Label26.Size = new System.Drawing.Size(156, 25);
             Label26.TabIndex = 47;
             Label26.Text = "Installed Instances";
             // 
@@ -6241,10 +6177,10 @@ namespace AppTestStudio
             // 
             cboGameInstances.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboGameInstances.FormattingEnabled = true;
-            cboGameInstances.Location = new System.Drawing.Point(369, 53);
-            cboGameInstances.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboGameInstances.Location = new System.Drawing.Point(527, 88);
+            cboGameInstances.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboGameInstances.Name = "cboGameInstances";
-            cboGameInstances.Size = new System.Drawing.Size(114, 23);
+            cboGameInstances.Size = new System.Drawing.Size(161, 33);
             cboGameInstances.TabIndex = 46;
             cboGameInstances.SelectedIndexChanged += cboGameInstances_SelectedIndexChanged;
             // 
@@ -6253,70 +6189,70 @@ namespace AppTestStudio
             cboResolution.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboResolution.FormattingEnabled = true;
             cboResolution.Items.AddRange(new object[] { "640x360", "667x375", "1024x768", "1280x800" });
-            cboResolution.Location = new System.Drawing.Point(174, 85);
-            cboResolution.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboResolution.Location = new System.Drawing.Point(249, 142);
+            cboResolution.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboResolution.Name = "cboResolution";
-            cboResolution.Size = new System.Drawing.Size(307, 23);
+            cboResolution.Size = new System.Drawing.Size(437, 33);
             cboResolution.TabIndex = 45;
             cboResolution.SelectedIndexChanged += cboResolution_SelectedIndexChanged;
             // 
             // txtGamePanelLaunchInstance
             // 
             txtGamePanelLaunchInstance.BackColor = System.Drawing.SystemColors.Window;
-            txtGamePanelLaunchInstance.Location = new System.Drawing.Point(174, 55);
-            txtGamePanelLaunchInstance.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtGamePanelLaunchInstance.Location = new System.Drawing.Point(249, 92);
+            txtGamePanelLaunchInstance.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtGamePanelLaunchInstance.Name = "txtGamePanelLaunchInstance";
-            txtGamePanelLaunchInstance.Size = new System.Drawing.Size(74, 23);
+            txtGamePanelLaunchInstance.Size = new System.Drawing.Size(104, 31);
             txtGamePanelLaunchInstance.TabIndex = 41;
             txtGamePanelLaunchInstance.TextChanged += txtGamePanelLaunchInstance_TextChanged;
             // 
             // label12
             // 
             label12.AutoSize = true;
-            label12.Location = new System.Drawing.Point(10, 55);
-            label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label12.Location = new System.Drawing.Point(14, 92);
+            label12.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label12.Name = "label12";
-            label12.Size = new System.Drawing.Size(104, 15);
+            label12.Size = new System.Drawing.Size(155, 25);
             label12.TabIndex = 39;
             label12.Text = "Instance to launch";
             // 
             // Label16
             // 
             Label16.AutoSize = true;
-            Label16.Location = new System.Drawing.Point(10, 24);
-            Label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label16.Location = new System.Drawing.Point(14, 40);
+            Label16.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label16.Name = "Label16";
-            Label16.Size = new System.Drawing.Size(86, 15);
+            Label16.Size = new System.Drawing.Size(128, 25);
             Label16.TabIndex = 40;
             Label16.Text = "Package Name";
             // 
             // txtPackageName
             // 
             txtPackageName.BackColor = System.Drawing.SystemColors.Window;
-            txtPackageName.Location = new System.Drawing.Point(174, 24);
-            txtPackageName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtPackageName.Location = new System.Drawing.Point(249, 40);
+            txtPackageName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtPackageName.Name = "txtPackageName";
-            txtPackageName.Size = new System.Drawing.Size(555, 23);
+            txtPackageName.Size = new System.Drawing.Size(791, 31);
             txtPackageName.TabIndex = 38;
             txtPackageName.TextChanged += txtPackageName_TextChanged;
             // 
             // label63
             // 
             label63.AutoSize = true;
-            label63.Location = new System.Drawing.Point(13, 120);
-            label63.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label63.Location = new System.Drawing.Point(19, 200);
+            label63.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label63.Name = "label63";
-            label63.Size = new System.Drawing.Size(106, 15);
+            label63.Size = new System.Drawing.Size(160, 25);
             label63.TabIndex = 37;
             label63.Text = "DPI (Dots Per Inch)";
             // 
             // Label25
             // 
             Label25.AutoSize = true;
-            Label25.Location = new System.Drawing.Point(10, 89);
-            Label25.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label25.Location = new System.Drawing.Point(14, 148);
+            Label25.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label25.Name = "Label25";
-            Label25.Size = new System.Drawing.Size(95, 15);
+            Label25.Size = new System.Drawing.Size(142, 25);
             Label25.TabIndex = 37;
             Label25.Text = "Initial Resolution";
             // 
@@ -6324,11 +6260,9 @@ namespace AppTestStudio
             // 
             grpSteam.Controls.Add(groupBox14);
             grpSteam.Controls.Add(groupBox9);
-            grpSteam.Location = new System.Drawing.Point(2, 771);
-            grpSteam.Margin = new System.Windows.Forms.Padding(2);
+            grpSteam.Location = new System.Drawing.Point(3, 1283);
             grpSteam.Name = "grpSteam";
-            grpSteam.Padding = new System.Windows.Forms.Padding(2);
-            grpSteam.Size = new System.Drawing.Size(817, 297);
+            grpSteam.Size = new System.Drawing.Size(1167, 495);
             grpSteam.TabIndex = 39;
             grpSteam.TabStop = false;
             grpSteam.Text = "Steam - Experimental/In Development/Incomplete";
@@ -6339,49 +6273,45 @@ namespace AppTestStudio
             groupBox14.Controls.Add(label64);
             groupBox14.Controls.Add(label66);
             groupBox14.Controls.Add(txtSteamID);
-            groupBox14.Location = new System.Drawing.Point(6, 166);
-            groupBox14.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox14.Location = new System.Drawing.Point(9, 277);
+            groupBox14.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox14.Name = "groupBox14";
-            groupBox14.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox14.Size = new System.Drawing.Size(798, 117);
+            groupBox14.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox14.Size = new System.Drawing.Size(1140, 195);
             groupBox14.TabIndex = 9;
             groupBox14.TabStop = false;
             groupBox14.Text = "Start Configuration - Not Required";
             // 
             // label84
             // 
-            label84.Location = new System.Drawing.Point(10, 55);
-            label84.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label84.Location = new System.Drawing.Point(14, 92);
             label84.Name = "label84";
-            label84.Size = new System.Drawing.Size(313, 51);
+            label84.Size = new System.Drawing.Size(447, 85);
             label84.TabIndex = 9;
             label84.Text = "Used to automatically launch application when scheduler is used, or Toolbar \"Start\" buttons.";
             // 
             // label64
             // 
             label64.AutoSize = true;
-            label64.Location = new System.Drawing.Point(8, 23);
-            label64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label64.Location = new System.Drawing.Point(11, 38);
             label64.Name = "label64";
-            label64.Size = new System.Drawing.Size(118, 15);
+            label64.Size = new System.Drawing.Size(179, 25);
             label64.TabIndex = 0;
             label64.Text = "Steam Application ID";
             // 
             // label66
             // 
-            label66.Location = new System.Drawing.Point(411, 21);
-            label66.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label66.Location = new System.Drawing.Point(587, 35);
             label66.Name = "label66";
-            label66.Size = new System.Drawing.Size(382, 73);
+            label66.Size = new System.Drawing.Size(546, 122);
             label66.TabIndex = 3;
             label66.Text = "Enter the Steam Game Number Ex.  285920  Right Click a steam app Icon, then go to properties.  Steam ID's Look like this: steam://rungameid/285920";
             // 
             // txtSteamID
             // 
-            txtSteamID.Location = new System.Drawing.Point(148, 22);
-            txtSteamID.Margin = new System.Windows.Forms.Padding(2);
+            txtSteamID.Location = new System.Drawing.Point(211, 37);
             txtSteamID.Name = "txtSteamID";
-            txtSteamID.Size = new System.Drawing.Size(259, 23);
+            txtSteamID.Size = new System.Drawing.Size(368, 31);
             txtSteamID.TabIndex = 4;
             txtSteamID.TextChanged += txtSteamID_TextChanged;
             txtSteamID.KeyPress += txtSteamID_KeyPress;
@@ -6397,21 +6327,21 @@ namespace AppTestStudio
             groupBox9.Controls.Add(txtSteamPrimaryWindowName);
             groupBox9.Controls.Add(label73);
             groupBox9.Controls.Add(label67);
-            groupBox9.Location = new System.Drawing.Point(6, 21);
-            groupBox9.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox9.Location = new System.Drawing.Point(9, 35);
+            groupBox9.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox9.Name = "groupBox9";
-            groupBox9.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox9.Size = new System.Drawing.Size(584, 137);
+            groupBox9.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox9.Size = new System.Drawing.Size(834, 228);
             groupBox9.TabIndex = 8;
             groupBox9.TabStop = false;
             groupBox9.Text = "Window";
             // 
             // cmdSteamWindowWizard
             // 
-            cmdSteamWindowWizard.Location = new System.Drawing.Point(441, 17);
-            cmdSteamWindowWizard.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdSteamWindowWizard.Location = new System.Drawing.Point(630, 28);
+            cmdSteamWindowWizard.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdSteamWindowWizard.Name = "cmdSteamWindowWizard";
-            cmdSteamWindowWizard.Size = new System.Drawing.Size(131, 27);
+            cmdSteamWindowWizard.Size = new System.Drawing.Size(187, 45);
             cmdSteamWindowWizard.TabIndex = 9;
             cmdSteamWindowWizard.Text = "Window Wizard";
             cmdSteamWindowWizard.UseVisualStyleBackColor = true;
@@ -6422,39 +6352,36 @@ namespace AppTestStudio
             cboSteamSecondaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboSteamSecondaryWindowNameFilter.FormattingEnabled = true;
             cboSteamSecondaryWindowNameFilter.Items.AddRange(new object[] { "Equals", "Starts With", "Contains" });
-            cboSteamSecondaryWindowNameFilter.Location = new System.Drawing.Point(162, 77);
-            cboSteamSecondaryWindowNameFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboSteamSecondaryWindowNameFilter.Location = new System.Drawing.Point(231, 128);
+            cboSteamSecondaryWindowNameFilter.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboSteamSecondaryWindowNameFilter.Name = "cboSteamSecondaryWindowNameFilter";
-            cboSteamSecondaryWindowNameFilter.Size = new System.Drawing.Size(87, 23);
+            cboSteamSecondaryWindowNameFilter.Size = new System.Drawing.Size(123, 33);
             cboSteamSecondaryWindowNameFilter.TabIndex = 11;
             cboSteamSecondaryWindowNameFilter.SelectedIndexChanged += cboSteamSecondaryWindowNameFilter_SelectedIndexChanged;
             // 
             // txtSteamSecondaryWindowName
             // 
-            txtSteamSecondaryWindowName.Location = new System.Drawing.Point(162, 107);
-            txtSteamSecondaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            txtSteamSecondaryWindowName.Location = new System.Drawing.Point(231, 178);
             txtSteamSecondaryWindowName.Name = "txtSteamSecondaryWindowName";
-            txtSteamSecondaryWindowName.Size = new System.Drawing.Size(409, 23);
+            txtSteamSecondaryWindowName.Size = new System.Drawing.Size(583, 31);
             txtSteamSecondaryWindowName.TabIndex = 10;
             txtSteamSecondaryWindowName.TextChanged += txtSteamSecondaryWindowName_TextChanged;
             // 
             // label74
             // 
             label74.AutoSize = true;
-            label74.Location = new System.Drawing.Point(6, 113);
-            label74.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label74.Location = new System.Drawing.Point(9, 188);
             label74.Name = "label74";
-            label74.Size = new System.Drawing.Size(144, 15);
+            label74.Size = new System.Drawing.Size(218, 25);
             label74.TabIndex = 8;
             label74.Text = "Secondary Window Name";
             // 
             // label75
             // 
             label75.AutoSize = true;
-            label75.Location = new System.Drawing.Point(6, 83);
-            label75.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label75.Location = new System.Drawing.Point(9, 138);
             label75.Name = "label75";
-            label75.Size = new System.Drawing.Size(138, 15);
+            label75.Size = new System.Drawing.Size(209, 25);
             label75.TabIndex = 9;
             label75.Text = "Secondary Window Filter";
             // 
@@ -6463,39 +6390,36 @@ namespace AppTestStudio
             cboSteamPrimaryWindowNameFilter.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboSteamPrimaryWindowNameFilter.FormattingEnabled = true;
             cboSteamPrimaryWindowNameFilter.Items.AddRange(new object[] { "Equals", "Starts With", "Contains" });
-            cboSteamPrimaryWindowNameFilter.Location = new System.Drawing.Point(162, 17);
-            cboSteamPrimaryWindowNameFilter.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cboSteamPrimaryWindowNameFilter.Location = new System.Drawing.Point(231, 28);
+            cboSteamPrimaryWindowNameFilter.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cboSteamPrimaryWindowNameFilter.Name = "cboSteamPrimaryWindowNameFilter";
-            cboSteamPrimaryWindowNameFilter.Size = new System.Drawing.Size(87, 23);
+            cboSteamPrimaryWindowNameFilter.Size = new System.Drawing.Size(123, 33);
             cboSteamPrimaryWindowNameFilter.TabIndex = 7;
             cboSteamPrimaryWindowNameFilter.SelectedIndexChanged += cboSteamPrimaryWindowNameFilter_SelectedIndexChanged;
             // 
             // txtSteamPrimaryWindowName
             // 
-            txtSteamPrimaryWindowName.Location = new System.Drawing.Point(162, 47);
-            txtSteamPrimaryWindowName.Margin = new System.Windows.Forms.Padding(2);
+            txtSteamPrimaryWindowName.Location = new System.Drawing.Point(231, 78);
             txtSteamPrimaryWindowName.Name = "txtSteamPrimaryWindowName";
-            txtSteamPrimaryWindowName.Size = new System.Drawing.Size(409, 23);
+            txtSteamPrimaryWindowName.Size = new System.Drawing.Size(583, 31);
             txtSteamPrimaryWindowName.TabIndex = 5;
             txtSteamPrimaryWindowName.TextChanged += txtSteamWindowName_TextChanged;
             // 
             // label73
             // 
             label73.AutoSize = true;
-            label73.Location = new System.Drawing.Point(6, 53);
-            label73.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label73.Location = new System.Drawing.Point(9, 88);
             label73.Name = "label73";
-            label73.Size = new System.Drawing.Size(130, 15);
+            label73.Size = new System.Drawing.Size(195, 25);
             label73.TabIndex = 0;
             label73.Text = "Primary Window Name";
             // 
             // label67
             // 
             label67.AutoSize = true;
-            label67.Location = new System.Drawing.Point(6, 23);
-            label67.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            label67.Location = new System.Drawing.Point(9, 38);
             label67.Name = "label67";
-            label67.Size = new System.Drawing.Size(124, 15);
+            label67.Size = new System.Drawing.Size(186, 25);
             label67.TabIndex = 0;
             label67.Text = "Primary Window Filter";
             // 
@@ -6505,11 +6429,9 @@ namespace AppTestStudio
             grpBlue.Controls.Add(label83);
             grpBlue.Controls.Add(label82);
             grpBlue.Controls.Add(txtBluePackageName);
-            grpBlue.Location = new System.Drawing.Point(2, 1072);
-            grpBlue.Margin = new System.Windows.Forms.Padding(2);
+            grpBlue.Location = new System.Drawing.Point(3, 1784);
             grpBlue.Name = "grpBlue";
-            grpBlue.Padding = new System.Windows.Forms.Padding(2);
-            grpBlue.Size = new System.Drawing.Size(818, 75);
+            grpBlue.Size = new System.Drawing.Size(1169, 125);
             grpBlue.TabIndex = 48;
             grpBlue.TabStop = false;
             grpBlue.Text = "BlueStacks";
@@ -6518,40 +6440,39 @@ namespace AppTestStudio
             // 
             cboBlueInstance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboBlueInstance.FormattingEnabled = true;
-            cboBlueInstance.Location = new System.Drawing.Point(214, 52);
-            cboBlueInstance.Margin = new System.Windows.Forms.Padding(2);
+            cboBlueInstance.Location = new System.Drawing.Point(306, 87);
             cboBlueInstance.Name = "cboBlueInstance";
-            cboBlueInstance.Size = new System.Drawing.Size(341, 23);
+            cboBlueInstance.Size = new System.Drawing.Size(485, 33);
             cboBlueInstance.TabIndex = 43;
             cboBlueInstance.SelectedIndexChanged += cboBlueInstance_SelectedIndexChanged;
             // 
             // label83
             // 
             label83.AutoSize = true;
-            label83.Location = new System.Drawing.Point(54, 51);
-            label83.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label83.Location = new System.Drawing.Point(77, 85);
+            label83.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label83.Name = "label83";
-            label83.Size = new System.Drawing.Size(51, 15);
+            label83.Size = new System.Drawing.Size(77, 25);
             label83.TabIndex = 42;
             label83.Text = "Instance";
             // 
             // label82
             // 
             label82.AutoSize = true;
-            label82.Location = new System.Drawing.Point(50, 28);
-            label82.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label82.Location = new System.Drawing.Point(71, 47);
+            label82.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label82.Name = "label82";
-            label82.Size = new System.Drawing.Size(86, 15);
+            label82.Size = new System.Drawing.Size(128, 25);
             label82.TabIndex = 42;
             label82.Text = "Package Name";
             // 
             // txtBluePackageName
             // 
             txtBluePackageName.BackColor = System.Drawing.SystemColors.Window;
-            txtBluePackageName.Location = new System.Drawing.Point(214, 28);
-            txtBluePackageName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtBluePackageName.Location = new System.Drawing.Point(306, 47);
+            txtBluePackageName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtBluePackageName.Name = "txtBluePackageName";
-            txtBluePackageName.Size = new System.Drawing.Size(555, 23);
+            txtBluePackageName.Size = new System.Drawing.Size(791, 31);
             txtBluePackageName.TabIndex = 41;
             txtBluePackageName.TextChanged += txtBluePackageName_TextChanged;
             // 
@@ -6567,11 +6488,11 @@ namespace AppTestStudio
             groupBox11.Controls.Add(txtGamePanelLoopDelay);
             groupBox11.Controls.Add(Label30);
             groupBox11.Controls.Add(cmdRunScript);
-            groupBox11.Location = new System.Drawing.Point(4, 1152);
-            groupBox11.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox11.Location = new System.Drawing.Point(6, 1917);
+            groupBox11.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox11.Name = "groupBox11";
-            groupBox11.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox11.Size = new System.Drawing.Size(817, 325);
+            groupBox11.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox11.Size = new System.Drawing.Size(1167, 542);
             groupBox11.TabIndex = 47;
             groupBox11.TabStop = false;
             groupBox11.Text = "General";
@@ -6579,10 +6500,10 @@ namespace AppTestStudio
             // chkDontTakeScreenshot
             // 
             chkDontTakeScreenshot.AutoSize = true;
-            chkDontTakeScreenshot.Location = new System.Drawing.Point(20, 51);
-            chkDontTakeScreenshot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkDontTakeScreenshot.Location = new System.Drawing.Point(29, 85);
+            chkDontTakeScreenshot.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkDontTakeScreenshot.Name = "chkDontTakeScreenshot";
-            chkDontTakeScreenshot.Size = new System.Drawing.Size(307, 19);
+            chkDontTakeScreenshot.Size = new System.Drawing.Size(460, 29);
             chkDontTakeScreenshot.TabIndex = 46;
             chkDontTakeScreenshot.Text = "Don't Take Screenshot at Runtime (Use Empty Events)";
             chkDontTakeScreenshot.UseVisualStyleBackColor = true;
@@ -6591,10 +6512,10 @@ namespace AppTestStudio
             // chkGameWindowNeverQuitIfWindowNotFound
             // 
             chkGameWindowNeverQuitIfWindowNotFound.AutoSize = true;
-            chkGameWindowNeverQuitIfWindowNotFound.Location = new System.Drawing.Point(19, 81);
-            chkGameWindowNeverQuitIfWindowNotFound.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkGameWindowNeverQuitIfWindowNotFound.Location = new System.Drawing.Point(27, 135);
+            chkGameWindowNeverQuitIfWindowNotFound.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkGameWindowNeverQuitIfWindowNotFound.Name = "chkGameWindowNeverQuitIfWindowNotFound";
-            chkGameWindowNeverQuitIfWindowNotFound.Size = new System.Drawing.Size(200, 19);
+            chkGameWindowNeverQuitIfWindowNotFound.Size = new System.Drawing.Size(300, 29);
             chkGameWindowNeverQuitIfWindowNotFound.TabIndex = 45;
             chkGameWindowNeverQuitIfWindowNotFound.Text = "Never Quit if Window Not Found";
             chkGameWindowNeverQuitIfWindowNotFound.UseVisualStyleBackColor = true;
@@ -6605,11 +6526,11 @@ namespace AppTestStudio
             grpVideo.Controls.Add(lblFrameLimit);
             grpVideo.Controls.Add(NumericVideoFrameLimit);
             grpVideo.Controls.Add(chkSaveVideo);
-            grpVideo.Location = new System.Drawing.Point(27, 190);
-            grpVideo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            grpVideo.Location = new System.Drawing.Point(39, 317);
+            grpVideo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             grpVideo.Name = "grpVideo";
-            grpVideo.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            grpVideo.Size = new System.Drawing.Size(233, 88);
+            grpVideo.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            grpVideo.Size = new System.Drawing.Size(333, 147);
             grpVideo.TabIndex = 32;
             grpVideo.TabStop = false;
             grpVideo.Text = "Video";
@@ -6617,31 +6538,31 @@ namespace AppTestStudio
             // lblFrameLimit
             // 
             lblFrameLimit.AutoSize = true;
-            lblFrameLimit.Location = new System.Drawing.Point(10, 50);
-            lblFrameLimit.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblFrameLimit.Location = new System.Drawing.Point(14, 83);
+            lblFrameLimit.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblFrameLimit.Name = "lblFrameLimit";
-            lblFrameLimit.Size = new System.Drawing.Size(70, 15);
+            lblFrameLimit.Size = new System.Drawing.Size(104, 25);
             lblFrameLimit.TabIndex = 33;
             lblFrameLimit.Text = "Frame Limit";
             // 
             // NumericVideoFrameLimit
             // 
-            NumericVideoFrameLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            NumericVideoFrameLimit.Location = new System.Drawing.Point(89, 40);
-            NumericVideoFrameLimit.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            NumericVideoFrameLimit.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            NumericVideoFrameLimit.Location = new System.Drawing.Point(127, 67);
+            NumericVideoFrameLimit.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             NumericVideoFrameLimit.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
             NumericVideoFrameLimit.Name = "NumericVideoFrameLimit";
-            NumericVideoFrameLimit.Size = new System.Drawing.Size(110, 30);
+            NumericVideoFrameLimit.Size = new System.Drawing.Size(157, 41);
             NumericVideoFrameLimit.TabIndex = 32;
             NumericVideoFrameLimit.ValueChanged += NumericVideoFrameLimit_ValueChanged;
             // 
             // chkSaveVideo
             // 
             chkSaveVideo.AutoSize = true;
-            chkSaveVideo.Location = new System.Drawing.Point(10, 17);
-            chkSaveVideo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkSaveVideo.Location = new System.Drawing.Point(14, 28);
+            chkSaveVideo.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkSaveVideo.Name = "chkSaveVideo";
-            chkSaveVideo.Size = new System.Drawing.Size(83, 19);
+            chkSaveVideo.Size = new System.Drawing.Size(126, 29);
             chkSaveVideo.TabIndex = 31;
             chkSaveVideo.Text = "Save Video";
             chkSaveVideo.UseVisualStyleBackColor = true;
@@ -6650,19 +6571,19 @@ namespace AppTestStudio
             // Label33
             // 
             Label33.AutoSize = true;
-            Label33.Location = new System.Drawing.Point(304, 22);
-            Label33.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label33.Location = new System.Drawing.Point(434, 37);
+            Label33.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label33.Name = "Label33";
-            Label33.Size = new System.Drawing.Size(93, 15);
+            Label33.Size = new System.Drawing.Size(147, 25);
             Label33.TabIndex = 44;
             Label33.Text = "1,000 ms = 1 sec";
             // 
             // cmdStartEmmulatorAndPackage
             // 
-            cmdStartEmmulatorAndPackage.Location = new System.Drawing.Point(449, 87);
-            cmdStartEmmulatorAndPackage.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdStartEmmulatorAndPackage.Location = new System.Drawing.Point(641, 145);
+            cmdStartEmmulatorAndPackage.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdStartEmmulatorAndPackage.Name = "cmdStartEmmulatorAndPackage";
-            cmdStartEmmulatorAndPackage.Size = new System.Drawing.Size(308, 27);
+            cmdStartEmmulatorAndPackage.Size = new System.Drawing.Size(440, 45);
             cmdStartEmmulatorAndPackage.TabIndex = 21;
             cmdStartEmmulatorAndPackage.Text = "Start Emmulator + Run App";
             cmdStartEmmulatorAndPackage.UseVisualStyleBackColor = true;
@@ -6670,10 +6591,10 @@ namespace AppTestStudio
             // 
             // cmdStartEmmulatorPackageAndRunScript
             // 
-            cmdStartEmmulatorPackageAndRunScript.Location = new System.Drawing.Point(449, 120);
-            cmdStartEmmulatorPackageAndRunScript.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdStartEmmulatorPackageAndRunScript.Location = new System.Drawing.Point(641, 200);
+            cmdStartEmmulatorPackageAndRunScript.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdStartEmmulatorPackageAndRunScript.Name = "cmdStartEmmulatorPackageAndRunScript";
-            cmdStartEmmulatorPackageAndRunScript.Size = new System.Drawing.Size(308, 27);
+            cmdStartEmmulatorPackageAndRunScript.Size = new System.Drawing.Size(440, 45);
             cmdStartEmmulatorPackageAndRunScript.TabIndex = 21;
             cmdStartEmmulatorPackageAndRunScript.Text = "Start Emmulator + Run App + Run Script";
             cmdStartEmmulatorPackageAndRunScript.UseVisualStyleBackColor = true;
@@ -6681,10 +6602,10 @@ namespace AppTestStudio
             // 
             // cmdStartEmmulator
             // 
-            cmdStartEmmulator.Location = new System.Drawing.Point(449, 20);
-            cmdStartEmmulator.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdStartEmmulator.Location = new System.Drawing.Point(641, 33);
+            cmdStartEmmulator.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdStartEmmulator.Name = "cmdStartEmmulator";
-            cmdStartEmmulator.Size = new System.Drawing.Size(308, 27);
+            cmdStartEmmulator.Size = new System.Drawing.Size(440, 45);
             cmdStartEmmulator.TabIndex = 21;
             cmdStartEmmulator.Text = "Start Emmulator";
             cmdStartEmmulator.UseVisualStyleBackColor = true;
@@ -6693,29 +6614,29 @@ namespace AppTestStudio
             // txtGamePanelLoopDelay
             // 
             txtGamePanelLoopDelay.BackColor = System.Drawing.SystemColors.Window;
-            txtGamePanelLoopDelay.Location = new System.Drawing.Point(178, 20);
-            txtGamePanelLoopDelay.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtGamePanelLoopDelay.Location = new System.Drawing.Point(254, 33);
+            txtGamePanelLoopDelay.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtGamePanelLoopDelay.Name = "txtGamePanelLoopDelay";
-            txtGamePanelLoopDelay.Size = new System.Drawing.Size(116, 23);
+            txtGamePanelLoopDelay.Size = new System.Drawing.Size(164, 31);
             txtGamePanelLoopDelay.TabIndex = 43;
             txtGamePanelLoopDelay.TextChanged += txtGamePanelLoopDelay_TextChanged_1;
             // 
             // Label30
             // 
             Label30.AutoSize = true;
-            Label30.Location = new System.Drawing.Point(15, 20);
-            Label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label30.Location = new System.Drawing.Point(21, 33);
+            Label30.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label30.Name = "Label30";
-            Label30.Size = new System.Drawing.Size(93, 15);
+            Label30.Size = new System.Drawing.Size(141, 25);
             Label30.TabIndex = 42;
             Label30.Text = "Loop Delay (ms)";
             // 
             // cmdRunScript
             // 
-            cmdRunScript.Location = new System.Drawing.Point(449, 53);
-            cmdRunScript.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdRunScript.Location = new System.Drawing.Point(641, 88);
+            cmdRunScript.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdRunScript.Name = "cmdRunScript";
-            cmdRunScript.Size = new System.Drawing.Size(308, 27);
+            cmdRunScript.Size = new System.Drawing.Size(440, 45);
             cmdRunScript.TabIndex = 22;
             cmdRunScript.Text = "Run Script";
             cmdRunScript.UseVisualStyleBackColor = true;
@@ -6725,10 +6646,9 @@ namespace AppTestStudio
             // 
             cboPlatform.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             cboPlatform.FormattingEnabled = true;
-            cboPlatform.Location = new System.Drawing.Point(121, 52);
-            cboPlatform.Margin = new System.Windows.Forms.Padding(2);
+            cboPlatform.Location = new System.Drawing.Point(173, 87);
             cboPlatform.Name = "cboPlatform";
-            cboPlatform.Size = new System.Drawing.Size(269, 23);
+            cboPlatform.Size = new System.Drawing.Size(383, 33);
             cboPlatform.TabIndex = 37;
             cboPlatform.SelectedIndexChanged += cboPlatform_SelectedIndexChanged;
             cboPlatform.TextChanged += cboPlatform_TextChanged;
@@ -6736,41 +6656,41 @@ namespace AppTestStudio
             // lblGamePanelGameName
             // 
             lblGamePanelGameName.AutoSize = true;
-            lblGamePanelGameName.Location = new System.Drawing.Point(118, 32);
-            lblGamePanelGameName.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblGamePanelGameName.Location = new System.Drawing.Point(169, 53);
+            lblGamePanelGameName.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblGamePanelGameName.Name = "lblGamePanelGameName";
-            lblGamePanelGameName.Size = new System.Drawing.Size(151, 15);
+            lblGamePanelGameName.Size = new System.Drawing.Size(221, 25);
             lblGamePanelGameName.TabIndex = 2;
             lblGamePanelGameName.Text = "[lblGamePanelGameName]";
             // 
             // label62
             // 
             label62.AutoSize = true;
-            label62.Location = new System.Drawing.Point(13, 55);
-            label62.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label62.Location = new System.Drawing.Point(19, 92);
+            label62.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label62.Name = "label62";
-            label62.Size = new System.Drawing.Size(53, 15);
+            label62.Size = new System.Drawing.Size(80, 25);
             label62.TabIndex = 1;
             label62.Text = "Platform";
             // 
             // label18
             // 
             label18.AutoSize = true;
-            label18.Location = new System.Drawing.Point(13, 31);
-            label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label18.Location = new System.Drawing.Point(19, 52);
+            label18.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label18.Name = "label18";
-            label18.Size = new System.Drawing.Size(64, 15);
+            label18.Size = new System.Drawing.Size(98, 25);
             label18.TabIndex = 1;
             label18.Text = "App Name";
             // 
             // label22
             // 
             label22.AutoSize = true;
-            label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label22.Location = new System.Drawing.Point(4, 0);
-            label22.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label22.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label22.Location = new System.Drawing.Point(6, 0);
+            label22.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label22.Name = "label22";
-            label22.Size = new System.Drawing.Size(74, 18);
+            label22.Size = new System.Drawing.Size(113, 26);
             label22.TabIndex = 0;
             label22.Text = "App Panel";
             // 
@@ -6783,18 +6703,18 @@ namespace AppTestStudio
             PanelObject.Controls.Add(txtObjectName);
             PanelObject.Controls.Add(Label47);
             PanelObject.Controls.Add(Label46);
-            PanelObject.Location = new System.Drawing.Point(1024, 43);
-            PanelObject.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelObject.Location = new System.Drawing.Point(1463, 72);
+            PanelObject.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelObject.Name = "PanelObject";
-            PanelObject.Size = new System.Drawing.Size(1094, 569);
+            PanelObject.Size = new System.Drawing.Size(1563, 948);
             PanelObject.TabIndex = 18;
             // 
             // cmdDeleteObject
             // 
-            cmdDeleteObject.Location = new System.Drawing.Point(677, 14);
-            cmdDeleteObject.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdDeleteObject.Location = new System.Drawing.Point(967, 23);
+            cmdDeleteObject.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdDeleteObject.Name = "cmdDeleteObject";
-            cmdDeleteObject.Size = new System.Drawing.Size(88, 27);
+            cmdDeleteObject.Size = new System.Drawing.Size(126, 45);
             cmdDeleteObject.TabIndex = 12;
             cmdDeleteObject.Text = "Delete";
             cmdDeleteObject.UseVisualStyleBackColor = true;
@@ -6804,10 +6724,10 @@ namespace AppTestStudio
             // 
             label36.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             label36.AutoSize = true;
-            label36.Location = new System.Drawing.Point(779, 9);
-            label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label36.Location = new System.Drawing.Point(1113, 15);
+            label36.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label36.Name = "label36";
-            label36.Size = new System.Drawing.Size(82, 15);
+            label36.Size = new System.Drawing.Size(124, 25);
             label36.TabIndex = 11;
             label36.Text = "Referenced by";
             // 
@@ -6815,12 +6735,12 @@ namespace AppTestStudio
             // 
             txtObjectReferencedBy.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             txtObjectReferencedBy.BackColor = System.Drawing.SystemColors.ButtonFace;
-            txtObjectReferencedBy.Location = new System.Drawing.Point(777, 29);
-            txtObjectReferencedBy.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtObjectReferencedBy.Location = new System.Drawing.Point(1110, 48);
+            txtObjectReferencedBy.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtObjectReferencedBy.Multiline = true;
             txtObjectReferencedBy.Name = "txtObjectReferencedBy";
             txtObjectReferencedBy.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            txtObjectReferencedBy.Size = new System.Drawing.Size(313, 163);
+            txtObjectReferencedBy.Size = new System.Drawing.Size(445, 269);
             txtObjectReferencedBy.TabIndex = 10;
             // 
             // Panel5
@@ -6829,16 +6749,16 @@ namespace AppTestStudio
             Panel5.AutoScroll = true;
             Panel5.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Panel5.Controls.Add(PictureBoxObject);
-            Panel5.Location = new System.Drawing.Point(16, 70);
-            Panel5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Panel5.Location = new System.Drawing.Point(23, 117);
+            Panel5.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             Panel5.Name = "Panel5";
-            Panel5.Size = new System.Drawing.Size(532, 448);
+            Panel5.Size = new System.Drawing.Size(760, 747);
             Panel5.TabIndex = 9;
             // 
             // PictureBoxObject
             // 
             PictureBoxObject.Location = new System.Drawing.Point(0, 0);
-            PictureBoxObject.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PictureBoxObject.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PictureBoxObject.Name = "PictureBoxObject";
             PictureBoxObject.Size = new System.Drawing.Size(100, 50);
             PictureBoxObject.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -6848,46 +6768,46 @@ namespace AppTestStudio
             // txtObjectName
             // 
             txtObjectName.Enabled = false;
-            txtObjectName.Location = new System.Drawing.Point(61, 33);
-            txtObjectName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtObjectName.Location = new System.Drawing.Point(87, 55);
+            txtObjectName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtObjectName.Name = "txtObjectName";
-            txtObjectName.Size = new System.Drawing.Size(319, 23);
+            txtObjectName.Size = new System.Drawing.Size(454, 31);
             txtObjectName.TabIndex = 2;
             // 
             // Label47
             // 
             Label47.AutoSize = true;
-            Label47.Location = new System.Drawing.Point(13, 39);
-            Label47.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label47.Location = new System.Drawing.Point(19, 65);
+            Label47.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label47.Name = "Label47";
-            Label47.Size = new System.Drawing.Size(39, 15);
+            Label47.Size = new System.Drawing.Size(59, 25);
             Label47.TabIndex = 1;
             Label47.Text = "Name";
             // 
             // Label46
             // 
             Label46.AutoSize = true;
-            Label46.Location = new System.Drawing.Point(13, 13);
-            Label46.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label46.Location = new System.Drawing.Point(19, 22);
+            Label46.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label46.Name = "Label46";
-            Label46.Size = new System.Drawing.Size(42, 15);
+            Label46.Size = new System.Drawing.Size(64, 25);
             Label46.TabIndex = 0;
             Label46.Text = "Object";
             // 
             // PanelTestAllEvents
             // 
             PanelTestAllEvents.Controls.Add(SplitContainer6);
-            PanelTestAllEvents.Location = new System.Drawing.Point(757, 171);
-            PanelTestAllEvents.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelTestAllEvents.Location = new System.Drawing.Point(1081, 285);
+            PanelTestAllEvents.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelTestAllEvents.Name = "PanelTestAllEvents";
-            PanelTestAllEvents.Size = new System.Drawing.Size(1223, 591);
+            PanelTestAllEvents.Size = new System.Drawing.Size(1747, 985);
             PanelTestAllEvents.TabIndex = 16;
             // 
             // SplitContainer6
             // 
             SplitContainer6.Dock = System.Windows.Forms.DockStyle.Fill;
             SplitContainer6.Location = new System.Drawing.Point(0, 0);
-            SplitContainer6.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            SplitContainer6.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             SplitContainer6.Name = "SplitContainer6";
             // 
             // SplitContainer6.Panel1
@@ -6906,16 +6826,16 @@ namespace AppTestStudio
             SplitContainer6.Panel2.Controls.Add(lblReference);
             SplitContainer6.Panel2.Controls.Add(Panel1);
             SplitContainer6.Panel2.Resize += SplitContainer6_Panel2_Resize;
-            SplitContainer6.Size = new System.Drawing.Size(1223, 591);
-            SplitContainer6.SplitterDistance = 212;
-            SplitContainer6.SplitterWidth = 5;
+            SplitContainer6.Size = new System.Drawing.Size(1747, 985);
+            SplitContainer6.SplitterDistance = 301;
+            SplitContainer6.SplitterWidth = 7;
             SplitContainer6.TabIndex = 2;
             // 
             // SplitContainer7
             // 
             SplitContainer7.Dock = System.Windows.Forms.DockStyle.Fill;
             SplitContainer7.Location = new System.Drawing.Point(0, 0);
-            SplitContainer7.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            SplitContainer7.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             SplitContainer7.Name = "SplitContainer7";
             SplitContainer7.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -6926,19 +6846,19 @@ namespace AppTestStudio
             // SplitContainer7.Panel2
             // 
             SplitContainer7.Panel2.Controls.Add(tvTestAllEvents);
-            SplitContainer7.Size = new System.Drawing.Size(212, 591);
-            SplitContainer7.SplitterDistance = 28;
-            SplitContainer7.SplitterWidth = 5;
+            SplitContainer7.Size = new System.Drawing.Size(301, 985);
+            SplitContainer7.SplitterDistance = 45;
+            SplitContainer7.SplitterWidth = 8;
             SplitContainer7.TabIndex = 0;
             // 
             // label35
             // 
             label35.AutoSize = true;
-            label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label35.Location = new System.Drawing.Point(1, 1);
-            label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label35.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label35.Location = new System.Drawing.Point(1, 2);
+            label35.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label35.Name = "label35";
-            label35.Size = new System.Drawing.Size(105, 18);
+            label35.Size = new System.Drawing.Size(157, 26);
             label35.TabIndex = 0;
             label35.Text = "Test All Events";
             // 
@@ -6948,10 +6868,10 @@ namespace AppTestStudio
             tvTestAllEvents.ImageIndex = 0;
             tvTestAllEvents.ImageList = ImageList1;
             tvTestAllEvents.Location = new System.Drawing.Point(0, 0);
-            tvTestAllEvents.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            tvTestAllEvents.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             tvTestAllEvents.Name = "tvTestAllEvents";
             tvTestAllEvents.SelectedImageIndex = 0;
-            tvTestAllEvents.Size = new System.Drawing.Size(212, 558);
+            tvTestAllEvents.Size = new System.Drawing.Size(301, 932);
             tvTestAllEvents.TabIndex = 1;
             tvTestAllEvents.AfterSelect += tvTestAllEvents_AfterSelect;
             tvTestAllEvents.MouseUp += tvTestAllEvents_MouseUp;
@@ -6959,10 +6879,10 @@ namespace AppTestStudio
             // lblTestAllCustom
             // 
             lblTestAllCustom.AutoSize = true;
-            lblTestAllCustom.Location = new System.Drawing.Point(747, 16);
-            lblTestAllCustom.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTestAllCustom.Location = new System.Drawing.Point(1067, 27);
+            lblTestAllCustom.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblTestAllCustom.Name = "lblTestAllCustom";
-            lblTestAllCustom.Size = new System.Drawing.Size(96, 15);
+            lblTestAllCustom.Size = new System.Drawing.Size(143, 25);
             lblTestAllCustom.TabIndex = 14;
             lblTestAllCustom.Text = "lblTestAllCustom";
             // 
@@ -6972,7 +6892,7 @@ namespace AppTestStudio
             dgvTest.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -6982,19 +6902,19 @@ namespace AppTestStudio
             dgvTest.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { dgvColorTestID, dgvColorTestRed, dgvColorTestGreen, dgvColorTestBlue, dgvXTest, dgvYTest, dgvPassFail, dvgRange });
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.Control;
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
-            dgvTest.Location = new System.Drawing.Point(727, 261);
-            dgvTest.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            dgvTest.Location = new System.Drawing.Point(1010, 435);
+            dgvTest.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             dgvTest.Name = "dgvTest";
             dgvTest.RowHeadersWidth = 62;
             dgvTest.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             dgvTest.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvTest.Size = new System.Drawing.Size(527, 316);
+            dgvTest.Size = new System.Drawing.Size(753, 527);
             dgvTest.TabIndex = 13;
             // 
             // dgvColorTestID
@@ -7002,28 +6922,28 @@ namespace AppTestStudio
             dgvColorTestID.HeaderText = "ID";
             dgvColorTestID.MinimumWidth = 8;
             dgvColorTestID.Name = "dgvColorTestID";
-            dgvColorTestID.Width = 43;
+            dgvColorTestID.Width = 62;
             // 
             // dgvColorTestRed
             // 
             dgvColorTestRed.HeaderText = "Red";
             dgvColorTestRed.MinimumWidth = 8;
             dgvColorTestRed.Name = "dgvColorTestRed";
-            dgvColorTestRed.Width = 52;
+            dgvColorTestRed.Width = 75;
             // 
             // dgvColorTestGreen
             // 
             dgvColorTestGreen.HeaderText = "Green";
             dgvColorTestGreen.MinimumWidth = 8;
             dgvColorTestGreen.Name = "dgvColorTestGreen";
-            dgvColorTestGreen.Width = 61;
+            dgvColorTestGreen.Width = 91;
             // 
             // dgvColorTestBlue
             // 
             dgvColorTestBlue.HeaderText = "Blue";
             dgvColorTestBlue.MinimumWidth = 8;
             dgvColorTestBlue.Name = "dgvColorTestBlue";
-            dgvColorTestBlue.Width = 53;
+            dgvColorTestBlue.Width = 79;
             // 
             // dgvXTest
             // 
@@ -7031,7 +6951,7 @@ namespace AppTestStudio
             dgvXTest.HeaderText = "X";
             dgvXTest.MinimumWidth = 8;
             dgvXTest.Name = "dgvXTest";
-            dgvXTest.Width = 39;
+            dgvXTest.Width = 56;
             // 
             // dgvYTest
             // 
@@ -7039,28 +6959,28 @@ namespace AppTestStudio
             dgvYTest.HeaderText = "Y";
             dgvYTest.MinimumWidth = 8;
             dgvYTest.Name = "dgvYTest";
-            dgvYTest.Width = 39;
+            dgvYTest.Width = 55;
             // 
             // dgvPassFail
             // 
             dgvPassFail.HeaderText = "Pass/Fail";
             dgvPassFail.MinimumWidth = 8;
             dgvPassFail.Name = "dgvPassFail";
-            dgvPassFail.Width = 76;
+            dgvPassFail.Width = 115;
             // 
             // dvgRange
             // 
             dvgRange.HeaderText = "+-Points";
             dvgRange.MinimumWidth = 8;
             dvgRange.Name = "dvgRange";
-            dvgRange.Width = 70;
+            dvgRange.Width = 108;
             // 
             // dgvTestAllReference
             // 
             dgvTestAllReference.Anchor = System.Windows.Forms.AnchorStyles.None;
             dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle9.ForeColor = System.Drawing.SystemColors.WindowText;
             dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -7070,19 +6990,19 @@ namespace AppTestStudio
             dgvTestAllReference.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] { dgvTestAllReferenceID, dgvTestAllReferenceRed, dgvTestAllReferenceGreen, dgvTestAllReferenceBlue, dgvTestAllReferenceX, dgvTestAllReferenceY });
             dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
-            dgvTestAllReference.Location = new System.Drawing.Point(727, 55);
-            dgvTestAllReference.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            dgvTestAllReference.Location = new System.Drawing.Point(1010, 92);
+            dgvTestAllReference.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             dgvTestAllReference.Name = "dgvTestAllReference";
             dgvTestAllReference.RowHeadersWidth = 62;
             dgvTestAllReference.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             dgvTestAllReference.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            dgvTestAllReference.Size = new System.Drawing.Size(527, 185);
+            dgvTestAllReference.Size = new System.Drawing.Size(753, 308);
             dgvTestAllReference.TabIndex = 11;
             // 
             // dgvTestAllReferenceID
@@ -7091,7 +7011,7 @@ namespace AppTestStudio
             dgvTestAllReferenceID.HeaderText = "ID";
             dgvTestAllReferenceID.MinimumWidth = 8;
             dgvTestAllReferenceID.Name = "dgvTestAllReferenceID";
-            dgvTestAllReferenceID.Width = 43;
+            dgvTestAllReferenceID.Width = 62;
             // 
             // dgvTestAllReferenceRed
             // 
@@ -7099,7 +7019,7 @@ namespace AppTestStudio
             dgvTestAllReferenceRed.HeaderText = "Red";
             dgvTestAllReferenceRed.MinimumWidth = 8;
             dgvTestAllReferenceRed.Name = "dgvTestAllReferenceRed";
-            dgvTestAllReferenceRed.Width = 52;
+            dgvTestAllReferenceRed.Width = 75;
             // 
             // dgvTestAllReferenceGreen
             // 
@@ -7107,7 +7027,7 @@ namespace AppTestStudio
             dgvTestAllReferenceGreen.HeaderText = "Green";
             dgvTestAllReferenceGreen.MinimumWidth = 8;
             dgvTestAllReferenceGreen.Name = "dgvTestAllReferenceGreen";
-            dgvTestAllReferenceGreen.Width = 61;
+            dgvTestAllReferenceGreen.Width = 91;
             // 
             // dgvTestAllReferenceBlue
             // 
@@ -7115,7 +7035,7 @@ namespace AppTestStudio
             dgvTestAllReferenceBlue.HeaderText = "Blue";
             dgvTestAllReferenceBlue.MinimumWidth = 8;
             dgvTestAllReferenceBlue.Name = "dgvTestAllReferenceBlue";
-            dgvTestAllReferenceBlue.Width = 53;
+            dgvTestAllReferenceBlue.Width = 79;
             // 
             // dgvTestAllReferenceX
             // 
@@ -7124,7 +7044,7 @@ namespace AppTestStudio
             dgvTestAllReferenceX.HeaderText = "X";
             dgvTestAllReferenceX.MinimumWidth = 8;
             dgvTestAllReferenceX.Name = "dgvTestAllReferenceX";
-            dgvTestAllReferenceX.Width = 39;
+            dgvTestAllReferenceX.Width = 56;
             // 
             // dgvTestAllReferenceY
             // 
@@ -7133,25 +7053,25 @@ namespace AppTestStudio
             dgvTestAllReferenceY.HeaderText = "Y";
             dgvTestAllReferenceY.MinimumWidth = 8;
             dgvTestAllReferenceY.Name = "dgvTestAllReferenceY";
-            dgvTestAllReferenceY.Width = 39;
+            dgvTestAllReferenceY.Width = 55;
             // 
             // lblReferenceWindowResolution
             // 
             lblReferenceWindowResolution.AutoSize = true;
-            lblReferenceWindowResolution.Location = new System.Drawing.Point(400, 295);
-            lblReferenceWindowResolution.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblReferenceWindowResolution.Location = new System.Drawing.Point(571, 492);
+            lblReferenceWindowResolution.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblReferenceWindowResolution.Name = "lblReferenceWindowResolution";
-            lblReferenceWindowResolution.Size = new System.Drawing.Size(172, 15);
+            lblReferenceWindowResolution.Size = new System.Drawing.Size(256, 25);
             lblReferenceWindowResolution.TabIndex = 8;
             lblReferenceWindowResolution.Text = "lblReferenceWindowResolution";
             // 
             // lblTestWindowResolution
             // 
             lblTestWindowResolution.AutoSize = true;
-            lblTestWindowResolution.Location = new System.Drawing.Point(434, 28);
-            lblTestWindowResolution.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTestWindowResolution.Location = new System.Drawing.Point(620, 47);
+            lblTestWindowResolution.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblTestWindowResolution.Name = "lblTestWindowResolution";
-            lblTestWindowResolution.Size = new System.Drawing.Size(140, 15);
+            lblTestWindowResolution.Size = new System.Drawing.Size(210, 25);
             lblTestWindowResolution.TabIndex = 12;
             lblTestWindowResolution.Text = "lblTestWindowResolution";
             // 
@@ -7161,16 +7081,16 @@ namespace AppTestStudio
             Panel2.AutoScroll = true;
             Panel2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Panel2.Controls.Add(PictureTestAllTest);
-            Panel2.Location = new System.Drawing.Point(-6, 316);
-            Panel2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Panel2.Location = new System.Drawing.Point(-39, 527);
+            Panel2.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             Panel2.Name = "Panel2";
-            Panel2.Size = new System.Drawing.Size(570, 272);
+            Panel2.Size = new System.Drawing.Size(814, 453);
             Panel2.TabIndex = 11;
             // 
             // PictureTestAllTest
             // 
-            PictureTestAllTest.Location = new System.Drawing.Point(4, 3);
-            PictureTestAllTest.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PictureTestAllTest.Location = new System.Drawing.Point(6, 5);
+            PictureTestAllTest.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PictureTestAllTest.Name = "PictureTestAllTest";
             PictureTestAllTest.Size = new System.Drawing.Size(100, 50);
             PictureTestAllTest.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -7181,22 +7101,22 @@ namespace AppTestStudio
             // lblTestWindow
             // 
             lblTestWindow.AutoSize = true;
-            lblTestWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblTestWindow.Location = new System.Drawing.Point(13, 9);
-            lblTestWindow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblTestWindow.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            lblTestWindow.Location = new System.Drawing.Point(19, 15);
+            lblTestWindow.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblTestWindow.Name = "lblTestWindow";
-            lblTestWindow.Size = new System.Drawing.Size(172, 24);
+            lblTestWindow.Size = new System.Drawing.Size(260, 33);
             lblTestWindow.TabIndex = 10;
             lblTestWindow.Text = "Reference Window";
             // 
             // lblReference
             // 
             lblReference.AutoSize = true;
-            lblReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            lblReference.Location = new System.Drawing.Point(9, 271);
-            lblReference.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblReference.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F);
+            lblReference.Location = new System.Drawing.Point(13, 452);
+            lblReference.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblReference.Name = "lblReference";
-            lblReference.Size = new System.Drawing.Size(120, 24);
+            lblReference.Size = new System.Drawing.Size(183, 33);
             lblReference.TabIndex = 9;
             lblReference.Text = "Test Window";
             // 
@@ -7207,17 +7127,17 @@ namespace AppTestStudio
             Panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Panel1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
             Panel1.Controls.Add(PictureTestAllReference);
-            Panel1.Location = new System.Drawing.Point(-1, 48);
-            Panel1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Panel1.Location = new System.Drawing.Point(-30, 80);
+            Panel1.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             Panel1.Name = "Panel1";
-            Panel1.Size = new System.Drawing.Size(566, 219);
+            Panel1.Size = new System.Drawing.Size(809, 365);
             Panel1.TabIndex = 8;
             // 
             // PictureTestAllReference
             // 
             PictureTestAllReference.BackColor = System.Drawing.SystemColors.Control;
-            PictureTestAllReference.Location = new System.Drawing.Point(4, 3);
-            PictureTestAllReference.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PictureTestAllReference.Location = new System.Drawing.Point(6, 5);
+            PictureTestAllReference.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PictureTestAllReference.Name = "PictureTestAllReference";
             PictureTestAllReference.Size = new System.Drawing.Size(100, 50);
             PictureTestAllReference.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -7228,40 +7148,40 @@ namespace AppTestStudio
             // PanelGames
             // 
             PanelGames.Controls.Add(label43);
-            PanelGames.Location = new System.Drawing.Point(941, 69);
-            PanelGames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelGames.Location = new System.Drawing.Point(1344, 115);
+            PanelGames.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelGames.Name = "PanelGames";
-            PanelGames.Size = new System.Drawing.Size(233, 115);
+            PanelGames.Size = new System.Drawing.Size(333, 192);
             PanelGames.TabIndex = 21;
             // 
             // label43
             // 
             label43.AutoSize = true;
-            label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label43.Location = new System.Drawing.Point(4, 3);
-            label43.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label43.Location = new System.Drawing.Point(6, 5);
+            label43.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label43.Name = "label43";
-            label43.Size = new System.Drawing.Size(98, 18);
+            label43.Size = new System.Drawing.Size(145, 26);
             label43.TabIndex = 1;
             label43.Text = "Panel Games";
             // 
             // PanelActions
             // 
             PanelActions.Controls.Add(label41);
-            PanelActions.Location = new System.Drawing.Point(874, 98);
-            PanelActions.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelActions.Location = new System.Drawing.Point(1249, 163);
+            PanelActions.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelActions.Name = "PanelActions";
-            PanelActions.Size = new System.Drawing.Size(432, 249);
+            PanelActions.Size = new System.Drawing.Size(617, 415);
             PanelActions.TabIndex = 20;
             // 
             // label41
             // 
             label41.AutoSize = true;
-            label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label41.Location = new System.Drawing.Point(4, 0);
-            label41.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label41.Location = new System.Drawing.Point(6, 0);
+            label41.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label41.Name = "label41";
-            label41.Size = new System.Drawing.Size(98, 18);
+            label41.Size = new System.Drawing.Size(146, 26);
             label41.TabIndex = 2;
             label41.Text = "Actions Panel";
             // 
@@ -7279,19 +7199,19 @@ namespace AppTestStudio
             PanelObjectScreenshot.Controls.Add(Panel4);
             PanelObjectScreenshot.Controls.Add(Label44);
             PanelObjectScreenshot.Controls.Add(Label53);
-            PanelObjectScreenshot.Location = new System.Drawing.Point(419, 368);
-            PanelObjectScreenshot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelObjectScreenshot.Location = new System.Drawing.Point(599, 613);
+            PanelObjectScreenshot.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelObjectScreenshot.Name = "PanelObjectScreenshot";
-            PanelObjectScreenshot.Size = new System.Drawing.Size(929, 440);
+            PanelObjectScreenshot.Size = new System.Drawing.Size(1327, 733);
             PanelObjectScreenshot.TabIndex = 12;
             // 
             // pictureCreateNewObjectNamedCheckBox
             // 
             pictureCreateNewObjectNamedCheckBox.Image = Properties.Resources.PSGreenCheck;
-            pictureCreateNewObjectNamedCheckBox.Location = new System.Drawing.Point(444, 50);
-            pictureCreateNewObjectNamedCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pictureCreateNewObjectNamedCheckBox.Location = new System.Drawing.Point(634, 83);
+            pictureCreateNewObjectNamedCheckBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             pictureCreateNewObjectNamedCheckBox.Name = "pictureCreateNewObjectNamedCheckBox";
-            pictureCreateNewObjectNamedCheckBox.Size = new System.Drawing.Size(18, 17);
+            pictureCreateNewObjectNamedCheckBox.Size = new System.Drawing.Size(26, 28);
             pictureCreateNewObjectNamedCheckBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureCreateNewObjectNamedCheckBox.TabIndex = 17;
             pictureCreateNewObjectNamedCheckBox.TabStop = false;
@@ -7299,20 +7219,20 @@ namespace AppTestStudio
             // pictureCreateNewObjectMaskDrawnCheckBox
             // 
             pictureCreateNewObjectMaskDrawnCheckBox.Image = Properties.Resources.PSGreenCheck;
-            pictureCreateNewObjectMaskDrawnCheckBox.Location = new System.Drawing.Point(444, 32);
-            pictureCreateNewObjectMaskDrawnCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            pictureCreateNewObjectMaskDrawnCheckBox.Location = new System.Drawing.Point(634, 53);
+            pictureCreateNewObjectMaskDrawnCheckBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             pictureCreateNewObjectMaskDrawnCheckBox.Name = "pictureCreateNewObjectMaskDrawnCheckBox";
-            pictureCreateNewObjectMaskDrawnCheckBox.Size = new System.Drawing.Size(18, 17);
+            pictureCreateNewObjectMaskDrawnCheckBox.Size = new System.Drawing.Size(26, 28);
             pictureCreateNewObjectMaskDrawnCheckBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             pictureCreateNewObjectMaskDrawnCheckBox.TabIndex = 16;
             pictureCreateNewObjectMaskDrawnCheckBox.TabStop = false;
             // 
             // cmdMakeObjectAndUse
             // 
-            cmdMakeObjectAndUse.Location = new System.Drawing.Point(266, 13);
-            cmdMakeObjectAndUse.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdMakeObjectAndUse.Location = new System.Drawing.Point(380, 22);
+            cmdMakeObjectAndUse.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdMakeObjectAndUse.Name = "cmdMakeObjectAndUse";
-            cmdMakeObjectAndUse.Size = new System.Drawing.Size(164, 27);
+            cmdMakeObjectAndUse.Size = new System.Drawing.Size(234, 45);
             cmdMakeObjectAndUse.TabIndex = 14;
             cmdMakeObjectAndUse.Text = "Make Object + Use";
             cmdMakeObjectAndUse.UseVisualStyleBackColor = true;
@@ -7320,10 +7240,10 @@ namespace AppTestStudio
             // 
             // cmdMakeObject
             // 
-            cmdMakeObject.Location = new System.Drawing.Point(266, 46);
-            cmdMakeObject.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdMakeObject.Location = new System.Drawing.Point(380, 77);
+            cmdMakeObject.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdMakeObject.Name = "cmdMakeObject";
-            cmdMakeObject.Size = new System.Drawing.Size(164, 27);
+            cmdMakeObject.Size = new System.Drawing.Size(234, 45);
             cmdMakeObject.TabIndex = 14;
             cmdMakeObject.Text = "Make Object";
             cmdMakeObject.UseVisualStyleBackColor = true;
@@ -7334,20 +7254,20 @@ namespace AppTestStudio
             panelObjectScreenshotColor.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             panelObjectScreenshotColor.Controls.Add(lblObjectScreenshotColorXY);
             panelObjectScreenshotColor.Controls.Add(lblObjectScreenshotRHSXY);
-            panelObjectScreenshotColor.Location = new System.Drawing.Point(737, 196);
-            panelObjectScreenshotColor.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            panelObjectScreenshotColor.Location = new System.Drawing.Point(1053, 327);
+            panelObjectScreenshotColor.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             panelObjectScreenshotColor.Name = "panelObjectScreenshotColor";
-            panelObjectScreenshotColor.Size = new System.Drawing.Size(184, 48);
+            panelObjectScreenshotColor.Size = new System.Drawing.Size(263, 80);
             panelObjectScreenshotColor.TabIndex = 13;
             // 
             // lblObjectScreenshotColorXY
             // 
             lblObjectScreenshotColorXY.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblObjectScreenshotColorXY.AutoSize = true;
-            lblObjectScreenshotColorXY.Location = new System.Drawing.Point(2, 23);
-            lblObjectScreenshotColorXY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblObjectScreenshotColorXY.Location = new System.Drawing.Point(3, 38);
+            lblObjectScreenshotColorXY.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblObjectScreenshotColorXY.Name = "lblObjectScreenshotColorXY";
-            lblObjectScreenshotColorXY.Size = new System.Drawing.Size(71, 15);
+            lblObjectScreenshotColorXY.Size = new System.Drawing.Size(105, 25);
             lblObjectScreenshotColorXY.TabIndex = 2;
             lblObjectScreenshotColorXY.Text = "[lblColorXY]";
             // 
@@ -7355,10 +7275,10 @@ namespace AppTestStudio
             // 
             lblObjectScreenshotRHSXY.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             lblObjectScreenshotRHSXY.AutoSize = true;
-            lblObjectScreenshotRHSXY.Location = new System.Drawing.Point(4, 8);
-            lblObjectScreenshotRHSXY.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblObjectScreenshotRHSXY.Location = new System.Drawing.Point(6, 13);
+            lblObjectScreenshotRHSXY.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblObjectScreenshotRHSXY.Name = "lblObjectScreenshotRHSXY";
-            lblObjectScreenshotRHSXY.Size = new System.Drawing.Size(64, 15);
+            lblObjectScreenshotRHSXY.Size = new System.Drawing.Size(96, 25);
             lblObjectScreenshotRHSXY.TabIndex = 3;
             lblObjectScreenshotRHSXY.Text = "[lblRHSXY]";
             // 
@@ -7366,39 +7286,39 @@ namespace AppTestStudio
             // 
             PictureObjectScreenshotZoomBox.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
             PictureObjectScreenshotZoomBox.Image = (System.Drawing.Image)resources.GetObject("PictureObjectScreenshotZoomBox.Image");
-            PictureObjectScreenshotZoomBox.Location = new System.Drawing.Point(735, 5);
-            PictureObjectScreenshotZoomBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PictureObjectScreenshotZoomBox.Location = new System.Drawing.Point(1050, 8);
+            PictureObjectScreenshotZoomBox.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PictureObjectScreenshotZoomBox.Name = "PictureObjectScreenshotZoomBox";
-            PictureObjectScreenshotZoomBox.Size = new System.Drawing.Size(187, 185);
+            PictureObjectScreenshotZoomBox.Size = new System.Drawing.Size(267, 308);
             PictureObjectScreenshotZoomBox.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             PictureObjectScreenshotZoomBox.TabIndex = 12;
             PictureObjectScreenshotZoomBox.TabStop = false;
             // 
             // txtObjectScreenshotName
             // 
-            txtObjectScreenshotName.Location = new System.Drawing.Point(66, 83);
-            txtObjectScreenshotName.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtObjectScreenshotName.Location = new System.Drawing.Point(94, 138);
+            txtObjectScreenshotName.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtObjectScreenshotName.Name = "txtObjectScreenshotName";
-            txtObjectScreenshotName.Size = new System.Drawing.Size(366, 23);
+            txtObjectScreenshotName.Size = new System.Drawing.Size(521, 31);
             txtObjectScreenshotName.TabIndex = 11;
             txtObjectScreenshotName.TextChanged += txtObjectScreenshotName_TextChanged;
             // 
             // Label45
             // 
             Label45.AutoSize = true;
-            Label45.Location = new System.Drawing.Point(15, 83);
-            Label45.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label45.Location = new System.Drawing.Point(21, 138);
+            Label45.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label45.Name = "Label45";
-            Label45.Size = new System.Drawing.Size(42, 15);
+            Label45.Size = new System.Drawing.Size(63, 25);
             Label45.TabIndex = 10;
             Label45.Text = "Name:";
             // 
             // cmdObjectScreenshotsTakeAScreenshot
             // 
-            cmdObjectScreenshotsTakeAScreenshot.Location = new System.Drawing.Point(18, 29);
-            cmdObjectScreenshotsTakeAScreenshot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdObjectScreenshotsTakeAScreenshot.Location = new System.Drawing.Point(26, 48);
+            cmdObjectScreenshotsTakeAScreenshot.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdObjectScreenshotsTakeAScreenshot.Name = "cmdObjectScreenshotsTakeAScreenshot";
-            cmdObjectScreenshotsTakeAScreenshot.Size = new System.Drawing.Size(149, 27);
+            cmdObjectScreenshotsTakeAScreenshot.Size = new System.Drawing.Size(213, 45);
             cmdObjectScreenshotsTakeAScreenshot.TabIndex = 9;
             cmdObjectScreenshotsTakeAScreenshot.Text = "Take a Screenshot";
             cmdObjectScreenshotsTakeAScreenshot.UseVisualStyleBackColor = true;
@@ -7410,17 +7330,17 @@ namespace AppTestStudio
             Panel4.AutoScroll = true;
             Panel4.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             Panel4.Controls.Add(PictureObjectScreenshot);
-            Panel4.Location = new System.Drawing.Point(18, 117);
-            Panel4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Panel4.Location = new System.Drawing.Point(26, 195);
+            Panel4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             Panel4.Name = "Panel4";
-            Panel4.Size = new System.Drawing.Size(603, 308);
+            Panel4.Size = new System.Drawing.Size(861, 513);
             Panel4.TabIndex = 8;
             // 
             // PictureObjectScreenshot
             // 
             PictureObjectScreenshot.Cursor = System.Windows.Forms.Cursors.Cross;
-            PictureObjectScreenshot.Location = new System.Drawing.Point(9, 9);
-            PictureObjectScreenshot.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PictureObjectScreenshot.Location = new System.Drawing.Point(13, 15);
+            PictureObjectScreenshot.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PictureObjectScreenshot.Name = "PictureObjectScreenshot";
             PictureObjectScreenshot.Size = new System.Drawing.Size(286, 263);
             PictureObjectScreenshot.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
@@ -7434,20 +7354,20 @@ namespace AppTestStudio
             // Label44
             // 
             Label44.AutoSize = true;
-            Label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            Label44.Location = new System.Drawing.Point(18, 5);
-            Label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            Label44.Location = new System.Drawing.Point(26, 8);
+            Label44.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label44.Name = "Label44";
-            Label44.Size = new System.Drawing.Size(133, 18);
+            Label44.Size = new System.Drawing.Size(196, 26);
             Label44.TabIndex = 0;
             Label44.Text = "Create New Object";
             // 
             // Label53
             // 
-            Label53.Location = new System.Drawing.Point(460, 20);
-            Label53.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            Label53.Location = new System.Drawing.Point(657, 33);
+            Label53.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             Label53.Name = "Label53";
-            Label53.Size = new System.Drawing.Size(542, 156);
+            Label53.Size = new System.Drawing.Size(774, 260);
             Label53.TabIndex = 15;
             Label53.Text = resources.GetString("Label53.Text");
             // 
@@ -7456,39 +7376,39 @@ namespace AppTestStudio
             PanelAddNewGames.Controls.Add(label39);
             PanelAddNewGames.Controls.Add(txtAddNewGame);
             PanelAddNewGames.Controls.Add(label38);
-            PanelAddNewGames.Location = new System.Drawing.Point(612, 217);
-            PanelAddNewGames.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelAddNewGames.Location = new System.Drawing.Point(874, 362);
+            PanelAddNewGames.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelAddNewGames.Name = "PanelAddNewGames";
-            PanelAddNewGames.Size = new System.Drawing.Size(450, 133);
+            PanelAddNewGames.Size = new System.Drawing.Size(643, 222);
             PanelAddNewGames.TabIndex = 17;
             // 
             // label39
             // 
             label39.AutoSize = true;
-            label39.Location = new System.Drawing.Point(7, 31);
-            label39.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label39.Location = new System.Drawing.Point(10, 52);
+            label39.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label39.Name = "label39";
-            label39.Size = new System.Drawing.Size(73, 15);
+            label39.Size = new System.Drawing.Size(110, 25);
             label39.TabIndex = 2;
             label39.Text = "Game Name";
             // 
             // txtAddNewGame
             // 
             txtAddNewGame.BackColor = System.Drawing.SystemColors.Window;
-            txtAddNewGame.Location = new System.Drawing.Point(89, 28);
-            txtAddNewGame.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtAddNewGame.Location = new System.Drawing.Point(127, 47);
+            txtAddNewGame.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtAddNewGame.Name = "txtAddNewGame";
-            txtAddNewGame.Size = new System.Drawing.Size(358, 23);
+            txtAddNewGame.Size = new System.Drawing.Size(510, 31);
             txtAddNewGame.TabIndex = 1;
             // 
             // label38
             // 
             label38.AutoSize = true;
-            label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label38.Location = new System.Drawing.Point(4, 0);
-            label38.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label38.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            label38.Location = new System.Drawing.Point(6, 0);
+            label38.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label38.Name = "label38";
-            label38.Size = new System.Drawing.Size(112, 18);
+            label38.Size = new System.Drawing.Size(183, 29);
             label38.TabIndex = 0;
             label38.Text = "Add New Game";
             // 
@@ -7496,30 +7416,30 @@ namespace AppTestStudio
             // 
             PanelObjects.Controls.Add(label34);
             PanelObjects.Controls.Add(label32);
-            PanelObjects.Location = new System.Drawing.Point(497, 329);
-            PanelObjects.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelObjects.Location = new System.Drawing.Point(710, 548);
+            PanelObjects.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelObjects.Name = "PanelObjects";
-            PanelObjects.Size = new System.Drawing.Size(233, 115);
+            PanelObjects.Size = new System.Drawing.Size(333, 192);
             PanelObjects.TabIndex = 15;
             // 
             // label34
             // 
             label34.AutoSize = true;
-            label34.Location = new System.Drawing.Point(84, 58);
-            label34.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label34.Location = new System.Drawing.Point(120, 97);
+            label34.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label34.Name = "label34";
-            label34.Size = new System.Drawing.Size(93, 15);
+            label34.Size = new System.Drawing.Size(139, 25);
             label34.TabIndex = 3;
             label34.Text = "Currently Empty";
             // 
             // label32
             // 
             label32.AutoSize = true;
-            label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label32.Location = new System.Drawing.Point(4, 0);
-            label32.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            label32.Location = new System.Drawing.Point(6, 0);
+            label32.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label32.Name = "label32";
-            label32.Size = new System.Drawing.Size(59, 18);
+            label32.Size = new System.Drawing.Size(96, 29);
             label32.TabIndex = 2;
             label32.Text = "Objects";
             // 
@@ -7528,40 +7448,40 @@ namespace AppTestStudio
             PanelEvents.Controls.Add(lblEventsPanelTargetWindow);
             PanelEvents.Controls.Add(label11);
             PanelEvents.Controls.Add(label10);
-            PanelEvents.Location = new System.Drawing.Point(307, 463);
-            PanelEvents.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelEvents.Location = new System.Drawing.Point(439, 772);
+            PanelEvents.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelEvents.Name = "PanelEvents";
-            PanelEvents.Size = new System.Drawing.Size(596, 234);
+            PanelEvents.Size = new System.Drawing.Size(851, 390);
             PanelEvents.TabIndex = 2;
             // 
             // lblEventsPanelTargetWindow
             // 
             lblEventsPanelTargetWindow.AutoSize = true;
-            lblEventsPanelTargetWindow.Location = new System.Drawing.Point(108, 30);
-            lblEventsPanelTargetWindow.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblEventsPanelTargetWindow.Location = new System.Drawing.Point(154, 50);
+            lblEventsPanelTargetWindow.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblEventsPanelTargetWindow.Name = "lblEventsPanelTargetWindow";
-            lblEventsPanelTargetWindow.Size = new System.Drawing.Size(159, 15);
+            lblEventsPanelTargetWindow.Size = new System.Drawing.Size(237, 25);
             lblEventsPanelTargetWindow.TabIndex = 3;
             lblEventsPanelTargetWindow.Text = "lblEventsPanelTargetWindow";
             // 
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new System.Drawing.Point(7, 31);
-            label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label11.Location = new System.Drawing.Point(10, 52);
+            label11.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label11.Name = "label11";
-            label11.Size = new System.Drawing.Size(86, 15);
+            label11.Size = new System.Drawing.Size(131, 25);
             label11.TabIndex = 2;
             label11.Text = "Target Window";
             // 
             // label10
             // 
             label10.AutoSize = true;
-            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label10.Location = new System.Drawing.Point(4, 6);
-            label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label10.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            label10.Location = new System.Drawing.Point(6, 10);
+            label10.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label10.Name = "label10";
-            label10.Size = new System.Drawing.Size(53, 18);
+            label10.Size = new System.Drawing.Size(85, 29);
             label10.TabIndex = 1;
             label10.Text = "Events";
             // 
@@ -7573,17 +7493,17 @@ namespace AppTestStudio
             PanelSchedule.Controls.Add(Button4);
             PanelSchedule.Controls.Add(cmdAddSchedule);
             PanelSchedule.Controls.Add(label40);
-            PanelSchedule.Location = new System.Drawing.Point(99, 48);
-            PanelSchedule.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelSchedule.Location = new System.Drawing.Point(141, 80);
+            PanelSchedule.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelSchedule.Name = "PanelSchedule";
-            PanelSchedule.Size = new System.Drawing.Size(724, 452);
+            PanelSchedule.Size = new System.Drawing.Size(1034, 753);
             PanelSchedule.TabIndex = 19;
             // 
             // splitContainerSchedule
             // 
             splitContainerSchedule.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right;
-            splitContainerSchedule.Location = new System.Drawing.Point(4, 61);
-            splitContainerSchedule.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitContainerSchedule.Location = new System.Drawing.Point(6, 102);
+            splitContainerSchedule.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             splitContainerSchedule.Name = "splitContainerSchedule";
             splitContainerSchedule.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -7594,9 +7514,9 @@ namespace AppTestStudio
             // splitContainerSchedule.Panel2
             // 
             splitContainerSchedule.Panel2.Controls.Add(splitContainerRuntimeSchedule);
-            splitContainerSchedule.Size = new System.Drawing.Size(716, 388);
-            splitContainerSchedule.SplitterDistance = 194;
-            splitContainerSchedule.SplitterWidth = 5;
+            splitContainerSchedule.Size = new System.Drawing.Size(1023, 647);
+            splitContainerSchedule.SplitterDistance = 321;
+            splitContainerSchedule.SplitterWidth = 8;
             splitContainerSchedule.TabIndex = 8;
             // 
             // dgSchedule
@@ -7609,11 +7529,11 @@ namespace AppTestStudio
             dgSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
             dgSchedule.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             dgSchedule.Location = new System.Drawing.Point(0, 0);
-            dgSchedule.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            dgSchedule.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             dgSchedule.Name = "dgSchedule";
             dgSchedule.ReadOnly = true;
             dgSchedule.RowHeadersWidth = 62;
-            dgSchedule.Size = new System.Drawing.Size(716, 194);
+            dgSchedule.Size = new System.Drawing.Size(1023, 321);
             dgSchedule.TabIndex = 3;
             dgSchedule.CellContentClick += dgSchedule_CellContentClick;
             // 
@@ -7660,8 +7580,10 @@ namespace AppTestStudio
             // colScheduleEnabled
             // 
             colScheduleEnabled.HeaderText = "Enabled";
+            colScheduleEnabled.MinimumWidth = 8;
             colScheduleEnabled.Name = "colScheduleEnabled";
             colScheduleEnabled.ReadOnly = true;
+            colScheduleEnabled.Width = 150;
             // 
             // colEdit
             // 
@@ -7679,7 +7601,7 @@ namespace AppTestStudio
             splitContainerRuntimeSchedule.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             splitContainerRuntimeSchedule.IsSplitterFixed = true;
             splitContainerRuntimeSchedule.Location = new System.Drawing.Point(0, 0);
-            splitContainerRuntimeSchedule.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            splitContainerRuntimeSchedule.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             splitContainerRuntimeSchedule.Name = "splitContainerRuntimeSchedule";
             splitContainerRuntimeSchedule.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -7691,9 +7613,9 @@ namespace AppTestStudio
             // splitContainerRuntimeSchedule.Panel2
             // 
             splitContainerRuntimeSchedule.Panel2.Controls.Add(dgRuntimeSchedule);
-            splitContainerRuntimeSchedule.Size = new System.Drawing.Size(716, 189);
+            splitContainerRuntimeSchedule.Size = new System.Drawing.Size(1023, 318);
             splitContainerRuntimeSchedule.SplitterDistance = 25;
-            splitContainerRuntimeSchedule.SplitterWidth = 5;
+            splitContainerRuntimeSchedule.SplitterWidth = 8;
             splitContainerRuntimeSchedule.TabIndex = 0;
             // 
             // lblRuntimeScheduleLabel
@@ -7701,9 +7623,9 @@ namespace AppTestStudio
             lblRuntimeScheduleLabel.AutoSize = true;
             lblRuntimeScheduleLabel.Dock = System.Windows.Forms.DockStyle.Top;
             lblRuntimeScheduleLabel.Location = new System.Drawing.Point(0, 0);
-            lblRuntimeScheduleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblRuntimeScheduleLabel.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblRuntimeScheduleLabel.Name = "lblRuntimeScheduleLabel";
-            lblRuntimeScheduleLabel.Size = new System.Drawing.Size(132, 15);
+            lblRuntimeScheduleLabel.Size = new System.Drawing.Size(201, 25);
             lblRuntimeScheduleLabel.TabIndex = 0;
             lblRuntimeScheduleLabel.Text = "Schedule plan for today";
             // 
@@ -7717,11 +7639,11 @@ namespace AppTestStudio
             dgRuntimeSchedule.Dock = System.Windows.Forms.DockStyle.Fill;
             dgRuntimeSchedule.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             dgRuntimeSchedule.Location = new System.Drawing.Point(0, 0);
-            dgRuntimeSchedule.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            dgRuntimeSchedule.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             dgRuntimeSchedule.Name = "dgRuntimeSchedule";
             dgRuntimeSchedule.ReadOnly = true;
             dgRuntimeSchedule.RowHeadersWidth = 62;
-            dgRuntimeSchedule.Size = new System.Drawing.Size(716, 159);
+            dgRuntimeSchedule.Size = new System.Drawing.Size(1023, 285);
             dgRuntimeSchedule.TabIndex = 4;
             // 
             // dataGridViewTextBoxColumn1
@@ -7758,10 +7680,10 @@ namespace AppTestStudio
             // 
             // Button5
             // 
-            Button5.Location = new System.Drawing.Point(227, 33);
-            Button5.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Button5.Location = new System.Drawing.Point(324, 55);
+            Button5.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             Button5.Name = "Button5";
-            Button5.Size = new System.Drawing.Size(88, 27);
+            Button5.Size = new System.Drawing.Size(126, 45);
             Button5.TabIndex = 7;
             Button5.Text = "Button5";
             Button5.UseVisualStyleBackColor = true;
@@ -7770,10 +7692,10 @@ namespace AppTestStudio
             // chkEnableSchedule
             // 
             chkEnableSchedule.AutoSize = true;
-            chkEnableSchedule.Location = new System.Drawing.Point(10, 28);
-            chkEnableSchedule.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            chkEnableSchedule.Location = new System.Drawing.Point(14, 47);
+            chkEnableSchedule.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             chkEnableSchedule.Name = "chkEnableSchedule";
-            chkEnableSchedule.Size = new System.Drawing.Size(116, 19);
+            chkEnableSchedule.Size = new System.Drawing.Size(172, 29);
             chkEnableSchedule.TabIndex = 6;
             chkEnableSchedule.Text = "Enable Scheduler";
             chkEnableSchedule.UseVisualStyleBackColor = true;
@@ -7781,10 +7703,10 @@ namespace AppTestStudio
             // 
             // Button4
             // 
-            Button4.Location = new System.Drawing.Point(302, 0);
-            Button4.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Button4.Location = new System.Drawing.Point(431, 0);
+            Button4.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             Button4.Name = "Button4";
-            Button4.Size = new System.Drawing.Size(257, 27);
+            Button4.Size = new System.Drawing.Size(367, 45);
             Button4.TabIndex = 5;
             Button4.Text = "add 1 schedule entry";
             Button4.UseVisualStyleBackColor = true;
@@ -7793,10 +7715,10 @@ namespace AppTestStudio
             // cmdAddSchedule
             // 
             cmdAddSchedule.Anchor = System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right;
-            cmdAddSchedule.Location = new System.Drawing.Point(578, 5);
-            cmdAddSchedule.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            cmdAddSchedule.Location = new System.Drawing.Point(826, 8);
+            cmdAddSchedule.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             cmdAddSchedule.Name = "cmdAddSchedule";
-            cmdAddSchedule.Size = new System.Drawing.Size(144, 27);
+            cmdAddSchedule.Size = new System.Drawing.Size(206, 45);
             cmdAddSchedule.TabIndex = 4;
             cmdAddSchedule.Text = "Add New Schedule";
             cmdAddSchedule.UseVisualStyleBackColor = true;
@@ -7805,11 +7727,11 @@ namespace AppTestStudio
             // label40
             // 
             label40.AutoSize = true;
-            label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label40.Location = new System.Drawing.Point(4, 2);
-            label40.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label40.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
+            label40.Location = new System.Drawing.Point(6, 3);
+            label40.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label40.Name = "label40";
-            label40.Size = new System.Drawing.Size(69, 18);
+            label40.Size = new System.Drawing.Size(103, 26);
             label40.TabIndex = 2;
             label40.Text = "Schedule";
             // 
@@ -7819,10 +7741,10 @@ namespace AppTestStudio
             PanelWorkspace.Controls.Add(groupBox12);
             PanelWorkspace.Controls.Add(groupBox3);
             PanelWorkspace.Controls.Add(label4);
-            PanelWorkspace.Location = new System.Drawing.Point(569, 276);
-            PanelWorkspace.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            PanelWorkspace.Location = new System.Drawing.Point(813, 460);
+            PanelWorkspace.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             PanelWorkspace.Name = "PanelWorkspace";
-            PanelWorkspace.Size = new System.Drawing.Size(1112, 658);
+            PanelWorkspace.Size = new System.Drawing.Size(1589, 1097);
             PanelWorkspace.TabIndex = 1;
             // 
             // groupBox15
@@ -7830,11 +7752,11 @@ namespace AppTestStudio
             groupBox15.Controls.Add(label94);
             groupBox15.Controls.Add(label86);
             groupBox15.Controls.Add(label85);
-            groupBox15.Location = new System.Drawing.Point(468, 36);
-            groupBox15.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox15.Location = new System.Drawing.Point(669, 60);
+            groupBox15.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox15.Name = "groupBox15";
-            groupBox15.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox15.Size = new System.Drawing.Size(472, 160);
+            groupBox15.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox15.Size = new System.Drawing.Size(674, 267);
             groupBox15.TabIndex = 4;
             groupBox15.TabStop = false;
             groupBox15.Text = "Keyboard Shortcuts";
@@ -7842,30 +7764,30 @@ namespace AppTestStudio
             // label94
             // 
             label94.AutoSize = true;
-            label94.Location = new System.Drawing.Point(7, 85);
-            label94.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label94.Location = new System.Drawing.Point(10, 142);
+            label94.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label94.Name = "label94";
-            label94.Size = new System.Drawing.Size(217, 15);
+            label94.Size = new System.Drawing.Size(330, 25);
             label94.TabIndex = 3;
             label94.Text = "Ctrl + Alt + Shift + F1 = Take Screenshot";
             // 
             // label86
             // 
             label86.AutoSize = true;
-            label86.Location = new System.Drawing.Point(7, 58);
-            label86.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label86.Location = new System.Drawing.Point(10, 97);
+            label86.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label86.Name = "label86";
-            label86.Size = new System.Drawing.Size(247, 15);
+            label86.Size = new System.Drawing.Size(377, 25);
             label86.TabIndex = 3;
             label86.Text = "Ctrl + Alt + Shift + F5 = Toggle Scripts On/Off";
             // 
             // label85
             // 
             label85.AutoSize = true;
-            label85.Location = new System.Drawing.Point(7, 27);
-            label85.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label85.Location = new System.Drawing.Point(10, 45);
+            label85.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label85.Name = "label85";
-            label85.Size = new System.Drawing.Size(258, 15);
+            label85.Size = new System.Drawing.Size(389, 25);
             label85.TabIndex = 3;
             label85.Text = "Ctrl + Alt + Shift + ESC = Pause Running Scripts";
             // 
@@ -7879,11 +7801,9 @@ namespace AppTestStudio
             groupBox12.Controls.Add(label80);
             groupBox12.Controls.Add(label68);
             groupBox12.Controls.Add(label65);
-            groupBox12.Location = new System.Drawing.Point(8, 121);
-            groupBox12.Margin = new System.Windows.Forms.Padding(2);
+            groupBox12.Location = new System.Drawing.Point(11, 202);
             groupBox12.Name = "groupBox12";
-            groupBox12.Padding = new System.Windows.Forms.Padding(2);
-            groupBox12.Size = new System.Drawing.Size(451, 147);
+            groupBox12.Size = new System.Drawing.Size(644, 245);
             groupBox12.TabIndex = 2;
             groupBox12.TabStop = false;
             groupBox12.Text = "Blue Check List - Not Required";
@@ -7891,80 +7811,76 @@ namespace AppTestStudio
             // lblBlueInstancesFound64
             // 
             lblBlueInstancesFound64.AutoSize = true;
-            lblBlueInstancesFound64.Location = new System.Drawing.Point(206, 102);
-            lblBlueInstancesFound64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblBlueInstancesFound64.Location = new System.Drawing.Point(294, 170);
             lblBlueInstancesFound64.Name = "lblBlueInstancesFound64";
-            lblBlueInstancesFound64.Size = new System.Drawing.Size(138, 15);
+            lblBlueInstancesFound64.Size = new System.Drawing.Size(208, 25);
             lblBlueInstancesFound64.TabIndex = 2;
             lblBlueInstancesFound64.Text = "lblBlueInstancesFound64";
             // 
             // lblBlueEmmulatorInstalled64
             // 
             lblBlueEmmulatorInstalled64.AutoSize = true;
-            lblBlueEmmulatorInstalled64.Location = new System.Drawing.Point(206, 74);
-            lblBlueEmmulatorInstalled64.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblBlueEmmulatorInstalled64.Location = new System.Drawing.Point(294, 123);
             lblBlueEmmulatorInstalled64.Name = "lblBlueEmmulatorInstalled64";
-            lblBlueEmmulatorInstalled64.Size = new System.Drawing.Size(158, 15);
+            lblBlueEmmulatorInstalled64.Size = new System.Drawing.Size(237, 25);
             lblBlueEmmulatorInstalled64.TabIndex = 2;
             lblBlueEmmulatorInstalled64.Text = "lblBlueEmmulatorInstalled64";
             // 
             // lblBlueInstancesFound32
             // 
             lblBlueInstancesFound32.AutoSize = true;
-            lblBlueInstancesFound32.Location = new System.Drawing.Point(206, 51);
-            lblBlueInstancesFound32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblBlueInstancesFound32.Location = new System.Drawing.Point(294, 85);
             lblBlueInstancesFound32.Name = "lblBlueInstancesFound32";
-            lblBlueInstancesFound32.Size = new System.Drawing.Size(138, 15);
+            lblBlueInstancesFound32.Size = new System.Drawing.Size(208, 25);
             lblBlueInstancesFound32.TabIndex = 2;
             lblBlueInstancesFound32.Text = "lblBlueInstancesFound32";
             // 
             // label81
             // 
             label81.AutoSize = true;
-            label81.Location = new System.Drawing.Point(10, 102);
-            label81.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label81.Location = new System.Drawing.Point(14, 170);
+            label81.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label81.Name = "label81";
-            label81.Size = new System.Drawing.Size(184, 15);
+            label81.Size = new System.Drawing.Size(279, 25);
             label81.TabIndex = 1;
             label81.Text = "Emmulator Instances Found 64bit";
             // 
             // lblBlueEmmulatorInstalled32
             // 
             lblBlueEmmulatorInstalled32.AutoSize = true;
-            lblBlueEmmulatorInstalled32.Location = new System.Drawing.Point(206, 22);
-            lblBlueEmmulatorInstalled32.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            lblBlueEmmulatorInstalled32.Location = new System.Drawing.Point(294, 37);
             lblBlueEmmulatorInstalled32.Name = "lblBlueEmmulatorInstalled32";
-            lblBlueEmmulatorInstalled32.Size = new System.Drawing.Size(158, 15);
+            lblBlueEmmulatorInstalled32.Size = new System.Drawing.Size(237, 25);
             lblBlueEmmulatorInstalled32.TabIndex = 2;
             lblBlueEmmulatorInstalled32.Text = "lblBlueEmmulatorInstalled32";
             // 
             // label80
             // 
             label80.AutoSize = true;
-            label80.Location = new System.Drawing.Point(10, 76);
-            label80.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label80.Location = new System.Drawing.Point(14, 127);
+            label80.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label80.Name = "label80";
-            label80.Size = new System.Drawing.Size(142, 15);
+            label80.Size = new System.Drawing.Size(216, 25);
             label80.TabIndex = 0;
             label80.Text = "Emmulator Installed 64bit";
             // 
             // label68
             // 
             label68.AutoSize = true;
-            label68.Location = new System.Drawing.Point(10, 51);
-            label68.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label68.Location = new System.Drawing.Point(14, 85);
+            label68.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label68.Name = "label68";
-            label68.Size = new System.Drawing.Size(184, 15);
+            label68.Size = new System.Drawing.Size(279, 25);
             label68.TabIndex = 1;
             label68.Text = "Emmulator Instances Found 32bit";
             // 
             // label65
             // 
             label65.AutoSize = true;
-            label65.Location = new System.Drawing.Point(10, 24);
-            label65.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label65.Location = new System.Drawing.Point(14, 40);
+            label65.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label65.Name = "label65";
-            label65.Size = new System.Drawing.Size(142, 15);
+            label65.Size = new System.Drawing.Size(216, 25);
             label65.TabIndex = 0;
             label65.Text = "Emmulator Installed 32bit";
             // 
@@ -7974,11 +7890,11 @@ namespace AppTestStudio
             groupBox3.Controls.Add(lblEmmulatorInstalled);
             groupBox3.Controls.Add(label6);
             groupBox3.Controls.Add(label5);
-            groupBox3.Location = new System.Drawing.Point(8, 29);
-            groupBox3.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            groupBox3.Location = new System.Drawing.Point(11, 48);
+            groupBox3.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            groupBox3.Size = new System.Drawing.Size(453, 80);
+            groupBox3.Padding = new System.Windows.Forms.Padding(6, 5, 6, 5);
+            groupBox3.Size = new System.Drawing.Size(647, 133);
             groupBox3.TabIndex = 1;
             groupBox3.TabStop = false;
             groupBox3.Text = "Nox Check List - Not Required";
@@ -7986,51 +7902,51 @@ namespace AppTestStudio
             // lblEmmulatorInstancesFound
             // 
             lblEmmulatorInstancesFound.AutoSize = true;
-            lblEmmulatorInstancesFound.Location = new System.Drawing.Point(178, 50);
-            lblEmmulatorInstancesFound.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblEmmulatorInstancesFound.Location = new System.Drawing.Point(254, 83);
+            lblEmmulatorInstancesFound.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblEmmulatorInstancesFound.Name = "lblEmmulatorInstancesFound";
-            lblEmmulatorInstancesFound.Size = new System.Drawing.Size(162, 15);
+            lblEmmulatorInstancesFound.Size = new System.Drawing.Size(242, 25);
             lblEmmulatorInstancesFound.TabIndex = 3;
             lblEmmulatorInstancesFound.Text = "lblEmmulatorInstancesFound";
             // 
             // lblEmmulatorInstalled
             // 
             lblEmmulatorInstalled.AutoSize = true;
-            lblEmmulatorInstalled.Location = new System.Drawing.Point(178, 23);
-            lblEmmulatorInstalled.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            lblEmmulatorInstalled.Location = new System.Drawing.Point(254, 38);
+            lblEmmulatorInstalled.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             lblEmmulatorInstalled.Name = "lblEmmulatorInstalled";
-            lblEmmulatorInstalled.Size = new System.Drawing.Size(123, 15);
+            lblEmmulatorInstalled.Size = new System.Drawing.Size(184, 25);
             lblEmmulatorInstalled.TabIndex = 2;
             lblEmmulatorInstalled.Text = "lblEmmulatorInstalled";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new System.Drawing.Point(8, 50);
-            label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label6.Location = new System.Drawing.Point(11, 83);
+            label6.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label6.Name = "label6";
-            label6.Size = new System.Drawing.Size(155, 15);
+            label6.Size = new System.Drawing.Size(233, 25);
             label6.TabIndex = 1;
             label6.Text = "Emmulator Instances Found";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new System.Drawing.Point(8, 23);
-            label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label5.Location = new System.Drawing.Point(11, 38);
+            label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label5.Name = "label5";
-            label5.Size = new System.Drawing.Size(113, 15);
+            label5.Size = new System.Drawing.Size(170, 25);
             label5.TabIndex = 0;
             label5.Text = "Emmulator Installed";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            label4.Location = new System.Drawing.Point(5, 5);
-            label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            label4.Location = new System.Drawing.Point(7, 8);
+            label4.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
             label4.Name = "label4";
-            label4.Size = new System.Drawing.Size(85, 18);
+            label4.Size = new System.Drawing.Size(134, 29);
             label4.TabIndex = 0;
             label4.Text = "Workspace";
             // 
@@ -8038,9 +7954,9 @@ namespace AppTestStudio
             // 
             txtLog.Dock = System.Windows.Forms.DockStyle.Fill;
             txtLog.Location = new System.Drawing.Point(0, 0);
-            txtLog.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            txtLog.Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             txtLog.Name = "txtLog";
-            txtLog.Size = new System.Drawing.Size(1869, 84);
+            txtLog.Size = new System.Drawing.Size(2670, 147);
             txtLog.TabIndex = 1;
             txtLog.Text = "";
             // 
@@ -8049,18 +7965,18 @@ namespace AppTestStudio
             mnuPopupGames.ImageScalingSize = new System.Drawing.Size(24, 24);
             mnuPopupGames.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { mnuGamesAddNewGame, mnuGamesLoadApp });
             mnuPopupGames.Name = "mnuPopupGames";
-            mnuPopupGames.Size = new System.Drawing.Size(158, 48);
+            mnuPopupGames.Size = new System.Drawing.Size(210, 68);
             // 
             // mnuGamesAddNewGame
             // 
             mnuGamesAddNewGame.Name = "mnuGamesAddNewGame";
-            mnuGamesAddNewGame.Size = new System.Drawing.Size(157, 22);
+            mnuGamesAddNewGame.Size = new System.Drawing.Size(209, 32);
             mnuGamesAddNewGame.Text = "Add New Game";
             // 
             // mnuGamesLoadApp
             // 
             mnuGamesLoadApp.Name = "mnuGamesLoadApp";
-            mnuGamesLoadApp.Size = new System.Drawing.Size(157, 22);
+            mnuGamesLoadApp.Size = new System.Drawing.Size(209, 32);
             mnuGamesLoadApp.Text = "Load App";
             // 
             // mnuEvents
@@ -8068,13 +7984,13 @@ namespace AppTestStudio
             mnuEvents.ImageScalingSize = new System.Drawing.Size(24, 24);
             mnuEvents.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { mnuAddEvent, mnuAddAction, toolStripSeparator6, toolStripMenuCut, toolStripMenuCopy, toolStripMenuPaste, toolStripSeparatorCutCopyPaste, testToolStripMenuItem, mnuTestAllEvents, toolStripSeparator7, mnuAddRNG, mnuAddRNGNode, toolStripSeparator12, advancedToolStripMenuItem });
             mnuEvents.Name = "mnuEvents";
-            mnuEvents.Size = new System.Drawing.Size(235, 328);
+            mnuEvents.Size = new System.Drawing.Size(321, 348);
             // 
             // mnuAddEvent
             // 
             mnuAddEvent.Image = Properties.Resources.AddEvent;
             mnuAddEvent.Name = "mnuAddEvent";
-            mnuAddEvent.Size = new System.Drawing.Size(234, 30);
+            mnuAddEvent.Size = new System.Drawing.Size(320, 32);
             mnuAddEvent.Text = "Add Event";
             mnuAddEvent.Click += mnuAddEvent_Click;
             // 
@@ -8082,20 +7998,20 @@ namespace AppTestStudio
             // 
             mnuAddAction.Image = Properties.Resources.AddActionP;
             mnuAddAction.Name = "mnuAddAction";
-            mnuAddAction.Size = new System.Drawing.Size(234, 30);
+            mnuAddAction.Size = new System.Drawing.Size(320, 32);
             mnuAddAction.Text = "Add Action";
             mnuAddAction.Click += mnuAddAction_Click;
             // 
             // toolStripSeparator6
             // 
             toolStripSeparator6.Name = "toolStripSeparator6";
-            toolStripSeparator6.Size = new System.Drawing.Size(231, 6);
+            toolStripSeparator6.Size = new System.Drawing.Size(317, 6);
             // 
             // toolStripMenuCut
             // 
             toolStripMenuCut.Image = Properties.Resources.Cut_16x;
             toolStripMenuCut.Name = "toolStripMenuCut";
-            toolStripMenuCut.Size = new System.Drawing.Size(234, 30);
+            toolStripMenuCut.Size = new System.Drawing.Size(320, 32);
             toolStripMenuCut.Text = "Cut";
             toolStripMenuCut.Click += toolStripMenuCut_Click;
             // 
@@ -8103,7 +8019,7 @@ namespace AppTestStudio
             // 
             toolStripMenuCopy.Image = Properties.Resources.ASX_Copy_blue_16x;
             toolStripMenuCopy.Name = "toolStripMenuCopy";
-            toolStripMenuCopy.Size = new System.Drawing.Size(234, 30);
+            toolStripMenuCopy.Size = new System.Drawing.Size(320, 32);
             toolStripMenuCopy.Text = "Copy";
             toolStripMenuCopy.Click += toolStripMenuCopy_Click;
             // 
@@ -8112,14 +8028,14 @@ namespace AppTestStudio
             toolStripMenuPaste.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuPasteChild, toolStripMenuPasteSibling, toolStripMenuPasteSiblingBelow });
             toolStripMenuPaste.Image = Properties.Resources.ASX_Paste_blue_16x;
             toolStripMenuPaste.Name = "toolStripMenuPaste";
-            toolStripMenuPaste.Size = new System.Drawing.Size(234, 30);
+            toolStripMenuPaste.Size = new System.Drawing.Size(320, 32);
             toolStripMenuPaste.Text = "Paste";
             // 
             // toolStripMenuPasteChild
             // 
             toolStripMenuPasteChild.Image = Properties.Resources.BranchRelationshipChild_16x;
             toolStripMenuPasteChild.Name = "toolStripMenuPasteChild";
-            toolStripMenuPasteChild.Size = new System.Drawing.Size(155, 22);
+            toolStripMenuPasteChild.Size = new System.Drawing.Size(235, 34);
             toolStripMenuPasteChild.Text = "Child (Under)";
             toolStripMenuPasteChild.Click += toolStripMenuPasteChild_Click;
             // 
@@ -8127,7 +8043,7 @@ namespace AppTestStudio
             // 
             toolStripMenuPasteSibling.Image = Properties.Resources.BranchRelationshipSibling_16x_reverse;
             toolStripMenuPasteSibling.Name = "toolStripMenuPasteSibling";
-            toolStripMenuPasteSibling.Size = new System.Drawing.Size(155, 22);
+            toolStripMenuPasteSibling.Size = new System.Drawing.Size(235, 34);
             toolStripMenuPasteSibling.Text = "Sibling (Above)";
             toolStripMenuPasteSibling.Click += toolStripMenuPasteSibling_Click;
             // 
@@ -8135,20 +8051,20 @@ namespace AppTestStudio
             // 
             toolStripMenuPasteSiblingBelow.Image = Properties.Resources.BranchRelationshipSibling_16x;
             toolStripMenuPasteSiblingBelow.Name = "toolStripMenuPasteSiblingBelow";
-            toolStripMenuPasteSiblingBelow.Size = new System.Drawing.Size(155, 22);
+            toolStripMenuPasteSiblingBelow.Size = new System.Drawing.Size(235, 34);
             toolStripMenuPasteSiblingBelow.Text = "Sibling (Below)";
             toolStripMenuPasteSiblingBelow.Click += toolStripMenuPasteSiblingBelow_Click;
             // 
             // toolStripSeparatorCutCopyPaste
             // 
             toolStripSeparatorCutCopyPaste.Name = "toolStripSeparatorCutCopyPaste";
-            toolStripSeparatorCutCopyPaste.Size = new System.Drawing.Size(231, 6);
+            toolStripSeparatorCutCopyPaste.Size = new System.Drawing.Size(317, 6);
             // 
             // testToolStripMenuItem
             // 
             testToolStripMenuItem.Image = Properties.Resources.Test;
             testToolStripMenuItem.Name = "testToolStripMenuItem";
-            testToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
+            testToolStripMenuItem.Size = new System.Drawing.Size(320, 32);
             testToolStripMenuItem.Text = "Test";
             testToolStripMenuItem.Click += testToolStripMenuItem_Click;
             // 
@@ -8156,20 +8072,20 @@ namespace AppTestStudio
             // 
             mnuTestAllEvents.Image = Properties.Resources.TestALLP;
             mnuTestAllEvents.Name = "mnuTestAllEvents";
-            mnuTestAllEvents.Size = new System.Drawing.Size(234, 30);
+            mnuTestAllEvents.Size = new System.Drawing.Size(320, 32);
             mnuTestAllEvents.Text = "Test All";
             mnuTestAllEvents.Click += mnuTestAllEvents_Click;
             // 
             // toolStripSeparator7
             // 
             toolStripSeparator7.Name = "toolStripSeparator7";
-            toolStripSeparator7.Size = new System.Drawing.Size(231, 6);
+            toolStripSeparator7.Size = new System.Drawing.Size(317, 6);
             // 
             // mnuAddRNG
             // 
             mnuAddRNG.Image = Properties.Resources.AddRNGContainerP;
             mnuAddRNG.Name = "mnuAddRNG";
-            mnuAddRNG.Size = new System.Drawing.Size(234, 30);
+            mnuAddRNG.Size = new System.Drawing.Size(320, 32);
             mnuAddRNG.Text = "Add Random Number (RNG)";
             mnuAddRNG.Click += mnuAddRNG_Click;
             // 
@@ -8177,47 +8093,47 @@ namespace AppTestStudio
             // 
             mnuAddRNGNode.Image = Properties.Resources.AddRNGP;
             mnuAddRNGNode.Name = "mnuAddRNGNode";
-            mnuAddRNGNode.Size = new System.Drawing.Size(234, 30);
+            mnuAddRNGNode.Size = new System.Drawing.Size(320, 32);
             mnuAddRNGNode.Text = "Add RNG Node";
             mnuAddRNGNode.Click += mnuAddRNGNode_Click;
             // 
             // toolStripSeparator12
             // 
             toolStripSeparator12.Name = "toolStripSeparator12";
-            toolStripSeparator12.Size = new System.Drawing.Size(231, 6);
+            toolStripSeparator12.Size = new System.Drawing.Size(317, 6);
             // 
             // advancedToolStripMenuItem
             // 
             advancedToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { moveToolStripMenuItem, deleteToolStripMenuItem });
             advancedToolStripMenuItem.Name = "advancedToolStripMenuItem";
-            advancedToolStripMenuItem.Size = new System.Drawing.Size(234, 30);
+            advancedToolStripMenuItem.Size = new System.Drawing.Size(320, 32);
             advancedToolStripMenuItem.Text = "Advanced";
             // 
             // moveToolStripMenuItem
             // 
             moveToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] { upToolStripMenuItem, downToolStripMenuItem });
             moveToolStripMenuItem.Name = "moveToolStripMenuItem";
-            moveToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            moveToolStripMenuItem.Size = new System.Drawing.Size(164, 34);
             moveToolStripMenuItem.Text = "Move";
             // 
             // upToolStripMenuItem
             // 
             upToolStripMenuItem.Name = "upToolStripMenuItem";
-            upToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            upToolStripMenuItem.Size = new System.Drawing.Size(161, 34);
             upToolStripMenuItem.Text = "Up";
             upToolStripMenuItem.Click += upToolStripMenuItem_Click;
             // 
             // downToolStripMenuItem
             // 
             downToolStripMenuItem.Name = "downToolStripMenuItem";
-            downToolStripMenuItem.Size = new System.Drawing.Size(105, 22);
+            downToolStripMenuItem.Size = new System.Drawing.Size(161, 34);
             downToolStripMenuItem.Text = "Down";
             downToolStripMenuItem.Click += downToolStripMenuItem_Click;
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
-            deleteToolStripMenuItem.Size = new System.Drawing.Size(107, 22);
+            deleteToolStripMenuItem.Size = new System.Drawing.Size(164, 34);
             deleteToolStripMenuItem.Text = "Delete";
             deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
             // 
@@ -8226,12 +8142,12 @@ namespace AppTestStudio
             mnuThreadList.ImageScalingSize = new System.Drawing.Size(24, 24);
             mnuThreadList.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { mnuThreadExit });
             mnuThreadList.Name = "mnuThreadList";
-            mnuThreadList.Size = new System.Drawing.Size(138, 26);
+            mnuThreadList.Size = new System.Drawing.Size(181, 36);
             // 
             // mnuThreadExit
             // 
             mnuThreadExit.Name = "mnuThreadExit";
-            mnuThreadExit.Size = new System.Drawing.Size(137, 22);
+            mnuThreadExit.Size = new System.Drawing.Size(180, 32);
             mnuThreadExit.Text = "Stop Thread";
             mnuThreadExit.Click += mnuThreadExit_Click;
             // 
@@ -8240,18 +8156,18 @@ namespace AppTestStudio
             mnuPopupGame.ImageScalingSize = new System.Drawing.Size(24, 24);
             mnuPopupGame.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { mnuLoadInstance, mnuLaunchAndLoad });
             mnuPopupGame.Name = "mnuPopupGame";
-            mnuPopupGame.Size = new System.Drawing.Size(289, 48);
+            mnuPopupGame.Size = new System.Drawing.Size(408, 68);
             // 
             // mnuLoadInstance
             // 
             mnuLoadInstance.Name = "mnuLoadInstance";
-            mnuLoadInstance.Size = new System.Drawing.Size(288, 22);
+            mnuLoadInstance.Size = new System.Drawing.Size(407, 32);
             mnuLoadInstance.Text = "Run Script";
             // 
             // mnuLaunchAndLoad
             // 
             mnuLaunchAndLoad.Name = "mnuLaunchAndLoad";
-            mnuLaunchAndLoad.Size = new System.Drawing.Size(288, 22);
+            mnuLaunchAndLoad.Size = new System.Drawing.Size(407, 32);
             mnuLaunchAndLoad.Text = "Start Emmulator + Run App + Run Script";
             // 
             // mnuObjects
@@ -8260,12 +8176,12 @@ namespace AppTestStudio
             mnuObjects.ImageScalingSize = new System.Drawing.Size(24, 24);
             mnuObjects.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { mnuAddObject });
             mnuObjects.Name = "mnuObjects";
-            mnuObjects.Size = new System.Drawing.Size(158, 26);
+            mnuObjects.Size = new System.Drawing.Size(211, 36);
             // 
             // mnuAddObject
             // 
             mnuAddObject.Name = "mnuAddObject";
-            mnuAddObject.Size = new System.Drawing.Size(157, 22);
+            mnuAddObject.Size = new System.Drawing.Size(210, 32);
             mnuAddObject.Text = "Add Screenshot";
             mnuAddObject.Click += mnuAddObject_Click;
             // 
@@ -8304,51 +8220,53 @@ namespace AppTestStudio
             // 
             // contextMenuStripResetResolution
             // 
+            contextMenuStripResetResolution.ImageScalingSize = new System.Drawing.Size(24, 24);
             contextMenuStripResetResolution.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItem1, toolStripSeparator13, toolStripMenuItemResetResolution });
             contextMenuStripResetResolution.Name = "contextMenuStripResetResolution";
-            contextMenuStripResetResolution.Size = new System.Drawing.Size(219, 54);
+            contextMenuStripResetResolution.Size = new System.Drawing.Size(301, 74);
             // 
             // toolStripMenuItem1
             // 
             toolStripMenuItem1.Enabled = false;
             toolStripMenuItem1.Name = "toolStripMenuItem1";
-            toolStripMenuItem1.Size = new System.Drawing.Size(218, 22);
+            toolStripMenuItem1.Size = new System.Drawing.Size(300, 32);
             toolStripMenuItem1.Text = "Modify window resolution?";
             // 
             // toolStripSeparator13
             // 
             toolStripSeparator13.Name = "toolStripSeparator13";
-            toolStripSeparator13.Size = new System.Drawing.Size(215, 6);
+            toolStripSeparator13.Size = new System.Drawing.Size(297, 6);
             // 
             // toolStripMenuItemResetResolution
             // 
             toolStripMenuItemResetResolution.Name = "toolStripMenuItemResetResolution";
-            toolStripMenuItemResetResolution.Size = new System.Drawing.Size(218, 22);
+            toolStripMenuItemResetResolution.Size = new System.Drawing.Size(300, 32);
             toolStripMenuItemResetResolution.Text = "Reset Resolution";
             toolStripMenuItemResetResolution.Click += toolStripMenuItemResetResolution_Click;
             // 
             // contextMenuStripRuntimeEnableDisable
             // 
+            contextMenuStripRuntimeEnableDisable.ImageScalingSize = new System.Drawing.Size(24, 24);
             contextMenuStripRuntimeEnableDisable.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripMenuItemEnableDisableToggleLabel, toolStripSeparatorEnableDisableToggle, toolStripMenuItemRuntimeEnableDisableToggle });
             contextMenuStripRuntimeEnableDisable.Name = "contextMenuStripRuntimeEnableDisable";
-            contextMenuStripRuntimeEnableDisable.Size = new System.Drawing.Size(196, 54);
+            contextMenuStripRuntimeEnableDisable.Size = new System.Drawing.Size(268, 74);
             // 
             // toolStripMenuItemEnableDisableToggleLabel
             // 
             toolStripMenuItemEnableDisableToggleLabel.Enabled = false;
             toolStripMenuItemEnableDisableToggleLabel.Name = "toolStripMenuItemEnableDisableToggleLabel";
-            toolStripMenuItemEnableDisableToggleLabel.Size = new System.Drawing.Size(195, 22);
+            toolStripMenuItemEnableDisableToggleLabel.Size = new System.Drawing.Size(267, 32);
             toolStripMenuItemEnableDisableToggleLabel.Text = "Enable/Disable Toggle?";
             // 
             // toolStripSeparatorEnableDisableToggle
             // 
             toolStripSeparatorEnableDisableToggle.Name = "toolStripSeparatorEnableDisableToggle";
-            toolStripSeparatorEnableDisableToggle.Size = new System.Drawing.Size(192, 6);
+            toolStripSeparatorEnableDisableToggle.Size = new System.Drawing.Size(264, 6);
             // 
             // toolStripMenuItemRuntimeEnableDisableToggle
             // 
             toolStripMenuItemRuntimeEnableDisableToggle.Name = "toolStripMenuItemRuntimeEnableDisableToggle";
-            toolStripMenuItemRuntimeEnableDisableToggle.Size = new System.Drawing.Size(195, 22);
+            toolStripMenuItemRuntimeEnableDisableToggle.Size = new System.Drawing.Size(267, 32);
             toolStripMenuItemRuntimeEnableDisableToggle.Text = "Toggle";
             toolStripMenuItemRuntimeEnableDisableToggle.Click += toolStripMenuItemRuntimeEnableDisableToggle_Click;
             // 
@@ -8362,10 +8280,10 @@ namespace AppTestStudio
             // 
             appTestStudioToolStrip1.ImageScalingSize = new System.Drawing.Size(24, 24);
             appTestStudioToolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolAddEvent, toolStripSeparator9, toolAddAction, toolStripSeparator10, toolTest, toolTestAll, toolStripSeparator11, toolAddRNG, toolAddRNGNode });
-            appTestStudioToolStrip1.Location = new System.Drawing.Point(0, 55);
+            appTestStudioToolStrip1.Location = new System.Drawing.Point(0, 67);
             appTestStudioToolStrip1.Name = "appTestStudioToolStrip1";
-            appTestStudioToolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            appTestStudioToolStrip1.Size = new System.Drawing.Size(1869, 31);
+            appTestStudioToolStrip1.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            appTestStudioToolStrip1.Size = new System.Drawing.Size(2670, 34);
             appTestStudioToolStrip1.TabIndex = 5;
             appTestStudioToolStrip1.Text = "appTestStudioToolStrip1";
             // 
@@ -8374,35 +8292,35 @@ namespace AppTestStudio
             toolAddEvent.Image = Properties.Resources.AddEvent;
             toolAddEvent.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolAddEvent.Name = "toolAddEvent";
-            toolAddEvent.Size = new System.Drawing.Size(89, 28);
+            toolAddEvent.Size = new System.Drawing.Size(122, 29);
             toolAddEvent.Text = "Add Event";
             toolAddEvent.Click += toolAddEvent_Click;
             // 
             // toolStripSeparator9
             // 
             toolStripSeparator9.Name = "toolStripSeparator9";
-            toolStripSeparator9.Size = new System.Drawing.Size(6, 31);
+            toolStripSeparator9.Size = new System.Drawing.Size(6, 34);
             // 
             // toolAddAction
             // 
             toolAddAction.Image = Properties.Resources.AddActionP;
             toolAddAction.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolAddAction.Name = "toolAddAction";
-            toolAddAction.Size = new System.Drawing.Size(95, 28);
+            toolAddAction.Size = new System.Drawing.Size(130, 29);
             toolAddAction.Text = "Add Action";
             toolAddAction.Click += toolAddAction_Click;
             // 
             // toolStripSeparator10
             // 
             toolStripSeparator10.Name = "toolStripSeparator10";
-            toolStripSeparator10.Size = new System.Drawing.Size(6, 31);
+            toolStripSeparator10.Size = new System.Drawing.Size(6, 34);
             // 
             // toolTest
             // 
             toolTest.Image = Properties.Resources.Test;
             toolTest.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolTest.Name = "toolTest";
-            toolTest.Size = new System.Drawing.Size(55, 28);
+            toolTest.Size = new System.Drawing.Size(70, 29);
             toolTest.Text = "Test";
             toolTest.Click += toolTest_Click;
             // 
@@ -8411,21 +8329,21 @@ namespace AppTestStudio
             toolTestAll.Image = Properties.Resources.TestALLP;
             toolTestAll.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolTestAll.Name = "toolTestAll";
-            toolTestAll.Size = new System.Drawing.Size(72, 28);
+            toolTestAll.Size = new System.Drawing.Size(95, 29);
             toolTestAll.Text = "Test All";
             toolTestAll.Click += toolTestAll_Click;
             // 
             // toolStripSeparator11
             // 
             toolStripSeparator11.Name = "toolStripSeparator11";
-            toolStripSeparator11.Size = new System.Drawing.Size(6, 31);
+            toolStripSeparator11.Size = new System.Drawing.Size(6, 34);
             // 
             // toolAddRNG
             // 
             toolAddRNG.Image = Properties.Resources.AddRNGContainerP;
             toolAddRNG.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolAddRNG.Name = "toolAddRNG";
-            toolAddRNG.Size = new System.Drawing.Size(84, 28);
+            toolAddRNG.Size = new System.Drawing.Size(115, 29);
             toolAddRNG.Text = "Add RNG";
             toolAddRNG.Click += toolAddRNG_Click;
             // 
@@ -8434,7 +8352,7 @@ namespace AppTestStudio
             toolAddRNGNode.Image = Properties.Resources.AddRNGP;
             toolAddRNGNode.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolAddRNGNode.Name = "toolAddRNGNode";
-            toolAddRNGNode.Size = new System.Drawing.Size(116, 28);
+            toolAddRNGNode.Size = new System.Drawing.Size(164, 29);
             toolAddRNGNode.Text = "Add RNG Node";
             toolAddRNGNode.Click += toolAddRNGNode_Click;
             // 
@@ -8442,10 +8360,10 @@ namespace AppTestStudio
             // 
             toolStripMain.ImageScalingSize = new System.Drawing.Size(24, 24);
             toolStripMain.Items.AddRange(new System.Windows.Forms.ToolStripItem[] { toolStripLoadScript, toolStripButtonSaveScript, toolStripSeparator3, toolStripButtonRunScript, toolStripButtonRunStartLaunch, toolStripButtonStartEmmulatorLaunchApp, toolStripButtonStartEmmulator, toolStripSeparator4, toolStripButtonToggleScript, toolStripSeparator5, toolSchedulerRunning, toolStripSeparator8, toolStripCurrentDesignInstance, toolStripInstances, mnuMouseRecording });
-            toolStripMain.Location = new System.Drawing.Point(0, 24);
+            toolStripMain.Location = new System.Drawing.Point(0, 33);
             toolStripMain.Name = "toolStripMain";
-            toolStripMain.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
-            toolStripMain.Size = new System.Drawing.Size(1869, 31);
+            toolStripMain.Padding = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            toolStripMain.Size = new System.Drawing.Size(2670, 34);
             toolStripMain.TabIndex = 1;
             toolStripMain.Text = "toolStripMain";
             // 
@@ -8454,7 +8372,7 @@ namespace AppTestStudio
             toolStripLoadScript.Image = Properties.Resources.UploadFile_16x_24;
             toolStripLoadScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripLoadScript.Name = "toolStripLoadScript";
-            toolStripLoadScript.Size = new System.Drawing.Size(94, 28);
+            toolStripLoadScript.Size = new System.Drawing.Size(129, 29);
             toolStripLoadScript.Text = "Load Script";
             toolStripLoadScript.Click += toolStripLoadScript_Click;
             // 
@@ -8463,21 +8381,21 @@ namespace AppTestStudio
             toolStripButtonSaveScript.Image = Properties.Resources.Save_16x_24;
             toolStripButtonSaveScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButtonSaveScript.Name = "toolStripButtonSaveScript";
-            toolStripButtonSaveScript.Size = new System.Drawing.Size(92, 28);
+            toolStripButtonSaveScript.Size = new System.Drawing.Size(127, 29);
             toolStripButtonSaveScript.Text = "Save Script";
             toolStripButtonSaveScript.Click += toolStripButtonSaveScript_Click;
             // 
             // toolStripSeparator3
             // 
             toolStripSeparator3.Name = "toolStripSeparator3";
-            toolStripSeparator3.Size = new System.Drawing.Size(6, 31);
+            toolStripSeparator3.Size = new System.Drawing.Size(6, 34);
             // 
             // toolStripButtonRunScript
             // 
             toolStripButtonRunScript.Image = Properties.Resources.UploadFile_16x_24;
             toolStripButtonRunScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButtonRunScript.Name = "toolStripButtonRunScript";
-            toolStripButtonRunScript.Size = new System.Drawing.Size(56, 28);
+            toolStripButtonRunScript.Size = new System.Drawing.Size(71, 29);
             toolStripButtonRunScript.Text = "Run";
             toolStripButtonRunScript.ToolTipText = "Run Script";
             toolStripButtonRunScript.Click += toolStripButtonRunScript_Click;
@@ -8487,7 +8405,7 @@ namespace AppTestStudio
             toolStripButtonRunStartLaunch.Image = Properties.Resources.ImportCatalogPart_16x_24;
             toolStripButtonRunStartLaunch.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButtonRunStartLaunch.Name = "toolStripButtonRunStartLaunch";
-            toolStripButtonRunStartLaunch.Size = new System.Drawing.Size(147, 28);
+            toolStripButtonRunStartLaunch.Size = new System.Drawing.Size(206, 29);
             toolStripButtonRunStartLaunch.Text = "Run + Start + Launch";
             toolStripButtonRunStartLaunch.ToolTipText = "Run Script + Start Emmulator + Launch App - Requires Nox/BlueStacks and a Package Name to be entered.";
             toolStripButtonRunStartLaunch.Click += toolStripButtonRunStartLaunch_Click;
@@ -8497,7 +8415,7 @@ namespace AppTestStudio
             toolStripButtonStartEmmulatorLaunchApp.Image = Properties.Resources.ImportCatalogPart_16x_24;
             toolStripButtonStartEmmulatorLaunchApp.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButtonStartEmmulatorLaunchApp.Name = "toolStripButtonStartEmmulatorLaunchApp";
-            toolStripButtonStartEmmulatorLaunchApp.Size = new System.Drawing.Size(112, 28);
+            toolStripButtonStartEmmulatorLaunchApp.Size = new System.Drawing.Size(153, 29);
             toolStripButtonStartEmmulatorLaunchApp.Text = "Start + Launch";
             toolStripButtonStartEmmulatorLaunchApp.ToolTipText = "Start Emmulator + Launch App - Requires Nox/BlueStacks and a Package Name to be entered.";
             toolStripButtonStartEmmulatorLaunchApp.Click += toolStripButtonStartEmmulatorLaunchApp_Click;
@@ -8507,7 +8425,7 @@ namespace AppTestStudio
             toolStripButtonStartEmmulator.Image = Properties.Resources.StartEmmulator;
             toolStripButtonStartEmmulator.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButtonStartEmmulator.Name = "toolStripButtonStartEmmulator";
-            toolStripButtonStartEmmulator.Size = new System.Drawing.Size(59, 28);
+            toolStripButtonStartEmmulator.Size = new System.Drawing.Size(76, 29);
             toolStripButtonStartEmmulator.Text = "Start";
             toolStripButtonStartEmmulator.ToolTipText = "Start Emmulator";
             toolStripButtonStartEmmulator.Click += toolStripButtonStartEmmulator_Click;
@@ -8515,7 +8433,7 @@ namespace AppTestStudio
             // toolStripSeparator4
             // 
             toolStripSeparator4.Name = "toolStripSeparator4";
-            toolStripSeparator4.Size = new System.Drawing.Size(6, 31);
+            toolStripSeparator4.Size = new System.Drawing.Size(6, 34);
             // 
             // toolStripButtonToggleScript
             // 
@@ -8523,30 +8441,30 @@ namespace AppTestStudio
             toolStripButtonToggleScript.Image = Properties.Resources.Pause_64x_64;
             toolStripButtonToggleScript.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripButtonToggleScript.Name = "toolStripButtonToggleScript";
-            toolStripButtonToggleScript.Size = new System.Drawing.Size(99, 28);
+            toolStripButtonToggleScript.Size = new System.Drawing.Size(135, 29);
             toolStripButtonToggleScript.Text = "Pause Script";
             toolStripButtonToggleScript.Click += toolStripButtonToggleScript_Click;
             // 
             // toolStripSeparator5
             // 
             toolStripSeparator5.Name = "toolStripSeparator5";
-            toolStripSeparator5.Size = new System.Drawing.Size(6, 31);
+            toolStripSeparator5.Size = new System.Drawing.Size(6, 34);
             // 
             // toolSchedulerRunning
             // 
             toolSchedulerRunning.Name = "toolSchedulerRunning";
-            toolSchedulerRunning.Size = new System.Drawing.Size(100, 28);
+            toolSchedulerRunning.Size = new System.Drawing.Size(150, 29);
             toolSchedulerRunning.Text = "Scheduler Paused";
             // 
             // toolStripSeparator8
             // 
             toolStripSeparator8.Name = "toolStripSeparator8";
-            toolStripSeparator8.Size = new System.Drawing.Size(6, 31);
+            toolStripSeparator8.Size = new System.Drawing.Size(6, 34);
             // 
             // toolStripCurrentDesignInstance
             // 
             toolStripCurrentDesignInstance.Name = "toolStripCurrentDesignInstance";
-            toolStripCurrentDesignInstance.Size = new System.Drawing.Size(133, 28);
+            toolStripCurrentDesignInstance.Size = new System.Drawing.Size(200, 29);
             toolStripCurrentDesignInstance.Text = "Current Design Instance";
             toolStripCurrentDesignInstance.Visible = false;
             // 
@@ -8556,7 +8474,7 @@ namespace AppTestStudio
             toolStripInstances.Image = (System.Drawing.Image)resources.GetObject("toolStripInstances.Image");
             toolStripInstances.ImageTransparentColor = System.Drawing.Color.Magenta;
             toolStripInstances.Name = "toolStripInstances";
-            toolStripInstances.Size = new System.Drawing.Size(74, 28);
+            toolStripInstances.Size = new System.Drawing.Size(111, 29);
             toolStripInstances.Text = "Instance #";
             toolStripInstances.Visible = false;
             // 
@@ -8566,21 +8484,21 @@ namespace AppTestStudio
             mnuMouseRecording.Image = (System.Drawing.Image)resources.GetObject("mnuMouseRecording.Image");
             mnuMouseRecording.ImageTransparentColor = System.Drawing.Color.Magenta;
             mnuMouseRecording.Name = "mnuMouseRecording";
-            mnuMouseRecording.Size = new System.Drawing.Size(101, 28);
+            mnuMouseRecording.Size = new System.Drawing.Size(150, 29);
             mnuMouseRecording.Text = "MouseRecording";
             mnuMouseRecording.Click += mnuMouseRecording_Click;
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            ClientSize = new System.Drawing.Size(1869, 1043);
+            ClientSize = new System.Drawing.Size(2670, 1738);
             Controls.Add(splitContainerMain);
             Controls.Add(appTestStudioToolStrip1);
             Controls.Add(toolStripMain);
             Controls.Add(menuStrip1);
             MainMenuStrip = menuStrip1;
-            Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            Margin = new System.Windows.Forms.Padding(6, 5, 6, 5);
             Name = "frmMain";
             Text = "App Test Studio";
             FormClosing += frmMain_FormClosing;

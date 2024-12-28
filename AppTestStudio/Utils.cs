@@ -1455,25 +1455,25 @@ namespace AppTestStudio
         [System.Diagnostics.DebuggerStepThrough]
         public static int HiLoWord(int lo, int hi)
         {
-            return HiLoWord((short)lo, (short)hi);
+            return HiLoWord((ushort)lo, (ushort)hi);
         }
 
         [System.Diagnostics.DebuggerStepThrough]
         public static int HiLoWord(float lo, float hi)
         {
-            return HiLoWord((short)lo, (short)hi);
+            return HiLoWord((ushort)lo, (ushort)hi);
         }
 
         [System.Diagnostics.DebuggerStepThrough]
         public static IntPtr HiLoWordIntptr(short lo, short hi)
         {
-            return new IntPtr(HiLoWord(lo, hi));
+            return new IntPtr(HiLoWord((ushort)lo, (ushort)hi));
         }
 
         [System.Diagnostics.DebuggerStepThrough]
         public static IntPtr HiLoWordIntptr(int lo, int hi)
         {
-            return new IntPtr(HiLoWord((short)lo, (short)hi));
+            return new IntPtr(HiLoWord((ushort)lo, (ushort)hi));
         }
 
         public static String CalculateDelay(int hour, int minute, int second, int ms)

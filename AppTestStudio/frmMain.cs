@@ -112,9 +112,9 @@ namespace AppTestStudio
         }
 
         private HistoryManager HistoryManager;
-
         private void frmMain_Load(object sender, EventArgs e)
         {
+
             mnuMouseRecording.Visible = false; // Hide for now.
             ShowTermsOfServiceIfNecessary();
 
@@ -210,6 +210,73 @@ namespace AppTestStudio
             InitializeRunLabels();
 
             InitializeActionsPerSecondGraph();
+
+            //ResolutionCheck();
+
+        }
+
+        /// <summary>
+        /// When monitors have scaling enabled it can mess up the clicking.
+        /// In the future I may add an informational startup message.
+        /// </summary>
+        private void ResolutionCheck()
+        {
+            try
+            {
+
+                if (Screen.AllScreens.Count() == 1)
+                {
+                    return;
+                }
+
+                List<int> DPICheck = new List<int>();
+                Boolean DPIVariance = false;
+
+                List<int> ResolutionWidthCheck = new List<int>();
+                Boolean ResolutionVariance = false;
+
+                foreach (var screen in Screen.AllScreens)
+                {
+                    var pnt = new System.Drawing.Point(screen.Bounds.Left + 1, screen.Bounds.Top + 1);
+                    var mon = NativeMethods.MonitorFromPoint(pnt, MonitorFromPointFlags.MONITOR_DEFAULTTONEAREST);
+                    uint dpiX = 0;
+                    uint dpiY = 0;
+                    NativeMethods.GetDpiForMonitor(mon, NativeMethods.DpiType.Raw, out dpiX, out dpiY);
+                    Debug.WriteLine($"DPI{dpiX},{dpiY} {screen.Bounds},{screen.WorkingArea}");
+                    int CalculatedKey = (int)((float)screen.Bounds.Width / (float)dpiX) * 100;
+
+                    if (DPICheck.Count > 0)
+                    {                        
+                        if (DPICheck.Contains(CalculatedKey))
+                        {
+                            // good.
+                        }
+                        else
+                        {
+                            // not good.
+                            DPIVariance = true;
+                        }
+                    }
+                    DPICheck.Add(CalculatedKey);
+
+                    if (ResolutionWidthCheck.Count > 0)
+                    {
+
+
+                    }
+
+                }
+
+                if (DPIVariance)
+                {
+                    Log("This is just a basic check, and can false positive with multiple resolution monitors.");
+                    Log("WARNING: A variation in dpi was found, verify all monitors have the same 'Scale and Layout' settings. Settings->Display->Scale and Layout.");                    
+                }
+            }
+            catch (Exception ex)
+            {
+                Log($"ResolutionCheck {ex.Message}");
+            }
 
         }
 
@@ -3496,7 +3563,7 @@ namespace AppTestStudio
 
                     if (game.MinimalBitmapClones.Count > 0)
                     {
-                        //'walk the tree to find a bitmpa
+                        //'walk the tree to find a bitmap
 
                         MinimalBitmapNode mbmc = null;
                         if (game.MinimalBitmapClones.TryDequeue(out mbmc))
@@ -3506,18 +3573,25 @@ namespace AppTestStudio
                             if (tns.Length == 1)
                             {
                                 GameNodeAction ActionNode = tns[0] as GameNodeAction;
-
-                                if (mbmc.ResolutionHeight > 0)
+                                if (ActionNode != null)
                                 {
-                                    if (mbmc.ResolutionHeight == ActionNode.ResolutionHeight)
+
+                                    if (mbmc.ResolutionHeight > 0)
                                     {
-                                        if (mbmc.ResolutionWidth == ActionNode.ResolutionWidth)
+                                        if (mbmc.ResolutionHeight == ActionNode.ResolutionHeight)
                                         {
-                                            ActionNode.Bitmap = mbmc.Bitmap.Clone() as Bitmap;
-                                            Log("Synching Screenshot: " + ActionNode.Name);
-                                            BitmapChildren(ActionNode, ActionNode.Bitmap);
+                                            if (mbmc.ResolutionWidth == ActionNode.ResolutionWidth)
+                                            {
+                                                ActionNode.Bitmap = mbmc.Bitmap.Clone() as Bitmap;
+                                                Log("Synching Screenshot: " + ActionNode.Name);
+                                                BitmapChildren(ActionNode, ActionNode.Bitmap);
+                                            }
                                         }
                                     }
+                                } 
+                                else
+                                {
+                                    Log("Node is not of type GameNodeAction: " + mbmc.NodeName);
                                 }
                             }
                             else

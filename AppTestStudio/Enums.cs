@@ -305,4 +305,11 @@ namespace AppTestStudio
         Cut,
         Copy
     }
+
+    public static class MonitorFromPointFlags
+    {
+        public const uint MONITOR_DEFAULTTONULL = 0x00000000;
+        public const uint MONITOR_DEFAULTTOPRIMARY = 0x00000001;
+        public const uint MONITOR_DEFAULTTONEAREST = 0x00000002;
+    }
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using AppTestStudio;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace AppTestStudioUnitTest
