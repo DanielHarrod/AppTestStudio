@@ -4,21 +4,13 @@
 
 using AppTestStudioControls;
 using Gma.System.MouseKeyHook;
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
 using System.IO.Compression;
-using System.Linq;
 using System.Text;
-using System.Threading;
-using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
-using static AppTestStudio.Definitions;
 
 namespace AppTestStudio
 {
@@ -41,7 +33,7 @@ namespace AppTestStudio
             Object
         }
 
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)] 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ThreadManager ThreadManager { get; set; }
         private GameNodeWorkspace WorkspaceNode { get; set; }
         private GameNode LastNode { get; set; }
@@ -52,7 +44,7 @@ namespace AppTestStudio
         private Boolean IsLoadingSchedule = false;
 
         private GameNodeAction mPanelLoadNode;
-        private GameNodeAction LastPanelLoadNode = null; 
+        private GameNodeAction LastPanelLoadNode = null;
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public GameNodeAction PanelLoadNode
         {
@@ -249,7 +241,7 @@ namespace AppTestStudio
                     int CalculatedKey = (int)((float)screen.Bounds.Width / (float)dpiX) * 100;
 
                     if (DPICheck.Count > 0)
-                    {                        
+                    {
                         if (DPICheck.Contains(CalculatedKey))
                         {
                             // good.
@@ -273,7 +265,7 @@ namespace AppTestStudio
                 if (DPIVariance)
                 {
                     Log("This is just a basic check, and can false positive with multiple resolution monitors.");
-                    Log("WARNING: A variation in dpi was found, verify all monitors have the same 'Scale and Layout' settings. Settings->Display->Scale and Layout.");                    
+                    Log("WARNING: A variation in dpi was found, verify all monitors have the same 'Scale and Layout' settings. Settings->Display->Scale and Layout.");
                 }
             }
             catch (Exception ex)
@@ -635,7 +627,7 @@ namespace AppTestStudio
             {
                 Log($"File does not exist unable to load {menu.Text}");
             }
-            
+
         }
 
 
@@ -2253,7 +2245,7 @@ namespace AppTestStudio
                             {
                                 toolStripMenuPaste.Visible = true;
                             }
-                            
+
                             toolStripSeparatorCutCopyPaste.Visible = true;
                             switch (Action.ActionType)
                             {
@@ -2274,7 +2266,7 @@ namespace AppTestStudio
                                             break;
                                         case CutCopyOption.Cut:
                                         case CutCopyOption.Copy:
-                                            if(cutCopyActionNode.ActionType == ActionType.RNG)
+                                            if (cutCopyActionNode.ActionType == ActionType.RNG)
                                             {
                                                 // Can copyCut Rng node into RNG Container
                                             }
@@ -3433,7 +3425,7 @@ namespace AppTestStudio
                                             }
                                             else
                                             {
-                                                Utils.ActivateWindowIfNecessary2(hWnd, 4000,100);
+                                                Utils.ActivateWindowIfNecessary2(hWnd, 4000, 100);
 
                                             }
                                         }
@@ -3591,7 +3583,7 @@ namespace AppTestStudio
                                             }
                                         }
                                     }
-                                } 
+                                }
                                 else
                                 {
                                     Log("Node is not of type GameNodeAction: " + mbmc.NodeName);
@@ -4398,7 +4390,7 @@ namespace AppTestStudio
                     ChosenAfterCompletionType = AfterCompletionType.Recycle;
                 }
 
-                if (rdoAfterCompletionGoTo.Checked )
+                if (rdoAfterCompletionGoTo.Checked)
                 {
                     ChosenAfterCompletionType = AfterCompletionType.GoToParent;
                 }
@@ -8799,7 +8791,7 @@ namespace AppTestStudio
         private void cmdKeyboardValidate_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 Log("Validating Script");
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
 
@@ -8817,7 +8809,7 @@ namespace AppTestStudio
                     Log(command.ToString());
                     ms = ms + command.Delayms;
                 }
-                if (Errors > 0 )
+                if (Errors > 0)
                 {
                     Log($"{Errors} Errors found.  Please fix, Errors will be skipped and may cause unexpected behaviours.");
                     cmdKeyboardValidate.BackColor = Color.Red;
@@ -8892,7 +8884,7 @@ namespace AppTestStudio
                         ActionNode.PreActionFailureAction = TimeoutAction.Abort;
                         break;
                     case "Continue":
-                            ActionNode.PreActionFailureAction = TimeoutAction.Continue;
+                        ActionNode.PreActionFailureAction = TimeoutAction.Continue;
                         break;
                     default:
                         break;
@@ -8989,7 +8981,7 @@ namespace AppTestStudio
             {
                 PasteSibling(ParentNode, NodeIndex);
                 PasteCleanup();
-            }     
+            }
         }
         void PasteSibling(GameNode ParentNode, int NodeIndex)
         {
@@ -9070,7 +9062,7 @@ namespace AppTestStudio
                 txtAfterCompletionGoTo.Text = picker.AcceptedText;
                 rdoAfterCompletionGoTo.Checked = true;
             }
-            picker = null;            
+            picker = null;
         }
 
         private void rdoAfterCompletionGoTo_CheckedChanged(object sender, EventArgs e)
@@ -9106,6 +9098,12 @@ namespace AppTestStudio
                 MouseRecorder.Show();
                 MouseRecordingCount--;
             }
+        }
+
+        private void toolStripButtonTest1_Click(object sender, EventArgs e)
+        {
+    
+
         }
     }
 }
