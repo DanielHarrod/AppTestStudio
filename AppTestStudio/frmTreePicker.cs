@@ -12,6 +12,7 @@ namespace AppTestStudio
 {
     public partial class frmTreePicker : Form
     {
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public String AcceptedText { get; set; } = "";
         public frmTreePicker()
         {

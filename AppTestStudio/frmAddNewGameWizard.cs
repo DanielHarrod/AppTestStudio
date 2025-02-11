@@ -19,11 +19,14 @@ namespace AppTestStudio
     {
         //Which workspace panel are we on?
         public long CurrentPanel = 0;
-
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public List<string> HistoryStack { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public int HistoryStackIndex { get; set; }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Boolean fromHistory { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Boolean IsReadyToCreate { get; set; }
         public frmAddNewGameWizard()
         {

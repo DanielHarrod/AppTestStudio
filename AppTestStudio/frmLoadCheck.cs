@@ -25,6 +25,7 @@ namespace AppTestStudio
             DefaultValue                
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)] 
         public LoadCheckResult Result { get; set; }
 
         public frmLoadCheck()

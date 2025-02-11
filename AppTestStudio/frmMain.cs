@@ -7,6 +7,7 @@ using Gma.System.MouseKeyHook;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -40,6 +41,7 @@ namespace AppTestStudio
             Object
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)] 
         public ThreadManager ThreadManager { get; set; }
         private GameNodeWorkspace WorkspaceNode { get; set; }
         private GameNode LastNode { get; set; }
@@ -50,7 +52,8 @@ namespace AppTestStudio
         private Boolean IsLoadingSchedule = false;
 
         private GameNodeAction mPanelLoadNode;
-        private GameNodeAction LastPanelLoadNode = null;
+        private GameNodeAction LastPanelLoadNode = null; 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public GameNodeAction PanelLoadNode
         {
             get { return mPanelLoadNode; }
@@ -98,9 +101,9 @@ namespace AppTestStudio
         private int InitialPanelRightSwipePropertiesHeight;
         private int InitialPanelRightInformationHeight;
         private int TitleBarHeight;
-
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public SteamRegistry SteamRegistry { get; set; }
-
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public BlueRegistry BlueRegistry { get; set; }
 
         public frmMain()
@@ -8921,8 +8924,9 @@ namespace AppTestStudio
             GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
             GameNode.DontTakeScreenshot = chkDontTakeScreenshot.Checked;
         }
-
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public CutCopyOption cutCopyOption { get; set; } = CutCopyOption.None;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public GameNodeAction cutCopyActionNode { get; set; }
 
         private void toolStripMenuCut_Click(object sender, EventArgs e)

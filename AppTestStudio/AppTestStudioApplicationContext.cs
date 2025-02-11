@@ -18,7 +18,7 @@ namespace AppTestStudio
         {
             Application.ApplicationExit += Application_ApplicationExit;
 
-            frmNotify = new frmNotify(); 
+            frmNotify = new frmNotify(4); 
             frmMain = new frmMain();
             
 

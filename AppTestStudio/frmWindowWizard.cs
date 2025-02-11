@@ -9,15 +9,20 @@ using System.Drawing;
 using System.Runtime.Versioning;
 using System.Windows.Forms;
 using static AppTestStudio.Utils;
+using System.ComponentModel;
 
 namespace AppTestStudio
 {
     public partial class frmWindowWizard : Form
     {
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public String PrimaryWindowName { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public String SecondaryWindowName { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public String PrimaryWindowFilter { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public String SecondaryWindowFilter { get; set; }
 
         public frmWindowWizard(String primaryWindowName, String secondaryWindowName, string primaryWindowFilter, string secondaryWindowFilter)

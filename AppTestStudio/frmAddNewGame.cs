@@ -4,13 +4,16 @@
 
 using System;
 using System.Windows.Forms;
+using System.ComponentModel;
 
 namespace AppTestStudio
 {
     public partial class frmAddNewGame : Form
     {
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public String TargetFileName { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Boolean IsValid { get; set; }
         public frmAddNewGame()
         {

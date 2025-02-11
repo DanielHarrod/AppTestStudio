@@ -2,17 +2,13 @@
 //Copyright (C) 2016-2024 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
-using System;
+
 using System.Diagnostics;
-using System.Collections.Generic;
-using System.Drawing;
 using System.Text;
-using System.Windows.Forms;
-using System.Threading;
 using System.Runtime.InteropServices;
-using System.Windows.Media.Animation;
 using static AppTestStudio.Definitions;
 using static AppTestStudio.NativeMethods;
+using System.Windows.Media.Animation;
 
 namespace AppTestStudio
 {
@@ -596,7 +592,7 @@ namespace AppTestStudio
         [System.Diagnostics.DebuggerStepThrough]
         public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientTarget, int yClientTarget, int mouseSpeedPixelsPerSecond, EasingFunctionBase easingFunction = null)
         {
-            return MoveMouseActiveFromSystemPosition(windowHandle, mouseEventFlags, (short) xClientTarget, (short)yClientTarget, mouseSpeedPixelsPerSecond);
+            return MoveMouseActiveFromSystemPosition(windowHandle, mouseEventFlags, (short) xClientTarget, (short)yClientTarget, mouseSpeedPixelsPerSecond,easingFunction);
         }
         public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond, EasingFunctionBase easingFunction = null)
         {
