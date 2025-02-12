@@ -100,6 +100,7 @@ namespace AppTestStudio
 
         public frmMain()
         {
+            Log4NetSetup.Initialize(Utils.GetApplicationFolder());
             InitializeComponent();
             ThreadManager = new ThreadManager();
             sb = new StringBuilder();
@@ -108,7 +109,7 @@ namespace AppTestStudio
 
         private HistoryManager HistoryManager;
         private void frmMain_Load(object sender, EventArgs e)
-        {
+        {          
 
             mnuMouseRecording.Visible = false; // Hide for now.
             ShowTermsOfServiceIfNecessary();
