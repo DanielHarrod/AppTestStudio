@@ -4,10 +4,12 @@
 
 using AppTestStudioControls;
 using Gma.System.MouseKeyHook;
+using log4net;
 using System.Collections;
 using System.ComponentModel;
 using System.Diagnostics;
 using System.IO.Compression;
+using System.Reflection;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
@@ -16,6 +18,8 @@ namespace AppTestStudio
 {
     public partial class frmMain : Form
     {
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         private enum PanelMode
         {
             Workspace,
@@ -1711,6 +1715,7 @@ namespace AppTestStudio
 
         public void Log(String s)
         {
+            log.Info(s);
             sb.Insert(0, s + System.Environment.NewLine);
             if (sb.Length > 10000)
             {

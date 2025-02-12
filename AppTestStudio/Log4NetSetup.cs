@@ -17,7 +17,7 @@ namespace AppTestStudio
     //
     // 1.) Need to instantiate logs based on a template for runtime threads
     // 2.) Need to write all the logs to the project folder.
-    internal class Log4NetSetup
+    internal static class Log4NetSetup
     {
         private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
@@ -36,6 +36,7 @@ namespace AppTestStudio
             WorkspaceFolder = workspaceFolder;
             // Load file configuration into log4net
             XmlConfigurator.Configure(new System.IO.FileInfo("log4net.config"));
+            log.Info("Test");
 
             ConfigurationMessages = new List<string>();
             ILogger logger = log.Logger;
@@ -60,9 +61,7 @@ namespace AppTestStudio
             }
 
             // Finds the "ATSRollingLogFileTemplate" Appender.
-            // Closes the default file, sets the filename to the project folder
-            // Deletes the default file created by l4n
-            // Activates the default/root configuration.
+            // Updates the log file path  to the ATS Project folder.
             // ATSRollingLogFileTemplate is used for cloning for runtime threads.
             String TemplateName = "ATSRollingLogFileTemplate";
 
@@ -71,12 +70,8 @@ namespace AppTestStudio
             {
                 RollingFileAppender rfa = appender as RollingFileAppender;
 
-                // when you close a file log4net clears the name.
-                // Save it off after it's set to the project folder.
-                String FileNameAppender = rfa.File;
-                rfa.Close();
-                System.IO.File.Delete(FileNameAppender);
-                rfa.File = FileNameAppender.Replace(System.IO.Path.GetDirectoryName(Application.ExecutablePath), WorkspaceFolder);
+
+                rfa.File = rfa.File.Replace(System.IO.Path.GetDirectoryName(Application.ExecutablePath), WorkspaceFolder);
 
                 if (appender.Name == TemplateName)
                 {
@@ -103,14 +98,6 @@ namespace AppTestStudio
             // We aren't using the ATSRollingLogFileTemplate for anything except to clone instances with, remove it from the logger..            
             IAppenderAttachable? appenderAttachable = log.Logger as IAppenderAttachable;
             appenderAttachable?.RemoveAppender(template);
-
-            // When you close the file it removes the path, save it.
-            String FileName = template.File;
-            template.Close();
-            template.File = FileName;
-
-            // Remove the template filename that's auto created.
-            System.IO.File.Delete(FileName);
         }
 
         // Call when starting a new thread to initialize a log file for the thread.
