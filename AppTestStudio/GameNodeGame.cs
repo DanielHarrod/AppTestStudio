@@ -4,17 +4,8 @@
 
 using AppTestStudioControls;
 using log4net;
-using OpenCvSharp;
-using System;
 using System.Collections.Concurrent;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
-using System.Reflection;
-using System.Runtime.Versioning;
-using System.Threading;
-using System.Windows.Forms;
 using System.Xml;
 
 namespace AppTestStudio
