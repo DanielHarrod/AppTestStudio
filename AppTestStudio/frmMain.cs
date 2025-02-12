@@ -1832,7 +1832,9 @@ namespace AppTestStudio
 
         private void LoadInstance(GameNodeGame gameNode)
         {
+
             Log("Starting Instance " + gameNode.GameNodeName);
+            
 
             // Stop any existing threads that are running on this instance.
             foreach (GameNodeGame RunningThreadGames in ThreadManager.Games)
@@ -1847,6 +1849,10 @@ namespace AppTestStudio
             }
 
             GameNodeGame GameCopy = gameNode.CloneMe();
+
+            Log4NetSetup.AddNewAppender(GameCopy.Name);
+            GameCopy.InitializeLogger(GameCopy.Name);
+            
             CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
             RunThread RT = new RunThread(GameCopy, cancellationTokenSource);
