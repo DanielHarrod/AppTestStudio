@@ -96,7 +96,7 @@ namespace AppTestStudio
         {
             String FormattedLog = String.Format(
             "{0}{1} {2} [{3}] {4}",
-            DateTime.Now.ToString("yyyy-MM-dd HH-mm-ss."),
+            DateTime.Now.ToString("HH:mm:ss."),
             Math.Abs(Environment.TickCount % 1000).ToString().PadLeft(3, '0'),
             Name,
             InstanceToLaunch,
