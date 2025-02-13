@@ -1984,8 +1984,6 @@ namespace AppTestStudio
                 yPos = yPos + RandomY;
             }
 
-            GameNodeGame Game = this.GetGameNodeGame();
-
             Result.x = xPos;
             Result.y = yPos;
             return Result;
