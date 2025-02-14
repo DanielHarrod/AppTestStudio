@@ -157,7 +157,7 @@ namespace AppTestStudio
         /// <returns></returns>
         private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS, List<String> NodeList)
         {
-            MouseSolution solution = null;
+            ActionSolution solution = null;
             //Debug.WriteLine($"ProcessChildren: {node.Name}");
             Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
             while (Game.IsPaused)
@@ -333,7 +333,7 @@ namespace AppTestStudio
                             {
                                 Utils.ProcessKeyboardCommand(command);
                             }
-                            solution = new MouseSolution();
+                            solution = new ActionSolution();
                             solution.ActivateWindow = true; // Always true.
                             solution.AddKeyboardCommands(node.RuntimeCompiledKeyboardCommands);
 

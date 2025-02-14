@@ -5,13 +5,18 @@
 
 namespace AppTestStudio
 {
-    internal class EventSolution
+    internal class EventSolution : IATSEvent
     {
+        public EventSolution()
+        {
+            EventType = ATSEventType.Event;
+        }
+
         public String LogicChoice { get; set; } = "";
-        public List<SingleClick> ClickList { get; private set; }
+        public List<SingleClick> ClickList { get; private set; } = new List<SingleClick>();
 
         public List<EventSolutionItem> EventSolutionItems { get; private set; } = new List<EventSolutionItem>();
-        public String CustomExpression { get; set; }
+        public String CustomExpression { get; set; } = string.Empty;
         public Boolean Result { get; set; }
 
         public float DetectedThreashold { get; set; }
@@ -21,9 +26,9 @@ namespace AppTestStudio
         public int AnchorX { get; set; } = 0;
         public int AnchorY { get; set; } = 0;
         public int AnchorWidth { get; set; } = 0;   
-        public int AnchorHeight {  get; set; } = 0;    
+        public int AnchorHeight {  get; set; } = 0;
 
-        public String ErrorMessage {  get; set; }
+        public String ErrorMessage { get; set; } = "";
         public long ObjectThreshold { get; internal set; }
         public long ImageSearchTime { get; internal set; }
 

@@ -10,15 +10,15 @@ namespace AppTestStudio
     internal class Calculations
     {
         [System.Diagnostics.DebuggerStepThrough]
-        internal static MouseSolution CalculateClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int xStart, int yStart, int xTarget, int yTarget, int clickDurationMS, int mouseSpeedPixelsPerSecond)
+        internal static ActionSolution CalculateClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int xStart, int yStart, int xTarget, int yTarget, int clickDurationMS, int mouseSpeedPixelsPerSecond)
         {
 
             return CalculateClickOnWindow(windowHandle, mouseMode, moveMouseFirst, windowAction, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, clickDurationMS, mouseSpeedPixelsPerSecond);
 
         }
-        internal static MouseSolution CalculateClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
+        internal static ActionSolution CalculateClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
         {
-            MouseSolution solution = new MouseSolution();
+            ActionSolution solution = new ActionSolution();
             switch (mouseMode)
             {
                 case MouseMode.Passive:
@@ -45,7 +45,7 @@ namespace AppTestStudio
             return solution;
         }
 
-        internal static void CalculateClickOnWindowPassiveMode(IntPtr windowHandle, short xTarget, short yTarget, int mouseUpDelayMS, MouseSolution solution)
+        internal static void CalculateClickOnWindowPassiveMode(IntPtr windowHandle, short xTarget, short yTarget, int mouseUpDelayMS, ActionSolution solution)
         {
             solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, 0, Utils.HiLoWord(xTarget, yTarget), 0);
 
@@ -56,12 +56,12 @@ namespace AppTestStudio
 
 
         [System.Diagnostics.DebuggerStepThrough]
-        internal static void CalculateMoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientTarget, int yClientTarget, int mouseSpeedPixelsPerSecond, MouseSolution solution, EasingFunctionBase easingFunction = null)
+        internal static void CalculateMoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientTarget, int yClientTarget, int mouseSpeedPixelsPerSecond, ActionSolution solution, EasingFunctionBase easingFunction = null)
         {
             CalculateMoveMouseActiveFromSystemPosition(windowHandle, mouseEventFlags, (short)xClientTarget, (short)yClientTarget, mouseSpeedPixelsPerSecond, solution, easingFunction);
         }
 
-        internal static void CalculateMoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond, MouseSolution solution, EasingFunctionBase easingFunction = null)
+        internal static void CalculateMoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond, ActionSolution solution, EasingFunctionBase easingFunction = null)
         {
             //Debug.WriteLine($"MoveMouseActiveFromSystemPosition(windowHandle={windowHandle}, mouseEventFlags={mouseEventFlags}, xClientTarget={xClientTarget}, yClientTarget={yClientTarget}, mouseSpeedPixelsPerSecond={mouseSpeedPixelsPerSecond}, easingFunction=...");
             RECT TargetWindowRectangle;
@@ -203,7 +203,7 @@ namespace AppTestStudio
 
             //Debug.WriteLine($"MoveMouseActiveFromSystemPostion,PostCount={PostCount}");
         }
-        internal static int CalculateClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS, MouseSolution solution)
+        internal static int CalculateClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS, ActionSolution solution)
         {
             RECT TargetWindowRectangle;
             Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
@@ -277,9 +277,9 @@ namespace AppTestStudio
             return (y * 65536) / YScreen;
         }
 
-        public static MouseSolution CalculateClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
+        public static ActionSolution CalculateClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
         {
-            MouseSolution solution = new MouseSolution();
+            ActionSolution solution = new ActionSolution();
             int MouseTimeMS = 0;
             switch (mouseMode)
             {
@@ -300,7 +300,7 @@ namespace AppTestStudio
             return solution;
         }
 
-        public static void CalculateClickDragReleasePassive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS, MouseSolution solution)
+        public static void CalculateClickDragReleasePassive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS, ActionSolution solution)
         {
             // Move the mouse to start position.
             solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWord(startX, startY));
@@ -316,12 +316,12 @@ namespace AppTestStudio
 
         }
 
-        public static void CalculateMoveMousePassive(IntPtr windowHandle, int mouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int velocityMS, int mouseInitialClickDelayMS, MouseSolution solution)
+        public static void CalculateMoveMousePassive(IntPtr windowHandle, int mouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int velocityMS, int mouseInitialClickDelayMS, ActionSolution solution)
         {
             CalculateMoveMousePassive(windowHandle, mouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)velocityMS, mouseInitialClickDelayMS, solution);
         }
 
-        public static void CalculateMoveMousePassive(IntPtr windowHandle, int mouseKeyState, short xStart, short yStart, short xTarget, short yTarget, int velocityMS, int mouseInitialClickDelayMS, MouseSolution solution)
+        public static void CalculateMoveMousePassive(IntPtr windowHandle, int mouseKeyState, short xStart, short yStart, short xTarget, short yTarget, int velocityMS, int mouseInitialClickDelayMS, ActionSolution solution)
         {
             int PostEveryMS = 5;
 
@@ -361,18 +361,18 @@ namespace AppTestStudio
         // 1. Mouse Down at startx/y
         // 2. Mouse Move to endx/y
         // 3. Mouse Up at endx/y
-        public static void CalculateClickDragReleaseActive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS, MouseSolution solution)
+        public static void CalculateClickDragReleaseActive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS, ActionSolution solution)
         {
             CalculateMoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.LeftDown, (short)startX, (short)startY, (short)endX, (short)endY, velocityMS, mouseInitialClickDelayMS, solution);
         }
 
         [System.Diagnostics.DebuggerStepThrough]
-        public static void CalculateMoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientStart, int yClientStart, int xClientTarget, int yClientTarget, int velocityMS, int mouseInitialClickDelayMS, MouseSolution solution)
+        public static void CalculateMoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientStart, int yClientStart, int xClientTarget, int yClientTarget, int velocityMS, int mouseInitialClickDelayMS, ActionSolution solution)
         {
             CalculateMoveMouseActiveFromStartPosition(windowHandle, mouseEventFlags, (short)xClientStart, (short)yClientStart, (short)xClientTarget, (short)yClientTarget, velocityMS, mouseInitialClickDelayMS, solution);
         }
 
-        public static void CalculateMoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientStart, short yClientStart, short xClientTarget, short yClientTarget, int velocityMS, int mouseInitialClickDelayMS, MouseSolution solution)
+        public static void CalculateMoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientStart, short yClientStart, short xClientTarget, short yClientTarget, int velocityMS, int mouseInitialClickDelayMS, ActionSolution solution)
         {
             uint Flags = 0;
             RECT TargetWindowRectangle;
@@ -446,9 +446,9 @@ namespace AppTestStudio
             solution.AddInput(INPUT_MOUSE, AbsoluteX, AbsoluteY, 0, Flags);
         }
 
-        public static MouseSolution CalculateMouseMove(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
+        public static ActionSolution CalculateMouseMove(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
         {
-            MouseSolution solution = new MouseSolution();
+            ActionSolution solution = new ActionSolution();
 
             switch (mouseMode)
             {

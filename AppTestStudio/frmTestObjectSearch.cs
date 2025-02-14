@@ -63,7 +63,7 @@ namespace AppTestStudio
             int CenterX = 0;
             int CenterY = 0;
             Boolean IsPassed = false;
-            MouseSolution solution = null;
+            ActionSolution solution = null;
 
             if (GameNodeActionParent.IsSomething())
             {
