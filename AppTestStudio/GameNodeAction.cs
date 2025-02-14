@@ -1498,7 +1498,7 @@ namespace AppTestStudio
                 }
                 catch (Exception ex)
                 {
-                    game.Log("Encountered Parse excetion");
+                    game.Log("Encountered Parse exception");
                     String NewExpress = OriginalExpression.Replace("(", "").Replace(")", "").Replace("TRUE", "").Replace("FALSE", "").Replace("AND", "").Replace("OR", "").Replace("NOT", "").Replace(" ", "");
 
                     if (NewExpress.Length > 0)

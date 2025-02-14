@@ -3348,6 +3348,8 @@ namespace AppTestStudio
                 }
             }
 
+            Solution solution = null;
+
             IntPtr MainWindowHandle = game.GetWindowHandleByWindowName();
 
             //For Each P As Process In Process.GetProcesses()
@@ -3376,7 +3378,8 @@ namespace AppTestStudio
                         {
                             if (ActionNode.AppActivateIfNotActive)
                             {
-                                Utils.ActivateWindowIfNecessary2(game.GetWindowHandleByWindowName(), ActionNode.KeyboardTimeoutToActivateMS, ActionNode.KeyboardAfterSendingActivationMS);
+                                IntPtr WindowHandle = game.GetWindowHandleByWindowName();
+                                Utils.ActivateWindowIfNecessary2(WindowHandle, ActionNode.KeyboardTimeoutToActivateMS, ActionNode.KeyboardAfterSendingActivationMS);
                             }
                             switch (ActionNode.Mode)
                             {
@@ -3395,7 +3398,9 @@ namespace AppTestStudio
 
                                     int MousePixelSpeedPerSecond = game.CalculateNextMousePixelSpeedPerSecond();
 
-                                    Utils.ClickOnWindow(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, game.MouseX, game.MouseY, RangeClickResult.x, RangeClickResult.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
+                                    solution = Calculations.CalculateClickOnWindow(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, game.MouseX, game.MouseY, RangeClickResult.x, RangeClickResult.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
+                                    SolutionPlayer.Play(solution);
+
                                     Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                                     ThreadManager.IncrementSingleTestClick();
 
@@ -3403,14 +3408,18 @@ namespace AppTestStudio
                                 case Mode.ClickDragRelease:
                                     GameNodeAction.ClickDragReleaseResult ClickDragResult = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
-                                    Utils.ClickDragRelease(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, ClickDragResult.StartX, ClickDragResult.StartY, ClickDragResult.EndX, ClickDragResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    solution = Calculations.CalculateClickDragRelease(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, ClickDragResult.StartX, ClickDragResult.StartY, ClickDragResult.EndX, ClickDragResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    SolutionPlayer.Play(solution);
+
                                     Log("ClickDragRelease( x=" + ClickDragResult.StartX + ",Y = " + ClickDragResult.StartY + ", ex=" + ClickDragResult.EndX + ",ey=" + ClickDragResult.EndY + ")");
                                     ThreadManager.IncrementSingleTestClickDragRelease();
                                     break;
                                 case Mode.MouseMove:
                                     GameNodeAction.ClickDragReleaseResult MouseMoveResult = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
-                                    Utils.MouseMove(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    solution = Calculations.CalculateMouseMove(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    SolutionPlayer.Play(solution);
+
                                     Log("MouseMove( x=" + MouseMoveResult.StartX + ",Y = " + MouseMoveResult.StartY + ", ex=" + MouseMoveResult.EndX + ",ey=" + MouseMoveResult.EndY + ")");
                                     ThreadManager.IncrementSingleTestMouseMove();
                                     break;
@@ -3438,9 +3447,9 @@ namespace AppTestStudio
                                             else
                                             {
                                                 Utils.ActivateWindowIfNecessary2(hWnd, 4000, 100);
-
                                             }
                                         }
+
                                         foreach (KeyboardCommand command in ActionNode.RuntimeCompiledKeyboardCommands)
                                         {
                                             Utils.ProcessKeyboardCommand(command);

@@ -61,7 +61,8 @@ namespace AppTestStudio
 
             int CenterX = 0;
             int CenterY = 0;
-            Boolean IsPassed = false; ;
+            Boolean IsPassed = false;
+            Solution solution = null;
 
             if (GameNodeActionParent.IsSomething())
             {
@@ -92,7 +93,8 @@ namespace AppTestStudio
                             frm.Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             Debug.WriteLine("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                            Utils.ClickOnWindow(MainWindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, Game.WindowAction, Game.MouseX, Game.MouseY, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed, MousePixelSpeedPerSecond);
+                            solution = Calculations.CalculateClickOnWindow(MainWindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, Game.WindowAction, Game.MouseX, Game.MouseY, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed, MousePixelSpeedPerSecond);
+                            SolutionPlayer.Play(solution);
                             break;
                         case AppTestStudio.Mode.ClickDragRelease:
                             GameNodeAction.ClickDragReleaseResult ClickDragReleaseResult = Node.CalculateClickDragReleaseResult(CenterX, CenterY);
@@ -137,7 +139,9 @@ namespace AppTestStudio
                             {
                                 frm.Log("Swipe from ( x=" + ClickDragReleaseResult.StartX + ",y = " + ClickDragReleaseResult.StartY + " to x=" + ClickDragReleaseResult.EndX + ",y=" + ClickDragReleaseResult.EndY + ")");
                                 MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                                Utils.ClickDragRelease(MainWindowHandle, Game.MouseMode, Node.FromCurrentMousePos, Game.WindowAction, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity, MousePixelSpeedPerSecond, Game.DefaultClickSpeed);
+
+                                solution = Calculations.CalculateClickDragRelease(MainWindowHandle, Game.MouseMode, Node.FromCurrentMousePos, Game.WindowAction, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity, MousePixelSpeedPerSecond, Game.DefaultClickSpeed);
+                                SolutionPlayer.Play(solution);
                             }
                             break;
                         default:

@@ -19,7 +19,7 @@ namespace AppTestStudio
     // 2.) Need to write all the logs to the project folder.
     internal static class Log4NetSetup
     {
-        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+        private static   ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
 
         // used to store the template for runtime thread logs.
         private static log4net.Appender.RollingFileAppender template;

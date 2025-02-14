@@ -16,7 +16,8 @@ namespace AppTestStudioUnitTest
         public void TestClickOnWindowActiveMode()
         {
             IntPtr x = new IntPtr(0x028B2682);
-            AppTestStudio.Utils.ClickOnWindowActiveMode(x, 100, 100,100);
+           // deprecated
+           // AppTestStudio.Utils.ClickOnWindowActiveMode(x, 100, 100,100);
         }
 
         [TestMethod]
@@ -61,9 +62,10 @@ namespace AppTestStudioUnitTest
         {
             IntPtr x = NativeMethods.GetForegroundWindow();
 
-            int Count = AppTestStudio.Utils.MoveMousePassive(x, 0, 3843, 746, 1927, 784, 485, 10);  // needs to be ~150
-            int Count2 = AppTestStudio.Utils.MoveMousePassive(x, 0, 1934, 784, 1927, 3848, 125, 10);  // needs to be ~20
-            int Count3 = AppTestStudio.Utils.MoveMousePassive(x, 0, 1934, 784, 1927, 3848, 0, 10);  // needs to be ~2
+            // Deprecated
+            //int Count = AppTestStudio.Utils.MoveMousePassive(x, 0, 3843, 746, 1927, 784, 485, 10);  // needs to be ~150
+            //int Count2 = AppTestStudio.Utils.MoveMousePassive(x, 0, 1934, 784, 1927, 3848, 125, 10);  // needs to be ~20
+            //int Count3 = AppTestStudio.Utils.MoveMousePassive(x, 0, 1934, 784, 1927, 3848, 0, 10);  // needs to be ~2
 
         }
 
@@ -72,7 +74,8 @@ namespace AppTestStudioUnitTest
         {
             IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("Untitled - Notepad", "");
 
-            int Count = AppTestStudio.Utils.MoveMouseActiveFromSystemPosition(x, MouseEventFlags.Blank, 10, 10,1000);
+            // Deprecated
+            //int Count = AppTestStudio.Utils.MoveMouseActiveFromSystemPosition(x, MouseEventFlags.Blank, 10, 10,1000);
 
         }
 
@@ -81,7 +84,8 @@ namespace AppTestStudioUnitTest
         {
             IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("ATS2Window", "");
 
-            int Count = AppTestStudio.Utils.MoveMouseActiveFromSystemPosition(x, MouseEventFlags.Blank, 10, 10,500);
+            // Deprecated
+            // int Count = AppTestStudio.Utils.MoveMouseActiveFromSystemPosition(x, MouseEventFlags.Blank, 10, 10,500);
         }
 
 
@@ -90,7 +94,8 @@ namespace AppTestStudioUnitTest
         {
             IntPtr x = AppTestStudio.Utils.GetWindowHandleByWindowName("ATS2Window", "");
 
-            int Count = AppTestStudio.Utils.MoveMouseActiveFromSystemPosition(x, MouseEventFlags.Blank, 10, 10, 3000);
+            // deprecated
+            //int Count = AppTestStudio.Utils.MoveMouseActiveFromSystemPosition(x, MouseEventFlags.Blank, 10, 10, 3000);
 
         }
 
@@ -99,7 +104,8 @@ namespace AppTestStudioUnitTest
         [TestMethod]
         public void MouseMoveTesting()
         {
-            int Count = AppTestStudio.Utils.MoveMousePassive(new IntPtr(0x1650a2e), 1, 740, 337, 59, 336, 500,10);
+            // Deprecated
+            //int Count = AppTestStudio.Utils.MoveMousePassive(new IntPtr(0x1650a2e), 1, 740, 337, 59, 336, 500,10);
         }
 
         /// <summary>

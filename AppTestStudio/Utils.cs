@@ -289,13 +289,13 @@ namespace AppTestStudio
             return Loc;
         }
 
-        // 1. Mouse Down at startx/y
-        // 2. Mouse Move to endx/y
-        // 3. Mouse Up at endx/y
-        public static int ClickDragReleaseActive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS)
-        {
-            return MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.LeftDown, (short)startX, (short)startY, (short)endX, (short)endY, velocityMS, mouseInitialClickDelayMS);
-        }
+        //// 1. Mouse Down at startx/y
+        //// 2. Mouse Move to endx/y
+        //// 3. Mouse Up at endx/y
+        //public static int ClickDragReleaseActive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS)
+        //{
+        //    return MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.LeftDown, (short)startX, (short)startY, (short)endX, (short)endY, velocityMS, mouseInitialClickDelayMS);
+        //}
 
         public static ActivateWindowResult ActivateWindowIfNecessary2(IntPtr windowHandle,int TimeOutMS, int AfterActivateTimeMS)
         {
@@ -371,399 +371,403 @@ namespace AppTestStudio
             return Result;
         }
 
-        public static int ClickDragReleasePassive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS)
-        {
-            PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWord(startX, startY));
+        //public static int ClickDragReleasePassive(IntPtr windowHandle, int startX, int startY, int endX, int endY, int velocityMS, int mouseInitialClickDelayMS)
+        //{
+        //    PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWord(startX, startY));
 
-            //'Send Mouse Down
-            PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(startX, startY));
+        //    //'Send Mouse Down
+        //    PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(startX, startY));
 
-            int MouseMoveTimeMS = MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
+        //    int MouseMoveTimeMS = MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
 
-            //' Send mouse Up
-            SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWordIntptr(endX, endY));
+        //    //' Send mouse Up
+        //    SendMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, Definitions.MouseKeyStates.MK_NONE, Utils.HiLoWordIntptr(endX, endY));
 
-            return MouseMoveTimeMS;
-        }
+        //    return MouseMoveTimeMS;
+        //}
 
-        public static int MouseMove(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
-        {
-            int MouseMoveTimeMS = 0;
-            switch (mouseMode)
-            {
-                case MouseMode.Passive:
-                    MouseMoveTimeMS = MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
-                    break;
-                case MouseMode.Active:
-                    if (moveMouseFirst)
-                    {
-                        MouseMoveTimeMS = MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
-                    }
-                    MouseMoveTimeMS = MouseMoveTimeMS + MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.Blank, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
-                    break;
-                default:
-                    Debug.Assert(false);
-                    break;
-            }
-            return MouseMoveTimeMS;
-        }
+        //public static int MouseMove(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
+        //{
+        //    int MouseMoveTimeMS = 0;
+        //    switch (mouseMode)
+        //    {
+        //        case MouseMode.Passive:
+        //            MouseMoveTimeMS = MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
+        //            break;
+        //        case MouseMode.Active:
+        //            if (moveMouseFirst)
+        //            {
+        //                MouseMoveTimeMS = MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
+        //            }
+        //            MouseMoveTimeMS = MouseMoveTimeMS + MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.Blank, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
+        //            break;
+        //        default:
+        //            Debug.Assert(false);
+        //            break;
+        //    }
+        //    return MouseMoveTimeMS;
+        //}
 
-        public static int ClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
-        {
-            int MouseTimeMS = 0;
-            switch (mouseMode)
-            {
-                case MouseMode.Passive:
-                    MouseTimeMS = ClickDragReleasePassive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
-                    break;
-                case MouseMode.Active:
-                    if (moveMouseFirst)
-                    {
-                        MouseTimeMS = MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
-                    }
-                    MouseTimeMS = MouseTimeMS + ClickDragReleaseActive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
-                    break;
-                default:
-                    Debug.Assert(false);
-                    break;
-            }
-            return MouseTimeMS;
-        }
+        //public static int ClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
+        //{
+        //    int MouseTimeMS = 0;
+        //    switch (mouseMode)
+        //    {
+        //        case MouseMode.Passive:
+        //            MouseTimeMS = ClickDragReleasePassive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
+        //            break;
+        //        case MouseMode.Active:
+        //            if (moveMouseFirst)
+        //            {
+        //                MouseTimeMS = MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond);
+        //            }
+        //            MouseTimeMS = MouseTimeMS + ClickDragReleaseActive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS);
+        //            break;
+        //        default:
+        //            Debug.Assert(false);
+        //            break;
+        //    }
+        //    return MouseTimeMS;
+        //}
 
-        public static int MoveMousePassive(IntPtr windowHandle, int mouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int velocityMS, int mouseInitialClickDelayMS)
-        {
-            return MoveMousePassive(windowHandle, mouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)velocityMS, mouseInitialClickDelayMS);
-        }
+        //public static int MoveMousePassive(IntPtr windowHandle, int mouseKeyState, int xStart, int yStart, int xTarget, int yTarget, int velocityMS, int mouseInitialClickDelayMS)
+        //{
+        //    return MoveMousePassive(windowHandle, mouseKeyState, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, (short)velocityMS, mouseInitialClickDelayMS);
+        //}
 
-        [System.Diagnostics.DebuggerStepThrough]
-        public static int MoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientStart, int yClientStart, int xClientTarget, int yClientTarget, int velocityMS, int mouseInitialClickDelayMS)
-        {
-            return MoveMouseActiveFromStartPosition(windowHandle, mouseEventFlags, (short)xClientStart, (short)yClientStart, (short)xClientTarget, (short)yClientTarget, velocityMS, mouseInitialClickDelayMS);
-        }
+        //[System.Diagnostics.DebuggerStepThrough]
+        //public static int MoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientStart, int yClientStart, int xClientTarget, int yClientTarget, int velocityMS, int mouseInitialClickDelayMS)
+        //{
+        //    return MoveMouseActiveFromStartPosition(windowHandle, mouseEventFlags, (short)xClientStart, (short)yClientStart, (short)xClientTarget, (short)yClientTarget, velocityMS, mouseInitialClickDelayMS);
+        //}
 
-        public static int MoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientStart, short yClientStart, short xClientTarget, short yClientTarget, int velocityMS, int mouseInitialClickDelayMS)
-        {
-            //windowHandle = GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
-            RECT TargetWindowRectangle;
-            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
+        //public static int MoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientStart, short yClientStart, short xClientTarget, short yClientTarget, int velocityMS, int mouseInitialClickDelayMS)
+        //{
+        //    //windowHandle = GetAncestor(windowHandle, GetAncestorFlags.GetRoot);
+        //    RECT TargetWindowRectangle;
+        //    Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
 
-            //Debug.WriteLine("xClientTarget:" + xClientTarget);
-            //Debug.WriteLine("yClientTarget:" + yClientTarget);
-            //Debug.WriteLine("Right:" + TargetWindowRectangle.Right);
-            //Debug.WriteLine("Left:" + TargetWindowRectangle.Left);
+        //    //Debug.WriteLine("xClientTarget:" + xClientTarget);
+        //    //Debug.WriteLine("yClientTarget:" + yClientTarget);
+        //    //Debug.WriteLine("Right:" + TargetWindowRectangle.Right);
+        //    //Debug.WriteLine("Left:" + TargetWindowRectangle.Left);
 
-            //RECT WindowFrame;
+        //    //RECT WindowFrame;
 
-            //int Result = DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
+        //    //int Result = DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
 
-            RECT ClientRect;
-            GetClientRect(windowHandle, out ClientRect);
+        //    RECT ClientRect;
+        //    GetClientRect(windowHandle, out ClientRect);
 
-            short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);
+        //    short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);
 
-            //short ySystemTarget = (short)(yClientTarget + WindowFrame.Bottom - ClientRect.Bottom);
-            short ySystemTarget = (short)(yClientTarget + TargetWindowRectangle.Top);
+        //    //short ySystemTarget = (short)(yClientTarget + WindowFrame.Bottom - ClientRect.Bottom);
+        //    short ySystemTarget = (short)(yClientTarget + TargetWindowRectangle.Top);
 
-            short xSystemStart = (short)(xClientStart + TargetWindowRectangle.Left);
-            short ySystemStart = (short)(yClientStart + TargetWindowRectangle.Top);
+        //    short xSystemStart = (short)(xClientStart + TargetWindowRectangle.Left);
+        //    short ySystemStart = (short)(yClientStart + TargetWindowRectangle.Top);
 
-            int PostCount = 0;
-            int PostEveryMS = 30;
+        //    int PostCount = 0;
+        //    int PostEveryMS = 30;
 
-            float CurrentX = xSystemStart;
-            float CurrentY = ySystemStart;
+        //    float CurrentX = xSystemStart;
+        //    float CurrentY = ySystemStart;
            
-            int Distance = GetDistanceABS(xSystemStart, ySystemStart, xSystemTarget, ySystemTarget);
-            Debug.WriteLine(Distance);
+        //    int Distance = GetDistanceABS(xSystemStart, ySystemStart, xSystemTarget, ySystemTarget);
+        //    Debug.WriteLine(Distance);
 
-            int NumberOfActions = velocityMS / PostEveryMS;
+        //    int NumberOfActions = velocityMS / PostEveryMS;
 
-            int AbsoluteX = 0;
-            int AbsoluteY = 0;
-            int INPUT_MOUSE = 0;
+        //    int AbsoluteX = 0;
+        //    int AbsoluteY = 0;
+        //    int INPUT_MOUSE = 0;
 
-            Input MouseMove = new Input();
+        //    Input MouseMove = new Input();
 
 
-            // Don't post the Start move if there's a 0ms delay 
-            if (velocityMS > 0)
-            {
+        //    // Don't post the Start move if there's a 0ms delay 
+        //    if (velocityMS > 0)
+        //    {
 
-                AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
-                AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
+        //        AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
+        //        AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
 
-                MouseMove.Type = INPUT_MOUSE;
-                MouseMove.u.MouseInput.X = AbsoluteX;
-                MouseMove.u.MouseInput.Y = AbsoluteY;
-                MouseMove.u.MouseInput.MouseData = 0;
-                MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
+        //        MouseMove.Type = INPUT_MOUSE;
+        //        MouseMove.u.MouseInput.X = AbsoluteX;
+        //        MouseMove.u.MouseInput.Y = AbsoluteY;
+        //        MouseMove.u.MouseInput.MouseData = 0;
+        //        MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
 
-                Input[] InputInitial = { MouseMove };
-                SendInput((uint)InputInitial.Length, InputInitial, Marshal.SizeOf(typeof(Input)));
-                PostCount++;
-            }
+        //        Input[] InputInitial = { MouseMove };
+        //        SendInput((uint)InputInitial.Length, InputInitial, Marshal.SizeOf(typeof(Input)));
+        //        PostCount++;
+        //    }
 
-            if (NumberOfActions > 0)
-            {
-                float XIncrement = (float)(xSystemTarget - xSystemStart) / NumberOfActions;
-                float YIncrement = (float)(ySystemTarget - ySystemStart) / NumberOfActions;
-                int CurrentAction = 0;
-                for (CurrentAction = 0; CurrentAction < NumberOfActions; CurrentAction++)
-                {
-                    AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
-                    AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
+        //    if (NumberOfActions > 0)
+        //    {
+        //        float XIncrement = (float)(xSystemTarget - xSystemStart) / NumberOfActions;
+        //        float YIncrement = (float)(ySystemTarget - ySystemStart) / NumberOfActions;
+        //        int CurrentAction = 0;
+        //        for (CurrentAction = 0; CurrentAction < NumberOfActions; CurrentAction++)
+        //        {
+        //            AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
+        //            AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
 
-                    MouseMove.Type = INPUT_MOUSE;
-                    MouseMove.u.MouseInput.X = AbsoluteX;
-                    MouseMove.u.MouseInput.Y = AbsoluteY;
-                    MouseMove.u.MouseInput.MouseData = 0;
-                    MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
+        //            MouseMove.Type = INPUT_MOUSE;
+        //            MouseMove.u.MouseInput.X = AbsoluteX;
+        //            MouseMove.u.MouseInput.Y = AbsoluteY;
+        //            MouseMove.u.MouseInput.MouseData = 0;
+        //            MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
 
-                    Input[] InputMove = { MouseMove };
-                    SendInput((uint)InputMove.Length, InputMove, Marshal.SizeOf(typeof(Input)));
+        //            Input[] InputMove = { MouseMove };
+        //            SendInput((uint)InputMove.Length, InputMove, Marshal.SizeOf(typeof(Input)));
 
-                    PostCount++;
-                    if (CurrentAction == 0)
-                    {
-                        Thread.Sleep(mouseInitialClickDelayMS);
-                    }
+        //            PostCount++;
+        //            if (CurrentAction == 0)
+        //            {
+        //                Thread.Sleep(mouseInitialClickDelayMS);
+        //            }
 
-                    Thread.Sleep(PostEveryMS);
+        //            Thread.Sleep(PostEveryMS);
 
-                    CurrentX = CurrentX + XIncrement;
-                    CurrentY = CurrentY + YIncrement;
-                }
-            }
+        //            CurrentX = CurrentX + XIncrement;
+        //            CurrentY = CurrentY + YIncrement;
+        //        }
+        //    }
 
-            AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
-            AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
+        //    AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
+        //    AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
 
-            MouseMove.Type = INPUT_MOUSE;
-            MouseMove.u.MouseInput.X = AbsoluteX;
-            MouseMove.u.MouseInput.Y = AbsoluteY;
-            MouseMove.u.MouseInput.MouseData = 0;
+        //    MouseMove.Type = INPUT_MOUSE;
+        //    MouseMove.u.MouseInput.X = AbsoluteX;
+        //    MouseMove.u.MouseInput.Y = AbsoluteY;
+        //    MouseMove.u.MouseInput.MouseData = 0;
 
-            switch (mouseEventFlags)
-            {
-                case MouseEventFlags.Move:
-                    break;
-                case MouseEventFlags.LeftDown:
-                    mouseEventFlags = MouseEventFlags.LeftUp;
-                    break;
-                case MouseEventFlags.LeftUp:
-                    break;
-                case MouseEventFlags.RightDown:
-                    mouseEventFlags = MouseEventFlags.RightUp;
-                    break;
-                case MouseEventFlags.RightUp:
-                    break;
-                case MouseEventFlags.MiddleDown:
-                    mouseEventFlags = MouseEventFlags.MiddleUp;
-                    break;
-                case MouseEventFlags.MiddleUp:
-                    break;
-                case MouseEventFlags.XDown:
-                    mouseEventFlags = MouseEventFlags.XUp;
-                    break;
-                case MouseEventFlags.XUp:
-                    break;
-                case MouseEventFlags.Wheel:
-                    break;
-                case MouseEventFlags.VirtualDesk:
-                    break;
-                case MouseEventFlags.Absolute:
-                    break;
-                case MouseEventFlags.Blank:
-                    break;
-                default:
-                    break;
-            }
+        //    switch (mouseEventFlags)
+        //    {
+        //        case MouseEventFlags.Move:
+        //            break;
+        //        case MouseEventFlags.LeftDown:
+        //            mouseEventFlags = MouseEventFlags.LeftUp;
+        //            break;
+        //        case MouseEventFlags.LeftUp:
+        //            break;
+        //        case MouseEventFlags.RightDown:
+        //            mouseEventFlags = MouseEventFlags.RightUp;
+        //            break;
+        //        case MouseEventFlags.RightUp:
+        //            break;
+        //        case MouseEventFlags.MiddleDown:
+        //            mouseEventFlags = MouseEventFlags.MiddleUp;
+        //            break;
+        //        case MouseEventFlags.MiddleUp:
+        //            break;
+        //        case MouseEventFlags.XDown:
+        //            mouseEventFlags = MouseEventFlags.XUp;
+        //            break;
+        //        case MouseEventFlags.XUp:
+        //            break;
+        //        case MouseEventFlags.Wheel:
+        //            break;
+        //        case MouseEventFlags.VirtualDesk:
+        //            break;
+        //        case MouseEventFlags.Absolute:
+        //            break;
+        //        case MouseEventFlags.Blank:
+        //            break;
+        //        default:
+        //            break;
+        //    }
 
-            MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
+        //    MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
 
-            Input[] InputEnd = { MouseMove };
-            SendInput((uint)InputEnd.Length, InputEnd, Marshal.SizeOf(typeof(Input)));
-            PostCount++;
+        //    Input[] InputEnd = { MouseMove };
+        //    SendInput((uint)InputEnd.Length, InputEnd, Marshal.SizeOf(typeof(Input)));
+        //    PostCount++;
 
-            return PostCount;
-        }
+        //    return PostCount;
+        //}
 
-        [System.Diagnostics.DebuggerStepThrough]
-        public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientTarget, int yClientTarget, int mouseSpeedPixelsPerSecond, EasingFunctionBase easingFunction = null)
-        {
-            return MoveMouseActiveFromSystemPosition(windowHandle, mouseEventFlags, (short) xClientTarget, (short)yClientTarget, mouseSpeedPixelsPerSecond,easingFunction);
-        }
-        public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond, EasingFunctionBase easingFunction = null)
-        {
-            //Debug.WriteLine($"MoveMouseActiveFromSystemPosition(windowHandle={windowHandle}, mouseEventFlags={mouseEventFlags}, xClientTarget={xClientTarget}, yClientTarget={yClientTarget}, mouseSpeedPixelsPerSecond={mouseSpeedPixelsPerSecond}, easingFunction=...");
-            RECT TargetWindowRectangle;
 
-            //Retrieves the dimensions of the bounding rectangle of the specified window.
-            //The dimensions are given in screen coordinates that are relative to the upper-left corner of the screen.
-            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
 
-            RECT ClientRect;
+        //[System.Diagnostics.DebuggerStepThrough]
+        //public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, int xClientTarget, int yClientTarget, int mouseSpeedPixelsPerSecond, EasingFunctionBase easingFunction = null)
+        //{
+        //    return MoveMouseActiveFromSystemPosition(windowHandle, mouseEventFlags, (short)xClientTarget, (short)yClientTarget, mouseSpeedPixelsPerSecond, easingFunction);
+        //}
 
-            //Retrieves the coordinates of a window's client area. The client coordinates specify the upper-left and lower-right corners of the client area.
-            //Because client coordinates are relative to the upper-left corner of a window's client area, the coordinates of the upper-left corner are (0,0).
-            GetClientRect(windowHandle, out ClientRect);
+ 
+        //public static int MoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond, EasingFunctionBase easingFunction = null)
+        //{
+        //    //Debug.WriteLine($"MoveMouseActiveFromSystemPosition(windowHandle={windowHandle}, mouseEventFlags={mouseEventFlags}, xClientTarget={xClientTarget}, yClientTarget={yClientTarget}, mouseSpeedPixelsPerSecond={mouseSpeedPixelsPerSecond}, easingFunction=...");
+        //    RECT TargetWindowRectangle;
 
-            short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
+        //    //Retrieves the dimensions of the bounding rectangle of the specified window.
+        //    //The dimensions are given in screen coordinates that are relative to the upper-left corner of the screen.
+        //    Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
 
-            short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
+        //    RECT ClientRect;
 
-            //Retrieves the position of the mouse cursor, in screen coordinates.
-            GetCursorPos(out NativeMethods.Point point);
-            int xStart = point.X;
-            int yStart = point.Y;
+        //    //Retrieves the coordinates of a window's client area. The client coordinates specify the upper-left and lower-right corners of the client area.
+        //    //Because client coordinates are relative to the upper-left corner of a window's client area, the coordinates of the upper-left corner are (0,0).
+        //    GetClientRect(windowHandle, out ClientRect);
 
-            int PostCount = 0;
-            int PostEveryMS = 30;
+        //    short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
-            float CurrentX = xStart;
-            float CurrentY = yStart;
+        //    short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
 
-            //Debug.WriteLine($"System Mouse is at {point.X},{point.Y}");
-            //Debug.WriteLine($"Target window is at {TargetWindowRectangle.Left},{TargetWindowRectangle.Top}");
-            //Debug.WriteLine($"Target window Client is at {xClientTarget},{yClientTarget}");
+        //    //Retrieves the position of the mouse cursor, in screen coordinates.
+        //    GetCursorPos(out NativeMethods.Point point);
+        //    int xStart = point.X;
+        //    int yStart = point.Y;
 
-            int velocityMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, xSystemTarget.ToInt(), ySystemTarget.ToInt(), mouseSpeedPixelsPerSecond);
+        //    int PostCount = 0;
+        //    int PostEveryMS = 30;
 
-            int NumberOfActions = velocityMS / PostEveryMS;
+        //    float CurrentX = xStart;
+        //    float CurrentY = yStart;
 
-            int AbsoluteX = 0;
-            int AbsoluteY = 0;
-            int INPUT_MOUSE = 0;
+        //    //Debug.WriteLine($"System Mouse is at {point.X},{point.Y}");
+        //    //Debug.WriteLine($"Target window is at {TargetWindowRectangle.Left},{TargetWindowRectangle.Top}");
+        //    //Debug.WriteLine($"Target window Client is at {xClientTarget},{yClientTarget}");
 
-            Input MouseMove = new Input();
+        //    int velocityMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, xSystemTarget.ToInt(), ySystemTarget.ToInt(), mouseSpeedPixelsPerSecond);
 
-            // Don't post the Start move if there's a 0ms delay
-            if (velocityMS > 0)
-            {
-                AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
-                AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
+        //    int NumberOfActions = velocityMS / PostEveryMS;
 
-                MouseMove.Type = INPUT_MOUSE;
-                MouseMove.u.MouseInput.X = AbsoluteX;
-                MouseMove.u.MouseInput.Y = AbsoluteY;
-                MouseMove.u.MouseInput.MouseData = 0;
-                MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
+        //    int AbsoluteX = 0;
+        //    int AbsoluteY = 0;
+        //    int INPUT_MOUSE = 0;
 
-                Input[] InputInitial = { MouseMove };
-                SendInput((uint)InputInitial.Length, InputInitial, Marshal.SizeOf(typeof(Input)));
+        //    Input MouseMove = new Input();
 
-                PostCount++;
-            }
+        //    // Don't post the Start move if there's a 0ms delay
+        //    if (velocityMS > 0)
+        //    {
+        //        AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
+        //        AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
 
-            if (NumberOfActions > 0)
-            {
-                if (easingFunction.IsNothing())
-                {
-                    // if no easing function use power ease 2, if you want a consistent velocity pass in "easingFuction = new PowerEase() { Power = 1 };
-                    easingFunction = new PowerEase() { Power = 2 };
-                }
+        //        MouseMove.Type = INPUT_MOUSE;
+        //        MouseMove.u.MouseInput.X = AbsoluteX;
+        //        MouseMove.u.MouseInput.Y = AbsoluteY;
+        //        MouseMove.u.MouseInput.MouseData = 0;
+        //        MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
 
-                float xDistance = (float)(xSystemTarget - xStart);
-                float yDistance = (float)(ySystemTarget - yStart);
+        //        Input[] InputInitial = { MouseMove };
+        //        SendInput((uint)InputInitial.Length, InputInitial, Marshal.SizeOf(typeof(Input)));
 
-                //Adding Easing
-                //float XIncrement = (float)(xSystemTarget - xStart) / NumberOfActions;
-                //float YIncrement = (float)(ySystemTarget - yStart) / NumberOfActions;
-                int CurrentAction = 0;
-                for (CurrentAction = 0; CurrentAction < NumberOfActions; CurrentAction++)
-                {
-                    // Easing
-                    double CurrentPercent = easingFunction.Ease((double)CurrentAction / NumberOfActions);
+        //        PostCount++;
+        //    }
 
-                    double CurrentXPosition = xStart + (xDistance * CurrentPercent);
-                    double CurrentYPosition = yStart + (yDistance * CurrentPercent);
+        //    if (NumberOfActions > 0)
+        //    {
+        //        if (easingFunction.IsNothing())
+        //        {
+        //            // if no easing function use power ease 2, if you want a consistent velocity pass in "easingFuction = new PowerEase() { Power = 1 };
+        //            easingFunction = new PowerEase() { Power = 2 };
+        //        }
 
-                    AbsoluteX = CalculateAbsoluteCoordinateX(CurrentXPosition);
-                    AbsoluteY = CalculateAbsoluteCoordinateY(CurrentYPosition);
+        //        float xDistance = (float)(xSystemTarget - xStart);
+        //        float yDistance = (float)(ySystemTarget - yStart);
 
-                    // Adding Easing
-                    //AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
-                    //AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
+        //        //Adding Easing
+        //        //float XIncrement = (float)(xSystemTarget - xStart) / NumberOfActions;
+        //        //float YIncrement = (float)(ySystemTarget - yStart) / NumberOfActions;
+        //        int CurrentAction = 0;
+        //        for (CurrentAction = 0; CurrentAction < NumberOfActions; CurrentAction++)
+        //        {
+        //            // Easing
+        //            double CurrentPercent = easingFunction.Ease((double)CurrentAction / NumberOfActions);
 
-                    //Debug.WriteLine(CurrentX + "x:" + CurrentXPosition);
-                    //Debug.WriteLine(CurrentY + "y:" + CurrentYPosition);
+        //            double CurrentXPosition = xStart + (xDistance * CurrentPercent);
+        //            double CurrentYPosition = yStart + (yDistance * CurrentPercent);
 
-                    //Debug.WriteLine($"CA: {CurrentAction}, NOA: {NumberOfActions}, X={CurrentXPosition}, Y={CurrentYPosition}");
+        //            AbsoluteX = CalculateAbsoluteCoordinateX(CurrentXPosition);
+        //            AbsoluteY = CalculateAbsoluteCoordinateY(CurrentYPosition);
 
-                    MouseMove.Type = INPUT_MOUSE;
-                    MouseMove.u.MouseInput.X = AbsoluteX;
-                    MouseMove.u.MouseInput.Y = AbsoluteY;
-                    MouseMove.u.MouseInput.MouseData = 0;
-                    MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
+        //            // Adding Easing
+        //            //AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
+        //            //AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
 
-                    Input[] InputMove = { MouseMove };
-                    SendInput((uint)InputMove.Length, InputMove, Marshal.SizeOf(typeof(Input)));
+        //            //Debug.WriteLine(CurrentX + "x:" + CurrentXPosition);
+        //            //Debug.WriteLine(CurrentY + "y:" + CurrentYPosition);
 
-                    PostCount++;
+        //            //Debug.WriteLine($"CA: {CurrentAction}, NOA: {NumberOfActions}, X={CurrentXPosition}, Y={CurrentYPosition}");
 
-                    Thread.Sleep(PostEveryMS);
+        //            MouseMove.Type = INPUT_MOUSE;
+        //            MouseMove.u.MouseInput.X = AbsoluteX;
+        //            MouseMove.u.MouseInput.Y = AbsoluteY;
+        //            MouseMove.u.MouseInput.MouseData = 0;
+        //            MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
 
-                    // Adding Easing
-                    //CurrentX = CurrentX + XIncrement;
-                    //CurrentY = CurrentY + YIncrement;
-                }
-            }
+        //            Input[] InputMove = { MouseMove };
+        //            SendInput((uint)InputMove.Length, InputMove, Marshal.SizeOf(typeof(Input)));
 
-            // Send the final mouse move position
-            AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
-            AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
+        //            PostCount++;
 
-            MouseMove.Type = INPUT_MOUSE;
-            MouseMove.u.MouseInput.X = AbsoluteX;
-            MouseMove.u.MouseInput.Y = AbsoluteY;
-            MouseMove.u.MouseInput.MouseData = 0;
+        //            Thread.Sleep(PostEveryMS);
 
-            switch (mouseEventFlags)
-            {
-                case MouseEventFlags.Move:
-                    break;
-                case MouseEventFlags.LeftDown:
-                    mouseEventFlags = MouseEventFlags.LeftUp;
-                    break;
-                case MouseEventFlags.LeftUp:
-                    break;
-                case MouseEventFlags.RightDown:
-                    mouseEventFlags = MouseEventFlags.RightUp;
-                    break;
-                case MouseEventFlags.RightUp:
-                    break;
-                case MouseEventFlags.MiddleDown:
-                    mouseEventFlags = MouseEventFlags.MiddleUp;
-                    break;
-                case MouseEventFlags.MiddleUp:
-                    break;
-                case MouseEventFlags.XDown:
-                    mouseEventFlags = MouseEventFlags.XUp;
-                    break;
-                case MouseEventFlags.XUp:
-                    break;
-                case MouseEventFlags.Wheel:
-                    break;
-                case MouseEventFlags.VirtualDesk:
-                    break;
-                case MouseEventFlags.Absolute:
-                    break;
-                case MouseEventFlags.Blank:
-                    break;
-                default:
-                    break;
-            }
+        //            // Adding Easing
+        //            //CurrentX = CurrentX + XIncrement;
+        //            //CurrentY = CurrentY + YIncrement;
+        //        }
+        //    }
 
-            MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
+        //    // Send the final mouse move position
+        //    AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
+        //    AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
 
-            Input[] InputEnd = { MouseMove };
-            SendInput((uint)InputEnd.Length, InputEnd, Marshal.SizeOf(typeof(Input)));
-            PostCount++;
+        //    MouseMove.Type = INPUT_MOUSE;
+        //    MouseMove.u.MouseInput.X = AbsoluteX;
+        //    MouseMove.u.MouseInput.Y = AbsoluteY;
+        //    MouseMove.u.MouseInput.MouseData = 0;
 
-            //Debug.WriteLine($"MoveMouseActiveFromSystemPostion,PostCount={PostCount}");
+        //    switch (mouseEventFlags)
+        //    {
+        //        case MouseEventFlags.Move:
+        //            break;
+        //        case MouseEventFlags.LeftDown:
+        //            mouseEventFlags = MouseEventFlags.LeftUp;
+        //            break;
+        //        case MouseEventFlags.LeftUp:
+        //            break;
+        //        case MouseEventFlags.RightDown:
+        //            mouseEventFlags = MouseEventFlags.RightUp;
+        //            break;
+        //        case MouseEventFlags.RightUp:
+        //            break;
+        //        case MouseEventFlags.MiddleDown:
+        //            mouseEventFlags = MouseEventFlags.MiddleUp;
+        //            break;
+        //        case MouseEventFlags.MiddleUp:
+        //            break;
+        //        case MouseEventFlags.XDown:
+        //            mouseEventFlags = MouseEventFlags.XUp;
+        //            break;
+        //        case MouseEventFlags.XUp:
+        //            break;
+        //        case MouseEventFlags.Wheel:
+        //            break;
+        //        case MouseEventFlags.VirtualDesk:
+        //            break;
+        //        case MouseEventFlags.Absolute:
+        //            break;
+        //        case MouseEventFlags.Blank:
+        //            break;
+        //        default:
+        //            break;
+        //    }
 
-            return velocityMS;
-        }
+        //    MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
+
+        //    Input[] InputEnd = { MouseMove };
+        //    SendInput((uint)InputEnd.Length, InputEnd, Marshal.SizeOf(typeof(Input)));
+        //    PostCount++;
+
+        //    //Debug.WriteLine($"MoveMouseActiveFromSystemPostion,PostCount={PostCount}");
+
+        //    return velocityMS;
+        //}
 
 
         public static int MoveMousePassive(IntPtr windowHandle, int mouseKeyState, short xStart, short yStart, short xTarget, short yTarget, int velocityMS, int mouseInitialClickDelayMS)
@@ -811,39 +815,40 @@ namespace AppTestStudio
             return PostCount;
         }
 
-        [System.Diagnostics.DebuggerStepThrough]
-        public static int ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int xStart, int yStart, int xTarget, int yTarget, int clickDurationMS, int mouseSpeedPixelsPerSecond)
-        {
-            return ClickOnWindow(windowHandle, mouseMode, moveMouseFirst, windowAction, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, clickDurationMS, mouseSpeedPixelsPerSecond);
-        }
-        public static int ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
-        {
-            int TotalMs = 0;
-            switch (mouseMode)
-            {
-                case MouseMode.Passive:
-                    //if (moveMouseFirst)
-                    //{
-                    //    int MoveDurationMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, xTarget, yTarget, mouseSpeedPixelsPerSecond);
-                    //    MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_NONE, xStart, yStart, xTarget, yTarget, MoveDurationMS);
-                    //}
-                    TotalMs = ClickOnWindowPassiveMode(windowHandle, xTarget, yTarget, clickDuration);
-                    break;
-                case MouseMode.Active:
-                    
-                    if (moveMouseFirst)
-                    {
-                        TotalMs = MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, xTarget, yTarget, mouseSpeedPixelsPerSecond);
-                    }
 
-                    TotalMs = TotalMs + ClickOnWindowActiveMode(windowHandle, xTarget, yTarget, clickDuration);
-                    break;
-                default:
-                    Debug.Assert(false);
-                    break;
-            }
-            return TotalMs;
-        }
+        //[System.Diagnostics.DebuggerStepThrough]
+        //public static int ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int xStart, int yStart, int xTarget, int yTarget, int clickDurationMS, int mouseSpeedPixelsPerSecond)
+        //{
+        //    return ClickOnWindow(windowHandle, mouseMode, moveMouseFirst, windowAction, (short)xStart, (short)yStart, (short)xTarget, (short)yTarget, clickDurationMS, mouseSpeedPixelsPerSecond);
+        //}
+        //public static int ClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
+        //{
+        //    int TotalMs = 0;
+        //    switch (mouseMode)
+        //    {
+        //        case MouseMode.Passive:
+        //            //if (moveMouseFirst)
+        //            //{
+        //            //    int MoveDurationMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, xTarget, yTarget, mouseSpeedPixelsPerSecond);
+        //            //    MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_NONE, xStart, yStart, xTarget, yTarget, MoveDurationMS);
+        //            //}
+        //            TotalMs = ClickOnWindowPassiveMode(windowHandle, xTarget, yTarget, clickDuration);
+        //            break;
+        //        case MouseMode.Active:
+                    
+        //            if (moveMouseFirst)
+        //            {
+        //                TotalMs = MoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, xTarget, yTarget, mouseSpeedPixelsPerSecond);
+        //            }
+
+        //            TotalMs = TotalMs + ClickOnWindowActiveMode(windowHandle, xTarget, yTarget, clickDuration);
+        //            break;
+        //        default:
+        //            Debug.Assert(false);
+        //            break;
+        //    }
+        //    return TotalMs;
+        //}
 
         [System.Diagnostics.DebuggerStepThrough]
         public static int GetMoveDurationMSFromPixelsPerSecond(int xStart, int yStart, int xTarget, int yTarget, int mouseSpeedPixelsPerSecond)
@@ -871,116 +876,84 @@ namespace AppTestStudio
                 return 0;
             }
         }
-        [System.Diagnostics.DebuggerStepThrough]
-        static int CalculateAbsoluteCoordinateX(double x)
-        {
-            return CalculateAbsoluteCoordinateX(x.ToInt());
-        }
 
-        [System.Diagnostics.DebuggerStepThrough]
-        static int CalculateAbsoluteCoordinateX(float x)
-        {
-            return CalculateAbsoluteCoordinateX(x.ToInt());
-        }
+   
+        //public static int ClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS)
+        //{
+        //    RECT TargetWindowRectangle;
+        //    Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
 
-        static int CalculateAbsoluteCoordinateX(int x)
-        {
-            int XScreen = GetSystemMetrics(SystemMetric.SM_CXSCREEN);
-            return (x * 65536) / XScreen;
-        }
+        //    //Debug.WriteLine("xClientTarget:" + xClientTarget);
+        //    //Debug.WriteLine("yClientTarget:" + yClientTarget);
+        //    //Debug.WriteLine("Right:" + TargetWindowRectangle.Right);
+        //    //Debug.WriteLine("Left:" + TargetWindowRectangle.Left);
 
-        [System.Diagnostics.DebuggerStepThrough]
-        static int CalculateAbsoluteCoordinateY(double y)
-        {
-            return CalculateAbsoluteCoordinateY(y.ToInt());
-        }
-        [System.Diagnostics.DebuggerStepThrough]
-        static int CalculateAbsoluteCoordinateY(float y)
-        {
-            return CalculateAbsoluteCoordinateY(y.ToInt());
-        }
-        static int CalculateAbsoluteCoordinateY(int y)
-        {
-            int YScreen = GetSystemMetrics(SystemMetric.SM_CYSCREEN);
-            return (y * 65536) / YScreen;
-        }
+        //    //RECT WindowFrame;
 
-        public static int ClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS)
-        {
-            RECT TargetWindowRectangle;
-            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
+        //    ////Retrieves the current value of a specified Desktop Window Manager(DWM) attribute applied to a window.
+        //    ////Retrieves the extended frame bounds rectangle in screen space.
+        //    //int Result = DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
 
-            //Debug.WriteLine("xClientTarget:" + xClientTarget);
-            //Debug.WriteLine("yClientTarget:" + yClientTarget);
-            //Debug.WriteLine("Right:" + TargetWindowRectangle.Right);
-            //Debug.WriteLine("Left:" + TargetWindowRectangle.Left);
+        //    RECT ClientRect;
+        //    //Retrieves the coordinates of a window's client area.
+        //    GetClientRect(windowHandle, out ClientRect);
 
-            //RECT WindowFrame;
+        //    short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
-            ////Retrieves the current value of a specified Desktop Window Manager(DWM) attribute applied to a window.
-            ////Retrieves the extended frame bounds rectangle in screen space.
-            //int Result = DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
+        //    short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
 
-            RECT ClientRect;
-            //Retrieves the coordinates of a window's client area.
-            GetClientRect(windowHandle, out ClientRect);
+        //    int AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
+        //    int AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
 
-            short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
+        //    //Debug.Write($"AbsoluteX={AbsoluteX},AbsoluteY={AbsoluteY}");
+        //    int INPUT_MOUSE = 0;
+        //    Input MouseMove = new Input();
+        //    MouseMove.Type = INPUT_MOUSE;
+        //    MouseMove.u.MouseInput.X = AbsoluteX;
+        //    MouseMove.u.MouseInput.Y = AbsoluteY;
+        //    MouseMove.u.MouseInput.MouseData = 0;
+        //    MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute);
 
-            short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
+        //    Input LeftDown = new Input();
+        //    LeftDown.Type = INPUT_MOUSE;
+        //    LeftDown.u.MouseInput.X = AbsoluteX;
+        //    LeftDown.u.MouseInput.Y = AbsoluteY;
+        //    LeftDown.u.MouseInput.MouseData = 0;
+        //    LeftDown.u.MouseInput.Flags = (uint)(MouseEventFlags.LeftDown);
 
-            int AbsoluteX = CalculateAbsoluteCoordinateX(xSystemTarget);
-            int AbsoluteY = CalculateAbsoluteCoordinateY(ySystemTarget);
+        //    Input[] InputsPreTimeout = { MouseMove, LeftDown };
+        //    SendInput((uint)InputsPreTimeout.Length, InputsPreTimeout, Marshal.SizeOf(typeof(Input)));
 
-            //Debug.Write($"AbsoluteX={AbsoluteX},AbsoluteY={AbsoluteY}");
-            int INPUT_MOUSE = 0;
-            Input MouseMove = new Input();
-            MouseMove.Type = INPUT_MOUSE;
-            MouseMove.u.MouseInput.X = AbsoluteX;
-            MouseMove.u.MouseInput.Y = AbsoluteY;
-            MouseMove.u.MouseInput.MouseData = 0;
-            MouseMove.u.MouseInput.Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute);
+        //    Thread.Sleep(mouseUpDelayMS);
 
-            Input LeftDown = new Input();
-            LeftDown.Type = INPUT_MOUSE;
-            LeftDown.u.MouseInput.X = AbsoluteX;
-            LeftDown.u.MouseInput.Y = AbsoluteY;
-            LeftDown.u.MouseInput.MouseData = 0;
-            LeftDown.u.MouseInput.Flags = (uint)(MouseEventFlags.LeftDown);
+        //    Input LeftUp = new Input();
+        //    LeftUp.Type = INPUT_MOUSE;
+        //    LeftUp.u.MouseInput.X = AbsoluteX;
+        //    LeftUp.u.MouseInput.Y = AbsoluteY;
+        //    LeftUp.u.MouseInput.MouseData = 0;
+        //    LeftUp.u.MouseInput.Flags = (uint)(MouseEventFlags.LeftUp);
 
-            Input[] InputsPreTimeout = { MouseMove, LeftDown };
-            SendInput((uint)InputsPreTimeout.Length, InputsPreTimeout, Marshal.SizeOf(typeof(Input)));
+        //    Input[] InputsPostTimeout = { LeftUp };
 
-            Thread.Sleep(mouseUpDelayMS);
+        //    SendInput((uint)InputsPostTimeout.Length, InputsPostTimeout, Marshal.SizeOf(typeof(Input)));
 
-            Input LeftUp = new Input();
-            LeftUp.Type = INPUT_MOUSE;
-            LeftUp.u.MouseInput.X = AbsoluteX;
-            LeftUp.u.MouseInput.Y = AbsoluteY;
-            LeftUp.u.MouseInput.MouseData = 0;
-            LeftUp.u.MouseInput.Flags = (uint)(MouseEventFlags.LeftUp);
+        //    return mouseUpDelayMS;
+        //}
 
-            Input[] InputsPostTimeout = { LeftUp };
+        //public static int ClickOnWindowPassiveMode(IntPtr windowHandle, short xTarget, short yTarget, int mouseUpDelayMS)
+        //{
+        //     //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(HTCLIENT, Definitions.WM_MOUSEMOVE))
 
-            SendInput((uint)InputsPostTimeout.Length, InputsPostTimeout, Marshal.SizeOf(typeof(Input)));
+        //    PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, 0, Utils.HiLoWord(xTarget, yTarget));
 
-            return mouseUpDelayMS;
-        }
-
-        public static int ClickOnWindowPassiveMode(IntPtr windowHandle, short xTarget, short yTarget, int mouseUpDelayMS)
-        {
-             //' SendMessage(WindowHandle, WM_SETCURSOR, WindowHandle, getHiLoWord(HTCLIENT, Definitions.WM_MOUSEMOVE))
-
-            PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, 0, Utils.HiLoWord(xTarget, yTarget));
-
-            PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(xTarget, yTarget));
-            if (mouseUpDelayMS > 0)
-            {
-                Thread.Sleep(mouseUpDelayMS);
-            }
-            PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
-            return mouseUpDelayMS;
-        }
+        //    PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONDOWN, Definitions.MouseKeyStates.MK_LBUTTON, Utils.HiLoWord(xTarget, yTarget));
+        //    if (mouseUpDelayMS > 0)
+        //    {
+        //        Thread.Sleep(mouseUpDelayMS);
+        //    }
+        //    PostMessage(windowHandle, Definitions.MouseInputNotifications.WM_LBUTTONUP, 0, Utils.HiLoWord(xTarget, yTarget));
+        //    return mouseUpDelayMS;
+        //}
 
         static System.Random Generator = new System.Random();
 

@@ -19,7 +19,8 @@ namespace AppTestStudioUnitTest
 
             Bitmap b = AppTestStudio.Utils.GetBitmapFromWindowHandle(k);
 
-            AppTestStudio.Utils.ClickOnWindowPassiveMode(k, 100, 100, 0);
+            // Deprecated
+            //AppTestStudio.Utils.ClickOnWindowPassiveMode(k, 100, 100, 0);
         }
 
 
