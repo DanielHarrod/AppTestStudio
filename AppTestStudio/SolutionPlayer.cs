@@ -10,7 +10,7 @@ namespace AppTestStudio
 {
     internal static class SolutionPlayer
     {
-        public static void Play(Solution solution)
+        public static void Play(MouseSolution solution)
         {
             foreach (SolutionMessage solutionMessage in solution.Messages)
             {

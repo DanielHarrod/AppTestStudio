@@ -7,9 +7,9 @@ using static AppTestStudio.NativeMethods;
 
 namespace AppTestStudio
 {
-    internal class Solution
+    internal class MouseSolution
     {
-        public Solution()
+        public MouseSolution()
         {
             Messages = new List<SolutionMessage>();
             ATSInputs = new List<ATSInput>();

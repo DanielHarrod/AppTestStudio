@@ -3349,7 +3349,7 @@ namespace AppTestStudio
                 }
             }
 
-            Solution solution = null;
+            MouseSolution solution = null;
 
             IntPtr MainWindowHandle = game.GetWindowHandleByWindowName();
 
