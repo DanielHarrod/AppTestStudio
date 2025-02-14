@@ -282,7 +282,11 @@ namespace AppTestStudio
                                 solution.TargetX = Result.x;
                                 solution.TargetY = Result.y;
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
+
                                 SolutionPlayer.Play(solution);
+
+                                solution.Bitmap = bmp.CloneMe();
+
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
                                 Game.MouseX = (short)Result.x;
@@ -295,7 +299,7 @@ namespace AppTestStudio
                                 // Draw solution marker
                                 if (Game.SaveVideo)
                                 {
-                                    Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
+                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
                                 }
                             }
 
@@ -379,7 +383,11 @@ namespace AppTestStudio
                                 solution.TargetX = MouseMoveResult.StartX;
                                 solution.TargetY = MouseMoveResult.StartY;
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
+                                
                                 SolutionPlayer.Play(solution);
+
+                                solution.Bitmap = bmp.CloneMe();
+
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
                                 Game.Log("/MouseMove)");
@@ -391,7 +399,7 @@ namespace AppTestStudio
                                 // Draw solution marker
                                 if (Game.SaveVideo)
                                 {
-                                    Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
+                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
                                 }
                             }
 
@@ -443,6 +451,9 @@ namespace AppTestStudio
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
 
                                 SolutionPlayer.Play(solution);
+
+                                solution.Bitmap = bmp.CloneMe();
+
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
                                 Game.MouseX = (short)CDRResult.EndX;
@@ -456,7 +467,7 @@ namespace AppTestStudio
                                 // Draw solution marker
                                 if (Game.SaveVideo)
                                 {
-                                    Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
+                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
                                 }
                             }
                             break;

@@ -75,6 +75,8 @@ namespace AppTestStudio
         /// </summary>
         public ConcurrentQueue<Bitmap> BitmapClones { get; set; }
 
+        internal ConcurrentQueue<IATSEvent> EventClones { get; set; } = new ConcurrentQueue<IATSEvent>();
+
         /// <summary>
         /// Minimal Bitmap clones are used to to rebuild projects that were exported as Minimal
         /// ATS doesn't need the bitmaps to run, but they are helpful in the editor to edit scripts.

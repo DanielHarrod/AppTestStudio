@@ -32,6 +32,8 @@ namespace AppTestStudio
         // Do we activate before playing the script.
         public Boolean ActivateWindow {  get; set; }
 
+        public Bitmap Bitmap { get; set; }
+
         internal void AddMessage(nint windowHandle, int msg, int wParam, int lParam, int afterDelay = 0)
         {
             MouseSolutionMessage message = new MouseSolutionMessage();

@@ -3403,7 +3403,10 @@ namespace AppTestStudio
                                     solution.TargetX = RangeClickResult.x;
                                     solution.TargetY = RangeClickResult.y;
                                     solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
+
                                     SolutionPlayer.Play(solution);
+
+                                    solution.Bitmap = bmp.CloneMe();
 
                                     Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                                     ThreadManager.IncrementSingleTestClick();
