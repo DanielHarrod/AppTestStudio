@@ -520,8 +520,8 @@ namespace AppTestStudio
                                 return Result;
                         }
                     }
-
-                    if (node.IsTrue(bmp, Game, ref centerX, ref centerY, ref Offset, ref DetectedThreashold))
+                    EventSolution eventSolution = node.IsTrue(bmp, Game);
+                    if (eventSolution.Result)
                     {
                         if (node.IsColorPoint == false)
                         {

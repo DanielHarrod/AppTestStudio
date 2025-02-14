@@ -119,7 +119,7 @@ namespace AppTestStudio
 
         // Compare Colors and return if the colors match
         // Returns Qualifying Points, how many points to return true
-        public static Boolean CompareColorWithPoints(this Color aColor, Color bColor, int Points, ref int QualifyingPoints)
+        internal static Boolean CompareColorWithPoints(this Color aColor, Color bColor, int Points, EventSolution solution)
         {
             Boolean TestFailed = false;
             long MinR = bColor.R - Points;
@@ -146,9 +146,9 @@ namespace AppTestStudio
                 }
                 RPoints = aColor.R - bColor.R;
 
-                if (RPoints > QualifyingPoints)
+                if (RPoints > solution.QualifyingPoints)
                 {
-                    QualifyingPoints = RPoints;
+                    solution.QualifyingPoints = RPoints;
                 }
             }
 
@@ -170,9 +170,9 @@ namespace AppTestStudio
                     GPoints = bColor.G - aColor.G;
                 }
 
-                if (GPoints > QualifyingPoints)
+                if (GPoints > solution.QualifyingPoints)
                 {
-                    QualifyingPoints = GPoints;
+                    solution.QualifyingPoints = GPoints;
                 }
             }
 
@@ -195,9 +195,9 @@ namespace AppTestStudio
                     BPoints = bColor.G - aColor.G;
                 }
 
-                if (BPoints > QualifyingPoints)
+                if (BPoints > solution.QualifyingPoints)
                 {
-                    QualifyingPoints = BPoints;
+                    solution.QualifyingPoints = BPoints;
                 }
 
             }

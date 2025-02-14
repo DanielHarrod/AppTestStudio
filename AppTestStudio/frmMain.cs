@@ -5368,6 +5368,7 @@ namespace AppTestStudio
         {
             if (Node.ActionType == ActionType.Event)
             {
+                
                 Bitmap Bmp = PictureTestAllTest.Image as Bitmap;
                 int QualifyingEvents = 0;
                 int CenterX = 0;
@@ -5377,7 +5378,8 @@ namespace AppTestStudio
                 GameNode AppNode = tv.SelectedNode as GameNode;
                 GameNodeGame GameNode = AppNode.GetGameNodeGame();
 
-                if (Node.IsTrue(Bmp, GameNode, ref CenterX, ref CenterY, ref QualifyingEvents, ref DetectedThreashold))
+                EventSolution solution = Node.IsTrue(Bmp, GameNode);
+                if (solution.Result)
                 {
                     //'6 = no
                     //'7 = yes
@@ -5525,6 +5527,8 @@ namespace AppTestStudio
                     lblTestAllCustom.Text = Node.CustomLogic;
                 }
 
+                EventSolution solution = new EventSolution();
+
                 foreach (SingleClick Item in Node.ClickList)
                 {
                     int Rowindex = dgvTestAllReference.Rows.Add();
@@ -5571,12 +5575,9 @@ namespace AppTestStudio
                     Row.Cells["dgvXTest"].Value = Item.X;
                     Row.Cells["dgvYTest"].Value = Item.Y;
 
-                    // How far of was the test from the target color.
-                    int QualifyingPoints = 0;
-
                     if (Node.LogicChoice == "AND")
                     {
-                        if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
+                        if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, solution))
                         {
                             if (FinalResult == false)
                             {
@@ -5590,7 +5591,7 @@ namespace AppTestStudio
                     }
                     else if (Node.LogicChoice == "OR")
                     {
-                        if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
+                        if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, solution))
                         {
                             // do nothing
                         }
@@ -5602,7 +5603,7 @@ namespace AppTestStudio
                         //Debug.Assert(false);
                     }
 
-                    if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
+                    if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, solution))
                     {
                         Row.Cells["dgvPassFail"].Value = "Test Passed";
                         Style = new DataGridViewCellStyle();
