@@ -157,6 +157,7 @@ namespace AppTestStudio
         /// <returns></returns>
         private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS, List<String> NodeList)
         {
+            Solution solution = null;
             //Debug.WriteLine($"ProcessChildren: {node.Name}");
             Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
             while (Game.IsPaused)
@@ -277,7 +278,7 @@ namespace AppTestStudio
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
                                 int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
                                 
-                                Solution solution = Calculations.CalculateClickOnWindow(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
+                                solution = Calculations.CalculateClickOnWindow(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
                                 solution.TargetX = Result.x;
                                 solution.TargetY = Result.y;
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
@@ -313,7 +314,7 @@ namespace AppTestStudio
 
                             if(node.RumtimeIsKeyboardCompiled==false)
                             {
-                                Game.Log("First use Compiling keyboard script.");
+                                Game.Log($"First use Compiling keyboard script {node.Name}");
                                 AppTestStudio.KeyboardProcessor kp = new AppTestStudio.KeyboardProcessor();
                                 node.RuntimeCompiledKeyboardCommands = kp.ParseScript(node.KeyboardScript);
 
@@ -332,6 +333,10 @@ namespace AppTestStudio
                             {
                                 Utils.ProcessKeyboardCommand(command);
                             }
+                            solution = new Solution();
+                            solution.ActivateWindow = true; // Always true.
+                            solution.AddKeyboardCommands(node.RuntimeCompiledKeyboardCommands);
+
 
                             break;
                         case Mode.MouseMove:
@@ -370,7 +375,7 @@ namespace AppTestStudio
 
                                 Game.Log("MouseMove from ( x=" + MouseMoveResult.StartX + ",y = " + MouseMoveResult.StartY + " to x=" + MouseMoveResult.EndX + ",y=" + MouseMoveResult.EndY + ")");
                                 
-                                Solution solution = Calculations.CalculateMouseMove(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                solution = Calculations.CalculateMouseMove(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
                                 solution.TargetX = MouseMoveResult.StartX;
                                 solution.TargetY = MouseMoveResult.StartY;
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
@@ -432,7 +437,7 @@ namespace AppTestStudio
                                 }
 
                                 Game.Log("Swipe from ( x=" + CDRResult.StartX + ",y = " + CDRResult.StartY + " to x=" + CDRResult.EndX + ",y=" + CDRResult.EndY + ")");
-                                Solution solution = Calculations.CalculateClickDragRelease(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                solution = Calculations.CalculateClickDragRelease(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
                                 solution.TargetX = CDRResult.EndX;
                                 solution.TargetY = CDRResult.EndY;
                                 solution.ActivateWindow = node.AppActivateIfNotActive;

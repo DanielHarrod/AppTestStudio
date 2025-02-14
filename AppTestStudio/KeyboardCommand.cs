@@ -3,12 +3,13 @@
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using System.Diagnostics;
+using System.Text.Json.Serialization;
 using static AppTestStudio.NativeMethods;
 
 namespace AppTestStudio
 {
 
-    public class KeyboardCommand
+    public class KeyboardCommand : ICloneable
     {
         public ushort ScanCode { get; set; }
         public KeyboardButtonStates ButtonState { get; set; }
@@ -406,6 +407,13 @@ namespace AppTestStudio
         public override string ToString()
         {
             return $"Origin: {Origin}, State: {ButtonState.ToString()}, Delay ms: {Delayms}/{MaxRNG}, ScanCode: {ScanCode}";
+        }
+
+        object ICloneable.Clone()
+        {
+            KeyboardCommand command = (KeyboardCommand)this.MemberwiseClone();
+
+            return command;
         }
     }
 }
