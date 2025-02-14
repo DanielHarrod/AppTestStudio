@@ -11,7 +11,7 @@ namespace AppTestStudio
     {
         public MouseSolution()
         {
-            Messages = new List<SolutionMessage>();
+            Messages = new List<MouseSolutionMessage>();
             ATSInputs = new List<ATSInput>();
         }
 
@@ -19,7 +19,7 @@ namespace AppTestStudio
         public IntPtr WindowHandle { get; set; }
 
         // PostMessages (Passive)
-        public List<SolutionMessage> Messages { get; set; }
+        public List<MouseSolutionMessage> Messages { get; set; }
 
         // Send Input (Active)
         public List<ATSInput> ATSInputs { get; set; }
@@ -36,7 +36,7 @@ namespace AppTestStudio
 
         internal void AddMessage(nint windowHandle, int msg, int wParam, int lParam, int afterDelay = 0)
         {
-            SolutionMessage message = new SolutionMessage();
+            MouseSolutionMessage message = new MouseSolutionMessage();
             message.WindowHandle = windowHandle;
             message.Message = msg;
             message.wParam = wParam;
@@ -65,7 +65,7 @@ namespace AppTestStudio
             get
             {
                 int runtimeMS = 0;
-                foreach (SolutionMessage message in Messages)
+                foreach (MouseSolutionMessage message in Messages)
                 {
                     runtimeMS += message.AfterDelay;
                 }

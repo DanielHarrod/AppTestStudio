@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AppTestStudio
 {
-    internal class SolutionMessage
+    internal class MouseSolutionMessage
     {
         public IntPtr WindowHandle;
         public int Message;

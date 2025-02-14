@@ -12,7 +12,7 @@ namespace AppTestStudio
     {
         public static void Play(MouseSolution solution)
         {
-            foreach (SolutionMessage solutionMessage in solution.Messages)
+            foreach (MouseSolutionMessage solutionMessage in solution.Messages)
             {
                 Debug.WriteLine($"handle={solutionMessage.WindowHandle},wParam={solutionMessage.wParam}");
                 PostMessage(solutionMessage.WindowHandle, solutionMessage.Message, solutionMessage.wParam, solutionMessage.lParam);
