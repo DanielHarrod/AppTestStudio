@@ -1,5 +1,4 @@
 ﻿//AppTestStudio 
-//AppTestStudio 
 //Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
@@ -279,6 +278,9 @@ namespace AppTestStudio
                                 int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
                                 
                                 Solution solution = Calculations.CalculateClickOnWindow(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
+                                solution.TargetX = Result.x;
+                                solution.TargetY = Result.y;
+                                solution.ActivateWindow = node.AppActivateIfNotActive;
                                 SolutionPlayer.Play(solution);
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -369,6 +371,9 @@ namespace AppTestStudio
                                 Game.Log("MouseMove from ( x=" + MouseMoveResult.StartX + ",y = " + MouseMoveResult.StartY + " to x=" + MouseMoveResult.EndX + ",y=" + MouseMoveResult.EndY + ")");
                                 
                                 Solution solution = Calculations.CalculateMouseMove(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                solution.TargetX = MouseMoveResult.StartX;
+                                solution.TargetY = MouseMoveResult.StartY;
+                                solution.ActivateWindow = node.AppActivateIfNotActive;
                                 SolutionPlayer.Play(solution);
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -428,6 +433,10 @@ namespace AppTestStudio
 
                                 Game.Log("Swipe from ( x=" + CDRResult.StartX + ",y = " + CDRResult.StartY + " to x=" + CDRResult.EndX + ",y=" + CDRResult.EndY + ")");
                                 Solution solution = Calculations.CalculateClickDragRelease(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                solution.TargetX = CDRResult.EndX;
+                                solution.TargetY = CDRResult.EndY;
+                                solution.ActivateWindow = node.AppActivateIfNotActive;
+
                                 SolutionPlayer.Play(solution);
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 

@@ -13,6 +13,7 @@ using System.Reflection;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
+using static OpenCvSharp.ML.DTrees;
 
 namespace AppTestStudio
 {
@@ -3399,6 +3400,9 @@ namespace AppTestStudio
                                     int MousePixelSpeedPerSecond = game.CalculateNextMousePixelSpeedPerSecond();
 
                                     solution = Calculations.CalculateClickOnWindow(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, game.MouseX, game.MouseY, RangeClickResult.x, RangeClickResult.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
+                                    solution.TargetX = RangeClickResult.x;
+                                    solution.TargetY = RangeClickResult.y;
+                                    solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
                                     SolutionPlayer.Play(solution);
 
                                     Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
@@ -3409,6 +3413,10 @@ namespace AppTestStudio
                                     GameNodeAction.ClickDragReleaseResult ClickDragResult = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
                                     solution = Calculations.CalculateClickDragRelease(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, ClickDragResult.StartX, ClickDragResult.StartY, ClickDragResult.EndX, ClickDragResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    solution.TargetX = ClickDragResult.EndX;
+                                    solution.TargetY = ClickDragResult.EndY;
+                                    solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
+
                                     SolutionPlayer.Play(solution);
 
                                     Log("ClickDragRelease( x=" + ClickDragResult.StartX + ",Y = " + ClickDragResult.StartY + ", ex=" + ClickDragResult.EndX + ",ey=" + ClickDragResult.EndY + ")");
@@ -3418,6 +3426,9 @@ namespace AppTestStudio
                                     GameNodeAction.ClickDragReleaseResult MouseMoveResult = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
                                     solution = Calculations.CalculateMouseMove(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    solution.TargetX = MouseMoveResult.EndX;
+                                    solution.TargetY = MouseMoveResult.EndY;
+                                    solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
                                     SolutionPlayer.Play(solution);
 
                                     Log("MouseMove( x=" + MouseMoveResult.StartX + ",Y = " + MouseMoveResult.StartY + ", ex=" + MouseMoveResult.EndX + ",ey=" + MouseMoveResult.EndY + ")");

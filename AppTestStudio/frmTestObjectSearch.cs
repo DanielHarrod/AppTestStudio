@@ -7,6 +7,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.Windows.Forms;
+using static OpenCvSharp.ML.DTrees;
 
 namespace AppTestStudio
 {
@@ -94,6 +95,13 @@ namespace AppTestStudio
                             Debug.WriteLine("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                             MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
                             solution = Calculations.CalculateClickOnWindow(MainWindowHandle, Game.MouseMode, Game.MoveMouseBeforeAction, Game.WindowAction, Game.MouseX, Game.MouseY, RangeClickResult.x, RangeClickResult.y, Node.ClickSpeed, MousePixelSpeedPerSecond);
+                            solution.TargetX = RangeClickResult.x;
+                            solution.TargetY = RangeClickResult.y;
+                            if (Game.WindowAction == WindowAction.ActivateWindow)
+                            {
+                                solution.ActivateWindow = true;
+                            }                                
+
                             SolutionPlayer.Play(solution);
                             break;
                         case AppTestStudio.Mode.ClickDragRelease:
@@ -141,6 +149,12 @@ namespace AppTestStudio
                                 MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
 
                                 solution = Calculations.CalculateClickDragRelease(MainWindowHandle, Game.MouseMode, Node.FromCurrentMousePos, Game.WindowAction, ClickDragReleaseResult.StartX, ClickDragReleaseResult.StartY, ClickDragReleaseResult.EndX, ClickDragReleaseResult.EndY, Node.ClickDragReleaseVelocity, MousePixelSpeedPerSecond, Game.DefaultClickSpeed);
+                                solution.TargetX = ClickDragReleaseResult.EndX;
+                                solution.TargetY = ClickDragReleaseResult.EndY;
+                                if (Game.WindowAction == WindowAction.ActivateWindow)
+                                {
+                                    solution.ActivateWindow = true;
+                                }
                                 SolutionPlayer.Play(solution);
                             }
                             break;

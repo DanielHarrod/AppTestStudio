@@ -20,6 +20,10 @@ namespace AppTestStudio
 
         public List<ATSInput> ATSInputs { get; set; }
 
+        public int TargetX { get; set; }
+        public int TargetY { get; set; }
+        public Boolean ActivateWindow {  get; set; }
+
         internal void AddMessage(nint windowHandle, int msg, int wParam, int lParam, int afterDelay = 0)
         {
             SolutionMessage message = new SolutionMessage();
