@@ -1,23 +1,23 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2024 Daniel Harrod
+//Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
-using System.Runtime.Versioning;
-using System.Windows.Forms;
 using static AppTestStudio.Utils;
+using System.ComponentModel;
 
 namespace AppTestStudio
 {
     public partial class frmWindowWizard : Form
     {
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public String PrimaryWindowName { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public String SecondaryWindowName { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public String PrimaryWindowFilter { get; set; }
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public String SecondaryWindowFilter { get; set; }
 
         public frmWindowWizard(String primaryWindowName, String secondaryWindowName, string primaryWindowFilter, string secondaryWindowFilter)

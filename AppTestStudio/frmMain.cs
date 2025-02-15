@@ -1,28 +1,26 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2024 Daniel Harrod
+//Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudioControls;
 using Gma.System.MouseKeyHook;
-using System;
+using log4net;
 using System.Collections;
-using System.Collections.Generic;
+using System.ComponentModel;
 using System.Diagnostics;
-using System.Drawing;
-using System.IO;
 using System.IO.Compression;
-using System.Linq;
+using System.Reflection;
 using System.Text;
-using System.Threading;
-using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
-using static AppTestStudio.Definitions;
+using static OpenCvSharp.ML.DTrees;
 
 namespace AppTestStudio
 {
     public partial class frmMain : Form
     {
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         private enum PanelMode
         {
             Workspace,
@@ -40,6 +38,7 @@ namespace AppTestStudio
             Object
         }
 
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public ThreadManager ThreadManager { get; set; }
         private GameNodeWorkspace WorkspaceNode { get; set; }
         private GameNode LastNode { get; set; }
@@ -51,6 +50,7 @@ namespace AppTestStudio
 
         private GameNodeAction mPanelLoadNode;
         private GameNodeAction LastPanelLoadNode = null;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public GameNodeAction PanelLoadNode
         {
             get { return mPanelLoadNode; }
@@ -98,13 +98,14 @@ namespace AppTestStudio
         private int InitialPanelRightSwipePropertiesHeight;
         private int InitialPanelRightInformationHeight;
         private int TitleBarHeight;
-
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public SteamRegistry SteamRegistry { get; set; }
-
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public BlueRegistry BlueRegistry { get; set; }
 
         public frmMain()
         {
+            Log4NetSetup.Initialize(Utils.GetApplicationFolder());
             InitializeComponent();
             ThreadManager = new ThreadManager();
             sb = new StringBuilder();
@@ -246,7 +247,7 @@ namespace AppTestStudio
                     int CalculatedKey = (int)((float)screen.Bounds.Width / (float)dpiX) * 100;
 
                     if (DPICheck.Count > 0)
-                    {                        
+                    {
                         if (DPICheck.Contains(CalculatedKey))
                         {
                             // good.
@@ -270,7 +271,7 @@ namespace AppTestStudio
                 if (DPIVariance)
                 {
                     Log("This is just a basic check, and can false positive with multiple resolution monitors.");
-                    Log("WARNING: A variation in dpi was found, verify all monitors have the same 'Scale and Layout' settings. Settings->Display->Scale and Layout.");                    
+                    Log("WARNING: A variation in dpi was found, verify all monitors have the same 'Scale and Layout' settings. Settings->Display->Scale and Layout.");
                 }
             }
             catch (Exception ex)
@@ -632,7 +633,7 @@ namespace AppTestStudio
             {
                 Log($"File does not exist unable to load {menu.Text}");
             }
-            
+
         }
 
 
@@ -1715,6 +1716,7 @@ namespace AppTestStudio
 
         public void Log(String s)
         {
+            log.Info(s);
             sb.Insert(0, s + System.Environment.NewLine);
             if (sb.Length > 10000)
             {
@@ -1831,7 +1833,9 @@ namespace AppTestStudio
 
         private void LoadInstance(GameNodeGame gameNode)
         {
+
             Log("Starting Instance " + gameNode.GameNodeName);
+
 
             // Stop any existing threads that are running on this instance.
             foreach (GameNodeGame RunningThreadGames in ThreadManager.Games)
@@ -1846,6 +1850,10 @@ namespace AppTestStudio
             }
 
             GameNodeGame GameCopy = gameNode.CloneMe();
+
+            Log4NetSetup.AddNewAppender(GameCopy.Name);
+            GameCopy.InitializeLogger(GameCopy.Name);
+
             CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
             RunThread RT = new RunThread(GameCopy, cancellationTokenSource);
@@ -2250,7 +2258,7 @@ namespace AppTestStudio
                             {
                                 toolStripMenuPaste.Visible = true;
                             }
-                            
+
                             toolStripSeparatorCutCopyPaste.Visible = true;
                             switch (Action.ActionType)
                             {
@@ -2271,7 +2279,7 @@ namespace AppTestStudio
                                             break;
                                         case CutCopyOption.Cut:
                                         case CutCopyOption.Copy:
-                                            if(cutCopyActionNode.ActionType == ActionType.RNG)
+                                            if (cutCopyActionNode.ActionType == ActionType.RNG)
                                             {
                                                 // Can copyCut Rng node into RNG Container
                                             }
@@ -3341,6 +3349,8 @@ namespace AppTestStudio
                 }
             }
 
+            ActionSolution solution = null;
+
             IntPtr MainWindowHandle = game.GetWindowHandleByWindowName();
 
             //For Each P As Process In Process.GetProcesses()
@@ -3369,12 +3379,13 @@ namespace AppTestStudio
                         {
                             if (ActionNode.AppActivateIfNotActive)
                             {
-                                Utils.ActivateWindowIfNecessary2(game.GetWindowHandleByWindowName(), ActionNode.KeyboardTimeoutToActivateMS, ActionNode.KeyboardAfterSendingActivationMS);
+                                IntPtr WindowHandle = game.GetWindowHandleByWindowName();
+                                Utils.ActivateWindowIfNecessary2(WindowHandle, ActionNode.KeyboardTimeoutToActivateMS, ActionNode.KeyboardAfterSendingActivationMS);
                             }
+                            Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
                             switch (ActionNode.Mode)
                             {
                                 case Mode.RangeClick:
-                                    Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
                                     GameNodeAction.RangeClickResult RangeClickResult = ActionNode.CalculateRangeClickResult(bmp, 0, 0);
                                     if (RangeClickResult.x < 0)
                                     {
@@ -3388,7 +3399,15 @@ namespace AppTestStudio
 
                                     int MousePixelSpeedPerSecond = game.CalculateNextMousePixelSpeedPerSecond();
 
-                                    Utils.ClickOnWindow(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, game.MouseX, game.MouseY, RangeClickResult.x, RangeClickResult.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
+                                    solution = Calculations.CalculateClickOnWindow(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, game.MouseX, game.MouseY, RangeClickResult.x, RangeClickResult.y, ActionNode.ClickSpeed, MousePixelSpeedPerSecond);
+                                    solution.TargetX = RangeClickResult.x;
+                                    solution.TargetY = RangeClickResult.y;
+                                    solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
+
+                                    SolutionPlayer.Play(solution);
+
+                                    solution.Bitmap = bmp.CloneMe();
+
                                     Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                                     ThreadManager.IncrementSingleTestClick();
 
@@ -3396,14 +3415,30 @@ namespace AppTestStudio
                                 case Mode.ClickDragRelease:
                                     GameNodeAction.ClickDragReleaseResult ClickDragResult = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
-                                    Utils.ClickDragRelease(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, ClickDragResult.StartX, ClickDragResult.StartY, ClickDragResult.EndX, ClickDragResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    solution = Calculations.CalculateClickDragRelease(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, ClickDragResult.StartX, ClickDragResult.StartY, ClickDragResult.EndX, ClickDragResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    solution.TargetX = ClickDragResult.EndX;
+                                    solution.TargetY = ClickDragResult.EndY;
+                                    solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
+
+                                    solution.Bitmap = bmp.CloneMe();
+
+                                    SolutionPlayer.Play(solution);
+
                                     Log("ClickDragRelease( x=" + ClickDragResult.StartX + ",Y = " + ClickDragResult.StartY + ", ex=" + ClickDragResult.EndX + ",ey=" + ClickDragResult.EndY + ")");
                                     ThreadManager.IncrementSingleTestClickDragRelease();
                                     break;
                                 case Mode.MouseMove:
                                     GameNodeAction.ClickDragReleaseResult MouseMoveResult = ActionNode.CalculateClickDragReleaseResult(0, 0);
 
-                                    Utils.MouseMove(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    solution = Calculations.CalculateMouseMove(MainWindowHandle, game.MouseMode, ActionNode.FromCurrentMousePos, game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, ActionNode.ClickDragReleaseVelocity, game.MouseSpeedPixelsPerSecond, game.DefaultClickSpeed);
+                                    solution.TargetX = MouseMoveResult.EndX;
+                                    solution.TargetY = MouseMoveResult.EndY;
+                                    solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
+
+                                    solution.Bitmap = bmp.CloneMe();
+
+                                    SolutionPlayer.Play(solution);
+
                                     Log("MouseMove( x=" + MouseMoveResult.StartX + ",Y = " + MouseMoveResult.StartY + ", ex=" + MouseMoveResult.EndX + ",ey=" + MouseMoveResult.EndY + ")");
                                     ThreadManager.IncrementSingleTestMouseMove();
                                     break;
@@ -3430,10 +3465,10 @@ namespace AppTestStudio
                                             }
                                             else
                                             {
-                                                Utils.ActivateWindowIfNecessary2(hWnd, 4000,100);
-
+                                                Utils.ActivateWindowIfNecessary2(hWnd, 4000, 100);
                                             }
                                         }
+
                                         foreach (KeyboardCommand command in ActionNode.RuntimeCompiledKeyboardCommands)
                                         {
                                             Utils.ProcessKeyboardCommand(command);
@@ -3545,12 +3580,17 @@ namespace AppTestStudio
                 }
             }
 
+
+
             toolStripButtonToggleScript.Enabled = true;
 
             foreach (GameNodeGame game in ThreadManager.Games.ToList())
             {
                 if (game.IsSomething())
                 {
+
+
+
                     int OriginalCount = game.StatusControl.Count;
                     while (game.StatusControl.Count > 0)
                     {
@@ -3588,7 +3628,7 @@ namespace AppTestStudio
                                             }
                                         }
                                     }
-                                } 
+                                }
                                 else
                                 {
                                     Log("Node is not of type GameNodeAction: " + mbmc.NodeName);
@@ -3800,6 +3840,32 @@ namespace AppTestStudio
             //'        }
             //'    }
             //'}
+
+            foreach (GameNodeGame game in ThreadManager.Games.ToList())
+            {
+                while (game.EventClones.IsEmpty == false)
+                {
+                    IATSEvent ev = null;
+                    if (game.EventClones.TryDequeue(out ev))
+                    {
+                        switch (ev.EventType)
+                        {
+                            case ATSEventType.Event:
+                                EventSolution? evs = ev as EventSolution;
+                                evs.Bitmap.Dispose();
+                                evs.Bitmap = null;
+                                break;
+                            case ATSEventType.Action:
+                                ActionSolution acts = ev as ActionSolution;
+                                acts.Bitmap.Dispose();
+                                acts.Bitmap = null;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
 
 
             foreach (GameNodeGame game in ThreadManager.Games.ToList())
@@ -4395,7 +4461,7 @@ namespace AppTestStudio
                     ChosenAfterCompletionType = AfterCompletionType.Recycle;
                 }
 
-                if (rdoAfterCompletionGoTo.Checked )
+                if (rdoAfterCompletionGoTo.Checked)
                 {
                     ChosenAfterCompletionType = AfterCompletionType.GoToParent;
                 }
@@ -5341,6 +5407,7 @@ namespace AppTestStudio
         {
             if (Node.ActionType == ActionType.Event)
             {
+
                 Bitmap Bmp = PictureTestAllTest.Image as Bitmap;
                 int QualifyingEvents = 0;
                 int CenterX = 0;
@@ -5350,7 +5417,8 @@ namespace AppTestStudio
                 GameNode AppNode = tv.SelectedNode as GameNode;
                 GameNodeGame GameNode = AppNode.GetGameNodeGame();
 
-                if (Node.IsTrue(Bmp, GameNode, ref CenterX, ref CenterY, ref QualifyingEvents, ref DetectedThreashold))
+                EventSolution solution = Node.IsTrue(Bmp, GameNode);
+                if (solution.Result)
                 {
                     //'6 = no
                     //'7 = yes
@@ -5498,6 +5566,8 @@ namespace AppTestStudio
                     lblTestAllCustom.Text = Node.CustomLogic;
                 }
 
+                EventSolution solution = new EventSolution();
+
                 foreach (SingleClick Item in Node.ClickList)
                 {
                     int Rowindex = dgvTestAllReference.Rows.Add();
@@ -5544,12 +5614,9 @@ namespace AppTestStudio
                     Row.Cells["dgvXTest"].Value = Item.X;
                     Row.Cells["dgvYTest"].Value = Item.Y;
 
-                    // How far of was the test from the target color.
-                    int QualifyingPoints = 0;
-
                     if (Node.LogicChoice == "AND")
                     {
-                        if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
+                        if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, solution))
                         {
                             if (FinalResult == false)
                             {
@@ -5563,7 +5630,7 @@ namespace AppTestStudio
                     }
                     else if (Node.LogicChoice == "OR")
                     {
-                        if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
+                        if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, solution))
                         {
                             // do nothing
                         }
@@ -5575,7 +5642,7 @@ namespace AppTestStudio
                         //Debug.Assert(false);
                     }
 
-                    if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, ref QualifyingPoints))
+                    if (TargetColor.CompareColorWithPoints(Item.Color, Node.Points, solution))
                     {
                         Row.Cells["dgvPassFail"].Value = "Test Passed";
                         Style = new DataGridViewCellStyle();
@@ -8796,7 +8863,7 @@ namespace AppTestStudio
         private void cmdKeyboardValidate_Click(object sender, EventArgs e)
         {
             try
-            {                
+            {
                 Log("Validating Script");
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
 
@@ -8814,7 +8881,7 @@ namespace AppTestStudio
                     Log(command.ToString());
                     ms = ms + command.Delayms;
                 }
-                if (Errors > 0 )
+                if (Errors > 0)
                 {
                     Log($"{Errors} Errors found.  Please fix, Errors will be skipped and may cause unexpected behaviours.");
                     cmdKeyboardValidate.BackColor = Color.Red;
@@ -8889,7 +8956,7 @@ namespace AppTestStudio
                         ActionNode.PreActionFailureAction = TimeoutAction.Abort;
                         break;
                     case "Continue":
-                            ActionNode.PreActionFailureAction = TimeoutAction.Continue;
+                        ActionNode.PreActionFailureAction = TimeoutAction.Continue;
                         break;
                     default:
                         break;
@@ -8921,8 +8988,9 @@ namespace AppTestStudio
             GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
             GameNode.DontTakeScreenshot = chkDontTakeScreenshot.Checked;
         }
-
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public CutCopyOption cutCopyOption { get; set; } = CutCopyOption.None;
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public GameNodeAction cutCopyActionNode { get; set; }
 
         private void toolStripMenuCut_Click(object sender, EventArgs e)
@@ -8985,7 +9053,7 @@ namespace AppTestStudio
             {
                 PasteSibling(ParentNode, NodeIndex);
                 PasteCleanup();
-            }     
+            }
         }
         void PasteSibling(GameNode ParentNode, int NodeIndex)
         {
@@ -9066,7 +9134,7 @@ namespace AppTestStudio
                 txtAfterCompletionGoTo.Text = picker.AcceptedText;
                 rdoAfterCompletionGoTo.Checked = true;
             }
-            picker = null;            
+            picker = null;
         }
 
         private void rdoAfterCompletionGoTo_CheckedChanged(object sender, EventArgs e)
@@ -9102,6 +9170,12 @@ namespace AppTestStudio
                 MouseRecorder.Show();
                 MouseRecordingCount--;
             }
+        }
+
+        private void toolStripButtonTest1_Click(object sender, EventArgs e)
+        {
+
+
         }
     }
 }

@@ -29,7 +29,8 @@ namespace AppTestStudioUnitTest
             int xEnd = 2967;
             int yEnd = 1794;
 
-            Utils.ClickOnWindow(WindowHandle, MouseMode.Active, true, WindowAction.ActivateWindow, xStart, yStart, xEnd, yEnd, ClickDurationMS, MouseSpeedPixelsPerSecond);
+            // Deprecated
+            //Utils.ClickOnWindow(WindowHandle, MouseMode.Active, true, WindowAction.ActivateWindow, xStart, yStart, xEnd, yEnd, ClickDurationMS, MouseSpeedPixelsPerSecond);
         }
     }
 }

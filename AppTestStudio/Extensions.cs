@@ -1,10 +1,6 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2024 Daniel Harrod
+//Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
-
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace AppTestStudio
 {
@@ -123,7 +119,7 @@ namespace AppTestStudio
 
         // Compare Colors and return if the colors match
         // Returns Qualifying Points, how many points to return true
-        public static Boolean CompareColorWithPoints(this Color aColor, Color bColor, int Points, ref int QualifyingPoints)
+        internal static Boolean CompareColorWithPoints(this Color aColor, Color bColor, int Points, EventSolution solution)
         {
             Boolean TestFailed = false;
             long MinR = bColor.R - Points;
@@ -150,9 +146,9 @@ namespace AppTestStudio
                 }
                 RPoints = aColor.R - bColor.R;
 
-                if (RPoints > QualifyingPoints)
+                if (RPoints > solution.QualifyingPoints)
                 {
-                    QualifyingPoints = RPoints;
+                    solution.QualifyingPoints = RPoints;
                 }
             }
 
@@ -174,9 +170,9 @@ namespace AppTestStudio
                     GPoints = bColor.G - aColor.G;
                 }
 
-                if (GPoints > QualifyingPoints)
+                if (GPoints > solution.QualifyingPoints)
                 {
-                    QualifyingPoints = GPoints;
+                    solution.QualifyingPoints = GPoints;
                 }
             }
 
@@ -199,9 +195,9 @@ namespace AppTestStudio
                     BPoints = bColor.G - aColor.G;
                 }
 
-                if (BPoints > QualifyingPoints)
+                if (BPoints > solution.QualifyingPoints)
                 {
-                    QualifyingPoints = BPoints;
+                    solution.QualifyingPoints = BPoints;
                 }
 
             }

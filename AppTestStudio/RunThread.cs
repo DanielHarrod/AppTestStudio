@@ -1,13 +1,8 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2024 Daniel Harrod
+//Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
-using System.Threading;
-using System.Windows.Forms;
 
 namespace AppTestStudio
 {
@@ -162,6 +157,7 @@ namespace AppTestStudio
         /// <returns></returns>
         private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS, List<String> NodeList)
         {
+            ActionSolution solution = null;
             //Debug.WriteLine($"ProcessChildren: {node.Name}");
             Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
             while (Game.IsPaused)
@@ -281,7 +277,20 @@ namespace AppTestStudio
 
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
                                 int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                                node.RuntimeMouseMS = Utils.ClickOnWindow(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
+                                
+                                solution = Calculations.CalculateClickOnWindow(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
+                                solution.TargetX = Result.x;
+                                solution.TargetY = Result.y;
+                                solution.ActivateWindow = node.AppActivateIfNotActive;
+
+                                SolutionPlayer.Play(solution);
+
+                                solution.Bitmap = bmp.CloneMe();
+
+                                Game.EventClones.Enqueue(solution);
+
+                                node.RuntimeMouseMS = solution.RuntimeMS;
+
                                 Game.MouseX = (short)Result.x;
                                 Game.MouseY = (short)Result.y;
 
@@ -292,7 +301,7 @@ namespace AppTestStudio
                                 // Draw solution marker
                                 if (Game.SaveVideo)
                                 {
-                                    Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
+                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
                                 }
                             }
 
@@ -311,7 +320,7 @@ namespace AppTestStudio
 
                             if(node.RumtimeIsKeyboardCompiled==false)
                             {
-                                Game.Log("First use Compiling keyboard script.");
+                                Game.Log($"First use Compiling keyboard script {node.Name}");
                                 AppTestStudio.KeyboardProcessor kp = new AppTestStudio.KeyboardProcessor();
                                 node.RuntimeCompiledKeyboardCommands = kp.ParseScript(node.KeyboardScript);
 
@@ -330,6 +339,10 @@ namespace AppTestStudio
                             {
                                 Utils.ProcessKeyboardCommand(command);
                             }
+                            solution = new ActionSolution();
+                            solution.ActivateWindow = true; // Always true.
+                            solution.AddKeyboardCommands(node.RuntimeCompiledKeyboardCommands);
+
 
                             break;
                         case Mode.MouseMove:
@@ -367,7 +380,20 @@ namespace AppTestStudio
                                 }
 
                                 Game.Log("MouseMove from ( x=" + MouseMoveResult.StartX + ",y = " + MouseMoveResult.StartY + " to x=" + MouseMoveResult.EndX + ",y=" + MouseMoveResult.EndY + ")");
-                                node.RuntimeMouseMS = Utils.MouseMove(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                
+                                solution = Calculations.CalculateMouseMove(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, MouseMoveResult.StartX, MouseMoveResult.StartY, MouseMoveResult.EndX, MouseMoveResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                solution.TargetX = MouseMoveResult.StartX;
+                                solution.TargetY = MouseMoveResult.StartY;
+                                solution.ActivateWindow = node.AppActivateIfNotActive;
+                                
+                                SolutionPlayer.Play(solution);
+
+                                solution.Bitmap = bmp.CloneMe();
+
+                                Game.EventClones.Enqueue(solution);
+
+                                node.RuntimeMouseMS = solution.RuntimeMS;
+
                                 Game.Log("/MouseMove)");
                                 Game.MouseX = (short)MouseMoveResult.EndX;
                                 Game.MouseY = (short)MouseMoveResult.EndY;
@@ -377,7 +403,7 @@ namespace AppTestStudio
                                 // Draw solution marker
                                 if (Game.SaveVideo)
                                 {
-                                    Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
+                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
                                 }
                             }
 
@@ -423,7 +449,19 @@ namespace AppTestStudio
                                 }
 
                                 Game.Log("Swipe from ( x=" + CDRResult.StartX + ",y = " + CDRResult.StartY + " to x=" + CDRResult.EndX + ",y=" + CDRResult.EndY + ")");
-                                node.RuntimeMouseMS = Utils.ClickDragRelease(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                solution = Calculations.CalculateClickDragRelease(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, CDRResult.StartX, CDRResult.StartY, CDRResult.EndX, CDRResult.EndY, node.ClickDragReleaseVelocity, Game.MouseSpeedPixelsPerSecond, Game.DefaultClickSpeed);
+                                solution.TargetX = CDRResult.EndX;
+                                solution.TargetY = CDRResult.EndY;
+                                solution.ActivateWindow = node.AppActivateIfNotActive;
+
+                                SolutionPlayer.Play(solution);
+
+                                solution.Bitmap = bmp.CloneMe();
+
+                                Game.EventClones.Enqueue(solution);
+
+                                node.RuntimeMouseMS = solution.RuntimeMS;
+
                                 Game.MouseX = (short)CDRResult.EndX;
                                 Game.MouseY = (short)CDRResult.EndY;
                                 ThreadManager.IncrementClickDragRelease();
@@ -435,7 +473,7 @@ namespace AppTestStudio
                                 // Draw solution marker
                                 if (Game.SaveVideo)
                                 {
-                                    Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
+                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
                                 }
                             }
                             break;
@@ -499,8 +537,8 @@ namespace AppTestStudio
                                 return Result;
                         }
                     }
-
-                    if (node.IsTrue(bmp, Game, ref centerX, ref centerY, ref Offset, ref DetectedThreashold))
+                    EventSolution eventSolution = node.IsTrue(bmp, Game);
+                    if (eventSolution.Result)
                     {
                         if (node.IsColorPoint == false)
                         {
@@ -1170,7 +1208,7 @@ namespace AppTestStudio
             }
             else
             {
-                Debug.WriteLine("hrml.");
+                //Debug.WriteLine("hrml.");
             }
 
             return afterCompletionType;

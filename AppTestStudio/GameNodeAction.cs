@@ -1,16 +1,11 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2024 Daniel Harrod
+//Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using OpenCvSharp;
-using System;
-using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.IO;
-using System.Runtime.Versioning;
-
+using static OpenCvSharp.ML.DTrees;
 
 /*
  * Adding a new property 
@@ -1375,16 +1370,21 @@ namespace AppTestStudio
         //    return Result;
         //}
 
-        internal bool IsTrue(Bitmap bmp, GameNodeGame game, ref int centerX, ref int centerY, ref int detectedOffset, ref float detectedThreashold)
+        internal EventSolution IsTrue(Bitmap bmp, GameNodeGame game)
         {
+            EventSolution solution = new EventSolution();
+            solution.Bitmap = bmp.CloneMe();
             if (IsColorPoint)
             {
-                return IsColorPointTrue(game, bmp, ref detectedOffset);
+
+                IsColorPointTrue(game, bmp, solution);
             }
             else
             {
-                return IsImageSearchTrue(bmp, game, ref centerX, ref centerY, ref detectedThreashold);
+                IsImageSearchTrue(bmp, game, solution);
             }
+            return solution;
+
         }
 
         /// <summary>
@@ -1394,13 +1394,14 @@ namespace AppTestStudio
         /// <param name="bmp"></param>
         /// <param name="offset">Returns the number of points on the first failure.</param>
         /// <returns>True if thie logic passes</returns>
-        private bool IsColorPointTrue(GameNodeGame game, Bitmap bmp, ref int offset)
+        private void IsColorPointTrue(GameNodeGame game, Bitmap bmp, EventSolution solution)
         {
             //' no colors to click = pass.
             if (ClickList.Count == 0)
             {
                 //'TB.AddReturnTrue()
-                return true;
+                solution.Result = true;
+                return;
             }
 
             String Expression = "";
@@ -1411,6 +1412,9 @@ namespace AppTestStudio
             {
                 UsingCustomLogic = true;
             }
+
+            solution.LogicChoice = LogicChoice;
+            solution.AddClickList(ClickList);
 
             String PreExpression = CustomLogic;
             if (UsingCustomLogic)
@@ -1433,12 +1437,16 @@ namespace AppTestStudio
                 // if a click is out of X or Y range then hard fail.
                 if (bmp.Width <= click.X)
                 {
-                    return false;
+                    solution.ErrorMessage = $"bmp.Width({ bmp.Width}) <= click.X({click.X})";
+                    solution.Result = false;
+                    return;
                 }
 
                 if (bmp.Height <= click.Y)
                 {
-                    return false;
+                    solution.ErrorMessage = $"bmp.Height({bmp.Height}) <= click.Y({click.Y})";
+                    solution.Result = false;
+                    return;
                 }
 
                 Color Color = bmp.GetPixel(click.X, click.Y);
@@ -1446,23 +1454,28 @@ namespace AppTestStudio
                 {
                     case "AND":
 
-                        if (click.Color.CompareColorWithPoints(Color, Points, ref offset))
+                        if (click.Color.CompareColorWithPoints(Color, Points, solution))
                         {
+                            solution.AddColorTest(click.Color, Color, Points, true);
                             //'TB.AddColorTest(click.Color, Color, Node.Points, Node.LogicChoice, True)
                         }
                         else
                         {
                             //'TB.AddColorTest(click.Color, Color, Node.Points, Node.LogicChoice, False)
                             //'TB.AddReturnFalse()
-                            return false;
+                            solution.AddColorTest(click.Color, Color, Points, false);
+                            solution.Result = false;
+                            return;
                         }
                         break;
                     case "OR":
-                        if (click.Color.CompareColorWithPoints(Color, Points, ref offset))
+                        if (click.Color.CompareColorWithPoints(Color, Points, solution))
                         {
                             //'TB.AddColorTest(click.Color, Color, Node.Points, Node.LogicChoice, True)
                             //'TB.AddReturnTrue()
-                            return true;
+                            solution.AddColorTest(click.Color, Color, Points, true);
+                            solution.Result = true;
+                            return;
                         }
                         else
                         {
@@ -1471,7 +1484,8 @@ namespace AppTestStudio
                         }
                         break;
                     case "CUSTOM":
-                        Boolean Result = click.Color.CompareColorWithPoints(Color, Points, ref offset);
+                        Boolean Result = click.Color.CompareColorWithPoints(Color, Points, solution);
+                        solution.AddColorTest(click.Color, Color, Points, Result);
                         if (Result)
                         {
                             Expression = Expression.Replace((i + 1).ToString(), "TRUE");
@@ -1492,7 +1506,8 @@ namespace AppTestStudio
             if (LogicChoice == "OR")
             {
                 //' TB.AddReturnFalse()
-                return false;
+                solution.Result = false;
+                return;
             }
 
             if (UsingCustomLogic)
@@ -1500,25 +1515,30 @@ namespace AppTestStudio
                 BooleanParser.Parser parser = new BooleanParser.Parser(Expression);
                 try
                 {
-                    return parser.Parse();
+                    solution.CustomExpression = Expression;
+                    solution.Result = parser.Parse();
+                    return;
                 }
                 catch (Exception ex)
                 {
-                    game.Log("Encountered Parse excetion");
+                    game.Log("Encountered Parse exception");
                     String NewExpress = OriginalExpression.Replace("(", "").Replace(")", "").Replace("TRUE", "").Replace("FALSE", "").Replace("AND", "").Replace("OR", "").Replace("NOT", "").Replace(" ", "");
 
+                    String ErrorMessage = "";
                     if (NewExpress.Length > 0)
                     {
-                        game.Log("Precompile says: " + NewExpress);
+                        ErrorMessage = $"Precompile says: {NewExpress}";
+                        game.Log(ErrorMessage);
                     }
-
-                    game.Log("Parser Says:" + ex.Message);
-                    return false;
+                    String ExceptionMessage = $"Parser Says:{ex.Message}";
+                    game.Log(ExceptionMessage);
+                    solution.ErrorMessage += ExceptionMessage;
+                    solution.Result = false;
+                    return;
                 }
             }
-
-            return true;
-
+            solution.Result = true;
+            return;
         }
 
         public Rectangle GetAnchorRectangle(Bitmap bmp)
@@ -1589,7 +1609,7 @@ namespace AppTestStudio
             return AnchorRectangle;
         }
 
-        private bool IsImageSearchTrue(Bitmap bmp, GameNodeGame game, ref int centerX, ref int centerY, ref float detectedThreashold)
+        private void IsImageSearchTrue(Bitmap bmp, GameNodeGame game, EventSolution solution)
         {
             try
             {
@@ -1599,27 +1619,39 @@ namespace AppTestStudio
                 // Bitmap has no height and width - abort
                 if (anchorRectangle.Width <= 0 || anchorRectangle.Height <= 0)
                 {
-                    return false;
+                    solution.ErrorMessage = $"Bitmap check ({anchorRectangle.Width} <= 0 || {anchorRectangle.Height} <= 0)";
+                    solution.Result = false;
+                    return;
                 }
 
                 // False if no object to search - abort
                 if (ObjectName == "")
                 {
-                    return false;
+                    solution.ErrorMessage = "No Object Found";
+                    solution.Result = false;
+                    return;
                 }
 
                 // Channel is not slelected - abort
                 if (Channel == "")
                 {
-                    return false;
+                    solution.ErrorMessage = "No Channel selected";
+                    solution.Result = false;
+                    return;
                 }
 
                 // No object to search for - abort
                 if (ObjectSearchBitmap.IsNothing())
                 {
                     game.Log(GameNodeName + " configuration is invalid Search Object Not Configured.");
-                    return false;
+                    solution.ErrorMessage = GameNodeName + " configuration is invalid Search Object Not Configured.";
+                    return;
                 }
+
+                solution.AnchorWidth = anchorRectangle.Width;
+                solution.AnchorHeight = anchorRectangle.Height;
+                solution.AnchorX = anchorRectangle.X;
+                solution.AnchorY = anchorRectangle.Y;
 
                 Stopwatch WatchImageSearchTime = System.Diagnostics.Stopwatch.StartNew();
 
@@ -1649,7 +1681,8 @@ namespace AppTestStudio
                     Debug.Assert(false, "Deleting the BIN folder and rebuilding typically will fix this issue.");
 
                     game.Log(ex.Message);
-                    return false;
+                    solution.ErrorMessage = "DLLNotFound {ex.message}, try deleting bin folder and rebuild";
+                    return;
                 }
 
                 //'213 ms
@@ -1678,19 +1711,24 @@ namespace AppTestStudio
                     Percent = ObjectThreshold / 100;
                 }
 
+                solution.ObjectThreshold = ObjectThreshold;
+
                 int Rows = Red.Rows - RedTarget.Rows + 1;
                 int Cols = Red.Cols - RedTarget.Cols + 1;
 
                 if (Rows < 1)
                 {
-                    game.Log(Name + " search item height " + RedTarget.Rows + "px is larger than the height of the mask of " + Red.Rows + "px, Please increase the mask size so the search image can be searched.");
-                    return false;
+                    String message = $"{Name} search item height {RedTarget.Rows}px is larger than the height of the mask of {Red.Rows}px, Please increase the mask size so the search image can be searched.";
+                    game.Log(message);
+                    solution.ErrorMessage = message;
+                    return;
                 }
 
                 if (Cols < 1)
                 {
-                    game.Log(Name + " search item width is " + RedTarget.Cols + "px is larger than the width of the mask of " + Red.Cols + "px, Please increase the mask size so the search image can be searched.");
-                    return false;
+                    String message = $"{Name} search item width is {RedTarget.Cols}px is larger than the width of the mask of {Red.Cols}px, Please increase the mask size so the search image can be searched.";
+                    game.Log(message);
+                    return;
                 }
 
                 Mat res = new Mat(Rows, Cols, MatType.CV_8U);
@@ -1713,7 +1751,7 @@ namespace AppTestStudio
                         ObjectTarget = BlueTarget;
                         break;
                     default:
-                        game.Log(Name + " missing Channel using Red");
+                        game.Log( $"{Name} missing Channel using Red");
                         SearchTarget = Red;
                         ObjectTarget = RedTarget;
                         break;
@@ -1725,8 +1763,10 @@ namespace AppTestStudio
                 }
                 catch (Exception)
                 {
-                    game.Log("Search Failure, possible resolution mismatch");
-                    return false;
+                    String message = "Search Failure, possible resolution mismatch";
+                    game.Log(message);
+                    solution.ErrorMessage = message;
+                    return;
                 }
 
                 OpenCvSharp.Point p = new OpenCvSharp.Point();
@@ -1735,7 +1775,7 @@ namespace AppTestStudio
                 Cv2.MinMaxLoc(res, out p, out DetectedPoint);
 
                 Mat.Indexer<Single> indexer = res.GetGenericIndexer<Single>();
-                detectedThreashold = indexer[DetectedPoint.Y, DetectedPoint.X];
+                solution.DetectedThreashold = indexer[DetectedPoint.Y, DetectedPoint.X];
 
                 long iObjectThreshold = ObjectThreshold;
                 if (iObjectThreshold == 0)
@@ -1743,32 +1783,40 @@ namespace AppTestStudio
                     iObjectThreshold = 100;
                 }
 
-                centerX = DetectedPoint.X + (ObjectSearchBitmap.Width / 2);
-                centerY = DetectedPoint.Y + (ObjectSearchBitmap.Height / 2);
+                solution.CenterX = DetectedPoint.X + (ObjectSearchBitmap.Width / 2);
+                solution.CenterY = DetectedPoint.Y + (ObjectSearchBitmap.Height / 2);
 
                 long ImageSearchTime = WatchImageSearchTime.ElapsedMilliseconds;
 
-                if (detectedThreashold >= ((float)iObjectThreshold / 100))
+                solution.ImageSearchTime = ImageSearchTime;
+
+                if (solution.DetectedThreashold >= ((float)iObjectThreshold / 100))
                 {
-                    game.Log("Closest match " + (detectedThreashold * 100).ToString("F1") + ", x = " + (centerX + anchorRectangle.X) + ",  y =" + (centerY + anchorRectangle.Y) + ", Seek=" + ImageSearchTime + "ms");
+
+                    solution.DetectedThreashold = solution.DetectedThreashold * 100;
+
+                    game.Log($"Closest match {(solution.DetectedThreashold * 100).ToString("F1")}, x = {(solution.CenterX + anchorRectangle.X)},  y ={(solution.CenterY + anchorRectangle.Y)}, Seek={ImageSearchTime}ms");
                     //'TB.AddReturnTrue()
 
                     if (FileName.Length == 0)
                     {
                         SendBitmapToProject(bmp, game);
                     }
-                    return true;
+                    solution.Result = true;
+                    return;
                 }
                 else
                 {
                     //'TB.AddReturnFalse()
-                    return false;
+                    solution.Result = false;
+                    return;
                 }
             }
             catch (Exception ex)
             {
+                solution.ErrorMessage = ex.Message;
                 game.Log(ex.Message);
-                return false;
+                return;
             }
         }
 
@@ -1989,8 +2037,6 @@ namespace AppTestStudio
                 xPos = xPos + RandomX;
                 yPos = yPos + RandomY;
             }
-
-            GameNodeGame Game = this.GetGameNodeGame();
 
             Result.x = xPos;
             Result.y = yPos;

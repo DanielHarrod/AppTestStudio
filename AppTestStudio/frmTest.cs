@@ -40,6 +40,8 @@ namespace AppTestStudio
             dgvTest.Rows.Clear();
             PictureBox1.Image = frm.PictureBox1.Image;
 
+            EventSolution solution = new EventSolution();
+
             Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
 
             PictureBoxTest.Image = bmp;
@@ -151,7 +153,7 @@ namespace AppTestStudio
 
                 if (frm.rdoAnd.Checked)
                 {
-                    if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused))
+                    if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), solution))
                     {
                         if (FinalResult == false)
                         {
@@ -166,13 +168,13 @@ namespace AppTestStudio
                 }
                 else if (frm.rdoOR.Checked )
                 {
-                    if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused))
+                    if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), solution))
                     {
                         Result = true;
                     }
                 }
        
-                if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), ref notused))
+                if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), solution))
                 {
                     dgv.Rows[RowIndex].Cells["dgvReferencePassFail"].Value = "Passed";
                     dgvTestRow.Cells["dgvPassFail"].Value = "Passed";

@@ -1,129 +1,45 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>publish\</PublishUrl>
-    <Install>true</Install>
-    <InstallFrom>Disk</InstallFrom>
-    <UpdateEnabled>false</UpdateEnabled>
-    <UpdateMode>Foreground</UpdateMode>
-    <UpdateInterval>7</UpdateInterval>
-    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
-    <UpdatePeriodically>false</UpdatePeriodically>
-    <UpdateRequired>false</UpdateRequired>
-    <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
-    <UseApplicationTrust>false</UseApplicationTrust>
-    <BootstrapperEnabled>true</BootstrapperEnabled>
-    <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+    <TargetFramework>net9.0-windows7.0</TargetFramework>
+    <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
-    <UseWPF>true</UseWPF>
-    <ImportWindowsDesktopTargets>true</ImportWindowsDesktopTargets>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
-    <OutputPath>bin\x86\Debug\</OutputPath>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
-    <OutputPath>bin\x86\Release\</OutputPath>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationManifest>app.manifest</ApplicationManifest>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>Resources\ATSGears.ico</ApplicationIcon>
-  </PropertyGroup>
+
   <ItemGroup>
-    <ProjectReference Include="..\AppTestStudioControls\AppTestStudioControls.csproj" />
+    <Compile Remove="SnakeTail\**" />
+    <EmbeddedResource Remove="SnakeTail\**" />
+    <None Remove="SnakeTail\**" />
   </ItemGroup>
+
   <ItemGroup>
-    <Content Include="Build Notes.txt" />
-    <Content Include="Resources\AddActionP.png" />
-    <Content Include="Resources\AddEvent.png" />
-    <Content Include="Resources\AddRNGContainerP.png" />
-    <Content Include="Resources\AddRNGP.png" />
-    <Content Include="Resources\Angular_lightningboltGR.png" />
-    <Content Include="Resources\ASX_CollapseChevronDown_grey_16x.png" />
-    <Content Include="Resources\ASX_Copy_blue_16x.png" />
-    <Content Include="Resources\ASX_Paste_blue_16x.png" />
-    <Content Include="Resources\ATSGears.ico" />
-    <Content Include="Resources\ATSGears.png" />
-    <Content Include="Resources\ATSGroup.png" />
-    <Content Include="Resources\ATSGroupGR.png" />
-    <Content Include="Resources\BranchRelationshipChild_16x.png" />
-    <Content Include="Resources\BranchRelationshipSibling_16x.png" />
-    <Content Include="Resources\BranchRelationshipSibling_16x_reverse.png" />
-    <Content Include="Resources\ButtonClick_16xGR.png" />
-    <Content Include="Resources\CollapseChevronLeft_16x.png" />
-    <Content Include="Resources\Cut_16x.png" />
-    <Content Include="Resources\DependencyArrow_16xGR.png" />
-    <Content Include="Resources\MoveGlyph_16x.png" />
-    <Content Include="Resources\Next_16x.png" />
-    <Content Include="Resources\Patron.png" />
-    <Content Include="Resources\PSGreenCheck.png" />
-    <Content Include="Resources\RMG ContainerGR.png" />
-    <Content Include="Resources\RNGGR.png" />
-    <Content Include="Resources\SearchAndApps_16xGR.png" />
-    <Content Include="Resources\StartEmmulator.bmp" />
-    <Content Include="Resources\Test.png" />
-    <Content Include="Resources\TestALLP.png" />
-    <Content Include="Resources\ToggleOfficeKeyboardScheme_16x.png" />
-    <Content Include="Resources\UploadFile_16x_24.bmp" />
-    <Content Include="Resources\ImportCatalogPart_16x_24.bmp" />
-    <Content Include="Resources\Pause_64x_64.bmp" />
-    <Content Include="Resources\Save_16x_24.bmp" />
-    <Content Include="Resources\StartWithoutDebug_16x_24.bmp" />
-  </ItemGroup>
-  <ItemGroup>
-    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
-      <Visible>False</Visible>
-      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
-      <Install>true</Install>
-    </BootstrapperPackage>
-    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
-      <Visible>False</Visible>
-      <ProductName>.NET Framework 3.5 SP1</ProductName>
-      <Install>false</Install>
-    </BootstrapperPackage>
-  </ItemGroup>
-  <ItemGroup>
-    <PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
+    <PackageReference Include="log4net" Version="3.0.3" />
     <PackageReference Include="MouseKeyHook" Version="5.7.1" />
     <PackageReference Include="OpenCvSharp4" Version="4.10.0.20241108" />
     <PackageReference Include="OpenCvSharp4.Extensions" Version="4.10.0.20241108" />
     <PackageReference Include="OpenCvSharp4.runtime.win" Version="4.10.0.20241108" />
     <PackageReference Include="OpenCvSharp4.Windows" Version="4.10.0.20241108" />
-    <PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
-    <PackageReference Include="Microsoft.AspNetCore.SystemWebAdapters" Version="1.4.0" />
-    <PackageReference Include="System.ServiceModel.Primitives" Version="8.1.1" />
-    <PackageReference Include="System.ServiceModel.Http" Version="8.1.1" />
-    <PackageReference Include="System.ServiceModel.Duplex" Version="6.0.0" />
-    <PackageReference Include="System.ServiceModel.NetTcp" Version="8.1.1" />
-    <PackageReference Include="System.ServiceModel.Security" Version="6.0.0" />
-    <PackageReference Include="System.ServiceModel.Federation" Version="8.1.1" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Remove="AppTestStudioApplicationContext.cs" />
+    <ProjectReference Include="..\AppTestStudioControls\AppTestStudioControls.csproj" />
   </ItemGroup>
+
   <ItemGroup>
-    <Compile Update="Properties\Settings.Designer.cs">
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
+    <Reference Include="PresentationCore">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\9.0.0\ref\net9.0\PresentationCore.dll</HintPath>
+    </Reference>
+    <Reference Include="WindowsBase">
+      <HintPath>..\..\..\..\..\..\..\Program Files\dotnet\packs\Microsoft.WindowsDesktop.App.Ref\9.0.0\ref\net9.0\WindowsBase.dll</HintPath>
+    </Reference>
   </ItemGroup>
+
   <ItemGroup>
-    <None Update="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    <None Update="log4net.config">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-  <PropertyGroup>
-    <PostBuildEvent>echo copy /Y $(TargetDir)\dll\x64\*.*  $(TargetDir)\bin\debug\</PostBuildEvent>
-    <PlatformTarget>x64</PlatformTarget>
-  </PropertyGroup>
+
 </Project>

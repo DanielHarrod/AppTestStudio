@@ -4,24 +4,11 @@
 
 namespace AppTestStudio
 {
-    [Serializable]
-    public class GameNodeEvents: GameNode
+    internal class EventSolutionItem
     {
-        public GameNodeEvents(String name) : base(name, GameNodeType.Events)
-        {
-            Utils.SetIcons(this);
-        }
-
-        public GameNodeEvents CloneMe()
-        {
-            GameNodeEvents Events = new GameNodeEvents(GameNodeName);
-            foreach (GameNodeAction Node in Nodes)
-            {
-                GameNodeAction Child = Node.CloneMe();
-                Events.Nodes.Add(Child);
-
-            }
-            return Events;
-        }
+        public Color Color1 { get; set; }
+        public Color Color2 { get; set; }
+        public int Points { get; set; }
+        public bool Result { get; set; }
     }
 }
