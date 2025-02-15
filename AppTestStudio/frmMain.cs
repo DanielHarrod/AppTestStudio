@@ -114,7 +114,7 @@ namespace AppTestStudio
 
         private HistoryManager HistoryManager;
         private void frmMain_Load(object sender, EventArgs e)
-        {          
+        {
 
             mnuMouseRecording.Visible = false; // Hide for now.
             ShowTermsOfServiceIfNecessary();
@@ -1835,7 +1835,7 @@ namespace AppTestStudio
         {
 
             Log("Starting Instance " + gameNode.GameNodeName);
-            
+
 
             // Stop any existing threads that are running on this instance.
             foreach (GameNodeGame RunningThreadGames in ThreadManager.Games)
@@ -1853,7 +1853,7 @@ namespace AppTestStudio
 
             Log4NetSetup.AddNewAppender(GameCopy.Name);
             GameCopy.InitializeLogger(GameCopy.Name);
-            
+
             CancellationTokenSource cancellationTokenSource = new CancellationTokenSource();
 
             RunThread RT = new RunThread(GameCopy, cancellationTokenSource);
@@ -3382,10 +3382,10 @@ namespace AppTestStudio
                                 IntPtr WindowHandle = game.GetWindowHandleByWindowName();
                                 Utils.ActivateWindowIfNecessary2(WindowHandle, ActionNode.KeyboardTimeoutToActivateMS, ActionNode.KeyboardAfterSendingActivationMS);
                             }
+                            Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
                             switch (ActionNode.Mode)
                             {
                                 case Mode.RangeClick:
-                                    Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
                                     GameNodeAction.RangeClickResult RangeClickResult = ActionNode.CalculateRangeClickResult(bmp, 0, 0);
                                     if (RangeClickResult.x < 0)
                                     {
@@ -3420,6 +3420,8 @@ namespace AppTestStudio
                                     solution.TargetY = ClickDragResult.EndY;
                                     solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
 
+                                    solution.Bitmap = bmp.CloneMe();
+
                                     SolutionPlayer.Play(solution);
 
                                     Log("ClickDragRelease( x=" + ClickDragResult.StartX + ",Y = " + ClickDragResult.StartY + ", ex=" + ClickDragResult.EndX + ",ey=" + ClickDragResult.EndY + ")");
@@ -3432,6 +3434,9 @@ namespace AppTestStudio
                                     solution.TargetX = MouseMoveResult.EndX;
                                     solution.TargetY = MouseMoveResult.EndY;
                                     solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
+
+                                    solution.Bitmap = bmp.CloneMe();
+
                                     SolutionPlayer.Play(solution);
 
                                     Log("MouseMove( x=" + MouseMoveResult.StartX + ",Y = " + MouseMoveResult.StartY + ", ex=" + MouseMoveResult.EndX + ",ey=" + MouseMoveResult.EndY + ")");
@@ -3575,12 +3580,17 @@ namespace AppTestStudio
                 }
             }
 
+
+
             toolStripButtonToggleScript.Enabled = true;
 
             foreach (GameNodeGame game in ThreadManager.Games.ToList())
             {
                 if (game.IsSomething())
                 {
+
+
+
                     int OriginalCount = game.StatusControl.Count;
                     while (game.StatusControl.Count > 0)
                     {
@@ -3830,6 +3840,32 @@ namespace AppTestStudio
             //'        }
             //'    }
             //'}
+
+            foreach (GameNodeGame game in ThreadManager.Games.ToList())
+            {
+                while (game.EventClones.IsEmpty == false)
+                {
+                    IATSEvent ev = null;
+                    if (game.EventClones.TryDequeue(out ev))
+                    {
+                        switch (ev.EventType)
+                        {
+                            case ATSEventType.Event:
+                                EventSolution? evs = ev as EventSolution;
+                                evs.Bitmap.Dispose();
+                                evs.Bitmap = null;
+                                break;
+                            case ATSEventType.Action:
+                                ActionSolution acts = ev as ActionSolution;
+                                acts.Bitmap.Dispose();
+                                acts.Bitmap = null;
+                                break;
+                            default:
+                                break;
+                        }
+                    }
+                }
+            }
 
 
             foreach (GameNodeGame game in ThreadManager.Games.ToList())
@@ -5371,7 +5407,7 @@ namespace AppTestStudio
         {
             if (Node.ActionType == ActionType.Event)
             {
-                
+
                 Bitmap Bmp = PictureTestAllTest.Image as Bitmap;
                 int QualifyingEvents = 0;
                 int CenterX = 0;
@@ -9138,7 +9174,7 @@ namespace AppTestStudio
 
         private void toolStripButtonTest1_Click(object sender, EventArgs e)
         {
-    
+
 
         }
     }

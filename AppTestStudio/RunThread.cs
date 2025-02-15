@@ -287,6 +287,8 @@ namespace AppTestStudio
 
                                 solution.Bitmap = bmp.CloneMe();
 
+                                Game.EventClones.Enqueue(solution);
+
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
                                 Game.MouseX = (short)Result.x;
@@ -388,6 +390,8 @@ namespace AppTestStudio
 
                                 solution.Bitmap = bmp.CloneMe();
 
+                                Game.EventClones.Enqueue(solution);
+
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
                                 Game.Log("/MouseMove)");
@@ -453,6 +457,8 @@ namespace AppTestStudio
                                 SolutionPlayer.Play(solution);
 
                                 solution.Bitmap = bmp.CloneMe();
+
+                                Game.EventClones.Enqueue(solution);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -1202,7 +1208,7 @@ namespace AppTestStudio
             }
             else
             {
-                Debug.WriteLine("hrml.");
+                //Debug.WriteLine("hrml.");
             }
 
             return afterCompletionType;
