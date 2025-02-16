@@ -3888,7 +3888,7 @@ namespace AppTestStudio
                     {
                         if (game.VideoFrameLimit > 0)
                         {
-                            if (game.Video.IsSomething() == false)
+                            if (game.Video.IsNothing())
                             {
                                 if (game.BitmapClones.IsSomething())
                                 {
