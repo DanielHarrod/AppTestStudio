@@ -3852,13 +3852,25 @@ namespace AppTestStudio
                         {
                             case ATSEventType.Event:
                                 EventSolution? evs = ev as EventSolution;
-                                evs.Bitmap.Dispose();
-                                evs.Bitmap = null;
+                                if (evs != null)
+                                {
+                                    if (evs.Bitmap != null)
+                                    {
+                                        evs.Bitmap.Dispose();
+                                        evs.Bitmap = null;
+                                    }
+                                }
                                 break;
                             case ATSEventType.Action:
-                                ActionSolution acts = ev as ActionSolution;
-                                acts.Bitmap.Dispose();
-                                acts.Bitmap = null;
+                                ActionSolution? acts = ev as ActionSolution;
+                                if (acts != null)
+                                {
+                                    if (acts.Bitmap != null)
+                                    {
+                                        acts.Bitmap.Dispose();
+                                        acts.Bitmap = null;
+                                    }
+                                }
                                 break;
                             default:
                                 break;
