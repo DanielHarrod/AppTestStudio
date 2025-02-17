@@ -15,7 +15,7 @@ namespace AppTestStudio
         {
             foreach (MouseSolutionMessage solutionMessage in solution.Messages)
             {
-                Debug.WriteLine($"handle={solutionMessage.WindowHandle},wParam={solutionMessage.wParam}");
+                //Debug.WriteLine($"handle={solutionMessage.WindowHandle}, message={solutionMessage.Message},wParam={solutionMessage.wParam}, lParam={solutionMessage.lParam}");
                 PostMessage(solutionMessage.WindowHandle, solutionMessage.Message, solutionMessage.wParam, solutionMessage.lParam);
                 if (solutionMessage.AfterDelay > 0)
                 {
