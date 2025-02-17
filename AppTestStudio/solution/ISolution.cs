@@ -7,7 +7,6 @@ namespace AppTestStudio.solution
     internal class ISolution
     {
         public SolutionType EventType { get; set; }
-
     }
 
     enum SolutionType

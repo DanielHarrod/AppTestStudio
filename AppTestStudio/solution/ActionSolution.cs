@@ -8,7 +8,7 @@ namespace AppTestStudio.solution
     {
         public ActionSolution()
         {
-            EventType = ATSEventType.Action;
+            EventType = SolutionType.Action;
             Messages = new List<MouseSolutionMessage>();
             ATSInputs = new List<ATSInput>();
         }

@@ -8,7 +8,7 @@ namespace AppTestStudio.solution
     {
         public EventSolution()
         {
-            EventType = ATSEventType.Event;
+            EventType = SolutionType.Event;
         }
 
         public string LogicChoice { get; set; } = "";
