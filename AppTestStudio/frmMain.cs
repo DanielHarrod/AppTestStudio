@@ -114,6 +114,8 @@ namespace AppTestStudio
         }
 
         private HistoryManager HistoryManager;
+
+        private List<GamePassSolution> GamePassSolutions = new List<GamePassSolution>();
         private void frmMain_Load(object sender, EventArgs e)
         {
 
@@ -3843,12 +3845,10 @@ namespace AppTestStudio
                     GamePassSolution gamePassSolution = null;
                     if (game.GamePassSolutionClones.TryDequeue(out gamePassSolution))
                     {
-                        gamePassSolution.Dispose();
-                        gamePassSolution = null;
+                        AddGamePassSolution(gamePassSolution);
                     }
                 }
             }
-
 
             foreach (GameNodeGame game in ThreadManager.Games.ToList())
             {
@@ -3908,6 +3908,15 @@ namespace AppTestStudio
                         }
                     }
                 }
+            }
+        }
+
+        private void AddGamePassSolution(GamePassSolution gamePassSolution)
+        {
+            GamePassSolutions.Add(gamePassSolution);
+            if (GamePassSolutions.Count > 12)
+            {
+                GamePassSolutions.RemoveAt(0);
             }
         }
 
@@ -6279,19 +6288,6 @@ namespace AppTestStudio
                 ThreadManager.RemoveGame(GameFound);
                 cboThreads.Items.Remove(git);
                 Log("Stopping Thread -" + git);
-            }
-        }
-
-        private void cmdPatron_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start("https://www.patreon.com/AppTestStudio?fan_landing=true");
-            }
-            catch (Exception ex)
-            {
-                Log("cmdPatron_Click");
-                Log(ex.Message);
             }
         }
 

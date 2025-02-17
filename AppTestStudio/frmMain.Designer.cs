@@ -78,8 +78,6 @@ namespace AppTestStudio
             tabTree = new TabControl();
             tabDesign = new TabPage();
             tableLayoutPanelDesign = new TableLayoutPanel();
-            cmdPatron = new Button();
-            tv = new TreeView();
             ImageList1 = new ImageList(components);
             panel3 = new Panel();
             txtFilter = new TextBox();
@@ -701,6 +699,7 @@ namespace AppTestStudio
             toolStripInstances = new ToolStripDropDownButton();
             mnuMouseRecording = new ToolStripButton();
             toolStripButtonTest1 = new ToolStripButton();
+            tv = new TreeView();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainerMain).BeginInit();
             splitContainerMain.Panel1.SuspendLayout();
@@ -1063,55 +1062,18 @@ namespace AppTestStudio
             // 
             tableLayoutPanelDesign.ColumnCount = 1;
             tableLayoutPanelDesign.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanelDesign.Controls.Add(cmdPatron, 0, 2);
             tableLayoutPanelDesign.Controls.Add(tv, 0, 1);
             tableLayoutPanelDesign.Controls.Add(panel3, 0, 0);
             tableLayoutPanelDesign.Dock = DockStyle.Fill;
             tableLayoutPanelDesign.Location = new Point(6, 5);
             tableLayoutPanelDesign.Margin = new Padding(1, 2, 1, 2);
             tableLayoutPanelDesign.Name = "tableLayoutPanelDesign";
-            tableLayoutPanelDesign.RowCount = 3;
+            tableLayoutPanelDesign.RowCount = 2;
             tableLayoutPanelDesign.RowStyles.Add(new RowStyle(SizeType.Absolute, 62F));
             tableLayoutPanelDesign.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutPanelDesign.RowStyles.Add(new RowStyle(SizeType.Absolute, 77F));
+            tableLayoutPanelDesign.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
             tableLayoutPanelDesign.Size = new Size(404, 1434);
             tableLayoutPanelDesign.TabIndex = 1;
-            // 
-            // cmdPatron
-            // 
-            cmdPatron.BackColor = Color.White;
-            cmdPatron.Cursor = Cursors.Hand;
-            cmdPatron.Dock = DockStyle.Fill;
-            cmdPatron.FlatStyle = FlatStyle.Flat;
-            cmdPatron.Image = Properties.Resources.Patron;
-            cmdPatron.Location = new Point(0, 1357);
-            cmdPatron.Margin = new Padding(0);
-            cmdPatron.Name = "cmdPatron";
-            cmdPatron.Size = new Size(404, 77);
-            cmdPatron.TabIndex = 0;
-            cmdPatron.UseVisualStyleBackColor = false;
-            cmdPatron.Click += cmdPatron_Click;
-            // 
-            // tv
-            // 
-            tv.AllowDrop = true;
-            tv.Cursor = Cursors.Hand;
-            tv.Dock = DockStyle.Fill;
-            tv.ImageIndex = 0;
-            tv.ImageList = ImageList1;
-            tv.Location = new Point(0, 62);
-            tv.Margin = new Padding(0);
-            tv.Name = "tv";
-            tv.SelectedImageIndex = 0;
-            tv.Size = new Size(404, 1295);
-            tv.TabIndex = 0;
-            tv.ItemDrag += tv_ItemDrag;
-            tv.AfterSelect += tv_AfterSelect;
-            tv.NodeMouseClick += tv_NodeMouseClick;
-            tv.DragDrop += tv_DragDrop;
-            tv.DragOver += tv_DragOver;
-            tv.KeyUp += tv_KeyUp;
-            tv.MouseUp += tv_MouseUp;
             // 
             // ImageList1
             // 
@@ -1767,7 +1729,7 @@ namespace AppTestStudio
             // 
             splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
             splitContainerStatsNScrollie.Size = new Size(2377, 184);
-            splitContainerStatsNScrollie.SplitterDistance = 70;
+            splitContainerStatsNScrollie.SplitterDistance = 62;
             splitContainerStatsNScrollie.SplitterWidth = 8;
             splitContainerStatsNScrollie.TabIndex = 2;
             // 
@@ -1789,7 +1751,7 @@ namespace AppTestStudio
             tableLayoutStats.Name = "tableLayoutStats";
             tableLayoutStats.RowCount = 1;
             tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutStats.Size = new Size(2377, 70);
+            tableLayoutStats.Size = new Size(2377, 62);
             tableLayoutStats.TabIndex = 3;
             // 
             // groupTotal
@@ -1800,7 +1762,7 @@ namespace AppTestStudio
             groupTotal.Margin = new Padding(6, 5, 6, 5);
             groupTotal.Name = "groupTotal";
             groupTotal.Padding = new Padding(6, 5, 6, 5);
-            groupTotal.Size = new Size(582, 60);
+            groupTotal.Size = new Size(582, 52);
             groupTotal.TabIndex = 2;
             groupTotal.TabStop = false;
             groupTotal.Text = "Total";
@@ -1835,7 +1797,7 @@ namespace AppTestStudio
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
-            tableLayoutPanel1.Size = new Size(570, 26);
+            tableLayoutPanel1.Size = new Size(570, 18);
             tableLayoutPanel1.TabIndex = 4;
             // 
             // label13
@@ -1966,7 +1928,7 @@ namespace AppTestStudio
             groupSession.Margin = new Padding(6, 5, 6, 5);
             groupSession.Name = "groupSession";
             groupSession.Padding = new Padding(6, 5, 6, 5);
-            groupSession.Size = new Size(582, 60);
+            groupSession.Size = new Size(582, 52);
             groupSession.TabIndex = 1;
             groupSession.TabStop = false;
             groupSession.Text = "Session";
@@ -2001,7 +1963,7 @@ namespace AppTestStudio
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
-            tableLayoutPanelSession.Size = new Size(570, 26);
+            tableLayoutPanelSession.Size = new Size(570, 18);
             tableLayoutPanelSession.TabIndex = 3;
             // 
             // label1
@@ -2132,7 +2094,7 @@ namespace AppTestStudio
             grpCPU.Margin = new Padding(6, 5, 6, 5);
             grpCPU.Name = "grpCPU";
             grpCPU.Padding = new Padding(6, 5, 6, 5);
-            grpCPU.Size = new Size(582, 60);
+            grpCPU.Size = new Size(582, 52);
             grpCPU.TabIndex = 3;
             grpCPU.TabStop = false;
             grpCPU.Text = "CPU";
@@ -2143,7 +2105,7 @@ namespace AppTestStudio
             atsGraph1.Location = new Point(6, 29);
             atsGraph1.Margin = new Padding(6, 5, 6, 5);
             atsGraph1.Name = "atsGraph1";
-            atsGraph1.Size = new Size(570, 26);
+            atsGraph1.Size = new Size(570, 18);
             atsGraph1.TabIndex = 0;
             // 
             // grpAPS
@@ -2154,7 +2116,7 @@ namespace AppTestStudio
             grpAPS.Margin = new Padding(6, 5, 6, 5);
             grpAPS.Name = "grpAPS";
             grpAPS.Padding = new Padding(6, 5, 6, 5);
-            grpAPS.Size = new Size(583, 60);
+            grpAPS.Size = new Size(583, 52);
             grpAPS.TabIndex = 4;
             grpAPS.TabStop = false;
             grpAPS.Text = "Clicks Per Second";
@@ -2165,13 +2127,13 @@ namespace AppTestStudio
             atsGraphActions1.Location = new Point(6, 29);
             atsGraphActions1.Margin = new Padding(6, 5, 6, 5);
             atsGraphActions1.Name = "atsGraphActions1";
-            atsGraphActions1.Size = new Size(571, 26);
+            atsGraphActions1.Size = new Size(571, 18);
             atsGraphActions1.TabIndex = 0;
             // 
             // splitContainerSeconds
             // 
             splitContainerSeconds.Dock = DockStyle.Bottom;
-            splitContainerSeconds.Location = new Point(0, 69);
+            splitContainerSeconds.Location = new Point(0, 77);
             splitContainerSeconds.Margin = new Padding(6, 5, 6, 5);
             splitContainerSeconds.Name = "splitContainerSeconds";
             // 
@@ -6909,7 +6871,7 @@ namespace AppTestStudio
             dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
             dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
-            dgvTest.Location = new Point(846, 435);
+            dgvTest.Location = new Point(842, 435);
             dgvTest.Margin = new Padding(6, 5, 6, 5);
             dgvTest.Name = "dgvTest";
             dgvTest.RowHeadersWidth = 62;
@@ -6997,7 +6959,7 @@ namespace AppTestStudio
             dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
             dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
-            dgvTestAllReference.Location = new Point(846, 92);
+            dgvTestAllReference.Location = new Point(842, 92);
             dgvTestAllReference.Margin = new Padding(6, 5, 6, 5);
             dgvTestAllReference.Name = "dgvTestAllReference";
             dgvTestAllReference.RowHeadersWidth = 62;
@@ -7082,7 +7044,7 @@ namespace AppTestStudio
             Panel2.AutoScroll = true;
             Panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel2.Controls.Add(PictureTestAllTest);
-            Panel2.Location = new Point(-203, 527);
+            Panel2.Location = new Point(-207, 527);
             Panel2.Margin = new Padding(6, 5, 6, 5);
             Panel2.Name = "Panel2";
             Panel2.Size = new Size(814, 453);
@@ -7128,7 +7090,7 @@ namespace AppTestStudio
             Panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel1.BackColor = SystemColors.ActiveCaptionText;
             Panel1.Controls.Add(PictureTestAllReference);
-            Panel1.Location = new Point(-194, 80);
+            Panel1.Location = new Point(-198, 80);
             Panel1.Margin = new Padding(6, 5, 6, 5);
             Panel1.Name = "Panel1";
             Panel1.Size = new Size(809, 365);
@@ -8499,6 +8461,27 @@ namespace AppTestStudio
             toolStripButtonTest1.Text = "Test 1";
             toolStripButtonTest1.Click += toolStripButtonTest1_Click;
             // 
+            // tv
+            // 
+            tv.AllowDrop = true;
+            tv.Cursor = Cursors.Hand;
+            tv.Dock = DockStyle.Fill;
+            tv.ImageIndex = 0;
+            tv.ImageList = ImageList1;
+            tv.Location = new Point(0, 62);
+            tv.Margin = new Padding(0);
+            tv.Name = "tv";
+            tv.SelectedImageIndex = 0;
+            tv.Size = new Size(404, 1372);
+            tv.TabIndex = 0;
+            tv.ItemDrag += tv_ItemDrag;
+            tv.AfterSelect += tv_AfterSelect;
+            tv.NodeMouseClick += tv_NodeMouseClick;
+            tv.DragDrop += tv_DragDrop;
+            tv.DragOver += tv_DragOver;
+            tv.KeyUp += tv_KeyUp;
+            tv.MouseUp += tv_MouseUp;
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -8794,7 +8777,6 @@ namespace AppTestStudio
         private System.Windows.Forms.TabPage tabRun;
         private System.Windows.Forms.TabPage tabSchedule;
         private System.Windows.Forms.TextBox txtFilter;
-        private System.Windows.Forms.TreeView tv;
         private System.Windows.Forms.Panel PanelThread;
         private System.Windows.Forms.SplitContainer splitContainerThread;
         private AppTestStudioControls.AppTestStudioStatusControl appTestStudioStatusControl1;
@@ -8946,7 +8928,6 @@ namespace AppTestStudio
         internal System.Windows.Forms.ImageList ImageList1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.Button cmdPatron;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator8;
         private System.Windows.Forms.ToolStripLabel toolStripCurrentDesignInstance;
         private AppTestStudioControls.AppTestStudioToolStrip appTestStudioToolStrip1;
@@ -9408,5 +9389,6 @@ namespace AppTestStudio
         private AppTestStudioControls.ATSGraph atsGraph1;
         private AppTestStudioControls.ATSGraph atsGraphActions1;
         private ToolStripButton toolStripButtonTest1;
+        private TreeView tv;
     }
 }
