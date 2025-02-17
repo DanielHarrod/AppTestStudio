@@ -982,7 +982,7 @@ namespace AppTestStudio
                     }
                 }
 
-                while (WindowHandle.ToInt32() == 0)
+                while (WindowHandle.ToInt32() == 0 && CancellationTokenSource.Token.IsCancellationRequested == false)
                 {
                     while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
                     {
@@ -1090,9 +1090,9 @@ namespace AppTestStudio
 
                 Watch.Stop();
                 long ProcessingTimeMS = Watch.ElapsedMilliseconds - ChildSleepTimeMS;
-                Debug.WriteLine("Main Loop ms: " + Watch.ElapsedMilliseconds);
-                Debug.WriteLine("Child Sleep Time ms:" + ChildSleepTimeMS);
-                Debug.WriteLine("Processing Time ms:" + ProcessingTimeMS);
+                //Debug.WriteLine("Main Loop ms: " + Watch.ElapsedMilliseconds);
+                //Debug.WriteLine("Child Sleep Time ms:" + ChildSleepTimeMS);
+                //Debug.WriteLine("Processing Time ms:" + ProcessingTimeMS);
                 ThreadManager.AddProcessingTime(ProcessingTimeMS.ToInt());
 
                 LoopDelay = Game.LoopDelay;
