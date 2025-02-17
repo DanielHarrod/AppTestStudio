@@ -76,7 +76,7 @@ namespace AppTestStudio
         /// </summary>
         public ConcurrentQueue<Bitmap> BitmapClones { get; set; }
 
-        internal ConcurrentQueue<ISolution> EventClones { get; set; } = new ConcurrentQueue<ISolution>();
+        internal ConcurrentQueue<GamePassSolution> GamePassSolutionClones { get; set; } = new ConcurrentQueue<GamePassSolution>();
 
         /// <summary>
         /// Minimal Bitmap clones are used to to rebuild projects that were exported as Minimal

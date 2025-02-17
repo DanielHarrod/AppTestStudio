@@ -286,7 +286,7 @@ namespace AppTestStudio
 
                                 SolutionPlayer.Play(solution);
 
-                                Game.EventClones.Enqueue(solution);
+                                gamePassSolution.AddSolution(solution);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -387,7 +387,7 @@ namespace AppTestStudio
                                 
                                 SolutionPlayer.Play(solution);
 
-                                Game.EventClones.Enqueue(solution);
+                                gamePassSolution.AddSolution(solution);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -453,7 +453,7 @@ namespace AppTestStudio
 
                                 SolutionPlayer.Play(solution);
 
-                                Game.EventClones.Enqueue(solution);
+                                gamePassSolution.AddSolution(solution);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 

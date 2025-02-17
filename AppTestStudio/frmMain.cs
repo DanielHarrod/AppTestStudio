@@ -3838,28 +3838,13 @@ namespace AppTestStudio
 
             foreach (GameNodeGame game in ThreadManager.Games.ToList())
             {
-                while (game.EventClones.IsEmpty == false)
+                while (game.GamePassSolutionClones.IsEmpty == false)
                 {
-                    ISolution ev = null;
-                    if (game.EventClones.TryDequeue(out ev))
+                    GamePassSolution gamePassSolution = null;
+                    if (game.GamePassSolutionClones.TryDequeue(out gamePassSolution))
                     {
-                        switch (ev.EventType)
-                        {
-                            case SolutionType.Event:
-                                EventSolution? evs = ev as EventSolution;
-                                if (evs != null)
-                                {
-                                }
-                                break;
-                            case SolutionType.Action:
-                                ActionSolution? acts = ev as ActionSolution;
-                                if (acts != null)
-                                {
-                                }
-                                break;
-                            default:
-                                break;
-                        }
+                        gamePassSolution.Dispose();
+                        gamePassSolution = null;
                     }
                 }
             }
