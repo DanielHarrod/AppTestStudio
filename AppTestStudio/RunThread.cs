@@ -1080,6 +1080,7 @@ namespace AppTestStudio
                             Thread.Sleep(1000);
                         }
                     }
+                    Game.GamePassSolutionClones.Enqueue(gamePassSolution);
                 }
                 else
                 {
