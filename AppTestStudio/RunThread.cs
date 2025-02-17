@@ -286,8 +286,6 @@ namespace AppTestStudio
 
                                 SolutionPlayer.Play(solution);
 
-                                solution.Bitmap = bmp.CloneMe();
-
                                 Game.EventClones.Enqueue(solution);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
@@ -389,8 +387,6 @@ namespace AppTestStudio
                                 
                                 SolutionPlayer.Play(solution);
 
-                                solution.Bitmap = bmp.CloneMe();
-
                                 Game.EventClones.Enqueue(solution);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
@@ -456,8 +452,6 @@ namespace AppTestStudio
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
 
                                 SolutionPlayer.Play(solution);
-
-                                solution.Bitmap = bmp.CloneMe();
 
                                 Game.EventClones.Enqueue(solution);
 

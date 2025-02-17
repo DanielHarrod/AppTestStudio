@@ -1374,7 +1374,6 @@ namespace AppTestStudio
         internal EventSolution IsTrue(Bitmap bmp, GameNodeGame game)
         {
             EventSolution solution = new EventSolution();
-            solution.Bitmap = bmp.CloneMe();
             if (IsColorPoint)
             {
 

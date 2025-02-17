@@ -3407,8 +3407,6 @@ namespace AppTestStudio
 
                                     SolutionPlayer.Play(solution);
 
-                                    solution.Bitmap = bmp.CloneMe();
-
                                     Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                                     ThreadManager.IncrementSingleTestClick();
 
@@ -3420,8 +3418,6 @@ namespace AppTestStudio
                                     solution.TargetX = ClickDragResult.EndX;
                                     solution.TargetY = ClickDragResult.EndY;
                                     solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
-
-                                    solution.Bitmap = bmp.CloneMe();
 
                                     SolutionPlayer.Play(solution);
 
@@ -3435,8 +3431,6 @@ namespace AppTestStudio
                                     solution.TargetX = MouseMoveResult.EndX;
                                     solution.TargetY = MouseMoveResult.EndY;
                                     solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
-
-                                    solution.Bitmap = bmp.CloneMe();
 
                                     SolutionPlayer.Play(solution);
 
@@ -3855,22 +3849,12 @@ namespace AppTestStudio
                                 EventSolution? evs = ev as EventSolution;
                                 if (evs != null)
                                 {
-                                    if (evs.Bitmap != null)
-                                    {
-                                        evs.Bitmap.Dispose();
-                                        evs.Bitmap = null;
-                                    }
                                 }
                                 break;
                             case SolutionType.Action:
                                 ActionSolution? acts = ev as ActionSolution;
                                 if (acts != null)
                                 {
-                                    if (acts.Bitmap != null)
-                                    {
-                                        acts.Bitmap.Dispose();
-                                        acts.Bitmap = null;
-                                    }
                                 }
                                 break;
                             default:

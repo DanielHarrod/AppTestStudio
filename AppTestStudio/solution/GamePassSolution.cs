@@ -4,6 +4,13 @@
 
 namespace AppTestStudio.solution
 {
+    /// <summary>
+    /// Stores solutions for a single pass of the game node.
+    /// Stores the Bitmap used.
+    /// This consists of a list of Event and Corresponding Actions taken.
+    /// 
+    /// Todo Later: Need to handle the internal re-scan of a bitmap.
+    /// </summary>
     internal class GamePassSolution : IDisposable
     {
         public GamePassSolution() { }

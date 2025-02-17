@@ -34,8 +34,6 @@ namespace AppTestStudio.solution
         public int Offset { get; internal set; }
         public int QualifyingPoints { get; set; }
 
-        public Bitmap Bitmap { get; set; }
-
         internal void AddClickList(List<SingleClick> clickList)
         {
             ClickList = new List<SingleClick>(clickList);
