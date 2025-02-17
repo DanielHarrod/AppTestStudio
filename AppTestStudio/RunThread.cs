@@ -156,7 +156,7 @@ namespace AppTestStudio
         /// <param name="centerX"></param>
         /// <param name="centerY"></param>
         /// <returns></returns>
-        private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS, List<String> NodeList)
+        private AfterCompletionType ProcessChildren(GamePassSolution gamePassSolution, Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS, List<String> NodeList)
         {
             ActionSolution solution = null;
             //Debug.WriteLine($"ProcessChildren: {node.Name}");
@@ -584,7 +584,7 @@ namespace AppTestStudio
                                             continue;
                                         }
                                     }
-                                    ProcessChildren(bmp, ChildNode as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
+                                    ProcessChildren(gamePassSolution, bmp, ChildNode as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
                                 }
                                 CurrentRepeatsUntilFalseLimit--;
                                 goto RepeatAction;
@@ -673,7 +673,7 @@ namespace AppTestStudio
                                     continue;
                                 }
                             }
-                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
+                            AfterCompletionType ACT = ProcessChildren(gamePassSolution, bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
 
                             switch (ACT)
                             {
@@ -762,7 +762,7 @@ namespace AppTestStudio
                                     continue;
                                 }
                             }
-                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
+                            AfterCompletionType ACT = ProcessChildren(gamePassSolution, bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
 
                             switch (ACT)
                             {
@@ -1064,14 +1064,17 @@ namespace AppTestStudio
                     Game.ScreenShotsTaken++;
                     Game.GameLoops++;
 
-                    AfterCompletionType afterCompletionType = ProcessTreeNodes(ref ChildSleepTimeMS, bmp, new List<String>());
+                    GamePassSolution gamePassSolution = new GamePassSolution();
+                    gamePassSolution.Bitmap = bmp.CloneMe();
+
+                    AfterCompletionType afterCompletionType = ProcessTreeNodes(gamePassSolution, ref ChildSleepTimeMS, bmp, new List<String>());
 
                     int GotoLimit = 100;
                     while( afterCompletionType == AfterCompletionType.GoToChild && GotoLimit > 0)
                     {
                         List<String> NodeList = new List<String>(GoToNodeName.Split('\\'));
 
-                        afterCompletionType = ProcessTreeNodes(ref ChildSleepTimeMS, bmp, NodeList);
+                        afterCompletionType = ProcessTreeNodes(gamePassSolution, ref ChildSleepTimeMS, bmp, NodeList);
                         GotoLimit--;
                         if(GotoLimit == 0)
                         {
@@ -1133,7 +1136,7 @@ namespace AppTestStudio
             }  // ThreadIsShuttingDown == false
         }  // Run()
 
-        private AfterCompletionType ProcessTreeNodes(ref long ChildSleepTimeMS, Bitmap bmp, List<String> NodeList)
+        private AfterCompletionType ProcessTreeNodes(GamePassSolution gamePassSolution, ref long ChildSleepTimeMS, Bitmap bmp, List<String> NodeList)
         {
             int CenterX = 0;
             int CenterY = 0;
@@ -1157,7 +1160,7 @@ namespace AppTestStudio
                 }
 
                 //long PreProcessChildren = Watch.ElapsedMilliseconds;
-                afterCompletionType = ProcessChildren(bmp, node as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS, NodeList);
+                afterCompletionType = ProcessChildren(gamePassSolution, bmp, node as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS, NodeList);
                 //long PostProcessChildren = Watch.ElapsedMilliseconds;
                 //Debug.WriteLine($"Main Processchildren time{PostProcessChildren - PreProcessChildren}");
                 Boolean ExitFor = false;
