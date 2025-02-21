@@ -2,6 +2,7 @@
 //Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
+using AppTestStudio.solution;
 using AppTestStudioControls;
 using Gma.System.MouseKeyHook;
 using log4net;
@@ -113,6 +114,8 @@ namespace AppTestStudio
         }
 
         private HistoryManager HistoryManager;
+
+        private List<GamePassSolution> GamePassSolutions = new List<GamePassSolution>();
         private void frmMain_Load(object sender, EventArgs e)
         {
 
@@ -3406,8 +3409,6 @@ namespace AppTestStudio
 
                                     SolutionPlayer.Play(solution);
 
-                                    solution.Bitmap = bmp.CloneMe();
-
                                     Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
                                     ThreadManager.IncrementSingleTestClick();
 
@@ -3419,8 +3420,6 @@ namespace AppTestStudio
                                     solution.TargetX = ClickDragResult.EndX;
                                     solution.TargetY = ClickDragResult.EndY;
                                     solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
-
-                                    solution.Bitmap = bmp.CloneMe();
 
                                     SolutionPlayer.Play(solution);
 
@@ -3434,8 +3433,6 @@ namespace AppTestStudio
                                     solution.TargetX = MouseMoveResult.EndX;
                                     solution.TargetY = MouseMoveResult.EndY;
                                     solution.ActivateWindow = ActionNode.AppActivateIfNotActive;
-
-                                    solution.Bitmap = bmp.CloneMe();
 
                                     SolutionPlayer.Play(solution);
 
@@ -3843,30 +3840,15 @@ namespace AppTestStudio
 
             foreach (GameNodeGame game in ThreadManager.Games.ToList())
             {
-                while (game.EventClones.IsEmpty == false)
+                while (game.GamePassSolutionClones.IsEmpty == false)
                 {
-                    IATSEvent ev = null;
-                    if (game.EventClones.TryDequeue(out ev))
+                    GamePassSolution gamePassSolution = null;
+                    if (game.GamePassSolutionClones.TryDequeue(out gamePassSolution))
                     {
-                        switch (ev.EventType)
-                        {
-                            case ATSEventType.Event:
-                                EventSolution? evs = ev as EventSolution;
-                                evs.Bitmap.Dispose();
-                                evs.Bitmap = null;
-                                break;
-                            case ATSEventType.Action:
-                                ActionSolution acts = ev as ActionSolution;
-                                acts.Bitmap.Dispose();
-                                acts.Bitmap = null;
-                                break;
-                            default:
-                                break;
-                        }
+                        AddGamePassSolution(gamePassSolution);
                     }
                 }
             }
-
 
             foreach (GameNodeGame game in ThreadManager.Games.ToList())
             {
@@ -3876,7 +3858,7 @@ namespace AppTestStudio
                     {
                         if (game.VideoFrameLimit > 0)
                         {
-                            if (game.Video.IsSomething() == false)
+                            if (game.Video.IsNothing())
                             {
                                 if (game.BitmapClones.IsSomething())
                                 {
@@ -3926,6 +3908,15 @@ namespace AppTestStudio
                         }
                     }
                 }
+            }
+        }
+
+        private void AddGamePassSolution(GamePassSolution gamePassSolution)
+        {
+            GamePassSolutions.Add(gamePassSolution);
+            if (GamePassSolutions.Count > 12)
+            {
+                GamePassSolutions.RemoveAt(0);
             }
         }
 
@@ -6297,19 +6288,6 @@ namespace AppTestStudio
                 ThreadManager.RemoveGame(GameFound);
                 cboThreads.Items.Remove(git);
                 Log("Stopping Thread -" + git);
-            }
-        }
-
-        private void cmdPatron_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                System.Diagnostics.Process.Start("https://www.patreon.com/AppTestStudio?fan_landing=true");
-            }
-            catch (Exception ex)
-            {
-                Log("cmdPatron_Click");
-                Log(ex.Message);
             }
         }
 

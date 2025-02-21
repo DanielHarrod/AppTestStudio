@@ -2,11 +2,12 @@
 //Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
+using AppTestStudio.solution;
 using System.Diagnostics;
 
 namespace AppTestStudio
 {
-    
+
     public class RunThread
     {
         public GameNodeGame Game { get; set; }
@@ -155,7 +156,7 @@ namespace AppTestStudio
         /// <param name="centerX"></param>
         /// <param name="centerY"></param>
         /// <returns></returns>
-        private AfterCompletionType ProcessChildren(Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS, List<String> NodeList)
+        private AfterCompletionType ProcessChildren(GamePassSolution gamePassSolution, Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS, List<String> NodeList)
         {
             ActionSolution solution = null;
             //Debug.WriteLine($"ProcessChildren: {node.Name}");
@@ -285,9 +286,7 @@ namespace AppTestStudio
 
                                 SolutionPlayer.Play(solution);
 
-                                solution.Bitmap = bmp.CloneMe();
-
-                                Game.EventClones.Enqueue(solution);
+                                gamePassSolution.AddSolution(solution);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -388,9 +387,7 @@ namespace AppTestStudio
                                 
                                 SolutionPlayer.Play(solution);
 
-                                solution.Bitmap = bmp.CloneMe();
-
-                                Game.EventClones.Enqueue(solution);
+                                gamePassSolution.AddSolution(solution);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -456,9 +453,7 @@ namespace AppTestStudio
 
                                 SolutionPlayer.Play(solution);
 
-                                solution.Bitmap = bmp.CloneMe();
-
-                                Game.EventClones.Enqueue(solution);
+                                gamePassSolution.AddSolution(solution);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -583,7 +578,7 @@ namespace AppTestStudio
                                             continue;
                                         }
                                     }
-                                    ProcessChildren(bmp, ChildNode as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
+                                    ProcessChildren(gamePassSolution, bmp, ChildNode as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
                                 }
                                 CurrentRepeatsUntilFalseLimit--;
                                 goto RepeatAction;
@@ -672,7 +667,7 @@ namespace AppTestStudio
                                     continue;
                                 }
                             }
-                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
+                            AfterCompletionType ACT = ProcessChildren(gamePassSolution, bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
 
                             switch (ACT)
                             {
@@ -761,7 +756,7 @@ namespace AppTestStudio
                                     continue;
                                 }
                             }
-                            AfterCompletionType ACT = ProcessChildren(bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
+                            AfterCompletionType ACT = ProcessChildren(gamePassSolution, bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
 
                             switch (ACT)
                             {
@@ -987,7 +982,7 @@ namespace AppTestStudio
                     }
                 }
 
-                while (WindowHandle.ToInt32() == 0)
+                while (WindowHandle.ToInt32() == 0 && CancellationTokenSource.Token.IsCancellationRequested == false)
                 {
                     while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
                     {
@@ -1063,14 +1058,17 @@ namespace AppTestStudio
                     Game.ScreenShotsTaken++;
                     Game.GameLoops++;
 
-                    AfterCompletionType afterCompletionType = ProcessTreeNodes(ref ChildSleepTimeMS, bmp, new List<String>());
+                    GamePassSolution gamePassSolution = new GamePassSolution();
+                    gamePassSolution.Bitmap = bmp.CloneMe();
+
+                    AfterCompletionType afterCompletionType = ProcessTreeNodes(gamePassSolution, ref ChildSleepTimeMS, bmp, new List<String>());
 
                     int GotoLimit = 100;
                     while( afterCompletionType == AfterCompletionType.GoToChild && GotoLimit > 0)
                     {
                         List<String> NodeList = new List<String>(GoToNodeName.Split('\\'));
 
-                        afterCompletionType = ProcessTreeNodes(ref ChildSleepTimeMS, bmp, NodeList);
+                        afterCompletionType = ProcessTreeNodes(gamePassSolution, ref ChildSleepTimeMS, bmp, NodeList);
                         GotoLimit--;
                         if(GotoLimit == 0)
                         {
@@ -1082,6 +1080,7 @@ namespace AppTestStudio
                             Thread.Sleep(1000);
                         }
                     }
+                    Game.GamePassSolutionClones.Enqueue(gamePassSolution);
                 }
                 else
                 {
@@ -1091,9 +1090,9 @@ namespace AppTestStudio
 
                 Watch.Stop();
                 long ProcessingTimeMS = Watch.ElapsedMilliseconds - ChildSleepTimeMS;
-                Debug.WriteLine("Main Loop ms: " + Watch.ElapsedMilliseconds);
-                Debug.WriteLine("Child Sleep Time ms:" + ChildSleepTimeMS);
-                Debug.WriteLine("Processing Time ms:" + ProcessingTimeMS);
+                //Debug.WriteLine("Main Loop ms: " + Watch.ElapsedMilliseconds);
+                //Debug.WriteLine("Child Sleep Time ms:" + ChildSleepTimeMS);
+                //Debug.WriteLine("Processing Time ms:" + ProcessingTimeMS);
                 ThreadManager.AddProcessingTime(ProcessingTimeMS.ToInt());
 
                 LoopDelay = Game.LoopDelay;
@@ -1132,7 +1131,7 @@ namespace AppTestStudio
             }  // ThreadIsShuttingDown == false
         }  // Run()
 
-        private AfterCompletionType ProcessTreeNodes(ref long ChildSleepTimeMS, Bitmap bmp, List<String> NodeList)
+        private AfterCompletionType ProcessTreeNodes(GamePassSolution gamePassSolution, ref long ChildSleepTimeMS, Bitmap bmp, List<String> NodeList)
         {
             int CenterX = 0;
             int CenterY = 0;
@@ -1156,7 +1155,7 @@ namespace AppTestStudio
                 }
 
                 //long PreProcessChildren = Watch.ElapsedMilliseconds;
-                afterCompletionType = ProcessChildren(bmp, node as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS, NodeList);
+                afterCompletionType = ProcessChildren(gamePassSolution, bmp, node as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS, NodeList);
                 //long PostProcessChildren = Watch.ElapsedMilliseconds;
                 //Debug.WriteLine($"Main Processchildren time{PostProcessChildren - PreProcessChildren}");
                 Boolean ExitFor = false;

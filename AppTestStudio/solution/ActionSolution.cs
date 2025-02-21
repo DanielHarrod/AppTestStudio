@@ -2,19 +2,19 @@
 //Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
-namespace AppTestStudio
+namespace AppTestStudio.solution
 {
-    internal class ActionSolution : IATSEvent 
+    internal class ActionSolution : ISolution
     {
         public ActionSolution()
         {
-            EventType = ATSEventType.Action;
+            EventType = SolutionType.Action;
             Messages = new List<MouseSolutionMessage>();
             ATSInputs = new List<ATSInput>();
         }
 
         // Target Window Handle
-        public IntPtr WindowHandle { get; set; }
+        public nint WindowHandle { get; set; }
 
         // PostMessages (Passive)
         public List<MouseSolutionMessage> Messages { get; set; }
@@ -30,9 +30,7 @@ namespace AppTestStudio
         public int TargetY { get; set; }
 
         // Do we activate before playing the script.
-        public Boolean ActivateWindow {  get; set; }
-
-        public Bitmap Bitmap { get; set; }
+        public bool ActivateWindow { get; set; }
 
         internal void AddMessage(nint windowHandle, int msg, int wParam, int lParam, int afterDelay = 0)
         {
@@ -80,8 +78,8 @@ namespace AppTestStudio
 
         public void AddKeyboardCommands(List<KeyboardCommand> lst)
         {
-            this.KeyboardCommands = new List<KeyboardCommand>(lst);
-        }        
+            KeyboardCommands = new List<KeyboardCommand>(lst);
+        }
     }
 
     internal class ATSInput
