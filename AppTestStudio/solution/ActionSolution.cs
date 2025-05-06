@@ -16,6 +16,9 @@ namespace AppTestStudio.solution
         // Target Window Handle
         public nint WindowHandle { get; set; }
 
+        // Target Reference Node
+        public IntPtr NodeWindowHandle { get; set; }
+
         // PostMessages (Passive)
         public List<MouseSolutionMessage> Messages { get; set; }
 
@@ -29,8 +32,7 @@ namespace AppTestStudio.solution
         public int TargetX { get; set; }
         public int TargetY { get; set; }
 
-        // Do we activate before playing the script.
-        public bool ActivateWindow { get; set; }
+
 
         internal void AddMessage(nint windowHandle, int msg, int wParam, int lParam, int afterDelay = 0)
         {

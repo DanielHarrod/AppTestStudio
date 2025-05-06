@@ -283,10 +283,11 @@ namespace AppTestStudio
                                 solution.TargetX = Result.x;
                                 solution.TargetY = Result.y;
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
+                                solution.NodeWindowHandle = node.Handle;
 
                                 SolutionPlayer.Play(solution);
 
-                                gamePassSolution.AddSolution(solution);
+                                gamePassSolution.AddSolution(solution, node);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -384,10 +385,10 @@ namespace AppTestStudio
                                 solution.TargetX = MouseMoveResult.StartX;
                                 solution.TargetY = MouseMoveResult.StartY;
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
-                                
+                                solution.NodeWindowHandle = node.Handle;
                                 SolutionPlayer.Play(solution);
 
-                                gamePassSolution.AddSolution(solution);
+                                gamePassSolution.AddSolution(solution, node);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -450,10 +451,10 @@ namespace AppTestStudio
                                 solution.TargetX = CDRResult.EndX;
                                 solution.TargetY = CDRResult.EndY;
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
-
+                                solution.NodeWindowHandle = node.Handle;
                                 SolutionPlayer.Play(solution);
 
-                                gamePassSolution.AddSolution(solution);
+                                gamePassSolution.AddSolution(solution,node);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 

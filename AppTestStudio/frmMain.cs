@@ -216,6 +216,31 @@ namespace AppTestStudio
             InitializeActionsPerSecondGraph();
 
             //ResolutionCheck();
+            InitializeGamePassList();
+
+        }
+
+        List<ListViewItem> GamePassList = new List<ListViewItem>();
+
+        private void InitializeGamePassList()
+        {
+            const int LIST_LIMIT = 100;
+            lstGamePass.View = View.Details;
+            ColumnHeader h = lstGamePass.Columns.Add("x");
+            h.Width = 20;
+
+            h = lstGamePass.Columns.Add("Time");
+            h.Width = 80;
+
+            h = lstGamePass.Columns.Add("Counter");
+            h.Width = 80;
+
+            lstGamePass.Columns.Add("TBD");
+            h = lstGamePass.Columns.Add("Project");
+            h.Width = 500;
+            //            lstGamePass.Columns[4].DisplayIndex = 4;
+
+            frmMain_Resize(null, null);
 
         }
 
@@ -3577,8 +3602,6 @@ namespace AppTestStudio
                 }
             }
 
-
-
             toolStripButtonToggleScript.Enabled = true;
 
             foreach (GameNodeGame game in ThreadManager.Games.ToList())
@@ -3911,13 +3934,34 @@ namespace AppTestStudio
             }
         }
 
+        int GamePassListCounter = 0;
+
         private void AddGamePassSolution(GamePassSolution gamePassSolution)
         {
+            // Looping Index
+            int GamePassIndex = GamePassListCounter % GamePassList.Count;
+            int LastGamePassIndex = (GamePassListCounter - 1) % GamePassList.Count;
+            GamePassList[GamePassIndex].SubItems[0].Text = "";
+            GamePassList[GamePassIndex].SubItems[1].Text = DateTime.Now.ToString("HH:mm:ss");
+            GamePassList[GamePassIndex].SubItems[2].Text = gamePassSolution.SolutionID.ToString();
+            GamePassList[GamePassIndex].SubItems[3].Text = gamePassSolution.Solutions.Count().ToString();
+            GamePassList[GamePassIndex].SubItems[4].Text = gamePassSolution.LastNodeName;
+
+            // Clear the icon
+            if (GamePassListCounter > 0)
+            {
+                GamePassList[LastGamePassIndex].ImageIndex = 34;  // Blank
+            }
+
+            // Set the current arrow as indicator.
+            GamePassList[GamePassIndex].ImageIndex = 5;  // Right Arrow
+
             GamePassSolutions.Add(gamePassSolution);
-            if (GamePassSolutions.Count > 12)
+            if (GamePassSolutions.Count > GamePassList.Count())
             {
                 GamePassSolutions.RemoveAt(0);
             }
+            GamePassListCounter++;
         }
 
         private String StartNewVideo(GameNodeGame game, Bitmap bmp)
@@ -4181,17 +4225,25 @@ namespace AppTestStudio
 
                 if (e.ColumnIndex == dgv.Columns["dgvRemove"].Index)
                 {
-                    dgv.Rows.Remove(dgv.Rows[e.RowIndex]);
-
-                    for (int i = e.RowIndex; i < dgv.Rows.Count - 1; i++)
+                    try
                     {
-                        dgv.Rows[i].Cells["dgvID"].Value = i + 1;
+                        dgv.Rows.Remove(dgv.Rows[e.RowIndex]);
+
+                        for (int i = e.RowIndex; i < dgv.Rows.Count - 1; i++)
+                        {
+                            dgv.Rows[i].Cells["dgvID"].Value = i + 1;
+                        }
+
+                        if (IsPanelLoading == false)
+                        {
+                            SaveClickList();
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        Debug.WriteLine(ex.Message);
                     }
 
-                    if (IsPanelLoading == false)
-                    {
-                        SaveClickList();
-                    }
 
                     GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
 
@@ -6771,10 +6823,6 @@ namespace AppTestStudio
             lblTestAllCustom.Left = dgvTest.Left;
         }
 
-        private void frmMain_Resize(object sender, EventArgs e)
-        {
-
-        }
 
         private void cmdColorAtPointer_Click(object sender, EventArgs e)
         {
@@ -9154,6 +9202,52 @@ namespace AppTestStudio
         {
 
 
+        }
+
+        private void frmMain_Resize(object sender, EventArgs e)
+        {
+            Debug.WriteLine("lstGamePass_Resize");
+            GamePassList = new List<ListViewItem>();
+            const int LIST_LIMIT = 100;
+
+            lstGamePass.Items.Clear();
+
+            for (int i = 0; i < LIST_LIMIT; i++)
+            {
+
+                ListViewItem item = lstGamePass.Items.Add("");
+                item.SubItems.Add("");
+                item.SubItems.Add("");
+                item.SubItems.Add("");
+                item.SubItems.Add("");
+                GamePassList.Add(item);
+
+                // Only enough list for no scroll bar.
+                // 29 is the height.
+                if ((29 * (1 + i)) > lstGamePass.Height)
+                {
+                    Debug.WriteLine($"List Items reset to {i}");
+                    break;
+                }
+            }
+
+            lstGamePass.Columns[0].DisplayIndex = 0;
+        }
+
+        private void lstGamePass_MouseClick(object sender, MouseEventArgs e)
+        {
+            Debug.WriteLine("lstGamePass_MouseClick");
+            ListViewItem item = lstGamePass.GetItemAt(e.X, e.Y);
+            if (item.IsSomething())
+            {
+                var k = GamePassList[item.Index];
+            }
+            Debug.WriteLine(item.Index);
+        }
+
+        private void lstGamePass_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Debug.WriteLine("lstGamePass_SelectedIndexChanged");
         }
     }
 }
