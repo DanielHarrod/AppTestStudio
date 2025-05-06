@@ -57,7 +57,14 @@ namespace AppTestStudio
 
         public static Bitmap CloneMe(this Bitmap bmp)
         {
-            return (Bitmap)bmp.Clone();
+            if (bmp.IsSomething())
+            {
+                return (Bitmap)bmp.Clone();
+            }
+            else
+            {
+                return null;
+            }
         }
         public static Boolean IsSomething(this Object obj)
         {
