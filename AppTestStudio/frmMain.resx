@@ -128,7 +128,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZTeXN0ZW0uV2luZG93cy5Gb3JtcywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAmU3lzdGVtLldpbmRvd3MuRm9ybXMu
         SW1hZ2VMaXN0U3RyZWFtZXIBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAhCUAAAJNU0Z0AUkBTAIBASMB
-        AAFQAR0BUAEdARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAGQAwABAQEAAQgG
+        AAFoAR0BaAEdARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAGQAwABAQEAAQgG
         AAEkGAABgAIAAYADAAKAAQABgAMAAYABAAGAAQACgAIAA8ABAAHAAdwBwAEAAfABygGmAQABMwUAATMB
         AAEzAQABMwEAAjMCAAMWAQADHAEAAyIBAAMpAQADVQEAA00BAANCAQADOQEAAYABfAH/AQACUAH/AQAB
         kwEAAdYBAAH/AewBzAEAAcYB1gHvAQAB1gLnAQABkAGpAa0CAAH/ATMDAAFmAwABmQMAAcwCAAEzAwAC
@@ -289,6 +289,9 @@
         /QHAAQMBwAEfAeABAwHfAf0B4AEBAeABHwH/AX8B3wH9AfgBDwHgAT8B/wE/Ad8B/QH8AQcBwAE/Af8B
         AQHPAfkB/gEHAYABfwH/AYABwAEDAf8BBwEGAX8B/wH+A/8BjwEPAv8B/gP/Ac8BnwH/Cw==
 </value>
+  </data>
+  <data name="lblRunAsAdministratorWarning.Text" xml:space="preserve">
+    <value>ATS can run without being administrator.  ATS captures screenshots of background windows, actively and passively clicks, and simulates keystrokes.  Sometimes Admin is required.  If you are running from source code Visual Studio will also need to be run as Admin.  Admin can be set from the properties of the shortcut, under Capability-&gt;Settings-&gt;Run this program as an administrator.</value>
   </data>
   <data name="appTestStudioStatusControl1.Items" mimetype="application/x-microsoft.net.object.binary.base64">
     <value>

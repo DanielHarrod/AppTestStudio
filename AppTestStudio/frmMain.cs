@@ -218,6 +218,32 @@ namespace AppTestStudio
             //ResolutionCheck();
             InitializeGamePassList();
 
+            AdministratorCheck();
+
+        }
+
+        private void AdministratorCheck()
+        {
+            try
+            {
+                if (Utils.IsAdministrator())
+                {
+                    lblIsAdministrator.Text = "Yes";
+                    lblIsAdministrator.ForeColor = Color.Green;
+                }
+                else
+                {
+                    lblIsAdministrator.Text = "No";
+                    lblIsAdministrator.ForeColor = Color.Red;
+                    lblRunAsAdministratorWarning.Visible = true;
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                log.Warn($"AdministratorCheck: {ex.Message}");
+            }
         }
 
         List<ListViewItem> GamePassList = new List<ListViewItem>();

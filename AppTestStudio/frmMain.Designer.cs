@@ -123,6 +123,30 @@ namespace AppTestStudio
             cmdUpdateResolution = new Button();
             cmdRuntimeEnableToggle = new Button();
             tabSchedule = new TabPage();
+            PanelWorkspace = new Panel();
+            groupBoxAdministratorCheck = new GroupBox();
+            lblRunAsAdministratorWarning = new Label();
+            lblIsAdministrator = new Label();
+            label17 = new Label();
+            groupBox15 = new GroupBox();
+            label94 = new Label();
+            label86 = new Label();
+            label85 = new Label();
+            groupBox12 = new GroupBox();
+            lblBlueInstancesFound64 = new Label();
+            lblBlueEmmulatorInstalled64 = new Label();
+            lblBlueInstancesFound32 = new Label();
+            label81 = new Label();
+            lblBlueEmmulatorInstalled32 = new Label();
+            label80 = new Label();
+            label68 = new Label();
+            label65 = new Label();
+            groupBox3 = new GroupBox();
+            lblEmmulatorInstancesFound = new Label();
+            lblEmmulatorInstalled = new Label();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
             PanelThread = new Panel();
             splitContainerThreadMain = new SplitContainer();
             splitContainerThread = new SplitContainer();
@@ -608,26 +632,6 @@ namespace AppTestStudio
             Button4 = new Button();
             cmdAddSchedule = new Button();
             label40 = new Label();
-            PanelWorkspace = new Panel();
-            groupBox15 = new GroupBox();
-            label94 = new Label();
-            label86 = new Label();
-            label85 = new Label();
-            groupBox12 = new GroupBox();
-            lblBlueInstancesFound64 = new Label();
-            lblBlueEmmulatorInstalled64 = new Label();
-            lblBlueInstancesFound32 = new Label();
-            label81 = new Label();
-            lblBlueEmmulatorInstalled32 = new Label();
-            label80 = new Label();
-            label68 = new Label();
-            label65 = new Label();
-            groupBox3 = new GroupBox();
-            lblEmmulatorInstancesFound = new Label();
-            lblEmmulatorInstalled = new Label();
-            label6 = new Label();
-            label5 = new Label();
-            label4 = new Label();
             txtLog = new RichTextBox();
             mnuPopupGames = new ContextMenuStrip(components);
             mnuGamesAddNewGame = new ToolStripMenuItem();
@@ -731,6 +735,11 @@ namespace AppTestStudio
             splitContainerRunProperties.SuspendLayout();
             tableLayoutPanelRunLabels.SuspendLayout();
             tableLayoutPanelRunValues.SuspendLayout();
+            PanelWorkspace.SuspendLayout();
+            groupBoxAdministratorCheck.SuspendLayout();
+            groupBox15.SuspendLayout();
+            groupBox12.SuspendLayout();
+            groupBox3.SuspendLayout();
             PanelThread.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainerThreadMain).BeginInit();
             splitContainerThreadMain.Panel1.SuspendLayout();
@@ -871,10 +880,6 @@ namespace AppTestStudio
             splitContainerRuntimeSchedule.Panel2.SuspendLayout();
             splitContainerRuntimeSchedule.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgRuntimeSchedule).BeginInit();
-            PanelWorkspace.SuspendLayout();
-            groupBox15.SuspendLayout();
-            groupBox12.SuspendLayout();
-            groupBox3.SuspendLayout();
             mnuPopupGames.SuspendLayout();
             mnuEvents.SuspendLayout();
             mnuThreadList.SuspendLayout();
@@ -1021,6 +1026,7 @@ namespace AppTestStudio
             // 
             // splitContainerWorkspace.Panel2
             // 
+            splitContainerWorkspace.Panel2.Controls.Add(PanelWorkspace);
             splitContainerWorkspace.Panel2.Controls.Add(PanelThread);
             splitContainerWorkspace.Panel2.Controls.Add(PanelColorEvent);
             splitContainerWorkspace.Panel2.Controls.Add(PanelGame);
@@ -1033,7 +1039,6 @@ namespace AppTestStudio
             splitContainerWorkspace.Panel2.Controls.Add(PanelObjects);
             splitContainerWorkspace.Panel2.Controls.Add(PanelEvents);
             splitContainerWorkspace.Panel2.Controls.Add(PanelSchedule);
-            splitContainerWorkspace.Panel2.Controls.Add(PanelWorkspace);
             splitContainerWorkspace.Size = new Size(2670, 1482);
             splitContainerWorkspace.SplitterDistance = 424;
             splitContainerWorkspace.SplitterWidth = 7;
@@ -1711,6 +1716,262 @@ namespace AppTestStudio
             tabSchedule.Text = "Schedule";
             tabSchedule.UseVisualStyleBackColor = true;
             // 
+            // PanelWorkspace
+            // 
+            PanelWorkspace.Controls.Add(groupBoxAdministratorCheck);
+            PanelWorkspace.Controls.Add(groupBox15);
+            PanelWorkspace.Controls.Add(groupBox12);
+            PanelWorkspace.Controls.Add(groupBox3);
+            PanelWorkspace.Controls.Add(label4);
+            PanelWorkspace.Location = new Point(813, 460);
+            PanelWorkspace.Margin = new Padding(6, 5, 6, 5);
+            PanelWorkspace.Name = "PanelWorkspace";
+            PanelWorkspace.Size = new Size(1589, 1097);
+            PanelWorkspace.TabIndex = 1;
+            // 
+            // groupBoxAdministratorCheck
+            // 
+            groupBoxAdministratorCheck.Controls.Add(lblRunAsAdministratorWarning);
+            groupBoxAdministratorCheck.Controls.Add(lblIsAdministrator);
+            groupBoxAdministratorCheck.Controls.Add(label17);
+            groupBoxAdministratorCheck.Location = new Point(17, 453);
+            groupBoxAdministratorCheck.Name = "groupBoxAdministratorCheck";
+            groupBoxAdministratorCheck.Size = new Size(637, 245);
+            groupBoxAdministratorCheck.TabIndex = 5;
+            groupBoxAdministratorCheck.TabStop = false;
+            groupBoxAdministratorCheck.Text = "Is Administrator";
+            // 
+            // lblRunAsAdministratorWarning
+            // 
+            lblRunAsAdministratorWarning.ForeColor = Color.Red;
+            lblRunAsAdministratorWarning.Location = new Point(10, 62);
+            lblRunAsAdministratorWarning.Name = "lblRunAsAdministratorWarning";
+            lblRunAsAdministratorWarning.Size = new Size(608, 151);
+            lblRunAsAdministratorWarning.TabIndex = 2;
+            lblRunAsAdministratorWarning.Text = resources.GetString("lblRunAsAdministratorWarning.Text");
+            lblRunAsAdministratorWarning.Visible = false;
+            // 
+            // lblIsAdministrator
+            // 
+            lblIsAdministrator.AutoSize = true;
+            lblIsAdministrator.Location = new Point(300, 33);
+            lblIsAdministrator.Name = "lblIsAdministrator";
+            lblIsAdministrator.Size = new Size(153, 25);
+            lblIsAdministrator.TabIndex = 1;
+            lblIsAdministrator.Text = "lblIsAdministrator";
+            // 
+            // label17
+            // 
+            label17.AutoSize = true;
+            label17.Location = new Point(10, 32);
+            label17.Name = "label17";
+            label17.Size = new Size(139, 25);
+            label17.TabIndex = 0;
+            label17.Text = "Is Administrator";
+            // 
+            // groupBox15
+            // 
+            groupBox15.Controls.Add(label94);
+            groupBox15.Controls.Add(label86);
+            groupBox15.Controls.Add(label85);
+            groupBox15.Location = new Point(669, 60);
+            groupBox15.Margin = new Padding(6, 5, 6, 5);
+            groupBox15.Name = "groupBox15";
+            groupBox15.Padding = new Padding(6, 5, 6, 5);
+            groupBox15.Size = new Size(674, 267);
+            groupBox15.TabIndex = 4;
+            groupBox15.TabStop = false;
+            groupBox15.Text = "Keyboard Shortcuts";
+            // 
+            // label94
+            // 
+            label94.AutoSize = true;
+            label94.Location = new Point(10, 142);
+            label94.Margin = new Padding(6, 0, 6, 0);
+            label94.Name = "label94";
+            label94.Size = new Size(330, 25);
+            label94.TabIndex = 3;
+            label94.Text = "Ctrl + Alt + Shift + F1 = Take Screenshot";
+            // 
+            // label86
+            // 
+            label86.AutoSize = true;
+            label86.Location = new Point(10, 97);
+            label86.Margin = new Padding(6, 0, 6, 0);
+            label86.Name = "label86";
+            label86.Size = new Size(377, 25);
+            label86.TabIndex = 3;
+            label86.Text = "Ctrl + Alt + Shift + F5 = Toggle Scripts On/Off";
+            // 
+            // label85
+            // 
+            label85.AutoSize = true;
+            label85.Location = new Point(10, 45);
+            label85.Margin = new Padding(6, 0, 6, 0);
+            label85.Name = "label85";
+            label85.Size = new Size(389, 25);
+            label85.TabIndex = 3;
+            label85.Text = "Ctrl + Alt + Shift + ESC = Pause Running Scripts";
+            // 
+            // groupBox12
+            // 
+            groupBox12.Controls.Add(lblBlueInstancesFound64);
+            groupBox12.Controls.Add(lblBlueEmmulatorInstalled64);
+            groupBox12.Controls.Add(lblBlueInstancesFound32);
+            groupBox12.Controls.Add(label81);
+            groupBox12.Controls.Add(lblBlueEmmulatorInstalled32);
+            groupBox12.Controls.Add(label80);
+            groupBox12.Controls.Add(label68);
+            groupBox12.Controls.Add(label65);
+            groupBox12.Location = new Point(11, 202);
+            groupBox12.Name = "groupBox12";
+            groupBox12.Size = new Size(644, 245);
+            groupBox12.TabIndex = 2;
+            groupBox12.TabStop = false;
+            groupBox12.Text = "Blue Check List - Not Required";
+            // 
+            // lblBlueInstancesFound64
+            // 
+            lblBlueInstancesFound64.AutoSize = true;
+            lblBlueInstancesFound64.Location = new Point(294, 170);
+            lblBlueInstancesFound64.Name = "lblBlueInstancesFound64";
+            lblBlueInstancesFound64.Size = new Size(208, 25);
+            lblBlueInstancesFound64.TabIndex = 2;
+            lblBlueInstancesFound64.Text = "lblBlueInstancesFound64";
+            // 
+            // lblBlueEmmulatorInstalled64
+            // 
+            lblBlueEmmulatorInstalled64.AutoSize = true;
+            lblBlueEmmulatorInstalled64.Location = new Point(294, 123);
+            lblBlueEmmulatorInstalled64.Name = "lblBlueEmmulatorInstalled64";
+            lblBlueEmmulatorInstalled64.Size = new Size(237, 25);
+            lblBlueEmmulatorInstalled64.TabIndex = 2;
+            lblBlueEmmulatorInstalled64.Text = "lblBlueEmmulatorInstalled64";
+            // 
+            // lblBlueInstancesFound32
+            // 
+            lblBlueInstancesFound32.AutoSize = true;
+            lblBlueInstancesFound32.Location = new Point(294, 85);
+            lblBlueInstancesFound32.Name = "lblBlueInstancesFound32";
+            lblBlueInstancesFound32.Size = new Size(208, 25);
+            lblBlueInstancesFound32.TabIndex = 2;
+            lblBlueInstancesFound32.Text = "lblBlueInstancesFound32";
+            // 
+            // label81
+            // 
+            label81.AutoSize = true;
+            label81.Location = new Point(14, 170);
+            label81.Margin = new Padding(6, 0, 6, 0);
+            label81.Name = "label81";
+            label81.Size = new Size(279, 25);
+            label81.TabIndex = 1;
+            label81.Text = "Emmulator Instances Found 64bit";
+            // 
+            // lblBlueEmmulatorInstalled32
+            // 
+            lblBlueEmmulatorInstalled32.AutoSize = true;
+            lblBlueEmmulatorInstalled32.Location = new Point(294, 37);
+            lblBlueEmmulatorInstalled32.Name = "lblBlueEmmulatorInstalled32";
+            lblBlueEmmulatorInstalled32.Size = new Size(237, 25);
+            lblBlueEmmulatorInstalled32.TabIndex = 2;
+            lblBlueEmmulatorInstalled32.Text = "lblBlueEmmulatorInstalled32";
+            // 
+            // label80
+            // 
+            label80.AutoSize = true;
+            label80.Location = new Point(14, 127);
+            label80.Margin = new Padding(6, 0, 6, 0);
+            label80.Name = "label80";
+            label80.Size = new Size(216, 25);
+            label80.TabIndex = 0;
+            label80.Text = "Emmulator Installed 64bit";
+            // 
+            // label68
+            // 
+            label68.AutoSize = true;
+            label68.Location = new Point(14, 85);
+            label68.Margin = new Padding(6, 0, 6, 0);
+            label68.Name = "label68";
+            label68.Size = new Size(279, 25);
+            label68.TabIndex = 1;
+            label68.Text = "Emmulator Instances Found 32bit";
+            // 
+            // label65
+            // 
+            label65.AutoSize = true;
+            label65.Location = new Point(14, 40);
+            label65.Margin = new Padding(6, 0, 6, 0);
+            label65.Name = "label65";
+            label65.Size = new Size(216, 25);
+            label65.TabIndex = 0;
+            label65.Text = "Emmulator Installed 32bit";
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(lblEmmulatorInstancesFound);
+            groupBox3.Controls.Add(lblEmmulatorInstalled);
+            groupBox3.Controls.Add(label6);
+            groupBox3.Controls.Add(label5);
+            groupBox3.Location = new Point(11, 48);
+            groupBox3.Margin = new Padding(6, 5, 6, 5);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Padding = new Padding(6, 5, 6, 5);
+            groupBox3.Size = new Size(647, 133);
+            groupBox3.TabIndex = 1;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Nox Check List - Not Required";
+            // 
+            // lblEmmulatorInstancesFound
+            // 
+            lblEmmulatorInstancesFound.AutoSize = true;
+            lblEmmulatorInstancesFound.Location = new Point(294, 84);
+            lblEmmulatorInstancesFound.Margin = new Padding(6, 0, 6, 0);
+            lblEmmulatorInstancesFound.Name = "lblEmmulatorInstancesFound";
+            lblEmmulatorInstancesFound.Size = new Size(242, 25);
+            lblEmmulatorInstancesFound.TabIndex = 3;
+            lblEmmulatorInstancesFound.Text = "lblEmmulatorInstancesFound";
+            // 
+            // lblEmmulatorInstalled
+            // 
+            lblEmmulatorInstalled.AutoSize = true;
+            lblEmmulatorInstalled.Location = new Point(294, 36);
+            lblEmmulatorInstalled.Margin = new Padding(6, 0, 6, 0);
+            lblEmmulatorInstalled.Name = "lblEmmulatorInstalled";
+            lblEmmulatorInstalled.Size = new Size(184, 25);
+            lblEmmulatorInstalled.TabIndex = 2;
+            lblEmmulatorInstalled.Text = "lblEmmulatorInstalled";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(11, 83);
+            label6.Margin = new Padding(6, 0, 6, 0);
+            label6.Name = "label6";
+            label6.Size = new Size(233, 25);
+            label6.TabIndex = 1;
+            label6.Text = "Emmulator Instances Found";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(11, 38);
+            label5.Margin = new Padding(6, 0, 6, 0);
+            label5.Name = "label5";
+            label5.Size = new Size(170, 25);
+            label5.TabIndex = 0;
+            label5.Text = "Emmulator Installed";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Microsoft Sans Serif", 11.25F);
+            label4.Location = new Point(7, 8);
+            label4.Margin = new Padding(6, 0, 6, 0);
+            label4.Name = "label4";
+            label4.Size = new Size(134, 29);
+            label4.TabIndex = 0;
+            label4.Text = "Workspace";
+            // 
             // PanelThread
             // 
             PanelThread.Controls.Add(splitContainerThreadMain);
@@ -1777,7 +2038,7 @@ namespace AppTestStudio
             // 
             splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
             splitContainerStatsNScrollie.Size = new Size(1963, 330);
-            splitContainerStatsNScrollie.SplitterDistance = 196;
+            splitContainerStatsNScrollie.SplitterDistance = 184;
             splitContainerStatsNScrollie.SplitterWidth = 8;
             splitContainerStatsNScrollie.TabIndex = 2;
             // 
@@ -1799,7 +2060,7 @@ namespace AppTestStudio
             tableLayoutStats.Name = "tableLayoutStats";
             tableLayoutStats.RowCount = 1;
             tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutStats.Size = new Size(1963, 196);
+            tableLayoutStats.Size = new Size(1963, 184);
             tableLayoutStats.TabIndex = 3;
             // 
             // groupTotal
@@ -1810,7 +2071,7 @@ namespace AppTestStudio
             groupTotal.Margin = new Padding(6, 5, 6, 5);
             groupTotal.Name = "groupTotal";
             groupTotal.Padding = new Padding(6, 5, 6, 5);
-            groupTotal.Size = new Size(478, 186);
+            groupTotal.Size = new Size(478, 174);
             groupTotal.TabIndex = 2;
             groupTotal.TabStop = false;
             groupTotal.Text = "Total";
@@ -1845,7 +2106,7 @@ namespace AppTestStudio
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
-            tableLayoutPanel1.Size = new Size(466, 152);
+            tableLayoutPanel1.Size = new Size(466, 140);
             tableLayoutPanel1.TabIndex = 4;
             // 
             // label13
@@ -1976,7 +2237,7 @@ namespace AppTestStudio
             groupSession.Margin = new Padding(6, 5, 6, 5);
             groupSession.Name = "groupSession";
             groupSession.Padding = new Padding(6, 5, 6, 5);
-            groupSession.Size = new Size(478, 186);
+            groupSession.Size = new Size(478, 174);
             groupSession.TabIndex = 1;
             groupSession.TabStop = false;
             groupSession.Text = "Session";
@@ -2011,7 +2272,7 @@ namespace AppTestStudio
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 37F));
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 38F));
-            tableLayoutPanelSession.Size = new Size(466, 152);
+            tableLayoutPanelSession.Size = new Size(466, 140);
             tableLayoutPanelSession.TabIndex = 3;
             // 
             // label1
@@ -2142,7 +2403,7 @@ namespace AppTestStudio
             grpCPU.Margin = new Padding(6, 5, 6, 5);
             grpCPU.Name = "grpCPU";
             grpCPU.Padding = new Padding(6, 5, 6, 5);
-            grpCPU.Size = new Size(478, 186);
+            grpCPU.Size = new Size(478, 174);
             grpCPU.TabIndex = 3;
             grpCPU.TabStop = false;
             grpCPU.Text = "CPU";
@@ -2153,7 +2414,7 @@ namespace AppTestStudio
             atsGraph1.Location = new Point(6, 29);
             atsGraph1.Margin = new Padding(6, 5, 6, 5);
             atsGraph1.Name = "atsGraph1";
-            atsGraph1.Size = new Size(466, 152);
+            atsGraph1.Size = new Size(466, 140);
             atsGraph1.TabIndex = 0;
             // 
             // grpAPS
@@ -2164,7 +2425,7 @@ namespace AppTestStudio
             grpAPS.Margin = new Padding(6, 5, 6, 5);
             grpAPS.Name = "grpAPS";
             grpAPS.Padding = new Padding(6, 5, 6, 5);
-            grpAPS.Size = new Size(481, 186);
+            grpAPS.Size = new Size(481, 174);
             grpAPS.TabIndex = 4;
             grpAPS.TabStop = false;
             grpAPS.Text = "Clicks Per Second";
@@ -2175,13 +2436,13 @@ namespace AppTestStudio
             atsGraphActions1.Location = new Point(6, 29);
             atsGraphActions1.Margin = new Padding(6, 5, 6, 5);
             atsGraphActions1.Name = "atsGraphActions1";
-            atsGraphActions1.Size = new Size(469, 152);
+            atsGraphActions1.Size = new Size(469, 140);
             atsGraphActions1.TabIndex = 0;
             // 
             // splitContainerSeconds
             // 
             splitContainerSeconds.Dock = DockStyle.Bottom;
-            splitContainerSeconds.Location = new Point(0, 89);
+            splitContainerSeconds.Location = new Point(0, 101);
             splitContainerSeconds.Margin = new Padding(6, 5, 6, 5);
             splitContainerSeconds.Name = "splitContainerSeconds";
             // 
@@ -6933,7 +7194,7 @@ namespace AppTestStudio
             dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
             dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
-            dgvTest.Location = new Point(796, 435);
+            dgvTest.Location = new Point(790, 435);
             dgvTest.Margin = new Padding(6, 5, 6, 5);
             dgvTest.Name = "dgvTest";
             dgvTest.RowHeadersWidth = 62;
@@ -7021,7 +7282,7 @@ namespace AppTestStudio
             dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
             dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
             dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
-            dgvTestAllReference.Location = new Point(796, 92);
+            dgvTestAllReference.Location = new Point(790, 92);
             dgvTestAllReference.Margin = new Padding(6, 5, 6, 5);
             dgvTestAllReference.Name = "dgvTestAllReference";
             dgvTestAllReference.RowHeadersWidth = 62;
@@ -7106,7 +7367,7 @@ namespace AppTestStudio
             Panel2.AutoScroll = true;
             Panel2.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel2.Controls.Add(PictureTestAllTest);
-            Panel2.Location = new Point(-253, 527);
+            Panel2.Location = new Point(-259, 527);
             Panel2.Margin = new Padding(6, 5, 6, 5);
             Panel2.Name = "Panel2";
             Panel2.Size = new Size(814, 453);
@@ -7152,7 +7413,7 @@ namespace AppTestStudio
             Panel1.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel1.BackColor = SystemColors.ActiveCaptionText;
             Panel1.Controls.Add(PictureTestAllReference);
-            Panel1.Location = new Point(-244, 80);
+            Panel1.Location = new Point(-250, 80);
             Panel1.Margin = new Padding(6, 5, 6, 5);
             Panel1.Name = "Panel1";
             Panel1.Size = new Size(809, 365);
@@ -7760,221 +8021,6 @@ namespace AppTestStudio
             label40.TabIndex = 2;
             label40.Text = "Schedule";
             // 
-            // PanelWorkspace
-            // 
-            PanelWorkspace.Controls.Add(groupBox15);
-            PanelWorkspace.Controls.Add(groupBox12);
-            PanelWorkspace.Controls.Add(groupBox3);
-            PanelWorkspace.Controls.Add(label4);
-            PanelWorkspace.Location = new Point(813, 460);
-            PanelWorkspace.Margin = new Padding(6, 5, 6, 5);
-            PanelWorkspace.Name = "PanelWorkspace";
-            PanelWorkspace.Size = new Size(1589, 1097);
-            PanelWorkspace.TabIndex = 1;
-            // 
-            // groupBox15
-            // 
-            groupBox15.Controls.Add(label94);
-            groupBox15.Controls.Add(label86);
-            groupBox15.Controls.Add(label85);
-            groupBox15.Location = new Point(669, 60);
-            groupBox15.Margin = new Padding(6, 5, 6, 5);
-            groupBox15.Name = "groupBox15";
-            groupBox15.Padding = new Padding(6, 5, 6, 5);
-            groupBox15.Size = new Size(674, 267);
-            groupBox15.TabIndex = 4;
-            groupBox15.TabStop = false;
-            groupBox15.Text = "Keyboard Shortcuts";
-            // 
-            // label94
-            // 
-            label94.AutoSize = true;
-            label94.Location = new Point(10, 142);
-            label94.Margin = new Padding(6, 0, 6, 0);
-            label94.Name = "label94";
-            label94.Size = new Size(330, 25);
-            label94.TabIndex = 3;
-            label94.Text = "Ctrl + Alt + Shift + F1 = Take Screenshot";
-            // 
-            // label86
-            // 
-            label86.AutoSize = true;
-            label86.Location = new Point(10, 97);
-            label86.Margin = new Padding(6, 0, 6, 0);
-            label86.Name = "label86";
-            label86.Size = new Size(377, 25);
-            label86.TabIndex = 3;
-            label86.Text = "Ctrl + Alt + Shift + F5 = Toggle Scripts On/Off";
-            // 
-            // label85
-            // 
-            label85.AutoSize = true;
-            label85.Location = new Point(10, 45);
-            label85.Margin = new Padding(6, 0, 6, 0);
-            label85.Name = "label85";
-            label85.Size = new Size(389, 25);
-            label85.TabIndex = 3;
-            label85.Text = "Ctrl + Alt + Shift + ESC = Pause Running Scripts";
-            // 
-            // groupBox12
-            // 
-            groupBox12.Controls.Add(lblBlueInstancesFound64);
-            groupBox12.Controls.Add(lblBlueEmmulatorInstalled64);
-            groupBox12.Controls.Add(lblBlueInstancesFound32);
-            groupBox12.Controls.Add(label81);
-            groupBox12.Controls.Add(lblBlueEmmulatorInstalled32);
-            groupBox12.Controls.Add(label80);
-            groupBox12.Controls.Add(label68);
-            groupBox12.Controls.Add(label65);
-            groupBox12.Location = new Point(11, 202);
-            groupBox12.Name = "groupBox12";
-            groupBox12.Size = new Size(644, 245);
-            groupBox12.TabIndex = 2;
-            groupBox12.TabStop = false;
-            groupBox12.Text = "Blue Check List - Not Required";
-            // 
-            // lblBlueInstancesFound64
-            // 
-            lblBlueInstancesFound64.AutoSize = true;
-            lblBlueInstancesFound64.Location = new Point(294, 170);
-            lblBlueInstancesFound64.Name = "lblBlueInstancesFound64";
-            lblBlueInstancesFound64.Size = new Size(208, 25);
-            lblBlueInstancesFound64.TabIndex = 2;
-            lblBlueInstancesFound64.Text = "lblBlueInstancesFound64";
-            // 
-            // lblBlueEmmulatorInstalled64
-            // 
-            lblBlueEmmulatorInstalled64.AutoSize = true;
-            lblBlueEmmulatorInstalled64.Location = new Point(294, 123);
-            lblBlueEmmulatorInstalled64.Name = "lblBlueEmmulatorInstalled64";
-            lblBlueEmmulatorInstalled64.Size = new Size(237, 25);
-            lblBlueEmmulatorInstalled64.TabIndex = 2;
-            lblBlueEmmulatorInstalled64.Text = "lblBlueEmmulatorInstalled64";
-            // 
-            // lblBlueInstancesFound32
-            // 
-            lblBlueInstancesFound32.AutoSize = true;
-            lblBlueInstancesFound32.Location = new Point(294, 85);
-            lblBlueInstancesFound32.Name = "lblBlueInstancesFound32";
-            lblBlueInstancesFound32.Size = new Size(208, 25);
-            lblBlueInstancesFound32.TabIndex = 2;
-            lblBlueInstancesFound32.Text = "lblBlueInstancesFound32";
-            // 
-            // label81
-            // 
-            label81.AutoSize = true;
-            label81.Location = new Point(14, 170);
-            label81.Margin = new Padding(6, 0, 6, 0);
-            label81.Name = "label81";
-            label81.Size = new Size(279, 25);
-            label81.TabIndex = 1;
-            label81.Text = "Emmulator Instances Found 64bit";
-            // 
-            // lblBlueEmmulatorInstalled32
-            // 
-            lblBlueEmmulatorInstalled32.AutoSize = true;
-            lblBlueEmmulatorInstalled32.Location = new Point(294, 37);
-            lblBlueEmmulatorInstalled32.Name = "lblBlueEmmulatorInstalled32";
-            lblBlueEmmulatorInstalled32.Size = new Size(237, 25);
-            lblBlueEmmulatorInstalled32.TabIndex = 2;
-            lblBlueEmmulatorInstalled32.Text = "lblBlueEmmulatorInstalled32";
-            // 
-            // label80
-            // 
-            label80.AutoSize = true;
-            label80.Location = new Point(14, 127);
-            label80.Margin = new Padding(6, 0, 6, 0);
-            label80.Name = "label80";
-            label80.Size = new Size(216, 25);
-            label80.TabIndex = 0;
-            label80.Text = "Emmulator Installed 64bit";
-            // 
-            // label68
-            // 
-            label68.AutoSize = true;
-            label68.Location = new Point(14, 85);
-            label68.Margin = new Padding(6, 0, 6, 0);
-            label68.Name = "label68";
-            label68.Size = new Size(279, 25);
-            label68.TabIndex = 1;
-            label68.Text = "Emmulator Instances Found 32bit";
-            // 
-            // label65
-            // 
-            label65.AutoSize = true;
-            label65.Location = new Point(14, 40);
-            label65.Margin = new Padding(6, 0, 6, 0);
-            label65.Name = "label65";
-            label65.Size = new Size(216, 25);
-            label65.TabIndex = 0;
-            label65.Text = "Emmulator Installed 32bit";
-            // 
-            // groupBox3
-            // 
-            groupBox3.Controls.Add(lblEmmulatorInstancesFound);
-            groupBox3.Controls.Add(lblEmmulatorInstalled);
-            groupBox3.Controls.Add(label6);
-            groupBox3.Controls.Add(label5);
-            groupBox3.Location = new Point(11, 48);
-            groupBox3.Margin = new Padding(6, 5, 6, 5);
-            groupBox3.Name = "groupBox3";
-            groupBox3.Padding = new Padding(6, 5, 6, 5);
-            groupBox3.Size = new Size(647, 133);
-            groupBox3.TabIndex = 1;
-            groupBox3.TabStop = false;
-            groupBox3.Text = "Nox Check List - Not Required";
-            // 
-            // lblEmmulatorInstancesFound
-            // 
-            lblEmmulatorInstancesFound.AutoSize = true;
-            lblEmmulatorInstancesFound.Location = new Point(254, 83);
-            lblEmmulatorInstancesFound.Margin = new Padding(6, 0, 6, 0);
-            lblEmmulatorInstancesFound.Name = "lblEmmulatorInstancesFound";
-            lblEmmulatorInstancesFound.Size = new Size(242, 25);
-            lblEmmulatorInstancesFound.TabIndex = 3;
-            lblEmmulatorInstancesFound.Text = "lblEmmulatorInstancesFound";
-            // 
-            // lblEmmulatorInstalled
-            // 
-            lblEmmulatorInstalled.AutoSize = true;
-            lblEmmulatorInstalled.Location = new Point(254, 38);
-            lblEmmulatorInstalled.Margin = new Padding(6, 0, 6, 0);
-            lblEmmulatorInstalled.Name = "lblEmmulatorInstalled";
-            lblEmmulatorInstalled.Size = new Size(184, 25);
-            lblEmmulatorInstalled.TabIndex = 2;
-            lblEmmulatorInstalled.Text = "lblEmmulatorInstalled";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(11, 83);
-            label6.Margin = new Padding(6, 0, 6, 0);
-            label6.Name = "label6";
-            label6.Size = new Size(233, 25);
-            label6.TabIndex = 1;
-            label6.Text = "Emmulator Instances Found";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(11, 38);
-            label5.Margin = new Padding(6, 0, 6, 0);
-            label5.Name = "label5";
-            label5.Size = new Size(170, 25);
-            label5.TabIndex = 0;
-            label5.Text = "Emmulator Installed";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Font = new Font("Microsoft Sans Serif", 11.25F);
-            label4.Location = new Point(7, 8);
-            label4.Margin = new Padding(6, 0, 6, 0);
-            label4.Name = "label4";
-            label4.Size = new Size(134, 29);
-            label4.TabIndex = 0;
-            label4.Text = "Workspace";
-            // 
             // txtLog
             // 
             txtLog.Dock = DockStyle.Fill;
@@ -8572,6 +8618,16 @@ namespace AppTestStudio
             tableLayoutPanelRunLabels.PerformLayout();
             tableLayoutPanelRunValues.ResumeLayout(false);
             tableLayoutPanelRunValues.PerformLayout();
+            PanelWorkspace.ResumeLayout(false);
+            PanelWorkspace.PerformLayout();
+            groupBoxAdministratorCheck.ResumeLayout(false);
+            groupBoxAdministratorCheck.PerformLayout();
+            groupBox15.ResumeLayout(false);
+            groupBox15.PerformLayout();
+            groupBox12.ResumeLayout(false);
+            groupBox12.PerformLayout();
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             PanelThread.ResumeLayout(false);
             splitContainerThreadMain.Panel1.ResumeLayout(false);
             splitContainerThreadMain.Panel2.ResumeLayout(false);
@@ -8768,14 +8824,6 @@ namespace AppTestStudio
             ((System.ComponentModel.ISupportInitialize)splitContainerRuntimeSchedule).EndInit();
             splitContainerRuntimeSchedule.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dgRuntimeSchedule).EndInit();
-            PanelWorkspace.ResumeLayout(false);
-            PanelWorkspace.PerformLayout();
-            groupBox15.ResumeLayout(false);
-            groupBox15.PerformLayout();
-            groupBox12.ResumeLayout(false);
-            groupBox12.PerformLayout();
-            groupBox3.ResumeLayout(false);
-            groupBox3.PerformLayout();
             mnuPopupGames.ResumeLayout(false);
             mnuEvents.ResumeLayout(false);
             mnuThreadList.ResumeLayout(false);
@@ -9437,5 +9485,9 @@ namespace AppTestStudio
         internal Panel Panel2;
         internal Panel Panel1;
         private ListView lstGamePass;
+        private GroupBox groupBoxAdministratorCheck;
+        private Label lblIsAdministrator;
+        private Label label17;
+        private Label lblRunAsAdministratorWarning;
     }
 }
