@@ -53,9 +53,8 @@ namespace AppTestStudio
                 Game.Log("Refetching Window for " + Game.TargetWindow);
                 WindowHandle = Game.GetWindowHandleByWindowName();
             }
-            NativeMethods.RECT WindowRectangle = new NativeMethods.RECT();
-
-            NativeMethods.GetWindowRect(WindowHandle, out WindowRectangle);
+            
+            NativeMethods.GetWindowRect(WindowHandle, out Rectangle WindowRectangle);
 
             int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
             int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;

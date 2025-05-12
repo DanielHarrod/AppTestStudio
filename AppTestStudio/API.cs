@@ -119,7 +119,7 @@ namespace AppTestStudio
         //internal static extern IntPtr FindWindowByCaption(IntPtr ZeroOnly, string lpWindowName);
 
         [DllImport("user32.dll", SetLastError = true)]
-        internal static extern bool GetWindowRect(IntPtr hwnd, out RECT lpRect);
+        internal static extern bool GetWindowRect(IntPtr hwnd, out Rectangle lpRect);
 
         [DllImport("user32.dll")]
         internal static extern bool PostMessage(IntPtr hWnd, uint Msg, int wParam, int lParam);

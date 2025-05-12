@@ -65,11 +65,10 @@ namespace AppTestStudio
         internal static void CalculateMoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond, ActionSolution solution, EasingFunctionBase easingFunction = null)
         {
             //Debug.WriteLine($"MoveMouseActiveFromSystemPosition(windowHandle={windowHandle}, mouseEventFlags={mouseEventFlags}, xClientTarget={xClientTarget}, yClientTarget={yClientTarget}, mouseSpeedPixelsPerSecond={mouseSpeedPixelsPerSecond}, easingFunction=...");
-            RECT TargetWindowRectangle;
 
             //Retrieves the dimensions of the bounding rectangle of the specified window.
             //The dimensions are given in screen coordinates that are relative to the upper-left corner of the screen.
-            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
 
             RECT ClientRect;
 
@@ -206,8 +205,7 @@ namespace AppTestStudio
         }
         internal static int CalculateClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS, ActionSolution solution)
         {
-            RECT TargetWindowRectangle;
-            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
 
             //Debug.WriteLine("xClientTarget:" + xClientTarget);
             //Debug.WriteLine("yClientTarget:" + yClientTarget);
@@ -376,8 +374,7 @@ namespace AppTestStudio
         public static void CalculateMoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientStart, short yClientStart, short xClientTarget, short yClientTarget, int velocityMS, int mouseInitialClickDelayMS, ActionSolution solution)
         {
             uint Flags = 0;
-            RECT TargetWindowRectangle;
-            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
 
             RECT ClientRect;
             GetClientRect(windowHandle, out ClientRect);
