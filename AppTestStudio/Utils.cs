@@ -8,6 +8,7 @@ using System.Runtime.InteropServices;
 using static AppTestStudio.Definitions;
 using static AppTestStudio.NativeMethods;
 using System.Windows.Media.Animation;
+using System.Security.Principal;
 
 namespace AppTestStudio
 {
@@ -334,12 +335,17 @@ namespace AppTestStudio
             return ActivateWindowResult.WindowActivated;            
         }
 
+        public static bool IsAdministrator()
+        {
+            var identity = WindowsIdentity.GetCurrent();
+            var principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
 
         public static Boolean ActivateWindowIfNecessary(IntPtr windowHandle, WindowAction windowAction, int startX, int startY)
         {
             Boolean Result = false;
-            RECT TargetWindowRectangle;
-            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
             short xSystemTargetStartPosition = (short)(startX + TargetWindowRectangle.Left);
             short ySystemTargetStartPosition = (short)(startY + +TargetWindowRectangle.Top);
             System.Drawing.Point p = new System.Drawing.Point();
@@ -650,12 +656,13 @@ namespace AppTestStudio
 
         public static Bitmap GetBitmapFromWindowHandle(IntPtr WindowHandle)
         {
+            const int PW_RENDERFULLCONTENT = 2;
+            const int PW_UNDOCUMENTED_CAN_WORK_BETTER = 3;
             IntPtr IntPtrDeviceContext = GetDC(WindowHandle);  //GDI Alloc 1
             IntPtr IntPtrContext = CreateCompatibleDC(IntPtrDeviceContext);  // GDI Alloc 2
 
-            RECT WindowRectangle = new RECT();
 
-            GetWindowRect(WindowHandle, out WindowRectangle);
+            GetWindowRect(WindowHandle, out Rectangle WindowRectangle);
 
             int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
             int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
@@ -664,15 +671,27 @@ namespace AppTestStudio
 
             SelectObject(IntPtrContext, CompatibleBitmap);
 
-            PrintWindow(WindowHandle, IntPtrContext, 2);
 
-            Bitmap bmp = System.Drawing.Image.FromHbitmap(CompatibleBitmap);
+            bool Success = PrintWindow(WindowHandle, IntPtrContext, PW_UNDOCUMENTED_CAN_WORK_BETTER);
+
+            Bitmap bitmap = System.Drawing.Image.FromHbitmap(CompatibleBitmap);
 
             DeleteObject(CompatibleBitmap);  // GDI Dealloc 3
             DeleteDC(IntPtrContext); // GDI DeAlloc 2
             ReleaseDC(WindowHandle, IntPtrDeviceContext);  //GDI Dealloc 1
 
-            return bmp;
+
+            // Where the window is located on the screen.
+            // Copies what the monitor is showing.
+            // This May pull in other apps that are in front of the window.
+            // 
+            //Bitmap bitmap = new Bitmap(WindowRectangle.Width - WindowRectangle.X, WindowRectangle.Height - WindowRectangle.Y);
+            //using (Graphics graphics = Graphics.FromImage(bitmap))
+            //{
+            //    graphics.CopyFromScreen(WindowRectangle.Location, System.Drawing.Point.Empty, bitmap.Size);
+            //}
+
+            return bitmap;
         }
 
         public readonly static String ApplicationName = "App Test Studio";
