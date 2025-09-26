@@ -162,7 +162,7 @@ namespace AppTestStudio
             Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
             while (Game.IsPaused)
             {
-                Thread.Sleep(1000);
+                ThreadSleep(1000);
                 ChildSleepTimeMS = ChildSleepTimeMS + 1000;
             }
 
@@ -627,7 +627,7 @@ namespace AppTestStudio
                         {
                             Game.Log(node.Name + " Waiting " + DelayCalc);
                         }
-                        Thread.Sleep(DelayCalc);
+                        ThreadSleep(DelayCalc);
                         ChildSleepTimeMS = ChildSleepTimeMS + DelayCalc;
 
                         ThreadManager.IncrementWaitLength();
@@ -731,7 +731,7 @@ namespace AppTestStudio
                 if (DelayCalc > 0)
                 {
                     
-                    Thread.Sleep(DelayCalc);
+                    ThreadSleep(DelayCalc);
                     //Debug.WriteLine($"ProcessChildren, Sleep={DelayCalc}");
                     ChildSleepTimeMS = ChildSleepTimeMS + DelayCalc;
                 }
@@ -857,6 +857,12 @@ namespace AppTestStudio
             return Result;
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
+        private void ThreadSleep(int ms)
+        {
+            Thread.Sleep(ms);
+        }
+
         /// <summary>
         /// Restart of Emmulator Event
         /// </summary>
@@ -869,7 +875,7 @@ namespace AppTestStudio
             StopThreadCloseWindow(node as GameNode, WindowHandle, false);
 
             Game.Log("Waiting 15 sec... to restart");
-            Thread.Sleep(15000);
+            ThreadSleep(15000);
             Game.Log("Restarting: " + Game.TargetWindow);
             Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution, Game.DPI);
         }
@@ -986,7 +992,7 @@ namespace AppTestStudio
                 {
                     while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
                     {
-                        Thread.Sleep(1000);
+                        ThreadSleep(1000);
                     }
 
                     if (Game.NeverQuitIfWindowNotFound)
@@ -1003,12 +1009,12 @@ namespace AppTestStudio
                     while (LoopDelay > 1000 && CancellationTokenSource.Token.IsCancellationRequested == false)
                     {
                         LoopDelay = LoopDelay - 1000;
-                        Thread.Sleep(1000);
+                        ThreadSleep(1000);
                     }
 
                     if (LoopDelay > 0)
                     {
-                        Thread.Sleep(LoopDelay.ToInt());
+                        ThreadSleep(LoopDelay.ToInt());
                     }
 
                     WindowHandle = Game.GetWindowHandleByWindowName();
@@ -1027,7 +1033,7 @@ namespace AppTestStudio
                         Game.Log("Unable to locate window during startup met timeout limit");
                         Game.Log("Exiting thread");
                         Game.Log("You can disable early stopping by setting [Never Quit if Window Not Found] on the General Settings for the project.");
-                        Thread.Sleep(1000);
+                        ThreadSleep(1000);
                         ShutdownThread(Game, true);
                     }
 
@@ -1077,7 +1083,7 @@ namespace AppTestStudio
                         }
                         while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
                         {
-                            Thread.Sleep(1000);
+                            ThreadSleep(1000);
                         }
                     }
                     Game.GamePassSolutionClones.Enqueue(gamePassSolution);
@@ -1101,7 +1107,7 @@ namespace AppTestStudio
                     Game.LogStatus(Game.StatusNodeID, LoopDelay, 0);
 
                     LoopDelay = LoopDelay - 1000;
-                    Thread.Sleep(1000);
+                    ThreadSleep(1000);
                     ThreadManager.AddWaitLength(1000);
                 }
 
@@ -1109,13 +1115,13 @@ namespace AppTestStudio
                 {
                     Game.LogStatus(Game.StatusNodeID, LoopDelay, 0);
 
-                    Thread.Sleep(LoopDelay.ToInt());
+                    ThreadSleep(LoopDelay.ToInt());
                     ThreadManager.AddWaitLength(LoopDelay);
                 }
 
                 while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
                 {
-                    Thread.Sleep(1000);
+                    ThreadSleep(1000);
                 }
 
                 // Clean up Screenshot
