@@ -264,9 +264,11 @@ namespace AppTestStudio
             lstGamePass.Columns.Add("TBD");
             h = lstGamePass.Columns.Add("Project");
             h.Width = 500;
+
+
             //            lstGamePass.Columns[4].DisplayIndex = 4;
 
-            frmMain_Resize(null, null);
+            lstGamePass_Resize(null, null);
 
         }
 
@@ -9232,32 +9234,7 @@ namespace AppTestStudio
 
         private void frmMain_Resize(object sender, EventArgs e)
         {
-            Debug.WriteLine("lstGamePass_Resize");
-            GamePassList = new List<ListViewItem>();
-            const int LIST_LIMIT = 100;
 
-            lstGamePass.Items.Clear();
-
-            for (int i = 0; i < LIST_LIMIT; i++)
-            {
-
-                ListViewItem item = lstGamePass.Items.Add("");
-                item.SubItems.Add("");
-                item.SubItems.Add("");
-                item.SubItems.Add("");
-                item.SubItems.Add("");
-                GamePassList.Add(item);
-
-                // Only enough list for no scroll bar.
-                // 29 is the height.
-                if ((29 * (1 + i)) > lstGamePass.Height)
-                {
-                    Debug.WriteLine($"List Items reset to {i}");
-                    break;
-                }
-            }
-
-            lstGamePass.Columns[0].DisplayIndex = 0;
         }
 
         private void lstGamePass_MouseClick(object sender, MouseEventArgs e)
@@ -9274,6 +9251,35 @@ namespace AppTestStudio
         private void lstGamePass_SelectedIndexChanged(object sender, EventArgs e)
         {
             Debug.WriteLine("lstGamePass_SelectedIndexChanged");
+        }
+
+        private void lstGamePass_Resize(object sender, EventArgs e)
+        {
+            Debug.WriteLine("lstGamePass_Resize");
+
+            int rowHeight = Math.Max(
+                TextRenderer.MeasureText("Sample", lstGamePass.Font).Height +5,
+                lstGamePass.SmallImageList?.ImageSize.Height ?? 0
+            );
+
+            int visibleRows = lstGamePass.ClientSize.Height / rowHeight;
+
+            GamePassList = new List<ListViewItem>();
+ 
+            // Optional: store all items elsewhere and repopulate
+            lstGamePass.BeginUpdate();
+            lstGamePass.Items.Clear();
+            for (int i = 0; i < visibleRows; i++)
+            {
+                ListViewItem item = lstGamePass.Items.Add("");
+                item.SubItems.Add("");
+                item.SubItems.Add("");
+                item.SubItems.Add("");
+                item.SubItems.Add("");
+                GamePassList.Add(item);
+            }
+            lstGamePass.Columns[0].DisplayIndex = 0;
+            lstGamePass.EndUpdate();
         }
     }
 }
