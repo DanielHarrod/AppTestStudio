@@ -329,10 +329,13 @@ namespace AppTestStudio
 
             int NumberOfActions = velocityMS / PostEveryMS;
 
+
+            MouseSolutionMessage lastSolutionMessage = null;
+
             // Don't post the Start move if there's a 0ms delay
             if (velocityMS > 0)
             {
-                solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
+                lastSolutionMessage = solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
             }
 
             if (NumberOfActions > 0)
@@ -348,7 +351,27 @@ namespace AppTestStudio
                     {
                         Sleeptime = PostEveryMS + mouseInitialClickDelayMS;
                     }
-                    solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY),Sleeptime);
+
+                    if (lastSolutionMessage.IsSomething())
+                    {
+                        // see if the last message is the same position as this one
+                        if (lastSolutionMessage.CalcY == (ushort)CurrentY && lastSolutionMessage.CalcX == (ushort)CurrentX)
+                        {
+                            // same position so just increase the delay
+                            lastSolutionMessage.AfterDelay += Sleeptime;
+                                
+                        }
+                        else
+                        {
+                            // different position so add a new message
+                            lastSolutionMessage = solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY), Sleeptime);
+                        }
+                    }
+                    else
+                    {
+                        // no last message so add a new message
+                        lastSolutionMessage = solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY), Sleeptime);
+                    }
 
                     CurrentX = CurrentX + XIncrement;
                     CurrentY = CurrentY + YIncrement;

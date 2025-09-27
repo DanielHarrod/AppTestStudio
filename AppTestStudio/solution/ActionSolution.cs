@@ -34,7 +34,7 @@ namespace AppTestStudio.solution
 
 
 
-        internal void AddMessage(nint windowHandle, int msg, int wParam, int lParam, int afterDelay = 0)
+        internal MouseSolutionMessage AddMessage(nint windowHandle, int msg, int wParam, int lParam, int afterDelay = 0)
         {
             MouseSolutionMessage message = new MouseSolutionMessage();
             message.WindowHandle = windowHandle;
@@ -43,6 +43,7 @@ namespace AppTestStudio.solution
             message.lParam = lParam;
             message.AfterDelay = afterDelay;
             Messages.Add(message);
+            return message;
         }
 
         internal void AddInput(int Type, int X, int Y, uint MouseData, uint Flags, int afterDelay = 0)

@@ -13,5 +13,19 @@ namespace AppTestStudio
         public int wParam;
         public int lParam;
         public int AfterDelay;
+
+        public int CalcX {
+            get {
+                return lParam & 0xFFFF;
+            }
+        }
+
+        public int CalcY
+        {
+            get
+            {
+                return (lParam >> 16) & 0xFFFF;
+            }
+        }
     }
 }
