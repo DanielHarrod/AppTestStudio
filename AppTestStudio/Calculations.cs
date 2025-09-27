@@ -1,5 +1,4 @@
-﻿
-using AppTestStudio.solution;
+﻿using AppTestStudio.solution;
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Windows.Media.Animation;
@@ -352,7 +351,7 @@ namespace AppTestStudio
                         Sleeptime = PostEveryMS + mouseInitialClickDelayMS;
                     }
 
-                    if (lastSolutionMessage.IsSomething())
+                    if (lastSolutionMessage != null)
                     {
                         // see if the last message is the same position as this one
                         if (lastSolutionMessage.CalcY == (ushort)CurrentY && lastSolutionMessage.CalcX == (ushort)CurrentX)
