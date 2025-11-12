@@ -109,11 +109,11 @@ namespace AppTestStudio.solution
             }
             if ((Flags & (uint)MouseEventFlags.LeftDown) != 0)
             {
-                return "Left Down";
+                return "Mouse Left Down";
             }
             if ((Flags & (uint)MouseEventFlags.LeftUp) != 0)
             {
-                return "Left Up";
+                return "Mouse Left Up";
             }
             return "";
         }
