@@ -164,6 +164,7 @@ namespace AppTestStudio
             switch (Action)
             {
                 case "MouseMove":
+                case "Mouse Move":
                     DrawMode = "MouseMove";
                     pictureBox1.Invalidate();
                     break;
