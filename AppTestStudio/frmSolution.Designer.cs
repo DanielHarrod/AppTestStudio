@@ -60,7 +60,7 @@
             // pictureBox1
             // 
             pictureBox1.Location = new Point(2, 2);
-            pictureBox1.Margin = new Padding(2, 2, 2, 2);
+            pictureBox1.Margin = new Padding(2);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(721, 413);
             pictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
@@ -72,7 +72,7 @@
             // 
             textBox1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             textBox1.Location = new Point(8, 620);
-            textBox1.Margin = new Padding(2, 2, 2, 2);
+            textBox1.Margin = new Padding(2);
             textBox1.Multiline = true;
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(765, 599);
@@ -82,7 +82,7 @@
             // 
             splitContainer1.Dock = DockStyle.Fill;
             splitContainer1.Location = new Point(0, 0);
-            splitContainer1.Margin = new Padding(2, 2, 2, 2);
+            splitContainer1.Margin = new Padding(2);
             splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -112,13 +112,14 @@
             hScrollBar1.Location = new Point(3, 86);
             hScrollBar1.Maximum = 500;
             hScrollBar1.Name = "hScrollBar1";
-            hScrollBar1.Size = new Size(757, 39);
+            hScrollBar1.Size = new Size(758, 39);
             hScrollBar1.TabIndex = 10;
             // 
             // cmdAnimate
             // 
+            cmdAnimate.Enabled = false;
             cmdAnimate.Location = new Point(70, 54);
-            cmdAnimate.Margin = new Padding(2, 2, 2, 2);
+            cmdAnimate.Margin = new Padding(2);
             cmdAnimate.Name = "cmdAnimate";
             cmdAnimate.Size = new Size(78, 20);
             cmdAnimate.TabIndex = 9;
@@ -143,12 +144,12 @@
             grd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             grd.Columns.AddRange(new DataGridViewColumn[] { colCurrent, colID, colName, colAction, colX, colY, colTime, colCTime });
             grd.Location = new Point(7, 127);
-            grd.Margin = new Padding(2, 2, 2, 2);
+            grd.Margin = new Padding(2);
             grd.Name = "grd";
             grd.ReadOnly = true;
             grd.RowHeadersVisible = false;
             grd.RowHeadersWidth = 62;
-            grd.Size = new Size(751, 629);
+            grd.Size = new Size(752, 629);
             grd.TabIndex = 6;
             grd.CellMouseDown += grd_CellMouseDown;
             grd.CellMouseEnter += grd_CellMouseEnter;
@@ -267,7 +268,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1566, 758);
             Controls.Add(splitContainer1);
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "frmSolution";
             Text = "frmSolution";
             Load += frmSolution_Load;
