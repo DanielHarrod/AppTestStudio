@@ -43,7 +43,8 @@ namespace AppTestStudio
 
             EventSolution solution = new EventSolution();
 
-            Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+            Boolean Success = false;
+            Bitmap bmp = Utils.GetBitmapFromWindowHandle(ref Success, MainWindowHandle);
 
             PictureBoxTest.Image = bmp;
 

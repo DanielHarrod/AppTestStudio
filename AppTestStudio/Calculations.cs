@@ -1,6 +1,9 @@
-﻿using AppTestStudio.solution;
+﻿//AppTestStudio 
+//Copyright(C) 2016-2025 Daniel Harrod
+//This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
+
+using AppTestStudio.solution;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Windows.Media.Animation;
 using static AppTestStudio.NativeMethods;
 
@@ -202,7 +205,7 @@ namespace AppTestStudio
 
             //Debug.WriteLine($"MoveMouseActiveFromSystemPostion,PostCount={PostCount}");
         }
-        internal static int CalculateClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS, ActionSolution solution)
+        public static int CalculateClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS, ActionSolution solution)
         {
             Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
 
@@ -221,6 +224,8 @@ namespace AppTestStudio
             //Retrieves the coordinates of a window's client area.
             GetClientRect(windowHandle, out ClientRect);
 
+            Debug.WriteLine($"{xClientTarget} {TargetWindowRectangle.Left}");
+            Debug.WriteLine($"{yClientTarget} {TargetWindowRectangle.Top}");
             short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
             short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
@@ -242,18 +247,18 @@ namespace AppTestStudio
 
 
         [System.Diagnostics.DebuggerStepThrough]
-        static int CalculateAbsoluteCoordinateX(double x)
+        public static int CalculateAbsoluteCoordinateX(double x)
         {
             return CalculateAbsoluteCoordinateX(x.ToInt());
         }
 
         [System.Diagnostics.DebuggerStepThrough]
-        static int CalculateAbsoluteCoordinateX(float x)
+        public static int CalculateAbsoluteCoordinateX(float x)
         {
             return CalculateAbsoluteCoordinateX(x.ToInt());
         }
 
-        static int CalculateAbsoluteCoordinateX(int x)
+        public static int CalculateAbsoluteCoordinateX(int x)
         {
             int XScreen = GetSystemMetrics(SystemMetric.SM_CXSCREEN);
             return (x * 65536) / XScreen;

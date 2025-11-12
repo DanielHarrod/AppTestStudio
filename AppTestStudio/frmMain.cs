@@ -14,7 +14,6 @@ using System.Reflection;
 using System.Text;
 using System.Xml;
 using System.Xml.Serialization;
-using static OpenCvSharp.ML.DTrees;
 
 namespace AppTestStudio
 {
@@ -220,6 +219,36 @@ namespace AppTestStudio
 
             AdministratorCheck();
 
+            CheckMonitorScaling();
+
+        }
+
+        private void CheckMonitorScaling()
+        {
+            NativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero,
+                static delegate (IntPtr hMonitor, IntPtr hdcMonitor, NativeMethods.RECT lprcMonitor, IntPtr dwData)
+                {
+                    int MDT_Effective_DPI = 0;
+                    if (NativeMethods.GetDpiForMonitor(hMonitor, NativeMethods.DpiType.Effective, out uint dpiX, out uint dpiY) == 0)
+                    {
+                        double scalePercent = dpiX / 96.0 * 100;
+                        Debug.WriteLine($"Monitor: {hMonitor}");
+                        Debug.WriteLine($"DPI: {dpiX}x{dpiY} → Scaling: {scalePercent}%");
+
+                        if (dpiX != 96 || dpiY != 96)
+                            Debug.WriteLine("Scaling is applied.");
+                        else
+                            Debug.WriteLine("No scaling applied.");
+                    }
+                    else
+                    {
+                        Debug.WriteLine($"Failed to get DPI for monitor: {hMonitor}");
+                    }
+
+                    return true; // continue enumeration
+                }
+
+                , IntPtr.Zero);
         }
 
         private void AdministratorCheck()
@@ -2035,8 +2064,8 @@ namespace AppTestStudio
 
             if (MainWindowHandle.ToInt32() > 0)
             {
-                Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
-
+                Boolean Success = false;
+                Bitmap bmp = Utils.GetBitmapFromWindowHandle(ref Success, MainWindowHandle);
                 PictureObjectScreenshot.Image = bmp;
             }
         }
@@ -3438,7 +3467,8 @@ namespace AppTestStudio
                                 IntPtr WindowHandle = game.GetWindowHandleByWindowName();
                                 Utils.ActivateWindowIfNecessary2(WindowHandle, ActionNode.KeyboardTimeoutToActivateMS, ActionNode.KeyboardAfterSendingActivationMS);
                             }
-                            Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+                            Boolean Success = false;
+                            Bitmap bmp = Utils.GetBitmapFromWindowHandle(ref Success, MainWindowHandle);
                             switch (ActionNode.Mode)
                             {
                                 case Mode.RangeClick:
@@ -4371,7 +4401,8 @@ namespace AppTestStudio
 
             if (MainWindowHandle.ToInt32() > 0)
             {
-                Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+                Boolean Success = false;
+                Bitmap bmp = Utils.GetBitmapFromWindowHandle(ref Success, MainWindowHandle);
                 Color Color = bmp.GetPixel(x, y);
                 return Color;
 
@@ -4468,7 +4499,9 @@ namespace AppTestStudio
 
             if (MainWindowHandle.ToInt32() > 0)
             {
-                Bitmap bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+                Boolean Success = false;
+                Bitmap bmp = Utils.GetBitmapFromWindowHandle(ref Success, MainWindowHandle);
+                //bmp.Save("C:\\Users\\djhar\\Desktop\\b.bmp");
                 lblResolution.Text = bmp.Width + "x" + bmp.Height;
 
                 SetPictureBox1(bmp);
@@ -5422,7 +5455,8 @@ namespace AppTestStudio
 
             if (MainWindowHandle.ToInt32() > 0)
             {
-                PictureTestAllTest.Image = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+                Boolean Success = false;
+                PictureTestAllTest.Image = Utils.GetBitmapFromWindowHandle(ref Success, MainWindowHandle);
             }
             else
             {
@@ -9244,8 +9278,24 @@ namespace AppTestStudio
             if (item.IsSomething())
             {
                 var k = GamePassList[item.Index];
+
+                int index = k.SubItems[2].Text.ToInt();
+
+                foreach (GamePassSolution solution in GamePassSolutions )
+                {
+                    if (solution.SolutionID == index)
+                    {
+                        ShowSolution(solution);
+                    }
+                }
             }
             Debug.WriteLine(item.Index);
+        }
+
+        private void ShowSolution(GamePassSolution solution)
+        {
+            frmSolution frm = new frmSolution(solution);
+            frm.Show();
         }
 
         private void lstGamePass_SelectedIndexChanged(object sender, EventArgs e)
@@ -9278,8 +9328,15 @@ namespace AppTestStudio
                 item.SubItems.Add("");
                 GamePassList.Add(item);
             }
-            lstGamePass.Columns[0].DisplayIndex = 0;
-            lstGamePass.EndUpdate();
+            if (lstGamePass.Columns.Count > 0)
+            {
+                lstGamePass.Columns[0].DisplayIndex = 0;
+            }
+            else
+            {
+                Debug.WriteLine("lstGamePassColumns ?");
+            }
+                lstGamePass.EndUpdate();
         }
     }
 }

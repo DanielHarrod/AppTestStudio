@@ -15,7 +15,8 @@ namespace AppTestStudioUnitTest
         {
             IntPtr DesktopHWND = AppTestStudio.NativeMethods.GetDesktopWindow();
 
-            Bitmap bmp = AppTestStudio.Utils.GetBitmapFromWindowHandle(DesktopHWND);
+            Boolean Success = false;
+            Bitmap bmp = AppTestStudio.Utils.GetBitmapFromWindowHandle(ref Success, DesktopHWND);
             bmp.Save("C:\\test\\Test.bmp");
         }
 

@@ -3,12 +3,13 @@
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using System.Diagnostics;
-using System.Text;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
+using System.Text;
+using System.Windows.Media.Animation;
 using static AppTestStudio.Definitions;
 using static AppTestStudio.NativeMethods;
-using System.Windows.Media.Animation;
-using System.Security.Principal;
+using static AppTestStudio.Utils;
 
 namespace AppTestStudio
 {
@@ -654,44 +655,82 @@ namespace AppTestStudio
             return Result;
         }
 
-        public static Bitmap GetBitmapFromWindowHandle(IntPtr WindowHandle)
+        public static Bitmap GetBitMap(ref Boolean success, IntPtr windowHandle, bool IncludeWindow = false)
         {
+            const int PW_CLIENTONLY = 1;
             const int PW_RENDERFULLCONTENT = 2;
-            const int PW_UNDOCUMENTED_CAN_WORK_BETTER = 3;
-            IntPtr IntPtrDeviceContext = GetDC(WindowHandle);  //GDI Alloc 1
-            IntPtr IntPtrContext = CreateCompatibleDC(IntPtrDeviceContext);  // GDI Alloc 2
+            const int PW_UNDOCUMENTED_CAN_WORK_BETTER = PW_CLIENTONLY | PW_RENDERFULLCONTENT;
 
+            success = false;
 
-            GetWindowRect(WindowHandle, out Rectangle WindowRectangle);
+            IntPtr hdcSrc = NativeMethods.GetWindowDC(windowHandle);
+            if (hdcSrc == IntPtr.Zero)
+                return null;
 
-            int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
-            int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
+            NativeMethods.GetWindowRect(windowHandle, out Rectangle WindowRectangle);
 
-            IntPtr CompatibleBitmap = CreateCompatibleBitmap(IntPtrDeviceContext, TargetWindowWidth, TargetWindowHeight);   // GDI Alloc 3
+            if (!NativeMethods.GetWindowRect(windowHandle, out Rectangle windowRect))
+            {
+                NativeMethods.ReleaseDC(windowHandle, hdcSrc);
+                return null;
+            }
 
-            SelectObject(IntPtrContext, CompatibleBitmap);
+            int TargetWindowHeight = WindowRectangle.Height;
+            int TargetWindowWidth = WindowRectangle.Width;
 
+            if (TargetWindowHeight < 1 || TargetWindowWidth < 1)
+            {
+                NativeMethods.ReleaseDC(windowHandle, hdcSrc);
+                return null;
+            }
 
-            bool Success = PrintWindow(WindowHandle, IntPtrContext, PW_UNDOCUMENTED_CAN_WORK_BETTER);
+            IntPtr hdcDest = NativeMethods.CreateCompatibleDC(hdcSrc);
+            if (hdcDest == IntPtr.Zero)
+            {
+                NativeMethods.ReleaseDC(windowHandle, hdcSrc);
+                return null;
+            }
 
-            Bitmap bitmap = System.Drawing.Image.FromHbitmap(CompatibleBitmap);
+            IntPtr hBitmap = NativeMethods.CreateCompatibleBitmap(hdcSrc, TargetWindowWidth, TargetWindowHeight);
 
-            DeleteObject(CompatibleBitmap);  // GDI Dealloc 3
-            DeleteDC(IntPtrContext); // GDI DeAlloc 2
-            ReleaseDC(WindowHandle, IntPtrDeviceContext);  //GDI Dealloc 1
+            if (hBitmap == IntPtr.Zero)
+            {
+                NativeMethods.DeleteDC(hdcDest);
+                NativeMethods.ReleaseDC(windowHandle, hdcSrc);
+                return null;
+            }
 
+            IntPtr hOld = NativeMethods.SelectObject(hdcDest, hBitmap);
 
-            // Where the window is located on the screen.
-            // Copies what the monitor is showing.
-            // This May pull in other apps that are in front of the window.
-            // 
-            //Bitmap bitmap = new Bitmap(WindowRectangle.Width - WindowRectangle.X, WindowRectangle.Height - WindowRectangle.Y);
-            //using (Graphics graphics = Graphics.FromImage(bitmap))
-            //{
-            //    graphics.CopyFromScreen(WindowRectangle.Location, System.Drawing.Point.Empty, bitmap.Size);
-            //}
+            int PrintWindowFlags = PW_RENDERFULLCONTENT;
+            if (IncludeWindow)
+            {
+                PrintWindowFlags = PW_UNDOCUMENTED_CAN_WORK_BETTER;
+            }
 
-            return bitmap;
+            bool printSuccess = NativeMethods.PrintWindow(windowHandle, hdcDest, PrintWindowFlags);
+
+            NativeMethods.SelectObject(hdcDest, hOld);
+            NativeMethods.DeleteDC(hdcDest);
+            NativeMethods.ReleaseDC(windowHandle, hdcSrc);
+
+            if (!printSuccess)
+            {
+                NativeMethods.DeleteObject(hBitmap);
+                return null;
+            }
+
+            Bitmap bmp = Image.FromHbitmap(hBitmap);
+            NativeMethods.DeleteObject(hBitmap);
+
+            success = true;
+
+            return bmp;
+        }
+
+        public static Bitmap GetBitmapFromWindowHandle(ref Boolean Success, IntPtr WindowHandle)
+        {
+            return GetBitMap(ref Success, WindowHandle);
         }
 
         public readonly static String ApplicationName = "App Test Studio";

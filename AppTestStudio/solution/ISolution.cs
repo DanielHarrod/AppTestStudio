@@ -10,6 +10,7 @@ namespace AppTestStudio.solution
 
         // Do we activate before playing the script.
         public bool ActivateWindow { get; set; }
+        public string NodeName { get; internal set; }
     }
 
     enum SolutionType

@@ -26,9 +26,13 @@ namespace AppTestStudio.solution
 
         public Bitmap? Bitmap { get; set; } = null;
 
+        public string LastNodeName { get; internal set; }
+
         public void AddSolution(ISolution solution, GameNode node) { 
             Solutions.Add(solution);
-            LastNodeName = node.GameNodeName;
+            solution.NodeName = node.GameNodeName;
+            GameName = node.GetGameNodeGame().Name;
+            LastNodeName = node.GameNodeName;   
         }   
 
         public void Dispose()
@@ -38,6 +42,6 @@ namespace AppTestStudio.solution
 
         public String GameName { get; set; } = string.Empty;
 
-        public string LastNodeName { get; private set; } = String.Empty;
+
     }
 }

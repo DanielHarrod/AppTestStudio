@@ -17,7 +17,8 @@ namespace AppTestStudioUnitTest
         {
             IntPtr k = AppTestStudio.Utils.GetWindowHandleByWindowName("Soda Dungeon","");
 
-            Bitmap b = AppTestStudio.Utils.GetBitmapFromWindowHandle(k);
+            Boolean Success = false;
+            Bitmap b = AppTestStudio.Utils.GetBitmapFromWindowHandle(ref Success, k);
 
             // Deprecated
             //AppTestStudio.Utils.ClickOnWindowPassiveMode(k, 100, 100, 0);
@@ -31,7 +32,7 @@ namespace AppTestStudioUnitTest
 
             IntPtr hwnd = AppTestStudio.Utils.GetWindowHandleByWindowName("Soda Dungeon", "");
 
-            RECT wrect;
+            System.Drawing.Rectangle wrect;
             GetWindowRect(hwnd, out wrect);
             RECT crect;
             GetClientRect(hwnd,  out crect);
@@ -48,7 +49,6 @@ namespace AppTestStudioUnitTest
             int right_border = wrect.Right - rightbottom.X; // As above
             int bottom_border = wrect.Bottom - rightbottom.Y; // As above
             int top_border_with_title_bar = lefttop.Y - wrect.Top; // There is no transparent part
-
         }
     }
 }

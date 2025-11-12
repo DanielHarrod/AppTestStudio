@@ -41,57 +41,6 @@ namespace AppTestStudio
             CancellationTokenSource.Cancel();
         }
 
-        private Bitmap GetBitMap(ref Boolean Success)
-        {
-            Success = false;
-
-            IntPtr hdcSrc = NativeMethods.GetWindowDC(WindowHandle);
-            if (hdcSrc.ToInt32() == 0)
-            {
-                // Likely the WindowHandle was lost, refetch a window handle.
-                Game.Log("GetWindowDC = 0 " + WindowHandle);
-                Game.Log("Refetching Window for " + Game.TargetWindow);
-                WindowHandle = Game.GetWindowHandleByWindowName();
-            }
-            
-            NativeMethods.GetWindowRect(WindowHandle, out Rectangle WindowRectangle);
-
-            int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
-            int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
-
-            if (TargetWindowHeight < 1 || TargetWindowWidth < 1)
-            {
-                return null;
-            }
-
-            IntPtr hdcDest = NativeMethods.CreateCompatibleDC(hdcSrc);
-
-            IntPtr hBitmap = NativeMethods.CreateCompatibleBitmap(hdcSrc, TargetWindowWidth, TargetWindowHeight);
-
-            if (hBitmap.ToInt32() == 0)
-            {
-                NativeMethods.DeleteDC(hdcDest);
-                return null;
-            }
-
-            IntPtr hOld = NativeMethods.SelectObject(hdcDest, hBitmap);
-
-            //'modAPI.BitBlt(hdcDest, 0, 0, TargetWindowWidth, TargetWindowHeight, hdcSrc, 0, 0, &HCC0020)
-
-            NativeMethods.PrintWindow(WindowHandle, hdcDest, 2);
-
-            NativeMethods.SelectObject(hdcDest, hOld);
-            NativeMethods.DeleteDC(hdcDest);
-            NativeMethods.ReleaseDC(WindowHandle, hdcSrc);
-
-            Bitmap bmp = Image.FromHbitmap(hBitmap);
-            NativeMethods.DeleteObject(hBitmap);
-
-            Success = true;
-
-            return bmp;
-        }
-
         private void StopThreadCloseWindow(GameNode node, IntPtr windowHandle, Boolean AbortThread)
         {
             Game.Log(node.GameNodeName + ":" + "Stop Thread");
@@ -277,7 +226,7 @@ namespace AppTestStudio
 
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
                                 int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                                
+
                                 solution = Calculations.CalculateClickOnWindow(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
                                 solution.TargetX = Result.x;
                                 solution.TargetY = Result.y;
@@ -502,7 +451,14 @@ namespace AppTestStudio
                         }
                         else
                         {
-                            bmp = GetBitMap(ref Success);
+                            bmp = Utils.GetBitMap(ref Success, WindowHandle);
+                            if (Success == false)
+                            {
+                                Game.Log("GetWindowDC = 0 " + WindowHandle);
+                                Game.Log("Refetching Window for " + Game.TargetWindow);
+                                WindowHandle = Game.GetWindowHandleByWindowName();
+                                bmp = Utils.GetBitMap(ref Success, WindowHandle);
+                            }
                         }
                         
                         if (Success == false)
@@ -1054,7 +1010,14 @@ namespace AppTestStudio
                 }
                 else
                 {
-                    bmp = GetBitMap(ref BitMapSuccess);
+                    bmp = Utils.GetBitMap(ref BitMapSuccess, WindowHandle);
+                    if (BitMapSuccess == false)
+                    {
+                        Game.Log("GetWindowDC = 0 " + WindowHandle);
+                        Game.Log("Refetching Window for " + Game.TargetWindow);
+                        WindowHandle = Game.GetWindowHandleByWindowName();
+                        bmp = Utils.GetBitMap(ref BitMapSuccess, WindowHandle);
+                    }
                 }
                 //Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
 

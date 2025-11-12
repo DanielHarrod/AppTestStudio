@@ -111,6 +111,13 @@ namespace AppTestStudio
             return (int)d;
         }
 
+        public static int ToInt(this object d)
+        {
+            int result = 0;
+            int.TryParse(d.ToString(), out result);
+            return result;
+        }
+
         public static long ToLong(this double d)
         {
             return (long)d;
@@ -120,6 +127,10 @@ namespace AppTestStudio
             return (long)d;
         }
 
+        public static ushort ToUShort(this int d)
+        {
+            return (ushort)d;
+        }
 
         public static short ToShort(this int d)
         {
