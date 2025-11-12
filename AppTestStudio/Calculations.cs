@@ -1,7 +1,9 @@
-﻿
+﻿//AppTestStudio 
+//Copyright(C) 2016-2025 Daniel Harrod
+//This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
+
 using AppTestStudio.solution;
 using System.Diagnostics;
-using System.Runtime.InteropServices;
 using System.Windows.Media.Animation;
 using static AppTestStudio.NativeMethods;
 
@@ -65,11 +67,10 @@ namespace AppTestStudio
         internal static void CalculateMoveMouseActiveFromSystemPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientTarget, short yClientTarget, int mouseSpeedPixelsPerSecond, ActionSolution solution, EasingFunctionBase easingFunction = null)
         {
             //Debug.WriteLine($"MoveMouseActiveFromSystemPosition(windowHandle={windowHandle}, mouseEventFlags={mouseEventFlags}, xClientTarget={xClientTarget}, yClientTarget={yClientTarget}, mouseSpeedPixelsPerSecond={mouseSpeedPixelsPerSecond}, easingFunction=...");
-            RECT TargetWindowRectangle;
 
             //Retrieves the dimensions of the bounding rectangle of the specified window.
             //The dimensions are given in screen coordinates that are relative to the upper-left corner of the screen.
-            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
 
             RECT ClientRect;
 
@@ -204,10 +205,9 @@ namespace AppTestStudio
 
             //Debug.WriteLine($"MoveMouseActiveFromSystemPostion,PostCount={PostCount}");
         }
-        internal static int CalculateClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS, ActionSolution solution)
+        public static int CalculateClickOnWindowActiveMode(IntPtr windowHandle, short xClientTarget, short yClientTarget, int mouseUpDelayMS, ActionSolution solution)
         {
-            RECT TargetWindowRectangle;
-            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
 
             //Debug.WriteLine("xClientTarget:" + xClientTarget);
             //Debug.WriteLine("yClientTarget:" + yClientTarget);
@@ -224,6 +224,8 @@ namespace AppTestStudio
             //Retrieves the coordinates of a window's client area.
             GetClientRect(windowHandle, out ClientRect);
 
+            Debug.WriteLine($"{xClientTarget} {TargetWindowRectangle.Left}");
+            Debug.WriteLine($"{yClientTarget} {TargetWindowRectangle.Top}");
             short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
             short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
@@ -245,18 +247,18 @@ namespace AppTestStudio
 
 
         [System.Diagnostics.DebuggerStepThrough]
-        static int CalculateAbsoluteCoordinateX(double x)
+        public static int CalculateAbsoluteCoordinateX(double x)
         {
             return CalculateAbsoluteCoordinateX(x.ToInt());
         }
 
         [System.Diagnostics.DebuggerStepThrough]
-        static int CalculateAbsoluteCoordinateX(float x)
+        public static int CalculateAbsoluteCoordinateX(float x)
         {
             return CalculateAbsoluteCoordinateX(x.ToInt());
         }
 
-        static int CalculateAbsoluteCoordinateX(int x)
+        public static int CalculateAbsoluteCoordinateX(int x)
         {
             int XScreen = GetSystemMetrics(SystemMetric.SM_CXSCREEN);
             return (x * 65536) / XScreen;
@@ -331,10 +333,13 @@ namespace AppTestStudio
 
             int NumberOfActions = velocityMS / PostEveryMS;
 
+
+            MouseSolutionMessage lastSolutionMessage = null;
+
             // Don't post the Start move if there's a 0ms delay
             if (velocityMS > 0)
             {
-                solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
+                lastSolutionMessage = solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY));
             }
 
             if (NumberOfActions > 0)
@@ -350,7 +355,27 @@ namespace AppTestStudio
                     {
                         Sleeptime = PostEveryMS + mouseInitialClickDelayMS;
                     }
-                    solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY),Sleeptime);
+
+                    if (lastSolutionMessage != null)
+                    {
+                        // see if the last message is the same position as this one
+                        if (lastSolutionMessage.CalcY == (ushort)CurrentY && lastSolutionMessage.CalcX == (ushort)CurrentX)
+                        {
+                            // same position so just increase the delay
+                            lastSolutionMessage.AfterDelay += Sleeptime;
+                                
+                        }
+                        else
+                        {
+                            // different position so add a new message
+                            lastSolutionMessage = solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY), Sleeptime);
+                        }
+                    }
+                    else
+                    {
+                        // no last message so add a new message
+                        lastSolutionMessage = solution.AddMessage(windowHandle, Definitions.MouseInputNotifications.WM_MOUSEMOVE, mouseKeyState, Utils.HiLoWord(CurrentX, CurrentY), Sleeptime);
+                    }
 
                     CurrentX = CurrentX + XIncrement;
                     CurrentY = CurrentY + YIncrement;
@@ -376,8 +401,7 @@ namespace AppTestStudio
         public static void CalculateMoveMouseActiveFromStartPosition(IntPtr windowHandle, MouseEventFlags mouseEventFlags, short xClientStart, short yClientStart, short xClientTarget, short yClientTarget, int velocityMS, int mouseInitialClickDelayMS, ActionSolution solution)
         {
             uint Flags = 0;
-            RECT TargetWindowRectangle;
-            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
 
             RECT ClientRect;
             GetClientRect(windowHandle, out ClientRect);

@@ -121,7 +121,8 @@ namespace AppTestStudio
                     // Take a screenshot from main window.
                     if (PrimaryWindowHandle != IntPtr.Zero)
                     {
-                        Bitmap bmp = Utils.GetBitmapFromWindowHandle(PrimaryWindowHandle);
+                        Boolean Success = false;
+                        Bitmap bmp = Utils.GetBitmapFromWindowHandle(ref Success, PrimaryWindowHandle);
                         PictureBox1.Image = bmp;
                     }
                 }
@@ -237,7 +238,8 @@ namespace AppTestStudio
             // Did we find something?
             if (ChildWindowHandle != IntPtr.Zero)
             {
-                Bitmap bmp = Utils.GetBitmapFromWindowHandle(ChildWindowHandle);
+                Boolean Success = false;
+                Bitmap bmp = Utils.GetBitmapFromWindowHandle(ref Success, ChildWindowHandle);
                 PictureBox1.Image = bmp;
             }            
         }

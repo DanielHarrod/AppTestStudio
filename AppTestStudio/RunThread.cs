@@ -41,58 +41,6 @@ namespace AppTestStudio
             CancellationTokenSource.Cancel();
         }
 
-        private Bitmap GetBitMap(ref Boolean Success)
-        {
-            Success = false;
-
-            IntPtr hdcSrc = NativeMethods.GetWindowDC(WindowHandle);
-            if (hdcSrc.ToInt32() == 0)
-            {
-                // Likely the WindowHandle was lost, refetch a window handle.
-                Game.Log("GetWindowDC = 0 " + WindowHandle);
-                Game.Log("Refetching Window for " + Game.TargetWindow);
-                WindowHandle = Game.GetWindowHandleByWindowName();
-            }
-            NativeMethods.RECT WindowRectangle = new NativeMethods.RECT();
-
-            NativeMethods.GetWindowRect(WindowHandle, out WindowRectangle);
-
-            int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
-            int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
-
-            if (TargetWindowHeight < 1 || TargetWindowWidth < 1)
-            {
-                return null;
-            }
-
-            IntPtr hdcDest = NativeMethods.CreateCompatibleDC(hdcSrc);
-
-            IntPtr hBitmap = NativeMethods.CreateCompatibleBitmap(hdcSrc, TargetWindowWidth, TargetWindowHeight);
-
-            if (hBitmap.ToInt32() == 0)
-            {
-                NativeMethods.DeleteDC(hdcDest);
-                return null;
-            }
-
-            IntPtr hOld = NativeMethods.SelectObject(hdcDest, hBitmap);
-
-            //'modAPI.BitBlt(hdcDest, 0, 0, TargetWindowWidth, TargetWindowHeight, hdcSrc, 0, 0, &HCC0020)
-
-            NativeMethods.PrintWindow(WindowHandle, hdcDest, 2);
-
-            NativeMethods.SelectObject(hdcDest, hOld);
-            NativeMethods.DeleteDC(hdcDest);
-            NativeMethods.ReleaseDC(WindowHandle, hdcSrc);
-
-            Bitmap bmp = Image.FromHbitmap(hBitmap);
-            NativeMethods.DeleteObject(hBitmap);
-
-            Success = true;
-
-            return bmp;
-        }
-
         private void StopThreadCloseWindow(GameNode node, IntPtr windowHandle, Boolean AbortThread)
         {
             Game.Log(node.GameNodeName + ":" + "Stop Thread");
@@ -163,7 +111,7 @@ namespace AppTestStudio
             Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
             while (Game.IsPaused)
             {
-                Thread.Sleep(1000);
+                ThreadSleep(1000);
                 ChildSleepTimeMS = ChildSleepTimeMS + 1000;
             }
 
@@ -278,15 +226,16 @@ namespace AppTestStudio
 
                                 Game.Log(node.Name + " Click(" + Result.x + "," + Result.y + ")");
                                 int MousePixelSpeedPerSecond = Game.CalculateNextMousePixelSpeedPerSecond();
-                                
+
                                 solution = Calculations.CalculateClickOnWindow(WindowHandle, Game.MouseMode, node.FromCurrentMousePos, Game.WindowAction, Game.MouseX, Game.MouseY, Result.x, Result.y, node.ClickSpeed, MousePixelSpeedPerSecond);
                                 solution.TargetX = Result.x;
                                 solution.TargetY = Result.y;
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
+                                solution.NodeWindowHandle = node.Handle;
 
                                 SolutionPlayer.Play(solution);
 
-                                gamePassSolution.AddSolution(solution);
+                                gamePassSolution.AddSolution(solution, node);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -384,10 +333,10 @@ namespace AppTestStudio
                                 solution.TargetX = MouseMoveResult.StartX;
                                 solution.TargetY = MouseMoveResult.StartY;
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
-                                
+                                solution.NodeWindowHandle = node.Handle;
                                 SolutionPlayer.Play(solution);
 
-                                gamePassSolution.AddSolution(solution);
+                                gamePassSolution.AddSolution(solution, node);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -450,10 +399,10 @@ namespace AppTestStudio
                                 solution.TargetX = CDRResult.EndX;
                                 solution.TargetY = CDRResult.EndY;
                                 solution.ActivateWindow = node.AppActivateIfNotActive;
-
+                                solution.NodeWindowHandle = node.Handle;
                                 SolutionPlayer.Play(solution);
 
-                                gamePassSolution.AddSolution(solution);
+                                gamePassSolution.AddSolution(solution,node);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
 
@@ -502,7 +451,14 @@ namespace AppTestStudio
                         }
                         else
                         {
-                            bmp = GetBitMap(ref Success);
+                            bmp = Utils.GetBitMap(ref Success, WindowHandle);
+                            if (Success == false)
+                            {
+                                Game.Log("GetWindowDC = 0 " + WindowHandle);
+                                Game.Log("Refetching Window for " + Game.TargetWindow);
+                                WindowHandle = Game.GetWindowHandleByWindowName();
+                                bmp = Utils.GetBitMap(ref Success, WindowHandle);
+                            }
                         }
                         
                         if (Success == false)
@@ -627,7 +583,7 @@ namespace AppTestStudio
                         {
                             Game.Log(node.Name + " Waiting " + DelayCalc);
                         }
-                        Thread.Sleep(DelayCalc);
+                        ThreadSleep(DelayCalc);
                         ChildSleepTimeMS = ChildSleepTimeMS + DelayCalc;
 
                         ThreadManager.IncrementWaitLength();
@@ -731,7 +687,7 @@ namespace AppTestStudio
                 if (DelayCalc > 0)
                 {
                     
-                    Thread.Sleep(DelayCalc);
+                    ThreadSleep(DelayCalc);
                     //Debug.WriteLine($"ProcessChildren, Sleep={DelayCalc}");
                     ChildSleepTimeMS = ChildSleepTimeMS + DelayCalc;
                 }
@@ -857,6 +813,12 @@ namespace AppTestStudio
             return Result;
         }
 
+        [System.Diagnostics.DebuggerStepThrough]
+        private void ThreadSleep(int ms)
+        {
+            Thread.Sleep(ms);
+        }
+
         /// <summary>
         /// Restart of Emmulator Event
         /// </summary>
@@ -869,7 +831,7 @@ namespace AppTestStudio
             StopThreadCloseWindow(node as GameNode, WindowHandle, false);
 
             Game.Log("Waiting 15 sec... to restart");
-            Thread.Sleep(15000);
+            ThreadSleep(15000);
             Game.Log("Restarting: " + Game.TargetWindow);
             Utils.LaunchInstance(Game.PackageName, Game.TargetWindow, Game.InstanceToLaunch, Game.Resolution, Game.DPI);
         }
@@ -986,7 +948,7 @@ namespace AppTestStudio
                 {
                     while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
                     {
-                        Thread.Sleep(1000);
+                        ThreadSleep(1000);
                     }
 
                     if (Game.NeverQuitIfWindowNotFound)
@@ -1003,12 +965,12 @@ namespace AppTestStudio
                     while (LoopDelay > 1000 && CancellationTokenSource.Token.IsCancellationRequested == false)
                     {
                         LoopDelay = LoopDelay - 1000;
-                        Thread.Sleep(1000);
+                        ThreadSleep(1000);
                     }
 
                     if (LoopDelay > 0)
                     {
-                        Thread.Sleep(LoopDelay.ToInt());
+                        ThreadSleep(LoopDelay.ToInt());
                     }
 
                     WindowHandle = Game.GetWindowHandleByWindowName();
@@ -1027,7 +989,7 @@ namespace AppTestStudio
                         Game.Log("Unable to locate window during startup met timeout limit");
                         Game.Log("Exiting thread");
                         Game.Log("You can disable early stopping by setting [Never Quit if Window Not Found] on the General Settings for the project.");
-                        Thread.Sleep(1000);
+                        ThreadSleep(1000);
                         ShutdownThread(Game, true);
                     }
 
@@ -1048,7 +1010,14 @@ namespace AppTestStudio
                 }
                 else
                 {
-                    bmp = GetBitMap(ref BitMapSuccess);
+                    bmp = Utils.GetBitMap(ref BitMapSuccess, WindowHandle);
+                    if (BitMapSuccess == false)
+                    {
+                        Game.Log("GetWindowDC = 0 " + WindowHandle);
+                        Game.Log("Refetching Window for " + Game.TargetWindow);
+                        WindowHandle = Game.GetWindowHandleByWindowName();
+                        bmp = Utils.GetBitMap(ref BitMapSuccess, WindowHandle);
+                    }
                 }
                 //Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
 
@@ -1077,7 +1046,7 @@ namespace AppTestStudio
                         }
                         while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
                         {
-                            Thread.Sleep(1000);
+                            ThreadSleep(1000);
                         }
                     }
                     Game.GamePassSolutionClones.Enqueue(gamePassSolution);
@@ -1101,7 +1070,7 @@ namespace AppTestStudio
                     Game.LogStatus(Game.StatusNodeID, LoopDelay, 0);
 
                     LoopDelay = LoopDelay - 1000;
-                    Thread.Sleep(1000);
+                    ThreadSleep(1000);
                     ThreadManager.AddWaitLength(1000);
                 }
 
@@ -1109,13 +1078,13 @@ namespace AppTestStudio
                 {
                     Game.LogStatus(Game.StatusNodeID, LoopDelay, 0);
 
-                    Thread.Sleep(LoopDelay.ToInt());
+                    ThreadSleep(LoopDelay.ToInt());
                     ThreadManager.AddWaitLength(LoopDelay);
                 }
 
                 while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
                 {
-                    Thread.Sleep(1000);
+                    ThreadSleep(1000);
                 }
 
                 // Clean up Screenshot

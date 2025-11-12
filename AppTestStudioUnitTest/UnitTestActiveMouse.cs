@@ -24,7 +24,7 @@ namespace AppTestStudioUnitTest
         public void TestGetWindowRectOnDualMonitor()
         {
             IntPtr x = new IntPtr(0x028B2682);
-            NativeMethods.RECT R;
+            System.Drawing.Rectangle R;
             NativeMethods.GetWindowRect(x, out R);
         }
 

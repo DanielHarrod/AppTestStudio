@@ -182,5 +182,17 @@ namespace AppTestStudio
                 childNodes.ClearIsDirty();
             }
         }
+
+        public String GetNodePath()
+        {
+            String path = this.Text;
+            GameNode node = this.Parent as GameNode;
+            while (node != null && node is not GameNodeGame)
+            {
+                path = node.Text + "\\" + path;
+                node = node.Parent as GameNode;
+            }
+            return path;
+        }
     }
 }

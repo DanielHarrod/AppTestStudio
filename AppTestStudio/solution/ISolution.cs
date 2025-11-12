@@ -7,6 +7,10 @@ namespace AppTestStudio.solution
     internal class ISolution
     {
         public SolutionType EventType { get; set; }
+
+        // Do we activate before playing the script.
+        public bool ActivateWindow { get; set; }
+        public string NodeName { get; internal set; }
     }
 
     enum SolutionType

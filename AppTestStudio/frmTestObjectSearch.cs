@@ -345,7 +345,8 @@ namespace AppTestStudio
 
             if (useCurrentWindow)
             {
-                bmp = Utils.GetBitmapFromWindowHandle(MainWindowHandle);
+                Boolean Success = false;
+                bmp = Utils.GetBitmapFromWindowHandle(ref Success, MainWindowHandle);
             }
             else
             {

@@ -2,6 +2,9 @@
 //Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
+using System.Diagnostics;
+using System.Formats.Asn1;
+
 namespace AppTestStudio.solution
 {
     internal class ActionSolution : ISolution
@@ -16,6 +19,9 @@ namespace AppTestStudio.solution
         // Target Window Handle
         public nint WindowHandle { get; set; }
 
+        // Target Reference Node
+        public IntPtr NodeWindowHandle { get; set; }
+
         // PostMessages (Passive)
         public List<MouseSolutionMessage> Messages { get; set; }
 
@@ -29,10 +35,9 @@ namespace AppTestStudio.solution
         public int TargetX { get; set; }
         public int TargetY { get; set; }
 
-        // Do we activate before playing the script.
-        public bool ActivateWindow { get; set; }
 
-        internal void AddMessage(nint windowHandle, int msg, int wParam, int lParam, int afterDelay = 0)
+
+        internal MouseSolutionMessage AddMessage(nint windowHandle, int msg, int wParam, int lParam, int afterDelay = 0)
         {
             MouseSolutionMessage message = new MouseSolutionMessage();
             message.WindowHandle = windowHandle;
@@ -41,6 +46,7 @@ namespace AppTestStudio.solution
             message.lParam = lParam;
             message.AfterDelay = afterDelay;
             Messages.Add(message);
+            return message;
         }
 
         internal void AddInput(int Type, int X, int Y, uint MouseData, uint Flags, int afterDelay = 0)
@@ -94,5 +100,42 @@ namespace AppTestStudio.solution
         public uint MouseData { get; set; }
         public uint Flags { get; set; }
         public int AfterDelay { get; set; }
+
+        public String MessageName()
+        {
+            if ((Flags & (uint)MouseEventFlags.Move) != 0)
+            {
+                return "Mouse Move";
+            }
+            if ((Flags & (uint)MouseEventFlags.LeftDown) != 0)
+            {
+                return "Left Down";
+            }
+            if ((Flags & (uint)MouseEventFlags.LeftUp) != 0)
+            {
+                return "Left Up";
+            }
+            return "";
+        }
+
+        public int CalcX
+        {
+            get
+            {
+                int XScreen = NativeMethods.GetSystemMetrics(SystemMetric.SM_CXSCREEN);
+
+                return (X * XScreen) / 65536;
+            }
+        }
+
+        public int CalcY
+        {
+            get
+            {
+                int YScreen = NativeMethods.GetSystemMetrics(SystemMetric.SM_CYSCREEN);
+
+                return (Y * YScreen) / 65536;
+            }
+        }
     }
 }

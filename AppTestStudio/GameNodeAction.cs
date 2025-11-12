@@ -1374,6 +1374,7 @@ namespace AppTestStudio
         internal EventSolution IsTrue(Bitmap bmp, GameNodeGame game)
         {
             EventSolution solution = new EventSolution();
+           
             if (IsColorPoint)
             {
 
@@ -1450,6 +1451,7 @@ namespace AppTestStudio
                 }
 
                 Color Color = bmp.GetPixel(click.X, click.Y);
+                //bmp.Save("C:\\Users\\djhar\\Desktop\\a.bmp");
                 switch (LogicChoice.ToUpper())
                 {
                     case "AND":

@@ -3,11 +3,13 @@
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using System.Diagnostics;
-using System.Text;
 using System.Runtime.InteropServices;
+using System.Security.Principal;
+using System.Text;
+using System.Windows.Media.Animation;
 using static AppTestStudio.Definitions;
 using static AppTestStudio.NativeMethods;
-using System.Windows.Media.Animation;
+using static AppTestStudio.Utils;
 
 namespace AppTestStudio
 {
@@ -334,12 +336,17 @@ namespace AppTestStudio
             return ActivateWindowResult.WindowActivated;            
         }
 
+        public static bool IsAdministrator()
+        {
+            var identity = WindowsIdentity.GetCurrent();
+            var principal = new WindowsPrincipal(identity);
+            return principal.IsInRole(WindowsBuiltInRole.Administrator);
+        }
 
         public static Boolean ActivateWindowIfNecessary(IntPtr windowHandle, WindowAction windowAction, int startX, int startY)
         {
             Boolean Result = false;
-            RECT TargetWindowRectangle;
-            Boolean WindowRectResult = GetWindowRect(windowHandle, out TargetWindowRectangle);
+            Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
             short xSystemTargetStartPosition = (short)(startX + TargetWindowRectangle.Left);
             short ySystemTargetStartPosition = (short)(startY + +TargetWindowRectangle.Top);
             System.Drawing.Point p = new System.Drawing.Point();
@@ -648,31 +655,82 @@ namespace AppTestStudio
             return Result;
         }
 
-        public static Bitmap GetBitmapFromWindowHandle(IntPtr WindowHandle)
+        public static Bitmap GetBitMap(ref Boolean success, IntPtr windowHandle, bool IncludeWindow = false)
         {
-            IntPtr IntPtrDeviceContext = GetDC(WindowHandle);  //GDI Alloc 1
-            IntPtr IntPtrContext = CreateCompatibleDC(IntPtrDeviceContext);  // GDI Alloc 2
+            const int PW_CLIENTONLY = 1;
+            const int PW_RENDERFULLCONTENT = 2;
+            const int PW_UNDOCUMENTED_CAN_WORK_BETTER = PW_CLIENTONLY | PW_RENDERFULLCONTENT;
 
-            RECT WindowRectangle = new RECT();
+            success = false;
 
-            GetWindowRect(WindowHandle, out WindowRectangle);
+            IntPtr hdcSrc = NativeMethods.GetWindowDC(windowHandle);
+            if (hdcSrc == IntPtr.Zero)
+                return null;
 
-            int TargetWindowHeight = WindowRectangle.Bottom - WindowRectangle.Top;
-            int TargetWindowWidth = WindowRectangle.Right - WindowRectangle.Left;
+            NativeMethods.GetWindowRect(windowHandle, out Rectangle WindowRectangle);
 
-            IntPtr CompatibleBitmap = CreateCompatibleBitmap(IntPtrDeviceContext, TargetWindowWidth, TargetWindowHeight);   // GDI Alloc 3
+            if (!NativeMethods.GetWindowRect(windowHandle, out Rectangle windowRect))
+            {
+                NativeMethods.ReleaseDC(windowHandle, hdcSrc);
+                return null;
+            }
 
-            SelectObject(IntPtrContext, CompatibleBitmap);
+            int TargetWindowHeight = WindowRectangle.Height;
+            int TargetWindowWidth = WindowRectangle.Width;
 
-            PrintWindow(WindowHandle, IntPtrContext, 2);
+            if (TargetWindowHeight < 1 || TargetWindowWidth < 1)
+            {
+                NativeMethods.ReleaseDC(windowHandle, hdcSrc);
+                return null;
+            }
 
-            Bitmap bmp = System.Drawing.Image.FromHbitmap(CompatibleBitmap);
+            IntPtr hdcDest = NativeMethods.CreateCompatibleDC(hdcSrc);
+            if (hdcDest == IntPtr.Zero)
+            {
+                NativeMethods.ReleaseDC(windowHandle, hdcSrc);
+                return null;
+            }
 
-            DeleteObject(CompatibleBitmap);  // GDI Dealloc 3
-            DeleteDC(IntPtrContext); // GDI DeAlloc 2
-            ReleaseDC(WindowHandle, IntPtrDeviceContext);  //GDI Dealloc 1
+            IntPtr hBitmap = NativeMethods.CreateCompatibleBitmap(hdcSrc, TargetWindowWidth, TargetWindowHeight);
+
+            if (hBitmap == IntPtr.Zero)
+            {
+                NativeMethods.DeleteDC(hdcDest);
+                NativeMethods.ReleaseDC(windowHandle, hdcSrc);
+                return null;
+            }
+
+            IntPtr hOld = NativeMethods.SelectObject(hdcDest, hBitmap);
+
+            int PrintWindowFlags = PW_RENDERFULLCONTENT;
+            if (IncludeWindow)
+            {
+                PrintWindowFlags = PW_UNDOCUMENTED_CAN_WORK_BETTER;
+            }
+
+            bool printSuccess = NativeMethods.PrintWindow(windowHandle, hdcDest, PrintWindowFlags);
+
+            NativeMethods.SelectObject(hdcDest, hOld);
+            NativeMethods.DeleteDC(hdcDest);
+            NativeMethods.ReleaseDC(windowHandle, hdcSrc);
+
+            if (!printSuccess)
+            {
+                NativeMethods.DeleteObject(hBitmap);
+                return null;
+            }
+
+            Bitmap bmp = Image.FromHbitmap(hBitmap);
+            NativeMethods.DeleteObject(hBitmap);
+
+            success = true;
 
             return bmp;
+        }
+
+        public static Bitmap GetBitmapFromWindowHandle(ref Boolean Success, IntPtr WindowHandle)
+        {
+            return GetBitMap(ref Success, WindowHandle);
         }
 
         public readonly static String ApplicationName = "App Test Studio";
