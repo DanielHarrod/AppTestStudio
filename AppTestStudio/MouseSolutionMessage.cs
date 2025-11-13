@@ -19,7 +19,7 @@ namespace AppTestStudio
         public int AfterDelay;
         
         // Time when Message was executed
-        public DateTime? ExecutionTime { get; set; }
+        public DateTime ExecutionTime { get; set; }
 
         public int CalcX {
             get {

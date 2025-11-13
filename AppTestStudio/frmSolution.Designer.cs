@@ -36,19 +36,20 @@
             cmdAnimate = new Button();
             lblCurrent = new Label();
             grd = new DataGridView();
+            lblRunTime = new Label();
+            label2 = new Label();
+            lblProject = new Label();
+            label1 = new Label();
+            timer1 = new System.Windows.Forms.Timer(components);
             colCurrent = new DataGridViewTextBoxColumn();
             colID = new DataGridViewTextBoxColumn();
             colName = new DataGridViewTextBoxColumn();
             colAction = new DataGridViewTextBoxColumn();
             colX = new DataGridViewTextBoxColumn();
             colY = new DataGridViewTextBoxColumn();
+            colXTime = new DataGridViewTextBoxColumn();
             colTime = new DataGridViewTextBoxColumn();
             colCTime = new DataGridViewTextBoxColumn();
-            lblRunTime = new Label();
-            label2 = new Label();
-            lblProject = new Label();
-            label1 = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -112,7 +113,7 @@
             hScrollBar1.Location = new Point(3, 86);
             hScrollBar1.Maximum = 500;
             hScrollBar1.Name = "hScrollBar1";
-            hScrollBar1.Size = new Size(758, 39);
+            hScrollBar1.Size = new Size(759, 39);
             hScrollBar1.TabIndex = 10;
             // 
             // cmdAnimate
@@ -142,17 +143,61 @@
             grd.AllowUserToAddRows = false;
             grd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grd.Columns.AddRange(new DataGridViewColumn[] { colCurrent, colID, colName, colAction, colX, colY, colTime, colCTime });
+            grd.Columns.AddRange(new DataGridViewColumn[] { colCurrent, colID, colName, colAction, colX, colY, colXTime, colTime, colCTime });
             grd.Location = new Point(7, 127);
             grd.Margin = new Padding(2);
             grd.Name = "grd";
             grd.ReadOnly = true;
             grd.RowHeadersVisible = false;
             grd.RowHeadersWidth = 62;
-            grd.Size = new Size(752, 629);
+            grd.Size = new Size(753, 629);
             grd.TabIndex = 6;
             grd.CellMouseDown += grd_CellMouseDown;
             grd.CellMouseEnter += grd_CellMouseEnter;
+            // 
+            // lblRunTime
+            // 
+            lblRunTime.AutoSize = true;
+            lblRunTime.Location = new Point(70, 26);
+            lblRunTime.Margin = new Padding(2, 0, 2, 0);
+            lblRunTime.Name = "lblRunTime";
+            lblRunTime.Size = new Size(68, 15);
+            lblRunTime.TabIndex = 5;
+            lblRunTime.Text = "lblRunTime";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(9, 26);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(55, 15);
+            label2.TabIndex = 4;
+            label2.Text = "RunTime";
+            // 
+            // lblProject
+            // 
+            lblProject.AutoSize = true;
+            lblProject.Location = new Point(70, 7);
+            lblProject.Margin = new Padding(2, 0, 2, 0);
+            lblProject.Name = "lblProject";
+            lblProject.Size = new Size(57, 15);
+            lblProject.TabIndex = 3;
+            lblProject.Text = "lblProject";
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(6, 8);
+            label1.Margin = new Padding(2, 0, 2, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(44, 15);
+            label1.TabIndex = 2;
+            label1.Text = "Project";
+            // 
+            // timer1
+            // 
+            timer1.Tick += timer1_Tick;
             // 
             // colCurrent
             // 
@@ -202,6 +247,12 @@
             colY.ReadOnly = true;
             colY.Width = 80;
             // 
+            // colXTime
+            // 
+            colXTime.HeaderText = "Execution Time";
+            colXTime.Name = "colXTime";
+            colXTime.ReadOnly = true;
+            // 
             // colTime
             // 
             colTime.HeaderText = "Time (ms)";
@@ -217,50 +268,6 @@
             colCTime.Name = "colCTime";
             colCTime.ReadOnly = true;
             colCTime.Width = 150;
-            // 
-            // lblRunTime
-            // 
-            lblRunTime.AutoSize = true;
-            lblRunTime.Location = new Point(70, 26);
-            lblRunTime.Margin = new Padding(2, 0, 2, 0);
-            lblRunTime.Name = "lblRunTime";
-            lblRunTime.Size = new Size(68, 15);
-            lblRunTime.TabIndex = 5;
-            lblRunTime.Text = "lblRunTime";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(9, 26);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(55, 15);
-            label2.TabIndex = 4;
-            label2.Text = "RunTime";
-            // 
-            // lblProject
-            // 
-            lblProject.AutoSize = true;
-            lblProject.Location = new Point(70, 7);
-            lblProject.Margin = new Padding(2, 0, 2, 0);
-            lblProject.Name = "lblProject";
-            lblProject.Size = new Size(57, 15);
-            lblProject.TabIndex = 3;
-            lblProject.Text = "lblProject";
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(6, 8);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(44, 15);
-            label1.TabIndex = 2;
-            label1.Text = "Project";
-            // 
-            // timer1
-            // 
-            timer1.Tick += timer1_Tick;
             // 
             // frmSolution
             // 
@@ -293,17 +300,18 @@
         private Label label2;
         private Label lblProject;
         private DataGridView grd;
+        private Button cmdAnimate;
+        private Label lblCurrent;
+        private HScrollBar hScrollBar1;
+        private System.Windows.Forms.Timer timer1;
         private DataGridViewTextBoxColumn colCurrent;
         private DataGridViewTextBoxColumn colID;
         private DataGridViewTextBoxColumn colName;
         private DataGridViewTextBoxColumn colAction;
         private DataGridViewTextBoxColumn colX;
         private DataGridViewTextBoxColumn colY;
+        private DataGridViewTextBoxColumn colXTime;
         private DataGridViewTextBoxColumn colTime;
         private DataGridViewTextBoxColumn colCTime;
-        private Button cmdAnimate;
-        private Label lblCurrent;
-        private HScrollBar hScrollBar1;
-        private System.Windows.Forms.Timer timer1;
     }
 }
