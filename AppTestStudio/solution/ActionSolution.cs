@@ -101,6 +101,9 @@ namespace AppTestStudio.solution
         public uint Flags { get; set; }
         public int AfterDelay { get; set; }
 
+        // Time when Action was executed
+        public DateTime? ExecutionTime { get; set; }
+
         public String MessageName()
         {
             if ((Flags & (uint)MouseEventFlags.Move) != 0)

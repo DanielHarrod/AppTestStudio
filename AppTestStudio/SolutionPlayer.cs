@@ -17,6 +17,7 @@ namespace AppTestStudio
             {
                 //Debug.WriteLine($"handle={solutionMessage.WindowHandle}, message={solutionMessage.Message},wParam={solutionMessage.wParam}, lParam={solutionMessage.lParam}");
                 PostMessage(solutionMessage.WindowHandle, solutionMessage.Message, solutionMessage.wParam, solutionMessage.lParam);
+                solutionMessage.ExecutionTime = DateTime.Now;
                 if (solutionMessage.AfterDelay > 0)
                 {
                     Thread.Sleep(solutionMessage.AfterDelay);
@@ -34,7 +35,7 @@ namespace AppTestStudio
 
                 Input[] inputToSend = { input };
                 SendInput((uint)inputToSend.Length, inputToSend, Marshal.SizeOf(typeof(Input)));
-
+                atsInput.ExecutionTime = DateTime.Now;
                 if (atsInput.AfterDelay > 0)
                 {
                     Thread.Sleep(atsInput.AfterDelay);
