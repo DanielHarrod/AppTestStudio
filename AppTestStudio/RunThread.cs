@@ -286,6 +286,7 @@ namespace AppTestStudio
                             foreach (KeyboardCommand command in node.RuntimeCompiledKeyboardCommands)
                             {
                                 Utils.ProcessKeyboardCommand(command);
+                                command.ExecutionTime = DateTime.Now;
                             }
                             solution = new ActionSolution();
                             solution.ActivateWindow = true; // Always true.

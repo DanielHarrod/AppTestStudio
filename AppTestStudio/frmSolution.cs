@@ -70,6 +70,24 @@ namespace AppTestStudio
                     }
                     RuntimeMS += actionSolution.RuntimeMS;
 
+                    foreach (KeyboardCommand cmd in actionSolution.KeyboardCommands)
+                    {
+                        CurrentRunTime += cmd.Delayms;
+
+                        int index = grd.Rows.Add();
+                        grd.Rows[index].Cells[(int)ColumnType.Aarow].Value = "";
+                        grd.Rows[index].Cells[(int)ColumnType.Index].Value = GridCount;
+                        grd.Rows[index].Cells[(int)ColumnType.NodeName].Value = solution.NodeName;
+                        grd.Rows[index].Cells[(int)ColumnType.MessageName].Value = "Keyboard";
+                        grd.Rows[index].Cells[(int)ColumnType.X].Value = cmd.PrintScanCode();
+                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = cmd.ButtonState.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.ExecutionTime].Value = cmd.ExecutionTime.ToString("HH:mm:ss.fff");
+                        grd.Rows[index].Cells[(int)ColumnType.AfterDelay].Value = cmd.Delayms.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.CumulativeTime].Value = CurrentRunTime;
+
+                        GridCount++;
+
+                    }
 
                     foreach (MouseSolutionMessage item in actionSolution.Messages)
                     {
@@ -100,7 +118,7 @@ namespace AppTestStudio
                         grd.Rows[index].Cells[(int)ColumnType.MessageName].Value = item.MessageName();
                         grd.Rows[index].Cells[(int)ColumnType.X].Value = item.CalcX.ToString();
                         grd.Rows[index].Cells[(int)ColumnType.Y].Value = item.CalcY.ToString();
-                        grd.Rows[index].Cells[(int)ColumnType.ExecutionTime].Value = item.ExecutionTime.ToString("HHmmssfff");
+                        grd.Rows[index].Cells[(int)ColumnType.ExecutionTime].Value = item.ExecutionTime.ToString("HH:mm:ss.fff");
                         grd.Rows[index].Cells[(int)ColumnType.AfterDelay].Value = item.AfterDelay.ToString();
                         grd.Rows[index].Cells[(int)ColumnType.CumulativeTime].Value = CurrentRunTime;
                     }

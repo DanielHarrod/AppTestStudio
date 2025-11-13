@@ -3,7 +3,6 @@
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using System.Diagnostics;
-using System.Text.Json.Serialization;
 using static AppTestStudio.NativeMethods;
 
 namespace AppTestStudio
@@ -19,6 +18,8 @@ namespace AppTestStudio
         public String Origin { get; set; }
 
         public int MaxRNG { get; set; }
+
+        public DateTime ExecutionTime { get; set; }
 
         public KeyboardCommand(ushort ScanCode, KeyboardButtonStates ButtonState, int Delayms, String Origin, int MaxRNG)
         {
@@ -414,6 +415,186 @@ namespace AppTestStudio
             KeyboardCommand command = (KeyboardCommand)this.MemberwiseClone();
 
             return command;
+        }
+
+        public String PrintScanCode()
+        {
+            switch (ScanCode)
+            {
+                case 0x39:
+                    return "Space";
+                case 0x1C:
+                    return "Enter";
+                case 0x0E:
+                    return "Backspace";
+                case 0x0F:
+                    return "Tab";
+                case 0x01:
+                    return "Esc";
+                case 0x2A:
+                    return "LShift";
+                case 0x36:
+                    return "RShift";
+                case 0x1D:
+                    return "LControl";
+                case 0x9D:
+                    return "RControl";
+                case 0x38:
+                    return "LAlt";
+                case 0xB8:
+                    return "RAlt";
+                case 0x3A:
+                    return "CapsLock";
+                case 0x52:
+                    return "Insert";
+                case 0x53:
+                    return "Delete";
+                case 0x47:
+                    return "Home";
+                case 0x4F:
+                    return "End";
+                case 0x49:
+                    return "PageUp";
+                    case 0x51:
+                        return "PageDown";
+                    case 0x4B:
+                        return "LeftArrow";
+                    case 0x48:
+                        return "UpArrow";
+                    case 0x4D:
+                        return "RightArrow";
+                    case 0x50:
+                        return "DownArrow";
+                    case 0x3B:
+                        return "F1";
+                    case 0x3C:
+                        return "F2";
+                    case 0x3D:
+                        return "F3";
+                    case 0x3E:
+                        return "F4";
+                    case 0x3F:
+                        return "F5";
+                    case 0x40:
+                        return "F6";
+                    case 0x41:
+                        return "F7";
+                    case 0x42:
+                        return "F8";
+                    case 0x43:
+                        return "F9";
+                    case 0x44:
+                        return "F10";
+                    case 0x57:
+                        return "F11";
+                    case 0x58:
+                        return "F12";
+                    case 0x45:
+                        return "NumLock";
+                    case 0x46:
+                        return "ScrollLock";
+                    case 0xE05B:
+                        return "LWin";
+                    case 0xE05C:
+                        return "RWin";
+                    case 0x0C:
+                        return "-";
+                    case 0x0D:
+                        return "=";
+                    case 0x1A:
+                        return "[";
+                    case 0x1B:
+                        return "]";
+                    case 0x2B:
+                        return "\\";
+                    case 0x27:
+                        return ";";
+                    case 0x28:
+                        return "'";
+                    case 0x33:
+                        return ",";
+                    case 0x34:
+                        return ".";
+                    case 0x35:
+                        return "/";
+                    case 0x29:
+                        return "`";
+                    case 0x0B:
+                        return "0";
+                    case 0x02:
+                        return "1";
+                    case 0x03:
+                        return "2";
+                    case 0x04:
+                        return "3";
+                    case 0x05:
+                        return "4";
+                    case 0x06:
+                        return "5";
+                    case 0x07:
+                        return "6";
+                    case 0x08:
+                        return "7";
+                    case 0x09:
+                        return "8";
+                    case 0x0A:
+                        return "9";
+                    case 0x10:
+                        return "q";
+                    case 0x11:
+                        return "w";
+                    case 0x12:
+                        return "e";
+                    case 0x13:
+                        return "r";
+                    case 0x14:
+                        return "t";
+                    case 0x15:
+                        return "y";
+                    case 0x16:
+                        return "u";
+                    case 0x17:
+                        return "i";
+                    case 0x18:
+                        return "o";
+                    case 0x19:
+                        return "p";
+                    case 0x1E:
+                        return "a";
+                    case 0x1F:
+                        return "s";
+                    case 0x20:
+                        return "d";
+                    case 0x21:
+                        return "f";
+                    case 0x22:
+                        return "g";
+                    case 0x23:
+                        return "h";
+                    case 0x24:
+                        return "j";
+                    case 0x25:
+                        return "k";
+                    case 0x26:
+                        return "l";
+                    case 0x2C:
+                        return "z";
+                    case 0x2D:
+                        return "x";
+                    case 0x2E:
+                        return "c";
+                    case 0x2F:
+                        return "v";
+                    case 0x30:
+                        return "b";
+                    case 0x31:
+                        return "n";
+                    case 0x32:
+                        return "m";
+                default:
+                    return $"Not Defined {ScanCode}";
+            }
+            return $"ScanCode: {ScanCode}";
         }
     }
 }

@@ -14,6 +14,7 @@ namespace AppTestStudio.solution
             EventType = SolutionType.Action;
             Messages = new List<MouseSolutionMessage>();
             ATSInputs = new List<ATSInput>();
+            KeyboardCommands = new List<KeyboardCommand>();
         }
 
         // Target Window Handle
