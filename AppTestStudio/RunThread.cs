@@ -290,6 +290,7 @@ namespace AppTestStudio
                             solution = new ActionSolution();
                             solution.ActivateWindow = true; // Always true.
                             solution.AddKeyboardCommands(node.RuntimeCompiledKeyboardCommands);
+                            gamePassSolution.AddSolution(solution, node);
 
 
                             break;
