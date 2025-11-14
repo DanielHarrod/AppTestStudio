@@ -7942,7 +7942,7 @@ namespace AppTestStudio
         frmNotify frmNotify;
         private void GlobalMouseKeyHook_KeyDown(object sender, KeyEventArgs e)
         {
-            Debug.WriteLine($"GlobalMouseKeyHook_KeyDown: {e.KeyCode},{e.SuppressKeyPress},{e.KeyData}");
+            //Debug.WriteLine($"GlobalMouseKeyHook_KeyDown: {e.KeyCode},{e.SuppressKeyPress},{e.KeyData}");
             try
             {
                 // Not sure why this fires true for F5 sometimes.
