@@ -17,6 +17,9 @@ namespace AppTestStudio
         public int wParam;
         public int lParam;
         public int AfterDelay;
+        
+        // Time when Message was executed
+        public DateTime ExecutionTime { get; set; }
 
         public int CalcX {
             get {

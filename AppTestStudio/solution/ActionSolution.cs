@@ -14,6 +14,7 @@ namespace AppTestStudio.solution
             EventType = SolutionType.Action;
             Messages = new List<MouseSolutionMessage>();
             ATSInputs = new List<ATSInput>();
+            KeyboardCommands = new List<KeyboardCommand>();
         }
 
         // Target Window Handle
@@ -101,6 +102,9 @@ namespace AppTestStudio.solution
         public uint Flags { get; set; }
         public int AfterDelay { get; set; }
 
+        // Time when Action was executed
+        public DateTime ExecutionTime { get; set; }
+
         public String MessageName()
         {
             if ((Flags & (uint)MouseEventFlags.Move) != 0)
@@ -109,11 +113,11 @@ namespace AppTestStudio.solution
             }
             if ((Flags & (uint)MouseEventFlags.LeftDown) != 0)
             {
-                return "Left Down";
+                return "Mouse Left Down";
             }
             if ((Flags & (uint)MouseEventFlags.LeftUp) != 0)
             {
-                return "Left Up";
+                return "Mouse Left Up";
             }
             return "";
         }

@@ -244,8 +244,6 @@ namespace AppTestStudio
             return mouseUpDelayMS;
         }
 
-
-
         [System.Diagnostics.DebuggerStepThrough]
         public static int CalculateAbsoluteCoordinateX(double x)
         {
@@ -287,12 +285,12 @@ namespace AppTestStudio
             switch (mouseMode)
             {
                 case MouseMode.Passive:
-                     CalculateClickDragReleasePassive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS, solution);
+                    CalculateClickDragReleasePassive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS, solution);
                     break;
                 case MouseMode.Active:
                     if (moveMouseFirst)
                     {
-                         CalculateMoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond, solution);
+                        CalculateMoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond, solution);
                     }
                     CalculateClickDragReleaseActive(windowHandle, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS, solution);
                     break;
@@ -363,7 +361,7 @@ namespace AppTestStudio
                         {
                             // same position so just increase the delay
                             lastSolutionMessage.AfterDelay += Sleeptime;
-                                
+
                         }
                         else
                         {
@@ -454,7 +452,7 @@ namespace AppTestStudio
                     }
                     AbsoluteX = CalculateAbsoluteCoordinateX(CurrentX);
                     AbsoluteY = CalculateAbsoluteCoordinateY(CurrentY);
-                    
+
                     PostCount++;
                     Flags = (uint)(MouseEventFlags.Move | MouseEventFlags.Absolute | mouseEventFlags);
                     solution.AddInput(INPUT_MOUSE, AbsoluteX, AbsoluteY, 0, Flags, CurrentSleepTime);
@@ -478,14 +476,14 @@ namespace AppTestStudio
             switch (mouseMode)
             {
                 case MouseMode.Passive:
-                    CalculateMoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS,solution);
+                    CalculateMoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_LBUTTON, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS, solution);
                     break;
                 case MouseMode.Active:
                     if (moveMouseFirst)
                     {
-                        CalculateMoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond,solution);
+                        CalculateMoveMouseActiveFromSystemPosition(windowHandle, MouseEventFlags.Blank, startX, startY, mouseSpeedPixelsPerSecond, solution);
                     }
-                    CalculateMoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.Blank, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS,solution);
+                    CalculateMoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.Blank, startX, startY, endX, endY, velocityMS, mouseInitialClickDelayMS, solution);
                     break;
                 default:
                     Debug.Assert(false);

@@ -19,8 +19,20 @@ namespace AppTestStudio
 {
     internal partial class frmSolution : Form
     {
+        public enum ColumnType : int
+        {
+            Aarow = 0,
+            Index = 1,
+            NodeName = 2,
+            MessageName = 3,
+            X = 4,
+            Y = 5,
+            ExecutionTime = 6,
+            AfterDelay = 7,
+            CumulativeTime = 8
 
-        GamePassSolution GamePassSolution;
+        }
+            GamePassSolution GamePassSolution;
         internal frmSolution(GamePassSolution gamePassSolution)
         {
             GamePassSolution = gamePassSolution;
@@ -58,20 +70,39 @@ namespace AppTestStudio
                     }
                     RuntimeMS += actionSolution.RuntimeMS;
 
+                    foreach (KeyboardCommand cmd in actionSolution.KeyboardCommands)
+                    {
+                        CurrentRunTime += cmd.Delayms;
+
+                        int index = grd.Rows.Add();
+                        grd.Rows[index].Cells[(int)ColumnType.Aarow].Value = "";
+                        grd.Rows[index].Cells[(int)ColumnType.Index].Value = GridCount;
+                        grd.Rows[index].Cells[(int)ColumnType.NodeName].Value = solution.NodeName;
+                        grd.Rows[index].Cells[(int)ColumnType.MessageName].Value = "Keyboard";
+                        grd.Rows[index].Cells[(int)ColumnType.X].Value = cmd.PrintScanCode();
+                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = cmd.ButtonState.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.ExecutionTime].Value = cmd.ExecutionTime.ToString("HH:mm:ss.fff");
+                        grd.Rows[index].Cells[(int)ColumnType.AfterDelay].Value = cmd.Delayms.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.CumulativeTime].Value = CurrentRunTime;
+
+                        GridCount++;
+
+                    }
 
                     foreach (MouseSolutionMessage item in actionSolution.Messages)
                     {
                         CurrentRunTime += item.AfterDelay;
 
                         int index = grd.Rows.Add();
-                        grd.Rows[index].Cells[0].Value = "";
-                        grd.Rows[index].Cells[1].Value = GridCount;
-                        grd.Rows[index].Cells[2].Value = solution.NodeName;
-                        grd.Rows[index].Cells[3].Value = item.MessageName();
-                        grd.Rows[index].Cells[4].Value = item.CalcX.ToString();
-                        grd.Rows[index].Cells[5].Value = item.CalcY.ToString();
-                        grd.Rows[index].Cells[6].Value = item.AfterDelay;
-                        grd.Rows[index].Cells[7].Value = CurrentRunTime;
+                        grd.Rows[index].Cells[(int)ColumnType.Aarow].Value = "";
+                        grd.Rows[index].Cells[(int)ColumnType.Index].Value = GridCount;
+                        grd.Rows[index].Cells[(int)ColumnType.NodeName].Value = solution.NodeName;
+                        grd.Rows[index].Cells[(int)ColumnType.MessageName].Value = item.MessageName();
+                        grd.Rows[index].Cells[(int)ColumnType.X].Value = item.CalcX.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = item.CalcY.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.ExecutionTime].Value = item.ExecutionTime.ToString("HH:mm:ss.fff");
+                        grd.Rows[index].Cells[(int)ColumnType.AfterDelay].Value = item.AfterDelay.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.CumulativeTime].Value = CurrentRunTime;
 
                         GridCount++;
                     }
@@ -81,15 +112,15 @@ namespace AppTestStudio
                         CurrentRunTime += item.AfterDelay;
                         
                         int index = grd.Rows.Add();
-                        grd.Rows[index].Cells[0].Value = "";
-                        grd.Rows[index].Cells[1].Value = GridCount;
-                        grd.Rows[index].Cells[2].Value = solution.NodeName;
-                        grd.Rows[index].Cells[3].Value = item.MessageName();
-                        grd.Rows[index].Cells[4].Value = item.CalcX.ToString();
-                        grd.Rows[index].Cells[5].Value = item.CalcY.ToString();
-                        grd.Rows[index].Cells[6].Value = item.AfterDelay;
-                        grd.Rows[index].Cells[7].Value = CurrentRunTime;
-
+                        grd.Rows[index].Cells[(int)ColumnType.Aarow].Value = "";
+                        grd.Rows[index].Cells[(int)ColumnType.Index].Value = GridCount;
+                        grd.Rows[index].Cells[(int)ColumnType.NodeName].Value = solution.NodeName;
+                        grd.Rows[index].Cells[(int)ColumnType.MessageName].Value = item.MessageName();
+                        grd.Rows[index].Cells[(int)ColumnType.X].Value = item.CalcX.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = item.CalcY.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.ExecutionTime].Value = item.ExecutionTime.ToString("HH:mm:ss.fff");
+                        grd.Rows[index].Cells[(int)ColumnType.AfterDelay].Value = item.AfterDelay.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.CumulativeTime].Value = CurrentRunTime;
                     }
 
                     continue;
@@ -164,6 +195,7 @@ namespace AppTestStudio
             switch (Action)
             {
                 case "MouseMove":
+                case "Mouse Move":
                     DrawMode = "MouseMove";
                     pictureBox1.Invalidate();
                     break;
