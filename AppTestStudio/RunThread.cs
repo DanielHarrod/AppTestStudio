@@ -172,8 +172,6 @@ namespace AppTestStudio
 
                     int xPos = node.Rectangle.X;
                     int yPos = node.Rectangle.Y;
-
-                    GameNode Parent = node.Parent as GameNode;
                     switch (node.Mode)
                     {
                         case Mode.RangeClick:
@@ -493,6 +491,8 @@ namespace AppTestStudio
                     EventSolution eventSolution = node.IsTrue(bmp, Game);
                     if (eventSolution.Result)
                     {
+                        centerX = eventSolution.CenterX;
+                        centerY = eventSolution.CenterY;
                         if (node.IsColorPoint == false)
                         {
                             // is Object search.
