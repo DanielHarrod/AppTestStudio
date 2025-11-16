@@ -12,8 +12,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="dll\x86\**" />
     <Compile Remove="SnakeTail\**" />
+    <EmbeddedResource Remove="dll\x86\**" />
     <EmbeddedResource Remove="SnakeTail\**" />
+    <None Remove="dll\x86\**" />
     <None Remove="SnakeTail\**" />
   </ItemGroup>
 
@@ -33,12 +36,15 @@
   <ItemGroup>
     <Reference Include="PresentationCore">
       <HintPath>lib\PresentationCore.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="PresentationFramework">
       <HintPath>lib\PresentationFramework.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="WindowsBase">
       <HintPath>lib\WindowsBase.dll</HintPath>
+      <Private>True</Private>
     </Reference>
   </ItemGroup>
 
@@ -51,6 +57,15 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="lib\PresentationCore.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="lib\PresentationFramework.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="lib\WindowsBase.dll">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
     <None Update="log4net.config">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
@@ -59,5 +74,9 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+    <Exec Command="xcopy &quot;$(ProjectDir)lib\*&quot; &quot;$(TargetDir)&quot; /Y /S /D" />
+  </Target>
 
 </Project>
