@@ -72,6 +72,7 @@
             txtNodeName.Name = "txtNodeName";
             txtNodeName.Size = new Size(344, 23);
             txtNodeName.TabIndex = 2;
+            txtNodeName.KeyDown += txtNodeName_KeyDown;
             // 
             // groupBox1
             // 
@@ -111,7 +112,7 @@
             // 
             // cmdCreate
             // 
-            cmdCreate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cmdCreate.Enabled = false;
             cmdCreate.Location = new Point(400, 276);
             cmdCreate.Name = "cmdCreate";
             cmdCreate.Size = new Size(283, 23);

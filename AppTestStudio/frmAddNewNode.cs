@@ -20,8 +20,8 @@ namespace AppTestStudio
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Boolean ExitAndTargetNewNode { get; set; } = false;
-        
-        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)] 
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Boolean UseRootNode { get; set; } = false;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -46,7 +46,7 @@ namespace AppTestStudio
             UseRootNode = rdoRootNode.Checked;
             IsAction = rdoAction.Checked;
 
-            Hide();            
+            Hide();
         }
 
         private void cmdCancel_Click(object sender, EventArgs e)
@@ -67,5 +67,17 @@ namespace AppTestStudio
             }
         }
 
+        private void txtNodeName_KeyDown(object sender, KeyEventArgs e)
+        {
+            cmdCreate.Enabled = true;
+            if (txtNodeName.Text.Trim().Length > 0 && e.KeyCode == Keys.Enter)
+            {
+                cmdCreate.PerformClick();
+            }
+            if (txtNodeName.Text.Trim().Length == 0)
+            {
+                cmdCreate.Enabled = false;
+            }
+        }
     }
 }
