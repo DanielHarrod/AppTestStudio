@@ -2010,7 +2010,7 @@ namespace AppTestStudio
             splitContainerThreadMain.Panel2.Controls.Add(lstGamePass);
             splitContainerThreadMain.Panel2MinSize = 120;
             splitContainerThreadMain.Size = new Size(1664, 759);
-            splitContainerThreadMain.SplitterDistance = 1398;
+            splitContainerThreadMain.SplitterDistance = 1399;
             splitContainerThreadMain.SplitterWidth = 3;
             splitContainerThreadMain.TabIndex = 1;
             // 
@@ -2030,7 +2030,7 @@ namespace AppTestStudio
             // splitContainerThread.Panel2
             // 
             splitContainerThread.Panel2.Controls.Add(appTestStudioStatusControl1);
-            splitContainerThread.Size = new Size(1398, 759);
+            splitContainerThread.Size = new Size(1399, 759);
             splitContainerThread.SplitterDistance = 198;
             splitContainerThread.SplitterWidth = 5;
             splitContainerThread.TabIndex = 1;
@@ -2051,7 +2051,7 @@ namespace AppTestStudio
             // splitContainerStatsNScrollie.Panel2
             // 
             splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
-            splitContainerStatsNScrollie.Size = new Size(1398, 198);
+            splitContainerStatsNScrollie.Size = new Size(1399, 198);
             splitContainerStatsNScrollie.SplitterDistance = 25;
             splitContainerStatsNScrollie.SplitterWidth = 5;
             splitContainerStatsNScrollie.TabIndex = 2;
@@ -2074,7 +2074,7 @@ namespace AppTestStudio
             tableLayoutStats.Name = "tableLayoutStats";
             tableLayoutStats.RowCount = 1;
             tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutStats.Size = new Size(1398, 25);
+            tableLayoutStats.Size = new Size(1399, 25);
             tableLayoutStats.TabIndex = 3;
             // 
             // groupTotal
@@ -2439,7 +2439,7 @@ namespace AppTestStudio
             grpAPS.Margin = new Padding(4, 3, 4, 3);
             grpAPS.Name = "grpAPS";
             grpAPS.Padding = new Padding(4, 3, 4, 3);
-            grpAPS.Size = new Size(343, 19);
+            grpAPS.Size = new Size(344, 19);
             grpAPS.TabIndex = 4;
             grpAPS.TabStop = false;
             grpAPS.Text = "Clicks Per Second";
@@ -2450,7 +2450,7 @@ namespace AppTestStudio
             atsGraphActions1.Location = new Point(4, 19);
             atsGraphActions1.Margin = new Padding(4, 3, 4, 3);
             atsGraphActions1.Name = "atsGraphActions1";
-            atsGraphActions1.Size = new Size(335, 0);
+            atsGraphActions1.Size = new Size(336, 0);
             atsGraphActions1.TabIndex = 0;
             // 
             // splitContainerSeconds
@@ -2467,7 +2467,7 @@ namespace AppTestStudio
             // splitContainerSeconds.Panel2
             // 
             splitContainerSeconds.Panel2.BackColor = SystemColors.ControlDark;
-            splitContainerSeconds.Size = new Size(1398, 22);
+            splitContainerSeconds.Size = new Size(1399, 22);
             splitContainerSeconds.SplitterDistance = 212;
             splitContainerSeconds.SplitterWidth = 5;
             splitContainerSeconds.TabIndex = 0;
@@ -2480,7 +2480,7 @@ namespace AppTestStudio
             appTestStudioStatusControl1.Margin = new Padding(5, 6, 5, 6);
             appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
             appTestStudioStatusControl1.ShowPercent = 10L;
-            appTestStudioStatusControl1.Size = new Size(1398, 556);
+            appTestStudioStatusControl1.Size = new Size(1399, 556);
             appTestStudioStatusControl1.TabIndex = 0;
             // 
             // lstGamePass
@@ -2492,7 +2492,7 @@ namespace AppTestStudio
             lstGamePass.Location = new Point(0, 0);
             lstGamePass.Margin = new Padding(2);
             lstGamePass.Name = "lstGamePass";
-            lstGamePass.Size = new Size(263, 759);
+            lstGamePass.Size = new Size(262, 759);
             lstGamePass.SmallImageList = ImageList1;
             lstGamePass.TabIndex = 0;
             lstGamePass.UseCompatibleStateImageBehavior = false;

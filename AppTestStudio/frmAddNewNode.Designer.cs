@@ -112,6 +112,7 @@
             // 
             // cmdCreate
             // 
+            cmdCreate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmdCreate.Enabled = false;
             cmdCreate.Location = new Point(400, 276);
             cmdCreate.Name = "cmdCreate";
