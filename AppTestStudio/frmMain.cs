@@ -2138,6 +2138,7 @@ namespace AppTestStudio
                 SetPanel(PanelMode.Object);
                 tv.SelectedNode = o;
             }
+            txtObjectScreenshotName.Text = "";
         }
 
         private void SetPanel(PanelMode PanelMode)
