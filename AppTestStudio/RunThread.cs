@@ -111,7 +111,14 @@ namespace AppTestStudio
             Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
             while (Game.IsPaused)
             {
-                ThreadSleep(1000);
+                if (CancellationTokenSource.Token.IsCancellationRequested == false)
+                {
+                    ThreadSleep(1000);
+                }
+                else
+                {
+                    break;
+                }
                 ChildSleepTimeMS = ChildSleepTimeMS + 1000;
             }
 
