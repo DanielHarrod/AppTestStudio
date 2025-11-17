@@ -4,15 +4,18 @@
 
 using AppTestStudio.solution;
 using OpenCvSharp.Internal.Vectors;
+using OpenCvSharp.XImgProc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace AppTestStudio
@@ -249,7 +252,59 @@ namespace AppTestStudio
 
         private void cmdAddImageToProject_Click(object sender, EventArgs e)
         {
+            try
+            {
+                frmAddNewNode frmAddNewNode = new frmAddNewNode(GamePassSolution, frmMain, this);
+                frmAddNewNode.ShowDialog();
 
+                if (frmAddNewNode.ExitAndTargetNewNode)
+                {
+                    // set to Design tab
+                    frmMain.tabTree.SelectedIndex = 0;
+
+                    // change selected tree to base node
+                    if (frmAddNewNode.UseRootNode)
+                    {
+                        frmMain.tv.SelectedNode = frmMain.GetGameNodeEvents();
+                    }
+                    else
+                    {
+                        GameNode node = frmMain.tv.SelectedNode as GameNode;
+                        if (node != null)
+                        {
+                            switch (node.GameNodeType)
+                            {
+                                case GameNodeType.Events:
+                                    break;
+                                case GameNodeType.Action:
+                                    break;
+                                default:
+                                    frmMain.tv.SelectedNode = frmMain.GetGameNodeEvents();
+                                    break;
+                            }
+                        }
+                    }
+
+                    if (frmAddNewNode.IsAction)
+                    {
+                        frmMain.AddAction();
+                    }
+                    else
+                    {
+                        frmMain.AddNewEvent();
+                    }
+                    frmMain.txtEventName.Text = frmAddNewNode.NodeName;
+                    frmMain.SetPictureBox1(pictureBox1.Image as Bitmap);
+
+                    Hide();
+
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("cmdAddImageToProject_Click failed. ex=" + ex.Message);
+            }
         }
     }
 }
+

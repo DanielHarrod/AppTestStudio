@@ -1119,7 +1119,7 @@ namespace AppTestStudio
             return null;
         }
 
-        private GameNodeEvents GetGameNodeEvents()
+        internal GameNodeEvents GetGameNodeEvents()
         {
             GameNodeGame Game = GetGameNode();
             if (Game.IsSomething())
@@ -4474,7 +4474,7 @@ namespace AppTestStudio
 
         }
 
-        private void SetPictureBox1(Bitmap bmp)
+        internal void SetPictureBox1(Bitmap bmp)
         {
             PictureBox1.Image = bmp;
             GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
@@ -5290,7 +5290,7 @@ namespace AppTestStudio
             AddNewEvent();
         }
 
-        private void AddNewEvent()
+        internal void AddNewEvent()
         {
             if (tv.SelectedNode.IsSomething())
             {
@@ -5340,7 +5340,7 @@ namespace AppTestStudio
             AddAction();
         }
 
-        private void AddAction()
+        internal void AddAction()
         {
             GameNode OriginalNode = tv.SelectedNode as GameNode;
             GameNodeAction GameNodeAction = new GameNodeAction("Click " + tv.SelectedNode.Text, ActionType.Action);

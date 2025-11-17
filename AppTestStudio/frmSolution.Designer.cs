@@ -32,6 +32,7 @@
             pictureBox1 = new PictureBox();
             textBox1 = new TextBox();
             splitContainer1 = new SplitContainer();
+            cmdAddImageToProject = new Button();
             hScrollBar1 = new HScrollBar();
             cmdAnimate = new Button();
             lblCurrent = new Label();
@@ -50,7 +51,6 @@
             lblProject = new Label();
             label1 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
-            cmdAddImageToProject = new Button();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -109,13 +109,23 @@
             splitContainer1.SplitterWidth = 3;
             splitContainer1.TabIndex = 2;
             // 
+            // cmdAddImageToProject
+            // 
+            cmdAddImageToProject.Location = new Point(478, 7);
+            cmdAddImageToProject.Name = "cmdAddImageToProject";
+            cmdAddImageToProject.Size = new Size(270, 52);
+            cmdAddImageToProject.TabIndex = 11;
+            cmdAddImageToProject.Text = "Add Image to Project";
+            cmdAddImageToProject.UseVisualStyleBackColor = true;
+            cmdAddImageToProject.Click += cmdAddImageToProject_Click;
+            // 
             // hScrollBar1
             // 
             hScrollBar1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             hScrollBar1.Location = new Point(3, 86);
             hScrollBar1.Maximum = 500;
             hScrollBar1.Name = "hScrollBar1";
-            hScrollBar1.Size = new Size(760, 39);
+            hScrollBar1.Size = new Size(761, 39);
             hScrollBar1.TabIndex = 10;
             // 
             // cmdAnimate
@@ -152,7 +162,7 @@
             grd.ReadOnly = true;
             grd.RowHeadersVisible = false;
             grd.RowHeadersWidth = 62;
-            grd.Size = new Size(754, 629);
+            grd.Size = new Size(755, 629);
             grd.TabIndex = 6;
             grd.CellMouseDown += grd_CellMouseDown;
             grd.CellMouseEnter += grd_CellMouseEnter;
@@ -271,16 +281,6 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
-            // cmdAddImageToProject
-            // 
-            cmdAddImageToProject.Location = new Point(427, 22);
-            cmdAddImageToProject.Name = "cmdAddImageToProject";
-            cmdAddImageToProject.Size = new Size(141, 23);
-            cmdAddImageToProject.TabIndex = 11;
-            cmdAddImageToProject.Text = "Add Image to Project";
-            cmdAddImageToProject.UseVisualStyleBackColor = true;
-            cmdAddImageToProject.Click += cmdAddImageToProject_Click;
-            // 
             // frmSolution
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -289,7 +289,7 @@
             Controls.Add(splitContainer1);
             Margin = new Padding(2);
             Name = "frmSolution";
-            Text = "frmSolution";
+            Text = "Solution Viewer";
             Load += frmSolution_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
