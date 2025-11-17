@@ -9295,7 +9295,9 @@ namespace AppTestStudio
 
         private void ShowSolution(GamePassSolution solution)
         {
-            frmSolution frm = new frmSolution(solution);
+            frmSolution frm = new frmSolution(solution, this);
+
+
             frm.Show();
         }
 

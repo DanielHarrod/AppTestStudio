@@ -19,6 +19,7 @@ namespace AppTestStudio
 {
     internal partial class frmSolution : Form
     {
+        private frmMain frmMain = null;
         public enum ColumnType : int
         {
             Aarow = 0,
@@ -32,11 +33,12 @@ namespace AppTestStudio
             CumulativeTime = 8
 
         }
-            GamePassSolution GamePassSolution;
-        internal frmSolution(GamePassSolution gamePassSolution)
+        GamePassSolution GamePassSolution;
+        internal frmSolution(GamePassSolution gamePassSolution, frmMain frmMain)
         {
             GamePassSolution = gamePassSolution;
             InitializeComponent();
+            this.frmMain = frmMain;
         }
 
         private void frmSolution_Load(object sender, EventArgs e)
@@ -110,7 +112,7 @@ namespace AppTestStudio
                     foreach (ATSInput item in actionSolution.ATSInputs)
                     {
                         CurrentRunTime += item.AfterDelay;
-                        
+
                         int index = grd.Rows.Add();
                         grd.Rows[index].Cells[(int)ColumnType.Aarow].Value = "";
                         grd.Rows[index].Cells[(int)ColumnType.Index].Value = GridCount;
@@ -234,16 +236,19 @@ namespace AppTestStudio
             switch (Action)
             {
                 case "DrawCrossHair":
-                    g.DrawLine(p, X, 0, X, Y-1);
+                    g.DrawLine(p, X, 0, X, Y - 1);
                     g.DrawLine(p, X, pictureBox1.Image.Height, X, Y - 1);
-                    g.DrawLine(p, 0, Y - 1, X+1, Y - 1);
+                    g.DrawLine(p, 0, Y - 1, X + 1, Y - 1);
                     g.DrawLine(p, pictureBox1.Image.Width, Y - 1, X + 1, Y - 1);
                     break;
-                  
+
                 default:
                     break;
             }
+        }
 
+        private void cmdAddImageToProject_Click(object sender, EventArgs e)
+        {
 
         }
     }
