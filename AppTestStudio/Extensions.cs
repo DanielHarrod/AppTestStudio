@@ -329,5 +329,23 @@ namespace AppTestStudio
                 }
             }
         }
+
+        public static string ToDhmsString(this TimeSpan ts)
+        {
+            if (ts == TimeSpan.Zero)
+            {
+                return "0d 0h 0m 0s";
+            }
+
+            var sign = ts < TimeSpan.Zero ? "-" : "";
+            ts = ts.Duration(); // absolute value
+
+            return string.Concat(
+                sign,
+                ts.Days, "d ",
+                ts.Hours, "h ",
+                ts.Minutes, "m ",
+                ts.Seconds, "s");
+        }
     }
 }

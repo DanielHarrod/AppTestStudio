@@ -3841,22 +3841,12 @@ namespace AppTestStudio
                 lblClickCount.Text = String.Format("{0:n0}", ThreadManager.ClickCount);
                 lblClickCountTotal.Text = String.Format("{0:n0}", ThreadManager.ClickCount + ThreadManager.LoadThreadManager.ClickCount);
 
+                TimeSpan t = TimeSpan.FromSeconds(ThreadManager.WaitLength / 1000);
+                lblWaiting.Text = t.ToDhmsString();
 
-                lblWaiting.Text = String.Format("{0:n0} s", ThreadManager.WaitLength / 1000);
-                TimeSpan t = TimeSpan.FromSeconds((ThreadManager.WaitLength + ThreadManager.LoadThreadManager.WaitLength) / 1000);
+                t = TimeSpan.FromSeconds((ThreadManager.WaitLength + ThreadManager.LoadThreadManager.WaitLength) / 1000);
 
-                String Time = "";
-                if (t.Days > 0)
-                {
-                    Time = Time + t.Days.ToString().PadLeft(2, '0') + "d ";
-                }
-
-                Time = Time + t.Hours.ToString().PadLeft(2, '0') + "h ";
-                Time = Time + t.Minutes.ToString().PadLeft(2, '0') + "m ";
-                Time = Time + t.Seconds.ToString().PadLeft(2, '0') + "s ";
-
-
-                lblWaitingTotal.Text = Time;
+                lblWaitingTotal.Text = t.ToDhmsString();
 
                 lblScreenshots.Text = String.Format("{0:n0}", ThreadManager.ScreenShots);
                 lblScreenshotsTotal.Text = String.Format("{0:n0}", ThreadManager.ScreenShots + ThreadManager.LoadThreadManager.ScreenShots);
