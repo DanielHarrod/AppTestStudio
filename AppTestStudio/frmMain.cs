@@ -9272,7 +9272,7 @@ namespace AppTestStudio
 
                 int index = k.SubItems[2].Text.ToInt();
 
-                foreach (GamePassSolution solution in GamePassSolutions )
+                foreach (GamePassSolution solution in GamePassSolutions)
                 {
                     if (solution.SolutionID == index)
                     {
@@ -9301,14 +9301,14 @@ namespace AppTestStudio
             Debug.WriteLine("lstGamePass_Resize");
 
             int rowHeight = Math.Max(
-                TextRenderer.MeasureText("Sample", lstGamePass.Font).Height +5,
+                TextRenderer.MeasureText("Sample", lstGamePass.Font).Height + 5,
                 lstGamePass.SmallImageList?.ImageSize.Height ?? 0
             );
 
             int visibleRows = lstGamePass.ClientSize.Height / rowHeight;
 
             GamePassList = new List<ListViewItem>();
- 
+
             // Optional: store all items elsewhere and repopulate
             lstGamePass.BeginUpdate();
             lstGamePass.Items.Clear();
@@ -9329,7 +9329,40 @@ namespace AppTestStudio
             {
                 Debug.WriteLine("lstGamePassColumns ?");
             }
-                lstGamePass.EndUpdate();
+            lstGamePass.EndUpdate();
+        }
+
+        private void lstGamePass_MouseMove(object sender, MouseEventArgs e)
+        {
+            Debug.WriteLine("lstGamePass_MouseMove");
+            ListViewItem item = lstGamePass.GetItemAt(e.X, e.Y);
+            if (item.IsSomething())
+            {
+                var k = GamePassList[item.Index];
+
+                int index = k.SubItems[2].Text.ToInt();
+
+                foreach (GamePassSolution solution in GamePassSolutions)
+                {
+                    if (solution.SolutionID == index)
+                    {
+                        pbPreview.Image = solution.Bitmap;
+                        pbPreview.Left = -20 - pbPreview.Width + splitContainerThread.Width;
+                        pbPreview.Top = e.Y + 20;
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void lstGamePass_MouseLeave(object sender, EventArgs e)
+        {
+            pbPreview.Visible = false;
+        }
+
+        private void lstGamePass_MouseEnter(object sender, EventArgs e)
+        {
+            pbPreview.Visible = true;
         }
     }
 }
