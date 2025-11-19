@@ -249,7 +249,7 @@ namespace AppTestStudio
 
                                 ThreadManager.IncrementClickCount();
 
-                                node.RuntimeActionCount++;
+                                node.RuntimeActionCount++;  // Range Click
 
                                 // Draw solution marker
                                 if (Game.SaveVideo)
@@ -351,7 +351,7 @@ namespace AppTestStudio
                                 Game.MouseX = (short)MouseMoveResult.EndX;
                                 Game.MouseY = (short)MouseMoveResult.EndY;
                                 ThreadManager.IncrementMouseMove();
-                                node.RuntimeActionCount++;
+                                node.RuntimeActionCount++;  // Mouse Move
 
                                 // Draw solution marker
                                 if (Game.SaveVideo)
@@ -416,7 +416,7 @@ namespace AppTestStudio
                                 Game.MouseX = (short)CDRResult.EndX;
                                 Game.MouseY = (short)CDRResult.EndY;
                                 ThreadManager.IncrementClickDragRelease();
-                                node.RuntimeActionCount++;
+                                node.RuntimeActionCount++;  // Click Drag Release
                                 //'if (UseThreadBitmap ) {
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)
                                 //'}
@@ -517,7 +517,7 @@ namespace AppTestStudio
                             node.SendBitmapToProject(bmp, Game);
                         }
 
-                        node.RuntimeActionCount++;
+                        node.RuntimeActionCount++;  // Event
 
                         //'Track the Last Node Event
                         Game.AbsoluteLastNode = node;
@@ -597,7 +597,11 @@ namespace AppTestStudio
 
                         ThreadManager.IncrementWaitLength();
 
+                        node.RuntimeActionCount++;  // RNG Container
+
                         GameNodeAction RNGNode = node.Nodes[TargetIndex] as GameNodeAction;
+
+                        RNGNode.RuntimeActionCount++; // RNG Node
 
                         if (RNGNode.Enabled == false)
                         {
@@ -618,6 +622,8 @@ namespace AppTestStudio
                                     return Result;
                             }
                         }
+
+
 
                         foreach (TreeNode t in RNGNode.Nodes)
                         {
