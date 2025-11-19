@@ -9349,7 +9349,7 @@ namespace AppTestStudio
                         pbPreview.Image = solution.Bitmap;
                         pbPreview.Left = -20 - pbPreview.Width + splitContainerThread.Width;
                         pbPreview.Top = e.Y + 20;
-                        
+
                         break;
                     }
                 }
@@ -9364,6 +9364,70 @@ namespace AppTestStudio
         private void lstGamePass_MouseEnter(object sender, EventArgs e)
         {
             pbPreview.Visible = true;
+        }
+
+        private void mnuCompareAllToRuntimeImagesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tvRun_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+
+                //' Point where mouse is clicked
+                Point p = new Point(e.X, e.Y);
+
+                //' Go to the node that the user clicked
+                GameNode node = tvRun.GetNodeAt(p) as GameNode;
+
+                Boolean showMenu = false;
+                switch (node.GameNodeType)
+                {
+                    case GameNodeType.Workspace:
+                        break;
+                    case GameNodeType.Games:
+                        break;
+                    case GameNodeType.Game:
+                        break;
+                    case GameNodeType.Events:
+                        break;
+                    case GameNodeType.Action:
+                        
+                        GameNodeAction ActionNode = node as GameNodeAction;
+                        switch (ActionNode.ActionType)
+                        {
+                            case ActionType.Action:
+                                break;
+                            case ActionType.Event:
+                                lblRunTreeNodeNameToolStripMenuItem.Text = ActionNode.Name;
+                                showMenu = true;
+                                break;
+                            case ActionType.RNG:
+                                break;
+                            case ActionType.RNGContainer:
+                                break;
+                            default:
+                                break;
+                        }
+
+                        break;
+                    case GameNodeType.Objects:
+                        break;
+                    case GameNodeType.ObjectScreenshot:
+                        break;
+                    case GameNodeType.Object:
+                        break;
+                    default:
+                        break;
+                }
+
+                if (showMenu)
+                {
+                    mnuRunTree.Show(tvRun, p);
+                }                
+            }
         }
     }
 }
