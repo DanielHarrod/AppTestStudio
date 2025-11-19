@@ -9346,9 +9346,11 @@ namespace AppTestStudio
                 {
                     if (solution.SolutionID == index)
                     {
+                        pbPreview.Width = (int)(pbPreview.Height * ((double)solution.Bitmap.Width / solution.Bitmap.Height));
                         pbPreview.Image = solution.Bitmap;
                         pbPreview.Left = -20 - pbPreview.Width + splitContainerThread.Width;
                         pbPreview.Top = e.Y + 20;
+                        
                         break;
                     }
                 }
