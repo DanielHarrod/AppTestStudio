@@ -104,7 +104,7 @@ namespace AppTestStudio
         /// <param name="centerX"></param>
         /// <param name="centerY"></param>
         /// <returns></returns>
-        private AfterCompletionType ProcessChildren(GamePassSolution gamePassSolution, Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS, List<String> NodeList)
+        private AfterCompletionType ProcessChildren(GamePassSolution gamePassSolution, Bitmap bmp, GameNodeAction node, int centerX, int centerY, ref long ChildSleepTimeMS)
         {
             ActionSolution solution = null;
             //Debug.WriteLine($"ProcessChildren: {node.Name}");
@@ -532,18 +532,7 @@ namespace AppTestStudio
                                 // Process children and throw away the result
                                 foreach (GameNodeAction ChildNode in node.Nodes)
                                 {
-                                    if (NodeList.Count > 0)
-                                    {
-                                        if (ChildNode.Name == NodeList[0])
-                                        {
-                                            NodeList.RemoveAt(0);
-                                        }
-                                        else
-                                        {
-                                            continue;
-                                        }
-                                    }
-                                    ProcessChildren(gamePassSolution, bmp, ChildNode as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
+                                    ProcessChildren(gamePassSolution, bmp, ChildNode as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS);
                                 }
                                 CurrentRepeatsUntilFalseLimit--;
                                 goto RepeatAction;
@@ -627,18 +616,7 @@ namespace AppTestStudio
 
                         foreach (TreeNode t in RNGNode.Nodes)
                         {
-                            if (NodeList.Count > 0)
-                            {
-                                if (t.Name == NodeList[0])
-                                {
-                                    NodeList.RemoveAt(0);
-                                }
-                                else
-                                {
-                                    continue;
-                                }
-                            }
-                            AfterCompletionType ACT = ProcessChildren(gamePassSolution, bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
+                            AfterCompletionType ACT = ProcessChildren(gamePassSolution, bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS);
 
                             switch (ACT)
                             {
@@ -716,18 +694,7 @@ namespace AppTestStudio
                         Boolean ExitFor = false;
                         foreach (TreeNode t in node.Nodes)
                         {
-                            if (NodeList.Count > 0)
-                            {
-                                if (t.Name == NodeList[0])
-                                {
-                                    NodeList.RemoveAt(0);
-                                }
-                                else
-                                {
-                                    continue;
-                                }
-                            }
-                            AfterCompletionType ACT = ProcessChildren(gamePassSolution, bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS, NodeList);
+                            AfterCompletionType ACT = ProcessChildren(gamePassSolution, bmp, t as GameNodeAction, centerX, centerY, ref ChildSleepTimeMS);
 
                             switch (ACT)
                             {
@@ -1045,14 +1012,12 @@ namespace AppTestStudio
                     GamePassSolution gamePassSolution = new GamePassSolution();
                     gamePassSolution.Bitmap = bmp.CloneMe();
 
-                    AfterCompletionType afterCompletionType = ProcessTreeNodes(gamePassSolution, ref ChildSleepTimeMS, bmp, new List<String>());
+                    AfterCompletionType afterCompletionType = ProcessTreeNodes(gamePassSolution, ref ChildSleepTimeMS, bmp);
 
                     int GotoLimit = 100;
-                    while( afterCompletionType == AfterCompletionType.GoToChild && GotoLimit > 0)
+                    while( afterCompletionType == AfterCompletionType.GoToChild && GotoLimit > 0 && CancellationTokenSource.Token.IsCancellationRequested == false)
                     {
-                        List<String> NodeList = new List<String>(GoToNodeName.Split('\\'));
-
-                        afterCompletionType = ProcessTreeNodes(gamePassSolution, ref ChildSleepTimeMS, bmp, NodeList);
+                        afterCompletionType = ProcessTreeNodes(gamePassSolution, ref ChildSleepTimeMS, bmp, GoToNodeName);
                         GotoLimit--;
                         if(GotoLimit == 0)
                         {
@@ -1115,31 +1080,67 @@ namespace AppTestStudio
             }  // ThreadIsShuttingDown == false
         }  // Run()
 
-        private AfterCompletionType ProcessTreeNodes(GamePassSolution gamePassSolution, ref long ChildSleepTimeMS, Bitmap bmp, List<String> NodeList)
+        public static TreeNode FindNodeByPath(TreeNodeCollection nodes, string path)
+        {
+            if (string.IsNullOrEmpty(path) || nodes == null)
+                return null;
+
+            // Split path into parts
+            string[] parts = path.Split('\\');
+
+            return FindNodeRecursive(nodes, parts, 0);
+        }
+
+        private static TreeNode FindNodeRecursive(TreeNodeCollection nodes, string[] parts, int index)
+        {
+            if (index >= parts.Length || nodes == null)
+                return null;
+
+            // Look for the node at this level
+            foreach (TreeNode node in nodes)
+            {
+                if (node.Text == parts[index])
+                {
+                    // If this is the last part, return the node
+                    if (index == parts.Length - 1)
+                        return node;
+
+                    // Otherwise, recurse into children
+                    return FindNodeRecursive(node.Nodes, parts, index + 1);
+                }
+            }
+
+            // Not found at this level
+            return null;
+        }
+
+        private AfterCompletionType ProcessTreeNodes(GamePassSolution gamePassSolution, ref long ChildSleepTimeMS, Bitmap bmp, String StartPath = "")
         {
             int CenterX = 0;
             int CenterY = 0;
-            int InitialNodeListCount = NodeList.Count;
-            Boolean FoundNode = false;
             AfterCompletionType afterCompletionType = AfterCompletionType.Continue;
             foreach (TreeNode node in Game.Events.Nodes)
             {
+                TreeNode CurrentNode = node;
 
-                if (NodeList.Count > 0 )
+                TreeNode StartNode = null;
+                if (StartPath.Length > 0)
                 {
-                    if (node.Name == NodeList[0])
+                    StartNode = FindNodeByPath(Game.Events.Nodes, StartPath);
+                    if (StartNode != null)
                     {
-                        FoundNode = true;
-                        NodeList.RemoveAt(0);
+                        CurrentNode = StartNode;
                     }
                     else
                     {
-                        continue;
+                        Game.Log($"Couldn't find starting node {StartPath} in Goto node {CurrentNode.Name}");
+                        Game.Log($"Returning to Home.");
+                        return AppTestStudio.AfterCompletionType.Home;
                     }
                 }
 
                 //long PreProcessChildren = Watch.ElapsedMilliseconds;
-                afterCompletionType = ProcessChildren(gamePassSolution, bmp, node as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS, NodeList);
+                afterCompletionType = ProcessChildren(gamePassSolution, bmp, CurrentNode as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS);
                 //long PostProcessChildren = Watch.ElapsedMilliseconds;
                 //Debug.WriteLine($"Main Processchildren time{PostProcessChildren - PreProcessChildren}");
                 Boolean ExitFor = false;
@@ -1160,7 +1161,7 @@ namespace AppTestStudio
                         ExitFor = true;
                         break;
                     case AfterCompletionType.Recycle:
-                        Recycle(node as GameNodeAction, WindowHandle);
+                        Recycle(CurrentNode as GameNodeAction, WindowHandle);
                         break;
                     case AppTestStudio.AfterCompletionType.ContinueProcess:
                         // should not be here?
@@ -1182,18 +1183,6 @@ namespace AppTestStudio
                     break;
                 }
             }
-
-            if ( InitialNodeListCount > 0 && FoundNode == false)
-            {
-                Game.Log($"Expected to see node {NodeList[0]} but didn't find it.");
-                Game.Log($"Since we are looking for {NodeList[0]} no nodes were processed on this section.");
-                Game.Log($"This indicates a problem with the following with the Goto node.");
-            }
-            else
-            {
-                //Debug.WriteLine("hrml.");
-            }
-
             return afterCompletionType;
         }
 
