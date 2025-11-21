@@ -38,15 +38,8 @@ namespace AppTestStudio.solution
             if (Bitmap != null) { Bitmap.Dispose(); }
         }
 
-        public GamePassSolution CloneWithNoSolutions()
-        {
-            GamePassSolution clone = new GamePassSolution();
-            clone.Bitmap = (Bitmap?)Bitmap?.Clone();
-            clone.LastNodeName = LastNodeName;
-            clone.GameName = GameName;
-            return clone;
-        }
-
         public String GameName { get; set; } = string.Empty;
+
+
     }
 }

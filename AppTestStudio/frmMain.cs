@@ -9361,13 +9361,10 @@ namespace AppTestStudio
             pbPreview.Visible = true;
         }
 
-        private void mnuCompareAllToRuntimeImagesTolstGamePassolStripMenuItem_Click(object sender, EventArgs e)
+        private void mnuCompareAllToRuntimeImagesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmTestAllRuntimeImages frm = new frmTestAllRuntimeImages(lastGameNodeForRunTesting, GamePassSolutions);
-            frm.Show();
-        }
 
-        GameNode lastGameNodeForRunTesting = null;
+        }
 
         private void tvRun_MouseUp(object sender, MouseEventArgs e)
         {
@@ -9379,7 +9376,6 @@ namespace AppTestStudio
 
                 //' Go to the node that the user clicked
                 GameNode node = tvRun.GetNodeAt(p) as GameNode;
-                lastGameNodeForRunTesting = node;
 
                 Boolean showMenu = false;
                 switch (node.GameNodeType)
