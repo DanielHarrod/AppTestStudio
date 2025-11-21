@@ -279,7 +279,6 @@ namespace AppTestStudio
 
         private void InitializeGamePassList()
         {
-            const int LIST_LIMIT = 100;
             lstGamePass.View = View.Details;
             ColumnHeader h = lstGamePass.Columns.Add("x");
             h.Width = 20;
@@ -293,10 +292,6 @@ namespace AppTestStudio
             lstGamePass.Columns.Add("TBD");
             h = lstGamePass.Columns.Add("Project");
             h.Width = 500;
-
-
-            //            lstGamePass.Columns[4].DisplayIndex = 4;
-
             lstGamePass_Resize(null, null);
 
         }
