@@ -1611,7 +1611,7 @@ namespace AppTestStudio
             return AnchorRectangle;
         }
 
-        private void IsImageSearchTrue(Bitmap bmp, GameNodeGame game, EventSolution solution)
+        internal void IsImageSearchTrue(Bitmap bmp, GameNodeGame game, EventSolution solution)
         {
             try
             {
@@ -1672,6 +1672,8 @@ namespace AppTestStudio
 
                 }
                 WatchCreateMaskedImageToSearch.Stop();
+
+                solution.bitmapBeingSearchedForObject = bitmapBeingSearchedForObject.CloneMe();
 
                 Mat matBeingSearchedForObject = null;
                 try
