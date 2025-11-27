@@ -206,16 +206,48 @@ namespace AppTestStudio
                 l.Text = $"Search Area";
                 fp.Controls.Add(l);
 
+
                 Bitmap searchObject = actionNode.ObjectSearchBitmap;
                 int searchObjectWidth = searchObject.Width;
                 int searchObjectHeight = searchObject.Height;
-                fp.Controls.Add(GetPictureBox(searchObject, searchObjectWidth, searchObjectHeight));
+
+                // Search Image
+                GroupBox groupBox = new GroupBox();
+                groupBox.Text = "Search Image";
+                groupBox.Name = "groupBox1";
+                groupBox.Width = searchObjectWidth+6;
+                groupBox.Height = searchObjectHeight + 23;
+                
+                PictureBox pictureBox = GetPictureBox(searchObject, searchObjectWidth, searchObjectHeight);
+                pictureBox.Dock = DockStyle.Fill;
+                pictureBox.TabIndex = 0;
+                pictureBox.TabStop = false;
+
+                groupBox.Controls.Add(pictureBox);
+                fp.Controls.Add(groupBox);
+
+                // Mask Area
 
                 Bitmap bmpMask = eventSolution.bitmapBeingSearchedForObject;
                 int ObjectSearchWidth = bmpMask.Width;
                 int ObjectSearchHeight = bmpMask.Height;
 
-                fp.Controls.Add(GetPictureBox(bmpMask, ObjectSearchWidth, ObjectSearchHeight));
+                groupBox = new GroupBox();
+                groupBox.Text = "Search Area";
+                groupBox.Name = "groupBox2";
+                groupBox.Width = ObjectSearchWidth+6;
+                groupBox.Height = ObjectSearchHeight+23;
+
+                pictureBox = GetPictureBox(bmpMask, ObjectSearchWidth, ObjectSearchHeight);
+                pictureBox.Dock = DockStyle.Fill;
+                pictureBox.TabIndex = 0;
+                pictureBox.TabStop = false;
+
+                groupBox.Controls.Add(pictureBox);
+                fp.Controls.Add(groupBox);
+
+
+
 
                 tableLayoutPanel.Controls.Add(fp, 1, 0);
             }
