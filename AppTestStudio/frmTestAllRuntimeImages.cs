@@ -1,3 +1,7 @@
+//AppTestStudio 
+//Copyright (C) 2016-2025 Daniel Harrod
+//This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
+
 using AppTestStudio.solution;
 using System.Diagnostics;
 
@@ -200,49 +204,44 @@ namespace AppTestStudio
                 l.Text = $"Seek time {eventSolution.ImageSearchTime}";
                 fp.Controls.Add(l);
 
-                l = new Label();
-                l.Width = 500;
-                l.Text = $"Search Area";
-                fp.Controls.Add(l);
-
-
                 Bitmap searchObject = actionNode.ObjectSearchBitmap;
                 int searchObjectWidth = searchObject.Width;
                 int searchObjectHeight = searchObject.Height;
-
-                // Search Image
-                GroupBox groupBox = new GroupBox();
-                groupBox.Text = "Search Image";
-                groupBox.Name = "groupBox1";
-                groupBox.Width = searchObjectWidth + 6;
-                groupBox.Height = searchObjectHeight + 23;
-
-                PictureBox pictureBox = GetPictureBox(searchObject, searchObjectWidth, searchObjectHeight);
-                pictureBox.Dock = DockStyle.Left | DockStyle.Top;
-                pictureBox.TabIndex = 0;
-                pictureBox.TabStop = false;
-
-                groupBox.Controls.Add(pictureBox);
-                fp.Controls.Add(groupBox);
 
                 // Mask Area
                 Bitmap bmpMask = eventSolution.bitmapBeingSearchedForObject;
                 int ObjectSearchWidth = bmpMask.Width;
                 int ObjectSearchHeight = bmpMask.Height;
 
-                groupBox = new GroupBox();
+                GroupBox groupBox = new GroupBox();
                 groupBox.Text = "Search Area";
                 groupBox.Name = "groupBox2";
                 groupBox.Width = ObjectSearchWidth + 6;
                 groupBox.Height = ObjectSearchHeight + 23;
 
-                pictureBox = GetPictureBox(bmpMask, ObjectSearchWidth, ObjectSearchHeight);
+                PictureBox pictureBox = GetPictureBox(bmpMask, ObjectSearchWidth, ObjectSearchHeight);
                 pictureBox.Dock = DockStyle.Left | DockStyle.Top;
                 pictureBox.TabIndex = 0;
                 pictureBox.TabStop = false;
 
                 groupBox.Controls.Add(pictureBox);
                 fp.Controls.Add(groupBox);
+
+                // Search Image
+                groupBox = new GroupBox();
+                groupBox.Text = "Search Image";
+                groupBox.Name = "groupBox1";
+                groupBox.Width = searchObjectWidth + 6;
+                groupBox.Height = searchObjectHeight + 23;
+
+                pictureBox = GetPictureBox(searchObject, searchObjectWidth, searchObjectHeight);
+                pictureBox.Dock = DockStyle.Left | DockStyle.Top;
+                pictureBox.TabIndex = 0;
+                pictureBox.TabStop = false;
+
+                groupBox.Controls.Add(pictureBox);
+                fp.Controls.Add(groupBox);
+
 
                 // Found Area
                 Bitmap CropImage = new Bitmap(searchObjectWidth, searchObjectHeight);
