@@ -25,6 +25,9 @@ namespace AppTestStudio
         public Boolean UseRootNode { get; set; } = false;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
+        public Boolean ChildNodeTop { get; set; } = false;
+
+        [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
         public Boolean IsAction { get; set; } = false;
 
         public string NodeName
@@ -43,7 +46,11 @@ namespace AppTestStudio
         private void cmdCreate_Click(object sender, EventArgs e)
         {
             ExitAndTargetNewNode = true;
+
             UseRootNode = rdoRootNode.Checked;
+
+            ChildNodeTop = rdoNodeTop.Checked;
+
             IsAction = rdoAction.Checked;
 
             Hide();

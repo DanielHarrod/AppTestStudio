@@ -94,13 +94,21 @@ namespace AppTestStudio
             IsLoading = false;
         }
 
-        public void AddGameNode(GameNode gameNode)
+        public void AddGameNode(GameNode gameNode, Boolean AddToTop = false)
         {
             if (IsLoading == false)
             {
                 IsDirty = true;
             }
-            Nodes.Add(gameNode);
+
+            if (AddToTop)
+            {
+                Nodes.Insert(0,gameNode);
+            }
+            else
+            {
+                Nodes.Add(gameNode);
+            }                
         }
 
         internal GameNodeGame GetGameNodeGame()

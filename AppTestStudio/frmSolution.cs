@@ -262,12 +262,10 @@ namespace AppTestStudio
                     // set to Design tab
                     frmMain.tabTree.SelectedIndex = 0;
 
-                    // change selected tree to base node
-                    if (frmAddNewNode.UseRootNode)
-                    {
-                        frmMain.tv.SelectedNode = frmMain.GetGameNodeEvents();
-                    }
-                    else
+                    Boolean AddToTop = frmAddNewNode.ChildNodeTop;
+
+                    // Use Selected Node
+                    if (frmAddNewNode.UseRootNode == false)
                     {
                         GameNode node = frmMain.tv.SelectedNode as GameNode;
                         if (node != null)
@@ -284,14 +282,18 @@ namespace AppTestStudio
                             }
                         }
                     }
+                    else
+                    {
+                        frmMain.tv.SelectedNode = frmMain.GetGameNodeEvents();
+                    }
 
                     if (frmAddNewNode.IsAction)
                     {
-                        frmMain.AddAction();
+                        frmMain.AddAction(AddToTop);
                     }
                     else
                     {
-                        frmMain.AddNewEvent();
+                        frmMain.AddNewEvent(AddToTop);
                     }
                     frmMain.txtEventName.Text = frmAddNewNode.NodeName;
                     frmMain.SetPictureBox1(pictureBox1.Image as Bitmap);

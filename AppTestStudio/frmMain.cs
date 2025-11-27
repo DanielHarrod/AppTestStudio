@@ -5274,7 +5274,7 @@ namespace AppTestStudio
             AddNewEvent();
         }
 
-        internal void AddNewEvent()
+        internal void AddNewEvent(Boolean AddToTop = false)
         {
             if (tv.SelectedNode.IsSomething())
             {
@@ -5303,7 +5303,7 @@ namespace AppTestStudio
                 }
 
                 // Need to make sure this isn't the 
-                TargetParentNode.AddGameNode(Event);
+                TargetParentNode.AddGameNode(Event, AddToTop);
                 tv.SelectedNode = Event;
 
                 SetPanel(PanelMode.PanelColorEvent);
@@ -5324,14 +5324,14 @@ namespace AppTestStudio
             AddAction();
         }
 
-        internal void AddAction()
+        internal void AddAction(Boolean AddToTop = false)
         {
             GameNode OriginalNode = tv.SelectedNode as GameNode;
             GameNodeAction GameNodeAction = new GameNodeAction("Click " + tv.SelectedNode.Text, ActionType.Action);
 
             GameNodeAction.FromCurrentMousePos = GetGameNode().MoveMouseBeforeAction;
 
-            OriginalNode.AddGameNode(GameNodeAction);
+            OriginalNode.AddGameNode(GameNodeAction, AddToTop);
             tv.SelectedNode = GameNodeAction;
 
             // Initialize Children with Parent Defaults
