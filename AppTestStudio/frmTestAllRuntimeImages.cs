@@ -108,7 +108,7 @@ namespace AppTestStudio
             tableLayoutPanel.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
 
             Bitmap pBMP = gps.Bitmap.CloneMe();
-
+            Rectangle locatedRectangle = Rectangle.Empty;
             if (actionNode.IsColorPoint)
             {
                 // do nothing
@@ -121,8 +121,7 @@ namespace AppTestStudio
 
                     int LocatedX = eventSolution.CenterX - (actionNode.ObjectSearchBitmap.Width / 2);
                     int locatedY = eventSolution.CenterY - (actionNode.ObjectSearchBitmap.Height / 2);
-
-                    Rectangle locatedRectangle = Rectangle.Empty;
+                   
                     locatedRectangle.X = LocatedX + actionNode.Rectangle.X;
                     locatedRectangle.Y = locatedY + actionNode.Rectangle.Y;
                     locatedRectangle.Width = actionNode.ObjectSearchBitmap.Width;
@@ -215,11 +214,11 @@ namespace AppTestStudio
                 GroupBox groupBox = new GroupBox();
                 groupBox.Text = "Search Image";
                 groupBox.Name = "groupBox1";
-                groupBox.Width = searchObjectWidth+6;
+                groupBox.Width = searchObjectWidth + 6;
                 groupBox.Height = searchObjectHeight + 23;
-                
+
                 PictureBox pictureBox = GetPictureBox(searchObject, searchObjectWidth, searchObjectHeight);
-                pictureBox.Dock = DockStyle.Fill;
+                pictureBox.Dock = DockStyle.Left | DockStyle.Top;
                 pictureBox.TabIndex = 0;
                 pictureBox.TabStop = false;
 
@@ -227,7 +226,6 @@ namespace AppTestStudio
                 fp.Controls.Add(groupBox);
 
                 // Mask Area
-
                 Bitmap bmpMask = eventSolution.bitmapBeingSearchedForObject;
                 int ObjectSearchWidth = bmpMask.Width;
                 int ObjectSearchHeight = bmpMask.Height;
@@ -235,24 +233,44 @@ namespace AppTestStudio
                 groupBox = new GroupBox();
                 groupBox.Text = "Search Area";
                 groupBox.Name = "groupBox2";
-                groupBox.Width = ObjectSearchWidth+6;
-                groupBox.Height = ObjectSearchHeight+23;
+                groupBox.Width = ObjectSearchWidth + 6;
+                groupBox.Height = ObjectSearchHeight + 23;
 
                 pictureBox = GetPictureBox(bmpMask, ObjectSearchWidth, ObjectSearchHeight);
-                pictureBox.Dock = DockStyle.Fill;
+                pictureBox.Dock = DockStyle.Left | DockStyle.Top;
                 pictureBox.TabIndex = 0;
                 pictureBox.TabStop = false;
 
                 groupBox.Controls.Add(pictureBox);
                 fp.Controls.Add(groupBox);
 
+                // Found Area
+                Bitmap CropImage = new Bitmap(searchObjectWidth, searchObjectHeight);
+                using (Graphics grp = Graphics.FromImage(CropImage))
+                {
+                    grp.DrawImage(gps.Bitmap, new Rectangle(0, 0, searchObjectWidth, searchObjectHeight), locatedRectangle, GraphicsUnit.Pixel);
+                    grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    grp.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                    grp.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                }
 
+                pictureBox = GetPictureBox(CropImage, CropImage.Width, CropImage.Height);
+                pictureBox.Dock = DockStyle.Left | DockStyle.Top;
+                pictureBox.TabIndex = 0;
+                pictureBox.TabStop = false;
 
+                groupBox = new GroupBox();
+                groupBox.Text = "Found Image";
+                groupBox.Name = "groupBox3";
+                groupBox.Width = CropImage.Width + 6;
+                groupBox.Height = CropImage.Height + 23;
+
+                groupBox.Controls.Add(pictureBox);
+                fp.Controls.Add(groupBox);
 
                 tableLayoutPanel.Controls.Add(fp, 1, 0);
             }
-                
-            return tableLayoutPanel;
+            return tableLayoutPanel;            
         }
 
         private DataGridView GetDVG(GamePassSolution gps)
