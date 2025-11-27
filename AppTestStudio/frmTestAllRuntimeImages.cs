@@ -3,12 +3,16 @@
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudio.solution;
+using log4net;
 using System.Diagnostics;
+using System.Reflection;
 
 namespace AppTestStudio
 {
     public partial class frmTestAllRuntimeImages : Form
     {
+        private static readonly ILog log = LogManager.GetLogger(MethodBase.GetCurrentMethod().DeclaringType);
+
         GameNodeAction actionNode = null;
         internal List<GamePassSolution> gamePassSolutions = new List<GamePassSolution>();
         internal frmTestAllRuntimeImages(GameNode gameNode, List<GamePassSolution> gamePassSolutions)
@@ -30,66 +34,52 @@ namespace AppTestStudio
 
         private void frmTestAllRuntimeImages_Load(object sender, EventArgs e)
         {
-            //lstGamePass.View = View.List;
-            //ColumnHeader h = lstGamePass.Columns.Add("x");
-            //h.Width = 20;
+            try
+            {
+                double scaler = 0.37;
 
-            //h = lstGamePass.Columns.Add("Time");
-            //h.Width = 80;
+                PreviewWidth = ((double)gamePassSolutions[0].Bitmap.Width * scaler).ToInt();
+                PreviewHeight = ((double)gamePassSolutions[0].Bitmap.Height * scaler).ToInt();
 
-            //h = lstGamePass.Columns.Add("Counter");
-            //h.Width = 80;
+                fp.AutoScroll = true;
+                fp.WrapContents = false;
+                fp.FlowDirection = FlowDirection.TopDown;
 
-            //lstGamePass.Columns.Add("Event Count");
-            //h = lstGamePass.Columns.Add("Project");
-            //h.Width = 80;
-
-            //lstGamePass.Columns.Add("Result");
-            //h = lstGamePass.Columns.Add("Result");
-            //h.Width = 500;
-
-
-            double scaler = 0.37;
-
-            PreviewWidth = ((double)gamePassSolutions[0].Bitmap.Width * scaler).ToInt();
-            PreviewHeight = ((double)gamePassSolutions[0].Bitmap.Height * scaler).ToInt();
-
-
-            fp.AutoScroll = true;
-            fp.WrapContents = false;
-            fp.FlowDirection = FlowDirection.TopDown;
-
-
-            foreach (GamePassSolution gps in gamePassSolutions)
-            { 
-
-
-                // Optional: add tooltip with image info
-
-                String TT = $"Size: {Width}x{Height}";
-                EventSolution eventSolution = null;
-                switch (actionNode.ActionType)
+                foreach (GamePassSolution gps in gamePassSolutions)
                 {
-                    case ActionType.Action:
-                        break;
-                    case ActionType.Event:
+                    // Optional: add tooltip with image info
 
-                        eventSolution = actionNode.IsTrue(gps.Bitmap, actionNode.GetGameNodeGame());
-                        TT = TT + $"Result={eventSolution.Result}";
+                    String TT = $"Size: {Width}x{Height}";
+                    EventSolution eventSolution = null;
+                    switch (actionNode.ActionType)
+                    {
+                        case ActionType.Action:
+                            break;
+                        case ActionType.Event:
 
-                        break;
-                    case ActionType.RNG:
-                        break;
-                    case ActionType.RNGContainer:
-                        break;
-                    default:
-                        break;
+                            eventSolution = actionNode.IsTrue(gps.Bitmap, actionNode.GetGameNodeGame());
+                            TT = TT + $"Result={eventSolution.Result}";
+
+                            break;
+                        case ActionType.RNG:
+                            break;
+                        case ActionType.RNGContainer:
+                            break;
+                        default:
+                            break;
+                    }
+
+                    //                tip.SetToolTip(GetTLP(gps.Bitmap), TT);
+
+                    fp.Controls.Add(GetTLP(gps, scaler, eventSolution));
                 }
 
-//                tip.SetToolTip(GetTLP(gps.Bitmap), TT);
-
-                fp.Controls.Add(GetTLP(gps, scaler, eventSolution));
             }
+            catch (Exception ex)
+            {
+                log.Error(ex);
+            }
+
         }
         private PictureBox GetPictureBox(Bitmap bmp, int Width, int Height)
         {
@@ -172,7 +162,7 @@ namespace AppTestStudio
                 l.Text = $"ObjectThreashold = {actionNode.ObjectThreshold}";
                 fp.Controls.Add(l);
 
-                int detectedThreashold = (int)(eventSolution.DetectedThreashold * 100);
+                float detectedThreashold = (eventSolution.DetectedThreashold * 100);
                 l = new Label();
                 l.Width = 300;
                 l.Text = $"DetectedThreshold = {detectedThreashold}";
