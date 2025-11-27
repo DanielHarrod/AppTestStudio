@@ -254,52 +254,13 @@ namespace AppTestStudio
         {
             try
             {
-                frmAddNewNode frmAddNewNode = new frmAddNewNode(GamePassSolution, frmMain);
+                frmAddNewNode frmAddNewNode = new frmAddNewNode(GamePassSolution, frmMain.tv.SelectedNode.FullPath);
                 frmAddNewNode.ShowDialog();
 
                 if (frmAddNewNode.ExitAndTargetNewNode)
                 {
-                    // set to Design tab
-                    frmMain.tabTree.SelectedIndex = 0;
-
-                    Boolean AddToTop = frmAddNewNode.ChildNodeTop;
-
-                    // Use Selected Node
-                    if (frmAddNewNode.UseRootNode == false)
-                    {
-                        GameNode node = frmMain.tv.SelectedNode as GameNode;
-                        if (node != null)
-                        {
-                            switch (node.GameNodeType)
-                            {
-                                case GameNodeType.Events:
-                                    break;
-                                case GameNodeType.Action:
-                                    break;
-                                default:
-                                    frmMain.tv.SelectedNode = frmMain.GetGameNodeEvents();
-                                    break;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        frmMain.tv.SelectedNode = frmMain.GetGameNodeEvents();
-                    }
-
-                    if (frmAddNewNode.IsAction)
-                    {
-                        frmMain.AddAction(AddToTop);
-                    }
-                    else
-                    {
-                        frmMain.AddNewEvent(AddToTop);
-                    }
-                    frmMain.txtEventName.Text = frmAddNewNode.NodeName;
-                    frmMain.SetPictureBox1(pictureBox1.Image as Bitmap);
-
+                    frmMain.AddNewNode(frmAddNewNode.NodeName, frmAddNewNode.IsAction, !frmAddNewNode.UseRootNode, frmAddNewNode.ChildNodeTop, pictureBox1.Image as Bitmap);
                     Hide();
-
                 }
             }
             catch (Exception ex)

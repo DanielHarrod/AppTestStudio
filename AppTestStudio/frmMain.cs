@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.IO.Compression;
 using System.Reflection;
 using System.Text;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -9361,9 +9362,50 @@ namespace AppTestStudio
             pbPreview.Visible = true;
         }
 
+        internal void AddNewNode(String Name, bool IsAction, bool UseSelectedNode, bool AddToTopChild, Bitmap bmp)
+        {
+            tabTree.SelectedIndex = 0;
+
+            Boolean AddToTop = AddToTopChild;
+
+            // Use Selected Node
+            if (UseSelectedNode)
+            {
+                GameNode node = tv.SelectedNode as GameNode;
+                if (node != null)
+                {
+                    switch (node.GameNodeType)
+                    {
+                        case GameNodeType.Events:
+                            break;
+                        case GameNodeType.Action:
+                            break;
+                        default:
+                            tv.SelectedNode = GetGameNodeEvents();
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                tv.SelectedNode = GetGameNodeEvents();
+            }
+            
+            if (IsAction)
+            {
+                AddAction(AddToTopChild);
+            }
+            else
+            {
+                AddNewEvent(AddToTopChild);
+            }
+            txtEventName.Text = Name;
+            SetPictureBox1(bmp);
+        }
+
         private void mnuCompareAllToRuntimeImagesTolstGamePassolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmTestAllRuntimeImages frm = new frmTestAllRuntimeImages(lastGameNodeForRunTesting, GamePassSolutions);
+            frmTestAllRuntimeImages frm = new frmTestAllRuntimeImages(this, lastGameNodeForRunTesting, GamePassSolutions);
             frm.Show();
         }
 

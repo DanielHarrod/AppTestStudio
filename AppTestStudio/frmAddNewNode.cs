@@ -14,7 +14,7 @@ namespace AppTestStudio
 {
     public partial class frmAddNewNode : Form
     {
-        frmMain frmMain;
+        String FullPath;
         GamePassSolution gamePassSolution;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -34,9 +34,9 @@ namespace AppTestStudio
             get { return txtNodeName.Text.Trim(); }
         }
 
-        internal frmAddNewNode(GamePassSolution gamePassSolution, frmMain frmMain)
+        internal frmAddNewNode(GamePassSolution gamePassSolution, String fullPath)
         {
-            this.frmMain = frmMain;
+            this.FullPath = FullPath;
             this.gamePassSolution = gamePassSolution;
             InitializeComponent();
         }
@@ -64,7 +64,7 @@ namespace AppTestStudio
             pictureBox1.Image = gamePassSolution.Bitmap;
             try
             {
-                lblSelectedNode.Text = frmMain.tv.SelectedNode.FullPath;
+                lblSelectedNode.Text = FullPath;
             }
             catch (Exception ex)
             {

@@ -6,6 +6,7 @@ using AppTestStudio.solution;
 using log4net;
 using System.Diagnostics;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace AppTestStudio
 {
@@ -15,8 +16,10 @@ namespace AppTestStudio
 
         GameNodeAction actionNode = null;
         internal List<GamePassSolution> gamePassSolutions = new List<GamePassSolution>();
-        internal frmTestAllRuntimeImages(GameNode gameNode, List<GamePassSolution> gamePassSolutions)
+        frmMain frmMain = null;
+        internal frmTestAllRuntimeImages(frmMain frmMain, GameNode gameNode, List<GamePassSolution> gamePassSolutions)
         {
+            this.frmMain = frmMain;
             InitializeComponent();
             this.WindowState = FormWindowState.Maximized;
             this.PerformLayout();
@@ -143,8 +146,6 @@ namespace AppTestStudio
             {
                 ActionSolution solution = new ActionSolution();
 
-                Debug.WriteLine($"Mask = {actionNode.Rectangle}");
-
                 FlowLayoutPanel fp = new FlowLayoutPanel();
                 fp.FlowDirection = FlowDirection.TopDown;
                 fp.WrapContents = false;
@@ -152,9 +153,18 @@ namespace AppTestStudio
                 fp.Width = gps.Bitmap.Width;
                 fp.Height = Height;
 
+                Button btnAddImageToProject = new Button();
+                btnAddImageToProject.Text = "Add <- Image to Project";
+                btnAddImageToProject.Click += btnAddImageToProject_Click;
+                btnAddImageToProject.Tag = gps.SolutionID;
+                btnAddImageToProject.Width = 220;
+                fp.Controls.Add(btnAddImageToProject);
+
                 Label l = new Label();
                 l.Width = 300;
                 l.Text = $"Solution ID = {gps.SolutionID}";
+                l.Tag = gps.SolutionID;
+
                 fp.Controls.Add(l);
 
                 l = new Label();
@@ -260,6 +270,31 @@ namespace AppTestStudio
                 tableLayoutPanel.Controls.Add(fp, 1, 0);
             }
             return tableLayoutPanel;            
+        }
+
+        private void btnAddImageToProject_Click(object? sender, EventArgs e)
+        {
+            Button btnSender = sender as Button;
+            if (btnSender != null && btnSender.Tag != null) {
+
+                GamePassSolution gamePassSolution = gamePassSolutions.Find(x => x.SolutionID == btnSender.Tag.ToInt());
+
+                if (gamePassSolution!= null)
+                {
+                    frmAddNewNode frm = new frmAddNewNode(gamePassSolution, frmMain.tv.SelectedNode.FullPath);
+                    frm.ShowDialog();
+
+                    if (frm.ExitAndTargetNewNode)
+                    {
+                        frmMain.AddNewNode(frm.NodeName, frm.IsAction, !frm.UseRootNode, frm.ChildNodeTop, gamePassSolution.Bitmap);
+                        Hide();
+                    }
+                }
+            }
+            else
+            {
+                log.Warn("btnSender == null");
+            }
         }
 
         private DataGridView GetDVG(GamePassSolution gps)
