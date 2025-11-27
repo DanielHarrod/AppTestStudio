@@ -1195,16 +1195,17 @@ namespace AppTestStudio
             SendInput(1, InputInitial, Marshal.SizeOf(typeof(Input)));
         }
 
-        public static void DrawRectangleWithGuidesOnGraphics(Graphics graphics, Bitmap bitmap, Rectangle rectangle)
+        public static void DrawRectangleWithGuidesOnGraphics(Graphics graphics, Bitmap bitmap, Rectangle rectangle, int R=0, int G=0, int B=255, int A=128)
         {
+            Color Outline = Color.FromArgb(255, R, G, B);
             //Draw a box at 50% transparency to show the click area.
-            using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 0, 0, 255)))
+            using (SolidBrush br = new SolidBrush(Color.FromArgb(A, R, G, B)))
             {
                 graphics.FillRectangle(br, rectangle);
             }
 
             // Draw a blue outline around the click area.
-            using (Pen p = new Pen(Color.Blue, 1))
+            using (Pen p = new Pen(Outline, 1))
             {
                 graphics.DrawRectangle(p, rectangle);
 
