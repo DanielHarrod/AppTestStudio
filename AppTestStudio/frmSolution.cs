@@ -254,7 +254,7 @@ namespace AppTestStudio
         {
             try
             {
-                frmAddNewNode frmAddNewNode = new frmAddNewNode(GamePassSolution, frmMain, this);
+                frmAddNewNode frmAddNewNode = new frmAddNewNode(GamePassSolution, frmMain);
                 frmAddNewNode.ShowDialog();
 
                 if (frmAddNewNode.ExitAndTargetNewNode)

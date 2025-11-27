@@ -15,7 +15,6 @@ namespace AppTestStudio
     public partial class frmAddNewNode : Form
     {
         frmMain frmMain;
-        frmSolution frmSolution;
         GamePassSolution gamePassSolution;
 
         [DesignerSerializationVisibility(DesignerSerializationVisibility.Hidden)]
@@ -35,10 +34,9 @@ namespace AppTestStudio
             get { return txtNodeName.Text.Trim(); }
         }
 
-        internal frmAddNewNode(GamePassSolution gamePassSolution, frmMain frmMain, frmSolution frmSolution)
+        internal frmAddNewNode(GamePassSolution gamePassSolution, frmMain frmMain)
         {
             this.frmMain = frmMain;
-            this.frmSolution = frmSolution;
             this.gamePassSolution = gamePassSolution;
             InitializeComponent();
         }
