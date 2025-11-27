@@ -305,6 +305,7 @@
             dgv.TabIndex = 10;
             dgv.CellClick += dgv_CellClick;
             dgv.CellContentClick += dgv_CellContentClick;
+            dgv.SelectionChanged += dgv_SelectionChanged;
             // 
             // dgvRed
             // 
@@ -435,6 +436,7 @@
             dgvTest.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvTest.Size = new Size(472, 275);
             dgvTest.TabIndex = 11;
+            dgvTest.SelectionChanged += dgvTest_SelectionChanged;
             // 
             // dgvColorTestRed
             // 

@@ -143,7 +143,7 @@ namespace AppTestStudio
 
                 dgvTestRow.Cells["dgvColorTestRed"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor);
                 dgvTestRow.Cells["dgvColorTestGreen"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor);
-                dgvTestRow.Cells["dgvColorTestBlue"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor); 
+                dgvTestRow.Cells["dgvColorTestBlue"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor);
 
                 dgvTestRow.Cells["dgvXTest"].Value = X;
                 dgvTestRow.Cells["dgvYTest"].Value = y;
@@ -165,14 +165,14 @@ namespace AppTestStudio
                         FinalResult = true;
                     }
                 }
-                else if (frm.rdoOR.Checked )
+                else if (frm.rdoOR.Checked)
                 {
                     if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), solution))
                     {
                         Result = true;
                     }
                 }
-       
+
                 if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), solution))
                 {
                     dgv.Rows[RowIndex].Cells["dgvReferencePassFail"].Value = "Passed";
@@ -271,9 +271,9 @@ namespace AppTestStudio
             txtLogic.Text = PreExpression.ToLower();
             txtLogic2.Text = OriginalExpression.ToLower();
             txtLogic3.Text = Expression.ToLower();
-            
+
             // event with no requirements is a passing test.
-            if (dgvTest.Rows.Count == 0 )
+            if (dgvTest.Rows.Count == 0)
             {
                 Result = true;
             }
@@ -347,5 +347,17 @@ namespace AppTestStudio
                 Game.Log(ex.Message);
             }
         }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            dgv.ClearSelection();
+        }
+
+        private void dgvTest_SelectionChanged(object sender, EventArgs e)
+        {
+            dgvTest.ClearSelection();
+        }
     }
+
+
 }
