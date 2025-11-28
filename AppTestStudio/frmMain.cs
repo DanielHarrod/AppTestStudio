@@ -224,6 +224,7 @@ namespace AppTestStudio
 
         }
 
+        // Unfortunately this doesn't give proper DPI information - need to use GetDpiForWindow
         private void CheckMonitorScaling()
         {
             NativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero,
@@ -3998,6 +3999,8 @@ namespace AppTestStudio
 
             int GamePassIndex = GamePassListCounter % GamePassListCount;
             int LastGamePassIndex = (GamePassListCounter - 1) % GamePassListCount;
+            int Last2GamePassIndex = (GamePassListCounter - 2) % GamePassListCount;
+            int Last3GamePassIndex = (GamePassListCounter - 3) % GamePassListCount;
 
             if (UpdateGamePassList)
             {
@@ -4016,9 +4019,10 @@ namespace AppTestStudio
 
                 // Set the current arrow as indicator.
                 GamePassList[GamePassIndex].ImageIndex = 5;  // Right Arrow
-            }
 
-            // TODO Fade..
+
+
+            }
 
             GamePassSolutions.Add(gamePassSolution);
             if (GamePassSolutions.Count > GamePassListCount)
@@ -9320,10 +9324,8 @@ namespace AppTestStudio
             {
                 if (ShuttingDown == false)
                 {
-                    Debug.WriteLine("lstGamePass_Resize");
-
                     int headerHeigth = 29;
-                    int rowHeight = 19;  // Picture is 16, measured between top of text to line above next text is 18.
+                    int rowHeight = 19;  // Picture is 16, measured between top of text to line above next text is 18.  19 did I count wrong?
 
                     int visibleRows = (lstGamePass.ClientSize.Height - headerHeigth) / rowHeight;
                     GamePassList = new List<ListViewItem>();

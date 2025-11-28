@@ -915,6 +915,18 @@ namespace AppTestStudio
                 if (WindowHandle == IntPtr.Zero)
                 {
                     WindowHandle = Game.GetWindowHandleByWindowName();
+
+                    uint Dpi = NativeMethods.GetDpiForWindow(WindowHandle);
+
+                    if (Dpi != 96)
+                    {
+                        Game.Log("*** DPI Warning ***");
+                        Game.Log($"The target window '{Game.TargetWindow}' is running at {Dpi} DPI.");
+                        Game.Log("AppTestStudio is designed to work at 100% scaling");
+                        Game.Log($"Go to: Windows->System->Display->Choose Monitor running {Game.TargetWindow}->Scale&Layout->Scale set to 100%");
+                        Game.Log("*** DPI Warning ***");
+
+                    }   
                 }
                 else
                 {
