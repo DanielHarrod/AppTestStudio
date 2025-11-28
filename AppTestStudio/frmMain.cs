@@ -9329,7 +9329,7 @@ namespace AppTestStudio
 
         private void lstGamePass_MouseMove(object sender, MouseEventArgs e)
         {
-            Debug.WriteLine("lstGamePass_MouseMove");
+            //Debug.WriteLine("lstGamePass_MouseMove");
             ListViewItem item = lstGamePass.GetItemAt(e.X, e.Y);
             if (item.IsSomething())
             {

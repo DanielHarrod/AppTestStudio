@@ -29,11 +29,12 @@ namespace AppTestStudio
             Index = 1,
             NodeName = 2,
             MessageName = 3,
-            X = 4,
-            Y = 5,
-            ExecutionTime = 6,
-            AfterDelay = 7,
-            CumulativeTime = 8
+            Position = 4,
+            X = 5,
+            Y = 6,
+            ExecutionTime = 7,
+            AfterDelay = 8,
+            CumulativeTime = 9
 
         }
         GamePassSolution GamePassSolution;
@@ -121,8 +122,21 @@ namespace AppTestStudio
                         grd.Rows[index].Cells[(int)ColumnType.Index].Value = GridCount;
                         grd.Rows[index].Cells[(int)ColumnType.NodeName].Value = solution.NodeName;
                         grd.Rows[index].Cells[(int)ColumnType.MessageName].Value = item.MessageName();
-                        grd.Rows[index].Cells[(int)ColumnType.X].Value = item.CalcX.ToString();
-                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = item.CalcY.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.Position].Value = item.MessageName();
+                        int XPos = item.CalcX;
+                        int YPos = item.CalcY;
+                        String Position = "";
+                        if (XPos > GamePassSolution.Bitmap.Width)
+                        {
+                            Position = "Desk";
+                        }
+                        else
+                        {
+                            Position = "App";
+                        }
+                        grd.Rows[index].Cells[(int)ColumnType.Position].Value = Position;
+                        grd.Rows[index].Cells[(int)ColumnType.X].Value = XPos.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = YPos.ToString();
                         grd.Rows[index].Cells[(int)ColumnType.ExecutionTime].Value = item.ExecutionTime.ToString("HH:mm:ss.fff");
                         grd.Rows[index].Cells[(int)ColumnType.AfterDelay].Value = item.AfterDelay.ToString();
                         grd.Rows[index].Cells[(int)ColumnType.CumulativeTime].Value = CurrentRunTime;
@@ -192,8 +206,8 @@ namespace AppTestStudio
             }
 
             String Action = grd.Rows[e.RowIndex].Cells[3].Value.ToString();
-            X = grd.Rows[e.RowIndex].Cells[4].Value.ToInt();
-            Y = grd.Rows[e.RowIndex].Cells[5].Value.ToInt();
+            X = grd.Rows[e.RowIndex].Cells[(int)ColumnType.X].Value.ToInt();
+            Y = grd.Rows[e.RowIndex].Cells[(int)ColumnType.Y].Value.ToInt();
 
             Debug.Print($"grd_CellMouseEnterRI = {e.RowIndex} {Action} {X},{Y}");
 

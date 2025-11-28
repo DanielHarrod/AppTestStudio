@@ -37,20 +37,21 @@
             cmdAnimate = new Button();
             lblCurrent = new Label();
             grd = new DataGridView();
-            colCurrent = new DataGridViewTextBoxColumn();
-            colID = new DataGridViewTextBoxColumn();
-            colName = new DataGridViewTextBoxColumn();
-            colAction = new DataGridViewTextBoxColumn();
-            colX = new DataGridViewTextBoxColumn();
-            colY = new DataGridViewTextBoxColumn();
-            colXTime = new DataGridViewTextBoxColumn();
-            colTime = new DataGridViewTextBoxColumn();
-            colCTime = new DataGridViewTextBoxColumn();
             lblRunTime = new Label();
             label2 = new Label();
             lblProject = new Label();
             label1 = new Label();
             timer1 = new System.Windows.Forms.Timer(components);
+            colCurrent = new DataGridViewTextBoxColumn();
+            colID = new DataGridViewTextBoxColumn();
+            colName = new DataGridViewTextBoxColumn();
+            colAction = new DataGridViewTextBoxColumn();
+            colPosition = new DataGridViewTextBoxColumn();
+            colX = new DataGridViewTextBoxColumn();
+            colY = new DataGridViewTextBoxColumn();
+            colXTime = new DataGridViewTextBoxColumn();
+            colTime = new DataGridViewTextBoxColumn();
+            colCTime = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
@@ -125,7 +126,7 @@
             hScrollBar1.Location = new Point(3, 86);
             hScrollBar1.Maximum = 500;
             hScrollBar1.Name = "hScrollBar1";
-            hScrollBar1.Size = new Size(761, 39);
+            hScrollBar1.Size = new Size(762, 39);
             hScrollBar1.TabIndex = 10;
             // 
             // cmdAnimate
@@ -155,87 +156,17 @@
             grd.AllowUserToAddRows = false;
             grd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grd.Columns.AddRange(new DataGridViewColumn[] { colCurrent, colID, colName, colAction, colX, colY, colXTime, colTime, colCTime });
+            grd.Columns.AddRange(new DataGridViewColumn[] { colCurrent, colID, colName, colAction, colPosition, colX, colY, colXTime, colTime, colCTime });
             grd.Location = new Point(7, 127);
             grd.Margin = new Padding(2);
             grd.Name = "grd";
             grd.ReadOnly = true;
             grd.RowHeadersVisible = false;
             grd.RowHeadersWidth = 62;
-            grd.Size = new Size(755, 629);
+            grd.Size = new Size(756, 629);
             grd.TabIndex = 6;
             grd.CellMouseDown += grd_CellMouseDown;
             grd.CellMouseEnter += grd_CellMouseEnter;
-            // 
-            // colCurrent
-            // 
-            colCurrent.HeaderText = "->";
-            colCurrent.MinimumWidth = 36;
-            colCurrent.Name = "colCurrent";
-            colCurrent.ReadOnly = true;
-            colCurrent.Width = 36;
-            // 
-            // colID
-            // 
-            colID.HeaderText = "ID";
-            colID.MinimumWidth = 60;
-            colID.Name = "colID";
-            colID.ReadOnly = true;
-            colID.Width = 60;
-            // 
-            // colName
-            // 
-            colName.HeaderText = "Name";
-            colName.MinimumWidth = 80;
-            colName.Name = "colName";
-            colName.ReadOnly = true;
-            colName.Width = 250;
-            // 
-            // colAction
-            // 
-            colAction.HeaderText = "Action";
-            colAction.MinimumWidth = 80;
-            colAction.Name = "colAction";
-            colAction.ReadOnly = true;
-            colAction.Width = 250;
-            // 
-            // colX
-            // 
-            colX.HeaderText = "X";
-            colX.MinimumWidth = 80;
-            colX.Name = "colX";
-            colX.ReadOnly = true;
-            colX.Width = 80;
-            // 
-            // colY
-            // 
-            colY.HeaderText = "Y";
-            colY.MinimumWidth = 80;
-            colY.Name = "colY";
-            colY.ReadOnly = true;
-            colY.Width = 80;
-            // 
-            // colXTime
-            // 
-            colXTime.HeaderText = "Execution Time";
-            colXTime.Name = "colXTime";
-            colXTime.ReadOnly = true;
-            // 
-            // colTime
-            // 
-            colTime.HeaderText = "Time (ms)";
-            colTime.MinimumWidth = 100;
-            colTime.Name = "colTime";
-            colTime.ReadOnly = true;
-            colTime.Width = 150;
-            // 
-            // colCTime
-            // 
-            colCTime.HeaderText = "T Time (ms)";
-            colCTime.MinimumWidth = 8;
-            colCTime.Name = "colCTime";
-            colCTime.ReadOnly = true;
-            colCTime.Width = 150;
             // 
             // lblRunTime
             // 
@@ -281,6 +212,90 @@
             // 
             timer1.Tick += timer1_Tick;
             // 
+            // colCurrent
+            // 
+            colCurrent.Frozen = true;
+            colCurrent.HeaderText = "->";
+            colCurrent.MinimumWidth = 36;
+            colCurrent.Name = "colCurrent";
+            colCurrent.ReadOnly = true;
+            colCurrent.Width = 36;
+            // 
+            // colID
+            // 
+            colID.Frozen = true;
+            colID.HeaderText = "ID";
+            colID.MinimumWidth = 60;
+            colID.Name = "colID";
+            colID.ReadOnly = true;
+            colID.Width = 60;
+            // 
+            // colName
+            // 
+            colName.Frozen = true;
+            colName.HeaderText = "Name";
+            colName.MinimumWidth = 80;
+            colName.Name = "colName";
+            colName.ReadOnly = true;
+            colName.Width = 250;
+            // 
+            // colAction
+            // 
+            colAction.Frozen = true;
+            colAction.HeaderText = "Action";
+            colAction.MinimumWidth = 80;
+            colAction.Name = "colAction";
+            colAction.ReadOnly = true;
+            colAction.Width = 220;
+            // 
+            // colPosition
+            // 
+            colPosition.Frozen = true;
+            colPosition.HeaderText = "Pos";
+            colPosition.MinimumWidth = 80;
+            colPosition.Name = "colPosition";
+            colPosition.ReadOnly = true;
+            colPosition.Width = 80;
+            // 
+            // colX
+            // 
+            colX.Frozen = true;
+            colX.HeaderText = "X";
+            colX.MinimumWidth = 65;
+            colX.Name = "colX";
+            colX.ReadOnly = true;
+            colX.Width = 65;
+            // 
+            // colY
+            // 
+            colY.HeaderText = "Y";
+            colY.MinimumWidth = 65;
+            colY.Name = "colY";
+            colY.ReadOnly = true;
+            colY.Width = 65;
+            // 
+            // colXTime
+            // 
+            colXTime.HeaderText = "Execution Time";
+            colXTime.Name = "colXTime";
+            colXTime.ReadOnly = true;
+            // 
+            // colTime
+            // 
+            colTime.HeaderText = "Time (ms)";
+            colTime.MinimumWidth = 100;
+            colTime.Name = "colTime";
+            colTime.ReadOnly = true;
+            colTime.Width = 150;
+            // 
+            // colCTime
+            // 
+            colCTime.HeaderText = "T Time (ms)";
+            colCTime.MinimumWidth = 8;
+            colCTime.Name = "colCTime";
+            colCTime.ReadOnly = true;
+            colCTime.Width = 150;
+            // 
             // frmSolution
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -316,15 +331,16 @@
         private Label lblCurrent;
         private HScrollBar hScrollBar1;
         private System.Windows.Forms.Timer timer1;
+        private Button cmdAddImageToProject;
         private DataGridViewTextBoxColumn colCurrent;
         private DataGridViewTextBoxColumn colID;
         private DataGridViewTextBoxColumn colName;
         private DataGridViewTextBoxColumn colAction;
+        private DataGridViewTextBoxColumn colPosition;
         private DataGridViewTextBoxColumn colX;
         private DataGridViewTextBoxColumn colY;
         private DataGridViewTextBoxColumn colXTime;
         private DataGridViewTextBoxColumn colTime;
         private DataGridViewTextBoxColumn colCTime;
-        private Button cmdAddImageToProject;
     }
 }
