@@ -32,6 +32,7 @@
             pictureBox1 = new PictureBox();
             textBox1 = new TextBox();
             splitContainer1 = new SplitContainer();
+            cmdAddImageToProject = new Button();
             hScrollBar1 = new HScrollBar();
             cmdAnimate = new Button();
             lblCurrent = new Label();
@@ -45,6 +46,7 @@
             colID = new DataGridViewTextBoxColumn();
             colName = new DataGridViewTextBoxColumn();
             colAction = new DataGridViewTextBoxColumn();
+            colPosition = new DataGridViewTextBoxColumn();
             colX = new DataGridViewTextBoxColumn();
             colY = new DataGridViewTextBoxColumn();
             colXTime = new DataGridViewTextBoxColumn();
@@ -94,6 +96,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(cmdAddImageToProject);
             splitContainer1.Panel2.Controls.Add(hScrollBar1);
             splitContainer1.Panel2.Controls.Add(cmdAnimate);
             splitContainer1.Panel2.Controls.Add(lblCurrent);
@@ -107,13 +110,23 @@
             splitContainer1.SplitterWidth = 3;
             splitContainer1.TabIndex = 2;
             // 
+            // cmdAddImageToProject
+            // 
+            cmdAddImageToProject.Location = new Point(478, 7);
+            cmdAddImageToProject.Name = "cmdAddImageToProject";
+            cmdAddImageToProject.Size = new Size(270, 52);
+            cmdAddImageToProject.TabIndex = 11;
+            cmdAddImageToProject.Text = "Add Image to Project";
+            cmdAddImageToProject.UseVisualStyleBackColor = true;
+            cmdAddImageToProject.Click += cmdAddImageToProject_Click;
+            // 
             // hScrollBar1
             // 
             hScrollBar1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             hScrollBar1.Location = new Point(3, 86);
             hScrollBar1.Maximum = 500;
             hScrollBar1.Name = "hScrollBar1";
-            hScrollBar1.Size = new Size(759, 39);
+            hScrollBar1.Size = new Size(762, 39);
             hScrollBar1.TabIndex = 10;
             // 
             // cmdAnimate
@@ -143,14 +156,14 @@
             grd.AllowUserToAddRows = false;
             grd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             grd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grd.Columns.AddRange(new DataGridViewColumn[] { colCurrent, colID, colName, colAction, colX, colY, colXTime, colTime, colCTime });
+            grd.Columns.AddRange(new DataGridViewColumn[] { colCurrent, colID, colName, colAction, colPosition, colX, colY, colXTime, colTime, colCTime });
             grd.Location = new Point(7, 127);
             grd.Margin = new Padding(2);
             grd.Name = "grd";
             grd.ReadOnly = true;
             grd.RowHeadersVisible = false;
             grd.RowHeadersWidth = 62;
-            grd.Size = new Size(753, 629);
+            grd.Size = new Size(756, 629);
             grd.TabIndex = 6;
             grd.CellMouseDown += grd_CellMouseDown;
             grd.CellMouseEnter += grd_CellMouseEnter;
@@ -201,6 +214,7 @@
             // 
             // colCurrent
             // 
+            colCurrent.Frozen = true;
             colCurrent.HeaderText = "->";
             colCurrent.MinimumWidth = 36;
             colCurrent.Name = "colCurrent";
@@ -209,6 +223,7 @@
             // 
             // colID
             // 
+            colID.Frozen = true;
             colID.HeaderText = "ID";
             colID.MinimumWidth = 60;
             colID.Name = "colID";
@@ -217,6 +232,7 @@
             // 
             // colName
             // 
+            colName.Frozen = true;
             colName.HeaderText = "Name";
             colName.MinimumWidth = 80;
             colName.Name = "colName";
@@ -225,27 +241,38 @@
             // 
             // colAction
             // 
+            colAction.Frozen = true;
             colAction.HeaderText = "Action";
             colAction.MinimumWidth = 80;
             colAction.Name = "colAction";
             colAction.ReadOnly = true;
-            colAction.Width = 250;
+            colAction.Width = 220;
+            // 
+            // colPosition
+            // 
+            colPosition.Frozen = true;
+            colPosition.HeaderText = "Pos";
+            colPosition.MinimumWidth = 80;
+            colPosition.Name = "colPosition";
+            colPosition.ReadOnly = true;
+            colPosition.Width = 80;
             // 
             // colX
             // 
+            colX.Frozen = true;
             colX.HeaderText = "X";
-            colX.MinimumWidth = 80;
+            colX.MinimumWidth = 65;
             colX.Name = "colX";
             colX.ReadOnly = true;
-            colX.Width = 80;
+            colX.Width = 65;
             // 
             // colY
             // 
             colY.HeaderText = "Y";
-            colY.MinimumWidth = 80;
+            colY.MinimumWidth = 65;
             colY.Name = "colY";
             colY.ReadOnly = true;
-            colY.Width = 80;
+            colY.Width = 65;
             // 
             // colXTime
             // 
@@ -277,7 +304,7 @@
             Controls.Add(splitContainer1);
             Margin = new Padding(2);
             Name = "frmSolution";
-            Text = "frmSolution";
+            Text = "Solution Viewer";
             Load += frmSolution_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
@@ -304,10 +331,12 @@
         private Label lblCurrent;
         private HScrollBar hScrollBar1;
         private System.Windows.Forms.Timer timer1;
+        private Button cmdAddImageToProject;
         private DataGridViewTextBoxColumn colCurrent;
         private DataGridViewTextBoxColumn colID;
         private DataGridViewTextBoxColumn colName;
         private DataGridViewTextBoxColumn colAction;
+        private DataGridViewTextBoxColumn colPosition;
         private DataGridViewTextBoxColumn colX;
         private DataGridViewTextBoxColumn colY;
         private DataGridViewTextBoxColumn colXTime;

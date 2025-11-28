@@ -4,39 +4,45 @@
 
 using AppTestStudio.solution;
 using OpenCvSharp.Internal.Vectors;
+using OpenCvSharp.XImgProc;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
 
 namespace AppTestStudio
 {
     internal partial class frmSolution : Form
     {
+        private frmMain frmMain = null;
         public enum ColumnType : int
         {
             Aarow = 0,
             Index = 1,
             NodeName = 2,
             MessageName = 3,
-            X = 4,
-            Y = 5,
-            ExecutionTime = 6,
-            AfterDelay = 7,
-            CumulativeTime = 8
+            Position = 4,
+            X = 5,
+            Y = 6,
+            ExecutionTime = 7,
+            AfterDelay = 8,
+            CumulativeTime = 9
 
         }
-            GamePassSolution GamePassSolution;
-        internal frmSolution(GamePassSolution gamePassSolution)
+        GamePassSolution GamePassSolution;
+        internal frmSolution(GamePassSolution gamePassSolution, frmMain frmMain)
         {
             GamePassSolution = gamePassSolution;
             InitializeComponent();
+            this.frmMain = frmMain;
         }
 
         private void frmSolution_Load(object sender, EventArgs e)
@@ -110,14 +116,27 @@ namespace AppTestStudio
                     foreach (ATSInput item in actionSolution.ATSInputs)
                     {
                         CurrentRunTime += item.AfterDelay;
-                        
+
                         int index = grd.Rows.Add();
                         grd.Rows[index].Cells[(int)ColumnType.Aarow].Value = "";
                         grd.Rows[index].Cells[(int)ColumnType.Index].Value = GridCount;
                         grd.Rows[index].Cells[(int)ColumnType.NodeName].Value = solution.NodeName;
                         grd.Rows[index].Cells[(int)ColumnType.MessageName].Value = item.MessageName();
-                        grd.Rows[index].Cells[(int)ColumnType.X].Value = item.CalcX.ToString();
-                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = item.CalcY.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.Position].Value = item.MessageName();
+                        int XPos = item.CalcX;
+                        int YPos = item.CalcY;
+                        String Position = "";
+                        if (XPos > GamePassSolution.Bitmap.Width)
+                        {
+                            Position = "Desk";
+                        }
+                        else
+                        {
+                            Position = "App";
+                        }
+                        grd.Rows[index].Cells[(int)ColumnType.Position].Value = Position;
+                        grd.Rows[index].Cells[(int)ColumnType.X].Value = XPos.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = YPos.ToString();
                         grd.Rows[index].Cells[(int)ColumnType.ExecutionTime].Value = item.ExecutionTime.ToString("HH:mm:ss.fff");
                         grd.Rows[index].Cells[(int)ColumnType.AfterDelay].Value = item.AfterDelay.ToString();
                         grd.Rows[index].Cells[(int)ColumnType.CumulativeTime].Value = CurrentRunTime;
@@ -187,8 +206,8 @@ namespace AppTestStudio
             }
 
             String Action = grd.Rows[e.RowIndex].Cells[3].Value.ToString();
-            X = grd.Rows[e.RowIndex].Cells[4].Value.ToInt();
-            Y = grd.Rows[e.RowIndex].Cells[5].Value.ToInt();
+            X = grd.Rows[e.RowIndex].Cells[(int)ColumnType.X].Value.ToInt();
+            Y = grd.Rows[e.RowIndex].Cells[(int)ColumnType.Y].Value.ToInt();
 
             Debug.Print($"grd_CellMouseEnterRI = {e.RowIndex} {Action} {X},{Y}");
 
@@ -234,17 +253,35 @@ namespace AppTestStudio
             switch (Action)
             {
                 case "DrawCrossHair":
-                    g.DrawLine(p, X, 0, X, Y-1);
+                    g.DrawLine(p, X, 0, X, Y - 1);
                     g.DrawLine(p, X, pictureBox1.Image.Height, X, Y - 1);
-                    g.DrawLine(p, 0, Y - 1, X+1, Y - 1);
+                    g.DrawLine(p, 0, Y - 1, X + 1, Y - 1);
                     g.DrawLine(p, pictureBox1.Image.Width, Y - 1, X + 1, Y - 1);
                     break;
-                  
+
                 default:
                     break;
             }
+        }
 
+        private void cmdAddImageToProject_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                frmAddNewNode frmAddNewNode = new frmAddNewNode(GamePassSolution, frmMain.tv.SelectedNode.FullPath);
+                frmAddNewNode.ShowDialog();
 
+                if (frmAddNewNode.ExitAndTargetNewNode)
+                {
+                    frmMain.AddNewNode(frmAddNewNode.NodeName, frmAddNewNode.IsAction, !frmAddNewNode.UseRootNode, frmAddNewNode.ChildNodeTop, pictureBox1.Image as Bitmap);
+                    Hide();
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine("cmdAddImageToProject_Click failed. ex=" + ex.Message);
+            }
         }
     }
 }
+

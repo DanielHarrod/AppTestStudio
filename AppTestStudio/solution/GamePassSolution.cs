@@ -15,7 +15,7 @@ namespace AppTestStudio.solution
     {
         private static int SolutionCounter = 0;
         public int SolutionID { get; private set; }
-        public GamePassSolution() 
+        public GamePassSolution()
         {
             SolutionCounter++;
             SolutionID = SolutionCounter;
@@ -26,20 +26,28 @@ namespace AppTestStudio.solution
 
         public string LastNodeName { get; internal set; }
 
-        public void AddSolution(ISolution solution, GameNode node) { 
+        public void AddSolution(ISolution solution, GameNode node)
+        {
             Solutions.Add(solution);
             solution.NodeName = node.GameNodeName;
             GameName = node.GetGameNodeGame().Name;
-            LastNodeName = node.GameNodeName;   
-        }   
+            LastNodeName = node.GameNodeName;
+        }
 
         public void Dispose()
         {
             if (Bitmap != null) { Bitmap.Dispose(); }
         }
 
+        public GamePassSolution CloneWithNoSolutions()
+        {
+            GamePassSolution clone = new GamePassSolution();
+            clone.Bitmap = (Bitmap?)Bitmap?.Clone();
+            clone.LastNodeName = LastNodeName;
+            clone.GameName = GameName;
+            return clone;
+        }
+
         public String GameName { get; set; } = string.Empty;
-
-
     }
 }

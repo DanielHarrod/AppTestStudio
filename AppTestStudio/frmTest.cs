@@ -1,11 +1,8 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2024 Daniel Harrod
+//Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudio.solution;
-using System;
-using System.Drawing;
-using System.Windows.Forms;
 
 namespace AppTestStudio
 {
@@ -146,7 +143,7 @@ namespace AppTestStudio
 
                 dgvTestRow.Cells["dgvColorTestRed"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor);
                 dgvTestRow.Cells["dgvColorTestGreen"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor);
-                dgvTestRow.Cells["dgvColorTestBlue"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor); 
+                dgvTestRow.Cells["dgvColorTestBlue"].Style = Utils.GetDataGridViewCellStyleFromColor(TestColor);
 
                 dgvTestRow.Cells["dgvXTest"].Value = X;
                 dgvTestRow.Cells["dgvYTest"].Value = y;
@@ -168,14 +165,14 @@ namespace AppTestStudio
                         FinalResult = true;
                     }
                 }
-                else if (frm.rdoOR.Checked )
+                else if (frm.rdoOR.Checked)
                 {
                     if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), solution))
                     {
                         Result = true;
                     }
                 }
-       
+
                 if (Targetcolor.CompareColorWithPoints(TestColor, frm.cboPoints.Text.ToInt(), solution))
                 {
                     dgv.Rows[RowIndex].Cells["dgvReferencePassFail"].Value = "Passed";
@@ -274,9 +271,9 @@ namespace AppTestStudio
             txtLogic.Text = PreExpression.ToLower();
             txtLogic2.Text = OriginalExpression.ToLower();
             txtLogic3.Text = Expression.ToLower();
-            
+
             // event with no requirements is a passing test.
-            if (dgvTest.Rows.Count == 0 )
+            if (dgvTest.Rows.Count == 0)
             {
                 Result = true;
             }
@@ -350,5 +347,17 @@ namespace AppTestStudio
                 Game.Log(ex.Message);
             }
         }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            dgv.ClearSelection();
+        }
+
+        private void dgvTest_SelectionChanged(object sender, EventArgs e)
+        {
+            dgvTest.ClearSelection();
+        }
     }
+
+
 }

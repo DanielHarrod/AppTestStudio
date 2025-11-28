@@ -4,7 +4,7 @@
 
 namespace AppTestStudio.solution
 {
-    internal class EventSolution : ISolution
+    internal class EventSolution : ISolution, IDisposable
     {
         public EventSolution()
         {
@@ -33,6 +33,13 @@ namespace AppTestStudio.solution
 
         public int Offset { get; internal set; }
         public int QualifyingPoints { get; set; }
+
+        public Bitmap bitmapBeingSearchedForObject { get; set; }
+
+        public void Dispose()
+        {
+            bitmapBeingSearchedForObject?.Dispose();
+        }
 
         internal void AddClickList(List<SingleClick> clickList)
         {

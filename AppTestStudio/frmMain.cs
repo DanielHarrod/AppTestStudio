@@ -12,6 +12,7 @@ using System.Diagnostics;
 using System.IO.Compression;
 using System.Reflection;
 using System.Text;
+using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -223,6 +224,7 @@ namespace AppTestStudio
 
         }
 
+        // Unfortunately this doesn't give proper DPI information - need to use GetDpiForWindow
         private void CheckMonitorScaling()
         {
             NativeMethods.EnumDisplayMonitors(IntPtr.Zero, IntPtr.Zero,
@@ -279,24 +281,22 @@ namespace AppTestStudio
 
         private void InitializeGamePassList()
         {
-            const int LIST_LIMIT = 100;
             lstGamePass.View = View.Details;
             ColumnHeader h = lstGamePass.Columns.Add("x");
             h.Width = 20;
 
             h = lstGamePass.Columns.Add("Time");
-            h.Width = 80;
+            h.Width = 55;
 
             h = lstGamePass.Columns.Add("Counter");
-            h.Width = 80;
+            h.Width = 55;
 
-            lstGamePass.Columns.Add("TBD");
+
+            h = lstGamePass.Columns.Add("Actions");
+            h.Width = 55;
+
             h = lstGamePass.Columns.Add("Project");
-            h.Width = 500;
-
-
-            //            lstGamePass.Columns[4].DisplayIndex = 4;
-
+            h.Width = 90;
             lstGamePass_Resize(null, null);
 
         }
@@ -1119,7 +1119,7 @@ namespace AppTestStudio
             return null;
         }
 
-        private GameNodeEvents GetGameNodeEvents()
+        internal GameNodeEvents GetGameNodeEvents()
         {
             GameNodeGame Game = GetGameNode();
             if (Game.IsSomething())
@@ -3840,22 +3840,12 @@ namespace AppTestStudio
                 lblClickCount.Text = String.Format("{0:n0}", ThreadManager.ClickCount);
                 lblClickCountTotal.Text = String.Format("{0:n0}", ThreadManager.ClickCount + ThreadManager.LoadThreadManager.ClickCount);
 
+                TimeSpan t = TimeSpan.FromSeconds(ThreadManager.WaitLength / 1000);
+                lblWaiting.Text = t.ToDhmsString();
 
-                lblWaiting.Text = String.Format("{0:n0} s", ThreadManager.WaitLength / 1000);
-                TimeSpan t = TimeSpan.FromSeconds((ThreadManager.WaitLength + ThreadManager.LoadThreadManager.WaitLength) / 1000);
+                t = TimeSpan.FromSeconds((ThreadManager.WaitLength + ThreadManager.LoadThreadManager.WaitLength) / 1000);
 
-                String Time = "";
-                if (t.Days > 0)
-                {
-                    Time = Time + t.Days.ToString().PadLeft(2, '0') + "d ";
-                }
-
-                Time = Time + t.Hours.ToString().PadLeft(2, '0') + "h ";
-                Time = Time + t.Minutes.ToString().PadLeft(2, '0') + "m ";
-                Time = Time + t.Seconds.ToString().PadLeft(2, '0') + "s ";
-
-
-                lblWaitingTotal.Text = Time;
+                lblWaitingTotal.Text = t.ToDhmsString();
 
                 lblScreenshots.Text = String.Format("{0:n0}", ThreadManager.ScreenShots);
                 lblScreenshotsTotal.Text = String.Format("{0:n0}", ThreadManager.ScreenShots + ThreadManager.LoadThreadManager.ScreenShots);
@@ -3996,26 +3986,46 @@ namespace AppTestStudio
 
         private void AddGamePassSolution(GamePassSolution gamePassSolution)
         {
-            // Looping Index
-            int GamePassIndex = GamePassListCounter % GamePassList.Count;
-            int LastGamePassIndex = (GamePassListCounter - 1) % GamePassList.Count;
-            GamePassList[GamePassIndex].SubItems[0].Text = "";
-            GamePassList[GamePassIndex].SubItems[1].Text = DateTime.Now.ToString("HH:mm:ss");
-            GamePassList[GamePassIndex].SubItems[2].Text = gamePassSolution.SolutionID.ToString();
-            GamePassList[GamePassIndex].SubItems[3].Text = gamePassSolution.Solutions.Count().ToString();
-            GamePassList[GamePassIndex].SubItems[4].Text = gamePassSolution.LastNodeName;
+            int GamePassListCount = GamePassList.Count;
 
-            // Clear the icon
-            if (GamePassListCounter > 0)
+            Boolean UpdateGamePassList = true;
+
+            if ( GamePassListCount == 0)
             {
-                GamePassList[LastGamePassIndex].ImageIndex = 34;  // Blank
+                UpdateGamePassList = false;
+                GamePassListCount = 1;
+
             }
 
-            // Set the current arrow as indicator.
-            GamePassList[GamePassIndex].ImageIndex = 5;  // Right Arrow
+            int GamePassIndex = GamePassListCounter % GamePassListCount;
+            int LastGamePassIndex = (GamePassListCounter - 1) % GamePassListCount;
+            int Last2GamePassIndex = (GamePassListCounter - 2) % GamePassListCount;
+            int Last3GamePassIndex = (GamePassListCounter - 3) % GamePassListCount;
+
+            if (UpdateGamePassList)
+            {
+                // Looping Index
+                GamePassList[GamePassIndex].SubItems[0].Text = "";
+                GamePassList[GamePassIndex].SubItems[1].Text = DateTime.Now.ToString("HH:mm:ss");
+                GamePassList[GamePassIndex].SubItems[2].Text = gamePassSolution.SolutionID.ToString();
+                GamePassList[GamePassIndex].SubItems[3].Text = gamePassSolution.Solutions.Count().ToString();
+                GamePassList[GamePassIndex].SubItems[4].Text = gamePassSolution.LastNodeName;
+
+                // Clear the icon
+                if (GamePassListCounter > 0)
+                {
+                    GamePassList[LastGamePassIndex].ImageIndex = 34;  // Blank
+                }
+
+                // Set the current arrow as indicator.
+                GamePassList[GamePassIndex].ImageIndex = 5;  // Right Arrow
+
+
+
+            }
 
             GamePassSolutions.Add(gamePassSolution);
-            if (GamePassSolutions.Count > GamePassList.Count())
+            if (GamePassSolutions.Count > GamePassListCount)
             {
                 GamePassSolutions.RemoveAt(0);
             }
@@ -4473,7 +4483,7 @@ namespace AppTestStudio
 
         }
 
-        private void SetPictureBox1(Bitmap bmp)
+        internal void SetPictureBox1(Bitmap bmp)
         {
             PictureBox1.Image = bmp;
             GameNodeAction Picturable = PanelLoadNode as GameNodeAction;
@@ -5289,7 +5299,7 @@ namespace AppTestStudio
             AddNewEvent();
         }
 
-        private void AddNewEvent()
+        internal void AddNewEvent(Boolean AddToTop = false)
         {
             if (tv.SelectedNode.IsSomething())
             {
@@ -5318,7 +5328,7 @@ namespace AppTestStudio
                 }
 
                 // Need to make sure this isn't the 
-                TargetParentNode.AddGameNode(Event);
+                TargetParentNode.AddGameNode(Event, AddToTop);
                 tv.SelectedNode = Event;
 
                 SetPanel(PanelMode.PanelColorEvent);
@@ -5339,14 +5349,14 @@ namespace AppTestStudio
             AddAction();
         }
 
-        private void AddAction()
+        internal void AddAction(Boolean AddToTop = false)
         {
             GameNode OriginalNode = tv.SelectedNode as GameNode;
             GameNodeAction GameNodeAction = new GameNodeAction("Click " + tv.SelectedNode.Text, ActionType.Action);
 
             GameNodeAction.FromCurrentMousePos = GetGameNode().MoveMouseBeforeAction;
 
-            OriginalNode.AddGameNode(GameNodeAction);
+            OriginalNode.AddGameNode(GameNodeAction, AddToTop);
             tv.SelectedNode = GameNodeAction;
 
             // Initialize Children with Parent Defaults
@@ -6562,10 +6572,13 @@ namespace AppTestStudio
             }
         }
 
+        Boolean ShuttingDown = false;
+
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
+                ShuttingDown = true;
                 if (PanelLoadNode.IsSomething())
                 {
                     GameNodeGame gng = GetGameNode();
@@ -9281,7 +9294,7 @@ namespace AppTestStudio
 
                 int index = k.SubItems[2].Text.ToInt();
 
-                foreach (GamePassSolution solution in GamePassSolutions )
+                foreach (GamePassSolution solution in GamePassSolutions)
                 {
                     if (solution.SolutionID == index)
                     {
@@ -9294,7 +9307,9 @@ namespace AppTestStudio
 
         private void ShowSolution(GamePassSolution solution)
         {
-            frmSolution frm = new frmSolution(solution);
+            frmSolution frm = new frmSolution(solution, this);
+
+
             frm.Show();
         }
 
@@ -9305,38 +9320,224 @@ namespace AppTestStudio
 
         private void lstGamePass_Resize(object sender, EventArgs e)
         {
-            Debug.WriteLine("lstGamePass_Resize");
-
-            int rowHeight = Math.Max(
-                TextRenderer.MeasureText("Sample", lstGamePass.Font).Height +5,
-                lstGamePass.SmallImageList?.ImageSize.Height ?? 0
-            );
-
-            int visibleRows = lstGamePass.ClientSize.Height / rowHeight;
-
-            GamePassList = new List<ListViewItem>();
- 
-            // Optional: store all items elsewhere and repopulate
-            lstGamePass.BeginUpdate();
-            lstGamePass.Items.Clear();
-            for (int i = 0; i < visibleRows; i++)
+            try
             {
-                ListViewItem item = lstGamePass.Items.Add("");
-                item.SubItems.Add("");
-                item.SubItems.Add("");
-                item.SubItems.Add("");
-                item.SubItems.Add("");
-                GamePassList.Add(item);
+                if (ShuttingDown == false)
+                {
+                    int headerHeigth = 29;
+                    int rowHeight = 19;  // Picture is 16, measured between top of text to line above next text is 18.  19 did I count wrong?
+
+                    int visibleRows = (lstGamePass.ClientSize.Height - headerHeigth) / rowHeight;
+                    GamePassList = new List<ListViewItem>();
+
+
+                    // Optional: store all items elsewhere and repopulate
+
+                    lstGamePass.BeginUpdate();
+                    lstGamePass.Items.Clear();
+                    for (int i = 0; i < visibleRows; i++)
+                    {
+                        ListViewItem item = lstGamePass.Items.Add("");
+                        item.SubItems.Add("");
+                        item.SubItems.Add("");
+                        item.SubItems.Add("");
+                        item.SubItems.Add("");
+                        GamePassList.Add(item);
+                    }
+                    if (lstGamePass.Columns.Count > 0)
+                    {
+                        lstGamePass.Columns[0].DisplayIndex = 0;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("lstGamePassColumns ?");
+                    }
+
+                    if ( GamePassList.Count == 0)
+                    {
+                        // Abort
+                        return;
+                    }
+
+                    int CurrentGamePassListCounter = GamePassListCounter;
+                    int CurrentvisibleRows = visibleRows;
+
+                    for (int i = GamePassSolutions.Count - 1; i >= 0; i--)
+                    //foreach (GamePassSolution solution in GamePassSolutions)
+                    {
+                        GamePassSolution solution = GamePassSolutions[i];
+                        int LastGamePassIndex = (CurrentGamePassListCounter - 1) % GamePassList.Count;
+                        
+                        if (CurrentGamePassListCounter == 0 || CurrentvisibleRows == 0 || LastGamePassIndex < 0)
+                        {
+                            break;
+                        }
+
+                        GamePassList[LastGamePassIndex].SubItems[0].Text = "";
+                        GamePassList[LastGamePassIndex].SubItems[1].Text = DateTime.Now.ToString("HH:mm:ss");
+                        GamePassList[LastGamePassIndex].SubItems[2].Text = solution.SolutionID.ToString();
+                        GamePassList[LastGamePassIndex].SubItems[3].Text = solution.Solutions.Count().ToString();
+                        GamePassList[LastGamePassIndex].SubItems[4].Text = solution.LastNodeName;
+                        CurrentGamePassListCounter--;
+                        CurrentvisibleRows--;
+                    }
+
+                    lstGamePass.EndUpdate();
+                }
             }
-            if (lstGamePass.Columns.Count > 0)
+            catch (Exception ex)
             {
-                lstGamePass.Columns[0].DisplayIndex = 0;
+                // This gets called duing unload, which throws an exception with the listview.
+                log.Error(ex);
+            }
+            finally
+            {
+                lstGamePass.EndUpdate();
+            }
+        }
+
+        private void lstGamePass_MouseMove(object sender, MouseEventArgs e)
+        {
+            //Debug.WriteLine("lstGamePass_MouseMove");
+            ListViewItem item = lstGamePass.GetItemAt(e.X, e.Y);
+            if (item.IsSomething())
+            {
+                var k = GamePassList[item.Index];
+
+                int index = k.SubItems[2].Text.ToInt();
+
+                foreach (GamePassSolution solution in GamePassSolutions)
+                {
+                    if (solution.SolutionID == index)
+                    {
+                        pbPreview.Width = (int)(pbPreview.Height * ((double)solution.Bitmap.Width / solution.Bitmap.Height));
+                        pbPreview.Image = solution.Bitmap;
+                        pbPreview.Left = -20 - pbPreview.Width + splitContainerThread.Width;
+                        pbPreview.Top = e.Y + 20;
+
+                        break;
+                    }
+                }
+            }
+        }
+
+        private void lstGamePass_MouseLeave(object sender, EventArgs e)
+        {
+            pbPreview.Visible = false;
+        }
+
+        private void lstGamePass_MouseEnter(object sender, EventArgs e)
+        {
+            pbPreview.Visible = true;
+        }
+
+        internal void AddNewNode(String Name, bool IsAction, bool UseSelectedNode, bool AddToTopChild, Bitmap bmp)
+        {
+            tabTree.SelectedIndex = 0;
+
+            Boolean AddToTop = AddToTopChild;
+
+            // Use Selected Node
+            if (UseSelectedNode)
+            {
+                GameNode node = tv.SelectedNode as GameNode;
+                if (node != null)
+                {
+                    switch (node.GameNodeType)
+                    {
+                        case GameNodeType.Events:
+                            break;
+                        case GameNodeType.Action:
+                            break;
+                        default:
+                            tv.SelectedNode = GetGameNodeEvents();
+                            break;
+                    }
+                }
             }
             else
             {
-                Debug.WriteLine("lstGamePassColumns ?");
+                tv.SelectedNode = GetGameNodeEvents();
             }
-                lstGamePass.EndUpdate();
+            
+            if (IsAction)
+            {
+                AddAction(AddToTopChild);
+            }
+            else
+            {
+                AddNewEvent(AddToTopChild);
+            }
+            txtEventName.Text = Name;
+            SetPictureBox1(bmp);
+        }
+
+        private void mnuCompareAllToRuntimeImagesTolstGamePassolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmTestAllRuntimeImages frm = new frmTestAllRuntimeImages(this, lastGameNodeForRunTesting, GamePassSolutions);
+            frm.Show();
+        }
+
+        GameNode lastGameNodeForRunTesting = null;
+
+        private void tvRun_MouseUp(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Right)
+            {
+
+                //' Point where mouse is clicked
+                Point p = new Point(e.X, e.Y);
+
+                //' Go to the node that the user clicked
+                GameNode node = tvRun.GetNodeAt(p) as GameNode;
+                lastGameNodeForRunTesting = node;
+
+                Boolean showMenu = false;
+                switch (node.GameNodeType)
+                {
+                    case GameNodeType.Workspace:
+                        break;
+                    case GameNodeType.Games:
+                        break;
+                    case GameNodeType.Game:
+                        break;
+                    case GameNodeType.Events:
+                        break;
+                    case GameNodeType.Action:
+                        
+                        GameNodeAction ActionNode = node as GameNodeAction;
+                        switch (ActionNode.ActionType)
+                        {
+                            case ActionType.Action:
+                                break;
+                            case ActionType.Event:
+                                lblRunTreeNodeNameToolStripMenuItem.Text = ActionNode.Name;
+                                showMenu = true;
+                                break;
+                            case ActionType.RNG:
+                                break;
+                            case ActionType.RNGContainer:
+                                break;
+                            default:
+                                break;
+                        }
+
+                        break;
+                    case GameNodeType.Objects:
+                        break;
+                    case GameNodeType.ObjectScreenshot:
+                        break;
+                    case GameNodeType.Object:
+                        break;
+                    default:
+                        break;
+                }
+
+                if (showMenu)
+                {
+                    mnuRunTree.Show(tvRun, p);
+                }                
+            }
         }
     }
 }

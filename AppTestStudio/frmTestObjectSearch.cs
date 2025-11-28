@@ -416,104 +416,110 @@ namespace AppTestStudio
 
         private void PictureBoxSearchArea_Paint(object sender, PaintEventArgs e)
         {
-            //'Draw the box on the search
-            Rectangle rectangle = new Rectangle();
-
-            Rectangle SourceMask;
-            if (GameNodeActionParent.IsSomething())
+            try
             {
-                SourceMask = GameNodeActionParent.Rectangle;
+                //'Draw the box on the search
+                Rectangle rectangle = new Rectangle();
+
+                Rectangle SourceMask;
+                if (GameNodeActionParent.IsSomething())
+                {
+                    SourceMask = GameNodeActionParent.Rectangle;
+                }
+                else
+                {
+                    SourceMask = Node.Rectangle;
+                }
+
+                if (SourceMask.IsFullScreenMask())
+                {
+                    // do nothing
+                    SourceMask = SourceMask.SetFullScreenFromDefault();
+                }
+                else
+                {
+                    Utils.DrawMask(PictureBoxSearchArea, SourceMask, e);
+                }
+
+                rectangle.X = DetectedPoint.X + SourceMask.X;
+                rectangle.Y = DetectedPoint.Y + SourceMask.Y;
+
+                rectangle.Width = PictureBoxObject.Image.Width;
+                rectangle.Height = PictureBoxObject.Image.Height;
+
+                Bitmap bitmap = (Bitmap)PictureBoxSearchArea.Image;
+                Utils.DrawRectangleWithGuidesOnGraphics(e.Graphics, bitmap, rectangle);
+
+                //using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 255, 201, 14)))
+                //{
+                //    e.Graphics.FillRectangle(br, rectangle);
+                //}
+
+                //using (Pen p = new Pen(Color.FromArgb(255, 201, 14), 1))
+                //{
+                //    e.Graphics.DrawRectangle(p, rectangle);
+                //}
+
+                return;
+
+                //New StartRectangle Rectangle
+
+                //        if (Parent.IsSomething)
+                //            {
+                //                if (Node.RelativeXOffset <> 0 Or Node.RelativeYOffset <> 0 ) {
+                //                    StartRectangle = New Rectangle
+
+
+                //                StartRectangle.X = DetectedPoint.X + Parent.Rectangle.X + Node.RelativeXOffset
+                //                    StartRectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y + Node.RelativeYOffset
+
+
+                //                StartRectangle.Width = PictureBoxObject.Image.Width
+                //                    StartRectangle.Height = PictureBoxObject.Image.Height
+                //                    //'Using br As New SolidBrush(Color.FromArgb(128, 0, 255, 0))
+                //                    //'    e.Graphics.FillRectangle(br, Rectangle)
+                //                    //'End Using
+                //                    Using p As New Pen(Color.FromArgb(0, 255, 0), 1)
+                //                        e.Graphics.DrawRectangle(p, StartRectangle)
+                //                    End Using
+
+                //            } else
+                //                {
+
+                //                    StartRectangle.X = DetectedPoint.X + Parent.Rectangle.X
+                //                StartRectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y
+                //                StartRectangle.Width = PictureBoxObject.Image.Width
+                //                StartRectangle.Height = PictureBoxObject.Image.Height
+
+                //            }
+
+                //                if (Node.Mode = Mode.ClickDragRelease)
+                //                {
+                //                    Using p As New Pen(Color.FromArgb(255, 0, 0), 1)
+                //                        e.Graphics.DrawRectangle(p, Node.Rectangle)
+                //                    End Using
+
+
+                //Long StartX = StartRectangle.X + (StartRectangle.Width / 2)
+                //    Long StartY = StartRectangle.Y + (StartRectangle.Height / 2)
+                //    Long EndX = Node.Rectangle.X + (Node.Rectangle.Width / 2)
+                //    Long EndY = Node.Rectangle.Y + (Node.Rectangle.Height / 2)
+
+                //                Using linePen As New Pen(Color.FromArgb(128, 0, 0, 255), 8)
+                //                        linePen.StartCap = LineCap.RoundAnchor
+                //                        linePen.EndCap = LineCap.ArrowAnchor
+                //                        linePen.DashStyle = DashStyle.Dot
+                //                        e.Graphics.DrawLine(linePen, StartX, StartY, EndX, EndY)
+                //                    End Using
+
+                //            }
+                //            }
             }
-            else
+            catch (Exception ex)
             {
-                SourceMask = Node.Rectangle;
+                Debug.WriteLine("PictureBoxSearchArea_Paint:" + ex.Message);
+                frm.Log("PictureBoxSearchArea_Paint:" + ex.Message);
             }
-
-            if (SourceMask.IsFullScreenMask())
-            {
-                // do nothing
-                SourceMask = SourceMask.SetFullScreenFromDefault();
-            }
-            else
-            {
-                Utils.DrawMask(PictureBoxSearchArea, SourceMask, e);
-            }
-
-            rectangle.X = DetectedPoint.X + SourceMask.X;
-            rectangle.Y = DetectedPoint.Y + SourceMask.Y;
-
-            rectangle.Width = PictureBoxObject.Image.Width;
-            rectangle.Height = PictureBoxObject.Image.Height;
-
-            Bitmap bitmap = (Bitmap)PictureBoxSearchArea.Image;
-            Utils.DrawRectangleWithGuidesOnGraphics(e.Graphics, bitmap, rectangle);
-
-            //using (SolidBrush br = new SolidBrush(Color.FromArgb(128, 255, 201, 14)))
-            //{
-            //    e.Graphics.FillRectangle(br, rectangle);
-            //}
-
-            //using (Pen p = new Pen(Color.FromArgb(255, 201, 14), 1))
-            //{
-            //    e.Graphics.DrawRectangle(p, rectangle);
-            //}
-
-            return;
-
-            //New StartRectangle Rectangle
-
-            //        if (Parent.IsSomething)
-            //            {
-            //                if (Node.RelativeXOffset <> 0 Or Node.RelativeYOffset <> 0 ) {
-            //                    StartRectangle = New Rectangle
-
-
-            //                StartRectangle.X = DetectedPoint.X + Parent.Rectangle.X + Node.RelativeXOffset
-            //                    StartRectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y + Node.RelativeYOffset
-
-
-            //                StartRectangle.Width = PictureBoxObject.Image.Width
-            //                    StartRectangle.Height = PictureBoxObject.Image.Height
-            //                    //'Using br As New SolidBrush(Color.FromArgb(128, 0, 255, 0))
-            //                    //'    e.Graphics.FillRectangle(br, Rectangle)
-            //                    //'End Using
-            //                    Using p As New Pen(Color.FromArgb(0, 255, 0), 1)
-            //                        e.Graphics.DrawRectangle(p, StartRectangle)
-            //                    End Using
-
-            //            } else
-            //                {
-
-            //                    StartRectangle.X = DetectedPoint.X + Parent.Rectangle.X
-            //                StartRectangle.Y = DetectedPoint.Y + Parent.Rectangle.Y
-            //                StartRectangle.Width = PictureBoxObject.Image.Width
-            //                StartRectangle.Height = PictureBoxObject.Image.Height
-
-            //            }
-
-            //                if (Node.Mode = Mode.ClickDragRelease)
-            //                {
-            //                    Using p As New Pen(Color.FromArgb(255, 0, 0), 1)
-            //                        e.Graphics.DrawRectangle(p, Node.Rectangle)
-            //                    End Using
-
-
-            //Long StartX = StartRectangle.X + (StartRectangle.Width / 2)
-            //    Long StartY = StartRectangle.Y + (StartRectangle.Height / 2)
-            //    Long EndX = Node.Rectangle.X + (Node.Rectangle.Width / 2)
-            //    Long EndY = Node.Rectangle.Y + (Node.Rectangle.Height / 2)
-
-            //                Using linePen As New Pen(Color.FromArgb(128, 0, 0, 255), 8)
-            //                        linePen.StartCap = LineCap.RoundAnchor
-            //                        linePen.EndCap = LineCap.ArrowAnchor
-            //                        linePen.DashStyle = DashStyle.Dot
-            //                        e.Graphics.DrawLine(linePen, StartX, StartY, EndX, EndY)
-            //                    End Using
-
-            //            }
-            //            }
-
-
         }
 
         private void cmdSetAcceptanceThreshold_Click(object sender, EventArgs e)
