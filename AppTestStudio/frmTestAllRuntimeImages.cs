@@ -7,6 +7,7 @@ using log4net;
 using System.Diagnostics;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Windows.Media.Media3D;
 
 namespace AppTestStudio
 {
@@ -140,7 +141,22 @@ namespace AppTestStudio
 
             if (actionNode.IsColorPoint)
             {
-                tableLayoutPanel.Controls.Add(GetDVG(gps), 1, 0);
+                FlowLayoutPanel fp = new FlowLayoutPanel();
+                fp.FlowDirection = FlowDirection.TopDown;
+                fp.WrapContents = false;
+                fp.AutoScroll = true;
+                fp.Width = 800;
+                fp.Height = Height;
+
+                Button btnAddImageToProject = new Button();
+                btnAddImageToProject.Text = "Add <- Image to Project";
+                btnAddImageToProject.Click += btnAddImageToProject_Click;
+                btnAddImageToProject.Tag = gps.SolutionID.ToString();
+                btnAddImageToProject.Width = 220;
+                fp.Controls.Add(btnAddImageToProject);
+
+                fp.Controls.Add(GetDVG(gps, Height));
+                tableLayoutPanel.Controls.Add(fp, 1, 0);
             }
             else
             {
@@ -297,7 +313,7 @@ namespace AppTestStudio
             }
         }
 
-        private DataGridView GetDVG(GamePassSolution gps)
+        private DataGridView GetDVG(GamePassSolution gps, int Height)
         {
             DataGridView dgv = new DataGridView();
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
@@ -368,6 +384,7 @@ namespace AppTestStudio
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv.TabIndex = 10;
             dgv.Width = 600;
+            dgv.Height = Height - 45; // -30 for button
 
             foreach (SingleClick click in actionNode.ClickList)
             {
