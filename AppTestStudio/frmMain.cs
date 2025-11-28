@@ -3990,7 +3990,7 @@ namespace AppTestStudio
 
             Boolean UpdateGamePassList = true;
 
-            if ( GamePassListCount == 0)
+            if (GamePassListCount == 0)
             {
                 UpdateGamePassList = false;
                 GamePassListCount = 1;
@@ -9353,7 +9353,7 @@ namespace AppTestStudio
                         Debug.WriteLine("lstGamePassColumns ?");
                     }
 
-                    if ( GamePassList.Count == 0)
+                    if (GamePassList.Count == 0)
                     {
                         // Abort
                         return;
@@ -9367,7 +9367,7 @@ namespace AppTestStudio
                     {
                         GamePassSolution solution = GamePassSolutions[i];
                         int LastGamePassIndex = (CurrentGamePassListCounter - 1) % GamePassList.Count;
-                        
+
                         if (CurrentGamePassListCounter == 0 || CurrentvisibleRows == 0 || LastGamePassIndex < 0)
                         {
                             break;
@@ -9459,7 +9459,7 @@ namespace AppTestStudio
             {
                 tv.SelectedNode = GetGameNodeEvents();
             }
-            
+
             if (IsAction)
             {
                 AddAction(AddToTopChild);
@@ -9504,7 +9504,7 @@ namespace AppTestStudio
                     case GameNodeType.Events:
                         break;
                     case GameNodeType.Action:
-                        
+
                         GameNodeAction ActionNode = node as GameNodeAction;
                         switch (ActionNode.ActionType)
                         {
@@ -9536,8 +9536,13 @@ namespace AppTestStudio
                 if (showMenu)
                 {
                     mnuRunTree.Show(tvRun, p);
-                }                
+                }
             }
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            (sender as DataGridView).ClearSelection();
         }
     }
 }
