@@ -3985,28 +3985,43 @@ namespace AppTestStudio
 
         private void AddGamePassSolution(GamePassSolution gamePassSolution)
         {
-            // Looping Index
-            int GamePassIndex = GamePassListCounter % GamePassList.Count;
-            int LastGamePassIndex = (GamePassListCounter - 1) % GamePassList.Count;
-            GamePassList[GamePassIndex].SubItems[0].Text = "";
-            GamePassList[GamePassIndex].SubItems[1].Text = DateTime.Now.ToString("HH:mm:ss");
-            GamePassList[GamePassIndex].SubItems[2].Text = gamePassSolution.SolutionID.ToString();
-            GamePassList[GamePassIndex].SubItems[3].Text = gamePassSolution.Solutions.Count().ToString();
-            GamePassList[GamePassIndex].SubItems[4].Text = gamePassSolution.LastNodeName;
+            int GamePassListCount = GamePassList.Count;
 
-            // Clear the icon
-            if (GamePassListCounter > 0)
+            Boolean UpdateGamePassList = true;
+
+            if ( GamePassListCount == 0)
             {
-                GamePassList[LastGamePassIndex].ImageIndex = 34;  // Blank
+                UpdateGamePassList = false;
+                GamePassListCount = 1;
+
             }
 
-            // Set the current arrow as indicator.
-            GamePassList[GamePassIndex].ImageIndex = 5;  // Right Arrow
+            int GamePassIndex = GamePassListCounter % GamePassListCount;
+            int LastGamePassIndex = (GamePassListCounter - 1) % GamePassListCount;
+
+            if (UpdateGamePassList)
+            {
+                // Looping Index
+                GamePassList[GamePassIndex].SubItems[0].Text = "";
+                GamePassList[GamePassIndex].SubItems[1].Text = DateTime.Now.ToString("HH:mm:ss");
+                GamePassList[GamePassIndex].SubItems[2].Text = gamePassSolution.SolutionID.ToString();
+                GamePassList[GamePassIndex].SubItems[3].Text = gamePassSolution.Solutions.Count().ToString();
+                GamePassList[GamePassIndex].SubItems[4].Text = gamePassSolution.LastNodeName;
+
+                // Clear the icon
+                if (GamePassListCounter > 0)
+                {
+                    GamePassList[LastGamePassIndex].ImageIndex = 34;  // Blank
+                }
+
+                // Set the current arrow as indicator.
+                GamePassList[GamePassIndex].ImageIndex = 5;  // Right Arrow
+            }
 
             // TODO Fade..
 
             GamePassSolutions.Add(gamePassSolution);
-            if (GamePassSolutions.Count > GamePassList.Count())
+            if (GamePassSolutions.Count > GamePassListCount)
             {
                 GamePassSolutions.RemoveAt(0);
             }
@@ -9313,7 +9328,9 @@ namespace AppTestStudio
                     int visibleRows = (lstGamePass.ClientSize.Height - headerHeigth) / rowHeight;
                     GamePassList = new List<ListViewItem>();
 
+
                     // Optional: store all items elsewhere and repopulate
+
                     lstGamePass.BeginUpdate();
                     lstGamePass.Items.Clear();
                     for (int i = 0; i < visibleRows; i++)
@@ -9333,13 +9350,47 @@ namespace AppTestStudio
                     {
                         Debug.WriteLine("lstGamePassColumns ?");
                     }
+
+                    if ( GamePassList.Count == 0)
+                    {
+                        // Abort
+                        return;
+                    }
+
+                    int CurrentGamePassListCounter = GamePassListCounter;
+                    int CurrentvisibleRows = visibleRows;
+
+                    for (int i = GamePassSolutions.Count - 1; i >= 0; i--)
+                    //foreach (GamePassSolution solution in GamePassSolutions)
+                    {
+                        GamePassSolution solution = GamePassSolutions[i];
+                        int LastGamePassIndex = (CurrentGamePassListCounter - 1) % GamePassList.Count;
+                        
+                        if (CurrentGamePassListCounter == 0 || CurrentvisibleRows == 0 || LastGamePassIndex < 0)
+                        {
+                            break;
+                        }
+
+                        GamePassList[LastGamePassIndex].SubItems[0].Text = "";
+                        GamePassList[LastGamePassIndex].SubItems[1].Text = DateTime.Now.ToString("HH:mm:ss");
+                        GamePassList[LastGamePassIndex].SubItems[2].Text = solution.SolutionID.ToString();
+                        GamePassList[LastGamePassIndex].SubItems[3].Text = solution.Solutions.Count().ToString();
+                        GamePassList[LastGamePassIndex].SubItems[4].Text = solution.LastNodeName;
+                        CurrentGamePassListCounter--;
+                        CurrentvisibleRows--;
+                    }
+
                     lstGamePass.EndUpdate();
                 }
             }
             catch (Exception ex)
             {
                 // This gets called duing unload, which throws an exception with the listview.
-                log.Error(ex);               
+                log.Error(ex);
+            }
+            finally
+            {
+                lstGamePass.EndUpdate();
             }
         }
 
