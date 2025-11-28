@@ -285,14 +285,17 @@ namespace AppTestStudio
             h.Width = 20;
 
             h = lstGamePass.Columns.Add("Time");
-            h.Width = 80;
+            h.Width = 55;
 
             h = lstGamePass.Columns.Add("Counter");
-            h.Width = 80;
+            h.Width = 55;
 
-            lstGamePass.Columns.Add("TBD");
+
+            h = lstGamePass.Columns.Add("Actions");
+            h.Width = 55;
+
             h = lstGamePass.Columns.Add("Project");
-            h.Width = 500;
+            h.Width = 90;
             lstGamePass_Resize(null, null);
 
         }
@@ -4000,6 +4003,8 @@ namespace AppTestStudio
             // Set the current arrow as indicator.
             GamePassList[GamePassIndex].ImageIndex = 5;  // Right Arrow
 
+            // TODO Fade..
+
             GamePassSolutions.Add(gamePassSolution);
             if (GamePassSolutions.Count > GamePassList.Count())
             {
@@ -6548,10 +6553,13 @@ namespace AppTestStudio
             }
         }
 
+        Boolean ShuttingDown = false;
+
         private void frmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             try
             {
+                ShuttingDown = true;
                 if (PanelLoadNode.IsSomething())
                 {
                     GameNodeGame gng = GetGameNode();
@@ -9293,38 +9301,46 @@ namespace AppTestStudio
 
         private void lstGamePass_Resize(object sender, EventArgs e)
         {
-            Debug.WriteLine("lstGamePass_Resize");
-
-            int rowHeight = Math.Max(
-                TextRenderer.MeasureText("Sample", lstGamePass.Font).Height + 5,
-                lstGamePass.SmallImageList?.ImageSize.Height ?? 0
-            );
-
-            int visibleRows = lstGamePass.ClientSize.Height / rowHeight;
-
-            GamePassList = new List<ListViewItem>();
-
-            // Optional: store all items elsewhere and repopulate
-            lstGamePass.BeginUpdate();
-            lstGamePass.Items.Clear();
-            for (int i = 0; i < visibleRows; i++)
+            try
             {
-                ListViewItem item = lstGamePass.Items.Add("");
-                item.SubItems.Add("");
-                item.SubItems.Add("");
-                item.SubItems.Add("");
-                item.SubItems.Add("");
-                GamePassList.Add(item);
+                if (ShuttingDown == false)
+                {
+                    Debug.WriteLine("lstGamePass_Resize");
+
+                    int headerHeigth = 29;
+                    int rowHeight = 19;  // Picture is 16, measured between top of text to line above next text is 18.
+
+                    int visibleRows = (lstGamePass.ClientSize.Height - headerHeigth) / rowHeight;
+                    GamePassList = new List<ListViewItem>();
+
+                    // Optional: store all items elsewhere and repopulate
+                    lstGamePass.BeginUpdate();
+                    lstGamePass.Items.Clear();
+                    for (int i = 0; i < visibleRows; i++)
+                    {
+                        ListViewItem item = lstGamePass.Items.Add("");
+                        item.SubItems.Add("");
+                        item.SubItems.Add("");
+                        item.SubItems.Add("");
+                        item.SubItems.Add("");
+                        GamePassList.Add(item);
+                    }
+                    if (lstGamePass.Columns.Count > 0)
+                    {
+                        lstGamePass.Columns[0].DisplayIndex = 0;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("lstGamePassColumns ?");
+                    }
+                    lstGamePass.EndUpdate();
+                }
             }
-            if (lstGamePass.Columns.Count > 0)
+            catch (Exception ex)
             {
-                lstGamePass.Columns[0].DisplayIndex = 0;
+                // This gets called duing unload, which throws an exception with the listview.
+                log.Error(ex);               
             }
-            else
-            {
-                Debug.WriteLine("lstGamePassColumns ?");
-            }
-            lstGamePass.EndUpdate();
         }
 
         private void lstGamePass_MouseMove(object sender, MouseEventArgs e)
