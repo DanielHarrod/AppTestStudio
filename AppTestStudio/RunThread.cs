@@ -346,8 +346,7 @@ namespace AppTestStudio
                                 gamePassSolution.AddSolution(solution, node);
 
                                 node.RuntimeMouseMS = solution.RuntimeMS;
-
-                                Game.Log("/MouseMove)");
+                                
                                 Game.MouseX = (short)MouseMoveResult.EndX;
                                 Game.MouseY = (short)MouseMoveResult.EndY;
                                 ThreadManager.IncrementMouseMove();
