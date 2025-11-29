@@ -188,7 +188,7 @@ namespace AppTestStudio
                 l.Text = $"ObjectThreashold = {actionNode.ObjectThreshold}";
                 fp.Controls.Add(l);
 
-                float detectedThreashold = (eventSolution.DetectedThreashold * 100);
+                float detectedThreashold = (eventSolution.DetectedThreashold);
                 l = new Label();
                 l.Width = 300;
                 l.Text = $"DetectedThreshold = {detectedThreashold}";
