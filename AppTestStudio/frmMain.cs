@@ -296,7 +296,7 @@ namespace AppTestStudio
             h = lstGamePass.Columns.Add("Actions");
             h.Width = 55;
 
-            h = lstGamePass.Columns.Add("Project");
+            h = lstGamePass.Columns.Add("Node");
             h.Width = 90;
             lstGamePass_Resize(null, null);
 
