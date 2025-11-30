@@ -919,12 +919,7 @@ namespace AppTestStudio
 
                     if (Dpi != 96)
                     {
-                        Game.Log("*** DPI Warning ***");
-                        Game.Log($"The target window '{Game.TargetWindow}' is running at {Dpi} DPI.");
-                        Game.Log("AppTestStudio is designed to work at 100% scaling");
-                        Game.Log($"Go to: Windows->System->Display->Choose Monitor running {Game.TargetWindow}->Scale&Layout->Scale set to 100%");
-                        Game.Log("*** DPI Warning ***");
-
+                        Game.Log($"*** DPI Warning *** target window '{Game.TargetWindow}' is running at {Dpi} Warning *** Use a monitor with the scaling set to 100%.  Go to: Windows->System->Display->Choose Monitor running {Game.TargetWindow}->Scale&Layout->Scale set to 100%");
                     }   
                 }
                 else
