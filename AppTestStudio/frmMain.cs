@@ -15,6 +15,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using static AppTestStudio.Utils;
 
 namespace AppTestStudio
 {
@@ -4504,6 +4505,13 @@ namespace AppTestStudio
             String TargetWindow = GameNode.TargetWindow;
 
             IntPtr MainWindowHandle = GameNode.GetWindowHandleByWindowName();
+
+            uint Dpi = NativeMethods.GetDpiForWindow(MainWindowHandle);
+
+            if (Dpi != 96)
+            {
+                Log($"*** DPI at {Dpi} Warning *** Use a monitor with the scaling set to 100%.  Go to: Windows->System->Display->Choose Monitor running->Scale&Layout->Scale set to 100%");
+            }
 
             Debug.Print("cmdAddSingleColorAtSingleLocationTakeASceenshot_Click TW=" + TargetWindow + " MWH= " + MainWindowHandle);
 
