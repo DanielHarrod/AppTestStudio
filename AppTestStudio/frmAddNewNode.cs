@@ -36,7 +36,7 @@ namespace AppTestStudio
 
         internal frmAddNewNode(GamePassSolution gamePassSolution, String fullPath)
         {
-            this.FullPath = FullPath;
+            this.FullPath = fullPath;
             this.gamePassSolution = gamePassSolution;
             InitializeComponent();
         }
@@ -65,6 +65,7 @@ namespace AppTestStudio
             try
             {
                 lblSelectedNode.Text = FullPath;
+                txtNodeName.Focus();
             }
             catch (Exception ex)
             {

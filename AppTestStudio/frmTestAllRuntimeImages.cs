@@ -49,6 +49,37 @@ namespace AppTestStudio
                 fp.WrapContents = false;
                 fp.FlowDirection = FlowDirection.TopDown;
 
+                // Show the reference image.
+                // ATS does not use the reference bitmaps at runtime. 
+                TreeNode[] tn = frmMain.tv.Nodes[0].Nodes.Find(actionNode.Name,true);
+                if (tn.Length > 0)
+                {
+                    GameNodeAction actionNode = tn[0] as GameNodeAction;
+
+                    if (actionNode != null)
+                    {
+                        String Filename = $"{Utils.GetApplicationFolder()}\\{actionNode.GetGameNodeGame().Name}\\Pictures\\{actionNode.FileName}";
+
+                        if (System.IO.File.Exists(Filename))
+                        {
+                            Label l = new Label();
+                            l.Text = "Reference Image";
+                            l.Font = new Font(FontFamily.GenericSansSerif, 20);
+                            l.AutoSize = true;
+                            fp.Controls.Add(l);
+                            if (tn.Length > 1)
+                            {
+                                l = new Label();
+                                l.Text = $"Found {tn.Length} nodes with name {actionNode.Name} displaying the first one.";
+                                l.Font = new Font(FontFamily.GenericSansSerif, 20);
+                                l.AutoSize = true;
+                                fp.Controls.Add(l);
+                            }
+                            fp.Controls.Add(GetPictureBox(new Bitmap(Filename), PreviewWidth, PreviewHeight));
+                        }
+                    }
+                }
+
                 foreach (GamePassSolution gps in gamePassSolutions)
                 {
                     // Optional: add tooltip with image info
@@ -188,7 +219,7 @@ namespace AppTestStudio
                 l.Text = $"ObjectThreashold = {actionNode.ObjectThreshold}";
                 fp.Controls.Add(l);
 
-                float detectedThreashold = (eventSolution.DetectedThreashold * 100);
+                float detectedThreashold = (eventSolution.DetectedThreashold);
                 l = new Label();
                 l.Width = 300;
                 l.Text = $"DetectedThreshold = {detectedThreashold}";

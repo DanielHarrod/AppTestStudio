@@ -46,7 +46,7 @@ namespace AppTestStudio
             ClientSize = new Size(1486, 723);
             Controls.Add(fp);
             Name = "frmTestAllRuntimeImages";
-            Text = "frmTestAllRuntimeImages";
+            Text = "Test Runtime Images";
             WindowState = FormWindowState.Maximized;
             Load += frmTestAllRuntimeImages_Load;
             ResumeLayout(false);

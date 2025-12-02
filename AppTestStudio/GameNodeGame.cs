@@ -26,7 +26,7 @@ namespace AppTestStudio
             Resolution = "1024x768";
             InstanceToLaunch = "0";
             VideoFrameLimit = 2000;
-            DefaultClickSpeed = 0;
+            DefaultClickSpeed = 20;
             DPI = 192;
             Platform = Platform.NoxPlayer;
             PackageName = "";

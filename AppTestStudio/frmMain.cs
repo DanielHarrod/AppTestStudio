@@ -15,6 +15,7 @@ using System.Text;
 using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
+using static AppTestStudio.Utils;
 
 namespace AppTestStudio
 {
@@ -295,7 +296,7 @@ namespace AppTestStudio
             h = lstGamePass.Columns.Add("Actions");
             h.Width = 55;
 
-            h = lstGamePass.Columns.Add("Project");
+            h = lstGamePass.Columns.Add("Node");
             h.Width = 90;
             lstGamePass_Resize(null, null);
 
@@ -3990,7 +3991,7 @@ namespace AppTestStudio
 
             Boolean UpdateGamePassList = true;
 
-            if ( GamePassListCount == 0)
+            if (GamePassListCount == 0)
             {
                 UpdateGamePassList = false;
                 GamePassListCount = 1;
@@ -4504,6 +4505,13 @@ namespace AppTestStudio
             String TargetWindow = GameNode.TargetWindow;
 
             IntPtr MainWindowHandle = GameNode.GetWindowHandleByWindowName();
+
+            uint Dpi = NativeMethods.GetDpiForWindow(MainWindowHandle);
+
+            if (Dpi != 96)
+            {
+                Log($"*** DPI at {Dpi} Warning *** Use a monitor with the scaling set to 100%.  Go to: Windows->System->Display->Choose Monitor running->Scale&Layout->Scale set to 100%");
+            }
 
             Debug.Print("cmdAddSingleColorAtSingleLocationTakeASceenshot_Click TW=" + TargetWindow + " MWH= " + MainWindowHandle);
 
@@ -9353,7 +9361,7 @@ namespace AppTestStudio
                         Debug.WriteLine("lstGamePassColumns ?");
                     }
 
-                    if ( GamePassList.Count == 0)
+                    if (GamePassList.Count == 0)
                     {
                         // Abort
                         return;
@@ -9367,7 +9375,7 @@ namespace AppTestStudio
                     {
                         GamePassSolution solution = GamePassSolutions[i];
                         int LastGamePassIndex = (CurrentGamePassListCounter - 1) % GamePassList.Count;
-                        
+
                         if (CurrentGamePassListCounter == 0 || CurrentvisibleRows == 0 || LastGamePassIndex < 0)
                         {
                             break;
@@ -9459,7 +9467,7 @@ namespace AppTestStudio
             {
                 tv.SelectedNode = GetGameNodeEvents();
             }
-            
+
             if (IsAction)
             {
                 AddAction(AddToTopChild);
@@ -9504,7 +9512,7 @@ namespace AppTestStudio
                     case GameNodeType.Events:
                         break;
                     case GameNodeType.Action:
-                        
+
                         GameNodeAction ActionNode = node as GameNodeAction;
                         switch (ActionNode.ActionType)
                         {
@@ -9536,8 +9544,13 @@ namespace AppTestStudio
                 if (showMenu)
                 {
                     mnuRunTree.Show(tvRun, p);
-                }                
+                }
             }
+        }
+
+        private void dgv_SelectionChanged(object sender, EventArgs e)
+        {
+            (sender as DataGridView).ClearSelection();
         }
     }
 }

@@ -54,7 +54,7 @@
             pictureBox1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             pictureBox1.Location = new Point(12, 12);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(410, 338);
+            pictureBox1.Size = new Size(409, 330);
             pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -63,7 +63,7 @@
             // 
             label1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             label1.AutoSize = true;
-            label1.Location = new Point(437, 12);
+            label1.Location = new Point(436, 12);
             label1.Name = "label1";
             label1.Size = new Size(39, 15);
             label1.TabIndex = 1;
@@ -72,7 +72,7 @@
             // txtNodeName
             // 
             txtNodeName.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            txtNodeName.Location = new Point(481, 9);
+            txtNodeName.Location = new Point(480, 9);
             txtNodeName.Name = "txtNodeName";
             txtNodeName.Size = new Size(329, 23);
             txtNodeName.TabIndex = 2;
@@ -83,7 +83,7 @@
             groupBox1.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             groupBox1.Controls.Add(rdoAction);
             groupBox1.Controls.Add(rdoEvent);
-            groupBox1.Location = new Point(437, 38);
+            groupBox1.Location = new Point(436, 38);
             groupBox1.Name = "groupBox1";
             groupBox1.Size = new Size(373, 74);
             groupBox1.TabIndex = 3;
@@ -94,7 +94,7 @@
             // 
             rdoAction.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             rdoAction.AutoSize = true;
-            rdoAction.Location = new Point(274, 47);
+            rdoAction.Location = new Point(9, 43);
             rdoAction.Name = "rdoAction";
             rdoAction.Size = new Size(60, 19);
             rdoAction.TabIndex = 0;
@@ -106,7 +106,7 @@
             rdoEvent.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             rdoEvent.AutoSize = true;
             rdoEvent.Checked = true;
-            rdoEvent.Location = new Point(274, 22);
+            rdoEvent.Location = new Point(9, 22);
             rdoEvent.Name = "rdoEvent";
             rdoEvent.Size = new Size(54, 19);
             rdoEvent.TabIndex = 0;
@@ -118,7 +118,7 @@
             // 
             cmdCreate.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             cmdCreate.Enabled = false;
-            cmdCreate.Location = new Point(437, 327);
+            cmdCreate.Location = new Point(436, 327);
             cmdCreate.Name = "cmdCreate";
             cmdCreate.Size = new Size(283, 23);
             cmdCreate.TabIndex = 4;
@@ -129,7 +129,7 @@
             // cmdCancel
             // 
             cmdCancel.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            cmdCancel.Location = new Point(726, 327);
+            cmdCancel.Location = new Point(725, 327);
             cmdCancel.Name = "cmdCancel";
             cmdCancel.Size = new Size(84, 23);
             cmdCancel.TabIndex = 5;
@@ -143,7 +143,7 @@
             groupBox2.Controls.Add(lblSelectedNode);
             groupBox2.Controls.Add(rdoRootNode);
             groupBox2.Controls.Add(rdoSelectedNode);
-            groupBox2.Location = new Point(437, 118);
+            groupBox2.Location = new Point(436, 118);
             groupBox2.Name = "groupBox2";
             groupBox2.Size = new Size(373, 128);
             groupBox2.TabIndex = 6;
@@ -153,7 +153,7 @@
             // lblSelectedNode
             // 
             lblSelectedNode.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblSelectedNode.Location = new Point(6, 63);
+            lblSelectedNode.Location = new Point(9, 63);
             lblSelectedNode.Name = "lblSelectedNode";
             lblSelectedNode.Size = new Size(367, 62);
             lblSelectedNode.TabIndex = 1;
@@ -174,7 +174,7 @@
             // 
             rdoSelectedNode.AutoSize = true;
             rdoSelectedNode.Checked = true;
-            rdoSelectedNode.Location = new Point(6, 38);
+            rdoSelectedNode.Location = new Point(9, 38);
             rdoSelectedNode.Name = "rdoSelectedNode";
             rdoSelectedNode.Size = new Size(101, 19);
             rdoSelectedNode.TabIndex = 0;
@@ -209,7 +209,7 @@
             groupBox3.Anchor = AnchorStyles.Top | AnchorStyles.Right;
             groupBox3.Controls.Add(rdoNodeTop);
             groupBox3.Controls.Add(rdoNodeBottom);
-            groupBox3.Location = new Point(438, 254);
+            groupBox3.Location = new Point(437, 254);
             groupBox3.Name = "groupBox3";
             groupBox3.Size = new Size(372, 67);
             groupBox3.TabIndex = 7;
@@ -220,7 +220,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(822, 370);
+            ClientSize = new Size(821, 362);
             Controls.Add(groupBox3);
             Controls.Add(groupBox2);
             Controls.Add(cmdCancel);
