@@ -1826,7 +1826,7 @@ namespace AppTestStudio
                 GameNodeGame GameNode = CurrentNode as GameNodeGame;
 
                 // Make Backup folder if necessary.
-                String Directory = System.IO.Path.Combine(WorkspaceNode.WorkspaceFolder, GameNode.Text, "Backup");
+                String Directory = GameNode.GetSavedPictureFolderName();
                 if (System.IO.Directory.Exists(Directory))
                 {
                     //'do nothing
@@ -1835,6 +1835,13 @@ namespace AppTestStudio
                 {
                     System.IO.Directory.CreateDirectory(Directory);
                     Log("Creating Directory: " + Directory);
+                }
+
+                String SavedPicturesFolder = System.IO.Path.Combine(WorkspaceNode.WorkspaceFolder, GameNode.Text, "SavedPictures");
+                if (! System.IO.Directory.Exists(SavedPicturesFolder))
+                {
+                    System.IO.Directory.CreateDirectory(SavedPicturesFolder);
+                    Log("Creating Directory: " + SavedPicturesFolder);
                 }
 
                 // Make a Backup file if necessary.

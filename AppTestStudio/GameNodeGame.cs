@@ -2996,10 +2996,19 @@ namespace AppTestStudio
 
         internal void InitializeLogger(String Name)
         {
-            log = LogManager.GetLogger(Name,Name);
+            log = LogManager.GetLogger(Name, Name);
             Log("logging initialized");
         }
+
+        internal string GetSavedPictureFolderName()
+        {
+            GameNodeWorkspace gnw = this.Parent as GameNodeWorkspace;
+            if (gnw != null)
+            {
+                String SavedPicturesFolder = System.IO.Path.Combine(gnw.WorkspaceFolder, this.Text, "SavedPictures");
+                return SavedPicturesFolder;
+            }
+            return String.Empty;
+        }
     }
-
-
 }
