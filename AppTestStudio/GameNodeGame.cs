@@ -5,6 +5,7 @@
 using AppTestStudio.solution;
 using AppTestStudioControls;
 using log4net;
+using OpenCvSharp.Internal.Vectors;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Xml;
@@ -923,20 +924,44 @@ namespace AppTestStudio
 
             if (Document.DocumentElement.SelectSingleNode("//App").IsSomething())
             {
+                // Check if in Default Folder..
+                String[] FilePath = fileName.Split("\\");
+
+                String ProjectNameOverride = String.Empty;
+
+                if (FilePath.Length > 3)
+                {
+                    const int appTestStudioDefaultFolderLocation = 2;
+                    const int folderLocaction = 1;
+                    // If we are using potentially the default location
+                    if (FilePath[FilePath.Length-1- appTestStudioDefaultFolderLocation] == "App Test Studio")
+                    {
+                        ProjectNameOverride = FilePath[FilePath.Length - 1 - folderLocaction];
+                    }
+                }
+
                 XmlNode ChildNode = Document.DocumentElement.SelectSingleNode("//App");
-                Game = LoadGame(ChildNode, fileName, "", loadBitmaps, threadManager);
+                Game = LoadGame(ChildNode, fileName, "", loadBitmaps, threadManager, ProjectNameOverride);
             }
 
             return Game;
         }
 
-        public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps, ThreadManager threadManager)
+        public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps, ThreadManager threadManager, String ProjectNameOverride = "")
         {
             String GameName = "";
 
             try
             {
-                GameName = childNode.Attributes["Name"].Value;
+                if (ProjectNameOverride.Length > 0 )
+                {
+                    // Use the folder name.
+                    GameName = ProjectNameOverride;
+                }
+                else
+                {
+                    GameName = childNode.Attributes["Name"].Value;
+                }                    
             }
             catch (Exception ex)
             {
