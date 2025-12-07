@@ -1848,7 +1848,7 @@ namespace AppTestStudio
                 if (System.IO.File.Exists(GameNode.FileName))
                 {
 
-                    String NewFileName = System.IO.Path.Combine(Directory, DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.xml"));
+                    String NewFileName = System.IO.Path.Combine(Directory, $"{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.xml");
                     if (System.IO.File.Exists(NewFileName))
                     {
                         // do nothing
