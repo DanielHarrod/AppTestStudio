@@ -1824,9 +1824,9 @@ namespace AppTestStudio
             if (CurrentNode.GameNodeType == GameNodeType.Game)
             {
                 GameNodeGame GameNode = CurrentNode as GameNodeGame;
+                String Directory = System.IO.Path.Combine(WorkspaceNode.WorkspaceFolder, GameNode.Text, "Backup");
 
-                // Make Backup folder if necessary.
-                String Directory = GameNode.GetSavedPictureFolderName();
+                // Make Backup folder if necessary.                ;
                 if (System.IO.Directory.Exists(Directory))
                 {
                     //'do nothing
