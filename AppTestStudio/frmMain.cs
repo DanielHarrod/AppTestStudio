@@ -162,9 +162,6 @@ namespace AppTestStudio
             InitialPanelRightAnchorHeight = panelRightAnchor.Height;
 
             Timer1.Enabled = true;
-            //'Debug.Assert(false, "Fix")
-
-            ThreadManager.IncrementAppLaunches();
 
             //'Default the first Panel to system
             SetPanel(PanelMode.Workspace);
@@ -726,7 +723,6 @@ namespace AppTestStudio
         private void LoadGameToTree(GameNodeGame game)
         {
             IsPanelLoading = true;
-            ThreadManager.IncrementTestLoaded();
             tv.BeginUpdate();
             GameNode gt = WorkspaceNode;
             gt.Nodes.Clear();
@@ -1838,7 +1834,7 @@ namespace AppTestStudio
                 }
 
                 String SavedPicturesFolder = System.IO.Path.Combine(WorkspaceNode.WorkspaceFolder, GameNode.Text, "SavedPictures");
-                if (! System.IO.Directory.Exists(SavedPicturesFolder))
+                if (!System.IO.Directory.Exists(SavedPicturesFolder))
                 {
                     System.IO.Directory.CreateDirectory(SavedPicturesFolder);
                     Log("Creating Directory: " + SavedPicturesFolder);
@@ -1967,8 +1963,6 @@ namespace AppTestStudio
 
             t.Start();
             SetThreadPauseState(false);
-
-            ThreadManager.IncrementInstanceLoaded();
 
             tabTree.SelectTab(1);
             cboThreads.SelectedIndex = cboThreads.Items.Count - 1;
@@ -2693,7 +2687,6 @@ namespace AppTestStudio
 
             targetAction.AddGameNode(GameNodeAction);
             tv.SelectedNode = GameNodeAction;
-            ThreadManager.IncrementNewRNGContainer();
             return GameNodeAction;
 
 
@@ -3452,7 +3445,6 @@ namespace AppTestStudio
             //    String TargetWindow = game.TargetWindow
             if (MainWindowHandle.ToInt32() > 0)
             {
-                ThreadManager.IncrementSingleTestRun();
 
                 switch (lblMode.Text)
                 {
@@ -3464,7 +3456,6 @@ namespace AppTestStudio
                             frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, Node.Parent as GameNodeAction);
                             frm2.StartPosition = FormStartPosition.CenterParent;
 
-                            ThreadManager.IncrementSingleEventTest();
 
                             frm2.ShowDialog(this);
                         }
@@ -3501,7 +3492,6 @@ namespace AppTestStudio
                                     SolutionPlayer.Play(solution);
 
                                     Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
-                                    ThreadManager.IncrementSingleTestClick();
 
                                     break;
                                 case Mode.ClickDragRelease:
@@ -3515,7 +3505,6 @@ namespace AppTestStudio
                                     SolutionPlayer.Play(solution);
 
                                     Log("ClickDragRelease( x=" + ClickDragResult.StartX + ",Y = " + ClickDragResult.StartY + ", ex=" + ClickDragResult.EndX + ",ey=" + ClickDragResult.EndY + ")");
-                                    ThreadManager.IncrementSingleTestClickDragRelease();
                                     break;
                                 case Mode.MouseMove:
                                     GameNodeAction.ClickDragReleaseResult MouseMoveResult = ActionNode.CalculateClickDragReleaseResult(0, 0);
@@ -3528,7 +3517,6 @@ namespace AppTestStudio
                                     SolutionPlayer.Play(solution);
 
                                     Log("MouseMove( x=" + MouseMoveResult.StartX + ",Y = " + MouseMoveResult.StartY + ", ex=" + MouseMoveResult.EndX + ",ey=" + MouseMoveResult.EndY + ")");
-                                    ThreadManager.IncrementSingleTestMouseMove();
                                     break;
                                 case Mode.Keyboard:
                                     if (ActionNode.RumtimeIsKeyboardCompiled == false)
@@ -3576,7 +3564,6 @@ namespace AppTestStudio
                             frmTest frm2 = new frmTest(game, ActionNode, this, MainWindowHandle);
                             frm2.StartPosition = FormStartPosition.CenterParent;
 
-                            ThreadManager.IncrementSingleEventTest();
 
                             frm2.ShowDialog(this);
                         }
@@ -3594,7 +3581,6 @@ namespace AppTestStudio
                                 {
                                     frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, null);
                                     frm2.StartPosition = FormStartPosition.CenterParent;
-                                    ThreadManager.IncrementSingleEventTest();
 
                                     frm2.ShowDialog(this);
                                 }
@@ -5351,7 +5337,6 @@ namespace AppTestStudio
                 //LoadParentScreenshotIfNecessary();
                 cmdAddSingleColorAtSingleLocationTakeASceenshot.PerformClick();
                 SaveClickList();
-                ThreadManager.IncrementNewEventAdded();
             }
             else
             {
@@ -5401,7 +5386,6 @@ namespace AppTestStudio
 
             InitalizeOffsets();
 
-            ThreadManager.IncrementNewActionAdded();
             SaveClickList();
         }
 
@@ -5428,7 +5412,6 @@ namespace AppTestStudio
 
             SetPanel(PanelMode.PanelColorEvent);
             LoadPanelSingleColorAtSingleLocation(GameNodeAction);
-            ThreadManager.IncrementNewRNGContainer();
         }
 
         private void mnuAddRNGNode_Click(object sender, EventArgs e)
@@ -5963,7 +5946,6 @@ namespace AppTestStudio
                 }
 
                 toolStripButtonSaveScript_Click(null, null);
-                ThreadManager.IncrementNewAppAdded();
             }
         }
 
@@ -6042,8 +6024,7 @@ namespace AppTestStudio
 
                 Game.FileName = frm.TargetFileName;
 
-                toolStripButtonSaveScript_Click(null, null); ;
-                ThreadManager.IncrementNewAppAdded();
+                toolStripButtonSaveScript_Click(null, null);
 
                 // force a reset of current panel
                 tv_AfterSelect(null, null);
@@ -6360,7 +6341,6 @@ namespace AppTestStudio
                 }
 
                 Log("File Created: " + saveFileDialog1.FileName);
-                ThreadManager.IncrementTestSaved();
 
                 String Argument = "/select, \"" + saveFileDialog1.FileName + "\"";
 
@@ -9558,6 +9538,12 @@ namespace AppTestStudio
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {
             (sender as DataGridView).ClearSelection();
+        }
+
+        private void chkSavedPicturesGlobal_CheckedChanged(object sender, EventArgs e)
+        {
+            GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+            GameNode.VideoFrameLimit = NumericVideoFrameLimit.Value.ToLong();
         }
     }
 }

@@ -1591,8 +1591,6 @@ namespace AppTestStudio
             }
             Writer.WriteEndElement();
 
-            threadManger.IncrementTestSaved();
-
             return Results;
 
         }

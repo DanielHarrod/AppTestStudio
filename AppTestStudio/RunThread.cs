@@ -2,6 +2,7 @@
 //Copyright (C) 2016-2025 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
+using AppTestStudio.Data;
 using AppTestStudio.solution;
 using System.Diagnostics;
 
@@ -28,12 +29,15 @@ namespace AppTestStudio
             GetBitMapLock = new Object();
         }
 
+        private CounterRepository counterRepository = null;
+
         public RunThread(GameNodeGame Game, CancellationTokenSource cancellationTokenSource)
         {
             this.Game = Game;
             CancellationTokenSource = cancellationTokenSource;
             RunTimeWindowTimeout = 100;
-            WindowHandle = IntPtr.Zero;            
+            WindowHandle = IntPtr.Zero;
+            counterRepository = new CounterRepository();
         }
 
         public void ShutDownThread()
@@ -127,7 +131,7 @@ namespace AppTestStudio
                 return AfterCompletionType.Continue;
             }
 
-            ThreadManager.IncrementGoChild();
+            IncrementGoChild();
 
             Boolean PreLimitCheck = false;
 
@@ -547,7 +551,7 @@ namespace AppTestStudio
 
                 case ActionType.RNGContainer:
 
-                    ThreadManager.IncrementNewRNGContainer();
+                    ThreadManager.IncrementRNGContainer();
 
                     if (node.Nodes.Count > 0)
                     {
@@ -761,6 +765,12 @@ namespace AppTestStudio
             ThreadManager.IncrementGoContinue();
             return AfterCompletionType.Continue;
         } // ProcessChildren
+
+        private void IncrementGoChild()
+        {
+           
+            ThreadManager.IncrementGoChild();
+        }
 
         private ActivateWindowResult ActivateIfNecessary(GameNodeAction node)
         {
