@@ -48,17 +48,17 @@ namespace AppTestStudio
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            ListViewItem listViewItem1 = new ListViewItem("");
-            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
+            ListViewItem listViewItem2 = new ListViewItem("");
+            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             newToolStripMenuItem = new ToolStripMenuItem();
@@ -514,8 +514,6 @@ namespace AppTestStudio
             label8 = new Label();
             grpCPU = new GroupBox();
             atsGraph1 = new AppTestStudioControls.ATSGraph();
-            grpAPS = new GroupBox();
-            atsGraphActions1 = new AppTestStudioControls.ATSGraph();
             splitContainerSeconds = new SplitContainer();
             appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
             lstGamePass = new ListView();
@@ -713,6 +711,22 @@ namespace AppTestStudio
             mnuRunTree = new ContextMenuStrip(components);
             lblRunTreeNodeNameToolStripMenuItem = new ToolStripMenuItem();
             mnuCompareAllToRuntimeImagesToolStripMenuItem = new ToolStripMenuItem();
+            grpAPS = new GroupBox();
+            atsGraphActions1 = new AppTestStudioControls.ATSGraph();
+            grpTopThreadCounter = new GroupBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            label100 = new Label();
+            label101 = new Label();
+            lblThreadWaiting = new Label();
+            label103 = new Label();
+            lblThreadHome = new Label();
+            lblThreadScreenshots = new Label();
+            label106 = new Label();
+            lblThreadContinue = new Label();
+            label108 = new Label();
+            lblThreadChild = new Label();
+            lblThreadClickCount = new Label();
+            label111 = new Label();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainerMain).BeginInit();
             splitContainerMain.Panel1.SuspendLayout();
@@ -839,7 +853,6 @@ namespace AppTestStudio
             groupSession.SuspendLayout();
             tableLayoutPanelSession.SuspendLayout();
             grpCPU.SuspendLayout();
-            grpAPS.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).BeginInit();
             splitContainerSeconds.SuspendLayout();
             PanelWorkspace.SuspendLayout();
@@ -898,6 +911,9 @@ namespace AppTestStudio
             appTestStudioToolStrip1.SuspendLayout();
             toolStripMain.SuspendLayout();
             mnuRunTree.SuspendLayout();
+            grpAPS.SuspendLayout();
+            grpTopThreadCounter.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
             SuspendLayout();
             // 
             // menuStrip1
@@ -1035,9 +1051,9 @@ namespace AppTestStudio
             // 
             // splitContainerWorkspace.Panel2
             // 
+            splitContainerWorkspace.Panel2.Controls.Add(PanelThread);
             splitContainerWorkspace.Panel2.Controls.Add(PanelGame);
             splitContainerWorkspace.Panel2.Controls.Add(PanelColorEvent);
-            splitContainerWorkspace.Panel2.Controls.Add(PanelThread);
             splitContainerWorkspace.Panel2.Controls.Add(PanelWorkspace);
             splitContainerWorkspace.Panel2.Controls.Add(PanelObject);
             splitContainerWorkspace.Panel2.Controls.Add(PanelTestAllEvents);
@@ -5700,48 +5716,48 @@ namespace AppTestStudio
             // 
             // dgvID
             // 
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvID.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvID.DefaultCellStyle = dataGridViewCellStyle11;
             dgvID.HeaderText = "ID";
             dgvID.MinimumWidth = 10;
             dgvID.Name = "dgvID";
             // 
             // dgvRed
             // 
-            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvRed.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvRed.DefaultCellStyle = dataGridViewCellStyle12;
             dgvRed.HeaderText = "R";
             dgvRed.MinimumWidth = 10;
             dgvRed.Name = "dgvRed";
             // 
             // dgvBlue
             // 
-            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvBlue.DefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvBlue.DefaultCellStyle = dataGridViewCellStyle13;
             dgvBlue.HeaderText = "B";
             dgvBlue.MinimumWidth = 10;
             dgvBlue.Name = "dgvBlue";
             // 
             // dgvGreen
             // 
-            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvGreen.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvGreen.DefaultCellStyle = dataGridViewCellStyle14;
             dgvGreen.HeaderText = "G";
             dgvGreen.MinimumWidth = 10;
             dgvGreen.Name = "dgvGreen";
             // 
             // dgvX
             // 
-            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvX.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvX.DefaultCellStyle = dataGridViewCellStyle15;
             dgvX.HeaderText = "X";
             dgvX.MinimumWidth = 10;
             dgvX.Name = "dgvX";
             // 
             // dgvY
             // 
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvY.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvY.DefaultCellStyle = dataGridViewCellStyle16;
             dgvY.HeaderText = "Y";
             dgvY.MinimumWidth = 10;
             dgvY.Name = "dgvY";
@@ -6406,40 +6422,42 @@ namespace AppTestStudio
             // 
             splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
             splitContainerStatsNScrollie.Size = new Size(1404, 198);
-            splitContainerStatsNScrollie.SplitterDistance = 127;
+            splitContainerStatsNScrollie.SplitterDistance = 160;
             splitContainerStatsNScrollie.SplitterWidth = 5;
             splitContainerStatsNScrollie.TabIndex = 2;
             // 
             // tableLayoutStats
             // 
             tableLayoutStats.AutoSize = true;
-            tableLayoutStats.ColumnCount = 4;
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 25F));
-            tableLayoutStats.Controls.Add(groupTotal, 0, 0);
-            tableLayoutStats.Controls.Add(groupSession, 0, 0);
-            tableLayoutStats.Controls.Add(grpCPU, 2, 0);
-            tableLayoutStats.Controls.Add(grpAPS, 3, 0);
+            tableLayoutStats.ColumnCount = 5;
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
+            tableLayoutStats.Controls.Add(grpTopThreadCounter, 0, 0);
+            tableLayoutStats.Controls.Add(grpAPS, 4, 0);
+            tableLayoutStats.Controls.Add(groupTotal, 2, 0);
+            tableLayoutStats.Controls.Add(groupSession, 1, 0);
+            tableLayoutStats.Controls.Add(grpCPU, 3, 0);
             tableLayoutStats.Dock = DockStyle.Fill;
             tableLayoutStats.Location = new Point(0, 0);
             tableLayoutStats.Margin = new Padding(4, 3, 4, 3);
             tableLayoutStats.Name = "tableLayoutStats";
             tableLayoutStats.RowCount = 1;
             tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutStats.Size = new Size(1404, 127);
+            tableLayoutStats.Size = new Size(1404, 160);
             tableLayoutStats.TabIndex = 3;
             // 
             // groupTotal
             // 
             groupTotal.Controls.Add(tableLayoutPanel1);
             groupTotal.Dock = DockStyle.Fill;
-            groupTotal.Location = new Point(355, 3);
+            groupTotal.Location = new Point(564, 3);
             groupTotal.Margin = new Padding(4, 3, 4, 3);
             groupTotal.Name = "groupTotal";
             groupTotal.Padding = new Padding(4, 3, 4, 3);
-            groupTotal.Size = new Size(343, 121);
+            groupTotal.Size = new Size(272, 154);
             groupTotal.TabIndex = 2;
             groupTotal.TabStop = false;
             groupTotal.Text = "Total";
@@ -6474,7 +6492,7 @@ namespace AppTestStudio
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel1.Size = new Size(335, 99);
+            tableLayoutPanel1.Size = new Size(264, 132);
             tableLayoutPanel1.TabIndex = 4;
             // 
             // label13
@@ -6601,11 +6619,11 @@ namespace AppTestStudio
             // 
             groupSession.Controls.Add(tableLayoutPanelSession);
             groupSession.Dock = DockStyle.Fill;
-            groupSession.Location = new Point(4, 3);
+            groupSession.Location = new Point(284, 3);
             groupSession.Margin = new Padding(4, 3, 4, 3);
             groupSession.Name = "groupSession";
             groupSession.Padding = new Padding(4, 3, 4, 3);
-            groupSession.Size = new Size(343, 121);
+            groupSession.Size = new Size(272, 154);
             groupSession.TabIndex = 1;
             groupSession.TabStop = false;
             groupSession.Text = "Session";
@@ -6640,7 +6658,7 @@ namespace AppTestStudio
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanelSession.Size = new Size(335, 99);
+            tableLayoutPanelSession.Size = new Size(264, 132);
             tableLayoutPanelSession.TabIndex = 3;
             // 
             // label1
@@ -6767,11 +6785,11 @@ namespace AppTestStudio
             // 
             grpCPU.Controls.Add(atsGraph1);
             grpCPU.Dock = DockStyle.Fill;
-            grpCPU.Location = new Point(706, 3);
+            grpCPU.Location = new Point(844, 3);
             grpCPU.Margin = new Padding(4, 3, 4, 3);
             grpCPU.Name = "grpCPU";
             grpCPU.Padding = new Padding(4, 3, 4, 3);
-            grpCPU.Size = new Size(343, 121);
+            grpCPU.Size = new Size(272, 154);
             grpCPU.TabIndex = 3;
             grpCPU.TabStop = false;
             grpCPU.Text = "CPU";
@@ -6782,35 +6800,13 @@ namespace AppTestStudio
             atsGraph1.Location = new Point(4, 19);
             atsGraph1.Margin = new Padding(4, 3, 4, 3);
             atsGraph1.Name = "atsGraph1";
-            atsGraph1.Size = new Size(335, 99);
+            atsGraph1.Size = new Size(264, 132);
             atsGraph1.TabIndex = 0;
-            // 
-            // grpAPS
-            // 
-            grpAPS.Controls.Add(atsGraphActions1);
-            grpAPS.Dock = DockStyle.Fill;
-            grpAPS.Location = new Point(1057, 3);
-            grpAPS.Margin = new Padding(4, 3, 4, 3);
-            grpAPS.Name = "grpAPS";
-            grpAPS.Padding = new Padding(4, 3, 4, 3);
-            grpAPS.Size = new Size(343, 121);
-            grpAPS.TabIndex = 4;
-            grpAPS.TabStop = false;
-            grpAPS.Text = "Clicks Per Second";
-            // 
-            // atsGraphActions1
-            // 
-            atsGraphActions1.Dock = DockStyle.Fill;
-            atsGraphActions1.Location = new Point(4, 19);
-            atsGraphActions1.Margin = new Padding(4, 3, 4, 3);
-            atsGraphActions1.Name = "atsGraphActions1";
-            atsGraphActions1.Size = new Size(335, 99);
-            atsGraphActions1.TabIndex = 0;
             // 
             // splitContainerSeconds
             // 
             splitContainerSeconds.Dock = DockStyle.Bottom;
-            splitContainerSeconds.Location = new Point(0, 44);
+            splitContainerSeconds.Location = new Point(0, 11);
             splitContainerSeconds.Margin = new Padding(4, 3, 4, 3);
             splitContainerSeconds.Name = "splitContainerSeconds";
             // 
@@ -6843,7 +6839,7 @@ namespace AppTestStudio
             lstGamePass.Cursor = Cursors.Hand;
             lstGamePass.Dock = DockStyle.Fill;
             lstGamePass.FullRowSelect = true;
-            lstGamePass.Items.AddRange(new ListViewItem[] { listViewItem1 });
+            lstGamePass.Items.AddRange(new ListViewItem[] { listViewItem2 });
             lstGamePass.Location = new Point(0, 0);
             lstGamePass.Margin = new Padding(2);
             lstGamePass.Name = "lstGamePass";
@@ -7321,24 +7317,24 @@ namespace AppTestStudio
             // 
             dgvTest.Anchor = AnchorStyles.None;
             dgvTest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = SystemColors.Control;
-            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
-            dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle17.BackColor = SystemColors.Control;
+            dataGridViewCellStyle17.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle17.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
+            dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
             dgvTest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTest.Columns.AddRange(new DataGridViewColumn[] { dgvColorTestID, dgvColorTestRed, dgvColorTestGreen, dgvColorTestBlue, dgvXTest, dgvYTest, dgvPassFail, dvgRange });
-            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = SystemColors.Window;
-            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle8.ForeColor = SystemColors.Control;
-            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
-            dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = SystemColors.Window;
+            dataGridViewCellStyle18.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle18.ForeColor = SystemColors.Control;
+            dataGridViewCellStyle18.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
+            dgvTest.DefaultCellStyle = dataGridViewCellStyle18;
             dgvTest.Location = new Point(511, 261);
             dgvTest.Margin = new Padding(4, 3, 4, 3);
             dgvTest.Name = "dgvTest";
@@ -7409,24 +7405,24 @@ namespace AppTestStudio
             // dgvTestAllReference
             // 
             dgvTestAllReference.Anchor = AnchorStyles.None;
-            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = SystemColors.Control;
-            dataGridViewCellStyle9.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
-            dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = SystemColors.Control;
+            dataGridViewCellStyle19.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle19.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle19.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle19.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
+            dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
             dgvTestAllReference.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTestAllReference.Columns.AddRange(new DataGridViewColumn[] { dgvTestAllReferenceID, dgvTestAllReferenceRed, dgvTestAllReferenceGreen, dgvTestAllReferenceBlue, dgvTestAllReferenceX, dgvTestAllReferenceY });
-            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = SystemColors.Window;
-            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
-            dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = SystemColors.Window;
+            dataGridViewCellStyle20.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle20.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle20.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle20.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.False;
+            dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle20;
             dgvTestAllReference.Location = new Point(511, 55);
             dgvTestAllReference.Margin = new Padding(4, 3, 4, 3);
             dgvTestAllReference.Name = "dgvTestAllReference";
@@ -8734,6 +8730,194 @@ namespace AppTestStudio
             mnuCompareAllToRuntimeImagesToolStripMenuItem.Text = "Compare All to Runtime Images";
             mnuCompareAllToRuntimeImagesToolStripMenuItem.Click += mnuCompareAllToRuntimeImagesTolstGamePassolStripMenuItem_Click;
             // 
+            // grpAPS
+            // 
+            grpAPS.Controls.Add(atsGraphActions1);
+            grpAPS.Dock = DockStyle.Fill;
+            grpAPS.Location = new Point(1124, 3);
+            grpAPS.Margin = new Padding(4, 3, 4, 3);
+            grpAPS.Name = "grpAPS";
+            grpAPS.Padding = new Padding(4, 3, 4, 3);
+            grpAPS.Size = new Size(276, 154);
+            grpAPS.TabIndex = 5;
+            grpAPS.TabStop = false;
+            grpAPS.Text = "Clicks Per Second";
+            // 
+            // atsGraphActions1
+            // 
+            atsGraphActions1.Dock = DockStyle.Fill;
+            atsGraphActions1.Location = new Point(4, 19);
+            atsGraphActions1.Margin = new Padding(4, 3, 4, 3);
+            atsGraphActions1.Name = "atsGraphActions1";
+            atsGraphActions1.Size = new Size(268, 132);
+            atsGraphActions1.TabIndex = 0;
+            // 
+            // grpTopThreadCounter
+            // 
+            grpTopThreadCounter.Controls.Add(tableLayoutPanel2);
+            grpTopThreadCounter.Dock = DockStyle.Fill;
+            grpTopThreadCounter.Location = new Point(4, 3);
+            grpTopThreadCounter.Margin = new Padding(4, 3, 4, 3);
+            grpTopThreadCounter.Name = "grpTopThreadCounter";
+            grpTopThreadCounter.Padding = new Padding(4, 3, 4, 3);
+            grpTopThreadCounter.Size = new Size(272, 154);
+            grpTopThreadCounter.TabIndex = 6;
+            grpTopThreadCounter.TabStop = false;
+            grpTopThreadCounter.Text = "Thread 1";
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.AutoSize = true;
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(label100, 0, 0);
+            tableLayoutPanel2.Controls.Add(label101, 0, 5);
+            tableLayoutPanel2.Controls.Add(lblThreadWaiting, 1, 5);
+            tableLayoutPanel2.Controls.Add(label103, 0, 2);
+            tableLayoutPanel2.Controls.Add(lblThreadHome, 1, 2);
+            tableLayoutPanel2.Controls.Add(lblThreadScreenshots, 1, 0);
+            tableLayoutPanel2.Controls.Add(label106, 0, 3);
+            tableLayoutPanel2.Controls.Add(lblThreadContinue, 1, 3);
+            tableLayoutPanel2.Controls.Add(label108, 0, 1);
+            tableLayoutPanel2.Controls.Add(lblThreadChild, 1, 4);
+            tableLayoutPanel2.Controls.Add(lblThreadClickCount, 1, 1);
+            tableLayoutPanel2.Controls.Add(label111, 0, 4);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(4, 19);
+            tableLayoutPanel2.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 6;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanel2.Size = new Size(264, 132);
+            tableLayoutPanel2.TabIndex = 3;
+            // 
+            // label100
+            // 
+            label100.AutoSize = true;
+            label100.Location = new Point(4, 0);
+            label100.Margin = new Padding(4, 0, 4, 0);
+            label100.Name = "label100";
+            label100.Size = new Size(73, 15);
+            label100.TabIndex = 0;
+            label100.Text = "Screenshots:";
+            // 
+            // label101
+            // 
+            label101.AutoSize = true;
+            label101.Location = new Point(4, 110);
+            label101.Margin = new Padding(4, 0, 4, 0);
+            label101.Name = "label101";
+            label101.Size = new Size(51, 15);
+            label101.TabIndex = 2;
+            label101.Text = "Waiting:";
+            // 
+            // lblThreadWaiting
+            // 
+            lblThreadWaiting.AutoSize = true;
+            lblThreadWaiting.Location = new Point(92, 110);
+            lblThreadWaiting.Margin = new Padding(4, 0, 4, 0);
+            lblThreadWaiting.Name = "lblThreadWaiting";
+            lblThreadWaiting.Size = new Size(98, 15);
+            lblThreadWaiting.TabIndex = 2;
+            lblThreadWaiting.Text = "lblThreadWaiting";
+            // 
+            // label103
+            // 
+            label103.AutoSize = true;
+            label103.Location = new Point(4, 44);
+            label103.Margin = new Padding(4, 0, 4, 0);
+            label103.Name = "label103";
+            label103.Size = new Size(43, 15);
+            label103.TabIndex = 2;
+            label103.Text = "Home:";
+            // 
+            // lblThreadHome
+            // 
+            lblThreadHome.AutoSize = true;
+            lblThreadHome.Location = new Point(92, 44);
+            lblThreadHome.Margin = new Padding(4, 0, 4, 0);
+            lblThreadHome.Name = "lblThreadHome";
+            lblThreadHome.Size = new Size(90, 15);
+            lblThreadHome.TabIndex = 2;
+            lblThreadHome.Text = "lblThreadHome";
+            // 
+            // lblThreadScreenshots
+            // 
+            lblThreadScreenshots.AutoSize = true;
+            lblThreadScreenshots.Location = new Point(92, 0);
+            lblThreadScreenshots.Margin = new Padding(4, 0, 4, 0);
+            lblThreadScreenshots.Name = "lblThreadScreenshots";
+            lblThreadScreenshots.Size = new Size(120, 15);
+            lblThreadScreenshots.TabIndex = 0;
+            lblThreadScreenshots.Text = "lblThreadScreenshots";
+            // 
+            // label106
+            // 
+            label106.AutoSize = true;
+            label106.Location = new Point(4, 66);
+            label106.Margin = new Padding(4, 0, 4, 0);
+            label106.Name = "label106";
+            label106.Size = new Size(59, 15);
+            label106.TabIndex = 0;
+            label106.Text = "Continue:";
+            // 
+            // lblThreadContinue
+            // 
+            lblThreadContinue.AutoSize = true;
+            lblThreadContinue.Location = new Point(92, 66);
+            lblThreadContinue.Margin = new Padding(4, 0, 4, 0);
+            lblThreadContinue.Name = "lblThreadContinue";
+            lblThreadContinue.Size = new Size(106, 15);
+            lblThreadContinue.TabIndex = 0;
+            lblThreadContinue.Text = "lblThreadContinue";
+            // 
+            // label108
+            // 
+            label108.AutoSize = true;
+            label108.Location = new Point(4, 22);
+            label108.Margin = new Padding(4, 0, 4, 0);
+            label108.Name = "label108";
+            label108.Size = new Size(41, 15);
+            label108.TabIndex = 1;
+            label108.Text = "Clicks:";
+            // 
+            // lblThreadChild
+            // 
+            lblThreadChild.AutoSize = true;
+            lblThreadChild.Location = new Point(92, 88);
+            lblThreadChild.Margin = new Padding(4, 0, 4, 0);
+            lblThreadChild.Name = "lblThreadChild";
+            lblThreadChild.Size = new Size(85, 15);
+            lblThreadChild.TabIndex = 1;
+            lblThreadChild.Text = "lblThreadChild";
+            // 
+            // lblThreadClickCount
+            // 
+            lblThreadClickCount.AutoSize = true;
+            lblThreadClickCount.Location = new Point(92, 22);
+            lblThreadClickCount.Margin = new Padding(4, 0, 4, 0);
+            lblThreadClickCount.Name = "lblThreadClickCount";
+            lblThreadClickCount.Size = new Size(116, 15);
+            lblThreadClickCount.TabIndex = 1;
+            lblThreadClickCount.Text = "lblThreadClickCount";
+            // 
+            // label111
+            // 
+            label111.AutoSize = true;
+            label111.Location = new Point(4, 88);
+            label111.Margin = new Padding(4, 0, 4, 0);
+            label111.Name = "label111";
+            label111.Size = new Size(38, 15);
+            label111.TabIndex = 1;
+            label111.Text = "Child:";
+            // 
             // frmMain
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -8922,7 +9106,6 @@ namespace AppTestStudio
             tableLayoutPanelSession.ResumeLayout(false);
             tableLayoutPanelSession.PerformLayout();
             grpCPU.ResumeLayout(false);
-            grpAPS.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).EndInit();
             splitContainerSeconds.ResumeLayout(false);
             PanelWorkspace.ResumeLayout(false);
@@ -9004,6 +9187,11 @@ namespace AppTestStudio
             toolStripMain.ResumeLayout(false);
             toolStripMain.PerformLayout();
             mnuRunTree.ResumeLayout(false);
+            grpAPS.ResumeLayout(false);
+            grpTopThreadCounter.ResumeLayout(false);
+            grpTopThreadCounter.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -9644,8 +9832,6 @@ namespace AppTestStudio
         private Label label8;
         private GroupBox grpCPU;
         private AppTestStudioControls.ATSGraph atsGraph1;
-        private GroupBox grpAPS;
-        private AppTestStudioControls.ATSGraph atsGraphActions1;
         private SplitContainer splitContainerSeconds;
         private AppTestStudioControls.AppTestStudioStatusControl appTestStudioStatusControl1;
         internal Panel Panel2;
@@ -9664,5 +9850,21 @@ namespace AppTestStudio
         private ToolStripMenuItem lblRunTreeNodeNameToolStripMenuItem;
         private GroupBox grpSavedPictures;
         private CheckBox chkSavedPicturesGlobal;
+        private GroupBox grpAPS;
+        private AppTestStudioControls.ATSGraph atsGraphActions1;
+        private GroupBox grpTopThreadCounter;
+        private TableLayoutPanel tableLayoutPanel2;
+        private Label label100;
+        private Label label101;
+        private Label lblThreadWaiting;
+        private Label label103;
+        private Label lblThreadHome;
+        private Label lblThreadScreenshots;
+        private Label label106;
+        private Label lblThreadContinue;
+        private Label label108;
+        private Label lblThreadChild;
+        private Label lblThreadClickCount;
+        private Label label111;
     }
 }
