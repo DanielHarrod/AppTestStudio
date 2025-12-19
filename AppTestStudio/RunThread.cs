@@ -18,30 +18,33 @@ namespace AppTestStudio
         // number of times to look for a window before closing the thread.
         public long RunTimeWindowTimeout { get; set; }
 
+        internal Counter Counter { get; set; }
         public ThreadManager ThreadManager { get; set; }
 
         private static Object GetBitMapLock;
 
         private String GoToNodeName { get; set; }
 
+        private CounterRepository CounterRepository = new CounterRepository();
+
         static RunThread()
         {
             GetBitMapLock = new Object();
-        }
 
-        private CounterRepository counterRepository = null;
+        }
 
         public RunThread(GameNodeGame Game, CancellationTokenSource cancellationTokenSource)
         {
             this.Game = Game;
+            Counter = CounterRepository.Get(Game.FileName);
             CancellationTokenSource = cancellationTokenSource;
             RunTimeWindowTimeout = 100;
             WindowHandle = IntPtr.Zero;
-            counterRepository = new CounterRepository();
         }
 
         public void ShutDownThread()
         {
+            CounterRepository.Upsert(Counter);
             CancellationTokenSource.Cancel();
         }
 
@@ -767,8 +770,7 @@ namespace AppTestStudio
         } // ProcessChildren
 
         private void IncrementGoChild()
-        {
-           
+        {           
             ThreadManager.IncrementGoChild();
         }
 

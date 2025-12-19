@@ -119,7 +119,13 @@ TestSaved = excluded.TestSaved;
         /// </summary>
         public Counter? Get(string counterName)
         {
-            if (string.IsNullOrWhiteSpace(counterName)) return new Counter();
+            if (string.IsNullOrWhiteSpace(counterName))
+            {
+                // make a new counter;
+                Counter counter = new Counter();
+                counter.CounterName = counterName;
+                return counter;
+            }
 
             using var conn = new SqliteConnection(_connectionString);
             conn.Open();
@@ -129,7 +135,13 @@ TestSaved = excluded.TestSaved;
             cmd.Parameters.AddWithValue("@CounterName", counterName);
 
             using var rdr = cmd.ExecuteReader();
-            if (!rdr.Read()) return new Counter();
+            if (!rdr.Read())
+            {
+                // make a new counter;
+                Counter counter = new Counter();
+                counter.CounterName = counterName;
+                return counter;
+            }
 
             return MapReaderToCounter(rdr);
         }
