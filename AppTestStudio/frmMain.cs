@@ -3829,8 +3829,6 @@ namespace AppTestStudio
 
             if (ThreadManager.LoadThreadManager.IsSomething())
             {
-
-
                 lblClickCount.Text = String.Format("{0:n0}", ThreadManager.ClickCount);
                 lblClickCountTotal.Text = String.Format("{0:n0}", ThreadManager.ClickCount + ThreadManager.LoadThreadManager.ClickCount);
 
@@ -3841,6 +3839,11 @@ namespace AppTestStudio
 
                 lblWaitingTotal.Text = t.ToDhmsString();
 
+                if (ThreadManager.Games.Count() > 0 )
+                {
+                    lblScriptScreenshots.Text = String.Format("{0:n0}", ThreadManager.Games[0].RunThread.ProjectCounter.ScreenShots);
+                    lblThreadScreenshots.Text = String.Format("{0:n0}", ThreadManager.Games[0].RunThread.ThreadCounter.ScreenShots);
+                }
                 lblScreenshots.Text = String.Format("{0:n0}", ThreadManager.ScreenShots);
                 lblScreenshotsTotal.Text = String.Format("{0:n0}", ThreadManager.ScreenShots + ThreadManager.LoadThreadManager.ScreenShots);
 

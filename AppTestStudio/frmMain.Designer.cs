@@ -48,17 +48,17 @@ namespace AppTestStudio
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
-            DataGridViewCellStyle dataGridViewCellStyle11 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle12 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle13 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle14 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle15 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle16 = new DataGridViewCellStyle();
-            ListViewItem listViewItem2 = new ListViewItem("");
-            DataGridViewCellStyle dataGridViewCellStyle17 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle18 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle19 = new DataGridViewCellStyle();
-            DataGridViewCellStyle dataGridViewCellStyle20 = new DataGridViewCellStyle();
+            ListViewItem listViewItem1 = new ListViewItem("");
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle10 = new DataGridViewCellStyle();
             menuStrip1 = new MenuStrip();
             fileToolStripMenuItem = new ToolStripMenuItem();
             newToolStripMenuItem = new ToolStripMenuItem();
@@ -123,6 +123,61 @@ namespace AppTestStudio
             cmdUpdateResolution = new Button();
             cmdRuntimeEnableToggle = new Button();
             tabSchedule = new TabPage();
+            PanelThread = new Panel();
+            splitContainerThreadMain = new SplitContainer();
+            pbPreview = new PictureBox();
+            splitContainerThread = new SplitContainer();
+            splitContainerStatsNScrollie = new SplitContainer();
+            tableLayoutStats = new TableLayoutPanel();
+            grpTopThreadCounter = new GroupBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            label100 = new Label();
+            label101 = new Label();
+            lblThreadWaiting = new Label();
+            label103 = new Label();
+            lblThreadHome = new Label();
+            lblThreadScreenshots = new Label();
+            label106 = new Label();
+            lblThreadContinue = new Label();
+            label108 = new Label();
+            lblThreadChild = new Label();
+            lblThreadClickCount = new Label();
+            label111 = new Label();
+            grpAPS = new GroupBox();
+            atsGraphActions1 = new AppTestStudioControls.ATSGraph();
+            groupTotal = new GroupBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            label13 = new Label();
+            lblHomeTotal = new Label();
+            label15 = new Label();
+            lblChildTotal = new Label();
+            lblContinueTotal = new Label();
+            label21 = new Label();
+            label20 = new Label();
+            lblWaitingTotal = new Label();
+            lblScreenshotsTotal = new Label();
+            label19 = new Label();
+            lblClickCountTotal = new Label();
+            label14 = new Label();
+            groupSession = new GroupBox();
+            tableLayoutPanelSession = new TableLayoutPanel();
+            label1 = new Label();
+            label3 = new Label();
+            lblWaiting = new Label();
+            label9 = new Label();
+            lblHome = new Label();
+            lblScreenshots = new Label();
+            label7 = new Label();
+            lblContinue = new Label();
+            label2 = new Label();
+            lblChild = new Label();
+            lblClickCount = new Label();
+            label8 = new Label();
+            grpCPU = new GroupBox();
+            atsGraph1 = new AppTestStudioControls.ATSGraph();
+            splitContainerSeconds = new SplitContainer();
+            appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
+            lstGamePass = new ListView();
             PanelGame = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             groupBox18 = new GroupBox();
@@ -478,45 +533,6 @@ namespace AppTestStudio
             cmdRightOffset = new Button();
             panelRightDragMode = new Panel();
             cmdRightDragMode = new Button();
-            PanelThread = new Panel();
-            splitContainerThreadMain = new SplitContainer();
-            pbPreview = new PictureBox();
-            splitContainerThread = new SplitContainer();
-            splitContainerStatsNScrollie = new SplitContainer();
-            tableLayoutStats = new TableLayoutPanel();
-            groupTotal = new GroupBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            label13 = new Label();
-            lblHomeTotal = new Label();
-            label15 = new Label();
-            lblChildTotal = new Label();
-            lblContinueTotal = new Label();
-            label21 = new Label();
-            label20 = new Label();
-            lblWaitingTotal = new Label();
-            lblScreenshotsTotal = new Label();
-            label19 = new Label();
-            lblClickCountTotal = new Label();
-            label14 = new Label();
-            groupSession = new GroupBox();
-            tableLayoutPanelSession = new TableLayoutPanel();
-            label1 = new Label();
-            label3 = new Label();
-            lblWaiting = new Label();
-            label9 = new Label();
-            lblHome = new Label();
-            lblScreenshots = new Label();
-            label7 = new Label();
-            lblContinue = new Label();
-            label2 = new Label();
-            lblChild = new Label();
-            lblClickCount = new Label();
-            label8 = new Label();
-            grpCPU = new GroupBox();
-            atsGraph1 = new AppTestStudioControls.ATSGraph();
-            splitContainerSeconds = new SplitContainer();
-            appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
-            lstGamePass = new ListView();
             PanelWorkspace = new Panel();
             groupBoxAdministratorCheck = new GroupBox();
             lblRunAsAdministratorWarning = new Label();
@@ -711,22 +727,20 @@ namespace AppTestStudio
             mnuRunTree = new ContextMenuStrip(components);
             lblRunTreeNodeNameToolStripMenuItem = new ToolStripMenuItem();
             mnuCompareAllToRuntimeImagesToolStripMenuItem = new ToolStripMenuItem();
-            grpAPS = new GroupBox();
-            atsGraphActions1 = new AppTestStudioControls.ATSGraph();
-            grpTopThreadCounter = new GroupBox();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            label100 = new Label();
-            label101 = new Label();
-            lblThreadWaiting = new Label();
-            label103 = new Label();
-            lblThreadHome = new Label();
-            lblThreadScreenshots = new Label();
-            label106 = new Label();
-            lblThreadContinue = new Label();
-            label108 = new Label();
-            lblThreadChild = new Label();
-            lblThreadClickCount = new Label();
-            label111 = new Label();
+            grpTopScriptCounters = new GroupBox();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            label102 = new Label();
+            label104 = new Label();
+            lblScriptWaiting = new Label();
+            label107 = new Label();
+            lblScriptHome = new Label();
+            lblScriptScreenshots = new Label();
+            label112 = new Label();
+            lblScriptContinue = new Label();
+            label114 = new Label();
+            lblScriptChild = new Label();
+            lblScriptClickCount = new Label();
+            label117 = new Label();
             menuStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainerMain).BeginInit();
             splitContainerMain.Panel1.SuspendLayout();
@@ -755,6 +769,31 @@ namespace AppTestStudio
             splitContainerRunProperties.SuspendLayout();
             tableLayoutPanelRunLabels.SuspendLayout();
             tableLayoutPanelRunValues.SuspendLayout();
+            PanelThread.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerThreadMain).BeginInit();
+            splitContainerThreadMain.Panel1.SuspendLayout();
+            splitContainerThreadMain.Panel2.SuspendLayout();
+            splitContainerThreadMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbPreview).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)splitContainerThread).BeginInit();
+            splitContainerThread.Panel1.SuspendLayout();
+            splitContainerThread.Panel2.SuspendLayout();
+            splitContainerThread.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerStatsNScrollie).BeginInit();
+            splitContainerStatsNScrollie.Panel1.SuspendLayout();
+            splitContainerStatsNScrollie.Panel2.SuspendLayout();
+            splitContainerStatsNScrollie.SuspendLayout();
+            tableLayoutStats.SuspendLayout();
+            grpTopThreadCounter.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            grpAPS.SuspendLayout();
+            groupTotal.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            groupSession.SuspendLayout();
+            tableLayoutPanelSession.SuspendLayout();
+            grpCPU.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).BeginInit();
+            splitContainerSeconds.SuspendLayout();
             PanelGame.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             groupBox18.SuspendLayout();
@@ -833,28 +872,6 @@ namespace AppTestStudio
             ((System.ComponentModel.ISupportInitialize)NumericYOffset).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NumericXOffset).BeginInit();
             panelRightDragMode.SuspendLayout();
-            PanelThread.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainerThreadMain).BeginInit();
-            splitContainerThreadMain.Panel1.SuspendLayout();
-            splitContainerThreadMain.Panel2.SuspendLayout();
-            splitContainerThreadMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbPreview).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)splitContainerThread).BeginInit();
-            splitContainerThread.Panel1.SuspendLayout();
-            splitContainerThread.Panel2.SuspendLayout();
-            splitContainerThread.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainerStatsNScrollie).BeginInit();
-            splitContainerStatsNScrollie.Panel1.SuspendLayout();
-            splitContainerStatsNScrollie.Panel2.SuspendLayout();
-            splitContainerStatsNScrollie.SuspendLayout();
-            tableLayoutStats.SuspendLayout();
-            groupTotal.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            groupSession.SuspendLayout();
-            tableLayoutPanelSession.SuspendLayout();
-            grpCPU.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).BeginInit();
-            splitContainerSeconds.SuspendLayout();
             PanelWorkspace.SuspendLayout();
             groupBoxAdministratorCheck.SuspendLayout();
             groupBox15.SuspendLayout();
@@ -911,10 +928,9 @@ namespace AppTestStudio
             appTestStudioToolStrip1.SuspendLayout();
             toolStripMain.SuspendLayout();
             mnuRunTree.SuspendLayout();
-            grpAPS.SuspendLayout();
-            grpTopThreadCounter.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            SuspendLayout();
+            grpTopScriptCounters.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            this.SuspendLayout();
             // 
             // menuStrip1
             // 
@@ -939,7 +955,7 @@ namespace AppTestStudio
             newToolStripMenuItem.Name = "newToolStripMenuItem";
             newToolStripMenuItem.Size = new Size(148, 22);
             newToolStripMenuItem.Text = "New";
-            newToolStripMenuItem.Click += newToolStripMenuItem_Click;
+            newToolStripMenuItem.Click += (this.newToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -958,7 +974,7 @@ namespace AppTestStudio
             importToolStripMenuItem.Name = "importToolStripMenuItem";
             importToolStripMenuItem.Size = new Size(110, 22);
             importToolStripMenuItem.Text = "Import";
-            importToolStripMenuItem.Click += importToolStripMenuItem_Click;
+            importToolStripMenuItem.Click += (this.importToolStripMenuItem_Click);
             // 
             // exportToolStripMenuItem
             // 
@@ -972,14 +988,14 @@ namespace AppTestStudio
             fullExportToolStripMenuItem.Name = "fullExportToolStripMenuItem";
             fullExportToolStripMenuItem.Size = new Size(154, 22);
             fullExportToolStripMenuItem.Text = "Full Export";
-            fullExportToolStripMenuItem.Click += fullExportToolStripMenuItem_Click;
+            fullExportToolStripMenuItem.Click += (this.fullExportToolStripMenuItem_Click);
             // 
             // minimalExportToolStripMenuItem
             // 
             minimalExportToolStripMenuItem.Name = "minimalExportToolStripMenuItem";
             minimalExportToolStripMenuItem.Size = new Size(154, 22);
             minimalExportToolStripMenuItem.Text = "Minimal Export";
-            minimalExportToolStripMenuItem.Click += minimalExportToolStripMenuItem_Click;
+            minimalExportToolStripMenuItem.Click += (this.minimalExportToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
@@ -1002,7 +1018,7 @@ namespace AppTestStudio
             exitToolStripMenuItem.Name = "exitToolStripMenuItem";
             exitToolStripMenuItem.Size = new Size(148, 22);
             exitToolStripMenuItem.Text = "Exit";
-            exitToolStripMenuItem.Click += exitToolStripMenuItem_Click;
+            exitToolStripMenuItem.Click += (this.exitToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -1016,7 +1032,7 @@ namespace AppTestStudio
             aboutAppTestStudioToolStripMenuItem.Name = "aboutAppTestStudioToolStripMenuItem";
             aboutAppTestStudioToolStripMenuItem.Size = new Size(193, 22);
             aboutAppTestStudioToolStripMenuItem.Text = "About App Test Studio";
-            aboutAppTestStudioToolStripMenuItem.Click += aboutAppTestStudioToolStripMenuItem_Click;
+            aboutAppTestStudioToolStripMenuItem.Click += (this.aboutAppTestStudioToolStripMenuItem_Click);
             // 
             // splitContainerMain
             // 
@@ -1081,7 +1097,7 @@ namespace AppTestStudio
             tabTree.SelectedIndex = 0;
             tabTree.Size = new Size(296, 866);
             tabTree.TabIndex = 0;
-            tabTree.SelectedIndexChanged += tabTree_SelectedIndexChanged;
+            tabTree.SelectedIndexChanged += (this.tabTree_SelectedIndexChanged);
             // 
             // tabDesign
             // 
@@ -1125,13 +1141,13 @@ namespace AppTestStudio
             tv.SelectedImageIndex = 0;
             tv.Size = new Size(280, 795);
             tv.TabIndex = 0;
-            tv.ItemDrag += tv_ItemDrag;
-            tv.AfterSelect += tv_AfterSelect;
-            tv.NodeMouseClick += tv_NodeMouseClick;
-            tv.DragDrop += tv_DragDrop;
-            tv.DragOver += tv_DragOver;
-            tv.KeyUp += tv_KeyUp;
-            tv.MouseUp += tv_MouseUp;
+            tv.ItemDrag += (this.tv_ItemDrag);
+            tv.AfterSelect += (this.tv_AfterSelect);
+            tv.NodeMouseClick += (this.tv_NodeMouseClick);
+            tv.DragDrop += (this.tv_DragDrop);
+            tv.DragOver += (this.tv_DragOver);
+            tv.KeyUp += (this.tv_KeyUp);
+            tv.MouseUp += (this.tv_MouseUp);
             // 
             // ImageList1
             // 
@@ -1187,13 +1203,13 @@ namespace AppTestStudio
             // 
             // txtFilter
             // 
-            txtFilter.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtFilter.Anchor = (AnchorStyles)((AnchorStyles.Top) | (AnchorStyles.Left)) | (AnchorStyles.Right);
             txtFilter.Location = new Point(41, 3);
             txtFilter.Margin = new Padding(4, 3, 4, 3);
             txtFilter.Name = "txtFilter";
             txtFilter.Size = new Size(235, 23);
             txtFilter.TabIndex = 0;
-            txtFilter.KeyUp += txtSearch_KeyUp;
+            txtFilter.KeyUp += (this.txtSearch_KeyUp);
             // 
             // label93
             // 
@@ -1274,7 +1290,7 @@ namespace AppTestStudio
             cboThreads.Name = "cboThreads";
             cboThreads.Size = new Size(280, 23);
             cboThreads.TabIndex = 1;
-            cboThreads.SelectedIndexChanged += cboThreads_SelectedIndexChanged;
+            cboThreads.SelectedIndexChanged += (this.cboThreads_SelectedIndexChanged);
             // 
             // tvRun
             // 
@@ -1288,8 +1304,8 @@ namespace AppTestStudio
             tvRun.SelectedImageIndex = 0;
             tvRun.Size = new Size(280, 383);
             tvRun.TabIndex = 0;
-            tvRun.AfterSelect += tvRun_AfterSelect;
-            tvRun.MouseUp += tvRun_MouseUp;
+            tvRun.AfterSelect += (this.tvRun_AfterSelect);
+            tvRun.MouseUp += (this.tvRun_MouseUp);
             // 
             // splitContainerRunProperties
             // 
@@ -1312,7 +1328,7 @@ namespace AppTestStudio
             // 
             // tableLayoutPanelRunLabels
             // 
-            tableLayoutPanelRunLabels.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            tableLayoutPanelRunLabels.Anchor = (AnchorStyles)(((AnchorStyles.Top) | (AnchorStyles.Bottom)) | (AnchorStyles.Left)) | (AnchorStyles.Right);
             tableLayoutPanelRunLabels.BackColor = SystemColors.ControlDarkDark;
             tableLayoutPanelRunLabels.CellBorderStyle = TableLayoutPanelCellBorderStyle.Single;
             tableLayoutPanelRunLabels.ColumnCount = 1;
@@ -1719,7 +1735,7 @@ namespace AppTestStudio
             cmdUpdateResolution.TabIndex = 13;
             cmdUpdateResolution.Text = "...";
             cmdUpdateResolution.UseVisualStyleBackColor = true;
-            cmdUpdateResolution.Click += cmdUpdateResolution_Click;
+            cmdUpdateResolution.Click += (this.cmdUpdateResolution_Click);
             // 
             // cmdRuntimeEnableToggle
             // 
@@ -1731,7 +1747,7 @@ namespace AppTestStudio
             cmdRuntimeEnableToggle.TabIndex = 14;
             cmdRuntimeEnableToggle.Text = "...";
             cmdRuntimeEnableToggle.UseVisualStyleBackColor = true;
-            cmdRuntimeEnableToggle.Click += cmdRuntimeEnableToggle_Click;
+            cmdRuntimeEnableToggle.Click += (this.cmdRuntimeEnableToggle_Click);
             // 
             // tabSchedule
             // 
@@ -1742,6 +1758,708 @@ namespace AppTestStudio
             tabSchedule.TabIndex = 2;
             tabSchedule.Text = "Schedule";
             tabSchedule.UseVisualStyleBackColor = true;
+            // 
+            // PanelThread
+            // 
+            PanelThread.Controls.Add(splitContainerThreadMain);
+            PanelThread.Location = new Point(6, 178);
+            PanelThread.Margin = new Padding(4, 3, 4, 3);
+            PanelThread.Name = "PanelThread";
+            PanelThread.Size = new Size(1664, 759);
+            PanelThread.TabIndex = 0;
+            // 
+            // splitContainerThreadMain
+            // 
+            splitContainerThreadMain.Dock = DockStyle.Fill;
+            splitContainerThreadMain.FixedPanel = FixedPanel.Panel2;
+            splitContainerThreadMain.Location = new Point(0, 0);
+            splitContainerThreadMain.Margin = new Padding(2);
+            splitContainerThreadMain.Name = "splitContainerThreadMain";
+            // 
+            // splitContainerThreadMain.Panel1
+            // 
+            splitContainerThreadMain.Panel1.Controls.Add(pbPreview);
+            splitContainerThreadMain.Panel1.Controls.Add(splitContainerThread);
+            // 
+            // splitContainerThreadMain.Panel2
+            // 
+            splitContainerThreadMain.Panel2.Controls.Add(lstGamePass);
+            splitContainerThreadMain.Panel2MinSize = 120;
+            splitContainerThreadMain.Size = new Size(1664, 759);
+            splitContainerThreadMain.SplitterDistance = 1405;
+            splitContainerThreadMain.SplitterWidth = 3;
+            splitContainerThreadMain.TabIndex = 1;
+            // 
+            // pbPreview
+            // 
+            pbPreview.Location = new Point(22, 298);
+            pbPreview.Name = "pbPreview";
+            pbPreview.Size = new Size(300, 300);
+            pbPreview.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPreview.TabIndex = 1;
+            pbPreview.TabStop = false;
+            pbPreview.Visible = false;
+            // 
+            // splitContainerThread
+            // 
+            splitContainerThread.Dock = DockStyle.Fill;
+            splitContainerThread.FixedPanel = FixedPanel.Panel1;
+            splitContainerThread.Location = new Point(0, 0);
+            splitContainerThread.Margin = new Padding(4, 3, 4, 3);
+            splitContainerThread.Name = "splitContainerThread";
+            splitContainerThread.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainerThread.Panel1
+            // 
+            splitContainerThread.Panel1.Controls.Add(splitContainerStatsNScrollie);
+            // 
+            // splitContainerThread.Panel2
+            // 
+            splitContainerThread.Panel2.Controls.Add(appTestStudioStatusControl1);
+            splitContainerThread.Size = new Size(1405, 759);
+            splitContainerThread.SplitterDistance = 198;
+            splitContainerThread.SplitterWidth = 5;
+            splitContainerThread.TabIndex = 1;
+            // 
+            // splitContainerStatsNScrollie
+            // 
+            splitContainerStatsNScrollie.Dock = DockStyle.Fill;
+            splitContainerStatsNScrollie.FixedPanel = FixedPanel.Panel2;
+            splitContainerStatsNScrollie.IsSplitterFixed = true;
+            splitContainerStatsNScrollie.Location = new Point(0, 0);
+            splitContainerStatsNScrollie.Margin = new Padding(4, 3, 4, 3);
+            splitContainerStatsNScrollie.Name = "splitContainerStatsNScrollie";
+            splitContainerStatsNScrollie.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainerStatsNScrollie.Panel1
+            // 
+            splitContainerStatsNScrollie.Panel1.Controls.Add(tableLayoutStats);
+            // 
+            // splitContainerStatsNScrollie.Panel2
+            // 
+            splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
+            splitContainerStatsNScrollie.Size = new Size(1405, 198);
+            splitContainerStatsNScrollie.SplitterDistance = 159;
+            splitContainerStatsNScrollie.SplitterWidth = 5;
+            splitContainerStatsNScrollie.TabIndex = 2;
+            // 
+            // tableLayoutStats
+            // 
+            tableLayoutStats.AutoSize = true;
+            tableLayoutStats.ColumnCount = 6;
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.9876633F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6187916F));
+            tableLayoutStats.Controls.Add(grpTopScriptCounters, 1, 0);
+            tableLayoutStats.Controls.Add(grpTopThreadCounter, 0, 0);
+            tableLayoutStats.Controls.Add(grpAPS, 5, 0);
+            tableLayoutStats.Controls.Add(groupTotal, 3, 0);
+            tableLayoutStats.Controls.Add(groupSession, 2, 0);
+            tableLayoutStats.Controls.Add(grpCPU, 4, 0);
+            tableLayoutStats.Dock = DockStyle.Fill;
+            tableLayoutStats.Location = new Point(0, 0);
+            tableLayoutStats.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutStats.Name = "tableLayoutStats";
+            tableLayoutStats.RowCount = 1;
+            tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutStats.Size = new Size(1405, 159);
+            tableLayoutStats.TabIndex = 3;
+            // 
+            // grpTopThreadCounter
+            // 
+            grpTopThreadCounter.Controls.Add(tableLayoutPanel2);
+            grpTopThreadCounter.Dock = DockStyle.Fill;
+            grpTopThreadCounter.Location = new Point(4, 3);
+            grpTopThreadCounter.Margin = new Padding(4, 3, 4, 3);
+            grpTopThreadCounter.Name = "grpTopThreadCounter";
+            grpTopThreadCounter.Padding = new Padding(4, 3, 4, 3);
+            grpTopThreadCounter.Size = new Size(225, 153);
+            grpTopThreadCounter.TabIndex = 6;
+            grpTopThreadCounter.TabStop = false;
+            grpTopThreadCounter.Text = "Thread";
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.AutoSize = true;
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(label100, 0, 0);
+            tableLayoutPanel2.Controls.Add(label101, 0, 5);
+            tableLayoutPanel2.Controls.Add(lblThreadWaiting, 1, 5);
+            tableLayoutPanel2.Controls.Add(label103, 0, 2);
+            tableLayoutPanel2.Controls.Add(lblThreadHome, 1, 2);
+            tableLayoutPanel2.Controls.Add(lblThreadScreenshots, 1, 0);
+            tableLayoutPanel2.Controls.Add(label106, 0, 3);
+            tableLayoutPanel2.Controls.Add(lblThreadContinue, 1, 3);
+            tableLayoutPanel2.Controls.Add(label108, 0, 1);
+            tableLayoutPanel2.Controls.Add(lblThreadChild, 1, 4);
+            tableLayoutPanel2.Controls.Add(lblThreadClickCount, 1, 1);
+            tableLayoutPanel2.Controls.Add(label111, 0, 4);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(4, 19);
+            tableLayoutPanel2.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 6;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanel2.Size = new Size(217, 131);
+            tableLayoutPanel2.TabIndex = 3;
+            // 
+            // label100
+            // 
+            label100.AutoSize = true;
+            label100.Location = new Point(4, 0);
+            label100.Margin = new Padding(4, 0, 4, 0);
+            label100.Name = "label100";
+            label100.Size = new Size(73, 15);
+            label100.TabIndex = 0;
+            label100.Text = "Screenshots:";
+            // 
+            // label101
+            // 
+            label101.AutoSize = true;
+            label101.Location = new Point(4, 110);
+            label101.Margin = new Padding(4, 0, 4, 0);
+            label101.Name = "label101";
+            label101.Size = new Size(51, 15);
+            label101.TabIndex = 2;
+            label101.Text = "Waiting:";
+            // 
+            // lblThreadWaiting
+            // 
+            lblThreadWaiting.AutoSize = true;
+            lblThreadWaiting.Location = new Point(92, 110);
+            lblThreadWaiting.Margin = new Padding(4, 0, 4, 0);
+            lblThreadWaiting.Name = "lblThreadWaiting";
+            lblThreadWaiting.Size = new Size(98, 15);
+            lblThreadWaiting.TabIndex = 2;
+            lblThreadWaiting.Text = "lblThreadWaiting";
+            // 
+            // label103
+            // 
+            label103.AutoSize = true;
+            label103.Location = new Point(4, 44);
+            label103.Margin = new Padding(4, 0, 4, 0);
+            label103.Name = "label103";
+            label103.Size = new Size(43, 15);
+            label103.TabIndex = 2;
+            label103.Text = "Home:";
+            // 
+            // lblThreadHome
+            // 
+            lblThreadHome.AutoSize = true;
+            lblThreadHome.Location = new Point(92, 44);
+            lblThreadHome.Margin = new Padding(4, 0, 4, 0);
+            lblThreadHome.Name = "lblThreadHome";
+            lblThreadHome.Size = new Size(90, 15);
+            lblThreadHome.TabIndex = 2;
+            lblThreadHome.Text = "lblThreadHome";
+            // 
+            // lblThreadScreenshots
+            // 
+            lblThreadScreenshots.AutoSize = true;
+            lblThreadScreenshots.Location = new Point(92, 0);
+            lblThreadScreenshots.Margin = new Padding(4, 0, 4, 0);
+            lblThreadScreenshots.Name = "lblThreadScreenshots";
+            lblThreadScreenshots.Size = new Size(120, 15);
+            lblThreadScreenshots.TabIndex = 0;
+            lblThreadScreenshots.Text = "lblThreadScreenshots";
+            // 
+            // label106
+            // 
+            label106.AutoSize = true;
+            label106.Location = new Point(4, 66);
+            label106.Margin = new Padding(4, 0, 4, 0);
+            label106.Name = "label106";
+            label106.Size = new Size(59, 15);
+            label106.TabIndex = 0;
+            label106.Text = "Continue:";
+            // 
+            // lblThreadContinue
+            // 
+            lblThreadContinue.AutoSize = true;
+            lblThreadContinue.Location = new Point(92, 66);
+            lblThreadContinue.Margin = new Padding(4, 0, 4, 0);
+            lblThreadContinue.Name = "lblThreadContinue";
+            lblThreadContinue.Size = new Size(106, 15);
+            lblThreadContinue.TabIndex = 0;
+            lblThreadContinue.Text = "lblThreadContinue";
+            // 
+            // label108
+            // 
+            label108.AutoSize = true;
+            label108.Location = new Point(4, 22);
+            label108.Margin = new Padding(4, 0, 4, 0);
+            label108.Name = "label108";
+            label108.Size = new Size(41, 15);
+            label108.TabIndex = 1;
+            label108.Text = "Clicks:";
+            // 
+            // lblThreadChild
+            // 
+            lblThreadChild.AutoSize = true;
+            lblThreadChild.Location = new Point(92, 88);
+            lblThreadChild.Margin = new Padding(4, 0, 4, 0);
+            lblThreadChild.Name = "lblThreadChild";
+            lblThreadChild.Size = new Size(85, 15);
+            lblThreadChild.TabIndex = 1;
+            lblThreadChild.Text = "lblThreadChild";
+            // 
+            // lblThreadClickCount
+            // 
+            lblThreadClickCount.AutoSize = true;
+            lblThreadClickCount.Location = new Point(92, 22);
+            lblThreadClickCount.Margin = new Padding(4, 0, 4, 0);
+            lblThreadClickCount.Name = "lblThreadClickCount";
+            lblThreadClickCount.Size = new Size(116, 15);
+            lblThreadClickCount.TabIndex = 1;
+            lblThreadClickCount.Text = "lblThreadClickCount";
+            // 
+            // label111
+            // 
+            label111.AutoSize = true;
+            label111.Location = new Point(4, 88);
+            label111.Margin = new Padding(4, 0, 4, 0);
+            label111.Name = "label111";
+            label111.Size = new Size(38, 15);
+            label111.TabIndex = 1;
+            label111.Text = "Child:";
+            // 
+            // grpAPS
+            // 
+            grpAPS.Controls.Add(atsGraphActions1);
+            grpAPS.Dock = DockStyle.Fill;
+            grpAPS.Location = new Point(1174, 3);
+            grpAPS.Margin = new Padding(4, 3, 4, 3);
+            grpAPS.Name = "grpAPS";
+            grpAPS.Padding = new Padding(4, 3, 4, 3);
+            grpAPS.Size = new Size(227, 153);
+            grpAPS.TabIndex = 5;
+            grpAPS.TabStop = false;
+            grpAPS.Text = "Clicks Per Second";
+            // 
+            // atsGraphActions1
+            // 
+            atsGraphActions1.Dock = DockStyle.Fill;
+            atsGraphActions1.Location = new Point(4, 19);
+            atsGraphActions1.Margin = new Padding(4, 3, 4, 3);
+            atsGraphActions1.Name = "atsGraphActions1";
+            atsGraphActions1.Size = new Size(219, 131);
+            atsGraphActions1.TabIndex = 0;
+            // 
+            // groupTotal
+            // 
+            groupTotal.Controls.Add(tableLayoutPanel1);
+            groupTotal.Dock = DockStyle.Fill;
+            groupTotal.Location = new Point(703, 3);
+            groupTotal.Margin = new Padding(4, 3, 4, 3);
+            groupTotal.Name = "groupTotal";
+            groupTotal.Padding = new Padding(4, 3, 4, 3);
+            groupTotal.Size = new Size(225, 153);
+            groupTotal.TabIndex = 2;
+            groupTotal.TabStop = false;
+            groupTotal.Text = "Total";
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.AutoSize = true;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(label13, 0, 0);
+            tableLayoutPanel1.Controls.Add(lblHomeTotal, 1, 2);
+            tableLayoutPanel1.Controls.Add(label15, 0, 1);
+            tableLayoutPanel1.Controls.Add(lblChildTotal, 1, 4);
+            tableLayoutPanel1.Controls.Add(lblContinueTotal, 1, 3);
+            tableLayoutPanel1.Controls.Add(label21, 0, 2);
+            tableLayoutPanel1.Controls.Add(label20, 0, 5);
+            tableLayoutPanel1.Controls.Add(lblWaitingTotal, 1, 5);
+            tableLayoutPanel1.Controls.Add(lblScreenshotsTotal, 1, 0);
+            tableLayoutPanel1.Controls.Add(label19, 0, 4);
+            tableLayoutPanel1.Controls.Add(lblClickCountTotal, 1, 1);
+            tableLayoutPanel1.Controls.Add(label14, 0, 3);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(4, 19);
+            tableLayoutPanel1.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 6;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanel1.Size = new Size(217, 131);
+            tableLayoutPanel1.TabIndex = 4;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(4, 0);
+            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(73, 15);
+            label13.TabIndex = 0;
+            label13.Text = "Screenshots:";
+            // 
+            // lblHomeTotal
+            // 
+            lblHomeTotal.AutoSize = true;
+            lblHomeTotal.Location = new Point(92, 44);
+            lblHomeTotal.Margin = new Padding(4, 0, 4, 0);
+            lblHomeTotal.Name = "lblHomeTotal";
+            lblHomeTotal.Size = new Size(79, 15);
+            lblHomeTotal.TabIndex = 2;
+            lblHomeTotal.Text = "lblHomeTotal";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(4, 22);
+            label15.Margin = new Padding(4, 0, 4, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(41, 15);
+            label15.TabIndex = 1;
+            label15.Text = "Clicks:";
+            // 
+            // lblChildTotal
+            // 
+            lblChildTotal.AutoSize = true;
+            lblChildTotal.Location = new Point(92, 88);
+            lblChildTotal.Margin = new Padding(4, 0, 4, 0);
+            lblChildTotal.Name = "lblChildTotal";
+            lblChildTotal.Size = new Size(74, 15);
+            lblChildTotal.TabIndex = 1;
+            lblChildTotal.Text = "lblChildTotal";
+            // 
+            // lblContinueTotal
+            // 
+            lblContinueTotal.AutoSize = true;
+            lblContinueTotal.Location = new Point(92, 66);
+            lblContinueTotal.Margin = new Padding(4, 0, 4, 0);
+            lblContinueTotal.Name = "lblContinueTotal";
+            lblContinueTotal.Size = new Size(95, 15);
+            lblContinueTotal.TabIndex = 0;
+            lblContinueTotal.Text = "lblContinueTotal";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(4, 44);
+            label21.Margin = new Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(43, 15);
+            label21.TabIndex = 2;
+            label21.Text = "Home:";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(4, 110);
+            label20.Margin = new Padding(4, 0, 4, 0);
+            label20.Name = "label20";
+            label20.Size = new Size(51, 15);
+            label20.TabIndex = 2;
+            label20.Text = "Waiting:";
+            // 
+            // lblWaitingTotal
+            // 
+            lblWaitingTotal.AutoSize = true;
+            lblWaitingTotal.Location = new Point(92, 110);
+            lblWaitingTotal.Margin = new Padding(4, 0, 4, 0);
+            lblWaitingTotal.Name = "lblWaitingTotal";
+            lblWaitingTotal.Size = new Size(87, 15);
+            lblWaitingTotal.TabIndex = 2;
+            lblWaitingTotal.Text = "lblWaitingTotal";
+            // 
+            // lblScreenshotsTotal
+            // 
+            lblScreenshotsTotal.AutoSize = true;
+            lblScreenshotsTotal.Location = new Point(92, 0);
+            lblScreenshotsTotal.Margin = new Padding(4, 0, 4, 0);
+            lblScreenshotsTotal.Name = "lblScreenshotsTotal";
+            lblScreenshotsTotal.Size = new Size(109, 15);
+            lblScreenshotsTotal.TabIndex = 0;
+            lblScreenshotsTotal.Text = "lblScreenshotsTotal";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(4, 88);
+            label19.Margin = new Padding(4, 0, 4, 0);
+            label19.Name = "label19";
+            label19.Size = new Size(38, 15);
+            label19.TabIndex = 1;
+            label19.Text = "Child:";
+            // 
+            // lblClickCountTotal
+            // 
+            lblClickCountTotal.AutoSize = true;
+            lblClickCountTotal.Location = new Point(92, 22);
+            lblClickCountTotal.Margin = new Padding(4, 0, 4, 0);
+            lblClickCountTotal.Name = "lblClickCountTotal";
+            lblClickCountTotal.Size = new Size(105, 15);
+            lblClickCountTotal.TabIndex = 1;
+            lblClickCountTotal.Text = "lblClickCountTotal";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(4, 66);
+            label14.Margin = new Padding(4, 0, 4, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(59, 15);
+            label14.TabIndex = 0;
+            label14.Text = "Continue:";
+            // 
+            // groupSession
+            // 
+            groupSession.Controls.Add(tableLayoutPanelSession);
+            groupSession.Dock = DockStyle.Fill;
+            groupSession.Location = new Point(470, 3);
+            groupSession.Margin = new Padding(4, 3, 4, 3);
+            groupSession.Name = "groupSession";
+            groupSession.Padding = new Padding(4, 3, 4, 3);
+            groupSession.Size = new Size(225, 153);
+            groupSession.TabIndex = 1;
+            groupSession.TabStop = false;
+            groupSession.Text = "Session";
+            // 
+            // tableLayoutPanelSession
+            // 
+            tableLayoutPanelSession.AutoSize = true;
+            tableLayoutPanelSession.ColumnCount = 2;
+            tableLayoutPanelSession.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanelSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanelSession.Controls.Add(label1, 0, 0);
+            tableLayoutPanelSession.Controls.Add(label3, 0, 5);
+            tableLayoutPanelSession.Controls.Add(lblWaiting, 1, 5);
+            tableLayoutPanelSession.Controls.Add(label9, 0, 2);
+            tableLayoutPanelSession.Controls.Add(lblHome, 1, 2);
+            tableLayoutPanelSession.Controls.Add(lblScreenshots, 1, 0);
+            tableLayoutPanelSession.Controls.Add(label7, 0, 3);
+            tableLayoutPanelSession.Controls.Add(lblContinue, 1, 3);
+            tableLayoutPanelSession.Controls.Add(label2, 0, 1);
+            tableLayoutPanelSession.Controls.Add(lblChild, 1, 4);
+            tableLayoutPanelSession.Controls.Add(lblClickCount, 1, 1);
+            tableLayoutPanelSession.Controls.Add(label8, 0, 4);
+            tableLayoutPanelSession.Dock = DockStyle.Fill;
+            tableLayoutPanelSession.Location = new Point(4, 19);
+            tableLayoutPanelSession.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanelSession.Name = "tableLayoutPanelSession";
+            tableLayoutPanelSession.RowCount = 6;
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanelSession.Size = new Size(217, 131);
+            tableLayoutPanelSession.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(4, 0);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(73, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Screenshots:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(4, 110);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(51, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Waiting:";
+            // 
+            // lblWaiting
+            // 
+            lblWaiting.AutoSize = true;
+            lblWaiting.Location = new Point(92, 110);
+            lblWaiting.Margin = new Padding(4, 0, 4, 0);
+            lblWaiting.Name = "lblWaiting";
+            lblWaiting.Size = new Size(61, 15);
+            lblWaiting.TabIndex = 2;
+            lblWaiting.Text = "lblWaiting";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(4, 44);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(43, 15);
+            label9.TabIndex = 2;
+            label9.Text = "Home:";
+            // 
+            // lblHome
+            // 
+            lblHome.AutoSize = true;
+            lblHome.Location = new Point(92, 44);
+            lblHome.Margin = new Padding(4, 0, 4, 0);
+            lblHome.Name = "lblHome";
+            lblHome.Size = new Size(53, 15);
+            lblHome.TabIndex = 2;
+            lblHome.Text = "lblHome";
+            // 
+            // lblScreenshots
+            // 
+            lblScreenshots.AutoSize = true;
+            lblScreenshots.Location = new Point(92, 0);
+            lblScreenshots.Margin = new Padding(4, 0, 4, 0);
+            lblScreenshots.Name = "lblScreenshots";
+            lblScreenshots.Size = new Size(83, 15);
+            lblScreenshots.TabIndex = 0;
+            lblScreenshots.Text = "lblScreenshots";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(4, 66);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(59, 15);
+            label7.TabIndex = 0;
+            label7.Text = "Continue:";
+            // 
+            // lblContinue
+            // 
+            lblContinue.AutoSize = true;
+            lblContinue.Location = new Point(92, 66);
+            lblContinue.Margin = new Padding(4, 0, 4, 0);
+            lblContinue.Name = "lblContinue";
+            lblContinue.Size = new Size(69, 15);
+            lblContinue.TabIndex = 0;
+            lblContinue.Text = "lblContinue";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(4, 22);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(41, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Clicks:";
+            // 
+            // lblChild
+            // 
+            lblChild.AutoSize = true;
+            lblChild.Location = new Point(92, 88);
+            lblChild.Margin = new Padding(4, 0, 4, 0);
+            lblChild.Name = "lblChild";
+            lblChild.Size = new Size(48, 15);
+            lblChild.TabIndex = 1;
+            lblChild.Text = "lblChild";
+            // 
+            // lblClickCount
+            // 
+            lblClickCount.AutoSize = true;
+            lblClickCount.Location = new Point(92, 22);
+            lblClickCount.Margin = new Padding(4, 0, 4, 0);
+            lblClickCount.Name = "lblClickCount";
+            lblClickCount.Size = new Size(79, 15);
+            lblClickCount.TabIndex = 1;
+            lblClickCount.Text = "lblClickCount";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(4, 88);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(38, 15);
+            label8.TabIndex = 1;
+            label8.Text = "Child:";
+            // 
+            // grpCPU
+            // 
+            grpCPU.Controls.Add(atsGraph1);
+            grpCPU.Dock = DockStyle.Fill;
+            grpCPU.Location = new Point(936, 3);
+            grpCPU.Margin = new Padding(4, 3, 4, 3);
+            grpCPU.Name = "grpCPU";
+            grpCPU.Padding = new Padding(4, 3, 4, 3);
+            grpCPU.Size = new Size(230, 153);
+            grpCPU.TabIndex = 3;
+            grpCPU.TabStop = false;
+            grpCPU.Text = "CPU";
+            // 
+            // atsGraph1
+            // 
+            atsGraph1.Dock = DockStyle.Fill;
+            atsGraph1.Location = new Point(4, 19);
+            atsGraph1.Margin = new Padding(4, 3, 4, 3);
+            atsGraph1.Name = "atsGraph1";
+            atsGraph1.Size = new Size(222, 131);
+            atsGraph1.TabIndex = 0;
+            // 
+            // splitContainerSeconds
+            // 
+            splitContainerSeconds.Dock = DockStyle.Bottom;
+            splitContainerSeconds.Location = new Point(0, 12);
+            splitContainerSeconds.Margin = new Padding(4, 3, 4, 3);
+            splitContainerSeconds.Name = "splitContainerSeconds";
+            // 
+            // splitContainerSeconds.Panel1
+            // 
+            splitContainerSeconds.Panel1.BackColor = SystemColors.ControlLight;
+            // 
+            // splitContainerSeconds.Panel2
+            // 
+            splitContainerSeconds.Panel2.BackColor = SystemColors.ControlDark;
+            splitContainerSeconds.Size = new Size(1405, 22);
+            splitContainerSeconds.SplitterDistance = 198;
+            splitContainerSeconds.SplitterWidth = 5;
+            splitContainerSeconds.TabIndex = 0;
+            splitContainerSeconds.SplitterMoving += (this.splitContainerSeconds_SplitterMoving);
+            // 
+            // appTestStudioStatusControl1
+            // 
+            appTestStudioStatusControl1.Dock = DockStyle.Fill;
+            appTestStudioStatusControl1.Items = (System.Collections.Generic.List<string>)resources.GetObject("appTestStudioStatusControl1.Items");
+            appTestStudioStatusControl1.Location = new Point(0, 0);
+            appTestStudioStatusControl1.Margin = new Padding(5, 6, 5, 6);
+            appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
+            appTestStudioStatusControl1.ShowPercent = (long)10L;
+            appTestStudioStatusControl1.Size = new Size(1405, 556);
+            appTestStudioStatusControl1.TabIndex = 0;
+            // 
+            // lstGamePass
+            // 
+            lstGamePass.Cursor = Cursors.Hand;
+            lstGamePass.Dock = DockStyle.Fill;
+            lstGamePass.FullRowSelect = true;
+            lstGamePass.Items.AddRange(new ListViewItem[] { listViewItem1 });
+            lstGamePass.Location = new Point(0, 0);
+            lstGamePass.Margin = new Padding(2);
+            lstGamePass.Name = "lstGamePass";
+            lstGamePass.Size = new Size(256, 759);
+            lstGamePass.SmallImageList = ImageList1;
+            lstGamePass.TabIndex = 0;
+            lstGamePass.UseCompatibleStateImageBehavior = false;
+            lstGamePass.SelectedIndexChanged += (this.lstGamePass_SelectedIndexChanged);
+            lstGamePass.MouseClick += (this.lstGamePass_MouseClick);
+            lstGamePass.MouseEnter += (this.lstGamePass_MouseEnter);
+            lstGamePass.MouseLeave += (this.lstGamePass_MouseLeave);
+            lstGamePass.MouseMove += (this.lstGamePass_MouseMove);
+            lstGamePass.Resize += (this.lstGamePass_Resize);
             // 
             // PanelGame
             // 
@@ -1759,7 +2477,7 @@ namespace AppTestStudio
             // 
             // flowLayoutPanel1
             // 
-            flowLayoutPanel1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            flowLayoutPanel1.Anchor = (AnchorStyles)(((AnchorStyles.Top) | (AnchorStyles.Bottom)) | (AnchorStyles.Left)) | (AnchorStyles.Right);
             flowLayoutPanel1.AutoScroll = true;
             flowLayoutPanel1.Controls.Add(groupBox18);
             flowLayoutPanel1.Controls.Add(grpApplication);
@@ -1823,7 +2541,7 @@ namespace AppTestStudio
             numericApplicationDefaultClickSpeed.Name = "numericApplicationDefaultClickSpeed";
             numericApplicationDefaultClickSpeed.Size = new Size(110, 30);
             numericApplicationDefaultClickSpeed.TabIndex = 33;
-            numericApplicationDefaultClickSpeed.ValueChanged += numericApplicationDefaultClickSpeed_ValueChanged;
+            numericApplicationDefaultClickSpeed.ValueChanged += (this.numericApplicationDefaultClickSpeed_ValueChanged);
             // 
             // groupBox16
             // 
@@ -1860,7 +2578,7 @@ namespace AppTestStudio
             numericMouseSpeedPixelsPerSecond.Size = new Size(114, 23);
             numericMouseSpeedPixelsPerSecond.TabIndex = 2;
             numericMouseSpeedPixelsPerSecond.Value = new decimal(new int[] { 1, 0, 0, 0 });
-            numericMouseSpeedPixelsPerSecond.ValueChanged += numericMouseSpeedPixelsPerSecond_ValueChanged;
+            numericMouseSpeedPixelsPerSecond.ValueChanged += (this.numericMouseSpeedPixelsPerSecond_ValueChanged);
             // 
             // groupBox17
             // 
@@ -1904,11 +2622,11 @@ namespace AppTestStudio
             numericMouseSpeedVelocityVariantPercentMin.Location = new Point(56, 52);
             numericMouseSpeedVelocityVariantPercentMin.Margin = new Padding(4, 3, 4, 3);
             numericMouseSpeedVelocityVariantPercentMin.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
-            numericMouseSpeedVelocityVariantPercentMin.Minimum = new decimal(new int[] { 500, 0, 0, int.MinValue });
+            numericMouseSpeedVelocityVariantPercentMin.Minimum = new decimal(new int[] { 500, 0, 0, global::System.Int32.MinValue });
             numericMouseSpeedVelocityVariantPercentMin.Name = "numericMouseSpeedVelocityVariantPercentMin";
             numericMouseSpeedVelocityVariantPercentMin.Size = new Size(80, 23);
             numericMouseSpeedVelocityVariantPercentMin.TabIndex = 1;
-            numericMouseSpeedVelocityVariantPercentMin.ValueChanged += numericMouseSpeedVelocityVariantPercentMin_ValueChanged;
+            numericMouseSpeedVelocityVariantPercentMin.ValueChanged += (this.numericMouseSpeedVelocityVariantPercentMin_ValueChanged);
             // 
             // numericMouseSpeedVelocityVariantPercentMax
             // 
@@ -1918,7 +2636,7 @@ namespace AppTestStudio
             numericMouseSpeedVelocityVariantPercentMax.Name = "numericMouseSpeedVelocityVariantPercentMax";
             numericMouseSpeedVelocityVariantPercentMax.Size = new Size(82, 23);
             numericMouseSpeedVelocityVariantPercentMax.TabIndex = 1;
-            numericMouseSpeedVelocityVariantPercentMax.ValueChanged += numericMouseSpeedVelocityVariantPercentMax_ValueChanged;
+            numericMouseSpeedVelocityVariantPercentMax.ValueChanged += (this.numericMouseSpeedVelocityVariantPercentMax_ValueChanged);
             // 
             // label88
             // 
@@ -1973,7 +2691,7 @@ namespace AppTestStudio
             cboWindowAction.Name = "cboWindowAction";
             cboWindowAction.Size = new Size(269, 23);
             cboWindowAction.TabIndex = 47;
-            cboWindowAction.SelectedIndexChanged += cboWindowAction_SelectedIndexChanged;
+            cboWindowAction.SelectedIndexChanged += (this.cboWindowAction_SelectedIndexChanged);
             // 
             // chkMoveMouseBeforeAction
             // 
@@ -1985,7 +2703,7 @@ namespace AppTestStudio
             chkMoveMouseBeforeAction.TabIndex = 49;
             chkMoveMouseBeforeAction.Text = "Default - Move System Mouse To Start Location Before Action (Active Only)";
             chkMoveMouseBeforeAction.UseVisualStyleBackColor = true;
-            chkMoveMouseBeforeAction.CheckedChanged += chkMoveMouseBeforeAction_CheckedChanged;
+            chkMoveMouseBeforeAction.CheckedChanged += (this.chkMoveMouseBeforeAction_CheckedChanged);
             // 
             // lblWindowNotVisibleAction
             // 
@@ -2016,8 +2734,8 @@ namespace AppTestStudio
             cboMouseMode.Name = "cboMouseMode";
             cboMouseMode.Size = new Size(269, 23);
             cboMouseMode.TabIndex = 37;
-            cboMouseMode.SelectedIndexChanged += cboClickMode_SelectedIndexChanged;
-            cboMouseMode.TextChanged += cboPlatform_TextChanged;
+            cboMouseMode.SelectedIndexChanged += (this.cboClickMode_SelectedIndexChanged);
+            cboMouseMode.TextChanged += (this.cboPlatform_TextChanged);
             // 
             // grpApplication
             // 
@@ -2070,13 +2788,13 @@ namespace AppTestStudio
             // 
             // txtPathToApplicationExe
             // 
-            txtPathToApplicationExe.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtPathToApplicationExe.Anchor = (AnchorStyles)((AnchorStyles.Top) | (AnchorStyles.Left)) | (AnchorStyles.Right);
             txtPathToApplicationExe.Location = new Point(14, 37);
             txtPathToApplicationExe.Margin = new Padding(2);
             txtPathToApplicationExe.Name = "txtPathToApplicationExe";
             txtPathToApplicationExe.Size = new Size(741, 23);
             txtPathToApplicationExe.TabIndex = 4;
-            txtPathToApplicationExe.TextChanged += txtPathToApplicationExe_TextChanged;
+            txtPathToApplicationExe.TextChanged += (this.txtPathToApplicationExe_TextChanged);
             // 
             // txtApplicationParameters
             // 
@@ -2085,11 +2803,11 @@ namespace AppTestStudio
             txtApplicationParameters.Name = "txtApplicationParameters";
             txtApplicationParameters.Size = new Size(318, 23);
             txtApplicationParameters.TabIndex = 7;
-            txtApplicationParameters.TextChanged += txtApplicationParameters_TextChanged;
+            txtApplicationParameters.TextChanged += (this.txtApplicationParameters_TextChanged);
             // 
             // cmdPathToExePicker
             // 
-            cmdPathToExePicker.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cmdPathToExePicker.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             cmdPathToExePicker.Font = new Font("Microsoft Sans Serif", 14F);
             cmdPathToExePicker.Location = new Point(757, 33);
             cmdPathToExePicker.Margin = new Padding(2);
@@ -2099,7 +2817,7 @@ namespace AppTestStudio
             cmdPathToExePicker.Text = "...";
             cmdPathToExePicker.TextAlign = ContentAlignment.TopCenter;
             cmdPathToExePicker.UseVisualStyleBackColor = false;
-            cmdPathToExePicker.Click += cmdPathToExePicker_Click;
+            cmdPathToExePicker.Click += (this.cmdPathToExePicker_Click);
             // 
             // label72
             // 
@@ -2140,7 +2858,7 @@ namespace AppTestStudio
             cmdApplicationWindowWizard.TabIndex = 12;
             cmdApplicationWindowWizard.Text = "Wizard";
             cmdApplicationWindowWizard.UseVisualStyleBackColor = true;
-            cmdApplicationWindowWizard.Click += cmdApplicationWindowWizard_Click;
+            cmdApplicationWindowWizard.Click += (this.cmdApplicationWindowWizard_Click);
             // 
             // cboApplicationSecondaryWindowNameFilter
             // 
@@ -2152,7 +2870,7 @@ namespace AppTestStudio
             cboApplicationSecondaryWindowNameFilter.Name = "cboApplicationSecondaryWindowNameFilter";
             cboApplicationSecondaryWindowNameFilter.Size = new Size(87, 23);
             cboApplicationSecondaryWindowNameFilter.TabIndex = 11;
-            cboApplicationSecondaryWindowNameFilter.SelectedIndexChanged += cboApplicationSecondaryWindowNameFilter_SelectedIndexChanged;
+            cboApplicationSecondaryWindowNameFilter.SelectedIndexChanged += (this.cboApplicationSecondaryWindowNameFilter_SelectedIndexChanged);
             // 
             // txtApplicationSecondaryWindowName
             // 
@@ -2161,7 +2879,7 @@ namespace AppTestStudio
             txtApplicationSecondaryWindowName.Name = "txtApplicationSecondaryWindowName";
             txtApplicationSecondaryWindowName.Size = new Size(383, 23);
             txtApplicationSecondaryWindowName.TabIndex = 10;
-            txtApplicationSecondaryWindowName.TextChanged += txtApplicationSecondaryWindowName_TextChanged;
+            txtApplicationSecondaryWindowName.TextChanged += (this.txtApplicationSecondaryWindowName_TextChanged);
             // 
             // label76
             // 
@@ -2193,7 +2911,7 @@ namespace AppTestStudio
             cboApplicationPrimaryWindowNameFilter.Name = "cboApplicationPrimaryWindowNameFilter";
             cboApplicationPrimaryWindowNameFilter.Size = new Size(87, 23);
             cboApplicationPrimaryWindowNameFilter.TabIndex = 7;
-            cboApplicationPrimaryWindowNameFilter.SelectedIndexChanged += cboApplicationPrimaryWindowNameFilter_SelectedIndexChanged;
+            cboApplicationPrimaryWindowNameFilter.SelectedIndexChanged += (this.cboApplicationPrimaryWindowNameFilter_SelectedIndexChanged);
             // 
             // txtApplicationPrimaryWindowName
             // 
@@ -2202,7 +2920,7 @@ namespace AppTestStudio
             txtApplicationPrimaryWindowName.Name = "txtApplicationPrimaryWindowName";
             txtApplicationPrimaryWindowName.Size = new Size(383, 23);
             txtApplicationPrimaryWindowName.TabIndex = 7;
-            txtApplicationPrimaryWindowName.TextChanged += txtApplicationWindowName_TextChanged;
+            txtApplicationPrimaryWindowName.TextChanged += (this.txtApplicationWindowName_TextChanged);
             // 
             // label78
             // 
@@ -2265,7 +2983,7 @@ namespace AppTestStudio
             cboDPI.Name = "cboDPI";
             cboDPI.Size = new Size(114, 23);
             cboDPI.TabIndex = 35;
-            cboDPI.SelectedIndexChanged += cboDPI_SelectedIndexChanged;
+            cboDPI.SelectedIndexChanged += (this.cboDPI_SelectedIndexChanged);
             // 
             // Label26
             // 
@@ -2286,7 +3004,7 @@ namespace AppTestStudio
             cboGameInstances.Name = "cboGameInstances";
             cboGameInstances.Size = new Size(114, 23);
             cboGameInstances.TabIndex = 46;
-            cboGameInstances.SelectedIndexChanged += cboGameInstances_SelectedIndexChanged;
+            cboGameInstances.SelectedIndexChanged += (this.cboGameInstances_SelectedIndexChanged);
             // 
             // cboResolution
             // 
@@ -2298,7 +3016,7 @@ namespace AppTestStudio
             cboResolution.Name = "cboResolution";
             cboResolution.Size = new Size(307, 23);
             cboResolution.TabIndex = 45;
-            cboResolution.SelectedIndexChanged += cboResolution_SelectedIndexChanged;
+            cboResolution.SelectedIndexChanged += (this.cboResolution_SelectedIndexChanged);
             // 
             // txtGamePanelLaunchInstance
             // 
@@ -2308,7 +3026,7 @@ namespace AppTestStudio
             txtGamePanelLaunchInstance.Name = "txtGamePanelLaunchInstance";
             txtGamePanelLaunchInstance.Size = new Size(74, 23);
             txtGamePanelLaunchInstance.TabIndex = 41;
-            txtGamePanelLaunchInstance.TextChanged += txtGamePanelLaunchInstance_TextChanged;
+            txtGamePanelLaunchInstance.TextChanged += (this.txtGamePanelLaunchInstance_TextChanged);
             // 
             // label12
             // 
@@ -2338,7 +3056,7 @@ namespace AppTestStudio
             txtPackageName.Name = "txtPackageName";
             txtPackageName.Size = new Size(555, 23);
             txtPackageName.TabIndex = 38;
-            txtPackageName.TextChanged += txtPackageName_TextChanged;
+            txtPackageName.TextChanged += (this.txtPackageName_TextChanged);
             // 
             // label63
             // 
@@ -2423,8 +3141,8 @@ namespace AppTestStudio
             txtSteamID.Name = "txtSteamID";
             txtSteamID.Size = new Size(259, 23);
             txtSteamID.TabIndex = 4;
-            txtSteamID.TextChanged += txtSteamID_TextChanged;
-            txtSteamID.KeyPress += txtSteamID_KeyPress;
+            txtSteamID.TextChanged += (this.txtSteamID_TextChanged);
+            txtSteamID.KeyPress += (this.txtSteamID_KeyPress);
             // 
             // groupBox9
             // 
@@ -2455,7 +3173,7 @@ namespace AppTestStudio
             cmdSteamWindowWizard.TabIndex = 9;
             cmdSteamWindowWizard.Text = "Window Wizard";
             cmdSteamWindowWizard.UseVisualStyleBackColor = true;
-            cmdSteamWindowWizard.Click += cmdSteamWindowWizard_Click;
+            cmdSteamWindowWizard.Click += (this.cmdSteamWindowWizard_Click);
             // 
             // cboSteamSecondaryWindowNameFilter
             // 
@@ -2467,7 +3185,7 @@ namespace AppTestStudio
             cboSteamSecondaryWindowNameFilter.Name = "cboSteamSecondaryWindowNameFilter";
             cboSteamSecondaryWindowNameFilter.Size = new Size(87, 23);
             cboSteamSecondaryWindowNameFilter.TabIndex = 11;
-            cboSteamSecondaryWindowNameFilter.SelectedIndexChanged += cboSteamSecondaryWindowNameFilter_SelectedIndexChanged;
+            cboSteamSecondaryWindowNameFilter.SelectedIndexChanged += (this.cboSteamSecondaryWindowNameFilter_SelectedIndexChanged);
             // 
             // txtSteamSecondaryWindowName
             // 
@@ -2476,7 +3194,7 @@ namespace AppTestStudio
             txtSteamSecondaryWindowName.Name = "txtSteamSecondaryWindowName";
             txtSteamSecondaryWindowName.Size = new Size(409, 23);
             txtSteamSecondaryWindowName.TabIndex = 10;
-            txtSteamSecondaryWindowName.TextChanged += txtSteamSecondaryWindowName_TextChanged;
+            txtSteamSecondaryWindowName.TextChanged += (this.txtSteamSecondaryWindowName_TextChanged);
             // 
             // label74
             // 
@@ -2508,7 +3226,7 @@ namespace AppTestStudio
             cboSteamPrimaryWindowNameFilter.Name = "cboSteamPrimaryWindowNameFilter";
             cboSteamPrimaryWindowNameFilter.Size = new Size(87, 23);
             cboSteamPrimaryWindowNameFilter.TabIndex = 7;
-            cboSteamPrimaryWindowNameFilter.SelectedIndexChanged += cboSteamPrimaryWindowNameFilter_SelectedIndexChanged;
+            cboSteamPrimaryWindowNameFilter.SelectedIndexChanged += (this.cboSteamPrimaryWindowNameFilter_SelectedIndexChanged);
             // 
             // txtSteamPrimaryWindowName
             // 
@@ -2517,7 +3235,7 @@ namespace AppTestStudio
             txtSteamPrimaryWindowName.Name = "txtSteamPrimaryWindowName";
             txtSteamPrimaryWindowName.Size = new Size(409, 23);
             txtSteamPrimaryWindowName.TabIndex = 5;
-            txtSteamPrimaryWindowName.TextChanged += txtSteamWindowName_TextChanged;
+            txtSteamPrimaryWindowName.TextChanged += (this.txtSteamWindowName_TextChanged);
             // 
             // label73
             // 
@@ -2563,7 +3281,7 @@ namespace AppTestStudio
             cboBlueInstance.Name = "cboBlueInstance";
             cboBlueInstance.Size = new Size(341, 23);
             cboBlueInstance.TabIndex = 43;
-            cboBlueInstance.SelectedIndexChanged += cboBlueInstance_SelectedIndexChanged;
+            cboBlueInstance.SelectedIndexChanged += (this.cboBlueInstance_SelectedIndexChanged);
             // 
             // label83
             // 
@@ -2593,7 +3311,7 @@ namespace AppTestStudio
             txtBluePackageName.Name = "txtBluePackageName";
             txtBluePackageName.Size = new Size(555, 23);
             txtBluePackageName.TabIndex = 41;
-            txtBluePackageName.TextChanged += txtBluePackageName_TextChanged;
+            txtBluePackageName.TextChanged += (this.txtBluePackageName_TextChanged);
             // 
             // groupBox11
             // 
@@ -2626,7 +3344,7 @@ namespace AppTestStudio
             chkDontTakeScreenshot.TabIndex = 46;
             chkDontTakeScreenshot.Text = "Don't Take Screenshot at Runtime (Use Empty Events)";
             chkDontTakeScreenshot.UseVisualStyleBackColor = true;
-            chkDontTakeScreenshot.CheckedChanged += chkDontTakeScreenshot_CheckedChanged;
+            chkDontTakeScreenshot.CheckedChanged += (this.chkDontTakeScreenshot_CheckedChanged);
             // 
             // chkGameWindowNeverQuitIfWindowNotFound
             // 
@@ -2638,7 +3356,7 @@ namespace AppTestStudio
             chkGameWindowNeverQuitIfWindowNotFound.TabIndex = 45;
             chkGameWindowNeverQuitIfWindowNotFound.Text = "Never Quit if Window Not Found";
             chkGameWindowNeverQuitIfWindowNotFound.UseVisualStyleBackColor = true;
-            chkGameWindowNeverQuitIfWindowNotFound.CheckedChanged += chkGameWindowNeverQuitIfWindowNotFound_CheckedChanged;
+            chkGameWindowNeverQuitIfWindowNotFound.CheckedChanged += (this.chkGameWindowNeverQuitIfWindowNotFound_CheckedChanged);
             // 
             // grpVideo
             // 
@@ -2674,7 +3392,7 @@ namespace AppTestStudio
             NumericVideoFrameLimit.Name = "NumericVideoFrameLimit";
             NumericVideoFrameLimit.Size = new Size(110, 30);
             NumericVideoFrameLimit.TabIndex = 32;
-            NumericVideoFrameLimit.ValueChanged += NumericVideoFrameLimit_ValueChanged;
+            NumericVideoFrameLimit.ValueChanged += (this.NumericVideoFrameLimit_ValueChanged);
             // 
             // chkSaveVideo
             // 
@@ -2686,7 +3404,7 @@ namespace AppTestStudio
             chkSaveVideo.TabIndex = 31;
             chkSaveVideo.Text = "Save Video";
             chkSaveVideo.UseVisualStyleBackColor = true;
-            chkSaveVideo.CheckedChanged += chkSaveVideo_CheckedChanged;
+            chkSaveVideo.CheckedChanged += (this.chkSaveVideo_CheckedChanged);
             // 
             // Label33
             // 
@@ -2707,7 +3425,7 @@ namespace AppTestStudio
             cmdStartEmmulatorAndPackage.TabIndex = 21;
             cmdStartEmmulatorAndPackage.Text = "Start Emmulator + Run App";
             cmdStartEmmulatorAndPackage.UseVisualStyleBackColor = true;
-            cmdStartEmmulatorAndPackage.Click += cmdStartEmmulatorAndPackage_Click;
+            cmdStartEmmulatorAndPackage.Click += (this.cmdStartEmmulatorAndPackage_Click);
             // 
             // cmdStartEmmulatorPackageAndRunScript
             // 
@@ -2718,7 +3436,7 @@ namespace AppTestStudio
             cmdStartEmmulatorPackageAndRunScript.TabIndex = 21;
             cmdStartEmmulatorPackageAndRunScript.Text = "Start Emmulator + Run App + Run Script";
             cmdStartEmmulatorPackageAndRunScript.UseVisualStyleBackColor = true;
-            cmdStartEmmulatorPackageAndRunScript.Click += cmdStartEmmulatorPackageAndRunScript_Click;
+            cmdStartEmmulatorPackageAndRunScript.Click += (this.cmdStartEmmulatorPackageAndRunScript_Click);
             // 
             // cmdStartEmmulator
             // 
@@ -2729,7 +3447,7 @@ namespace AppTestStudio
             cmdStartEmmulator.TabIndex = 21;
             cmdStartEmmulator.Text = "Start Emmulator";
             cmdStartEmmulator.UseVisualStyleBackColor = true;
-            cmdStartEmmulator.Click += cmdStartEmmulator_Click;
+            cmdStartEmmulator.Click += (this.cmdStartEmmulator_Click);
             // 
             // txtGamePanelLoopDelay
             // 
@@ -2739,7 +3457,7 @@ namespace AppTestStudio
             txtGamePanelLoopDelay.Name = "txtGamePanelLoopDelay";
             txtGamePanelLoopDelay.Size = new Size(116, 23);
             txtGamePanelLoopDelay.TabIndex = 43;
-            txtGamePanelLoopDelay.TextChanged += txtGamePanelLoopDelay_TextChanged_1;
+            txtGamePanelLoopDelay.TextChanged += (this.txtGamePanelLoopDelay_TextChanged_1);
             // 
             // Label30
             // 
@@ -2760,7 +3478,7 @@ namespace AppTestStudio
             cmdRunScript.TabIndex = 22;
             cmdRunScript.Text = "Run Script";
             cmdRunScript.UseVisualStyleBackColor = true;
-            cmdRunScript.Click += cmdRunScript_Click;
+            cmdRunScript.Click += (this.cmdRunScript_Click);
             // 
             // grpSavedPictures
             // 
@@ -2781,7 +3499,7 @@ namespace AppTestStudio
             chkSavedPicturesGlobal.TabIndex = 0;
             chkSavedPicturesGlobal.Text = "Global Enabled";
             chkSavedPicturesGlobal.UseVisualStyleBackColor = true;
-            chkSavedPicturesGlobal.CheckedChanged += chkSavedPicturesGlobal_CheckedChanged;
+            chkSavedPicturesGlobal.CheckedChanged += (this.chkSavedPicturesGlobal_CheckedChanged);
             // 
             // cboPlatform
             // 
@@ -2792,8 +3510,8 @@ namespace AppTestStudio
             cboPlatform.Name = "cboPlatform";
             cboPlatform.Size = new Size(269, 23);
             cboPlatform.TabIndex = 37;
-            cboPlatform.SelectedIndexChanged += cboPlatform_SelectedIndexChanged;
-            cboPlatform.TextChanged += cboPlatform_TextChanged;
+            cboPlatform.SelectedIndexChanged += (this.cboPlatform_SelectedIndexChanged);
+            cboPlatform.TextChanged += (this.cboPlatform_TextChanged);
             // 
             // lblGamePanelGameName
             // 
@@ -2862,7 +3580,7 @@ namespace AppTestStudio
             tableColorEvent.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableColorEvent.Size = new Size(1493, 802);
             tableColorEvent.TabIndex = 33;
-            tableColorEvent.Paint += tableLayoutPanel2_Paint;
+            tableColorEvent.Paint += (this.tableLayoutPanel2_Paint);
             // 
             // panelColorEventChild1
             // 
@@ -2892,7 +3610,7 @@ namespace AppTestStudio
             cmdTakeParentScreenshot.TabIndex = 32;
             cmdTakeParentScreenshot.Text = "Take Parent Screenshot";
             cmdTakeParentScreenshot.UseVisualStyleBackColor = true;
-            cmdTakeParentScreenshot.Click += cmdTakeParentScreenshot_Click;
+            cmdTakeParentScreenshot.Click += (this.cmdTakeParentScreenshot_Click);
             // 
             // grpEventMode
             // 
@@ -2919,7 +3637,7 @@ namespace AppTestStudio
             rdoObjectSearch.TabStop = true;
             rdoObjectSearch.Text = "Object Search";
             rdoObjectSearch.UseVisualStyleBackColor = true;
-            rdoObjectSearch.CheckedChanged += rdoObjectSearch_CheckedChanged;
+            rdoObjectSearch.CheckedChanged += (this.rdoObjectSearch_CheckedChanged);
             // 
             // rdoColorPoint
             // 
@@ -2932,7 +3650,7 @@ namespace AppTestStudio
             rdoColorPoint.TabStop = true;
             rdoColorPoint.Text = "Color/Point";
             rdoColorPoint.UseVisualStyleBackColor = true;
-            rdoColorPoint.CheckedChanged += rdoColorPoint_CheckedChanged;
+            rdoColorPoint.CheckedChanged += (this.rdoColorPoint_CheckedChanged);
             // 
             // lblMode
             // 
@@ -2971,7 +3689,7 @@ namespace AppTestStudio
             rdoModeKeyboard.TabStop = true;
             rdoModeKeyboard.Text = "Keyboard";
             rdoModeKeyboard.UseVisualStyleBackColor = true;
-            rdoModeKeyboard.CheckedChanged += rdoModeKeyboard_CheckedChanged;
+            rdoModeKeyboard.CheckedChanged += (this.rdoModeKeyboard_CheckedChanged);
             // 
             // rdoModeMove
             // 
@@ -2984,7 +3702,7 @@ namespace AppTestStudio
             rdoModeMove.TabStop = true;
             rdoModeMove.Text = "Move";
             rdoModeMove.UseVisualStyleBackColor = true;
-            rdoModeMove.CheckedChanged += rdoModeMove_CheckedChanged;
+            rdoModeMove.CheckedChanged += (this.rdoModeMove_CheckedChanged);
             // 
             // rdoModeClickDragRelease
             // 
@@ -2996,7 +3714,7 @@ namespace AppTestStudio
             rdoModeClickDragRelease.TabIndex = 1;
             rdoModeClickDragRelease.Text = "Swipe";
             rdoModeClickDragRelease.UseVisualStyleBackColor = true;
-            rdoModeClickDragRelease.CheckedChanged += rdoModeClickDragRelease_CheckedChanged;
+            rdoModeClickDragRelease.CheckedChanged += (this.rdoModeClickDragRelease_CheckedChanged);
             // 
             // rdoModeRangeClick
             // 
@@ -3010,11 +3728,11 @@ namespace AppTestStudio
             rdoModeRangeClick.TabStop = true;
             rdoModeRangeClick.Text = "Click";
             rdoModeRangeClick.UseVisualStyleBackColor = true;
-            rdoModeRangeClick.CheckedChanged += rdoModeRangeClick_CheckedChanged;
+            rdoModeRangeClick.CheckedChanged += (this.rdoModeRangeClick_CheckedChanged);
             // 
             // cmdTest
             // 
-            cmdTest.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cmdTest.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             cmdTest.Font = new Font("Microsoft Sans Serif", 15.75F);
             cmdTest.Location = new Point(569, 36);
             cmdTest.Margin = new Padding(4, 3, 4, 3);
@@ -3023,11 +3741,11 @@ namespace AppTestStudio
             cmdTest.TabIndex = 16;
             cmdTest.Text = "Test";
             cmdTest.UseVisualStyleBackColor = true;
-            cmdTest.Click += cmdTest_Click;
+            cmdTest.Click += (this.cmdTest_Click);
             // 
             // cmdAddObject2
             // 
-            cmdAddObject2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cmdAddObject2.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             cmdAddObject2.Location = new Point(569, 6);
             cmdAddObject2.Margin = new Padding(4, 3, 4, 3);
             cmdAddObject2.Name = "cmdAddObject2";
@@ -3035,11 +3753,11 @@ namespace AppTestStudio
             cmdAddObject2.TabIndex = 31;
             cmdAddObject2.Text = "Create New Object With This Image";
             cmdAddObject2.UseVisualStyleBackColor = true;
-            cmdAddObject2.Click += cmdAddObject2_Click;
+            cmdAddObject2.Click += (this.cmdAddObject2_Click);
             // 
             // PanelScreenshot
             // 
-            PanelScreenshot.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            PanelScreenshot.Anchor = (AnchorStyles)(((AnchorStyles.Top) | (AnchorStyles.Bottom)) | (AnchorStyles.Left)) | (AnchorStyles.Right);
             PanelScreenshot.AutoScroll = true;
             PanelScreenshot.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             PanelScreenshot.Controls.Add(panelKeyboard);
@@ -3111,7 +3829,7 @@ namespace AppTestStudio
             cmdWait3.TabIndex = 2;
             cmdWait3.Text = "Custom";
             cmdWait3.UseVisualStyleBackColor = true;
-            cmdWait3.Click += cmdWait3_Click;
+            cmdWait3.Click += (this.cmdWait3_Click);
             // 
             // cmdWait2
             // 
@@ -3122,7 +3840,7 @@ namespace AppTestStudio
             cmdWait2.TabIndex = 2;
             cmdWait2.Text = "Normal Press";
             cmdWait2.UseVisualStyleBackColor = true;
-            cmdWait2.Click += cmdWait2_Click;
+            cmdWait2.Click += (this.cmdWait2_Click);
             // 
             // cmdWait1
             // 
@@ -3133,7 +3851,7 @@ namespace AppTestStudio
             cmdWait1.TabIndex = 1;
             cmdWait1.Text = "Quick Tap";
             cmdWait1.UseVisualStyleBackColor = true;
-            cmdWait1.Click += cmdWait1_Click;
+            cmdWait1.Click += (this.cmdWait1_Click);
             // 
             // numericWait3
             // 
@@ -3272,7 +3990,7 @@ namespace AppTestStudio
             chkKeyboardSpace.Text = "Space";
             chkKeyboardSpace.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardSpace.UseVisualStyleBackColor = true;
-            chkKeyboardSpace.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardSpace.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardA
             // 
@@ -3286,7 +4004,7 @@ namespace AppTestStudio
             chkKeyboardA.Text = "A";
             chkKeyboardA.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardA.UseVisualStyleBackColor = true;
-            chkKeyboardA.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardA.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardTilde
             // 
@@ -3300,7 +4018,7 @@ namespace AppTestStudio
             chkKeyboardTilde.Text = "~";
             chkKeyboardTilde.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardTilde.UseVisualStyleBackColor = true;
-            chkKeyboardTilde.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardTilde.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardTab
             // 
@@ -3314,7 +4032,7 @@ namespace AppTestStudio
             chkKeyboardTab.Text = "Tab";
             chkKeyboardTab.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardTab.UseVisualStyleBackColor = true;
-            chkKeyboardTab.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardTab.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardCapsLock
             // 
@@ -3328,7 +4046,7 @@ namespace AppTestStudio
             chkKeyboardCapsLock.Text = "Caps";
             chkKeyboardCapsLock.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardCapsLock.UseVisualStyleBackColor = true;
-            chkKeyboardCapsLock.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardCapsLock.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardLeft
             // 
@@ -3342,7 +4060,7 @@ namespace AppTestStudio
             chkKeyboardLeft.Text = "L";
             chkKeyboardLeft.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardLeft.UseVisualStyleBackColor = true;
-            chkKeyboardLeft.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardLeft.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF12
             // 
@@ -3357,7 +4075,7 @@ namespace AppTestStudio
             chkKeyboardF12.Text = "F12";
             chkKeyboardF12.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF12.UseVisualStyleBackColor = true;
-            chkKeyboardF12.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF12.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardRight
             // 
@@ -3371,7 +4089,7 @@ namespace AppTestStudio
             chkKeyboardRight.Text = "R";
             chkKeyboardRight.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardRight.UseVisualStyleBackColor = true;
-            chkKeyboardRight.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardRight.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardDown
             // 
@@ -3385,7 +4103,7 @@ namespace AppTestStudio
             chkKeyboardDown.Text = "Down";
             chkKeyboardDown.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardDown.UseVisualStyleBackColor = true;
-            chkKeyboardDown.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardDown.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardLeftShift
             // 
@@ -3399,7 +4117,7 @@ namespace AppTestStudio
             chkKeyboardLeftShift.Text = "L Shift";
             chkKeyboardLeftShift.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardLeftShift.UseVisualStyleBackColor = true;
-            chkKeyboardLeftShift.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardLeftShift.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardPageDown
             // 
@@ -3414,7 +4132,7 @@ namespace AppTestStudio
             chkKeyboardPageDown.Text = "Do";
             chkKeyboardPageDown.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardPageDown.UseVisualStyleBackColor = true;
-            chkKeyboardPageDown.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardPageDown.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardEnd
             // 
@@ -3429,7 +4147,7 @@ namespace AppTestStudio
             chkKeyboardEnd.Text = "En";
             chkKeyboardEnd.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardEnd.UseVisualStyleBackColor = true;
-            chkKeyboardEnd.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardEnd.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardDelete
             // 
@@ -3444,7 +4162,7 @@ namespace AppTestStudio
             chkKeyboardDelete.Text = "De";
             chkKeyboardDelete.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardDelete.UseVisualStyleBackColor = true;
-            chkKeyboardDelete.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardDelete.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardPageUp
             // 
@@ -3459,7 +4177,7 @@ namespace AppTestStudio
             chkKeyboardPageUp.Text = "Up";
             chkKeyboardPageUp.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardPageUp.UseVisualStyleBackColor = true;
-            chkKeyboardPageUp.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardPageUp.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardHome
             // 
@@ -3474,7 +4192,7 @@ namespace AppTestStudio
             chkKeyboardHome.Text = "Ho";
             chkKeyboardHome.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardHome.UseVisualStyleBackColor = true;
-            chkKeyboardHome.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardHome.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardIns
             // 
@@ -3489,7 +4207,7 @@ namespace AppTestStudio
             chkKeyboardIns.Text = "Ins";
             chkKeyboardIns.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardIns.UseVisualStyleBackColor = true;
-            chkKeyboardIns.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardIns.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardUp
             // 
@@ -3503,7 +4221,7 @@ namespace AppTestStudio
             chkKeyboardUp.Text = "U";
             chkKeyboardUp.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardUp.UseVisualStyleBackColor = true;
-            chkKeyboardUp.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardUp.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF11
             // 
@@ -3518,7 +4236,7 @@ namespace AppTestStudio
             chkKeyboardF11.Text = "F11";
             chkKeyboardF11.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF11.UseVisualStyleBackColor = true;
-            chkKeyboardF11.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF11.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardRightShift
             // 
@@ -3532,7 +4250,7 @@ namespace AppTestStudio
             chkKeyboardRightShift.Text = "R Shift";
             chkKeyboardRightShift.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardRightShift.UseVisualStyleBackColor = true;
-            chkKeyboardRightShift.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardRightShift.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF8
             // 
@@ -3547,7 +4265,7 @@ namespace AppTestStudio
             chkKeyboardF8.Text = "F8";
             chkKeyboardF8.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF8.UseVisualStyleBackColor = true;
-            chkKeyboardF8.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF8.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardLeftCtrl
             // 
@@ -3561,7 +4279,7 @@ namespace AppTestStudio
             chkKeyboardLeftCtrl.Text = "Ctrl";
             chkKeyboardLeftCtrl.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardLeftCtrl.UseVisualStyleBackColor = true;
-            chkKeyboardLeftCtrl.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardLeftCtrl.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF10
             // 
@@ -3576,7 +4294,7 @@ namespace AppTestStudio
             chkKeyboardF10.Text = "F10";
             chkKeyboardF10.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF10.UseVisualStyleBackColor = true;
-            chkKeyboardF10.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF10.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardMnu
             // 
@@ -3591,7 +4309,7 @@ namespace AppTestStudio
             chkKeyboardMnu.Text = "Mnu";
             chkKeyboardMnu.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardMnu.UseVisualStyleBackColor = true;
-            chkKeyboardMnu.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardMnu.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardRightCtrl
             // 
@@ -3605,7 +4323,7 @@ namespace AppTestStudio
             chkKeyboardRightCtrl.Text = "Ctrl";
             chkKeyboardRightCtrl.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardRightCtrl.UseVisualStyleBackColor = true;
-            chkKeyboardRightCtrl.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardRightCtrl.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF7
             // 
@@ -3620,7 +4338,7 @@ namespace AppTestStudio
             chkKeyboardF7.Text = "F7";
             chkKeyboardF7.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF7.UseVisualStyleBackColor = true;
-            chkKeyboardF7.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF7.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardLeftAlt
             // 
@@ -3634,7 +4352,7 @@ namespace AppTestStudio
             chkKeyboardLeftAlt.Text = "Alt";
             chkKeyboardLeftAlt.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardLeftAlt.UseVisualStyleBackColor = true;
-            chkKeyboardLeftAlt.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardLeftAlt.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF9
             // 
@@ -3649,7 +4367,7 @@ namespace AppTestStudio
             chkKeyboardF9.Text = "F9";
             chkKeyboardF9.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF9.UseVisualStyleBackColor = true;
-            chkKeyboardF9.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF9.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardRightAlt
             // 
@@ -3663,7 +4381,7 @@ namespace AppTestStudio
             chkKeyboardRightAlt.Text = "Alt";
             chkKeyboardRightAlt.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardRightAlt.UseVisualStyleBackColor = true;
-            chkKeyboardRightAlt.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardRightAlt.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF6
             // 
@@ -3678,7 +4396,7 @@ namespace AppTestStudio
             chkKeyboardF6.Text = "F6";
             chkKeyboardF6.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF6.UseVisualStyleBackColor = true;
-            chkKeyboardF6.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF6.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardLeftWin
             // 
@@ -3692,7 +4410,7 @@ namespace AppTestStudio
             chkKeyboardLeftWin.Text = "Win";
             chkKeyboardLeftWin.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardLeftWin.UseVisualStyleBackColor = true;
-            chkKeyboardLeftWin.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardLeftWin.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF5
             // 
@@ -3707,7 +4425,7 @@ namespace AppTestStudio
             chkKeyboardF5.Text = "F5";
             chkKeyboardF5.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF5.UseVisualStyleBackColor = true;
-            chkKeyboardF5.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF5.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardRightWin
             // 
@@ -3721,7 +4439,7 @@ namespace AppTestStudio
             chkKeyboardRightWin.Text = "Win";
             chkKeyboardRightWin.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardRightWin.UseVisualStyleBackColor = true;
-            chkKeyboardRightWin.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardRightWin.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF4
             // 
@@ -3736,7 +4454,7 @@ namespace AppTestStudio
             chkKeyboardF4.Text = "F4";
             chkKeyboardF4.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF4.UseVisualStyleBackColor = true;
-            chkKeyboardF4.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF4.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF3
             // 
@@ -3751,7 +4469,7 @@ namespace AppTestStudio
             chkKeyboardF3.Text = "F3";
             chkKeyboardF3.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF3.UseVisualStyleBackColor = true;
-            chkKeyboardF3.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF3.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardB
             // 
@@ -3765,7 +4483,7 @@ namespace AppTestStudio
             chkKeyboardB.Text = "B";
             chkKeyboardB.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardB.UseVisualStyleBackColor = true;
-            chkKeyboardB.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardB.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF2
             // 
@@ -3780,7 +4498,7 @@ namespace AppTestStudio
             chkKeyboardF2.Text = "F2";
             chkKeyboardF2.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF2.UseVisualStyleBackColor = true;
-            chkKeyboardF2.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF2.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardC
             // 
@@ -3794,7 +4512,7 @@ namespace AppTestStudio
             chkKeyboardC.Text = "C";
             chkKeyboardC.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardC.UseVisualStyleBackColor = true;
-            chkKeyboardC.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardC.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF1
             // 
@@ -3809,7 +4527,7 @@ namespace AppTestStudio
             chkKeyboardF1.Text = "F1";
             chkKeyboardF1.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF1.UseVisualStyleBackColor = true;
-            chkKeyboardF1.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF1.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardD
             // 
@@ -3823,7 +4541,7 @@ namespace AppTestStudio
             chkKeyboardD.Text = "D";
             chkKeyboardD.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardD.UseVisualStyleBackColor = true;
-            chkKeyboardD.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardD.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardESC
             // 
@@ -3838,7 +4556,7 @@ namespace AppTestStudio
             chkKeyboardESC.Text = "Esc";
             chkKeyboardESC.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardESC.UseVisualStyleBackColor = true;
-            chkKeyboardESC.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardESC.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardE
             // 
@@ -3852,7 +4570,7 @@ namespace AppTestStudio
             chkKeyboardE.Text = "E";
             chkKeyboardE.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardE.UseVisualStyleBackColor = true;
-            chkKeyboardE.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardE.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardBackspace
             // 
@@ -3867,7 +4585,7 @@ namespace AppTestStudio
             chkKeyboardBackspace.Text = "Backspace";
             chkKeyboardBackspace.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardBackspace.UseVisualStyleBackColor = true;
-            chkKeyboardBackspace.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardBackspace.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardF
             // 
@@ -3881,7 +4599,7 @@ namespace AppTestStudio
             chkKeyboardF.Text = "F";
             chkKeyboardF.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardF.UseVisualStyleBackColor = true;
-            chkKeyboardF.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardF.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardPlus
             // 
@@ -3895,7 +4613,7 @@ namespace AppTestStudio
             chkKeyboardPlus.Text = "=";
             chkKeyboardPlus.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardPlus.UseVisualStyleBackColor = true;
-            chkKeyboardPlus.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardPlus.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardG
             // 
@@ -3909,7 +4627,7 @@ namespace AppTestStudio
             chkKeyboardG.Text = "G";
             chkKeyboardG.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardG.UseVisualStyleBackColor = true;
-            chkKeyboardG.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardG.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardDash
             // 
@@ -3923,7 +4641,7 @@ namespace AppTestStudio
             chkKeyboardDash.Text = "-";
             chkKeyboardDash.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardDash.UseVisualStyleBackColor = true;
-            chkKeyboardDash.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardDash.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardH
             // 
@@ -3937,7 +4655,7 @@ namespace AppTestStudio
             chkKeyboardH.Text = "H";
             chkKeyboardH.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardH.UseVisualStyleBackColor = true;
-            chkKeyboardH.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardH.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboard0
             // 
@@ -3951,7 +4669,7 @@ namespace AppTestStudio
             chkKeyboard0.Text = "0";
             chkKeyboard0.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboard0.UseVisualStyleBackColor = true;
-            chkKeyboard0.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboard0.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardI
             // 
@@ -3965,7 +4683,7 @@ namespace AppTestStudio
             chkKeyboardI.Text = "I";
             chkKeyboardI.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardI.UseVisualStyleBackColor = true;
-            chkKeyboardI.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardI.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboard9
             // 
@@ -3979,7 +4697,7 @@ namespace AppTestStudio
             chkKeyboard9.Text = "9";
             chkKeyboard9.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboard9.UseVisualStyleBackColor = true;
-            chkKeyboard9.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboard9.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardJ
             // 
@@ -3993,7 +4711,7 @@ namespace AppTestStudio
             chkKeyboardJ.Text = "J";
             chkKeyboardJ.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardJ.UseVisualStyleBackColor = true;
-            chkKeyboardJ.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardJ.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboard8
             // 
@@ -4007,7 +4725,7 @@ namespace AppTestStudio
             chkKeyboard8.Text = "8";
             chkKeyboard8.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboard8.UseVisualStyleBackColor = true;
-            chkKeyboard8.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboard8.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardK
             // 
@@ -4021,7 +4739,7 @@ namespace AppTestStudio
             chkKeyboardK.Text = "K";
             chkKeyboardK.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardK.UseVisualStyleBackColor = true;
-            chkKeyboardK.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardK.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboard7
             // 
@@ -4035,7 +4753,7 @@ namespace AppTestStudio
             chkKeyboard7.Text = "7";
             chkKeyboard7.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboard7.UseVisualStyleBackColor = true;
-            chkKeyboard7.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboard7.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardL
             // 
@@ -4049,7 +4767,7 @@ namespace AppTestStudio
             chkKeyboardL.Text = "L";
             chkKeyboardL.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardL.UseVisualStyleBackColor = true;
-            chkKeyboardL.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardL.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboard6
             // 
@@ -4063,7 +4781,7 @@ namespace AppTestStudio
             chkKeyboard6.Text = "6";
             chkKeyboard6.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboard6.UseVisualStyleBackColor = true;
-            chkKeyboard6.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboard6.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardM
             // 
@@ -4077,7 +4795,7 @@ namespace AppTestStudio
             chkKeyboardM.Text = "M";
             chkKeyboardM.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardM.UseVisualStyleBackColor = true;
-            chkKeyboardM.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardM.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboard5
             // 
@@ -4091,7 +4809,7 @@ namespace AppTestStudio
             chkKeyboard5.Text = "5";
             chkKeyboard5.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboard5.UseVisualStyleBackColor = true;
-            chkKeyboard5.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboard5.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardComma
             // 
@@ -4105,7 +4823,7 @@ namespace AppTestStudio
             chkKeyboardComma.Text = ",";
             chkKeyboardComma.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardComma.UseVisualStyleBackColor = true;
-            chkKeyboardComma.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardComma.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboard4
             // 
@@ -4119,7 +4837,7 @@ namespace AppTestStudio
             chkKeyboard4.Text = "4";
             chkKeyboard4.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboard4.UseVisualStyleBackColor = true;
-            chkKeyboard4.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboard4.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardPeriod
             // 
@@ -4133,7 +4851,7 @@ namespace AppTestStudio
             chkKeyboardPeriod.Text = ".";
             chkKeyboardPeriod.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardPeriod.UseVisualStyleBackColor = true;
-            chkKeyboardPeriod.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardPeriod.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboard3
             // 
@@ -4147,7 +4865,7 @@ namespace AppTestStudio
             chkKeyboard3.Text = "3";
             chkKeyboard3.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboard3.UseVisualStyleBackColor = true;
-            chkKeyboard3.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboard3.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardSlash
             // 
@@ -4161,7 +4879,7 @@ namespace AppTestStudio
             chkKeyboardSlash.Text = "/";
             chkKeyboardSlash.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardSlash.UseVisualStyleBackColor = true;
-            chkKeyboardSlash.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardSlash.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboard2
             // 
@@ -4175,7 +4893,7 @@ namespace AppTestStudio
             chkKeyboard2.Text = "2";
             chkKeyboard2.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboard2.UseVisualStyleBackColor = true;
-            chkKeyboard2.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboard2.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardSemicolon
             // 
@@ -4189,7 +4907,7 @@ namespace AppTestStudio
             chkKeyboardSemicolon.Text = ";";
             chkKeyboardSemicolon.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardSemicolon.UseVisualStyleBackColor = true;
-            chkKeyboardSemicolon.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardSemicolon.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboard1
             // 
@@ -4203,7 +4921,7 @@ namespace AppTestStudio
             chkKeyboard1.Text = "1";
             chkKeyboard1.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboard1.UseVisualStyleBackColor = true;
-            chkKeyboard1.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboard1.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardQuote
             // 
@@ -4217,7 +4935,7 @@ namespace AppTestStudio
             chkKeyboardQuote.Text = "'";
             chkKeyboardQuote.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardQuote.UseVisualStyleBackColor = true;
-            chkKeyboardQuote.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardQuote.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardZ
             // 
@@ -4231,7 +4949,7 @@ namespace AppTestStudio
             chkKeyboardZ.Text = "Z";
             chkKeyboardZ.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardZ.UseVisualStyleBackColor = true;
-            chkKeyboardZ.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardZ.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardEnter
             // 
@@ -4245,7 +4963,7 @@ namespace AppTestStudio
             chkKeyboardEnter.Text = "Enter";
             chkKeyboardEnter.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardEnter.UseVisualStyleBackColor = true;
-            chkKeyboardEnter.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardEnter.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardY
             // 
@@ -4259,7 +4977,7 @@ namespace AppTestStudio
             chkKeyboardY.Text = "Y";
             chkKeyboardY.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardY.UseVisualStyleBackColor = true;
-            chkKeyboardY.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardY.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardN
             // 
@@ -4273,7 +4991,7 @@ namespace AppTestStudio
             chkKeyboardN.Text = "N";
             chkKeyboardN.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardN.UseVisualStyleBackColor = true;
-            chkKeyboardN.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardN.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardX
             // 
@@ -4287,7 +5005,7 @@ namespace AppTestStudio
             chkKeyboardX.Text = "X";
             chkKeyboardX.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardX.UseVisualStyleBackColor = true;
-            chkKeyboardX.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardX.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardO
             // 
@@ -4301,7 +5019,7 @@ namespace AppTestStudio
             chkKeyboardO.Text = "O";
             chkKeyboardO.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardO.UseVisualStyleBackColor = true;
-            chkKeyboardO.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardO.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardW
             // 
@@ -4315,7 +5033,7 @@ namespace AppTestStudio
             chkKeyboardW.Text = "W";
             chkKeyboardW.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardW.UseVisualStyleBackColor = true;
-            chkKeyboardW.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardW.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardP
             // 
@@ -4329,7 +5047,7 @@ namespace AppTestStudio
             chkKeyboardP.Text = "P";
             chkKeyboardP.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardP.UseVisualStyleBackColor = true;
-            chkKeyboardP.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardP.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardV
             // 
@@ -4343,7 +5061,7 @@ namespace AppTestStudio
             chkKeyboardV.Text = "V";
             chkKeyboardV.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardV.UseVisualStyleBackColor = true;
-            chkKeyboardV.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardV.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardLeftBracket
             // 
@@ -4357,7 +5075,7 @@ namespace AppTestStudio
             chkKeyboardLeftBracket.Text = "[";
             chkKeyboardLeftBracket.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardLeftBracket.UseVisualStyleBackColor = true;
-            chkKeyboardLeftBracket.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardLeftBracket.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardU
             // 
@@ -4371,7 +5089,7 @@ namespace AppTestStudio
             chkKeyboardU.Text = "U";
             chkKeyboardU.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardU.UseVisualStyleBackColor = true;
-            chkKeyboardU.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardU.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardRightBracket
             // 
@@ -4385,7 +5103,7 @@ namespace AppTestStudio
             chkKeyboardRightBracket.Text = "]";
             chkKeyboardRightBracket.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardRightBracket.UseVisualStyleBackColor = true;
-            chkKeyboardRightBracket.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardRightBracket.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardT
             // 
@@ -4399,7 +5117,7 @@ namespace AppTestStudio
             chkKeyboardT.Text = "T";
             chkKeyboardT.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardT.UseVisualStyleBackColor = true;
-            chkKeyboardT.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardT.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardBackslash
             // 
@@ -4413,7 +5131,7 @@ namespace AppTestStudio
             chkKeyboardBackslash.Text = "\\";
             chkKeyboardBackslash.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardBackslash.UseVisualStyleBackColor = true;
-            chkKeyboardBackslash.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardBackslash.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardS
             // 
@@ -4427,7 +5145,7 @@ namespace AppTestStudio
             chkKeyboardS.Text = "S";
             chkKeyboardS.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardS.UseVisualStyleBackColor = true;
-            chkKeyboardS.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardS.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardQ
             // 
@@ -4441,7 +5159,7 @@ namespace AppTestStudio
             chkKeyboardQ.Text = "Q";
             chkKeyboardQ.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardQ.UseVisualStyleBackColor = true;
-            chkKeyboardQ.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardQ.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // chkKeyboardR
             // 
@@ -4455,7 +5173,7 @@ namespace AppTestStudio
             chkKeyboardR.Text = "R";
             chkKeyboardR.TextAlign = ContentAlignment.MiddleCenter;
             chkKeyboardR.UseVisualStyleBackColor = true;
-            chkKeyboardR.CheckedChanged += chkGeneralKeyboardUI_CheckChanged;
+            chkKeyboardR.CheckedChanged += (this.chkGeneralKeyboardUI_CheckChanged);
             // 
             // cmdKeyboardValidate
             // 
@@ -4466,7 +5184,7 @@ namespace AppTestStudio
             cmdKeyboardValidate.TabIndex = 15;
             cmdKeyboardValidate.Text = "Validate";
             cmdKeyboardValidate.UseVisualStyleBackColor = true;
-            cmdKeyboardValidate.Click += cmdKeyboardValidate_Click;
+            cmdKeyboardValidate.Click += (this.cmdKeyboardValidate_Click);
             // 
             // txtKeyboard
             // 
@@ -4476,7 +5194,7 @@ namespace AppTestStudio
             txtKeyboard.Name = "txtKeyboard";
             txtKeyboard.Size = new Size(572, 156);
             txtKeyboard.TabIndex = 0;
-            txtKeyboard.TextChanged += txtKeyboard_TextChanged;
+            txtKeyboard.TextChanged += (this.txtKeyboard_TextChanged);
             // 
             // lblPictureMissing
             // 
@@ -4498,11 +5216,11 @@ namespace AppTestStudio
             PictureBox1.SizeMode = PictureBoxSizeMode.AutoSize;
             PictureBox1.TabIndex = 0;
             PictureBox1.TabStop = false;
-            PictureBox1.Click += PictureBox1_Click;
-            PictureBox1.Paint += PictureBox1_Paint;
-            PictureBox1.MouseDown += PictureBox1_MouseDown;
-            PictureBox1.MouseMove += PictureBox1_MouseMove;
-            PictureBox1.MouseUp += PictureBox1_MouseUp;
+            PictureBox1.Click += (this.PictureBox1_Click);
+            PictureBox1.Paint += (this.PictureBox1_Paint);
+            PictureBox1.MouseDown += (this.PictureBox1_MouseDown);
+            PictureBox1.MouseMove += (this.PictureBox1_MouseMove);
+            PictureBox1.MouseUp += (this.PictureBox1_MouseUp);
             // 
             // label29
             // 
@@ -4516,14 +5234,14 @@ namespace AppTestStudio
             // 
             // txtEventName
             // 
-            txtEventName.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            txtEventName.Anchor = (AnchorStyles)((AnchorStyles.Top) | (AnchorStyles.Left)) | (AnchorStyles.Right);
             txtEventName.BackColor = SystemColors.Window;
             txtEventName.Location = new Point(88, 83);
             txtEventName.Margin = new Padding(4, 3, 4, 3);
             txtEventName.Name = "txtEventName";
             txtEventName.Size = new Size(710, 23);
             txtEventName.TabIndex = 10;
-            txtEventName.TextChanged += txtEventName_TextChanged;
+            txtEventName.TextChanged += (this.txtEventName_TextChanged);
             // 
             // chkUseParentScreenshot
             // 
@@ -4535,7 +5253,7 @@ namespace AppTestStudio
             chkUseParentScreenshot.TabIndex = 15;
             chkUseParentScreenshot.Text = "Use Parent Screenshot";
             chkUseParentScreenshot.UseVisualStyleBackColor = true;
-            chkUseParentScreenshot.CheckedChanged += chkUseParentScreenshot_CheckedChanged;
+            chkUseParentScreenshot.CheckedChanged += (this.chkUseParentScreenshot_CheckedChanged);
             // 
             // cmdAddSingleColorAtSingleLocationTakeASceenshot
             // 
@@ -4546,7 +5264,7 @@ namespace AppTestStudio
             cmdAddSingleColorAtSingleLocationTakeASceenshot.TabIndex = 6;
             cmdAddSingleColorAtSingleLocationTakeASceenshot.Text = "Take a Screenshot";
             cmdAddSingleColorAtSingleLocationTakeASceenshot.UseVisualStyleBackColor = true;
-            cmdAddSingleColorAtSingleLocationTakeASceenshot.Click += cmdAddSingleColorAtSingleLocationTakeASceenshot_Click;
+            cmdAddSingleColorAtSingleLocationTakeASceenshot.Click += (this.cmdAddSingleColorAtSingleLocationTakeASceenshot_Click);
             // 
             // FlowLayoutPanelColorEvent1
             // 
@@ -4586,7 +5304,7 @@ namespace AppTestStudio
             cmdFlowLayoutPanelColorEvent1.Text = "<<  ";
             cmdFlowLayoutPanelColorEvent1.TextAlign = ContentAlignment.MiddleRight;
             cmdFlowLayoutPanelColorEvent1.UseVisualStyleBackColor = false;
-            cmdFlowLayoutPanelColorEvent1.Click += cmdFlowLayoutPanelColorEvent1_Click;
+            cmdFlowLayoutPanelColorEvent1.Click += (this.cmdFlowLayoutPanelColorEvent1_Click);
             // 
             // panelRightProperties
             // 
@@ -4612,7 +5330,7 @@ namespace AppTestStudio
             chkPropertiesRepeatsUntilFalse.TabIndex = 11;
             chkPropertiesRepeatsUntilFalse.Text = "Repeats Until False";
             chkPropertiesRepeatsUntilFalse.UseVisualStyleBackColor = true;
-            chkPropertiesRepeatsUntilFalse.CheckedChanged += chkPropertiesRepeatsUntilFalse_CheckedChanged;
+            chkPropertiesRepeatsUntilFalse.CheckedChanged += (this.chkPropertiesRepeatsUntilFalse_CheckedChanged);
             // 
             // grpPropertiesRepeatsUntilFalse
             // 
@@ -4645,7 +5363,7 @@ namespace AppTestStudio
             numericPropertiesRepeatsUntilFalse.Name = "numericPropertiesRepeatsUntilFalse";
             numericPropertiesRepeatsUntilFalse.Size = new Size(74, 26);
             numericPropertiesRepeatsUntilFalse.TabIndex = 11;
-            numericPropertiesRepeatsUntilFalse.ValueChanged += numericPropertiesRepeatsUntilFalse_ValueChanged;
+            numericPropertiesRepeatsUntilFalse.ValueChanged += (this.numericPropertiesRepeatsUntilFalse_ValueChanged);
             // 
             // chkPropertiesEnabled
             // 
@@ -4657,7 +5375,7 @@ namespace AppTestStudio
             chkPropertiesEnabled.TabIndex = 9;
             chkPropertiesEnabled.Text = "Enabled";
             chkPropertiesEnabled.UseVisualStyleBackColor = true;
-            chkPropertiesEnabled.CheckedChanged += chkPropertiesEnabled_CheckedChanged;
+            chkPropertiesEnabled.CheckedChanged += (this.chkPropertiesEnabled_CheckedChanged);
             // 
             // lblResolution
             // 
@@ -4738,7 +5456,7 @@ namespace AppTestStudio
             cboPreActionFailureAction.Name = "cboPreActionFailureAction";
             cboPreActionFailureAction.Size = new Size(78, 23);
             cboPreActionFailureAction.TabIndex = 25;
-            cboPreActionFailureAction.SelectedIndexChanged += cboPreActionFailureAction_SelectedIndexChanged;
+            cboPreActionFailureAction.SelectedIndexChanged += (this.cboPreActionFailureAction_SelectedIndexChanged);
             // 
             // label98
             // 
@@ -4759,7 +5477,7 @@ namespace AppTestStudio
             numericKeyboardAfterSendingActivationMS.Size = new Size(59, 23);
             numericKeyboardAfterSendingActivationMS.TabIndex = 23;
             numericKeyboardAfterSendingActivationMS.Value = new decimal(new int[] { 100, 0, 0, 0 });
-            numericKeyboardAfterSendingActivationMS.ValueChanged += numericKeyboardAfterSendingActivationMS_ValueChanged;
+            numericKeyboardAfterSendingActivationMS.ValueChanged += (this.numericKeyboardAfterSendingActivationMS_ValueChanged);
             // 
             // label95
             // 
@@ -4780,7 +5498,7 @@ namespace AppTestStudio
             numericKeyboardTimeoutToActivateMS.Size = new Size(58, 23);
             numericKeyboardTimeoutToActivateMS.TabIndex = 21;
             numericKeyboardTimeoutToActivateMS.Value = new decimal(new int[] { 3000, 0, 0, 0 });
-            numericKeyboardTimeoutToActivateMS.ValueChanged += numericKeyboardTimeoutToActivateMS_ValueChanged;
+            numericKeyboardTimeoutToActivateMS.ValueChanged += (this.numericKeyboardTimeoutToActivateMS_ValueChanged);
             // 
             // chkAppActivateIfNotActive
             // 
@@ -4792,7 +5510,7 @@ namespace AppTestStudio
             chkAppActivateIfNotActive.TabIndex = 20;
             chkAppActivateIfNotActive.Text = "Activate Application (if not already active)";
             chkAppActivateIfNotActive.UseVisualStyleBackColor = true;
-            chkAppActivateIfNotActive.CheckedChanged += chkAppActivateIfNotActive_CheckedChanged;
+            chkAppActivateIfNotActive.CheckedChanged += (this.chkAppActivateIfNotActive_CheckedChanged);
             // 
             // chkFromCurrentMousePos
             // 
@@ -4803,7 +5521,7 @@ namespace AppTestStudio
             chkFromCurrentMousePos.TabIndex = 14;
             chkFromCurrentMousePos.Text = "Move mouse from sys pos (Active Mouse Only)";
             chkFromCurrentMousePos.UseVisualStyleBackColor = true;
-            chkFromCurrentMousePos.CheckedChanged += chkFromCurrentMousePos_CheckedChanged;
+            chkFromCurrentMousePos.CheckedChanged += (this.chkFromCurrentMousePos_CheckedChanged);
             // 
             // button2
             // 
@@ -4851,7 +5569,7 @@ namespace AppTestStudio
             cmdAfterCompletionHelp.TabIndex = 11;
             cmdAfterCompletionHelp.Text = "...";
             cmdAfterCompletionHelp.UseVisualStyleBackColor = true;
-            cmdAfterCompletionHelp.Click += cmdAfterCompletionHelp_Click;
+            cmdAfterCompletionHelp.Click += (this.cmdAfterCompletionHelp_Click);
             // 
             // txtAfterCompletionGoTo
             // 
@@ -4860,7 +5578,7 @@ namespace AppTestStudio
             txtAfterCompletionGoTo.Name = "txtAfterCompletionGoTo";
             txtAfterCompletionGoTo.Size = new Size(226, 23);
             txtAfterCompletionGoTo.TabIndex = 10;
-            txtAfterCompletionGoTo.TextChanged += txtAfterCompletionGoTo_TextChanged;
+            txtAfterCompletionGoTo.TextChanged += (this.txtAfterCompletionGoTo_TextChanged);
             // 
             // rdoAfterCompletionGoTo
             // 
@@ -4873,7 +5591,7 @@ namespace AppTestStudio
             rdoAfterCompletionGoTo.TabStop = true;
             rdoAfterCompletionGoTo.Text = "GoTo";
             rdoAfterCompletionGoTo.UseVisualStyleBackColor = true;
-            rdoAfterCompletionGoTo.CheckedChanged += rdoAfterCompletionGoTo_CheckedChanged;
+            rdoAfterCompletionGoTo.CheckedChanged += (this.rdoAfterCompletionGoTo_CheckedChanged);
             // 
             // groupBox4
             // 
@@ -4956,7 +5674,7 @@ namespace AppTestStudio
             cboDelayH.Name = "cboDelayH";
             cboDelayH.Size = new Size(56, 23);
             cboDelayH.TabIndex = 6;
-            cboDelayH.TextChanged += cboDelayH_TextChanged;
+            cboDelayH.TextChanged += (this.cboDelayH_TextChanged);
             // 
             // cboDelayM
             // 
@@ -4969,7 +5687,7 @@ namespace AppTestStudio
             cboDelayM.Name = "cboDelayM";
             cboDelayM.Size = new Size(56, 23);
             cboDelayM.TabIndex = 6;
-            cboDelayM.TextChanged += cboDelayM_TextChanged;
+            cboDelayM.TextChanged += (this.cboDelayM_TextChanged);
             // 
             // cboDelayS
             // 
@@ -4982,7 +5700,7 @@ namespace AppTestStudio
             cboDelayS.Name = "cboDelayS";
             cboDelayS.Size = new Size(56, 23);
             cboDelayS.TabIndex = 6;
-            cboDelayS.TextChanged += cboDelayS_TextChanged;
+            cboDelayS.TextChanged += (this.cboDelayS_TextChanged);
             // 
             // label28
             // 
@@ -5005,7 +5723,7 @@ namespace AppTestStudio
             cboDelayMS.Name = "cboDelayMS";
             cboDelayMS.Size = new Size(56, 23);
             cboDelayMS.TabIndex = 4;
-            cboDelayMS.TextChanged += cboDelayMS_TextChanged;
+            cboDelayMS.TextChanged += (this.cboDelayMS_TextChanged);
             // 
             // cmdRightAfterCompletion
             // 
@@ -5028,7 +5746,7 @@ namespace AppTestStudio
             cmdRightAfterCompletion.TextAlign = ContentAlignment.MiddleLeft;
             cmdRightAfterCompletion.TextImageRelation = TextImageRelation.ImageBeforeText;
             cmdRightAfterCompletion.UseVisualStyleBackColor = false;
-            cmdRightAfterCompletion.Click += cmdRightAfterCompletion_Click;
+            cmdRightAfterCompletion.Click += (this.cmdRightAfterCompletion_Click);
             // 
             // rdoAfterCompletionRecycle
             // 
@@ -5041,7 +5759,7 @@ namespace AppTestStudio
             rdoAfterCompletionRecycle.TabStop = true;
             rdoAfterCompletionRecycle.Text = "Recycle";
             rdoAfterCompletionRecycle.UseVisualStyleBackColor = true;
-            rdoAfterCompletionRecycle.CheckedChanged += rdoAfterCompletionRecycle_CheckedChanged;
+            rdoAfterCompletionRecycle.CheckedChanged += (this.rdoAfterCompletionRecycle_CheckedChanged);
             // 
             // rdoAfterCompletionStop
             // 
@@ -5054,7 +5772,7 @@ namespace AppTestStudio
             rdoAfterCompletionStop.TabStop = true;
             rdoAfterCompletionStop.Text = "Stop Thread";
             rdoAfterCompletionStop.UseVisualStyleBackColor = true;
-            rdoAfterCompletionStop.CheckedChanged += rdoAfterCompletionStop_CheckedChanged;
+            rdoAfterCompletionStop.CheckedChanged += (this.rdoAfterCompletionStop_CheckedChanged);
             // 
             // rdoAfterCompletionContinue
             // 
@@ -5067,7 +5785,7 @@ namespace AppTestStudio
             rdoAfterCompletionContinue.TabStop = true;
             rdoAfterCompletionContinue.Text = "Continue";
             rdoAfterCompletionContinue.UseVisualStyleBackColor = true;
-            rdoAfterCompletionContinue.CheckedChanged += rdoAfterCompletionContinue_CheckedChanged;
+            rdoAfterCompletionContinue.CheckedChanged += (this.rdoAfterCompletionContinue_CheckedChanged);
             // 
             // rdoAfterCompletionHome
             // 
@@ -5080,7 +5798,7 @@ namespace AppTestStudio
             rdoAfterCompletionHome.TabStop = true;
             rdoAfterCompletionHome.Text = "Back to Home";
             rdoAfterCompletionHome.UseVisualStyleBackColor = true;
-            rdoAfterCompletionHome.CheckedChanged += rdoAfterCompletionHome_CheckedChanged;
+            rdoAfterCompletionHome.CheckedChanged += (this.rdoAfterCompletionHome_CheckedChanged);
             // 
             // rdoAfterCompletionParent
             // 
@@ -5093,7 +5811,7 @@ namespace AppTestStudio
             rdoAfterCompletionParent.TabStop = true;
             rdoAfterCompletionParent.Text = "Back to Parent";
             rdoAfterCompletionParent.UseVisualStyleBackColor = true;
-            rdoAfterCompletionParent.CheckedChanged += rdoAfterCompletionParent_CheckedChanged;
+            rdoAfterCompletionParent.CheckedChanged += (this.rdoAfterCompletionParent_CheckedChanged);
             // 
             // panelRightObject
             // 
@@ -5124,7 +5842,7 @@ namespace AppTestStudio
             NumericObjectThreshold.Name = "NumericObjectThreshold";
             NumericObjectThreshold.Size = new Size(160, 26);
             NumericObjectThreshold.TabIndex = 10;
-            NumericObjectThreshold.ValueChanged += NumericObjectThreshold_ValueChanged;
+            NumericObjectThreshold.ValueChanged += (this.NumericObjectThreshold_ValueChanged);
             // 
             // cmdRightObject
             // 
@@ -5147,7 +5865,7 @@ namespace AppTestStudio
             cmdRightObject.TextAlign = ContentAlignment.MiddleLeft;
             cmdRightObject.TextImageRelation = TextImageRelation.ImageBeforeText;
             cmdRightObject.UseVisualStyleBackColor = false;
-            cmdRightObject.Click += cmdRightObject_Click;
+            cmdRightObject.Click += (this.cmdRightObject_Click);
             // 
             // Label52
             // 
@@ -5168,7 +5886,7 @@ namespace AppTestStudio
             cboObject.Name = "cboObject";
             cboObject.Size = new Size(162, 23);
             cboObject.TabIndex = 0;
-            cboObject.SelectedIndexChanged += cboObject_SelectedIndexChanged;
+            cboObject.SelectedIndexChanged += (this.cboObject_SelectedIndexChanged);
             // 
             // cmdMaxMask
             // 
@@ -5179,7 +5897,7 @@ namespace AppTestStudio
             cmdMaxMask.TabIndex = 8;
             cmdMaxMask.Text = "Set Mask to Max";
             cmdMaxMask.UseVisualStyleBackColor = true;
-            cmdMaxMask.Click += cmdMaxMask_Click;
+            cmdMaxMask.Click += (this.cmdMaxMask_Click);
             // 
             // lblSearchObject
             // 
@@ -5249,7 +5967,7 @@ namespace AppTestStudio
             cboChannel.Name = "cboChannel";
             cboChannel.Size = new Size(162, 23);
             cboChannel.TabIndex = 3;
-            cboChannel.SelectedIndexChanged += cboChannel_SelectedIndexChanged;
+            cboChannel.SelectedIndexChanged += (this.cboChannel_SelectedIndexChanged);
             // 
             // panelRightSwipeProperties
             // 
@@ -5320,7 +6038,7 @@ namespace AppTestStudio
             numericSwipeEndWidth.Name = "numericSwipeEndWidth";
             numericSwipeEndWidth.Size = new Size(66, 26);
             numericSwipeEndWidth.TabIndex = 10;
-            numericSwipeEndWidth.ValueChanged += numericSwipeEndWidth_ValueChanged;
+            numericSwipeEndWidth.ValueChanged += (this.numericSwipeEndWidth_ValueChanged);
             // 
             // numericSwipeEndHeight
             // 
@@ -5331,7 +6049,7 @@ namespace AppTestStudio
             numericSwipeEndHeight.Name = "numericSwipeEndHeight";
             numericSwipeEndHeight.Size = new Size(66, 26);
             numericSwipeEndHeight.TabIndex = 10;
-            numericSwipeEndHeight.ValueChanged += numericSwipeEndHeight_ValueChanged;
+            numericSwipeEndHeight.ValueChanged += (this.numericSwipeEndHeight_ValueChanged);
             // 
             // groupBox5
             // 
@@ -5377,7 +6095,7 @@ namespace AppTestStudio
             numericSwipeStartWidth.Name = "numericSwipeStartWidth";
             numericSwipeStartWidth.Size = new Size(66, 26);
             numericSwipeStartWidth.TabIndex = 10;
-            numericSwipeStartWidth.ValueChanged += numericSwipeStartWidth_ValueChanged;
+            numericSwipeStartWidth.ValueChanged += (this.numericSwipeStartWidth_ValueChanged);
             // 
             // numericSwipeStartHeight
             // 
@@ -5388,7 +6106,7 @@ namespace AppTestStudio
             numericSwipeStartHeight.Name = "numericSwipeStartHeight";
             numericSwipeStartHeight.Size = new Size(66, 26);
             numericSwipeStartHeight.TabIndex = 10;
-            numericSwipeStartHeight.ValueChanged += numericSwipeStartHeight_ValueChanged;
+            numericSwipeStartHeight.ValueChanged += (this.numericSwipeStartHeight_ValueChanged);
             // 
             // groupBoxClickDragReleaseObjectSearch
             // 
@@ -5415,7 +6133,7 @@ namespace AppTestStudio
             rdoObjectSearchNone.TabStop = true;
             rdoObjectSearchNone.Text = "None";
             rdoObjectSearchNone.UseVisualStyleBackColor = true;
-            rdoObjectSearchNone.CheckedChanged += rdoObjectSearchNone_CheckedChanged;
+            rdoObjectSearchNone.CheckedChanged += (this.rdoObjectSearchNone_CheckedChanged);
             // 
             // rdoObjectSearchEnd
             // 
@@ -5428,7 +6146,7 @@ namespace AppTestStudio
             rdoObjectSearchEnd.TabStop = true;
             rdoObjectSearchEnd.Text = "Use End";
             rdoObjectSearchEnd.UseVisualStyleBackColor = true;
-            rdoObjectSearchEnd.CheckedChanged += rdoObjectSearchEnd_CheckedChanged;
+            rdoObjectSearchEnd.CheckedChanged += (this.rdoObjectSearchEnd_CheckedChanged);
             // 
             // rdoObjectSearchStart
             // 
@@ -5441,7 +6159,7 @@ namespace AppTestStudio
             rdoObjectSearchStart.TabStop = true;
             rdoObjectSearchStart.Text = "Use Start";
             rdoObjectSearchStart.UseVisualStyleBackColor = true;
-            rdoObjectSearchStart.CheckedChanged += rdoObjectSearchStart_CheckedChanged;
+            rdoObjectSearchStart.CheckedChanged += (this.rdoObjectSearchStart_CheckedChanged);
             // 
             // numericSwipeVelocity
             // 
@@ -5452,7 +6170,7 @@ namespace AppTestStudio
             numericSwipeVelocity.Name = "numericSwipeVelocity";
             numericSwipeVelocity.Size = new Size(83, 26);
             numericSwipeVelocity.TabIndex = 10;
-            numericSwipeVelocity.ValueChanged += numericSwipeVelocity_ValueChanged;
+            numericSwipeVelocity.ValueChanged += (this.numericSwipeVelocity_ValueChanged);
             // 
             // cmdRightSwipeProperties
             // 
@@ -5475,7 +6193,7 @@ namespace AppTestStudio
             cmdRightSwipeProperties.TextAlign = ContentAlignment.MiddleLeft;
             cmdRightSwipeProperties.TextImageRelation = TextImageRelation.ImageBeforeText;
             cmdRightSwipeProperties.UseVisualStyleBackColor = false;
-            cmdRightSwipeProperties.Click += cmdRightSwipeProperties_Click;
+            cmdRightSwipeProperties.Click += (this.cmdRightSwipeProperties_Click);
             // 
             // panelRightClickProperties
             // 
@@ -5508,7 +6226,7 @@ namespace AppTestStudio
             NumericClickSpeed.Name = "NumericClickSpeed";
             NumericClickSpeed.Size = new Size(74, 30);
             NumericClickSpeed.TabIndex = 14;
-            NumericClickSpeed.ValueChanged += NumericClickSpeed_ValueChanged;
+            NumericClickSpeed.ValueChanged += (this.NumericClickSpeed_ValueChanged);
             // 
             // label54
             // 
@@ -5541,7 +6259,7 @@ namespace AppTestStudio
             cmdRightClickProperties.TextAlign = ContentAlignment.MiddleLeft;
             cmdRightClickProperties.TextImageRelation = TextImageRelation.ImageBeforeText;
             cmdRightClickProperties.UseVisualStyleBackColor = false;
-            cmdRightClickProperties.Click += cmdRightClickProperties_Click;
+            cmdRightClickProperties.Click += (this.cmdRightClickProperties_Click);
             // 
             // panelRightLogic
             // 
@@ -5579,7 +6297,7 @@ namespace AppTestStudio
             cmdRightLogic.TextAlign = ContentAlignment.MiddleLeft;
             cmdRightLogic.TextImageRelation = TextImageRelation.ImageBeforeText;
             cmdRightLogic.UseVisualStyleBackColor = false;
-            cmdRightLogic.Click += cmdRightLogic_Click;
+            cmdRightLogic.Click += (this.cmdRightLogic_Click);
             // 
             // cboPoints
             // 
@@ -5590,7 +6308,7 @@ namespace AppTestStudio
             cboPoints.Name = "cboPoints";
             cboPoints.Size = new Size(72, 23);
             cboPoints.TabIndex = 2;
-            cboPoints.TextChanged += cboPoints_TextChanged;
+            cboPoints.TextChanged += (this.cboPoints_TextChanged);
             // 
             // rdoCustom
             // 
@@ -5603,7 +6321,7 @@ namespace AppTestStudio
             rdoCustom.TabStop = true;
             rdoCustom.Text = "Custom";
             rdoCustom.UseVisualStyleBackColor = true;
-            rdoCustom.CheckedChanged += rdoCustom_CheckedChanged;
+            rdoCustom.CheckedChanged += (this.rdoCustom_CheckedChanged);
             // 
             // label31
             // 
@@ -5626,7 +6344,7 @@ namespace AppTestStudio
             rdoOR.TabStop = true;
             rdoOR.Text = "OR";
             rdoOR.UseVisualStyleBackColor = true;
-            rdoOR.CheckedChanged += rdoOR_CheckedChanged;
+            rdoOR.CheckedChanged += (this.rdoOR_CheckedChanged);
             // 
             // rdoAnd
             // 
@@ -5639,7 +6357,7 @@ namespace AppTestStudio
             rdoAnd.TabStop = true;
             rdoAnd.Text = "AND";
             rdoAnd.UseVisualStyleBackColor = true;
-            rdoAnd.CheckedChanged += rdoAnd_CheckedChanged;
+            rdoAnd.CheckedChanged += (this.rdoAnd_CheckedChanged);
             // 
             // panelRightCustomLogic
             // 
@@ -5662,7 +6380,7 @@ namespace AppTestStudio
             cmdValidate.TabIndex = 7;
             cmdValidate.Text = "Validate";
             cmdValidate.UseVisualStyleBackColor = true;
-            cmdValidate.Click += cmdValidate_Click;
+            cmdValidate.Click += (this.cmdValidate_Click);
             // 
             // label37
             // 
@@ -5673,7 +6391,7 @@ namespace AppTestStudio
             label37.Size = new Size(202, 15);
             label37.TabIndex = 7;
             label37.Text = "Custom Logic:  NOT 1 AND ( 2 OR 3 )";
-            label37.Click += label37_Click;
+            label37.Click += (this.label37_Click);
             // 
             // txtCustomLogic
             // 
@@ -5684,7 +6402,7 @@ namespace AppTestStudio
             txtCustomLogic.Name = "txtCustomLogic";
             txtCustomLogic.Size = new Size(323, 82);
             txtCustomLogic.TabIndex = 6;
-            txtCustomLogic.TextChanged += txtCustom_TextChanged;
+            txtCustomLogic.TextChanged += (this.txtCustom_TextChanged);
             // 
             // panelRightPointGrid
             // 
@@ -5711,53 +6429,53 @@ namespace AppTestStudio
             dgv.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgv.Size = new Size(327, 178);
             dgv.TabIndex = 4;
-            dgv.CellClick += dgv_CellClick;
-            dgv.SelectionChanged += dgv_SelectionChanged;
+            dgv.CellClick += (this.dgv_CellClick);
+            dgv.SelectionChanged += (this.dgv_SelectionChanged);
             // 
             // dgvID
             // 
-            dataGridViewCellStyle11.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvID.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvID.DefaultCellStyle = dataGridViewCellStyle1;
             dgvID.HeaderText = "ID";
             dgvID.MinimumWidth = 10;
             dgvID.Name = "dgvID";
             // 
             // dgvRed
             // 
-            dataGridViewCellStyle12.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvRed.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvRed.DefaultCellStyle = dataGridViewCellStyle2;
             dgvRed.HeaderText = "R";
             dgvRed.MinimumWidth = 10;
             dgvRed.Name = "dgvRed";
             // 
             // dgvBlue
             // 
-            dataGridViewCellStyle13.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvBlue.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle3.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvBlue.DefaultCellStyle = dataGridViewCellStyle3;
             dgvBlue.HeaderText = "B";
             dgvBlue.MinimumWidth = 10;
             dgvBlue.Name = "dgvBlue";
             // 
             // dgvGreen
             // 
-            dataGridViewCellStyle14.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvGreen.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle4.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvGreen.DefaultCellStyle = dataGridViewCellStyle4;
             dgvGreen.HeaderText = "G";
             dgvGreen.MinimumWidth = 10;
             dgvGreen.Name = "dgvGreen";
             // 
             // dgvX
             // 
-            dataGridViewCellStyle15.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvX.DefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle5.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvX.DefaultCellStyle = dataGridViewCellStyle5;
             dgvX.HeaderText = "X";
             dgvX.MinimumWidth = 10;
             dgvX.Name = "dgvX";
             // 
             // dgvY
             // 
-            dataGridViewCellStyle16.Alignment = DataGridViewContentAlignment.TopCenter;
-            dgvY.DefaultCellStyle = dataGridViewCellStyle16;
+            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.TopCenter;
+            dgvY.DefaultCellStyle = dataGridViewCellStyle6;
             dgvY.HeaderText = "Y";
             dgvY.MinimumWidth = 10;
             dgvY.Name = "dgvY";
@@ -5793,7 +6511,7 @@ namespace AppTestStudio
             // pictureBoxInformationWarning
             // 
             pictureBoxInformationWarning.BackgroundImageLayout = ImageLayout.None;
-            pictureBoxInformationWarning.Image = Properties.Resources.StatusWarning_71x71;
+            pictureBoxInformationWarning.Image = AppTestStudio.Properties.Resources.StatusWarning_71x71;
             pictureBoxInformationWarning.Location = new Point(7, 36);
             pictureBoxInformationWarning.Margin = new Padding(4, 3, 4, 3);
             pictureBoxInformationWarning.Name = "pictureBoxInformationWarning";
@@ -5833,7 +6551,7 @@ namespace AppTestStudio
             cmdRightInformation.TextAlign = ContentAlignment.MiddleLeft;
             cmdRightInformation.TextImageRelation = TextImageRelation.ImageBeforeText;
             cmdRightInformation.UseVisualStyleBackColor = false;
-            cmdRightInformation.Click += cmdRightInformation_Click;
+            cmdRightInformation.Click += (this.cmdRightInformation_Click);
             // 
             // FlowLayoutPanelColorEvent2
             // 
@@ -5868,7 +6586,7 @@ namespace AppTestStudio
             cmdFlowLayoutPanelColorEvent2.Text = "<<  ";
             cmdFlowLayoutPanelColorEvent2.TextAlign = ContentAlignment.MiddleRight;
             cmdFlowLayoutPanelColorEvent2.UseVisualStyleBackColor = false;
-            cmdFlowLayoutPanelColorEvent2.Click += cmdFlowLayoutPanelColorEvent2_Click;
+            cmdFlowLayoutPanelColorEvent2.Click += (this.cmdFlowLayoutPanelColorEvent2_Click);
             // 
             // panelRightColorAtPointer
             // 
@@ -5903,11 +6621,11 @@ namespace AppTestStudio
             cmdRightColorAtPointer.TextAlign = ContentAlignment.MiddleLeft;
             cmdRightColorAtPointer.TextImageRelation = TextImageRelation.ImageBeforeText;
             cmdRightColorAtPointer.UseVisualStyleBackColor = false;
-            cmdRightColorAtPointer.Click += cmdColorAtPointer_Click;
+            cmdRightColorAtPointer.Click += (this.cmdColorAtPointer_Click);
             // 
             // PictureBox2
             // 
-            PictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            PictureBox2.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             PictureBox2.Image = (Image)resources.GetObject("PictureBox2.Image");
             PictureBox2.Location = new Point(72, 27);
             PictureBox2.Margin = new Padding(4, 3, 4, 3);
@@ -5919,7 +6637,7 @@ namespace AppTestStudio
             // 
             // PanelSelectedColor
             // 
-            PanelSelectedColor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            PanelSelectedColor.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             PanelSelectedColor.Controls.Add(lblRHSColor);
             PanelSelectedColor.Controls.Add(lblRHSXY);
             PanelSelectedColor.Location = new Point(72, 210);
@@ -5930,7 +6648,7 @@ namespace AppTestStudio
             // 
             // lblRHSColor
             // 
-            lblRHSColor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblRHSColor.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             lblRHSColor.AutoSize = true;
             lblRHSColor.Location = new Point(5, 23);
             lblRHSColor.Margin = new Padding(4, 0, 4, 0);
@@ -5941,7 +6659,7 @@ namespace AppTestStudio
             // 
             // lblRHSXY
             // 
-            lblRHSXY.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblRHSXY.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             lblRHSXY.AutoSize = true;
             lblRHSXY.Location = new Point(6, 8);
             lblRHSXY.Margin = new Padding(4, 0, 4, 0);
@@ -5990,7 +6708,7 @@ namespace AppTestStudio
             chkLimitRepeats.TabIndex = 31;
             chkLimitRepeats.Text = "Repeats";
             chkLimitRepeats.UseVisualStyleBackColor = true;
-            chkLimitRepeats.CheckedChanged += chkLimitRepeats_CheckedChanged;
+            chkLimitRepeats.CheckedChanged += (this.chkLimitRepeats_CheckedChanged);
             // 
             // lnkLimitTime
             // 
@@ -6002,7 +6720,7 @@ namespace AppTestStudio
             lnkLimitTime.TabIndex = 30;
             lnkLimitTime.TabStop = true;
             lnkLimitTime.Text = "LinkLabel1";
-            lnkLimitTime.LinkClicked += lnkLimitTime_LinkClicked;
+            lnkLimitTime.LinkClicked += (this.lnkLimitTime_LinkClicked);
             // 
             // numIterations
             // 
@@ -6011,7 +6729,7 @@ namespace AppTestStudio
             numIterations.Name = "numIterations";
             numIterations.Size = new Size(80, 23);
             numIterations.TabIndex = 29;
-            numIterations.ValueChanged += numIterations_ValueChanged;
+            numIterations.ValueChanged += (this.numIterations_ValueChanged);
             // 
             // lblLimitTimeLabel
             // 
@@ -6043,7 +6761,7 @@ namespace AppTestStudio
             chkWaitFirst.TabIndex = 4;
             chkWaitFirst.Text = "Wait First";
             chkWaitFirst.UseVisualStyleBackColor = true;
-            chkWaitFirst.CheckedChanged += chkWaitFirst_CheckedChanged;
+            chkWaitFirst.CheckedChanged += (this.chkWaitFirst_CheckedChanged);
             // 
             // cmdRightLimit
             // 
@@ -6066,7 +6784,7 @@ namespace AppTestStudio
             cmdRightLimit.TextAlign = ContentAlignment.MiddleLeft;
             cmdRightLimit.TextImageRelation = TextImageRelation.ImageBeforeText;
             cmdRightLimit.UseVisualStyleBackColor = false;
-            cmdRightLimit.Click += cmdRightLimit_Click;
+            cmdRightLimit.Click += (this.cmdRightLimit_Click);
             // 
             // lblLimitWaitType
             // 
@@ -6088,7 +6806,7 @@ namespace AppTestStudio
             chkUseLimit.TabIndex = 3;
             chkUseLimit.Text = "Enable Limits";
             chkUseLimit.UseVisualStyleBackColor = true;
-            chkUseLimit.CheckedChanged += chkUseLimit_CheckedChanged;
+            chkUseLimit.CheckedChanged += (this.chkUseLimit_CheckedChanged);
             // 
             // cboWaitType
             // 
@@ -6100,7 +6818,7 @@ namespace AppTestStudio
             cboWaitType.Name = "cboWaitType";
             cboWaitType.Size = new Size(104, 23);
             cboWaitType.TabIndex = 28;
-            cboWaitType.SelectedIndexChanged += cboWaitType_SelectedIndexChanged;
+            cboWaitType.SelectedIndexChanged += (this.cboWaitType_SelectedIndexChanged);
             // 
             // panelRightAnchor
             // 
@@ -6128,7 +6846,7 @@ namespace AppTestStudio
             cmdAnchorDefault.TabIndex = 13;
             cmdAnchorDefault.Text = "Default";
             cmdAnchorDefault.UseVisualStyleBackColor = true;
-            cmdAnchorDefault.Click += cmdAnchorDefault_Click;
+            cmdAnchorDefault.Click += (this.cmdAnchorDefault_Click);
             // 
             // cmdRightAnchor
             // 
@@ -6151,7 +6869,7 @@ namespace AppTestStudio
             cmdRightAnchor.TextAlign = ContentAlignment.MiddleLeft;
             cmdRightAnchor.TextImageRelation = TextImageRelation.ImageBeforeText;
             cmdRightAnchor.UseVisualStyleBackColor = false;
-            cmdRightAnchor.Click += cmdRightAnchor_Click;
+            cmdRightAnchor.Click += (this.cmdRightAnchor_Click);
             // 
             // cmdAnchorLeft
             // 
@@ -6162,7 +6880,7 @@ namespace AppTestStudio
             cmdAnchorLeft.Size = new Size(111, 12);
             cmdAnchorLeft.TabIndex = 12;
             cmdAnchorLeft.UseVisualStyleBackColor = true;
-            cmdAnchorLeft.Click += cmdAnchorLeft_Click;
+            cmdAnchorLeft.Click += (this.cmdAnchorLeft_Click);
             // 
             // cmdAnchorRight
             // 
@@ -6173,7 +6891,7 @@ namespace AppTestStudio
             cmdAnchorRight.Size = new Size(113, 12);
             cmdAnchorRight.TabIndex = 12;
             cmdAnchorRight.UseVisualStyleBackColor = true;
-            cmdAnchorRight.Click += cmdAnchorRight_Click;
+            cmdAnchorRight.Click += (this.cmdAnchorRight_Click);
             // 
             // cmdAnchorBottom
             // 
@@ -6184,7 +6902,7 @@ namespace AppTestStudio
             cmdAnchorBottom.Size = new Size(12, 47);
             cmdAnchorBottom.TabIndex = 11;
             cmdAnchorBottom.UseVisualStyleBackColor = true;
-            cmdAnchorBottom.Click += cmdAnchorBottom_Click;
+            cmdAnchorBottom.Click += (this.cmdAnchorBottom_Click);
             // 
             // cmdAnchorTop
             // 
@@ -6195,7 +6913,7 @@ namespace AppTestStudio
             cmdAnchorTop.Size = new Size(12, 47);
             cmdAnchorTop.TabIndex = 11;
             cmdAnchorTop.UseVisualStyleBackColor = true;
-            cmdAnchorTop.Click += cmdAnchorTop_Click;
+            cmdAnchorTop.Click += (this.cmdAnchorTop_Click);
             // 
             // cmdAnchorNone
             // 
@@ -6207,7 +6925,7 @@ namespace AppTestStudio
             cmdAnchorNone.TabIndex = 10;
             cmdAnchorNone.Text = "None";
             cmdAnchorNone.UseVisualStyleBackColor = true;
-            cmdAnchorNone.Click += cmdAnchorNone_Click;
+            cmdAnchorNone.Click += (this.cmdAnchorNone_Click);
             // 
             // panelRightOffset
             // 
@@ -6253,7 +6971,7 @@ namespace AppTestStudio
             NumericYOffset.Name = "NumericYOffset";
             NumericYOffset.Size = new Size(76, 30);
             NumericYOffset.TabIndex = 8;
-            NumericYOffset.ValueChanged += NumericYOffset_ValueChanged;
+            NumericYOffset.ValueChanged += (this.NumericYOffset_ValueChanged);
             // 
             // NumericXOffset
             // 
@@ -6263,7 +6981,7 @@ namespace AppTestStudio
             NumericXOffset.Name = "NumericXOffset";
             NumericXOffset.Size = new Size(74, 30);
             NumericXOffset.TabIndex = 8;
-            NumericXOffset.ValueChanged += NumericXOffset_ValueChanged;
+            NumericXOffset.ValueChanged += (this.NumericXOffset_ValueChanged);
             // 
             // Label49
             // 
@@ -6306,7 +7024,7 @@ namespace AppTestStudio
             cmdRightOffset.TextAlign = ContentAlignment.MiddleLeft;
             cmdRightOffset.TextImageRelation = TextImageRelation.ImageBeforeText;
             cmdRightOffset.UseVisualStyleBackColor = false;
-            cmdRightOffset.Click += cmdPanelOffset_Click;
+            cmdRightOffset.Click += (this.cmdPanelOffset_Click);
             // 
             // panelRightDragMode
             // 
@@ -6340,519 +7058,7 @@ namespace AppTestStudio
             cmdRightDragMode.TextAlign = ContentAlignment.MiddleLeft;
             cmdRightDragMode.TextImageRelation = TextImageRelation.ImageBeforeText;
             cmdRightDragMode.UseVisualStyleBackColor = false;
-            cmdRightDragMode.Click += cmdRightDragMode_Click;
-            // 
-            // PanelThread
-            // 
-            PanelThread.Controls.Add(splitContainerThreadMain);
-            PanelThread.Location = new Point(6, 178);
-            PanelThread.Margin = new Padding(4, 3, 4, 3);
-            PanelThread.Name = "PanelThread";
-            PanelThread.Size = new Size(1664, 759);
-            PanelThread.TabIndex = 0;
-            // 
-            // splitContainerThreadMain
-            // 
-            splitContainerThreadMain.Dock = DockStyle.Fill;
-            splitContainerThreadMain.FixedPanel = FixedPanel.Panel2;
-            splitContainerThreadMain.Location = new Point(0, 0);
-            splitContainerThreadMain.Margin = new Padding(2);
-            splitContainerThreadMain.Name = "splitContainerThreadMain";
-            // 
-            // splitContainerThreadMain.Panel1
-            // 
-            splitContainerThreadMain.Panel1.Controls.Add(pbPreview);
-            splitContainerThreadMain.Panel1.Controls.Add(splitContainerThread);
-            // 
-            // splitContainerThreadMain.Panel2
-            // 
-            splitContainerThreadMain.Panel2.Controls.Add(lstGamePass);
-            splitContainerThreadMain.Panel2MinSize = 120;
-            splitContainerThreadMain.Size = new Size(1664, 759);
-            splitContainerThreadMain.SplitterDistance = 1404;
-            splitContainerThreadMain.SplitterWidth = 3;
-            splitContainerThreadMain.TabIndex = 1;
-            // 
-            // pbPreview
-            // 
-            pbPreview.Location = new Point(22, 298);
-            pbPreview.Name = "pbPreview";
-            pbPreview.Size = new Size(300, 300);
-            pbPreview.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbPreview.TabIndex = 1;
-            pbPreview.TabStop = false;
-            pbPreview.Visible = false;
-            // 
-            // splitContainerThread
-            // 
-            splitContainerThread.Dock = DockStyle.Fill;
-            splitContainerThread.FixedPanel = FixedPanel.Panel1;
-            splitContainerThread.Location = new Point(0, 0);
-            splitContainerThread.Margin = new Padding(4, 3, 4, 3);
-            splitContainerThread.Name = "splitContainerThread";
-            splitContainerThread.Orientation = Orientation.Horizontal;
-            // 
-            // splitContainerThread.Panel1
-            // 
-            splitContainerThread.Panel1.Controls.Add(splitContainerStatsNScrollie);
-            // 
-            // splitContainerThread.Panel2
-            // 
-            splitContainerThread.Panel2.Controls.Add(appTestStudioStatusControl1);
-            splitContainerThread.Size = new Size(1404, 759);
-            splitContainerThread.SplitterDistance = 198;
-            splitContainerThread.SplitterWidth = 5;
-            splitContainerThread.TabIndex = 1;
-            // 
-            // splitContainerStatsNScrollie
-            // 
-            splitContainerStatsNScrollie.Dock = DockStyle.Fill;
-            splitContainerStatsNScrollie.FixedPanel = FixedPanel.Panel2;
-            splitContainerStatsNScrollie.IsSplitterFixed = true;
-            splitContainerStatsNScrollie.Location = new Point(0, 0);
-            splitContainerStatsNScrollie.Margin = new Padding(4, 3, 4, 3);
-            splitContainerStatsNScrollie.Name = "splitContainerStatsNScrollie";
-            splitContainerStatsNScrollie.Orientation = Orientation.Horizontal;
-            // 
-            // splitContainerStatsNScrollie.Panel1
-            // 
-            splitContainerStatsNScrollie.Panel1.Controls.Add(tableLayoutStats);
-            // 
-            // splitContainerStatsNScrollie.Panel2
-            // 
-            splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
-            splitContainerStatsNScrollie.Size = new Size(1404, 198);
-            splitContainerStatsNScrollie.SplitterDistance = 160;
-            splitContainerStatsNScrollie.SplitterWidth = 5;
-            splitContainerStatsNScrollie.TabIndex = 2;
-            // 
-            // tableLayoutStats
-            // 
-            tableLayoutStats.AutoSize = true;
-            tableLayoutStats.ColumnCount = 5;
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 20F));
-            tableLayoutStats.Controls.Add(grpTopThreadCounter, 0, 0);
-            tableLayoutStats.Controls.Add(grpAPS, 4, 0);
-            tableLayoutStats.Controls.Add(groupTotal, 2, 0);
-            tableLayoutStats.Controls.Add(groupSession, 1, 0);
-            tableLayoutStats.Controls.Add(grpCPU, 3, 0);
-            tableLayoutStats.Dock = DockStyle.Fill;
-            tableLayoutStats.Location = new Point(0, 0);
-            tableLayoutStats.Margin = new Padding(4, 3, 4, 3);
-            tableLayoutStats.Name = "tableLayoutStats";
-            tableLayoutStats.RowCount = 1;
-            tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutStats.Size = new Size(1404, 160);
-            tableLayoutStats.TabIndex = 3;
-            // 
-            // groupTotal
-            // 
-            groupTotal.Controls.Add(tableLayoutPanel1);
-            groupTotal.Dock = DockStyle.Fill;
-            groupTotal.Location = new Point(564, 3);
-            groupTotal.Margin = new Padding(4, 3, 4, 3);
-            groupTotal.Name = "groupTotal";
-            groupTotal.Padding = new Padding(4, 3, 4, 3);
-            groupTotal.Size = new Size(272, 154);
-            groupTotal.TabIndex = 2;
-            groupTotal.TabStop = false;
-            groupTotal.Text = "Total";
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.AutoSize = true;
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(label13, 0, 0);
-            tableLayoutPanel1.Controls.Add(lblHomeTotal, 1, 2);
-            tableLayoutPanel1.Controls.Add(label15, 0, 1);
-            tableLayoutPanel1.Controls.Add(lblChildTotal, 1, 4);
-            tableLayoutPanel1.Controls.Add(lblContinueTotal, 1, 3);
-            tableLayoutPanel1.Controls.Add(label21, 0, 2);
-            tableLayoutPanel1.Controls.Add(label20, 0, 5);
-            tableLayoutPanel1.Controls.Add(lblWaitingTotal, 1, 5);
-            tableLayoutPanel1.Controls.Add(lblScreenshotsTotal, 1, 0);
-            tableLayoutPanel1.Controls.Add(label19, 0, 4);
-            tableLayoutPanel1.Controls.Add(lblClickCountTotal, 1, 1);
-            tableLayoutPanel1.Controls.Add(label14, 0, 3);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(4, 19);
-            tableLayoutPanel1.Margin = new Padding(4, 3, 4, 3);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 6;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel1.Size = new Size(264, 132);
-            tableLayoutPanel1.TabIndex = 4;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(4, 0);
-            label13.Margin = new Padding(4, 0, 4, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(73, 15);
-            label13.TabIndex = 0;
-            label13.Text = "Screenshots:";
-            // 
-            // lblHomeTotal
-            // 
-            lblHomeTotal.AutoSize = true;
-            lblHomeTotal.Location = new Point(92, 44);
-            lblHomeTotal.Margin = new Padding(4, 0, 4, 0);
-            lblHomeTotal.Name = "lblHomeTotal";
-            lblHomeTotal.Size = new Size(79, 15);
-            lblHomeTotal.TabIndex = 2;
-            lblHomeTotal.Text = "lblHomeTotal";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(4, 22);
-            label15.Margin = new Padding(4, 0, 4, 0);
-            label15.Name = "label15";
-            label15.Size = new Size(41, 15);
-            label15.TabIndex = 1;
-            label15.Text = "Clicks:";
-            // 
-            // lblChildTotal
-            // 
-            lblChildTotal.AutoSize = true;
-            lblChildTotal.Location = new Point(92, 88);
-            lblChildTotal.Margin = new Padding(4, 0, 4, 0);
-            lblChildTotal.Name = "lblChildTotal";
-            lblChildTotal.Size = new Size(74, 15);
-            lblChildTotal.TabIndex = 1;
-            lblChildTotal.Text = "lblChildTotal";
-            // 
-            // lblContinueTotal
-            // 
-            lblContinueTotal.AutoSize = true;
-            lblContinueTotal.Location = new Point(92, 66);
-            lblContinueTotal.Margin = new Padding(4, 0, 4, 0);
-            lblContinueTotal.Name = "lblContinueTotal";
-            lblContinueTotal.Size = new Size(95, 15);
-            lblContinueTotal.TabIndex = 0;
-            lblContinueTotal.Text = "lblContinueTotal";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Location = new Point(4, 44);
-            label21.Margin = new Padding(4, 0, 4, 0);
-            label21.Name = "label21";
-            label21.Size = new Size(43, 15);
-            label21.TabIndex = 2;
-            label21.Text = "Home:";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new Point(4, 110);
-            label20.Margin = new Padding(4, 0, 4, 0);
-            label20.Name = "label20";
-            label20.Size = new Size(51, 15);
-            label20.TabIndex = 2;
-            label20.Text = "Waiting:";
-            // 
-            // lblWaitingTotal
-            // 
-            lblWaitingTotal.AutoSize = true;
-            lblWaitingTotal.Location = new Point(92, 110);
-            lblWaitingTotal.Margin = new Padding(4, 0, 4, 0);
-            lblWaitingTotal.Name = "lblWaitingTotal";
-            lblWaitingTotal.Size = new Size(87, 15);
-            lblWaitingTotal.TabIndex = 2;
-            lblWaitingTotal.Text = "lblWaitingTotal";
-            // 
-            // lblScreenshotsTotal
-            // 
-            lblScreenshotsTotal.AutoSize = true;
-            lblScreenshotsTotal.Location = new Point(92, 0);
-            lblScreenshotsTotal.Margin = new Padding(4, 0, 4, 0);
-            lblScreenshotsTotal.Name = "lblScreenshotsTotal";
-            lblScreenshotsTotal.Size = new Size(109, 15);
-            lblScreenshotsTotal.TabIndex = 0;
-            lblScreenshotsTotal.Text = "lblScreenshotsTotal";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Location = new Point(4, 88);
-            label19.Margin = new Padding(4, 0, 4, 0);
-            label19.Name = "label19";
-            label19.Size = new Size(38, 15);
-            label19.TabIndex = 1;
-            label19.Text = "Child:";
-            // 
-            // lblClickCountTotal
-            // 
-            lblClickCountTotal.AutoSize = true;
-            lblClickCountTotal.Location = new Point(92, 22);
-            lblClickCountTotal.Margin = new Padding(4, 0, 4, 0);
-            lblClickCountTotal.Name = "lblClickCountTotal";
-            lblClickCountTotal.Size = new Size(105, 15);
-            lblClickCountTotal.TabIndex = 1;
-            lblClickCountTotal.Text = "lblClickCountTotal";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(4, 66);
-            label14.Margin = new Padding(4, 0, 4, 0);
-            label14.Name = "label14";
-            label14.Size = new Size(59, 15);
-            label14.TabIndex = 0;
-            label14.Text = "Continue:";
-            // 
-            // groupSession
-            // 
-            groupSession.Controls.Add(tableLayoutPanelSession);
-            groupSession.Dock = DockStyle.Fill;
-            groupSession.Location = new Point(284, 3);
-            groupSession.Margin = new Padding(4, 3, 4, 3);
-            groupSession.Name = "groupSession";
-            groupSession.Padding = new Padding(4, 3, 4, 3);
-            groupSession.Size = new Size(272, 154);
-            groupSession.TabIndex = 1;
-            groupSession.TabStop = false;
-            groupSession.Text = "Session";
-            // 
-            // tableLayoutPanelSession
-            // 
-            tableLayoutPanelSession.AutoSize = true;
-            tableLayoutPanelSession.ColumnCount = 2;
-            tableLayoutPanelSession.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanelSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanelSession.Controls.Add(label1, 0, 0);
-            tableLayoutPanelSession.Controls.Add(label3, 0, 5);
-            tableLayoutPanelSession.Controls.Add(lblWaiting, 1, 5);
-            tableLayoutPanelSession.Controls.Add(label9, 0, 2);
-            tableLayoutPanelSession.Controls.Add(lblHome, 1, 2);
-            tableLayoutPanelSession.Controls.Add(lblScreenshots, 1, 0);
-            tableLayoutPanelSession.Controls.Add(label7, 0, 3);
-            tableLayoutPanelSession.Controls.Add(lblContinue, 1, 3);
-            tableLayoutPanelSession.Controls.Add(label2, 0, 1);
-            tableLayoutPanelSession.Controls.Add(lblChild, 1, 4);
-            tableLayoutPanelSession.Controls.Add(lblClickCount, 1, 1);
-            tableLayoutPanelSession.Controls.Add(label8, 0, 4);
-            tableLayoutPanelSession.Dock = DockStyle.Fill;
-            tableLayoutPanelSession.Location = new Point(4, 19);
-            tableLayoutPanelSession.Margin = new Padding(4, 3, 4, 3);
-            tableLayoutPanelSession.Name = "tableLayoutPanelSession";
-            tableLayoutPanelSession.RowCount = 6;
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanelSession.Size = new Size(264, 132);
-            tableLayoutPanelSession.TabIndex = 3;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(4, 0);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(73, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Screenshots:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(4, 110);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(51, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Waiting:";
-            // 
-            // lblWaiting
-            // 
-            lblWaiting.AutoSize = true;
-            lblWaiting.Location = new Point(92, 110);
-            lblWaiting.Margin = new Padding(4, 0, 4, 0);
-            lblWaiting.Name = "lblWaiting";
-            lblWaiting.Size = new Size(61, 15);
-            lblWaiting.TabIndex = 2;
-            lblWaiting.Text = "lblWaiting";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(4, 44);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(43, 15);
-            label9.TabIndex = 2;
-            label9.Text = "Home:";
-            // 
-            // lblHome
-            // 
-            lblHome.AutoSize = true;
-            lblHome.Location = new Point(92, 44);
-            lblHome.Margin = new Padding(4, 0, 4, 0);
-            lblHome.Name = "lblHome";
-            lblHome.Size = new Size(53, 15);
-            lblHome.TabIndex = 2;
-            lblHome.Text = "lblHome";
-            // 
-            // lblScreenshots
-            // 
-            lblScreenshots.AutoSize = true;
-            lblScreenshots.Location = new Point(92, 0);
-            lblScreenshots.Margin = new Padding(4, 0, 4, 0);
-            lblScreenshots.Name = "lblScreenshots";
-            lblScreenshots.Size = new Size(83, 15);
-            lblScreenshots.TabIndex = 0;
-            lblScreenshots.Text = "lblScreenshots";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(4, 66);
-            label7.Margin = new Padding(4, 0, 4, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(59, 15);
-            label7.TabIndex = 0;
-            label7.Text = "Continue:";
-            // 
-            // lblContinue
-            // 
-            lblContinue.AutoSize = true;
-            lblContinue.Location = new Point(92, 66);
-            lblContinue.Margin = new Padding(4, 0, 4, 0);
-            lblContinue.Name = "lblContinue";
-            lblContinue.Size = new Size(69, 15);
-            lblContinue.TabIndex = 0;
-            lblContinue.Text = "lblContinue";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(4, 22);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(41, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Clicks:";
-            // 
-            // lblChild
-            // 
-            lblChild.AutoSize = true;
-            lblChild.Location = new Point(92, 88);
-            lblChild.Margin = new Padding(4, 0, 4, 0);
-            lblChild.Name = "lblChild";
-            lblChild.Size = new Size(48, 15);
-            lblChild.TabIndex = 1;
-            lblChild.Text = "lblChild";
-            // 
-            // lblClickCount
-            // 
-            lblClickCount.AutoSize = true;
-            lblClickCount.Location = new Point(92, 22);
-            lblClickCount.Margin = new Padding(4, 0, 4, 0);
-            lblClickCount.Name = "lblClickCount";
-            lblClickCount.Size = new Size(79, 15);
-            lblClickCount.TabIndex = 1;
-            lblClickCount.Text = "lblClickCount";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(4, 88);
-            label8.Margin = new Padding(4, 0, 4, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(38, 15);
-            label8.TabIndex = 1;
-            label8.Text = "Child:";
-            // 
-            // grpCPU
-            // 
-            grpCPU.Controls.Add(atsGraph1);
-            grpCPU.Dock = DockStyle.Fill;
-            grpCPU.Location = new Point(844, 3);
-            grpCPU.Margin = new Padding(4, 3, 4, 3);
-            grpCPU.Name = "grpCPU";
-            grpCPU.Padding = new Padding(4, 3, 4, 3);
-            grpCPU.Size = new Size(272, 154);
-            grpCPU.TabIndex = 3;
-            grpCPU.TabStop = false;
-            grpCPU.Text = "CPU";
-            // 
-            // atsGraph1
-            // 
-            atsGraph1.Dock = DockStyle.Fill;
-            atsGraph1.Location = new Point(4, 19);
-            atsGraph1.Margin = new Padding(4, 3, 4, 3);
-            atsGraph1.Name = "atsGraph1";
-            atsGraph1.Size = new Size(264, 132);
-            atsGraph1.TabIndex = 0;
-            // 
-            // splitContainerSeconds
-            // 
-            splitContainerSeconds.Dock = DockStyle.Bottom;
-            splitContainerSeconds.Location = new Point(0, 11);
-            splitContainerSeconds.Margin = new Padding(4, 3, 4, 3);
-            splitContainerSeconds.Name = "splitContainerSeconds";
-            // 
-            // splitContainerSeconds.Panel1
-            // 
-            splitContainerSeconds.Panel1.BackColor = SystemColors.ControlLight;
-            // 
-            // splitContainerSeconds.Panel2
-            // 
-            splitContainerSeconds.Panel2.BackColor = SystemColors.ControlDark;
-            splitContainerSeconds.Size = new Size(1404, 22);
-            splitContainerSeconds.SplitterDistance = 198;
-            splitContainerSeconds.SplitterWidth = 5;
-            splitContainerSeconds.TabIndex = 0;
-            splitContainerSeconds.SplitterMoving += splitContainerSeconds_SplitterMoving;
-            // 
-            // appTestStudioStatusControl1
-            // 
-            appTestStudioStatusControl1.Dock = DockStyle.Fill;
-            appTestStudioStatusControl1.Items = (List<string>)resources.GetObject("appTestStudioStatusControl1.Items");
-            appTestStudioStatusControl1.Location = new Point(0, 0);
-            appTestStudioStatusControl1.Margin = new Padding(5, 6, 5, 6);
-            appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
-            appTestStudioStatusControl1.ShowPercent = 10L;
-            appTestStudioStatusControl1.Size = new Size(1404, 556);
-            appTestStudioStatusControl1.TabIndex = 0;
-            // 
-            // lstGamePass
-            // 
-            lstGamePass.Cursor = Cursors.Hand;
-            lstGamePass.Dock = DockStyle.Fill;
-            lstGamePass.FullRowSelect = true;
-            lstGamePass.Items.AddRange(new ListViewItem[] { listViewItem2 });
-            lstGamePass.Location = new Point(0, 0);
-            lstGamePass.Margin = new Padding(2);
-            lstGamePass.Name = "lstGamePass";
-            lstGamePass.Size = new Size(257, 759);
-            lstGamePass.SmallImageList = ImageList1;
-            lstGamePass.TabIndex = 0;
-            lstGamePass.UseCompatibleStateImageBehavior = false;
-            lstGamePass.SelectedIndexChanged += lstGamePass_SelectedIndexChanged;
-            lstGamePass.MouseClick += lstGamePass_MouseClick;
-            lstGamePass.MouseEnter += lstGamePass_MouseEnter;
-            lstGamePass.MouseLeave += lstGamePass_MouseLeave;
-            lstGamePass.MouseMove += lstGamePass_MouseMove;
-            lstGamePass.Resize += lstGamePass_Resize;
+            cmdRightDragMode.Click += (this.cmdRightDragMode_Click);
             // 
             // PanelWorkspace
             // 
@@ -7145,11 +7351,11 @@ namespace AppTestStudio
             cmdDeleteObject.TabIndex = 12;
             cmdDeleteObject.Text = "Delete";
             cmdDeleteObject.UseVisualStyleBackColor = true;
-            cmdDeleteObject.Click += cmdDeleteObject_Click;
+            cmdDeleteObject.Click += (this.cmdDeleteObject_Click);
             // 
             // label36
             // 
-            label36.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            label36.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             label36.AutoSize = true;
             label36.Location = new Point(779, 9);
             label36.Margin = new Padding(4, 0, 4, 0);
@@ -7160,7 +7366,7 @@ namespace AppTestStudio
             // 
             // txtObjectReferencedBy
             // 
-            txtObjectReferencedBy.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            txtObjectReferencedBy.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             txtObjectReferencedBy.BackColor = SystemColors.ButtonFace;
             txtObjectReferencedBy.Location = new Point(777, 29);
             txtObjectReferencedBy.Margin = new Padding(4, 3, 4, 3);
@@ -7172,7 +7378,7 @@ namespace AppTestStudio
             // 
             // Panel5
             // 
-            Panel5.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Panel5.Anchor = (AnchorStyles)(((AnchorStyles.Top) | (AnchorStyles.Bottom)) | (AnchorStyles.Left)) | (AnchorStyles.Right);
             Panel5.AutoScroll = true;
             Panel5.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel5.Controls.Add(PictureBoxObject);
@@ -7252,7 +7458,7 @@ namespace AppTestStudio
             SplitContainer6.Panel2.Controls.Add(lblTestWindow);
             SplitContainer6.Panel2.Controls.Add(lblReference);
             SplitContainer6.Panel2.Controls.Add(Panel1);
-            SplitContainer6.Panel2.Resize += SplitContainer6_Panel2_Resize;
+            SplitContainer6.Panel2.Resize += (this.SplitContainer6_Panel2_Resize);
             SplitContainer6.Size = new Size(1223, 591);
             SplitContainer6.SplitterDistance = 210;
             SplitContainer6.SplitterWidth = 5;
@@ -7300,8 +7506,8 @@ namespace AppTestStudio
             tvTestAllEvents.SelectedImageIndex = 0;
             tvTestAllEvents.Size = new Size(210, 559);
             tvTestAllEvents.TabIndex = 1;
-            tvTestAllEvents.AfterSelect += tvTestAllEvents_AfterSelect;
-            tvTestAllEvents.MouseUp += tvTestAllEvents_MouseUp;
+            tvTestAllEvents.AfterSelect += (this.tvTestAllEvents_AfterSelect);
+            tvTestAllEvents.MouseUp += (this.tvTestAllEvents_MouseUp);
             // 
             // lblTestAllCustom
             // 
@@ -7317,24 +7523,24 @@ namespace AppTestStudio
             // 
             dgvTest.Anchor = AnchorStyles.None;
             dgvTest.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle17.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = SystemColors.Control;
-            dataGridViewCellStyle17.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle17.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle17.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle17.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle17.WrapMode = DataGridViewTriState.True;
-            dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle7.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = SystemColors.Control;
+            dataGridViewCellStyle7.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle7.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = DataGridViewTriState.True;
+            dgvTest.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             dgvTest.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTest.Columns.AddRange(new DataGridViewColumn[] { dgvColorTestID, dgvColorTestRed, dgvColorTestGreen, dgvColorTestBlue, dgvXTest, dgvYTest, dgvPassFail, dvgRange });
-            dataGridViewCellStyle18.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = SystemColors.Window;
-            dataGridViewCellStyle18.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle18.ForeColor = SystemColors.Control;
-            dataGridViewCellStyle18.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle18.WrapMode = DataGridViewTriState.False;
-            dgvTest.DefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle8.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = SystemColors.Window;
+            dataGridViewCellStyle8.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle8.ForeColor = SystemColors.Control;
+            dataGridViewCellStyle8.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = DataGridViewTriState.False;
+            dgvTest.DefaultCellStyle = dataGridViewCellStyle8;
             dgvTest.Location = new Point(511, 261);
             dgvTest.Margin = new Padding(4, 3, 4, 3);
             dgvTest.Name = "dgvTest";
@@ -7405,24 +7611,24 @@ namespace AppTestStudio
             // dgvTestAllReference
             // 
             dgvTestAllReference.Anchor = AnchorStyles.None;
-            dataGridViewCellStyle19.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = SystemColors.Control;
-            dataGridViewCellStyle19.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle19.ForeColor = SystemColors.WindowText;
-            dataGridViewCellStyle19.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle19.WrapMode = DataGridViewTriState.True;
-            dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            dataGridViewCellStyle9.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = SystemColors.Control;
+            dataGridViewCellStyle9.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle9.ForeColor = SystemColors.WindowText;
+            dataGridViewCellStyle9.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle9.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = DataGridViewTriState.True;
+            dgvTestAllReference.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             dgvTestAllReference.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvTestAllReference.Columns.AddRange(new DataGridViewColumn[] { dgvTestAllReferenceID, dgvTestAllReferenceRed, dgvTestAllReferenceGreen, dgvTestAllReferenceBlue, dgvTestAllReferenceX, dgvTestAllReferenceY });
-            dataGridViewCellStyle20.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = SystemColors.Window;
-            dataGridViewCellStyle20.Font = new Font("Microsoft Sans Serif", 8.25F);
-            dataGridViewCellStyle20.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle20.SelectionBackColor = SystemColors.Highlight;
-            dataGridViewCellStyle20.SelectionForeColor = SystemColors.HighlightText;
-            dataGridViewCellStyle20.WrapMode = DataGridViewTriState.False;
-            dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle10.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = SystemColors.Window;
+            dataGridViewCellStyle10.Font = new Font("Microsoft Sans Serif", 8.25F);
+            dataGridViewCellStyle10.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle10.SelectionBackColor = SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = DataGridViewTriState.False;
+            dgvTestAllReference.DefaultCellStyle = dataGridViewCellStyle10;
             dgvTestAllReference.Location = new Point(511, 55);
             dgvTestAllReference.Margin = new Padding(4, 3, 4, 3);
             dgvTestAllReference.Name = "dgvTestAllReference";
@@ -7523,7 +7729,7 @@ namespace AppTestStudio
             PictureTestAllTest.SizeMode = PictureBoxSizeMode.AutoSize;
             PictureTestAllTest.TabIndex = 1;
             PictureTestAllTest.TabStop = false;
-            PictureTestAllTest.Paint += PictureTestAllTest_Paint;
+            PictureTestAllTest.Paint += (this.PictureTestAllTest_Paint);
             // 
             // lblTestWindow
             // 
@@ -7570,7 +7776,7 @@ namespace AppTestStudio
             PictureTestAllReference.SizeMode = PictureBoxSizeMode.AutoSize;
             PictureTestAllReference.TabIndex = 1;
             PictureTestAllReference.TabStop = false;
-            PictureTestAllReference.Paint += PictureTestAllReference_Paint;
+            PictureTestAllReference.Paint += (this.PictureTestAllReference_Paint);
             // 
             // PanelGames
             // 
@@ -7634,7 +7840,7 @@ namespace AppTestStudio
             // 
             // pictureCreateNewObjectNamedCheckBox
             // 
-            pictureCreateNewObjectNamedCheckBox.Image = Properties.Resources.PSGreenCheck;
+            pictureCreateNewObjectNamedCheckBox.Image = AppTestStudio.Properties.Resources.PSGreenCheck;
             pictureCreateNewObjectNamedCheckBox.Location = new Point(444, 50);
             pictureCreateNewObjectNamedCheckBox.Margin = new Padding(4, 3, 4, 3);
             pictureCreateNewObjectNamedCheckBox.Name = "pictureCreateNewObjectNamedCheckBox";
@@ -7645,7 +7851,7 @@ namespace AppTestStudio
             // 
             // pictureCreateNewObjectMaskDrawnCheckBox
             // 
-            pictureCreateNewObjectMaskDrawnCheckBox.Image = Properties.Resources.PSGreenCheck;
+            pictureCreateNewObjectMaskDrawnCheckBox.Image = AppTestStudio.Properties.Resources.PSGreenCheck;
             pictureCreateNewObjectMaskDrawnCheckBox.Location = new Point(444, 32);
             pictureCreateNewObjectMaskDrawnCheckBox.Margin = new Padding(4, 3, 4, 3);
             pictureCreateNewObjectMaskDrawnCheckBox.Name = "pictureCreateNewObjectMaskDrawnCheckBox";
@@ -7663,7 +7869,7 @@ namespace AppTestStudio
             cmdMakeObjectAndUse.TabIndex = 14;
             cmdMakeObjectAndUse.Text = "Make Object + Use";
             cmdMakeObjectAndUse.UseVisualStyleBackColor = true;
-            cmdMakeObjectAndUse.Click += cmdMakeObjectAndUse_Click;
+            cmdMakeObjectAndUse.Click += (this.cmdMakeObjectAndUse_Click);
             // 
             // cmdMakeObject
             // 
@@ -7674,11 +7880,11 @@ namespace AppTestStudio
             cmdMakeObject.TabIndex = 14;
             cmdMakeObject.Text = "Make Object";
             cmdMakeObject.UseVisualStyleBackColor = true;
-            cmdMakeObject.Click += cmdMakeObject_Click;
+            cmdMakeObject.Click += (this.cmdMakeObject_Click);
             // 
             // panelObjectScreenshotColor
             // 
-            panelObjectScreenshotColor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            panelObjectScreenshotColor.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             panelObjectScreenshotColor.Controls.Add(lblObjectScreenshotColorXY);
             panelObjectScreenshotColor.Controls.Add(lblObjectScreenshotRHSXY);
             panelObjectScreenshotColor.Location = new Point(737, 196);
@@ -7689,7 +7895,7 @@ namespace AppTestStudio
             // 
             // lblObjectScreenshotColorXY
             // 
-            lblObjectScreenshotColorXY.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblObjectScreenshotColorXY.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             lblObjectScreenshotColorXY.AutoSize = true;
             lblObjectScreenshotColorXY.Location = new Point(2, 23);
             lblObjectScreenshotColorXY.Margin = new Padding(4, 0, 4, 0);
@@ -7700,7 +7906,7 @@ namespace AppTestStudio
             // 
             // lblObjectScreenshotRHSXY
             // 
-            lblObjectScreenshotRHSXY.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblObjectScreenshotRHSXY.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             lblObjectScreenshotRHSXY.AutoSize = true;
             lblObjectScreenshotRHSXY.Location = new Point(4, 8);
             lblObjectScreenshotRHSXY.Margin = new Padding(4, 0, 4, 0);
@@ -7711,7 +7917,7 @@ namespace AppTestStudio
             // 
             // PictureObjectScreenshotZoomBox
             // 
-            PictureObjectScreenshotZoomBox.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            PictureObjectScreenshotZoomBox.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             PictureObjectScreenshotZoomBox.Image = (Image)resources.GetObject("PictureObjectScreenshotZoomBox.Image");
             PictureObjectScreenshotZoomBox.Location = new Point(735, 5);
             PictureObjectScreenshotZoomBox.Margin = new Padding(4, 3, 4, 3);
@@ -7728,7 +7934,7 @@ namespace AppTestStudio
             txtObjectScreenshotName.Name = "txtObjectScreenshotName";
             txtObjectScreenshotName.Size = new Size(366, 23);
             txtObjectScreenshotName.TabIndex = 11;
-            txtObjectScreenshotName.TextChanged += txtObjectScreenshotName_TextChanged;
+            txtObjectScreenshotName.TextChanged += (this.txtObjectScreenshotName_TextChanged);
             // 
             // Label45
             // 
@@ -7749,11 +7955,11 @@ namespace AppTestStudio
             cmdObjectScreenshotsTakeAScreenshot.TabIndex = 9;
             cmdObjectScreenshotsTakeAScreenshot.Text = "Take a Screenshot";
             cmdObjectScreenshotsTakeAScreenshot.UseVisualStyleBackColor = true;
-            cmdObjectScreenshotsTakeAScreenshot.Click += cmdObjectScreenshotsTakeAScreenshot_Click;
+            cmdObjectScreenshotsTakeAScreenshot.Click += (this.cmdObjectScreenshotsTakeAScreenshot_Click);
             // 
             // Panel4
             // 
-            Panel4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            Panel4.Anchor = (AnchorStyles)(((AnchorStyles.Top) | (AnchorStyles.Bottom)) | (AnchorStyles.Left)) | (AnchorStyles.Right);
             Panel4.AutoScroll = true;
             Panel4.AutoSizeMode = AutoSizeMode.GrowAndShrink;
             Panel4.Controls.Add(PictureObjectScreenshot);
@@ -7773,10 +7979,10 @@ namespace AppTestStudio
             PictureObjectScreenshot.SizeMode = PictureBoxSizeMode.AutoSize;
             PictureObjectScreenshot.TabIndex = 16;
             PictureObjectScreenshot.TabStop = false;
-            PictureObjectScreenshot.Paint += PictureObjectScreenshot_Paint;
-            PictureObjectScreenshot.MouseDown += PictureObjectScreenshot_MouseDown;
-            PictureObjectScreenshot.MouseMove += PictureObjectScreenshot_MouseMove;
-            PictureObjectScreenshot.MouseUp += PictureObjectScreenshot_MouseUp;
+            PictureObjectScreenshot.Paint += (this.PictureObjectScreenshot_Paint);
+            PictureObjectScreenshot.MouseDown += (this.PictureObjectScreenshot_MouseDown);
+            PictureObjectScreenshot.MouseMove += (this.PictureObjectScreenshot_MouseMove);
+            PictureObjectScreenshot.MouseUp += (this.PictureObjectScreenshot_MouseUp);
             // 
             // Label44
             // 
@@ -7928,7 +8134,7 @@ namespace AppTestStudio
             // 
             // splitContainerSchedule
             // 
-            splitContainerSchedule.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            splitContainerSchedule.Anchor = (AnchorStyles)(((AnchorStyles.Top) | (AnchorStyles.Bottom)) | (AnchorStyles.Left)) | (AnchorStyles.Right);
             splitContainerSchedule.Location = new Point(4, 61);
             splitContainerSchedule.Margin = new Padding(4, 3, 4, 3);
             splitContainerSchedule.Name = "splitContainerSchedule";
@@ -7962,7 +8168,7 @@ namespace AppTestStudio
             dgSchedule.RowHeadersWidth = 62;
             dgSchedule.Size = new Size(716, 192);
             dgSchedule.TabIndex = 3;
-            dgSchedule.CellContentClick += dgSchedule_CellContentClick;
+            dgSchedule.CellContentClick += (this.dgSchedule_CellContentClick);
             // 
             // colName
             // 
@@ -8126,7 +8332,7 @@ namespace AppTestStudio
             chkEnableSchedule.TabIndex = 6;
             chkEnableSchedule.Text = "Enable Scheduler";
             chkEnableSchedule.UseVisualStyleBackColor = true;
-            chkEnableSchedule.CheckedChanged += chkEnableSchedule_CheckedChanged;
+            chkEnableSchedule.CheckedChanged += (this.chkEnableSchedule_CheckedChanged);
             // 
             // Button4
             // 
@@ -8141,7 +8347,7 @@ namespace AppTestStudio
             // 
             // cmdAddSchedule
             // 
-            cmdAddSchedule.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cmdAddSchedule.Anchor = (AnchorStyles)(AnchorStyles.Top) | (AnchorStyles.Right);
             cmdAddSchedule.Location = new Point(578, 5);
             cmdAddSchedule.Margin = new Padding(4, 3, 4, 3);
             cmdAddSchedule.Name = "cmdAddSchedule";
@@ -8149,7 +8355,7 @@ namespace AppTestStudio
             cmdAddSchedule.TabIndex = 4;
             cmdAddSchedule.Text = "Add New Schedule";
             cmdAddSchedule.UseVisualStyleBackColor = true;
-            cmdAddSchedule.Click += cmdAddSchedule_Click;
+            cmdAddSchedule.Click += (this.cmdAddSchedule_Click);
             // 
             // label40
             // 
@@ -8200,19 +8406,19 @@ namespace AppTestStudio
             // 
             // mnuAddEvent
             // 
-            mnuAddEvent.Image = Properties.Resources.AddEvent;
+            mnuAddEvent.Image = AppTestStudio.Properties.Resources.AddEvent;
             mnuAddEvent.Name = "mnuAddEvent";
             mnuAddEvent.Size = new Size(234, 30);
             mnuAddEvent.Text = "Add Event";
-            mnuAddEvent.Click += mnuAddEvent_Click;
+            mnuAddEvent.Click += (this.mnuAddEvent_Click);
             // 
             // mnuAddAction
             // 
-            mnuAddAction.Image = Properties.Resources.AddActionP;
+            mnuAddAction.Image = AppTestStudio.Properties.Resources.AddActionP;
             mnuAddAction.Name = "mnuAddAction";
             mnuAddAction.Size = new Size(234, 30);
             mnuAddAction.Text = "Add Action";
-            mnuAddAction.Click += mnuAddAction_Click;
+            mnuAddAction.Click += (this.mnuAddAction_Click);
             // 
             // toolStripSeparator6
             // 
@@ -8221,51 +8427,51 @@ namespace AppTestStudio
             // 
             // toolStripMenuCut
             // 
-            toolStripMenuCut.Image = Properties.Resources.Cut_16x;
+            toolStripMenuCut.Image = AppTestStudio.Properties.Resources.Cut_16x;
             toolStripMenuCut.Name = "toolStripMenuCut";
             toolStripMenuCut.Size = new Size(234, 30);
             toolStripMenuCut.Text = "Cut";
-            toolStripMenuCut.Click += toolStripMenuCut_Click;
+            toolStripMenuCut.Click += (this.toolStripMenuCut_Click);
             // 
             // toolStripMenuCopy
             // 
-            toolStripMenuCopy.Image = Properties.Resources.ASX_Copy_blue_16x;
+            toolStripMenuCopy.Image = AppTestStudio.Properties.Resources.ASX_Copy_blue_16x;
             toolStripMenuCopy.Name = "toolStripMenuCopy";
             toolStripMenuCopy.Size = new Size(234, 30);
             toolStripMenuCopy.Text = "Copy";
-            toolStripMenuCopy.Click += toolStripMenuCopy_Click;
+            toolStripMenuCopy.Click += (this.toolStripMenuCopy_Click);
             // 
             // toolStripMenuPaste
             // 
             toolStripMenuPaste.DropDownItems.AddRange(new ToolStripItem[] { toolStripMenuPasteChild, toolStripMenuPasteSibling, toolStripMenuPasteSiblingBelow });
-            toolStripMenuPaste.Image = Properties.Resources.ASX_Paste_blue_16x;
+            toolStripMenuPaste.Image = AppTestStudio.Properties.Resources.ASX_Paste_blue_16x;
             toolStripMenuPaste.Name = "toolStripMenuPaste";
             toolStripMenuPaste.Size = new Size(234, 30);
             toolStripMenuPaste.Text = "Paste";
             // 
             // toolStripMenuPasteChild
             // 
-            toolStripMenuPasteChild.Image = Properties.Resources.BranchRelationshipChild_16x;
+            toolStripMenuPasteChild.Image = AppTestStudio.Properties.Resources.BranchRelationshipChild_16x;
             toolStripMenuPasteChild.Name = "toolStripMenuPasteChild";
             toolStripMenuPasteChild.Size = new Size(155, 22);
             toolStripMenuPasteChild.Text = "Child (Under)";
-            toolStripMenuPasteChild.Click += toolStripMenuPasteChild_Click;
+            toolStripMenuPasteChild.Click += (this.toolStripMenuPasteChild_Click);
             // 
             // toolStripMenuPasteSibling
             // 
-            toolStripMenuPasteSibling.Image = Properties.Resources.BranchRelationshipSibling_16x_reverse;
+            toolStripMenuPasteSibling.Image = AppTestStudio.Properties.Resources.BranchRelationshipSibling_16x_reverse;
             toolStripMenuPasteSibling.Name = "toolStripMenuPasteSibling";
             toolStripMenuPasteSibling.Size = new Size(155, 22);
             toolStripMenuPasteSibling.Text = "Sibling (Above)";
-            toolStripMenuPasteSibling.Click += toolStripMenuPasteSibling_Click;
+            toolStripMenuPasteSibling.Click += (this.toolStripMenuPasteSibling_Click);
             // 
             // toolStripMenuPasteSiblingBelow
             // 
-            toolStripMenuPasteSiblingBelow.Image = Properties.Resources.BranchRelationshipSibling_16x;
+            toolStripMenuPasteSiblingBelow.Image = AppTestStudio.Properties.Resources.BranchRelationshipSibling_16x;
             toolStripMenuPasteSiblingBelow.Name = "toolStripMenuPasteSiblingBelow";
             toolStripMenuPasteSiblingBelow.Size = new Size(155, 22);
             toolStripMenuPasteSiblingBelow.Text = "Sibling (Below)";
-            toolStripMenuPasteSiblingBelow.Click += toolStripMenuPasteSiblingBelow_Click;
+            toolStripMenuPasteSiblingBelow.Click += (this.toolStripMenuPasteSiblingBelow_Click);
             // 
             // toolStripSeparatorCutCopyPaste
             // 
@@ -8274,19 +8480,19 @@ namespace AppTestStudio
             // 
             // testToolStripMenuItem
             // 
-            testToolStripMenuItem.Image = Properties.Resources.Test;
+            testToolStripMenuItem.Image = AppTestStudio.Properties.Resources.Test;
             testToolStripMenuItem.Name = "testToolStripMenuItem";
             testToolStripMenuItem.Size = new Size(234, 30);
             testToolStripMenuItem.Text = "Test";
-            testToolStripMenuItem.Click += testToolStripMenuItem_Click;
+            testToolStripMenuItem.Click += (this.testToolStripMenuItem_Click);
             // 
             // mnuTestAllEvents
             // 
-            mnuTestAllEvents.Image = Properties.Resources.TestALLP;
+            mnuTestAllEvents.Image = AppTestStudio.Properties.Resources.TestALLP;
             mnuTestAllEvents.Name = "mnuTestAllEvents";
             mnuTestAllEvents.Size = new Size(234, 30);
             mnuTestAllEvents.Text = "Test All";
-            mnuTestAllEvents.Click += mnuTestAllEvents_Click;
+            mnuTestAllEvents.Click += (this.mnuTestAllEvents_Click);
             // 
             // toolStripSeparator7
             // 
@@ -8295,19 +8501,19 @@ namespace AppTestStudio
             // 
             // mnuAddRNG
             // 
-            mnuAddRNG.Image = Properties.Resources.AddRNGContainerP;
+            mnuAddRNG.Image = AppTestStudio.Properties.Resources.AddRNGContainerP;
             mnuAddRNG.Name = "mnuAddRNG";
             mnuAddRNG.Size = new Size(234, 30);
             mnuAddRNG.Text = "Add Random Number (RNG)";
-            mnuAddRNG.Click += mnuAddRNG_Click;
+            mnuAddRNG.Click += (this.mnuAddRNG_Click);
             // 
             // mnuAddRNGNode
             // 
-            mnuAddRNGNode.Image = Properties.Resources.AddRNGP;
+            mnuAddRNGNode.Image = AppTestStudio.Properties.Resources.AddRNGP;
             mnuAddRNGNode.Name = "mnuAddRNGNode";
             mnuAddRNGNode.Size = new Size(234, 30);
             mnuAddRNGNode.Text = "Add RNG Node";
-            mnuAddRNGNode.Click += mnuAddRNGNode_Click;
+            mnuAddRNGNode.Click += (this.mnuAddRNGNode_Click);
             // 
             // toolStripSeparator12
             // 
@@ -8333,21 +8539,21 @@ namespace AppTestStudio
             upToolStripMenuItem.Name = "upToolStripMenuItem";
             upToolStripMenuItem.Size = new Size(105, 22);
             upToolStripMenuItem.Text = "Up";
-            upToolStripMenuItem.Click += upToolStripMenuItem_Click;
+            upToolStripMenuItem.Click += (this.upToolStripMenuItem_Click);
             // 
             // downToolStripMenuItem
             // 
             downToolStripMenuItem.Name = "downToolStripMenuItem";
             downToolStripMenuItem.Size = new Size(105, 22);
             downToolStripMenuItem.Text = "Down";
-            downToolStripMenuItem.Click += downToolStripMenuItem_Click;
+            downToolStripMenuItem.Click += (this.downToolStripMenuItem_Click);
             // 
             // deleteToolStripMenuItem
             // 
             deleteToolStripMenuItem.Name = "deleteToolStripMenuItem";
             deleteToolStripMenuItem.Size = new Size(107, 22);
             deleteToolStripMenuItem.Text = "Delete";
-            deleteToolStripMenuItem.Click += deleteToolStripMenuItem_Click;
+            deleteToolStripMenuItem.Click += (this.deleteToolStripMenuItem_Click);
             // 
             // mnuThreadList
             // 
@@ -8361,7 +8567,7 @@ namespace AppTestStudio
             mnuThreadExit.Name = "mnuThreadExit";
             mnuThreadExit.Size = new Size(138, 22);
             mnuThreadExit.Text = "Stop Thread";
-            mnuThreadExit.Click += mnuThreadExit_Click;
+            mnuThreadExit.Click += (this.mnuThreadExit_Click);
             // 
             // mnuPopupGame
             // 
@@ -8395,17 +8601,17 @@ namespace AppTestStudio
             mnuAddObject.Name = "mnuAddObject";
             mnuAddObject.Size = new Size(157, 22);
             mnuAddObject.Text = "Add Screenshot";
-            mnuAddObject.Click += mnuAddObject_Click;
+            mnuAddObject.Click += (this.mnuAddObject_Click);
             // 
             // timerScheduler
             // 
             timerScheduler.Interval = 1000;
-            timerScheduler.Tick += timerScheduler_Tick;
+            timerScheduler.Tick += (this.timerScheduler_Tick);
             // 
             // Timer1
             // 
             Timer1.Interval = 50;
-            Timer1.Tick += Timer1_Tick;
+            Timer1.Tick += (this.Timer1_Tick);
             // 
             // openFileDialog1
             // 
@@ -8428,7 +8634,7 @@ namespace AppTestStudio
             button1.TabIndex = 14;
             button1.Text = "Make Object + Choose";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += cmdMakeObject_Click;
+            button1.Click += (this.cmdMakeObject_Click);
             // 
             // contextMenuStripResetResolution
             // 
@@ -8454,7 +8660,7 @@ namespace AppTestStudio
             toolStripMenuItemResetResolution.Name = "toolStripMenuItemResetResolution";
             toolStripMenuItemResetResolution.Size = new Size(218, 22);
             toolStripMenuItemResetResolution.Text = "Reset Resolution";
-            toolStripMenuItemResetResolution.Click += toolStripMenuItemResetResolution_Click;
+            toolStripMenuItemResetResolution.Click += (this.toolStripMenuItemResetResolution_Click);
             // 
             // contextMenuStripRuntimeEnableDisable
             // 
@@ -8480,13 +8686,13 @@ namespace AppTestStudio
             toolStripMenuItemRuntimeEnableDisableToggle.Name = "toolStripMenuItemRuntimeEnableDisableToggle";
             toolStripMenuItemRuntimeEnableDisableToggle.Size = new Size(196, 22);
             toolStripMenuItemRuntimeEnableDisableToggle.Text = "Toggle";
-            toolStripMenuItemRuntimeEnableDisableToggle.Click += toolStripMenuItemRuntimeEnableDisableToggle_Click;
+            toolStripMenuItemRuntimeEnableDisableToggle.Click += (this.toolStripMenuItemRuntimeEnableDisableToggle_Click);
             // 
             // TimerProperties
             // 
             TimerProperties.Enabled = true;
             TimerProperties.Interval = 1000;
-            TimerProperties.Tick += TimerProperties_Tick;
+            TimerProperties.Tick += (this.TimerProperties_Tick);
             // 
             // appTestStudioToolStrip1
             // 
@@ -8501,12 +8707,12 @@ namespace AppTestStudio
             // 
             // toolAddEvent
             // 
-            toolAddEvent.Image = Properties.Resources.AddEvent;
+            toolAddEvent.Image = AppTestStudio.Properties.Resources.AddEvent;
             toolAddEvent.ImageTransparentColor = Color.Magenta;
             toolAddEvent.Name = "toolAddEvent";
             toolAddEvent.Size = new Size(89, 28);
             toolAddEvent.Text = "Add Event";
-            toolAddEvent.Click += toolAddEvent_Click;
+            toolAddEvent.Click += (this.toolAddEvent_Click);
             // 
             // toolStripSeparator9
             // 
@@ -8515,12 +8721,12 @@ namespace AppTestStudio
             // 
             // toolAddAction
             // 
-            toolAddAction.Image = Properties.Resources.AddActionP;
+            toolAddAction.Image = AppTestStudio.Properties.Resources.AddActionP;
             toolAddAction.ImageTransparentColor = Color.Magenta;
             toolAddAction.Name = "toolAddAction";
             toolAddAction.Size = new Size(95, 28);
             toolAddAction.Text = "Add Action";
-            toolAddAction.Click += toolAddAction_Click;
+            toolAddAction.Click += (this.toolAddAction_Click);
             // 
             // toolStripSeparator10
             // 
@@ -8529,21 +8735,21 @@ namespace AppTestStudio
             // 
             // toolTest
             // 
-            toolTest.Image = Properties.Resources.Test;
+            toolTest.Image = AppTestStudio.Properties.Resources.Test;
             toolTest.ImageTransparentColor = Color.Magenta;
             toolTest.Name = "toolTest";
             toolTest.Size = new Size(56, 28);
             toolTest.Text = "Test";
-            toolTest.Click += toolTest_Click;
+            toolTest.Click += (this.toolTest_Click);
             // 
             // toolTestAll
             // 
-            toolTestAll.Image = Properties.Resources.TestALLP;
+            toolTestAll.Image = AppTestStudio.Properties.Resources.TestALLP;
             toolTestAll.ImageTransparentColor = Color.Magenta;
             toolTestAll.Name = "toolTestAll";
             toolTestAll.Size = new Size(73, 28);
             toolTestAll.Text = "Test All";
-            toolTestAll.Click += toolTestAll_Click;
+            toolTestAll.Click += (this.toolTestAll_Click);
             // 
             // toolStripSeparator11
             // 
@@ -8552,21 +8758,21 @@ namespace AppTestStudio
             // 
             // toolAddRNG
             // 
-            toolAddRNG.Image = Properties.Resources.AddRNGContainerP;
+            toolAddRNG.Image = AppTestStudio.Properties.Resources.AddRNGContainerP;
             toolAddRNG.ImageTransparentColor = Color.Magenta;
             toolAddRNG.Name = "toolAddRNG";
             toolAddRNG.Size = new Size(84, 28);
             toolAddRNG.Text = "Add RNG";
-            toolAddRNG.Click += toolAddRNG_Click;
+            toolAddRNG.Click += (this.toolAddRNG_Click);
             // 
             // toolAddRNGNode
             // 
-            toolAddRNGNode.Image = Properties.Resources.AddRNGP;
+            toolAddRNGNode.Image = AppTestStudio.Properties.Resources.AddRNGP;
             toolAddRNGNode.ImageTransparentColor = Color.Magenta;
             toolAddRNGNode.Name = "toolAddRNGNode";
             toolAddRNGNode.Size = new Size(116, 28);
             toolAddRNGNode.Text = "Add RNG Node";
-            toolAddRNGNode.Click += toolAddRNGNode_Click;
+            toolAddRNGNode.Click += (this.toolAddRNGNode_Click);
             // 
             // toolStripMain
             // 
@@ -8581,21 +8787,21 @@ namespace AppTestStudio
             // 
             // toolStripLoadScript
             // 
-            toolStripLoadScript.Image = Properties.Resources.UploadFile_16x_24;
+            toolStripLoadScript.Image = AppTestStudio.Properties.Resources.UploadFile_16x_24;
             toolStripLoadScript.ImageTransparentColor = Color.Magenta;
             toolStripLoadScript.Name = "toolStripLoadScript";
             toolStripLoadScript.Size = new Size(94, 28);
             toolStripLoadScript.Text = "Load Script";
-            toolStripLoadScript.Click += toolStripLoadScript_Click;
+            toolStripLoadScript.Click += (this.toolStripLoadScript_Click);
             // 
             // toolStripButtonSaveScript
             // 
-            toolStripButtonSaveScript.Image = Properties.Resources.Save_16x_24;
+            toolStripButtonSaveScript.Image = AppTestStudio.Properties.Resources.Save_16x_24;
             toolStripButtonSaveScript.ImageTransparentColor = Color.Magenta;
             toolStripButtonSaveScript.Name = "toolStripButtonSaveScript";
             toolStripButtonSaveScript.Size = new Size(92, 28);
             toolStripButtonSaveScript.Text = "Save Script";
-            toolStripButtonSaveScript.Click += toolStripButtonSaveScript_Click;
+            toolStripButtonSaveScript.Click += (this.toolStripButtonSaveScript_Click);
             // 
             // toolStripSeparator3
             // 
@@ -8604,43 +8810,43 @@ namespace AppTestStudio
             // 
             // toolStripButtonRunScript
             // 
-            toolStripButtonRunScript.Image = Properties.Resources.UploadFile_16x_24;
+            toolStripButtonRunScript.Image = AppTestStudio.Properties.Resources.UploadFile_16x_24;
             toolStripButtonRunScript.ImageTransparentColor = Color.Magenta;
             toolStripButtonRunScript.Name = "toolStripButtonRunScript";
             toolStripButtonRunScript.Size = new Size(56, 28);
             toolStripButtonRunScript.Text = "Run";
             toolStripButtonRunScript.ToolTipText = "Run Script";
-            toolStripButtonRunScript.Click += toolStripButtonRunScript_Click;
+            toolStripButtonRunScript.Click += (this.toolStripButtonRunScript_Click);
             // 
             // toolStripButtonRunStartLaunch
             // 
-            toolStripButtonRunStartLaunch.Image = Properties.Resources.ImportCatalogPart_16x_24;
+            toolStripButtonRunStartLaunch.Image = AppTestStudio.Properties.Resources.ImportCatalogPart_16x_24;
             toolStripButtonRunStartLaunch.ImageTransparentColor = Color.Magenta;
             toolStripButtonRunStartLaunch.Name = "toolStripButtonRunStartLaunch";
             toolStripButtonRunStartLaunch.Size = new Size(147, 28);
             toolStripButtonRunStartLaunch.Text = "Run + Start + Launch";
             toolStripButtonRunStartLaunch.ToolTipText = "Run Script + Start Emmulator + Launch App - Requires Nox/BlueStacks and a Package Name to be entered.";
-            toolStripButtonRunStartLaunch.Click += toolStripButtonRunStartLaunch_Click;
+            toolStripButtonRunStartLaunch.Click += (this.toolStripButtonRunStartLaunch_Click);
             // 
             // toolStripButtonStartEmmulatorLaunchApp
             // 
-            toolStripButtonStartEmmulatorLaunchApp.Image = Properties.Resources.ImportCatalogPart_16x_24;
+            toolStripButtonStartEmmulatorLaunchApp.Image = AppTestStudio.Properties.Resources.ImportCatalogPart_16x_24;
             toolStripButtonStartEmmulatorLaunchApp.ImageTransparentColor = Color.Magenta;
             toolStripButtonStartEmmulatorLaunchApp.Name = "toolStripButtonStartEmmulatorLaunchApp";
             toolStripButtonStartEmmulatorLaunchApp.Size = new Size(112, 28);
             toolStripButtonStartEmmulatorLaunchApp.Text = "Start + Launch";
             toolStripButtonStartEmmulatorLaunchApp.ToolTipText = "Start Emmulator + Launch App - Requires Nox/BlueStacks and a Package Name to be entered.";
-            toolStripButtonStartEmmulatorLaunchApp.Click += toolStripButtonStartEmmulatorLaunchApp_Click;
+            toolStripButtonStartEmmulatorLaunchApp.Click += (this.toolStripButtonStartEmmulatorLaunchApp_Click);
             // 
             // toolStripButtonStartEmmulator
             // 
-            toolStripButtonStartEmmulator.Image = Properties.Resources.StartEmmulator;
+            toolStripButtonStartEmmulator.Image = AppTestStudio.Properties.Resources.StartEmmulator;
             toolStripButtonStartEmmulator.ImageTransparentColor = Color.Magenta;
             toolStripButtonStartEmmulator.Name = "toolStripButtonStartEmmulator";
             toolStripButtonStartEmmulator.Size = new Size(59, 28);
             toolStripButtonStartEmmulator.Text = "Start";
             toolStripButtonStartEmmulator.ToolTipText = "Start Emmulator";
-            toolStripButtonStartEmmulator.Click += toolStripButtonStartEmmulator_Click;
+            toolStripButtonStartEmmulator.Click += (this.toolStripButtonStartEmmulator_Click);
             // 
             // toolStripSeparator4
             // 
@@ -8650,12 +8856,12 @@ namespace AppTestStudio
             // toolStripButtonToggleScript
             // 
             toolStripButtonToggleScript.Enabled = false;
-            toolStripButtonToggleScript.Image = Properties.Resources.Pause_64x_64;
+            toolStripButtonToggleScript.Image = AppTestStudio.Properties.Resources.Pause_64x_64;
             toolStripButtonToggleScript.ImageTransparentColor = Color.Magenta;
             toolStripButtonToggleScript.Name = "toolStripButtonToggleScript";
             toolStripButtonToggleScript.Size = new Size(99, 28);
             toolStripButtonToggleScript.Text = "Pause Script";
-            toolStripButtonToggleScript.Click += toolStripButtonToggleScript_Click;
+            toolStripButtonToggleScript.Click += (this.toolStripButtonToggleScript_Click);
             // 
             // toolStripSeparator5
             // 
@@ -8698,7 +8904,7 @@ namespace AppTestStudio
             mnuMouseRecording.Name = "mnuMouseRecording";
             mnuMouseRecording.Size = new Size(101, 28);
             mnuMouseRecording.Text = "MouseRecording";
-            mnuMouseRecording.Click += mnuMouseRecording_Click;
+            mnuMouseRecording.Click += (this.mnuMouseRecording_Click);
             // 
             // toolStripButtonTest1
             // 
@@ -8708,7 +8914,7 @@ namespace AppTestStudio
             toolStripButtonTest1.Name = "toolStripButtonTest1";
             toolStripButtonTest1.Size = new Size(41, 28);
             toolStripButtonTest1.Text = "Test 1";
-            toolStripButtonTest1.Click += toolStripButtonTest1_Click;
+            toolStripButtonTest1.Click += (this.toolStripButtonTest1_Click);
             // 
             // mnuRunTree
             // 
@@ -8728,213 +8934,191 @@ namespace AppTestStudio
             mnuCompareAllToRuntimeImagesToolStripMenuItem.Name = "mnuCompareAllToRuntimeImagesToolStripMenuItem";
             mnuCompareAllToRuntimeImagesToolStripMenuItem.Size = new Size(243, 22);
             mnuCompareAllToRuntimeImagesToolStripMenuItem.Text = "Compare All to Runtime Images";
-            mnuCompareAllToRuntimeImagesToolStripMenuItem.Click += mnuCompareAllToRuntimeImagesTolstGamePassolStripMenuItem_Click;
+            mnuCompareAllToRuntimeImagesToolStripMenuItem.Click += (this.mnuCompareAllToRuntimeImagesTolstGamePassolStripMenuItem_Click);
             // 
-            // grpAPS
+            // grpTopScriptCounters
             // 
-            grpAPS.Controls.Add(atsGraphActions1);
-            grpAPS.Dock = DockStyle.Fill;
-            grpAPS.Location = new Point(1124, 3);
-            grpAPS.Margin = new Padding(4, 3, 4, 3);
-            grpAPS.Name = "grpAPS";
-            grpAPS.Padding = new Padding(4, 3, 4, 3);
-            grpAPS.Size = new Size(276, 154);
-            grpAPS.TabIndex = 5;
-            grpAPS.TabStop = false;
-            grpAPS.Text = "Clicks Per Second";
+            grpTopScriptCounters.Controls.Add(tableLayoutPanel3);
+            grpTopScriptCounters.Dock = DockStyle.Fill;
+            grpTopScriptCounters.Location = new Point(237, 3);
+            grpTopScriptCounters.Margin = new Padding(4, 3, 4, 3);
+            grpTopScriptCounters.Name = "grpTopScriptCounters";
+            grpTopScriptCounters.Padding = new Padding(4, 3, 4, 3);
+            grpTopScriptCounters.Size = new Size(225, 153);
+            grpTopScriptCounters.TabIndex = 7;
+            grpTopScriptCounters.TabStop = false;
+            grpTopScriptCounters.Text = "Script";
             // 
-            // atsGraphActions1
+            // tableLayoutPanel3
             // 
-            atsGraphActions1.Dock = DockStyle.Fill;
-            atsGraphActions1.Location = new Point(4, 19);
-            atsGraphActions1.Margin = new Padding(4, 3, 4, 3);
-            atsGraphActions1.Name = "atsGraphActions1";
-            atsGraphActions1.Size = new Size(268, 132);
-            atsGraphActions1.TabIndex = 0;
+            tableLayoutPanel3.AutoSize = true;
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Controls.Add(label102, 0, 0);
+            tableLayoutPanel3.Controls.Add(label104, 0, 5);
+            tableLayoutPanel3.Controls.Add(lblScriptWaiting, 1, 5);
+            tableLayoutPanel3.Controls.Add(label107, 0, 2);
+            tableLayoutPanel3.Controls.Add(lblScriptHome, 1, 2);
+            tableLayoutPanel3.Controls.Add(lblScriptScreenshots, 1, 0);
+            tableLayoutPanel3.Controls.Add(label112, 0, 3);
+            tableLayoutPanel3.Controls.Add(lblScriptContinue, 1, 3);
+            tableLayoutPanel3.Controls.Add(label114, 0, 1);
+            tableLayoutPanel3.Controls.Add(lblScriptChild, 1, 4);
+            tableLayoutPanel3.Controls.Add(lblScriptClickCount, 1, 1);
+            tableLayoutPanel3.Controls.Add(label117, 0, 4);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(4, 19);
+            tableLayoutPanel3.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 6;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanel3.Size = new Size(217, 131);
+            tableLayoutPanel3.TabIndex = 3;
             // 
-            // grpTopThreadCounter
+            // label102
             // 
-            grpTopThreadCounter.Controls.Add(tableLayoutPanel2);
-            grpTopThreadCounter.Dock = DockStyle.Fill;
-            grpTopThreadCounter.Location = new Point(4, 3);
-            grpTopThreadCounter.Margin = new Padding(4, 3, 4, 3);
-            grpTopThreadCounter.Name = "grpTopThreadCounter";
-            grpTopThreadCounter.Padding = new Padding(4, 3, 4, 3);
-            grpTopThreadCounter.Size = new Size(272, 154);
-            grpTopThreadCounter.TabIndex = 6;
-            grpTopThreadCounter.TabStop = false;
-            grpTopThreadCounter.Text = "Thread 1";
+            label102.AutoSize = true;
+            label102.Location = new Point(4, 0);
+            label102.Margin = new Padding(4, 0, 4, 0);
+            label102.Name = "label102";
+            label102.Size = new Size(73, 15);
+            label102.TabIndex = 0;
+            label102.Text = "Screenshots:";
             // 
-            // tableLayoutPanel2
+            // label104
             // 
-            tableLayoutPanel2.AutoSize = true;
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(label100, 0, 0);
-            tableLayoutPanel2.Controls.Add(label101, 0, 5);
-            tableLayoutPanel2.Controls.Add(lblThreadWaiting, 1, 5);
-            tableLayoutPanel2.Controls.Add(label103, 0, 2);
-            tableLayoutPanel2.Controls.Add(lblThreadHome, 1, 2);
-            tableLayoutPanel2.Controls.Add(lblThreadScreenshots, 1, 0);
-            tableLayoutPanel2.Controls.Add(label106, 0, 3);
-            tableLayoutPanel2.Controls.Add(lblThreadContinue, 1, 3);
-            tableLayoutPanel2.Controls.Add(label108, 0, 1);
-            tableLayoutPanel2.Controls.Add(lblThreadChild, 1, 4);
-            tableLayoutPanel2.Controls.Add(lblThreadClickCount, 1, 1);
-            tableLayoutPanel2.Controls.Add(label111, 0, 4);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(4, 19);
-            tableLayoutPanel2.Margin = new Padding(4, 3, 4, 3);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 6;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel2.Size = new Size(264, 132);
-            tableLayoutPanel2.TabIndex = 3;
+            label104.AutoSize = true;
+            label104.Location = new Point(4, 110);
+            label104.Margin = new Padding(4, 0, 4, 0);
+            label104.Name = "label104";
+            label104.Size = new Size(51, 15);
+            label104.TabIndex = 2;
+            label104.Text = "Waiting:";
             // 
-            // label100
+            // lblScriptWaiting
             // 
-            label100.AutoSize = true;
-            label100.Location = new Point(4, 0);
-            label100.Margin = new Padding(4, 0, 4, 0);
-            label100.Name = "label100";
-            label100.Size = new Size(73, 15);
-            label100.TabIndex = 0;
-            label100.Text = "Screenshots:";
+            lblScriptWaiting.AutoSize = true;
+            lblScriptWaiting.Location = new Point(92, 110);
+            lblScriptWaiting.Margin = new Padding(4, 0, 4, 0);
+            lblScriptWaiting.Name = "lblScriptWaiting";
+            lblScriptWaiting.Size = new Size(91, 15);
+            lblScriptWaiting.TabIndex = 2;
+            lblScriptWaiting.Text = "lblScriptWaiting";
             // 
-            // label101
+            // label107
             // 
-            label101.AutoSize = true;
-            label101.Location = new Point(4, 110);
-            label101.Margin = new Padding(4, 0, 4, 0);
-            label101.Name = "label101";
-            label101.Size = new Size(51, 15);
-            label101.TabIndex = 2;
-            label101.Text = "Waiting:";
+            label107.AutoSize = true;
+            label107.Location = new Point(4, 44);
+            label107.Margin = new Padding(4, 0, 4, 0);
+            label107.Name = "label107";
+            label107.Size = new Size(43, 15);
+            label107.TabIndex = 2;
+            label107.Text = "Home:";
             // 
-            // lblThreadWaiting
+            // lblScriptHome
             // 
-            lblThreadWaiting.AutoSize = true;
-            lblThreadWaiting.Location = new Point(92, 110);
-            lblThreadWaiting.Margin = new Padding(4, 0, 4, 0);
-            lblThreadWaiting.Name = "lblThreadWaiting";
-            lblThreadWaiting.Size = new Size(98, 15);
-            lblThreadWaiting.TabIndex = 2;
-            lblThreadWaiting.Text = "lblThreadWaiting";
+            lblScriptHome.AutoSize = true;
+            lblScriptHome.Location = new Point(92, 44);
+            lblScriptHome.Margin = new Padding(4, 0, 4, 0);
+            lblScriptHome.Name = "lblScriptHome";
+            lblScriptHome.Size = new Size(83, 15);
+            lblScriptHome.TabIndex = 2;
+            lblScriptHome.Text = "lblScriptHome";
             // 
-            // label103
+            // lblScriptScreenshots
             // 
-            label103.AutoSize = true;
-            label103.Location = new Point(4, 44);
-            label103.Margin = new Padding(4, 0, 4, 0);
-            label103.Name = "label103";
-            label103.Size = new Size(43, 15);
-            label103.TabIndex = 2;
-            label103.Text = "Home:";
+            lblScriptScreenshots.AutoSize = true;
+            lblScriptScreenshots.Location = new Point(92, 0);
+            lblScriptScreenshots.Margin = new Padding(4, 0, 4, 0);
+            lblScriptScreenshots.Name = "lblScriptScreenshots";
+            lblScriptScreenshots.Size = new Size(113, 15);
+            lblScriptScreenshots.TabIndex = 0;
+            lblScriptScreenshots.Text = "lblScriptScreenshots";
             // 
-            // lblThreadHome
+            // label112
             // 
-            lblThreadHome.AutoSize = true;
-            lblThreadHome.Location = new Point(92, 44);
-            lblThreadHome.Margin = new Padding(4, 0, 4, 0);
-            lblThreadHome.Name = "lblThreadHome";
-            lblThreadHome.Size = new Size(90, 15);
-            lblThreadHome.TabIndex = 2;
-            lblThreadHome.Text = "lblThreadHome";
+            label112.AutoSize = true;
+            label112.Location = new Point(4, 66);
+            label112.Margin = new Padding(4, 0, 4, 0);
+            label112.Name = "label112";
+            label112.Size = new Size(59, 15);
+            label112.TabIndex = 0;
+            label112.Text = "Continue:";
             // 
-            // lblThreadScreenshots
+            // lblScriptContinue
             // 
-            lblThreadScreenshots.AutoSize = true;
-            lblThreadScreenshots.Location = new Point(92, 0);
-            lblThreadScreenshots.Margin = new Padding(4, 0, 4, 0);
-            lblThreadScreenshots.Name = "lblThreadScreenshots";
-            lblThreadScreenshots.Size = new Size(120, 15);
-            lblThreadScreenshots.TabIndex = 0;
-            lblThreadScreenshots.Text = "lblThreadScreenshots";
+            lblScriptContinue.AutoSize = true;
+            lblScriptContinue.Location = new Point(92, 66);
+            lblScriptContinue.Margin = new Padding(4, 0, 4, 0);
+            lblScriptContinue.Name = "lblScriptContinue";
+            lblScriptContinue.Size = new Size(99, 15);
+            lblScriptContinue.TabIndex = 0;
+            lblScriptContinue.Text = "lblScriptContinue";
             // 
-            // label106
+            // label114
             // 
-            label106.AutoSize = true;
-            label106.Location = new Point(4, 66);
-            label106.Margin = new Padding(4, 0, 4, 0);
-            label106.Name = "label106";
-            label106.Size = new Size(59, 15);
-            label106.TabIndex = 0;
-            label106.Text = "Continue:";
+            label114.AutoSize = true;
+            label114.Location = new Point(4, 22);
+            label114.Margin = new Padding(4, 0, 4, 0);
+            label114.Name = "label114";
+            label114.Size = new Size(41, 15);
+            label114.TabIndex = 1;
+            label114.Text = "Clicks:";
             // 
-            // lblThreadContinue
+            // lblScriptChild
             // 
-            lblThreadContinue.AutoSize = true;
-            lblThreadContinue.Location = new Point(92, 66);
-            lblThreadContinue.Margin = new Padding(4, 0, 4, 0);
-            lblThreadContinue.Name = "lblThreadContinue";
-            lblThreadContinue.Size = new Size(106, 15);
-            lblThreadContinue.TabIndex = 0;
-            lblThreadContinue.Text = "lblThreadContinue";
+            lblScriptChild.AutoSize = true;
+            lblScriptChild.Location = new Point(92, 88);
+            lblScriptChild.Margin = new Padding(4, 0, 4, 0);
+            lblScriptChild.Name = "lblScriptChild";
+            lblScriptChild.Size = new Size(78, 15);
+            lblScriptChild.TabIndex = 1;
+            lblScriptChild.Text = "lblScriptChild";
             // 
-            // label108
+            // lblScriptClickCount
             // 
-            label108.AutoSize = true;
-            label108.Location = new Point(4, 22);
-            label108.Margin = new Padding(4, 0, 4, 0);
-            label108.Name = "label108";
-            label108.Size = new Size(41, 15);
-            label108.TabIndex = 1;
-            label108.Text = "Clicks:";
+            lblScriptClickCount.AutoSize = true;
+            lblScriptClickCount.Location = new Point(92, 22);
+            lblScriptClickCount.Margin = new Padding(4, 0, 4, 0);
+            lblScriptClickCount.Name = "lblScriptClickCount";
+            lblScriptClickCount.Size = new Size(109, 15);
+            lblScriptClickCount.TabIndex = 1;
+            lblScriptClickCount.Text = "lblScriptClickCount";
             // 
-            // lblThreadChild
+            // label117
             // 
-            lblThreadChild.AutoSize = true;
-            lblThreadChild.Location = new Point(92, 88);
-            lblThreadChild.Margin = new Padding(4, 0, 4, 0);
-            lblThreadChild.Name = "lblThreadChild";
-            lblThreadChild.Size = new Size(85, 15);
-            lblThreadChild.TabIndex = 1;
-            lblThreadChild.Text = "lblThreadChild";
-            // 
-            // lblThreadClickCount
-            // 
-            lblThreadClickCount.AutoSize = true;
-            lblThreadClickCount.Location = new Point(92, 22);
-            lblThreadClickCount.Margin = new Padding(4, 0, 4, 0);
-            lblThreadClickCount.Name = "lblThreadClickCount";
-            lblThreadClickCount.Size = new Size(116, 15);
-            lblThreadClickCount.TabIndex = 1;
-            lblThreadClickCount.Text = "lblThreadClickCount";
-            // 
-            // label111
-            // 
-            label111.AutoSize = true;
-            label111.Location = new Point(4, 88);
-            label111.Margin = new Padding(4, 0, 4, 0);
-            label111.Name = "label111";
-            label111.Size = new Size(38, 15);
-            label111.TabIndex = 1;
-            label111.Text = "Child:";
+            label117.AutoSize = true;
+            label117.Location = new Point(4, 88);
+            label117.Margin = new Padding(4, 0, 4, 0);
+            label117.Name = "label117";
+            label117.Size = new Size(38, 15);
+            label117.TabIndex = 1;
+            label117.Text = "Child:";
             // 
             // frmMain
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
-            AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1869, 1043);
-            Controls.Add(splitContainerMain);
-            Controls.Add(appTestStudioToolStrip1);
-            Controls.Add(toolStripMain);
-            Controls.Add(menuStrip1);
-            MainMenuStrip = menuStrip1;
-            Margin = new Padding(4, 3, 4, 3);
-            Name = "frmMain";
-            Text = "App Test Studio";
-            FormClosing += frmMain_FormClosing;
-            FormClosed += frmMain_FormClosed;
-            Load += frmMain_Load;
-            Resize += frmMain_Resize;
+            this.AutoScaleDimensions = new SizeF(7F, 15F);
+            this.AutoScaleMode = AutoScaleMode.Font;
+            this.ClientSize = new Size(1869, 1043);
+            this.Controls.Add(splitContainerMain);
+            this.Controls.Add(appTestStudioToolStrip1);
+            this.Controls.Add(toolStripMain);
+            this.Controls.Add(menuStrip1);
+            this.MainMenuStrip = menuStrip1;
+            this.Margin = new Padding(4, 3, 4, 3);
+            this.Name = "frmMain";
+            this.Text = "App Test Studio";
+            this.FormClosing += (this.frmMain_FormClosing);
+            this.FormClosed += (this.frmMain_FormClosed);
+            this.Load += (this.frmMain_Load);
+            this.Resize += (this.frmMain_Resize);
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
             splitContainerMain.Panel1.ResumeLayout(false);
@@ -8967,6 +9151,38 @@ namespace AppTestStudio
             tableLayoutPanelRunLabels.PerformLayout();
             tableLayoutPanelRunValues.ResumeLayout(false);
             tableLayoutPanelRunValues.PerformLayout();
+            PanelThread.ResumeLayout(false);
+            splitContainerThreadMain.Panel1.ResumeLayout(false);
+            splitContainerThreadMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerThreadMain).EndInit();
+            splitContainerThreadMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbPreview).EndInit();
+            splitContainerThread.Panel1.ResumeLayout(false);
+            splitContainerThread.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerThread).EndInit();
+            splitContainerThread.ResumeLayout(false);
+            splitContainerStatsNScrollie.Panel1.ResumeLayout(false);
+            splitContainerStatsNScrollie.Panel1.PerformLayout();
+            splitContainerStatsNScrollie.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerStatsNScrollie).EndInit();
+            splitContainerStatsNScrollie.ResumeLayout(false);
+            tableLayoutStats.ResumeLayout(false);
+            grpTopThreadCounter.ResumeLayout(false);
+            grpTopThreadCounter.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            grpAPS.ResumeLayout(false);
+            groupTotal.ResumeLayout(false);
+            groupTotal.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            groupSession.ResumeLayout(false);
+            groupSession.PerformLayout();
+            tableLayoutPanelSession.ResumeLayout(false);
+            tableLayoutPanelSession.PerformLayout();
+            grpCPU.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).EndInit();
+            splitContainerSeconds.ResumeLayout(false);
             PanelGame.ResumeLayout(false);
             PanelGame.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
@@ -9081,33 +9297,6 @@ namespace AppTestStudio
             ((System.ComponentModel.ISupportInitialize)NumericYOffset).EndInit();
             ((System.ComponentModel.ISupportInitialize)NumericXOffset).EndInit();
             panelRightDragMode.ResumeLayout(false);
-            PanelThread.ResumeLayout(false);
-            splitContainerThreadMain.Panel1.ResumeLayout(false);
-            splitContainerThreadMain.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainerThreadMain).EndInit();
-            splitContainerThreadMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pbPreview).EndInit();
-            splitContainerThread.Panel1.ResumeLayout(false);
-            splitContainerThread.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainerThread).EndInit();
-            splitContainerThread.ResumeLayout(false);
-            splitContainerStatsNScrollie.Panel1.ResumeLayout(false);
-            splitContainerStatsNScrollie.Panel1.PerformLayout();
-            splitContainerStatsNScrollie.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainerStatsNScrollie).EndInit();
-            splitContainerStatsNScrollie.ResumeLayout(false);
-            tableLayoutStats.ResumeLayout(false);
-            groupTotal.ResumeLayout(false);
-            groupTotal.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            groupSession.ResumeLayout(false);
-            groupSession.PerformLayout();
-            tableLayoutPanelSession.ResumeLayout(false);
-            tableLayoutPanelSession.PerformLayout();
-            grpCPU.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).EndInit();
-            splitContainerSeconds.ResumeLayout(false);
             PanelWorkspace.ResumeLayout(false);
             PanelWorkspace.PerformLayout();
             groupBoxAdministratorCheck.ResumeLayout(false);
@@ -9187,13 +9376,12 @@ namespace AppTestStudio
             toolStripMain.ResumeLayout(false);
             toolStripMain.PerformLayout();
             mnuRunTree.ResumeLayout(false);
-            grpAPS.ResumeLayout(false);
-            grpTopThreadCounter.ResumeLayout(false);
-            grpTopThreadCounter.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
-            ResumeLayout(false);
-            PerformLayout();
+            grpTopScriptCounters.ResumeLayout(false);
+            grpTopScriptCounters.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
+            this.ResumeLayout(false);
+            this.PerformLayout();
         }
 
         #endregion
@@ -9866,5 +10054,19 @@ namespace AppTestStudio
         private Label lblThreadChild;
         private Label lblThreadClickCount;
         private Label label111;
+        private GroupBox grpTopScriptCounters;
+        private TableLayoutPanel tableLayoutPanel3;
+        private Label label102;
+        private Label label104;
+        private Label lblScriptWaiting;
+        private Label label107;
+        private Label lblScriptHome;
+        private Label lblScriptScreenshots;
+        private Label label112;
+        private Label lblScriptContinue;
+        private Label label114;
+        private Label lblScriptChild;
+        private Label lblScriptClickCount;
+        private Label label117;
     }
 }

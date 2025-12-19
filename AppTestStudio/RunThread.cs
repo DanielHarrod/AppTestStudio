@@ -18,7 +18,8 @@ namespace AppTestStudio
         // number of times to look for a window before closing the thread.
         public long RunTimeWindowTimeout { get; set; }
 
-        internal Counter Counter { get; set; }
+        internal Counter ThreadCounter { get; set; }
+        internal Counter ProjectCounter { get; set; }
         public ThreadManager ThreadManager { get; set; }
 
         private static Object GetBitMapLock;
@@ -35,7 +36,8 @@ namespace AppTestStudio
         public RunThread(GameNodeGame Game, CancellationTokenSource cancellationTokenSource)
         {
             this.Game = Game;
-            Counter = CounterRepository.Get(Game.FileName);
+            ProjectCounter = CounterRepository.Get(Game.FileName);
+            ThreadCounter = new Counter();
             CancellationTokenSource = cancellationTokenSource;
             RunTimeWindowTimeout = 100;
             WindowHandle = IntPtr.Zero;
@@ -43,7 +45,7 @@ namespace AppTestStudio
 
         public void ShutDownThread()
         {
-            CounterRepository.Upsert(Counter);
+            CounterRepository.Upsert(ProjectCounter);
             CancellationTokenSource.Cancel();
         }
 
@@ -770,31 +772,36 @@ namespace AppTestStudio
 
         private void IncrementWaitLength()
         {
-            Counter.WaitLength++;
+            ProjectCounter.WaitLength++;
+            ThreadCounter.WaitLength++;
             ThreadManager.IncrementWaitLength();
         }
 
         private void IncrementRNGContainer()
         {
-            Counter.RNGContainer++;
+            ProjectCounter.RNGContainer++;
+            ThreadCounter.RNGContainer++;
             ThreadManager.IncrementRNGContainer();
         }
 
         private void IncrementClickDragRelease()
         {
-            Counter.ClickDragRelease++;
+            ProjectCounter.ClickDragRelease++;
+            ThreadCounter.ClickDragRelease++;
             ThreadManager.IncrementClickDragRelease();
         }
 
         private void IncrementMouseMove()
         {
-            Counter.MouseMove++;
+            ProjectCounter.MouseMove++;
+            ThreadCounter.ClickCount++;
             ThreadManager.IncrementMouseMove();
         }
 
         private void IncrementClickCount()
         {
-            Counter.ClickCount++;
+            ProjectCounter.ClickCount++;
+            ThreadCounter.ClickCount++;
             ThreadManager.IncrementClickCount();
         }
 
@@ -1124,7 +1131,8 @@ namespace AppTestStudio
 
         private void IncrementScreenShots()
         {
-            Counter.ScreenShots++;
+            ProjectCounter.ScreenShots++;
+            ThreadCounter.ScreenShots++;
             ThreadManager.IncrementScreenShots();
         }
 
@@ -1236,25 +1244,29 @@ namespace AppTestStudio
 
         private void IncrementGoStop()
         {
-            Counter.GoStop++;
+            ProjectCounter.GoStop++;
+            ThreadCounter.GoStop++;
             ThreadManager.IncrementGoStop();
         }
 
         private void IncrementGoParent()
         {
-            Counter.GoParent++;
+            ProjectCounter.GoParent++;
+            ThreadCounter.GoParent++;
             ThreadManager.IncrementGoParent();
         }
 
         private void IncrementGoHome()
         {
-            Counter.GoHome++;
+            ProjectCounter.GoHome++;
+            ThreadCounter.GoHome++;
             ThreadManager.IncrementGoHome();
         }
 
         private void IncrementGoContinue()
         {
-            Counter.GoContinue++;
+            ProjectCounter.GoContinue++;
+            ThreadCounter.GoContinue++;
             ThreadManager.IncrementGoContinue();
         }
 
@@ -1339,7 +1351,7 @@ namespace AppTestStudio
         }
         private void IncrementGoChild()
         {
-            Counter.GoChild++;
+            ProjectCounter.GoChild++;
             ThreadManager.IncrementGoChild();
         }
     }
