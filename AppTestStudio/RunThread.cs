@@ -30,7 +30,6 @@ namespace AppTestStudio
         static RunThread()
         {
             GetBitMapLock = new Object();
-
         }
 
         public RunThread(GameNodeGame Game, CancellationTokenSource cancellationTokenSource)
@@ -254,7 +253,7 @@ namespace AppTestStudio
                                 Game.MouseX = (short)Result.x;
                                 Game.MouseY = (short)Result.y;
 
-                                ThreadManager.IncrementClickCount();
+                                IncrementClickCount();
 
                                 node.RuntimeActionCount++;  // Range Click
 
@@ -356,7 +355,7 @@ namespace AppTestStudio
                                 
                                 Game.MouseX = (short)MouseMoveResult.EndX;
                                 Game.MouseY = (short)MouseMoveResult.EndY;
-                                ThreadManager.IncrementMouseMove();
+                                IncrementMouseMove();
                                 node.RuntimeActionCount++;  // Mouse Move
 
                                 // Draw solution marker
@@ -421,7 +420,7 @@ namespace AppTestStudio
 
                                 Game.MouseX = (short)CDRResult.EndX;
                                 Game.MouseY = (short)CDRResult.EndY;
-                                ThreadManager.IncrementClickDragRelease();
+                                IncrementClickDragRelease();
                                 node.RuntimeActionCount++;  // Click Drag Release
                                 //'if (UseThreadBitmap ) {
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)
@@ -483,7 +482,7 @@ namespace AppTestStudio
                         }
                         else
                         {
-                            ThreadManager.IncrementScreenShots();
+                            IncrementScreenShots();
                             Game.ScreenShotsTaken = Game.ScreenShotsTaken + 1;
                         }
                         Game.Log(node.Name + " Taking Screenshot");
@@ -554,7 +553,7 @@ namespace AppTestStudio
 
                 case ActionType.RNGContainer:
 
-                    ThreadManager.IncrementRNGContainer();
+                    IncrementRNGContainer();
 
                     if (node.Nodes.Count > 0)
                     {
@@ -590,7 +589,7 @@ namespace AppTestStudio
                         ThreadSleep(DelayCalc);
                         ChildSleepTimeMS = ChildSleepTimeMS + DelayCalc;
 
-                        ThreadManager.IncrementWaitLength();
+                        IncrementWaitLength();
 
                         node.RuntimeActionCount++;  // RNG Container
 
@@ -627,17 +626,17 @@ namespace AppTestStudio
                             switch (ACT)
                             {
                                 case AfterCompletionType.Home:
-                                    ThreadManager.IncrementGoHome();
+                                    IncrementGoHome();
                                     return AfterCompletionType.Home;
                                 case AfterCompletionType.Parent:
-                                    ThreadManager.IncrementGoParent();
+                                    IncrementGoParent();
                                     // do nothing when child returns a parent...
                                     break;
                                 case AfterCompletionType.Continue:
                                     // do nothing
                                     break;
                                 case AfterCompletionType.Stop:
-                                    ThreadManager.IncrementGoStop();
+                                    IncrementGoStop();
                                     StopThreadCloseWindow(t as GameNode, WindowHandle, true);
                                     return AfterCompletionType.Stop;
                                 case AfterCompletionType.Recycle:
@@ -696,7 +695,7 @@ namespace AppTestStudio
                 switch (node.AfterCompletionType)
                 {
                     case AfterCompletionType.Continue:
-                        ThreadManager.IncrementGoContinue();
+                        IncrementGoContinue();
                         Boolean ExitFor = false;
                         foreach (TreeNode t in node.Nodes)
                         {
@@ -705,24 +704,24 @@ namespace AppTestStudio
                             switch (ACT)
                             {
                                 case AfterCompletionType.Home:
-                                    ThreadManager.IncrementGoHome();
+                                    IncrementGoHome();
                                     return AfterCompletionType.Home;
                                 case AfterCompletionType.Parent:
-                                    ThreadManager.IncrementGoParent();
+                                    IncrementGoParent();
                                     ExitFor = true;
                                     break;
                                 case AfterCompletionType.Stop:
-                                    ThreadManager.IncrementGoStop();
+                                    IncrementGoStop();
                                     StopThreadCloseWindow(t as GameNode, WindowHandle, true);
                                     return AfterCompletionType.Stop;
                                 case AfterCompletionType.Continue:
-                                    ThreadManager.IncrementGoContinue();
+                                    IncrementGoContinue();
                                     break;
                                 case AfterCompletionType.Recycle:
                                     Recycle(node, WindowHandle);
                                     break;
                                 case AfterCompletionType.ContinueProcess:
-                                    ThreadManager.IncrementGoContinue();
+                                    IncrementGoContinue();
                                     break;
                                 case AfterCompletionType.GoToParent:
 
@@ -743,13 +742,13 @@ namespace AppTestStudio
                         }
                         break;
                     case AfterCompletionType.Home:
-                        ThreadManager.IncrementGoHome();
+                        IncrementGoHome();
                         return AfterCompletionType.Home;
                     case AfterCompletionType.Parent:
-                        ThreadManager.IncrementGoParent();
+                        IncrementGoParent();
                         return AfterCompletionType.Parent;
                     case AfterCompletionType.Stop:
-                        ThreadManager.IncrementGoStop();
+                        IncrementGoStop();
                         StopThreadCloseWindow(node as GameNode, WindowHandle, true);
                         return AfterCompletionType.Stop;
                     case AfterCompletionType.Recycle:
@@ -765,13 +764,38 @@ namespace AppTestStudio
             }
 
             //Debug.WriteLine($"ProcessChildren./: {node.Name},{Watch.ElapsedMilliseconds}");
-            ThreadManager.IncrementGoContinue();
+            IncrementGoContinue();
             return AfterCompletionType.Continue;
         } // ProcessChildren
 
-        private void IncrementGoChild()
-        {           
-            ThreadManager.IncrementGoChild();
+        private void IncrementWaitLength()
+        {
+            Counter.WaitLength++;
+            ThreadManager.IncrementWaitLength();
+        }
+
+        private void IncrementRNGContainer()
+        {
+            Counter.RNGContainer++;
+            ThreadManager.IncrementRNGContainer();
+        }
+
+        private void IncrementClickDragRelease()
+        {
+            Counter.ClickDragRelease++;
+            ThreadManager.IncrementClickDragRelease();
+        }
+
+        private void IncrementMouseMove()
+        {
+            Counter.MouseMove++;
+            ThreadManager.IncrementMouseMove();
+        }
+
+        private void IncrementClickCount()
+        {
+            Counter.ClickCount++;
+            ThreadManager.IncrementClickCount();
         }
 
         private ActivateWindowResult ActivateIfNecessary(GameNodeAction node)
@@ -1023,7 +1047,7 @@ namespace AppTestStudio
 
                 if (BitMapSuccess)
                 {
-                    ThreadManager.IncrementScreenShots();
+                    IncrementScreenShots();
                     Game.ScreenShotsTaken++;
                     Game.GameLoops++;
 
@@ -1098,6 +1122,12 @@ namespace AppTestStudio
             }  // ThreadIsShuttingDown == false
         }  // Run()
 
+        private void IncrementScreenShots()
+        {
+            Counter.ScreenShots++;
+            ThreadManager.IncrementScreenShots();
+        }
+
         public static TreeNode FindNodeByPath(TreeNodeCollection nodes, string path)
         {
             if (string.IsNullOrEmpty(path) || nodes == null)
@@ -1165,17 +1195,17 @@ namespace AppTestStudio
                 switch (afterCompletionType)
                 {
                     case AppTestStudio.AfterCompletionType.Continue:
-                        ThreadManager.IncrementGoContinue();
+                        IncrementGoContinue();
                         break;
                     case AppTestStudio.AfterCompletionType.Home:
-                        ThreadManager.IncrementGoHome();
+                        IncrementGoHome();
                         ExitFor = true;  // Exit for in C#?
                         break;
                     case AppTestStudio.AfterCompletionType.Parent:
-                        ThreadManager.IncrementGoParent();
+                        IncrementGoParent();
                         break;
                     case AppTestStudio.AfterCompletionType.Stop:
-                        ThreadManager.IncrementGoStop();
+                        IncrementGoStop();
                         ExitFor = true;
                         break;
                     case AfterCompletionType.Recycle:
@@ -1202,6 +1232,30 @@ namespace AppTestStudio
                 }
             }
             return afterCompletionType;
+        }
+
+        private void IncrementGoStop()
+        {
+            Counter.GoStop++;
+            ThreadManager.IncrementGoStop();
+        }
+
+        private void IncrementGoParent()
+        {
+            Counter.GoParent++;
+            ThreadManager.IncrementGoParent();
+        }
+
+        private void IncrementGoHome()
+        {
+            Counter.GoHome++;
+            ThreadManager.IncrementGoHome();
+        }
+
+        private void IncrementGoContinue()
+        {
+            Counter.GoContinue++;
+            ThreadManager.IncrementGoContinue();
         }
 
         // Initialize runtime values
@@ -1278,12 +1332,15 @@ namespace AppTestStudio
                     break;
             }
 
-
-
             foreach (GameNodeAction Node in node.Nodes)
             {
                 InitializeChildren(Node);
             }
+        }
+        private void IncrementGoChild()
+        {
+            Counter.GoChild++;
+            ThreadManager.IncrementGoChild();
         }
     }
 }
