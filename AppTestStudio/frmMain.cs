@@ -3829,30 +3829,43 @@ namespace AppTestStudio
 
             if (ThreadManager.LoadThreadManager.IsSomething())
             {
+                RunThread? runThread = ThreadManager.Games?.FirstOrDefault()?.RunThread;
+
+                lblThreadClickCount.Text = String.Format("{0:n0}", runThread?.ThreadCounter.ClickCount ?? 0);
+                lblScriptClickCount.Text = String.Format("{0:n0}", runThread?.ProjectCounter.ClickCount ?? 0);
                 lblClickCount.Text = String.Format("{0:n0}", ThreadManager.ClickCount);
                 lblClickCountTotal.Text = String.Format("{0:n0}", ThreadManager.ClickCount + ThreadManager.LoadThreadManager.ClickCount);
 
                 TimeSpan t = TimeSpan.FromSeconds(ThreadManager.WaitLength / 1000);
                 lblWaiting.Text = t.ToDhmsString();
 
+                t = TimeSpan.FromSeconds((runThread?.ThreadCounter.WaitLength ?? 0) / 1000);
+                lblThreadWaiting.Text = t.ToDhmsString();
+
+                t = TimeSpan.FromSeconds((runThread?.ProjectCounter.WaitLength ?? 0) / 1000);
+                lblScriptWaiting.Text = t.ToDhmsString();
+
                 t = TimeSpan.FromSeconds((ThreadManager.WaitLength + ThreadManager.LoadThreadManager.WaitLength) / 1000);
 
                 lblWaitingTotal.Text = t.ToDhmsString();
 
-                if (ThreadManager.Games.Count() > 0 )
-                {
-                    lblScriptScreenshots.Text = String.Format("{0:n0}", ThreadManager.Games[0].RunThread.ProjectCounter.ScreenShots);
-                    lblThreadScreenshots.Text = String.Format("{0:n0}", ThreadManager.Games[0].RunThread.ThreadCounter.ScreenShots);
-                }
+                lblThreadScreenshots.Text = String.Format("{0:n0}", runThread?.ThreadCounter.ScreenShots ?? 0);
+                lblScriptScreenshots.Text = String.Format("{0:n0}", runThread?.ProjectCounter.ScreenShots ?? 0);
                 lblScreenshots.Text = String.Format("{0:n0}", ThreadManager.ScreenShots);
                 lblScreenshotsTotal.Text = String.Format("{0:n0}", ThreadManager.ScreenShots + ThreadManager.LoadThreadManager.ScreenShots);
 
+                lblThreadContinue.Text = String.Format("{0:n0}", runThread?.ThreadCounter.GoContinue ?? 0);
+                lblScriptContinue.Text = String.Format("{0:n0}", runThread?.ProjectCounter.GoContinue ?? 0);
                 lblContinue.Text = String.Format("{0:n0}", ThreadManager.GoContinue);
                 lblContinueTotal.Text = String.Format("{0:n0}", ThreadManager.GoContinue + ThreadManager.LoadThreadManager.GoContinue);
 
+                lblThreadChild.Text = String.Format("{0:n0}", runThread?.ThreadCounter.GoChild ?? 0);
+                lblScriptChild.Text = String.Format("{0:n0}", runThread?.ProjectCounter.GoChild ?? 0);
                 lblChild.Text = String.Format("{0:n0}", ThreadManager.GoChild);
                 lblChildTotal.Text = String.Format("{0:n0}", ThreadManager.GoChild + ThreadManager.LoadThreadManager.GoChild);
 
+                lblThreadHome.Text = String.Format("{0:n0}", runThread?.ThreadCounter.GoHome ?? 0);
+                lblScriptHome.Text = String.Format("{0:n0}", runThread?.ProjectCounter.GoHome ?? 0);
                 lblHome.Text = String.Format("{0:n0}", ThreadManager.GoHome);
                 lblHomeTotal.Text = String.Format("{0:n0}", ThreadManager.GoHome + ThreadManager.LoadThreadManager.GoHome);
 

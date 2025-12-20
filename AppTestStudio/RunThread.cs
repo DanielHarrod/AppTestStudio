@@ -691,7 +691,8 @@ namespace AppTestStudio
                     //Debug.WriteLine($"ProcessChildren, Sleep={DelayCalc}");
                     ChildSleepTimeMS = ChildSleepTimeMS + DelayCalc;
                 }
-                ThreadManager.AddWaitLength(DelayCalc);
+
+                AddWaitLength(DelayCalc);
 
                 //Debug.WriteLine($"ProcessChildren.ATCReturns: {node.Name},{Watch.ElapsedMilliseconds}");
                 switch (node.AfterCompletionType)
@@ -769,6 +770,13 @@ namespace AppTestStudio
             IncrementGoContinue();
             return AfterCompletionType.Continue;
         } // ProcessChildren
+
+        private void AddWaitLength(long delayCalc)
+        {
+            ProjectCounter.WaitLength += delayCalc;
+            ThreadCounter.WaitLength += delayCalc;
+            ThreadManager.AddWaitLength(delayCalc); 
+        }
 
         private void IncrementWaitLength()
         {
@@ -1100,7 +1108,7 @@ namespace AppTestStudio
 
                     LoopDelay = LoopDelay - 1000;
                     ThreadSleep(1000);
-                    ThreadManager.AddWaitLength(1000);
+                    AddWaitLength(1000);
                 }
 
                 if (LoopDelay > 0)
@@ -1108,7 +1116,7 @@ namespace AppTestStudio
                     Game.LogStatus(Game.StatusNodeID, LoopDelay, 0);
 
                     ThreadSleep(LoopDelay.ToInt());
-                    ThreadManager.AddWaitLength(LoopDelay);
+                    AddWaitLength(LoopDelay);
                 }
 
                 while (Game.IsPaused && CancellationTokenSource.Token.IsCancellationRequested == false)
@@ -1352,6 +1360,7 @@ namespace AppTestStudio
         private void IncrementGoChild()
         {
             ProjectCounter.GoChild++;
+            ThreadCounter.GoChild++;
             ThreadManager.IncrementGoChild();
         }
     }
