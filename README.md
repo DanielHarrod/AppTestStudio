@@ -1,6 +1,6 @@
 # AppTestStudio
 
-AppTestStudio (ATS) is a automated development environment, you can builder, tester, and can automate windows applications and android emmulators.
+An Intelligent auto-clicker with a visual designer to rapidly deploy, run and test automated mouse and keyboard events; rapidly design, run, and test pixel perfect mouse and keyboard automation.
 
 ## Visual Studio Setup - How to setup the development environment.
 Install [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/)
