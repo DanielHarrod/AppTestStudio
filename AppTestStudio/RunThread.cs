@@ -217,6 +217,7 @@ namespace AppTestStudio
                             {
                                 // Activate if needed
                                 ActivationResult = ActivateIfNecessary(node);
+
                                 if (ActivationResult == ActivateWindowResult.Timeout)
                                 {
                                     if (node.PreActionFailureAction == TimeoutAction.Abort)
@@ -453,7 +454,11 @@ namespace AppTestStudio
 
                 // This is a GOTO Tag not commonly used.  Greatly simplifies the code to use it.
                 RepeatAction:
-                    if (node.UseParentPicture == false || AlwaysTakeScreenshot)
+                    if (CancellationTokenSource.Token.IsCancellationRequested)
+                    {
+                        break;
+                    }
+                    if (!node.UseParentPicture || AlwaysTakeScreenshot)
                     {
                         Boolean Success = false;
                         //bmp.Dispose();// not good
@@ -486,6 +491,11 @@ namespace AppTestStudio
                         {
                             IncrementScreenShots();
                             Game.ScreenShotsTaken = Game.ScreenShotsTaken + 1;
+                        }
+                        if (node.Name == "Run 15 Times - (Uses Repeats Until False)")
+                        {
+                            node.Name = node.Name;
+
                         }
                         Game.Log(node.Name + " Taking Screenshot");
                     }
@@ -530,7 +540,7 @@ namespace AppTestStudio
                         Game.AbsoluteLastNode = node;
                         Game.ThreadLastNodeEvent = node;
 
-                        if (node.RepeatsUntilFalse)
+                        if (node.RepeatsUntilFalse && !CancellationTokenSource.Token.IsCancellationRequested)
                         {
                             if (CurrentRepeatsUntilFalseLimit > 0)
                             {
@@ -613,8 +623,7 @@ namespace AppTestStudio
                                 case AfterCompletionType.ContinueProcess:
                                     // do nothing
                                     break;
-                                default:
-                                    //Debug.WriteLine($"ProcessChildren.RngNode.IsLimited.!ContinueProcess {node.Name},{Watch.ElapsedMilliseconds}");
+                                default:                                    
                                     return Result;
                             }
                         }
@@ -688,13 +697,11 @@ namespace AppTestStudio
                 {
                     
                     ThreadSleep(DelayCalc);
-                    //Debug.WriteLine($"ProcessChildren, Sleep={DelayCalc}");
                     ChildSleepTimeMS = ChildSleepTimeMS + DelayCalc;
                 }
 
                 AddWaitLength(DelayCalc);
 
-                //Debug.WriteLine($"ProcessChildren.ATCReturns: {node.Name},{Watch.ElapsedMilliseconds}");
                 switch (node.AfterCompletionType)
                 {
                     case AfterCompletionType.Continue:
@@ -766,7 +773,6 @@ namespace AppTestStudio
                 }
             }
 
-            //Debug.WriteLine($"ProcessChildren./: {node.Name},{Watch.ElapsedMilliseconds}");
             IncrementGoContinue();
             return AfterCompletionType.Continue;
         } // ProcessChildren
@@ -818,17 +824,17 @@ namespace AppTestStudio
             ActivateWindowResult Result = ActivateWindowResult.WindowAlreadyActivated;
             if (node.AppActivateIfNotActive)
             {
-                Result = Utils.ActivateWindowIfNecessary2(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS, node.KeyboardAfterSendingActivationMS);
+                Result = Utils.ActivateWindowIfNecessary3(Game.GetWindowHandleByWindowName(), node.KeyboardTimeoutToActivateMS);
                 switch (Result)
                 {
                     case ActivateWindowResult.WindowAlreadyActivated:
                         // Do nothing
                         break;
                     case ActivateWindowResult.WindowActivated:
+                        ThreadSleep(node.KeyboardAfterSendingActivationMS);
                         Game.Log("Window Activated");
                         break;
                     case ActivateWindowResult.Timeout:
-
                         if (node.PreActionFailureAction == TimeoutAction.Abort)
                         {
                             Game.Log("Window Timeout Abort");                            
@@ -837,6 +843,8 @@ namespace AppTestStudio
                         {
                             Game.Log("Window Timeout Continue");
                         }
+                        break;
+                    case ActivateWindowResult.BadWindowHandle:
                         break;
                     default:
                         break;
