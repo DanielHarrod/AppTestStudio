@@ -76,7 +76,8 @@ namespace AppTestStudio
     }
 
     public enum ActivateWindowResult
-    {
+    {   
+        BadWindowHandle,
         WindowAlreadyActivated,
         WindowActivated,
         Timeout

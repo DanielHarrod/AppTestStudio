@@ -23,7 +23,7 @@ namespace AppTestStudioUnitTest
             }
             else
             {
-                Utils.ActivateWindowIfNecessary2(hWnd,4000,100);
+                Utils.ActivateWindowIfNecessary3(hWnd,4000);
 
             }
         }

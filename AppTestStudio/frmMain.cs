@@ -12,10 +12,8 @@ using System.Diagnostics;
 using System.IO.Compression;
 using System.Reflection;
 using System.Text;
-using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
-using static AppTestStudio.Utils;
 
 namespace AppTestStudio
 {
@@ -3464,7 +3462,11 @@ namespace AppTestStudio
                             if (ActionNode.AppActivateIfNotActive)
                             {
                                 IntPtr WindowHandle = game.GetWindowHandleByWindowName();
-                                Utils.ActivateWindowIfNecessary2(WindowHandle, ActionNode.KeyboardTimeoutToActivateMS, ActionNode.KeyboardAfterSendingActivationMS);
+                                ActivateWindowResult AWR = Utils.ActivateWindowIfNecessary3(WindowHandle, ActionNode.KeyboardTimeoutToActivateMS);
+                                if (AWR == ActivateWindowResult.WindowActivated)
+                                {                                    
+                                    Thread.Sleep(ActionNode.KeyboardAfterSendingActivationMS);
+                                }
                             }
                             Boolean Success = false;
                             Bitmap bmp = Utils.GetBitmapFromWindowHandle(ref Success, MainWindowHandle);
@@ -3541,7 +3543,11 @@ namespace AppTestStudio
                                             }
                                             else
                                             {
-                                                Utils.ActivateWindowIfNecessary2(hWnd, 4000, 100);
+                                                ActivateWindowResult AWR = Utils.ActivateWindowIfNecessary3(hWnd, 4000);
+                                                if (AWR == ActivateWindowResult.WindowActivated)
+                                                {
+                                                    Thread.Sleep(100);
+                                                }
                                             }
                                         }
 
