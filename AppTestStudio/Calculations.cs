@@ -224,8 +224,6 @@ namespace AppTestStudio
             //Retrieves the coordinates of a window's client area.
             GetClientRect(windowHandle, out ClientRect);
 
-            Debug.WriteLine($"{xClientTarget} {TargetWindowRectangle.Left}");
-            Debug.WriteLine($"{yClientTarget} {TargetWindowRectangle.Top}");
             short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
             short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
