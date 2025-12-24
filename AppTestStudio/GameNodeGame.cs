@@ -87,6 +87,7 @@ namespace AppTestStudio
 
         public OpenCvSharp.VideoWriter Video { get; set; }
 
+        [System.Diagnostics.DebuggerStepThrough]
         public void Log(String s)
         {
             String FormattedLog = String.Format(
