@@ -104,23 +104,48 @@ Visualy design events and actions.  You define how, when, and where to click in 
       * Iteration limits set how often a event fires.  If set to 5 for example, every 5th positive check will be executed.
       * Time limits set how often an event fires with a timeout.  If set to 5 minutes, after 5 minutes from the last postive check would be considered postive.
       * Session limits - enable an action to be executed only once per session.
-      
+
+  * RNG - Random Number Generator
+    * Add 2 or more RNG nodes to split execution between the nodes.  RNG is true RNG and not weighted.
+#### Run View
+Run view provides visual and detailed information about running scripts.
+* Main Display is an animated visualization tool that show the actions executed and the time allocated to the action in a easy to view track board.
+  * For every action an entry is added in the dynamic list and the size of the icons depends on the configuration.  Actions proceed down the timeline to track accuracy.  The timeline can be zoomed in from 25 seconds to 30 minutes.
+* Right Table - is a detailed visualization of the actions taken with an execution pointer, and details about the number of actions taken.
+  * Clicking on a entry in the table brings up a visualizer that shows the events that were fired and the details on those events. 
+* A tree view is displayed that is read only, showing the running script information.
+  * Details include configuration information, Executions in the current session, ability to resize window to the target resolution and ability to turn off any node during runtime.
+  * Compare to all Runtime Images.  Right clicking on an event node will provide the option to compare this node to each of the runtime images that were executed.  This helps with script design and troubleshooting.
+* Counters show Screenshots, Clicks, and a runtime timer.
+  * Thread counts show the currently running counter information.
+  * Session counts show counter information since the application started.
+  * Script counts show information about the number of actions per script.
+  * Total shows the counter information for all scripts.
+* CPU - Shows the amount of time used in calculations.  Scripts are run in individual threads and do not affect system performance, this is the calculation of the time allocated to perform the actions.
+  * Object search can be cpu intensive and you can use this to determine if fine tuning is needed to meet your performance goals.
+* Clicks per second - This is an auto clicker, shows how many clicks were produced per second. 
+
+#### Scheduler
+App Test Studio always runs scripts in their own thread, you can run multiple threads at once.
+  
 
 ## Visual Studio Setup - How to setup the development environment.
 Install [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/)
 
 From Visual Studio Installer: Under Workloads install - .NET desktop development
 
-From Visual Studio Installer: Individual components tab - .NET 6.0 Runtime (Long Term Support)
+From Visual Studio Installer: Individual components tab - .NET 9.0 Runtime (Long Term Support)
 
-## Finally a Complete Tutorial 
+## Tutorial 
 Youtube tutorials cover how to go from a beginner to an expert.
+
+Click on the image to launch a youtube series.
 
 [![IMAGE ALT TEXT](http://img.youtube.com/vi/EhkhOTcd-qA/0.jpg)](http://www.youtube.com/watch?v=EhkhOTcd-qA&list=PLGVepuRQwnsIoVy6SJaZwBS5-b9AEGExs "App Test Studio")
 
-### Start the emmulator
+### Using Android emmulators
 
-***Always launch the Emmulator from AppTestStudio***  AppTestStudio launches the emmulator with a specific  WindowName, and resolution for consistency and automation.
+***Nox Player - Always launch the Emmulator from AppTestStudio***  AppTestStudio launches the emmulator with a specific  WindowName, and resolution for consistency and automation.
 
 1.) The Package Name is used to launch the application when the emmulator starts.  If the Package Name is configured, pressing the "Start Emmulator + Launch App" button will launch the instance of nox player specified in the instance to launch (in 2. below).  Package Name is recommended but not required, if you don't want or have the Package Name, Press the "Start Emmulator"( in 4. below) button instead.  Then run the application from the emmulator manually.  When scheduling a script to run at a later time, the application the Package name is required so that the script can be run, and the applicaion can be loaded.
 
@@ -132,301 +157,12 @@ Youtube tutorials cover how to go from a beginner to an expert.
 
 Initial Resolution: is passed from the Start Emmulator buttons to set emmulator to a specific size so that the screenshots will always contain the same resolution.  This helps with sharing the script.  Be sure to have the "Fixed Window Size" checkbox checked, this will make it less likely to resize the window.  Sometimes the emmulator window get's resized, it's best to restart the emmulator.
 
-Video:  A video can be saved that takes a screenshot of the screen at each activity/checkpoint.  Video can be helpful to troubleshoot issues with the script.
-
-Frame Limit: A basic limit to prevent running out of disk space, the script can take 100's to 1000's of screenshots when running.  
-
-![Image](https://appteststudio.com/cdn/StartEmmulator.png)
-
-### 4.) Design your script
-
-#### 4.1 On the Events Node in AppTestStudio Tree, right Click and Choose "Add Event", this will take a screenshot.
-![Image](https://appteststudio.com/cdn/AddEvent.png)
-
-
-#### 4.2 A new Event is created - at screenshot is automatically taken of the current emmulator window.
-
-1-Give the Event a name
-
-2-Left click on a few unique colors on the screenshot, in this example, I chose a white color inside the 'u' in Zeus, a black color in the 'e' in Zeus, and a Blue color near the word Zeus, and a blue color inside the blue label after the name Zeus.
-
-3-A grid view shows the color, and X,Y coordinates of the color.  Since the logic is AND, when the script is run when all 4 colors at the 4 locations are true, then child events and actions will be run.
-
-(opinion) There are other pixel,coordinate locations that may be better, for example: selecting pixels on the skip text may be ideal so that anytime skip is presented it would be clicked.
-
-![Image](https://appteststudio.com/cdn/Event.png)
-
-#### 4.3 Now create an Action
-Right click on the 'Zeus' Event, then left click 'Add Action'.
-
-The name will automatically have 'Click ' prepended to the parent name.
-
-![Image](https://appteststudio.com/cdn/AddAction.png)
-
-#### 4.4 Build the Action
-Incidate where to click, click and drag a blue box around the area that needs to be clicked.  AppTestStudio will randomly click at a single location inside the box when the application is run or when the application is tested.
-![Image](https://appteststudio.com/cdn/Action.png)
-
-#### 4.4) When the Action note still selected, click 'Test'
-App Test Studio will click inside the box inside the emmulator, which will advance app to the next screen.
-![Image](https://appteststudio.com/cdn/Test.png)
-
-### 4.5) Object Search
-Object search enables you to quickly define regions on the screen to search, and quickly define images to locate.
-
-#### 4.5.1) First Define an object.
-To define an object click the 'Create Object' button from an Event Node or Right click on the Objects Tree Node under the application.
-![Image](https://appteststudio.com/cdn/CreateObject.png)
-
-#### 4.5.2) Next identify the object to serach for.
-Add New Object will take a screenshot of the current window and allow you to select the object to look for.  
-
-1.) Take a screenshot:  Sometimes a fresh screenshot is needed to get the right image, pressing 'Take a Screenshot' will load a fresh screenshot.
-
-2.) Name: This is the unique name that will be attached to an Object Search Node, Use good naming patterns so it can be easily identfiable.
-
-3.) Draw a box, it will highlight in Blue.
-
-3.1) To improve accuracy look for sections that are unique and distinguishable, sometimes avoiding using the background can improve accuracy.  It is not necessary to search for entire images, just something unique. 
-
-4.) Make Object (SAVE): Make object will save your selection and add it to the list of objects that can be searched for in the Object Search Event.
-
-![Image](https://appteststudio.com/cdn/AddNewObject.png)
-
-#### 4.5.3) Make a New Event with Mode: Object Search
-Events default to Color/Point change the event mode to 'Object Search'
-
-On the Object Search a screenshot will be displayed, draw a mask around the area to be searched.  Image recognition can significantly slower than the Color/Point implementation, so define a mask to reduce the area that is needed to be searched.  To draw a mask click on the area and draw a box.  If the box is unsuitable, redraw a box.
-
-![Image](https://appteststudio.com/cdn/EventModeObjectSearch.png)
-
-#### 4.5.3) Object properties
-After the Object Search Event mode is set to 'Object Search' object properties appears.
-
-Search Object: Select the object to search.
-
-Color Channel: You can choose to search of Red, Green, or the Blue Channel.  It will compare the object to the search area based on the Red, Green, or Blue colors to determine the location of the object.  This if for fine tuning and in most cases I use Red, but sometimes the other colors provide better results.  
-
-Threshold: Object search will ALWAYS find something, it will ALWAYS locate the closest match and provide a Threshold value.  Adjust the acceptance threshold value so that it performs as expected.  The default threshold is set to 70, a threshold match of 100 would be that the image matches identically.
-
-Mask Size: Shows the size of the mask range, it is recommended to limit the area to search for performance reasons.
-
-Set Mask to Max: Is it time to search the entire area, press the Max button and it's done.
-
-Object:  This shows the object to search for giving you a visual representation.
-
-![Image](https://appteststudio.com/cdn/Object.png)
-
-#### 4.5.3) An Event under Object Search
-So you have build the event, but events don't do anything.  Now an action is needed, place an action under the Object Search.
-Object Search has a hourglass icon when the mode of an evetn is set to 'Object Search'.  When a Click or Drag event is a child of a Object Search, the click or drag event will be positioned at the location of the found object that was found in the object search mask.  
-On the click event draw a box the size of the range you would like searched, when the object is found the box will be centered on the location, then the click or drag will be performed.
-
-![Image](https://appteststudio.com/cdn/EventUnderObjectSearch.png)
-
-### 5.) Continue building 
-
-Continue building more actions and events until the build is complete.
-
-#### 5.1) Using Logical grouping
-Use an Event inside another Event.
-
-1.) Organize events inside other events for clarity.
-
-2.) Organize events inside other events for logic/priority.
-
-![Image](https://appteststudio.com/cdn/Groups.png)
-
-#### 5.2) Control what happens after an Event or Action occurs.
-What needs to occur after a Event Node is true or after an Action node is completed. 
-
-By default Event nodes are set to After Completion: Continue
-
-By default Action nodes are set to After Completion: Back to Home
-
-Continue - Chosing continue will continue execution of any child nodes (nodes lower in the tree) followed by any sibling nodes (nodes on the same level).  This is used when chains of need to be run in a specific order, especially useful when unique events cannot be identified.  
-
-Back to Home - Goes back to the Beginning (Home Events) and starts over from the top.
-
-Back to Parent - Goes back to the Parent Level.  Back to parent is used when you don't want any sibling nodes(Nodes on the same level) to be run.  This can be useful as a break condition such as the app not being ready for the sibling processes.
-
-Stop Thread - Stop will stop the thread when running the script, and App Test Studio will attempt to close the emmulator.  This is useful when you run out of turns for a given application, run out of life, money, or reach an point where large amounts of waiting are necessary.
-
-Recycle - Recycle will restart the emmulator, and restart the application, leaving the thread running.  This useful when there is a detectable an error condition, such as when Ads and the application don't play nice, and cause the app to move or switch resolutions.  Recycling the emmulator and rerunning the app can sometimes fix the issue.
-
-Delay - How long to wait after the Event is true or Action is complete before moving to the next child or sibiling.  The script can run 20-40 times per second, often times the app needs to redraw the screen or move to the next activity.  Waiting ensures that the script will not need to have any false positives.  For example: Setting the Click wait to 0 sec could cause AppTestStudio to click on a button 20 times before the appliation can move to the next activity, because AppTestStudio can be configured to run with limited waiting.
-
-By default Event nodes are set to Delay: 0
-
-By default Action nodes are set to Delay: 1s
-
-Delay for example can be useful to wait for an activity to complete, or wait for 30 seconds after clicking a 'watch ads' button.  
-
-Limit - Limit is used to add superior control over how many times a process can be run.
-
-Wait type: Iteration and Iterations #.  Iterations # is how many times the Action or Event needs to be capable of completing before it is actually done.  If you want AppTestStudio to click the button every 10th time it's able. Set Limit (checked), Wait Type(Iteration), Iterations(10), Repeats(checked).  
-
-Wait type: Time.  How long to wait between activities.  For example you only want an event to be tested every 120 seconds: Set Limit(checked), Wait Type(Time), Time(2 minutes) and Repeats(checked).  Another example you want an event to be tested only once after 45 seconds into execution: Set Limit(Checked),Wait Type(Time), Time(45 seconds) and Repeats(unchecked).
-
-Wait type: once per session:  You want this activity to run only one time.
-
-Repeats will reset the iteration count if limit has already compelted, so it will occur again.
-
-![Image](https://appteststudio.com/cdn/After.png)
-
-#### 5.3 Properties
-
-Enabled: Enable or disable parts of the script from running.  This is useful when you don't want full functionality, or something is not working as desired.
-
-Repeats Until False (with Iteration Limit):  This will repeat until the designated iteration limit is hit OR if the event value is false.  This is usefull when you want to repeat a section of code without going back through the entire loop from the start.
-
-![Image](https://appteststudio.com/cdn/Properties.png)
-
-#### 5.4 Logic - Basic
-Logic is how the color points are treated options are:
-AND: ALL colors and points must match before the event is considered true. 
-OR: Only a single color and point must match before the event is considered true. 
-
-POINTS: Points are added and subtracted on the range of the RGB.
-
-In this example below with the first line R=36, B=30, G=35, X=951, Y=673, and POINTS = 5.  Acceptable range for R would be any color between 36-5 to 36+5, Acceptable range for B would be any color from 30-5 to 30+5, and the acceptable range for G would be an color between 35-5 to 35 + 5.  If the R and G and B are in that range the line would be considered true, this is applied to each line in the calculation. 
-
-![Image](https://appteststudio.com/cdn/Logic.png)
-
-#### 5.4 Logic - Advanced
-CUSTOM:  You can mix and match AND/OR/NOT/(). Acceptable (AND, &, &&) - All are considered logical AND.  Acceptable (OR, |, || ) - all are considered logical OR.  Acceptable (NOT, !) - Are considered logical NOT.
-
-![Image](https://appteststudio.com/cdn/Logic2.png)
-
-Validate button, pressing the validate button can verify the logic is valid ( This isn't perfect but it's very good at checking).
-
-#### 5.4 Logic - Scan / Remove
-Scan will take a new screenshot and sample the X/Y position if the R,G,B color is not in the list it will be added.  This is useful when used with OR logic on animated points where the colors where there is a limited number of choices that are cycled through in a pattern.
-
-Remove: Removes the color point.
-
-![Image](https://appteststudio.com/cdn/Logic.png)
-
-#### 5.4.1 POINTS
-Points increase the ranges of the RGB color point.
-
-POINTS: Points are added and subtracted on the range of the RGB.
-
-In this example below with the first line R=36, B=30, G=35, X=951, Y=673, and POINTS = 5.  Acceptable range for R would be any color between 36-5 to 36+5, Acceptable range for B would be any color from 30-5 to 30+5, and the acceptable range for G would be an color between 35-5 to 35 + 5.  If the R and G and B are in that range the line would be considered true, this is applied to each line in the calculation. 
-
-Every app is different, some apps I have found need at least 5 points on every event, while most others the colors remain the same over time.  I would caution using very large numbers, I have not found a use case to go over 15.
-
-![Image](https://appteststudio.com/cdn/Logic.png)
-
-#### 5.4.1 Properties
-
-Enabled: Enable or disable parts of the script from running.  This is useful when you don't want full functionality, or something is not working as desired.
-
-Repeats Until False (with Iteration Limit):  This will repeat until the designated iteration limit is hit OR if the event value is false.  This is usefull when you want to repeat a section of code without going back through the entire loop from the start.
-
-![Image](https://appteststudio.com/cdn/Properties.png)
-
-#### 5.4.1 Anchor
-
-Anchor is used to adjust the size of button regions, and mask regions.
-
-Top+Left is the default the regions will stay the same size and not be moved.
-
-None is the same as Top+Left.
-
-Right: will keep the button or mask region sticky to the right side.  Very usedful when handling ADS where the resolution changes but the close is found in the top Right corner.
-
-Left+Right the button and mask region will scale up or down to the percentage between the orginal image and the current image on the X axis.
-
-Top+Bottom the button and mask region will scale up or down to the percentage between the orginal image and the current image on the Y axis.
-
-![Image](https://appteststudio.com/cdn/Anchor.png)
-
-## Testing - Object Search Event
-
-Pressing the Test button on an object search event will:
-
-01.) Take a screenshot and show the screenshot
-
-02.) Show Red Channel
-
-03.) Show Green Channel
-
-04.) Show Blue Channel
-
-05.) Determine if the detected threshold matched the acceptance threshold, With a Green Pass or Red Fail.
-
-06.) Display the Mask in blue to indicate the searchable area.
-
-07.) Display a Yellow box on the closest match, this will always find something which is what is closest to the search object.
-
-08.) Shows the image that was seached for.
-
-09.) Re-Test Current Window - takes a screenshot and re-tests from the current window.
-
-10.) Re-Test From Reference - re-tests from the reference window.
-
-11.) Adjusts the acceptance criteria, often adjusted to meet the particular object and screen that's needed.  It's very dependent on the media and application being used.  Pressing Use this Threshold will save the threshold to the project.
-
-12.) Channel:  Which channel to use, experiment with the different channels can improve accuracy.  Just because an object is RED doesn't mean that red will perform better.  It depends on the colors in the mask and the object being searched.  Sometimes green or blue is a better indicator even though the object is red.  Press the Retest-Current window to rapidly retest the changes to help you find the best match.
-
-13.) Detected Threshold: A mathmatical indication of how close the object matches.  A 100.0 threshold indicates a exact pixel perfect match, what works depends on the object being searched and the colors in the mask.  I have used 65 threshold on some searches while others have been cranked up to 80.  Using minimum necessary masks helps imporve speed and accuracy.
-14.) Point: The center point detected.
-
-15.) Hide and Seek Time: How long it takes to find the object in ms.  Keep in mind that 1000ms = 1 second, use masks and whenever possible use color points to improve performance.
-
-![Image](https://appteststudio.com/cdn/TestObjectSearch.png)
-
-## Testing - Color Point Event
-
-When a color point event is tested the Single Test Dialog is displayed.
-
-1.) Failed/Passed indicator that will indicate if the test was successful.
-
-2.) Resolution information is displayed.
-
-3.) Reference Window is displayed with the colors indicated on the screen with #'s.
-
-4.) Test Window is displayed with the same colors indicated with #'s.
-
-5.) Reference the list of Colors and Points necessary for a true result.  Pressing the Rem button will remove the point from the project, this is useful when colors work the first time, but subsequent tests find that the color/point is unstable.
-
-6.) Test Window Colors - the colors that were found and how many points would be needed to enable a true result.
-
-7.) Re-Test - often the screen changes and the test is retested from a screenshot from a current window.
-
-8.) Points - the number of configued points.
-
-![Image](https://appteststudio.com/cdn/EventTest.png)
-
-#### Testing - Click and Scroll events.
-Testing Click and Scroll Events will perform the action on the currently indicated design instance.  This is commonly used not need to leave the designer increasing build speed.
-
-## Testing - Object Search Event Child Action
-Same as Object Search Event, with the execption that the action is performed on the current instance.  So it will click the button on the indicated location ( If the parent object search is true ).
-
-![Image](https://appteststudio.com/cdn/TestObjectSearch.png)
-
-## Scheduler
-The scheduler can be used to run a script a a designated time such as every 4.1 hours.  In conjunction with scripting exit events via (After Completion - Stop Thread) can provide high levels of flexibility.
-
-![Image](https://appteststudio.com/cdn/scheduler.png)
-
+## Notes
 AppTestStudio will NOT function if the system goes to sleep, Screen Savers are OK, and Lock Screens are OK.
 
 If running overnight makes sure the SCREEN and PC do not go to sleep by modifying the windows settings.  If the Screen goes the sleep the GDI function return black screens.  If the PC is sleeping well then nothing is running.
 ![Image](https://appteststudio.com/cdn/PowerSleep.png)
 
-## Minimal Exports
-File-> Import/Export -> Export -> Minimal Export
-
-AppTestStudio doesn't actually use the reference images to run the scripts, the click locations and points are stored in the project.xml file.  
-
-When run, AppTestStudio will rebuild the reference images whenever an image is true.  Be sure to save your work so that the modifications will be saved.
-
-![Image](https://appteststudio.com/cdn/MinimalExport.png)
-
-## Notes
 AppTestStudio can manage on multiple instances and run them in the background so there's no need to any fancy window management, however there are a few gotchas that are easily manageable.
 
 1.) AppTestStudio can see what windows paints, Windows DOES NOT PAINT area's that are off the monitors view, Dragging the emmulators so that they are below the monitor's view will result in black areas where the emmulator is not shown.  This also includes moving it partially on the Left, Bottom, or Right side.  Running in the background (or forground is fine).  
@@ -463,6 +199,3 @@ AppTestStudio can manage on multiple instances and run them in the background so
 15.) Sometimes you need to sleep on it, getting stuck is no fun.  Try and solve the problem from another angle.
 
 16.) Some apps need button presses to be longer than instant.  Change the default click speed from 0ms to 25ms or more.
-
-Coming soon, needs an update.
-[AppTestStudio Projects](https://github.com/DanielHarrod/AppTestStudio-Projects/)
