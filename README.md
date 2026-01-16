@@ -1,6 +1,72 @@
 # AppTestStudio
 
-AppTestStudio (ATS) is a automated development environment, you can builder, tester, and can automate windows applications and android emmulators.
+AppTestStudio is an event driven auto-clicker to visually design, test, and deploy automated mouse and keyboard actions with millisecond timing and pixel perfect accuracy.
+
+Visualy design events and actions.  You define how, when, and where to click in a no-code environment.
+## Features
+
+### Visual Development Environment
+#### How it works
+* Define which window to check for events.
+* Define Mouse Movement mode Active (Move the system mouse) or Passive (tell the application the mouse was moved)
+* Run the script.
+  * Screenshots are taken at the General Loop Delay interval in ms.
+  * Each Event is checked against the screenshot.
+  * If the Event matches, child events are checked against the screenshot.
+  * If a Action is encoutered, mouse or keyboard actions are taken.
+  * When a Action or Event is completed a new screenshot is taken and it starts at the top of the script.
+
+#### Design View
+* Project View shows the project structure with icons for each event type.
+  * Groups allow you to organize events and actions.
+  * Create Events based on a X,Y and Pixel color.
+  * Create Events based on an image.
+  * Attach Actions to the events that execute when the event is identified.
+  * Events can be Mouse Click, Mouse Move, Mouse Swipe, and Keyboard events.
+  * Prioritize events by placing them closer to the top.
+  * Object library to reuse components for maximum efficiency.
+* Group Designer
+  * Groups are collections of other Groups, Actions, and Events.
+  * Groups have no testable criteria and when checked are considered always true.
+  * Groups can be used to organize related Activities.
+* Event Designer
+  * Events always start out as a screenshot in the main area of the designer.
+    * Use Parent Screenshot [Checkbox] [Runtime Use Only] When checked use the existing screenshot taken from the last parent or sibling - At Runtime.
+    * Take a screenshot [Button] [Design Use Only] Takes a new screenshot from the current target application window.
+    * Take Parent screenshot [Button] [Design Use Only] Takes the existing screenshot from the parent and puts that screenshot in the design window.
+  * Color/Point Events
+    * To create a Color/Point entry, click anywhere on the screenshot in the design view.
+      * Use the zoomed in [Color at Pointer] window to fine tune and visualize correct color.
+    * Color/Point is a list of R,G,B color values and a X,Y
+    * Points +/- [Dropdown] enable added range of the R,G,B color values by adding a +- range to the colors.
+      * Color R120, G140, B132 adds +/- that number to the RGB values: Example 5 allows R 115-125, G 135-145, B 127-137
+      * Logic AND
+        * The list of RGB values must all be true for the event to be true.
+      * Logic OR
+        * When any of the RGB values are in range the event is true.
+      * Logic Custom
+        * Define your own logic using And/Or/Not and ().  Each line is referred to as their index.
+        * With 3 entries all and'd it would be: 1 AND 2 and 3
+        * Use your preferred language as they are all acceptable and interchangeable.
+          * OR, |, || is treated as OR.
+          * AND, &, && is treated as AND.
+          * NOT, ! is treated as NOT.
+          * () are supported
+          * Advanced example with 5 events:  ( 1 AND 2) OR !(3 | 4 || NOT 5)
+        * Validate button can verify script will execute at runtime.
+  * Defining Search Objects
+    * On an Event node when [Event Mode] [Selection] is set to Object Search.  Press the Create New Object With this Image [Button]
+      * A Create New Object Designer appears.
+      * Press Take a Screenshot to grab a new screenshot from the target window.      
+      * Draw a box to identify the image that you would like to search with.
+      * Name the object wth a unique name.
+      * Press [Make Object]
+        * Simply add this object to the object list for use later.
+      * Press [Make Object + Use] 
+        * Changes the original Event used to create the object to "Find {Name}"
+          * Sets the Search Object to the new object made.
+          * Creates a Click Event with "Click {Name}"
+### 
 
 ## Visual Studio Setup - How to setup the development environment.
 Install [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/)
