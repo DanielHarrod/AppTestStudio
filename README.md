@@ -25,36 +25,43 @@ Visualy design events and actions.  You define how, when, and where to click in 
   * Events can be Mouse Click, Mouse Move, Mouse Swipe, and Keyboard events.
   * Prioritize events by placing them closer to the top.
   * Object library to reuse components for maximum efficiency.
+    
 * Group Designer
   * Groups are collections of other Groups, Actions, and Events.
   * Groups have no testable criteria and when checked are considered always true.
   * Groups can be used to organize related Activities.
+    
 * Event Designer
   * Events always start out as a screenshot in the main area of the designer.
     * Use Parent Screenshot [Checkbox] [Runtime Use Only] When checked use the existing screenshot taken from the last parent or sibling - At Runtime.
     * Take a screenshot [Button] [Design Use Only] Takes a new screenshot from the current target application window.
     * Take Parent screenshot [Button] [Design Use Only] Takes the existing screenshot from the parent and puts that screenshot in the design window.
-  * Color/Point Events
-    * To create a Color/Point entry, click anywhere on the screenshot in the design view.
-      * Use the zoomed in [Color at Pointer] window to fine tune and visualize correct color.
-    * Color/Point is a list of R,G,B color values and a X,Y
-    * Points +/- [Dropdown] enable added range of the R,G,B color values by adding a +- range to the colors.
-      * Color R120, G140, B132 adds +/- that number to the RGB values: Example 5 allows R 115-125, G 135-145, B 127-137
-      * Logic AND
-        * The list of RGB values must all be true for the event to be true.
-      * Logic OR
-        * When any of the RGB values are in range the event is true.
-      * Logic Custom
-        * Define your own logic using And/Or/Not and ().  Each line is referred to as their index.
-        * With 3 entries all and'd it would be: 1 AND 2 and 3
-        * Use your preferred language as they are all acceptable and interchangeable.
-          * OR, |, || is treated as OR.
-          * AND, &, && is treated as AND.
-          * NOT, ! is treated as NOT.
-          * () are supported
-          * Advanced example with 5 events:  ( 1 AND 2) OR !(3 | 4 || NOT 5)
-        * Validate button can verify script will execute at runtime.
-  * Defining Search Objects
+      
+* Design Color/Point Events
+  * To create a Color/Point entry, click anywhere on the screenshot in the design view.
+    * Use the zoomed in [Color at Pointer] window to fine tune and visualize correct color.
+  * Color/Point is a list of R,G,B color values and a X,Y
+  * Points +/- [Dropdown] enable added range of the R,G,B color values by adding a +- range to the colors.
+    * Color R120, G140, B132 adds +/- that number to the RGB values: Example 5 allows R 115-125, G 135-145, B 127-137
+    * Logic AND
+      * The list of RGB values must all be true for the event to be true.
+    * Logic OR
+      * When any of the RGB values are in range the event is true.
+    * Logic Custom
+      * Define your own logic using And/Or/Not and ().  Each line is referred to as their index.
+      * With 3 entries all and'd it would be: 1 AND 2 and 3
+      * Use your preferred language as they are all acceptable and interchangeable.
+        * OR, |, || is treated as OR.
+        * AND, &, && is treated as AND.
+        * NOT, ! is treated as NOT.
+        * () are supported
+        * Advanced example with 5 events:  ( 1 AND 2) OR !(3 | 4 || NOT 5)
+      * Validate button can verify script will execute at runtime.
+* Design Image Search Events
+  * Image search looks for a predefined bitmap inside a search window.
+  * Image search always picks the closest matching location on the screenshot.
+  * A threshold value is calculated to determine how close the image matches from the screenshot.
+   * The threshold is relative similarities to the image being searched and the screenshot.  There is no general rule for threasholds they need to be fine tuned to meet your requirements.
     * On an Event node when [Event Mode] [Selection] is set to Object Search.  Press the Create New Object With this Image [Button]
       * A Create New Object Designer appears.
       * Press Take a Screenshot to grab a new screenshot from the target window.      
@@ -66,7 +73,38 @@ Visualy design events and actions.  You define how, when, and where to click in 
         * Changes the original Event used to create the object to "Find {Name}"
           * Sets the Search Object to the new object made.
           * Creates a Click Event with "Click {Name}"
-### 
+  * At runtime if Image Search Event is true, it centers the first child action and runs the child action at that location.
+
+* Design Actions can be Click, Move, Swipe or Keyboard
+  * Option to activate the window before an action is executed.
+  * Option to move the mouse from the system position before exeucting the action
+  * Click - Draw a box on the screenshot where the click should be.  A random point inside the box will be clicked.
+  * Move - Draw a box from the start postion to the end position.  Each start and end has a configurable box a random point inside each box will be chosen and the mouse will move.
+  * Swipe - Same as Move except the mouse is pressed.
+  * Keyboard - This is configured like a physical keyboard, you set which key and duration.  You set the exact precision using quick buttons and millisecond timing.
+ 
+* Design Testing - All Events and actions have a test button you can use to interactively check your work.
+  * Event testing - A detailed visualizer shows the custom logic, reference and current window, and a visualization of the colors and locations.  Re-Test button to pull new data.
+  * Object Search testing - A detailed visualization that shows the combined image along with R/G/B channels.  Quick buttons to fine tune the threasholds and compare against the reference and current window.
+  * Click/Move/Swipe/Keyboard - These perform the action on the current window.
+ 
+* Design Execution Control - When running a screenshot is taken and all event nodes are checked to see if they match the screenshot.
+  * Main loop delay is on the Project settings in the tree view under Project (Name) -> General-> Loop Delay (ms)
+  * On each Event and Action the [After Completion] section runs after the Event or action is true.
+    * Continue - means to process the children then the next sibling.
+    * Back to Home - means to return to the top for a new iteration.
+    * Back to Parent - means to return to the parent node for processing.
+    * Stop Thread - means to stop the script.
+    * Recycle - This will stop the thread, attempt to close the application, and attempt to relaunch the application (Nox Only).
+    * GoTo (Selected Node) - Moves execution to the selected node. (useful for making shared functions)
+  * On each Event and Action is a [Delay Additive] section.
+    * Controls the wait time after an action or event is finished.  For example, after a click wait for 500ms for the screen to refresh.
+   * Limits - are a way to control the repetitiveness of a Event or Action.
+    * Limit types are iteration, time and session.
+      * Iteration limits set how often a event fires.  If set to 5 for example, every 5th positive check will be executed.
+      * Time limits set how often an event fires with a timeout.  If set to 5 minutes, after 5 minutes from the last postive check would be considered postive.
+      * Session limits - enable an action to be executed only once per session.
+      
 
 ## Visual Studio Setup - How to setup the development environment.
 Install [Visual Studio Community Edition](https://visualstudio.microsoft.com/vs/community/)
