@@ -7,8 +7,10 @@ Visualy design events and actions.  You define how, when, and where to click in 
 
 ### Visual Development Environment
 #### How it works
+* Make a new project.
 * Define which window to check for events.
-* Define Mouse Movement mode Active (Move the system mouse) or Passive (tell the application the mouse was moved)
+* Create events to use a triggers.
+* Assign actions to those events.
 * Run the script.
   * Screenshots are taken at the General Loop Delay interval in ms.
   * Each Event is checked against the screenshot.
