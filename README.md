@@ -9,8 +9,8 @@ Visualy design events and actions.  You define how, when, and where to click in 
 #### How it works
 * Make a new project.
 * Define which window to check for events.
-* Create events to use a triggers.
-* Assign actions to those events.
+* Visually create events to use a triggers.
+* Visually Attach actions to those triggers.
 * Run the script.
   * Screenshots are taken at the General Loop Delay interval in ms.
   * Each Event is checked against the screenshot.
