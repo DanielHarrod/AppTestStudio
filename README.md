@@ -185,7 +185,7 @@ AppTestStudio can manage on multiple instances and run them in the background so
 
 9.) Avoid dragging a emmulator window at the same time clicks and drags are being sent, it won't hurt anything but it's annoying.
 
-10.) Turn on: [Require password for every purchase](https://support.google.com/googleplay/answer/1626831).  
+10.) Turn on: [Require password for every purchase](https://support.google.com/googleplay/answer/1626831) to prevent unexpected automated purchasing.
 
 11.) Don't use with personal accounts.
 
