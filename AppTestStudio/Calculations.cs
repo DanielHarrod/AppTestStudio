@@ -25,7 +25,7 @@ namespace AppTestStudio
             switch (mouseMode)
             {
                 case MouseMode.Passive:
-                    //if (moveMouseFirst)
+                    //if (moveMouseFirst)   
                     //{
                     //    int MoveDurationMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, xTarget, yTarget, mouseSpeedPixelsPerSecond);
                     //    MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_NONE, xStart, yStart, xTarget, yTarget, MoveDurationMS);
@@ -72,7 +72,7 @@ namespace AppTestStudio
             //The dimensions are given in screen coordinates that are relative to the upper-left corner of the screen.
             Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
 
-            RECT ClientRect;
+            Rectangle ClientRect;
 
             //Retrieves the coordinates of a window's client area. The client coordinates specify the upper-left and lower-right corners of the client area.
             //Because client coordinates are relative to the upper-left corner of a window's client area, the coordinates of the upper-left corner are (0,0).
@@ -220,7 +220,7 @@ namespace AppTestStudio
             ////Retrieves the extended frame bounds rectangle in screen space.
             //int Result = DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
 
-            RECT ClientRect;
+            Rectangle ClientRect;
             //Retrieves the coordinates of a window's client area.
             GetClientRect(windowHandle, out ClientRect);
 
@@ -399,7 +399,7 @@ namespace AppTestStudio
             uint Flags = 0;
             Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
 
-            RECT ClientRect;
+            Rectangle ClientRect;
             GetClientRect(windowHandle, out ClientRect);
 
             short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);

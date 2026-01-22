@@ -4535,31 +4535,36 @@ namespace AppTestStudio
                 Boolean Success = false;
                 Bitmap bmp = Utils.GetBitmapFromWindowHandle(ref Success, MainWindowHandle);
                 //bmp.Save("C:\\Users\\djhar\\Desktop\\b.bmp");
-                lblResolution.Text = bmp.Width + "x" + bmp.Height;
-
-                SetPictureBox1(bmp);
-
-                ShowHidePictureMissingMessage();
-
-                if (dgv.Rows.Count > 1)
+                if (Success)
                 {
-                    if (lblMode.Text == "Event")
-                    {
-                        DialogResult Result = MessageBox.Show("Screenshot taken, do you want to re-sample the colors?", "Resample Colors?", MessageBoxButtons.YesNo);
+                    lblResolution.Text = bmp.Width + "x" + bmp.Height;
 
-                        if (Result == DialogResult.Yes)
+                    SetPictureBox1(bmp);
+
+                    ShowHidePictureMissingMessage();
+
+                    if (dgv.Rows.Count > 1)
+                    {
+                        if (lblMode.Text == "Event")
                         {
-                            ResampleColors();
+                            DialogResult Result = MessageBox.Show("Screenshot taken, do you want to re-sample the colors?", "Resample Colors?", MessageBoxButtons.YesNo);
+
+                            if (Result == DialogResult.Yes)
+                            {
+                                ResampleColors();
+                            }
                         }
                     }
-                }
 
-                if (IsPanelLoading == false)
+                    if (IsPanelLoading == false)
+                    {
+                        SaveClickList();
+                    }
+                }
+                else
                 {
-                    SaveClickList();
-
-                }
-
+                    Log("Unable to capture screenshot of window: " + TargetWindow);
+                }           
             }
             else
             {

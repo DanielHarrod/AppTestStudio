@@ -658,17 +658,16 @@ namespace AppTestStudio
             IntPtr hdcSrc = NativeMethods.GetWindowDC(windowHandle);
             if (hdcSrc == IntPtr.Zero)
                 return null;
+                      
 
-            NativeMethods.GetWindowRect(windowHandle, out Rectangle WindowRectangle);
-
-            if (!NativeMethods.GetWindowRect(windowHandle, out Rectangle windowRect))
+            if (!NativeMethods.GetClientRect(windowHandle, out Rectangle windowRectangle))
             {
                 NativeMethods.ReleaseDC(windowHandle, hdcSrc);
                 return null;
             }
 
-            int TargetWindowHeight = WindowRectangle.Height;
-            int TargetWindowWidth = WindowRectangle.Width;
+            int TargetWindowHeight = windowRectangle.Bottom - windowRectangle.Top;
+            int TargetWindowWidth = windowRectangle.Right - windowRectangle.Left;
 
             if (TargetWindowHeight < 1 || TargetWindowWidth < 1)
             {

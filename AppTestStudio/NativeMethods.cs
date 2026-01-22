@@ -139,7 +139,7 @@ namespace AppTestStudio
         internal static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
 
         [DllImport("user32.dll")]
-        internal static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
+        internal static extern bool GetClientRect(IntPtr hWnd, out Rectangle lpRect);
 
         [DllImport("user32.dll")]
         internal static extern bool ClientToScreen(IntPtr hWnd, ref Point lpPoint);
