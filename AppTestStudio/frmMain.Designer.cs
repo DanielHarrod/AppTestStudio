@@ -48,13 +48,13 @@ namespace AppTestStudio
         {
             components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmMain));
+            ListViewItem listViewItem1 = new ListViewItem("");
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle3 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle4 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle5 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
-            ListViewItem listViewItem1 = new ListViewItem("");
             DataGridViewCellStyle dataGridViewCellStyle7 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle8 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle9 = new DataGridViewCellStyle();
@@ -123,6 +123,75 @@ namespace AppTestStudio
             cmdUpdateResolution = new Button();
             cmdRuntimeEnableToggle = new Button();
             tabSchedule = new TabPage();
+            PanelThread = new Panel();
+            splitContainerThreadMain = new SplitContainer();
+            pbPreview = new PictureBox();
+            splitContainerThread = new SplitContainer();
+            splitContainerStatsNScrollie = new SplitContainer();
+            tableLayoutStats = new TableLayoutPanel();
+            grpTopScriptCounters = new GroupBox();
+            tableLayoutPanel3 = new TableLayoutPanel();
+            label102 = new Label();
+            label104 = new Label();
+            lblScriptWaiting = new Label();
+            label107 = new Label();
+            lblScriptHome = new Label();
+            lblScriptScreenshots = new Label();
+            label112 = new Label();
+            lblScriptContinue = new Label();
+            label114 = new Label();
+            lblScriptChild = new Label();
+            lblScriptClickCount = new Label();
+            label117 = new Label();
+            grpTopThreadCounter = new GroupBox();
+            tableLayoutPanel2 = new TableLayoutPanel();
+            label100 = new Label();
+            label101 = new Label();
+            lblThreadWaiting = new Label();
+            label103 = new Label();
+            lblThreadHome = new Label();
+            lblThreadScreenshots = new Label();
+            label106 = new Label();
+            lblThreadContinue = new Label();
+            label108 = new Label();
+            lblThreadChild = new Label();
+            lblThreadClickCount = new Label();
+            label111 = new Label();
+            grpAPS = new GroupBox();
+            atsGraphActions1 = new AppTestStudioControls.ATSGraph();
+            groupTotal = new GroupBox();
+            tableLayoutPanel1 = new TableLayoutPanel();
+            label13 = new Label();
+            lblHomeTotal = new Label();
+            label15 = new Label();
+            lblChildTotal = new Label();
+            lblContinueTotal = new Label();
+            label21 = new Label();
+            label20 = new Label();
+            lblWaitingTotal = new Label();
+            lblScreenshotsTotal = new Label();
+            label19 = new Label();
+            lblClickCountTotal = new Label();
+            label14 = new Label();
+            groupSession = new GroupBox();
+            tableLayoutPanelSession = new TableLayoutPanel();
+            label1 = new Label();
+            label3 = new Label();
+            lblWaiting = new Label();
+            label9 = new Label();
+            lblHome = new Label();
+            lblScreenshots = new Label();
+            label7 = new Label();
+            lblContinue = new Label();
+            label2 = new Label();
+            lblChild = new Label();
+            lblClickCount = new Label();
+            label8 = new Label();
+            grpCPU = new GroupBox();
+            atsGraph1 = new AppTestStudioControls.ATSGraph();
+            splitContainerSeconds = new SplitContainer();
+            appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
+            lstGamePass = new ListView();
             PanelColorEvent = new Panel();
             tableColorEvent = new TableLayoutPanel();
             panelColorEventChild1 = new Panel();
@@ -384,75 +453,6 @@ namespace AppTestStudio
             cmdRightOffset = new Button();
             panelRightDragMode = new Panel();
             cmdRightDragMode = new Button();
-            PanelThread = new Panel();
-            splitContainerThreadMain = new SplitContainer();
-            pbPreview = new PictureBox();
-            splitContainerThread = new SplitContainer();
-            splitContainerStatsNScrollie = new SplitContainer();
-            tableLayoutStats = new TableLayoutPanel();
-            grpTopScriptCounters = new GroupBox();
-            tableLayoutPanel3 = new TableLayoutPanel();
-            label102 = new Label();
-            label104 = new Label();
-            lblScriptWaiting = new Label();
-            label107 = new Label();
-            lblScriptHome = new Label();
-            lblScriptScreenshots = new Label();
-            label112 = new Label();
-            lblScriptContinue = new Label();
-            label114 = new Label();
-            lblScriptChild = new Label();
-            lblScriptClickCount = new Label();
-            label117 = new Label();
-            grpTopThreadCounter = new GroupBox();
-            tableLayoutPanel2 = new TableLayoutPanel();
-            label100 = new Label();
-            label101 = new Label();
-            lblThreadWaiting = new Label();
-            label103 = new Label();
-            lblThreadHome = new Label();
-            lblThreadScreenshots = new Label();
-            label106 = new Label();
-            lblThreadContinue = new Label();
-            label108 = new Label();
-            lblThreadChild = new Label();
-            lblThreadClickCount = new Label();
-            label111 = new Label();
-            grpAPS = new GroupBox();
-            atsGraphActions1 = new AppTestStudioControls.ATSGraph();
-            groupTotal = new GroupBox();
-            tableLayoutPanel1 = new TableLayoutPanel();
-            label13 = new Label();
-            lblHomeTotal = new Label();
-            label15 = new Label();
-            lblChildTotal = new Label();
-            lblContinueTotal = new Label();
-            label21 = new Label();
-            label20 = new Label();
-            lblWaitingTotal = new Label();
-            lblScreenshotsTotal = new Label();
-            label19 = new Label();
-            lblClickCountTotal = new Label();
-            label14 = new Label();
-            groupSession = new GroupBox();
-            tableLayoutPanelSession = new TableLayoutPanel();
-            label1 = new Label();
-            label3 = new Label();
-            lblWaiting = new Label();
-            label9 = new Label();
-            lblHome = new Label();
-            lblScreenshots = new Label();
-            label7 = new Label();
-            lblContinue = new Label();
-            label2 = new Label();
-            lblChild = new Label();
-            lblClickCount = new Label();
-            label8 = new Label();
-            grpCPU = new GroupBox();
-            atsGraph1 = new AppTestStudioControls.ATSGraph();
-            splitContainerSeconds = new SplitContainer();
-            appTestStudioStatusControl1 = new AppTestStudioControls.AppTestStudioStatusControl();
-            lstGamePass = new ListView();
             PanelGame = new Panel();
             flowLayoutPanel1 = new FlowLayoutPanel();
             groupBox18 = new GroupBox();
@@ -770,6 +770,33 @@ namespace AppTestStudio
             splitContainerRunProperties.SuspendLayout();
             tableLayoutPanelRunLabels.SuspendLayout();
             tableLayoutPanelRunValues.SuspendLayout();
+            PanelThread.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerThreadMain).BeginInit();
+            splitContainerThreadMain.Panel1.SuspendLayout();
+            splitContainerThreadMain.Panel2.SuspendLayout();
+            splitContainerThreadMain.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pbPreview).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)splitContainerThread).BeginInit();
+            splitContainerThread.Panel1.SuspendLayout();
+            splitContainerThread.Panel2.SuspendLayout();
+            splitContainerThread.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerStatsNScrollie).BeginInit();
+            splitContainerStatsNScrollie.Panel1.SuspendLayout();
+            splitContainerStatsNScrollie.Panel2.SuspendLayout();
+            splitContainerStatsNScrollie.SuspendLayout();
+            tableLayoutStats.SuspendLayout();
+            grpTopScriptCounters.SuspendLayout();
+            tableLayoutPanel3.SuspendLayout();
+            grpTopThreadCounter.SuspendLayout();
+            tableLayoutPanel2.SuspendLayout();
+            grpAPS.SuspendLayout();
+            groupTotal.SuspendLayout();
+            tableLayoutPanel1.SuspendLayout();
+            groupSession.SuspendLayout();
+            tableLayoutPanelSession.SuspendLayout();
+            grpCPU.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).BeginInit();
+            splitContainerSeconds.SuspendLayout();
             PanelColorEvent.SuspendLayout();
             tableColorEvent.SuspendLayout();
             panelColorEventChild1.SuspendLayout();
@@ -825,33 +852,6 @@ namespace AppTestStudio
             ((System.ComponentModel.ISupportInitialize)NumericYOffset).BeginInit();
             ((System.ComponentModel.ISupportInitialize)NumericXOffset).BeginInit();
             panelRightDragMode.SuspendLayout();
-            PanelThread.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainerThreadMain).BeginInit();
-            splitContainerThreadMain.Panel1.SuspendLayout();
-            splitContainerThreadMain.Panel2.SuspendLayout();
-            splitContainerThreadMain.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pbPreview).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)splitContainerThread).BeginInit();
-            splitContainerThread.Panel1.SuspendLayout();
-            splitContainerThread.Panel2.SuspendLayout();
-            splitContainerThread.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainerStatsNScrollie).BeginInit();
-            splitContainerStatsNScrollie.Panel1.SuspendLayout();
-            splitContainerStatsNScrollie.Panel2.SuspendLayout();
-            splitContainerStatsNScrollie.SuspendLayout();
-            tableLayoutStats.SuspendLayout();
-            grpTopScriptCounters.SuspendLayout();
-            tableLayoutPanel3.SuspendLayout();
-            grpTopThreadCounter.SuspendLayout();
-            tableLayoutPanel2.SuspendLayout();
-            grpAPS.SuspendLayout();
-            groupTotal.SuspendLayout();
-            tableLayoutPanel1.SuspendLayout();
-            groupSession.SuspendLayout();
-            tableLayoutPanelSession.SuspendLayout();
-            grpCPU.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).BeginInit();
-            splitContainerSeconds.SuspendLayout();
             PanelGame.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             groupBox18.SuspendLayout();
@@ -1068,8 +1068,8 @@ namespace AppTestStudio
             // 
             // splitContainerWorkspace.Panel2
             // 
-            splitContainerWorkspace.Panel2.Controls.Add(PanelColorEvent);
             splitContainerWorkspace.Panel2.Controls.Add(PanelThread);
+            splitContainerWorkspace.Panel2.Controls.Add(PanelColorEvent);
             splitContainerWorkspace.Panel2.Controls.Add(PanelGame);
             splitContainerWorkspace.Panel2.Controls.Add(PanelWorkspace);
             splitContainerWorkspace.Panel2.Controls.Add(PanelObject);
@@ -1759,6 +1759,875 @@ namespace AppTestStudio
             tabSchedule.TabIndex = 2;
             tabSchedule.Text = "Schedule";
             tabSchedule.UseVisualStyleBackColor = true;
+            // 
+            // PanelThread
+            // 
+            PanelThread.Controls.Add(splitContainerThreadMain);
+            PanelThread.Location = new Point(6, 178);
+            PanelThread.Margin = new Padding(4, 3, 4, 3);
+            PanelThread.Name = "PanelThread";
+            PanelThread.Size = new Size(1664, 759);
+            PanelThread.TabIndex = 0;
+            // 
+            // splitContainerThreadMain
+            // 
+            splitContainerThreadMain.Dock = DockStyle.Fill;
+            splitContainerThreadMain.FixedPanel = FixedPanel.Panel2;
+            splitContainerThreadMain.Location = new Point(0, 0);
+            splitContainerThreadMain.Margin = new Padding(2);
+            splitContainerThreadMain.Name = "splitContainerThreadMain";
+            // 
+            // splitContainerThreadMain.Panel1
+            // 
+            splitContainerThreadMain.Panel1.Controls.Add(pbPreview);
+            splitContainerThreadMain.Panel1.Controls.Add(splitContainerThread);
+            // 
+            // splitContainerThreadMain.Panel2
+            // 
+            splitContainerThreadMain.Panel2.Controls.Add(lstGamePass);
+            splitContainerThreadMain.Panel2MinSize = 120;
+            splitContainerThreadMain.Size = new Size(1664, 759);
+            splitContainerThreadMain.SplitterDistance = 1435;
+            splitContainerThreadMain.SplitterWidth = 3;
+            splitContainerThreadMain.TabIndex = 1;
+            // 
+            // pbPreview
+            // 
+            pbPreview.Location = new Point(22, 298);
+            pbPreview.Name = "pbPreview";
+            pbPreview.Size = new Size(300, 300);
+            pbPreview.SizeMode = PictureBoxSizeMode.StretchImage;
+            pbPreview.TabIndex = 1;
+            pbPreview.TabStop = false;
+            pbPreview.Visible = false;
+            // 
+            // splitContainerThread
+            // 
+            splitContainerThread.Dock = DockStyle.Fill;
+            splitContainerThread.FixedPanel = FixedPanel.Panel1;
+            splitContainerThread.Location = new Point(0, 0);
+            splitContainerThread.Margin = new Padding(4, 3, 4, 3);
+            splitContainerThread.Name = "splitContainerThread";
+            splitContainerThread.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainerThread.Panel1
+            // 
+            splitContainerThread.Panel1.Controls.Add(splitContainerStatsNScrollie);
+            // 
+            // splitContainerThread.Panel2
+            // 
+            splitContainerThread.Panel2.Controls.Add(appTestStudioStatusControl1);
+            splitContainerThread.Size = new Size(1435, 759);
+            splitContainerThread.SplitterDistance = 198;
+            splitContainerThread.SplitterWidth = 5;
+            splitContainerThread.TabIndex = 1;
+            // 
+            // splitContainerStatsNScrollie
+            // 
+            splitContainerStatsNScrollie.Dock = DockStyle.Fill;
+            splitContainerStatsNScrollie.FixedPanel = FixedPanel.Panel2;
+            splitContainerStatsNScrollie.IsSplitterFixed = true;
+            splitContainerStatsNScrollie.Location = new Point(0, 0);
+            splitContainerStatsNScrollie.Margin = new Padding(4, 3, 4, 3);
+            splitContainerStatsNScrollie.Name = "splitContainerStatsNScrollie";
+            splitContainerStatsNScrollie.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainerStatsNScrollie.Panel1
+            // 
+            splitContainerStatsNScrollie.Panel1.Controls.Add(tableLayoutStats);
+            // 
+            // splitContainerStatsNScrollie.Panel2
+            // 
+            splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
+            splitContainerStatsNScrollie.Size = new Size(1435, 198);
+            splitContainerStatsNScrollie.SplitterDistance = 159;
+            splitContainerStatsNScrollie.SplitterWidth = 5;
+            splitContainerStatsNScrollie.TabIndex = 2;
+            // 
+            // tableLayoutStats
+            // 
+            tableLayoutStats.AutoSize = true;
+            tableLayoutStats.ColumnCount = 6;
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.9876633F));
+            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6187916F));
+            tableLayoutStats.Controls.Add(grpTopScriptCounters, 2, 0);
+            tableLayoutStats.Controls.Add(grpTopThreadCounter, 0, 0);
+            tableLayoutStats.Controls.Add(grpAPS, 5, 0);
+            tableLayoutStats.Controls.Add(groupTotal, 3, 0);
+            tableLayoutStats.Controls.Add(groupSession, 1, 0);
+            tableLayoutStats.Controls.Add(grpCPU, 4, 0);
+            tableLayoutStats.Dock = DockStyle.Fill;
+            tableLayoutStats.Location = new Point(0, 0);
+            tableLayoutStats.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutStats.Name = "tableLayoutStats";
+            tableLayoutStats.RowCount = 1;
+            tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
+            tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
+            tableLayoutStats.Size = new Size(1435, 159);
+            tableLayoutStats.TabIndex = 3;
+            // 
+            // grpTopScriptCounters
+            // 
+            grpTopScriptCounters.Controls.Add(tableLayoutPanel3);
+            grpTopScriptCounters.Dock = DockStyle.Fill;
+            grpTopScriptCounters.Location = new Point(480, 3);
+            grpTopScriptCounters.Margin = new Padding(4, 3, 4, 3);
+            grpTopScriptCounters.Name = "grpTopScriptCounters";
+            grpTopScriptCounters.Padding = new Padding(4, 3, 4, 3);
+            grpTopScriptCounters.Size = new Size(230, 153);
+            grpTopScriptCounters.TabIndex = 7;
+            grpTopScriptCounters.TabStop = false;
+            grpTopScriptCounters.Text = "Script";
+            // 
+            // tableLayoutPanel3
+            // 
+            tableLayoutPanel3.AutoSize = true;
+            tableLayoutPanel3.ColumnCount = 2;
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel3.Controls.Add(label102, 0, 0);
+            tableLayoutPanel3.Controls.Add(label104, 0, 5);
+            tableLayoutPanel3.Controls.Add(lblScriptWaiting, 1, 5);
+            tableLayoutPanel3.Controls.Add(label107, 0, 2);
+            tableLayoutPanel3.Controls.Add(lblScriptHome, 1, 2);
+            tableLayoutPanel3.Controls.Add(lblScriptScreenshots, 1, 0);
+            tableLayoutPanel3.Controls.Add(label112, 0, 3);
+            tableLayoutPanel3.Controls.Add(lblScriptContinue, 1, 3);
+            tableLayoutPanel3.Controls.Add(label114, 0, 1);
+            tableLayoutPanel3.Controls.Add(lblScriptChild, 1, 4);
+            tableLayoutPanel3.Controls.Add(lblScriptClickCount, 1, 1);
+            tableLayoutPanel3.Controls.Add(label117, 0, 4);
+            tableLayoutPanel3.Dock = DockStyle.Fill;
+            tableLayoutPanel3.Location = new Point(4, 19);
+            tableLayoutPanel3.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanel3.Name = "tableLayoutPanel3";
+            tableLayoutPanel3.RowCount = 6;
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanel3.Size = new Size(222, 131);
+            tableLayoutPanel3.TabIndex = 3;
+            // 
+            // label102
+            // 
+            label102.AutoSize = true;
+            label102.Location = new Point(4, 0);
+            label102.Margin = new Padding(4, 0, 4, 0);
+            label102.Name = "label102";
+            label102.Size = new Size(73, 15);
+            label102.TabIndex = 0;
+            label102.Text = "Screenshots:";
+            // 
+            // label104
+            // 
+            label104.AutoSize = true;
+            label104.Location = new Point(4, 110);
+            label104.Margin = new Padding(4, 0, 4, 0);
+            label104.Name = "label104";
+            label104.Size = new Size(51, 15);
+            label104.TabIndex = 2;
+            label104.Text = "Waiting:";
+            // 
+            // lblScriptWaiting
+            // 
+            lblScriptWaiting.AutoSize = true;
+            lblScriptWaiting.Location = new Point(92, 110);
+            lblScriptWaiting.Margin = new Padding(4, 0, 4, 0);
+            lblScriptWaiting.Name = "lblScriptWaiting";
+            lblScriptWaiting.Size = new Size(91, 15);
+            lblScriptWaiting.TabIndex = 2;
+            lblScriptWaiting.Text = "lblScriptWaiting";
+            // 
+            // label107
+            // 
+            label107.AutoSize = true;
+            label107.Location = new Point(4, 44);
+            label107.Margin = new Padding(4, 0, 4, 0);
+            label107.Name = "label107";
+            label107.Size = new Size(43, 15);
+            label107.TabIndex = 2;
+            label107.Text = "Home:";
+            // 
+            // lblScriptHome
+            // 
+            lblScriptHome.AutoSize = true;
+            lblScriptHome.Location = new Point(92, 44);
+            lblScriptHome.Margin = new Padding(4, 0, 4, 0);
+            lblScriptHome.Name = "lblScriptHome";
+            lblScriptHome.Size = new Size(83, 15);
+            lblScriptHome.TabIndex = 2;
+            lblScriptHome.Text = "lblScriptHome";
+            // 
+            // lblScriptScreenshots
+            // 
+            lblScriptScreenshots.AutoSize = true;
+            lblScriptScreenshots.Location = new Point(92, 0);
+            lblScriptScreenshots.Margin = new Padding(4, 0, 4, 0);
+            lblScriptScreenshots.Name = "lblScriptScreenshots";
+            lblScriptScreenshots.Size = new Size(113, 15);
+            lblScriptScreenshots.TabIndex = 0;
+            lblScriptScreenshots.Text = "lblScriptScreenshots";
+            // 
+            // label112
+            // 
+            label112.AutoSize = true;
+            label112.Location = new Point(4, 66);
+            label112.Margin = new Padding(4, 0, 4, 0);
+            label112.Name = "label112";
+            label112.Size = new Size(59, 15);
+            label112.TabIndex = 0;
+            label112.Text = "Continue:";
+            // 
+            // lblScriptContinue
+            // 
+            lblScriptContinue.AutoSize = true;
+            lblScriptContinue.Location = new Point(92, 66);
+            lblScriptContinue.Margin = new Padding(4, 0, 4, 0);
+            lblScriptContinue.Name = "lblScriptContinue";
+            lblScriptContinue.Size = new Size(99, 15);
+            lblScriptContinue.TabIndex = 0;
+            lblScriptContinue.Text = "lblScriptContinue";
+            // 
+            // label114
+            // 
+            label114.AutoSize = true;
+            label114.Location = new Point(4, 22);
+            label114.Margin = new Padding(4, 0, 4, 0);
+            label114.Name = "label114";
+            label114.Size = new Size(41, 15);
+            label114.TabIndex = 1;
+            label114.Text = "Clicks:";
+            // 
+            // lblScriptChild
+            // 
+            lblScriptChild.AutoSize = true;
+            lblScriptChild.Location = new Point(92, 88);
+            lblScriptChild.Margin = new Padding(4, 0, 4, 0);
+            lblScriptChild.Name = "lblScriptChild";
+            lblScriptChild.Size = new Size(78, 15);
+            lblScriptChild.TabIndex = 1;
+            lblScriptChild.Text = "lblScriptChild";
+            // 
+            // lblScriptClickCount
+            // 
+            lblScriptClickCount.AutoSize = true;
+            lblScriptClickCount.Location = new Point(92, 22);
+            lblScriptClickCount.Margin = new Padding(4, 0, 4, 0);
+            lblScriptClickCount.Name = "lblScriptClickCount";
+            lblScriptClickCount.Size = new Size(109, 15);
+            lblScriptClickCount.TabIndex = 1;
+            lblScriptClickCount.Text = "lblScriptClickCount";
+            // 
+            // label117
+            // 
+            label117.AutoSize = true;
+            label117.Location = new Point(4, 88);
+            label117.Margin = new Padding(4, 0, 4, 0);
+            label117.Name = "label117";
+            label117.Size = new Size(38, 15);
+            label117.TabIndex = 1;
+            label117.Text = "Child:";
+            // 
+            // grpTopThreadCounter
+            // 
+            grpTopThreadCounter.Controls.Add(tableLayoutPanel2);
+            grpTopThreadCounter.Dock = DockStyle.Fill;
+            grpTopThreadCounter.Location = new Point(4, 3);
+            grpTopThreadCounter.Margin = new Padding(4, 3, 4, 3);
+            grpTopThreadCounter.Name = "grpTopThreadCounter";
+            grpTopThreadCounter.Padding = new Padding(4, 3, 4, 3);
+            grpTopThreadCounter.Size = new Size(230, 153);
+            grpTopThreadCounter.TabIndex = 6;
+            grpTopThreadCounter.TabStop = false;
+            grpTopThreadCounter.Text = "Thread";
+            // 
+            // tableLayoutPanel2
+            // 
+            tableLayoutPanel2.AutoSize = true;
+            tableLayoutPanel2.ColumnCount = 2;
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel2.Controls.Add(label100, 0, 0);
+            tableLayoutPanel2.Controls.Add(label101, 0, 5);
+            tableLayoutPanel2.Controls.Add(lblThreadWaiting, 1, 5);
+            tableLayoutPanel2.Controls.Add(label103, 0, 2);
+            tableLayoutPanel2.Controls.Add(lblThreadHome, 1, 2);
+            tableLayoutPanel2.Controls.Add(lblThreadScreenshots, 1, 0);
+            tableLayoutPanel2.Controls.Add(label106, 0, 3);
+            tableLayoutPanel2.Controls.Add(lblThreadContinue, 1, 3);
+            tableLayoutPanel2.Controls.Add(label108, 0, 1);
+            tableLayoutPanel2.Controls.Add(lblThreadChild, 1, 4);
+            tableLayoutPanel2.Controls.Add(lblThreadClickCount, 1, 1);
+            tableLayoutPanel2.Controls.Add(label111, 0, 4);
+            tableLayoutPanel2.Dock = DockStyle.Fill;
+            tableLayoutPanel2.Location = new Point(4, 19);
+            tableLayoutPanel2.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanel2.Name = "tableLayoutPanel2";
+            tableLayoutPanel2.RowCount = 6;
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanel2.Size = new Size(222, 131);
+            tableLayoutPanel2.TabIndex = 3;
+            // 
+            // label100
+            // 
+            label100.AutoSize = true;
+            label100.Location = new Point(4, 0);
+            label100.Margin = new Padding(4, 0, 4, 0);
+            label100.Name = "label100";
+            label100.Size = new Size(73, 15);
+            label100.TabIndex = 0;
+            label100.Text = "Screenshots:";
+            // 
+            // label101
+            // 
+            label101.AutoSize = true;
+            label101.Location = new Point(4, 110);
+            label101.Margin = new Padding(4, 0, 4, 0);
+            label101.Name = "label101";
+            label101.Size = new Size(51, 15);
+            label101.TabIndex = 2;
+            label101.Text = "Waiting:";
+            // 
+            // lblThreadWaiting
+            // 
+            lblThreadWaiting.AutoSize = true;
+            lblThreadWaiting.Location = new Point(92, 110);
+            lblThreadWaiting.Margin = new Padding(4, 0, 4, 0);
+            lblThreadWaiting.Name = "lblThreadWaiting";
+            lblThreadWaiting.Size = new Size(98, 15);
+            lblThreadWaiting.TabIndex = 2;
+            lblThreadWaiting.Text = "lblThreadWaiting";
+            // 
+            // label103
+            // 
+            label103.AutoSize = true;
+            label103.Location = new Point(4, 44);
+            label103.Margin = new Padding(4, 0, 4, 0);
+            label103.Name = "label103";
+            label103.Size = new Size(43, 15);
+            label103.TabIndex = 2;
+            label103.Text = "Home:";
+            // 
+            // lblThreadHome
+            // 
+            lblThreadHome.AutoSize = true;
+            lblThreadHome.Location = new Point(92, 44);
+            lblThreadHome.Margin = new Padding(4, 0, 4, 0);
+            lblThreadHome.Name = "lblThreadHome";
+            lblThreadHome.Size = new Size(90, 15);
+            lblThreadHome.TabIndex = 2;
+            lblThreadHome.Text = "lblThreadHome";
+            // 
+            // lblThreadScreenshots
+            // 
+            lblThreadScreenshots.AutoSize = true;
+            lblThreadScreenshots.Location = new Point(92, 0);
+            lblThreadScreenshots.Margin = new Padding(4, 0, 4, 0);
+            lblThreadScreenshots.Name = "lblThreadScreenshots";
+            lblThreadScreenshots.Size = new Size(120, 15);
+            lblThreadScreenshots.TabIndex = 0;
+            lblThreadScreenshots.Text = "lblThreadScreenshots";
+            // 
+            // label106
+            // 
+            label106.AutoSize = true;
+            label106.Location = new Point(4, 66);
+            label106.Margin = new Padding(4, 0, 4, 0);
+            label106.Name = "label106";
+            label106.Size = new Size(59, 15);
+            label106.TabIndex = 0;
+            label106.Text = "Continue:";
+            // 
+            // lblThreadContinue
+            // 
+            lblThreadContinue.AutoSize = true;
+            lblThreadContinue.Location = new Point(92, 66);
+            lblThreadContinue.Margin = new Padding(4, 0, 4, 0);
+            lblThreadContinue.Name = "lblThreadContinue";
+            lblThreadContinue.Size = new Size(106, 15);
+            lblThreadContinue.TabIndex = 0;
+            lblThreadContinue.Text = "lblThreadContinue";
+            // 
+            // label108
+            // 
+            label108.AutoSize = true;
+            label108.Location = new Point(4, 22);
+            label108.Margin = new Padding(4, 0, 4, 0);
+            label108.Name = "label108";
+            label108.Size = new Size(41, 15);
+            label108.TabIndex = 1;
+            label108.Text = "Clicks:";
+            // 
+            // lblThreadChild
+            // 
+            lblThreadChild.AutoSize = true;
+            lblThreadChild.Location = new Point(92, 88);
+            lblThreadChild.Margin = new Padding(4, 0, 4, 0);
+            lblThreadChild.Name = "lblThreadChild";
+            lblThreadChild.Size = new Size(85, 15);
+            lblThreadChild.TabIndex = 1;
+            lblThreadChild.Text = "lblThreadChild";
+            // 
+            // lblThreadClickCount
+            // 
+            lblThreadClickCount.AutoSize = true;
+            lblThreadClickCount.Location = new Point(92, 22);
+            lblThreadClickCount.Margin = new Padding(4, 0, 4, 0);
+            lblThreadClickCount.Name = "lblThreadClickCount";
+            lblThreadClickCount.Size = new Size(116, 15);
+            lblThreadClickCount.TabIndex = 1;
+            lblThreadClickCount.Text = "lblThreadClickCount";
+            // 
+            // label111
+            // 
+            label111.AutoSize = true;
+            label111.Location = new Point(4, 88);
+            label111.Margin = new Padding(4, 0, 4, 0);
+            label111.Name = "label111";
+            label111.Size = new Size(38, 15);
+            label111.TabIndex = 1;
+            label111.Text = "Child:";
+            // 
+            // grpAPS
+            // 
+            grpAPS.Controls.Add(atsGraphActions1);
+            grpAPS.Dock = DockStyle.Fill;
+            grpAPS.Location = new Point(1199, 3);
+            grpAPS.Margin = new Padding(4, 3, 4, 3);
+            grpAPS.Name = "grpAPS";
+            grpAPS.Padding = new Padding(4, 3, 4, 3);
+            grpAPS.Size = new Size(232, 153);
+            grpAPS.TabIndex = 5;
+            grpAPS.TabStop = false;
+            grpAPS.Text = "Clicks Per Second";
+            // 
+            // atsGraphActions1
+            // 
+            atsGraphActions1.Dock = DockStyle.Fill;
+            atsGraphActions1.Location = new Point(4, 19);
+            atsGraphActions1.Margin = new Padding(4, 3, 4, 3);
+            atsGraphActions1.Name = "atsGraphActions1";
+            atsGraphActions1.Size = new Size(224, 131);
+            atsGraphActions1.TabIndex = 0;
+            // 
+            // groupTotal
+            // 
+            groupTotal.Controls.Add(tableLayoutPanel1);
+            groupTotal.Dock = DockStyle.Fill;
+            groupTotal.Location = new Point(718, 3);
+            groupTotal.Margin = new Padding(4, 3, 4, 3);
+            groupTotal.Name = "groupTotal";
+            groupTotal.Padding = new Padding(4, 3, 4, 3);
+            groupTotal.Size = new Size(230, 153);
+            groupTotal.TabIndex = 2;
+            groupTotal.TabStop = false;
+            groupTotal.Text = "Total";
+            // 
+            // tableLayoutPanel1
+            // 
+            tableLayoutPanel1.AutoSize = true;
+            tableLayoutPanel1.ColumnCount = 2;
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanel1.Controls.Add(label13, 0, 0);
+            tableLayoutPanel1.Controls.Add(lblHomeTotal, 1, 2);
+            tableLayoutPanel1.Controls.Add(label15, 0, 1);
+            tableLayoutPanel1.Controls.Add(lblChildTotal, 1, 4);
+            tableLayoutPanel1.Controls.Add(lblContinueTotal, 1, 3);
+            tableLayoutPanel1.Controls.Add(label21, 0, 2);
+            tableLayoutPanel1.Controls.Add(label20, 0, 5);
+            tableLayoutPanel1.Controls.Add(lblWaitingTotal, 1, 5);
+            tableLayoutPanel1.Controls.Add(lblScreenshotsTotal, 1, 0);
+            tableLayoutPanel1.Controls.Add(label19, 0, 4);
+            tableLayoutPanel1.Controls.Add(lblClickCountTotal, 1, 1);
+            tableLayoutPanel1.Controls.Add(label14, 0, 3);
+            tableLayoutPanel1.Dock = DockStyle.Fill;
+            tableLayoutPanel1.Location = new Point(4, 19);
+            tableLayoutPanel1.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanel1.Name = "tableLayoutPanel1";
+            tableLayoutPanel1.RowCount = 6;
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanel1.Size = new Size(222, 131);
+            tableLayoutPanel1.TabIndex = 4;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(4, 0);
+            label13.Margin = new Padding(4, 0, 4, 0);
+            label13.Name = "label13";
+            label13.Size = new Size(73, 15);
+            label13.TabIndex = 0;
+            label13.Text = "Screenshots:";
+            // 
+            // lblHomeTotal
+            // 
+            lblHomeTotal.AutoSize = true;
+            lblHomeTotal.Location = new Point(92, 44);
+            lblHomeTotal.Margin = new Padding(4, 0, 4, 0);
+            lblHomeTotal.Name = "lblHomeTotal";
+            lblHomeTotal.Size = new Size(79, 15);
+            lblHomeTotal.TabIndex = 2;
+            lblHomeTotal.Text = "lblHomeTotal";
+            // 
+            // label15
+            // 
+            label15.AutoSize = true;
+            label15.Location = new Point(4, 22);
+            label15.Margin = new Padding(4, 0, 4, 0);
+            label15.Name = "label15";
+            label15.Size = new Size(41, 15);
+            label15.TabIndex = 1;
+            label15.Text = "Clicks:";
+            // 
+            // lblChildTotal
+            // 
+            lblChildTotal.AutoSize = true;
+            lblChildTotal.Location = new Point(92, 88);
+            lblChildTotal.Margin = new Padding(4, 0, 4, 0);
+            lblChildTotal.Name = "lblChildTotal";
+            lblChildTotal.Size = new Size(74, 15);
+            lblChildTotal.TabIndex = 1;
+            lblChildTotal.Text = "lblChildTotal";
+            // 
+            // lblContinueTotal
+            // 
+            lblContinueTotal.AutoSize = true;
+            lblContinueTotal.Location = new Point(92, 66);
+            lblContinueTotal.Margin = new Padding(4, 0, 4, 0);
+            lblContinueTotal.Name = "lblContinueTotal";
+            lblContinueTotal.Size = new Size(95, 15);
+            lblContinueTotal.TabIndex = 0;
+            lblContinueTotal.Text = "lblContinueTotal";
+            // 
+            // label21
+            // 
+            label21.AutoSize = true;
+            label21.Location = new Point(4, 44);
+            label21.Margin = new Padding(4, 0, 4, 0);
+            label21.Name = "label21";
+            label21.Size = new Size(43, 15);
+            label21.TabIndex = 2;
+            label21.Text = "Home:";
+            // 
+            // label20
+            // 
+            label20.AutoSize = true;
+            label20.Location = new Point(4, 110);
+            label20.Margin = new Padding(4, 0, 4, 0);
+            label20.Name = "label20";
+            label20.Size = new Size(51, 15);
+            label20.TabIndex = 2;
+            label20.Text = "Waiting:";
+            // 
+            // lblWaitingTotal
+            // 
+            lblWaitingTotal.AutoSize = true;
+            lblWaitingTotal.Location = new Point(92, 110);
+            lblWaitingTotal.Margin = new Padding(4, 0, 4, 0);
+            lblWaitingTotal.Name = "lblWaitingTotal";
+            lblWaitingTotal.Size = new Size(87, 15);
+            lblWaitingTotal.TabIndex = 2;
+            lblWaitingTotal.Text = "lblWaitingTotal";
+            // 
+            // lblScreenshotsTotal
+            // 
+            lblScreenshotsTotal.AutoSize = true;
+            lblScreenshotsTotal.Location = new Point(92, 0);
+            lblScreenshotsTotal.Margin = new Padding(4, 0, 4, 0);
+            lblScreenshotsTotal.Name = "lblScreenshotsTotal";
+            lblScreenshotsTotal.Size = new Size(109, 15);
+            lblScreenshotsTotal.TabIndex = 0;
+            lblScreenshotsTotal.Text = "lblScreenshotsTotal";
+            // 
+            // label19
+            // 
+            label19.AutoSize = true;
+            label19.Location = new Point(4, 88);
+            label19.Margin = new Padding(4, 0, 4, 0);
+            label19.Name = "label19";
+            label19.Size = new Size(38, 15);
+            label19.TabIndex = 1;
+            label19.Text = "Child:";
+            // 
+            // lblClickCountTotal
+            // 
+            lblClickCountTotal.AutoSize = true;
+            lblClickCountTotal.Location = new Point(92, 22);
+            lblClickCountTotal.Margin = new Padding(4, 0, 4, 0);
+            lblClickCountTotal.Name = "lblClickCountTotal";
+            lblClickCountTotal.Size = new Size(105, 15);
+            lblClickCountTotal.TabIndex = 1;
+            lblClickCountTotal.Text = "lblClickCountTotal";
+            // 
+            // label14
+            // 
+            label14.AutoSize = true;
+            label14.Location = new Point(4, 66);
+            label14.Margin = new Padding(4, 0, 4, 0);
+            label14.Name = "label14";
+            label14.Size = new Size(59, 15);
+            label14.TabIndex = 0;
+            label14.Text = "Continue:";
+            // 
+            // groupSession
+            // 
+            groupSession.Controls.Add(tableLayoutPanelSession);
+            groupSession.Dock = DockStyle.Fill;
+            groupSession.Location = new Point(242, 3);
+            groupSession.Margin = new Padding(4, 3, 4, 3);
+            groupSession.Name = "groupSession";
+            groupSession.Padding = new Padding(4, 3, 4, 3);
+            groupSession.Size = new Size(230, 153);
+            groupSession.TabIndex = 1;
+            groupSession.TabStop = false;
+            groupSession.Text = "Session";
+            // 
+            // tableLayoutPanelSession
+            // 
+            tableLayoutPanelSession.AutoSize = true;
+            tableLayoutPanelSession.ColumnCount = 2;
+            tableLayoutPanelSession.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
+            tableLayoutPanelSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
+            tableLayoutPanelSession.Controls.Add(label1, 0, 0);
+            tableLayoutPanelSession.Controls.Add(label3, 0, 5);
+            tableLayoutPanelSession.Controls.Add(lblWaiting, 1, 5);
+            tableLayoutPanelSession.Controls.Add(label9, 0, 2);
+            tableLayoutPanelSession.Controls.Add(lblHome, 1, 2);
+            tableLayoutPanelSession.Controls.Add(lblScreenshots, 1, 0);
+            tableLayoutPanelSession.Controls.Add(label7, 0, 3);
+            tableLayoutPanelSession.Controls.Add(lblContinue, 1, 3);
+            tableLayoutPanelSession.Controls.Add(label2, 0, 1);
+            tableLayoutPanelSession.Controls.Add(lblChild, 1, 4);
+            tableLayoutPanelSession.Controls.Add(lblClickCount, 1, 1);
+            tableLayoutPanelSession.Controls.Add(label8, 0, 4);
+            tableLayoutPanelSession.Dock = DockStyle.Fill;
+            tableLayoutPanelSession.Location = new Point(4, 19);
+            tableLayoutPanelSession.Margin = new Padding(4, 3, 4, 3);
+            tableLayoutPanelSession.Name = "tableLayoutPanelSession";
+            tableLayoutPanelSession.RowCount = 6;
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
+            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
+            tableLayoutPanelSession.Size = new Size(222, 131);
+            tableLayoutPanelSession.TabIndex = 3;
+            // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(4, 0);
+            label1.Margin = new Padding(4, 0, 4, 0);
+            label1.Name = "label1";
+            label1.Size = new Size(73, 15);
+            label1.TabIndex = 0;
+            label1.Text = "Screenshots:";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(4, 110);
+            label3.Margin = new Padding(4, 0, 4, 0);
+            label3.Name = "label3";
+            label3.Size = new Size(51, 15);
+            label3.TabIndex = 2;
+            label3.Text = "Waiting:";
+            // 
+            // lblWaiting
+            // 
+            lblWaiting.AutoSize = true;
+            lblWaiting.Location = new Point(92, 110);
+            lblWaiting.Margin = new Padding(4, 0, 4, 0);
+            lblWaiting.Name = "lblWaiting";
+            lblWaiting.Size = new Size(61, 15);
+            lblWaiting.TabIndex = 2;
+            lblWaiting.Text = "lblWaiting";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Location = new Point(4, 44);
+            label9.Margin = new Padding(4, 0, 4, 0);
+            label9.Name = "label9";
+            label9.Size = new Size(43, 15);
+            label9.TabIndex = 2;
+            label9.Text = "Home:";
+            // 
+            // lblHome
+            // 
+            lblHome.AutoSize = true;
+            lblHome.Location = new Point(92, 44);
+            lblHome.Margin = new Padding(4, 0, 4, 0);
+            lblHome.Name = "lblHome";
+            lblHome.Size = new Size(53, 15);
+            lblHome.TabIndex = 2;
+            lblHome.Text = "lblHome";
+            // 
+            // lblScreenshots
+            // 
+            lblScreenshots.AutoSize = true;
+            lblScreenshots.Location = new Point(92, 0);
+            lblScreenshots.Margin = new Padding(4, 0, 4, 0);
+            lblScreenshots.Name = "lblScreenshots";
+            lblScreenshots.Size = new Size(83, 15);
+            lblScreenshots.TabIndex = 0;
+            lblScreenshots.Text = "lblScreenshots";
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(4, 66);
+            label7.Margin = new Padding(4, 0, 4, 0);
+            label7.Name = "label7";
+            label7.Size = new Size(59, 15);
+            label7.TabIndex = 0;
+            label7.Text = "Continue:";
+            // 
+            // lblContinue
+            // 
+            lblContinue.AutoSize = true;
+            lblContinue.Location = new Point(92, 66);
+            lblContinue.Margin = new Padding(4, 0, 4, 0);
+            lblContinue.Name = "lblContinue";
+            lblContinue.Size = new Size(69, 15);
+            lblContinue.TabIndex = 0;
+            lblContinue.Text = "lblContinue";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(4, 22);
+            label2.Margin = new Padding(4, 0, 4, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(41, 15);
+            label2.TabIndex = 1;
+            label2.Text = "Clicks:";
+            // 
+            // lblChild
+            // 
+            lblChild.AutoSize = true;
+            lblChild.Location = new Point(92, 88);
+            lblChild.Margin = new Padding(4, 0, 4, 0);
+            lblChild.Name = "lblChild";
+            lblChild.Size = new Size(48, 15);
+            lblChild.TabIndex = 1;
+            lblChild.Text = "lblChild";
+            // 
+            // lblClickCount
+            // 
+            lblClickCount.AutoSize = true;
+            lblClickCount.Location = new Point(92, 22);
+            lblClickCount.Margin = new Padding(4, 0, 4, 0);
+            lblClickCount.Name = "lblClickCount";
+            lblClickCount.Size = new Size(79, 15);
+            lblClickCount.TabIndex = 1;
+            lblClickCount.Text = "lblClickCount";
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(4, 88);
+            label8.Margin = new Padding(4, 0, 4, 0);
+            label8.Name = "label8";
+            label8.Size = new Size(38, 15);
+            label8.TabIndex = 1;
+            label8.Text = "Child:";
+            // 
+            // grpCPU
+            // 
+            grpCPU.Controls.Add(atsGraph1);
+            grpCPU.Dock = DockStyle.Fill;
+            grpCPU.Location = new Point(956, 3);
+            grpCPU.Margin = new Padding(4, 3, 4, 3);
+            grpCPU.Name = "grpCPU";
+            grpCPU.Padding = new Padding(4, 3, 4, 3);
+            grpCPU.Size = new Size(235, 153);
+            grpCPU.TabIndex = 3;
+            grpCPU.TabStop = false;
+            grpCPU.Text = "CPU";
+            // 
+            // atsGraph1
+            // 
+            atsGraph1.Dock = DockStyle.Fill;
+            atsGraph1.Location = new Point(4, 19);
+            atsGraph1.Margin = new Padding(4, 3, 4, 3);
+            atsGraph1.Name = "atsGraph1";
+            atsGraph1.Size = new Size(227, 131);
+            atsGraph1.TabIndex = 0;
+            // 
+            // splitContainerSeconds
+            // 
+            splitContainerSeconds.Dock = DockStyle.Bottom;
+            splitContainerSeconds.Location = new Point(0, 12);
+            splitContainerSeconds.Margin = new Padding(4, 3, 4, 3);
+            splitContainerSeconds.Name = "splitContainerSeconds";
+            // 
+            // splitContainerSeconds.Panel1
+            // 
+            splitContainerSeconds.Panel1.BackColor = SystemColors.ControlLight;
+            // 
+            // splitContainerSeconds.Panel2
+            // 
+            splitContainerSeconds.Panel2.BackColor = SystemColors.ControlDark;
+            splitContainerSeconds.Size = new Size(1435, 22);
+            splitContainerSeconds.SplitterDistance = 198;
+            splitContainerSeconds.SplitterWidth = 5;
+            splitContainerSeconds.TabIndex = 0;
+            splitContainerSeconds.SplitterMoving += (this.splitContainerSeconds_SplitterMoving);
+            // 
+            // appTestStudioStatusControl1
+            // 
+            appTestStudioStatusControl1.Dock = DockStyle.Fill;
+            appTestStudioStatusControl1.Items = (System.Collections.Generic.List<string>)resources.GetObject("appTestStudioStatusControl1.Items");
+            appTestStudioStatusControl1.Location = new Point(0, 0);
+            appTestStudioStatusControl1.Margin = new Padding(5, 6, 5, 6);
+            appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
+            appTestStudioStatusControl1.ShowPercent = (long)10L;
+            appTestStudioStatusControl1.Size = new Size(1435, 556);
+            appTestStudioStatusControl1.TabIndex = 0;
+            // 
+            // lstGamePass
+            // 
+            lstGamePass.Cursor = Cursors.Hand;
+            lstGamePass.Dock = DockStyle.Fill;
+            lstGamePass.FullRowSelect = true;
+            lstGamePass.Items.AddRange(new ListViewItem[] { listViewItem1 });
+            lstGamePass.Location = new Point(0, 0);
+            lstGamePass.Margin = new Padding(2);
+            lstGamePass.Name = "lstGamePass";
+            lstGamePass.Size = new Size(226, 759);
+            lstGamePass.SmallImageList = ImageList1;
+            lstGamePass.TabIndex = 0;
+            lstGamePass.UseCompatibleStateImageBehavior = false;
+            lstGamePass.SelectedIndexChanged += (this.lstGamePass_SelectedIndexChanged);
+            lstGamePass.MouseClick += (this.lstGamePass_MouseClick);
+            lstGamePass.MouseEnter += (this.lstGamePass_MouseEnter);
+            lstGamePass.MouseLeave += (this.lstGamePass_MouseLeave);
+            lstGamePass.MouseMove += (this.lstGamePass_MouseMove);
+            lstGamePass.Resize += (this.lstGamePass_Resize);
             // 
             // PanelColorEvent
             // 
@@ -5278,875 +6147,6 @@ namespace AppTestStudio
             cmdRightDragMode.UseVisualStyleBackColor = false;
             cmdRightDragMode.Click += (this.cmdRightDragMode_Click);
             // 
-            // PanelThread
-            // 
-            PanelThread.Controls.Add(splitContainerThreadMain);
-            PanelThread.Location = new Point(6, 178);
-            PanelThread.Margin = new Padding(4, 3, 4, 3);
-            PanelThread.Name = "PanelThread";
-            PanelThread.Size = new Size(1664, 759);
-            PanelThread.TabIndex = 0;
-            // 
-            // splitContainerThreadMain
-            // 
-            splitContainerThreadMain.Dock = DockStyle.Fill;
-            splitContainerThreadMain.FixedPanel = FixedPanel.Panel2;
-            splitContainerThreadMain.Location = new Point(0, 0);
-            splitContainerThreadMain.Margin = new Padding(2);
-            splitContainerThreadMain.Name = "splitContainerThreadMain";
-            // 
-            // splitContainerThreadMain.Panel1
-            // 
-            splitContainerThreadMain.Panel1.Controls.Add(pbPreview);
-            splitContainerThreadMain.Panel1.Controls.Add(splitContainerThread);
-            // 
-            // splitContainerThreadMain.Panel2
-            // 
-            splitContainerThreadMain.Panel2.Controls.Add(lstGamePass);
-            splitContainerThreadMain.Panel2MinSize = 120;
-            splitContainerThreadMain.Size = new Size(1664, 759);
-            splitContainerThreadMain.SplitterDistance = 1430;
-            splitContainerThreadMain.SplitterWidth = 3;
-            splitContainerThreadMain.TabIndex = 1;
-            // 
-            // pbPreview
-            // 
-            pbPreview.Location = new Point(22, 298);
-            pbPreview.Name = "pbPreview";
-            pbPreview.Size = new Size(300, 300);
-            pbPreview.SizeMode = PictureBoxSizeMode.StretchImage;
-            pbPreview.TabIndex = 1;
-            pbPreview.TabStop = false;
-            pbPreview.Visible = false;
-            // 
-            // splitContainerThread
-            // 
-            splitContainerThread.Dock = DockStyle.Fill;
-            splitContainerThread.FixedPanel = FixedPanel.Panel1;
-            splitContainerThread.Location = new Point(0, 0);
-            splitContainerThread.Margin = new Padding(4, 3, 4, 3);
-            splitContainerThread.Name = "splitContainerThread";
-            splitContainerThread.Orientation = Orientation.Horizontal;
-            // 
-            // splitContainerThread.Panel1
-            // 
-            splitContainerThread.Panel1.Controls.Add(splitContainerStatsNScrollie);
-            // 
-            // splitContainerThread.Panel2
-            // 
-            splitContainerThread.Panel2.Controls.Add(appTestStudioStatusControl1);
-            splitContainerThread.Size = new Size(1430, 759);
-            splitContainerThread.SplitterDistance = 198;
-            splitContainerThread.SplitterWidth = 5;
-            splitContainerThread.TabIndex = 1;
-            // 
-            // splitContainerStatsNScrollie
-            // 
-            splitContainerStatsNScrollie.Dock = DockStyle.Fill;
-            splitContainerStatsNScrollie.FixedPanel = FixedPanel.Panel2;
-            splitContainerStatsNScrollie.IsSplitterFixed = true;
-            splitContainerStatsNScrollie.Location = new Point(0, 0);
-            splitContainerStatsNScrollie.Margin = new Padding(4, 3, 4, 3);
-            splitContainerStatsNScrollie.Name = "splitContainerStatsNScrollie";
-            splitContainerStatsNScrollie.Orientation = Orientation.Horizontal;
-            // 
-            // splitContainerStatsNScrollie.Panel1
-            // 
-            splitContainerStatsNScrollie.Panel1.Controls.Add(tableLayoutStats);
-            // 
-            // splitContainerStatsNScrollie.Panel2
-            // 
-            splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
-            splitContainerStatsNScrollie.Size = new Size(1430, 198);
-            splitContainerStatsNScrollie.SplitterDistance = 134;
-            splitContainerStatsNScrollie.SplitterWidth = 5;
-            splitContainerStatsNScrollie.TabIndex = 2;
-            // 
-            // tableLayoutStats
-            // 
-            tableLayoutStats.AutoSize = true;
-            tableLayoutStats.ColumnCount = 6;
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.5983868F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.9876633F));
-            tableLayoutStats.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 16.6187916F));
-            tableLayoutStats.Controls.Add(grpTopScriptCounters, 2, 0);
-            tableLayoutStats.Controls.Add(grpTopThreadCounter, 0, 0);
-            tableLayoutStats.Controls.Add(grpAPS, 5, 0);
-            tableLayoutStats.Controls.Add(groupTotal, 3, 0);
-            tableLayoutStats.Controls.Add(groupSession, 1, 0);
-            tableLayoutStats.Controls.Add(grpCPU, 4, 0);
-            tableLayoutStats.Dock = DockStyle.Fill;
-            tableLayoutStats.Location = new Point(0, 0);
-            tableLayoutStats.Margin = new Padding(4, 3, 4, 3);
-            tableLayoutStats.Name = "tableLayoutStats";
-            tableLayoutStats.RowCount = 1;
-            tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
-            tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutStats.Size = new Size(1430, 134);
-            tableLayoutStats.TabIndex = 3;
-            // 
-            // grpTopScriptCounters
-            // 
-            grpTopScriptCounters.Controls.Add(tableLayoutPanel3);
-            grpTopScriptCounters.Dock = DockStyle.Fill;
-            grpTopScriptCounters.Location = new Point(478, 3);
-            grpTopScriptCounters.Margin = new Padding(4, 3, 4, 3);
-            grpTopScriptCounters.Name = "grpTopScriptCounters";
-            grpTopScriptCounters.Padding = new Padding(4, 3, 4, 3);
-            grpTopScriptCounters.Size = new Size(229, 128);
-            grpTopScriptCounters.TabIndex = 7;
-            grpTopScriptCounters.TabStop = false;
-            grpTopScriptCounters.Text = "Script";
-            // 
-            // tableLayoutPanel3
-            // 
-            tableLayoutPanel3.AutoSize = true;
-            tableLayoutPanel3.ColumnCount = 2;
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel3.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel3.Controls.Add(label102, 0, 0);
-            tableLayoutPanel3.Controls.Add(label104, 0, 5);
-            tableLayoutPanel3.Controls.Add(lblScriptWaiting, 1, 5);
-            tableLayoutPanel3.Controls.Add(label107, 0, 2);
-            tableLayoutPanel3.Controls.Add(lblScriptHome, 1, 2);
-            tableLayoutPanel3.Controls.Add(lblScriptScreenshots, 1, 0);
-            tableLayoutPanel3.Controls.Add(label112, 0, 3);
-            tableLayoutPanel3.Controls.Add(lblScriptContinue, 1, 3);
-            tableLayoutPanel3.Controls.Add(label114, 0, 1);
-            tableLayoutPanel3.Controls.Add(lblScriptChild, 1, 4);
-            tableLayoutPanel3.Controls.Add(lblScriptClickCount, 1, 1);
-            tableLayoutPanel3.Controls.Add(label117, 0, 4);
-            tableLayoutPanel3.Dock = DockStyle.Fill;
-            tableLayoutPanel3.Location = new Point(4, 19);
-            tableLayoutPanel3.Margin = new Padding(4, 3, 4, 3);
-            tableLayoutPanel3.Name = "tableLayoutPanel3";
-            tableLayoutPanel3.RowCount = 6;
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel3.Size = new Size(221, 106);
-            tableLayoutPanel3.TabIndex = 3;
-            // 
-            // label102
-            // 
-            label102.AutoSize = true;
-            label102.Location = new Point(4, 0);
-            label102.Margin = new Padding(4, 0, 4, 0);
-            label102.Name = "label102";
-            label102.Size = new Size(73, 15);
-            label102.TabIndex = 0;
-            label102.Text = "Screenshots:";
-            // 
-            // label104
-            // 
-            label104.AutoSize = true;
-            label104.Location = new Point(4, 110);
-            label104.Margin = new Padding(4, 0, 4, 0);
-            label104.Name = "label104";
-            label104.Size = new Size(51, 15);
-            label104.TabIndex = 2;
-            label104.Text = "Waiting:";
-            // 
-            // lblScriptWaiting
-            // 
-            lblScriptWaiting.AutoSize = true;
-            lblScriptWaiting.Location = new Point(92, 110);
-            lblScriptWaiting.Margin = new Padding(4, 0, 4, 0);
-            lblScriptWaiting.Name = "lblScriptWaiting";
-            lblScriptWaiting.Size = new Size(91, 15);
-            lblScriptWaiting.TabIndex = 2;
-            lblScriptWaiting.Text = "lblScriptWaiting";
-            // 
-            // label107
-            // 
-            label107.AutoSize = true;
-            label107.Location = new Point(4, 44);
-            label107.Margin = new Padding(4, 0, 4, 0);
-            label107.Name = "label107";
-            label107.Size = new Size(43, 15);
-            label107.TabIndex = 2;
-            label107.Text = "Home:";
-            // 
-            // lblScriptHome
-            // 
-            lblScriptHome.AutoSize = true;
-            lblScriptHome.Location = new Point(92, 44);
-            lblScriptHome.Margin = new Padding(4, 0, 4, 0);
-            lblScriptHome.Name = "lblScriptHome";
-            lblScriptHome.Size = new Size(83, 15);
-            lblScriptHome.TabIndex = 2;
-            lblScriptHome.Text = "lblScriptHome";
-            // 
-            // lblScriptScreenshots
-            // 
-            lblScriptScreenshots.AutoSize = true;
-            lblScriptScreenshots.Location = new Point(92, 0);
-            lblScriptScreenshots.Margin = new Padding(4, 0, 4, 0);
-            lblScriptScreenshots.Name = "lblScriptScreenshots";
-            lblScriptScreenshots.Size = new Size(113, 15);
-            lblScriptScreenshots.TabIndex = 0;
-            lblScriptScreenshots.Text = "lblScriptScreenshots";
-            // 
-            // label112
-            // 
-            label112.AutoSize = true;
-            label112.Location = new Point(4, 66);
-            label112.Margin = new Padding(4, 0, 4, 0);
-            label112.Name = "label112";
-            label112.Size = new Size(59, 15);
-            label112.TabIndex = 0;
-            label112.Text = "Continue:";
-            // 
-            // lblScriptContinue
-            // 
-            lblScriptContinue.AutoSize = true;
-            lblScriptContinue.Location = new Point(92, 66);
-            lblScriptContinue.Margin = new Padding(4, 0, 4, 0);
-            lblScriptContinue.Name = "lblScriptContinue";
-            lblScriptContinue.Size = new Size(99, 15);
-            lblScriptContinue.TabIndex = 0;
-            lblScriptContinue.Text = "lblScriptContinue";
-            // 
-            // label114
-            // 
-            label114.AutoSize = true;
-            label114.Location = new Point(4, 22);
-            label114.Margin = new Padding(4, 0, 4, 0);
-            label114.Name = "label114";
-            label114.Size = new Size(41, 15);
-            label114.TabIndex = 1;
-            label114.Text = "Clicks:";
-            // 
-            // lblScriptChild
-            // 
-            lblScriptChild.AutoSize = true;
-            lblScriptChild.Location = new Point(92, 88);
-            lblScriptChild.Margin = new Padding(4, 0, 4, 0);
-            lblScriptChild.Name = "lblScriptChild";
-            lblScriptChild.Size = new Size(78, 15);
-            lblScriptChild.TabIndex = 1;
-            lblScriptChild.Text = "lblScriptChild";
-            // 
-            // lblScriptClickCount
-            // 
-            lblScriptClickCount.AutoSize = true;
-            lblScriptClickCount.Location = new Point(92, 22);
-            lblScriptClickCount.Margin = new Padding(4, 0, 4, 0);
-            lblScriptClickCount.Name = "lblScriptClickCount";
-            lblScriptClickCount.Size = new Size(109, 15);
-            lblScriptClickCount.TabIndex = 1;
-            lblScriptClickCount.Text = "lblScriptClickCount";
-            // 
-            // label117
-            // 
-            label117.AutoSize = true;
-            label117.Location = new Point(4, 88);
-            label117.Margin = new Padding(4, 0, 4, 0);
-            label117.Name = "label117";
-            label117.Size = new Size(38, 15);
-            label117.TabIndex = 1;
-            label117.Text = "Child:";
-            // 
-            // grpTopThreadCounter
-            // 
-            grpTopThreadCounter.Controls.Add(tableLayoutPanel2);
-            grpTopThreadCounter.Dock = DockStyle.Fill;
-            grpTopThreadCounter.Location = new Point(4, 3);
-            grpTopThreadCounter.Margin = new Padding(4, 3, 4, 3);
-            grpTopThreadCounter.Name = "grpTopThreadCounter";
-            grpTopThreadCounter.Padding = new Padding(4, 3, 4, 3);
-            grpTopThreadCounter.Size = new Size(229, 128);
-            grpTopThreadCounter.TabIndex = 6;
-            grpTopThreadCounter.TabStop = false;
-            grpTopThreadCounter.Text = "Thread";
-            // 
-            // tableLayoutPanel2
-            // 
-            tableLayoutPanel2.AutoSize = true;
-            tableLayoutPanel2.ColumnCount = 2;
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel2.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel2.Controls.Add(label100, 0, 0);
-            tableLayoutPanel2.Controls.Add(label101, 0, 5);
-            tableLayoutPanel2.Controls.Add(lblThreadWaiting, 1, 5);
-            tableLayoutPanel2.Controls.Add(label103, 0, 2);
-            tableLayoutPanel2.Controls.Add(lblThreadHome, 1, 2);
-            tableLayoutPanel2.Controls.Add(lblThreadScreenshots, 1, 0);
-            tableLayoutPanel2.Controls.Add(label106, 0, 3);
-            tableLayoutPanel2.Controls.Add(lblThreadContinue, 1, 3);
-            tableLayoutPanel2.Controls.Add(label108, 0, 1);
-            tableLayoutPanel2.Controls.Add(lblThreadChild, 1, 4);
-            tableLayoutPanel2.Controls.Add(lblThreadClickCount, 1, 1);
-            tableLayoutPanel2.Controls.Add(label111, 0, 4);
-            tableLayoutPanel2.Dock = DockStyle.Fill;
-            tableLayoutPanel2.Location = new Point(4, 19);
-            tableLayoutPanel2.Margin = new Padding(4, 3, 4, 3);
-            tableLayoutPanel2.Name = "tableLayoutPanel2";
-            tableLayoutPanel2.RowCount = 6;
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel2.Size = new Size(221, 106);
-            tableLayoutPanel2.TabIndex = 3;
-            // 
-            // label100
-            // 
-            label100.AutoSize = true;
-            label100.Location = new Point(4, 0);
-            label100.Margin = new Padding(4, 0, 4, 0);
-            label100.Name = "label100";
-            label100.Size = new Size(73, 15);
-            label100.TabIndex = 0;
-            label100.Text = "Screenshots:";
-            // 
-            // label101
-            // 
-            label101.AutoSize = true;
-            label101.Location = new Point(4, 110);
-            label101.Margin = new Padding(4, 0, 4, 0);
-            label101.Name = "label101";
-            label101.Size = new Size(51, 15);
-            label101.TabIndex = 2;
-            label101.Text = "Waiting:";
-            // 
-            // lblThreadWaiting
-            // 
-            lblThreadWaiting.AutoSize = true;
-            lblThreadWaiting.Location = new Point(92, 110);
-            lblThreadWaiting.Margin = new Padding(4, 0, 4, 0);
-            lblThreadWaiting.Name = "lblThreadWaiting";
-            lblThreadWaiting.Size = new Size(98, 15);
-            lblThreadWaiting.TabIndex = 2;
-            lblThreadWaiting.Text = "lblThreadWaiting";
-            // 
-            // label103
-            // 
-            label103.AutoSize = true;
-            label103.Location = new Point(4, 44);
-            label103.Margin = new Padding(4, 0, 4, 0);
-            label103.Name = "label103";
-            label103.Size = new Size(43, 15);
-            label103.TabIndex = 2;
-            label103.Text = "Home:";
-            // 
-            // lblThreadHome
-            // 
-            lblThreadHome.AutoSize = true;
-            lblThreadHome.Location = new Point(92, 44);
-            lblThreadHome.Margin = new Padding(4, 0, 4, 0);
-            lblThreadHome.Name = "lblThreadHome";
-            lblThreadHome.Size = new Size(90, 15);
-            lblThreadHome.TabIndex = 2;
-            lblThreadHome.Text = "lblThreadHome";
-            // 
-            // lblThreadScreenshots
-            // 
-            lblThreadScreenshots.AutoSize = true;
-            lblThreadScreenshots.Location = new Point(92, 0);
-            lblThreadScreenshots.Margin = new Padding(4, 0, 4, 0);
-            lblThreadScreenshots.Name = "lblThreadScreenshots";
-            lblThreadScreenshots.Size = new Size(120, 15);
-            lblThreadScreenshots.TabIndex = 0;
-            lblThreadScreenshots.Text = "lblThreadScreenshots";
-            // 
-            // label106
-            // 
-            label106.AutoSize = true;
-            label106.Location = new Point(4, 66);
-            label106.Margin = new Padding(4, 0, 4, 0);
-            label106.Name = "label106";
-            label106.Size = new Size(59, 15);
-            label106.TabIndex = 0;
-            label106.Text = "Continue:";
-            // 
-            // lblThreadContinue
-            // 
-            lblThreadContinue.AutoSize = true;
-            lblThreadContinue.Location = new Point(92, 66);
-            lblThreadContinue.Margin = new Padding(4, 0, 4, 0);
-            lblThreadContinue.Name = "lblThreadContinue";
-            lblThreadContinue.Size = new Size(106, 15);
-            lblThreadContinue.TabIndex = 0;
-            lblThreadContinue.Text = "lblThreadContinue";
-            // 
-            // label108
-            // 
-            label108.AutoSize = true;
-            label108.Location = new Point(4, 22);
-            label108.Margin = new Padding(4, 0, 4, 0);
-            label108.Name = "label108";
-            label108.Size = new Size(41, 15);
-            label108.TabIndex = 1;
-            label108.Text = "Clicks:";
-            // 
-            // lblThreadChild
-            // 
-            lblThreadChild.AutoSize = true;
-            lblThreadChild.Location = new Point(92, 88);
-            lblThreadChild.Margin = new Padding(4, 0, 4, 0);
-            lblThreadChild.Name = "lblThreadChild";
-            lblThreadChild.Size = new Size(85, 15);
-            lblThreadChild.TabIndex = 1;
-            lblThreadChild.Text = "lblThreadChild";
-            // 
-            // lblThreadClickCount
-            // 
-            lblThreadClickCount.AutoSize = true;
-            lblThreadClickCount.Location = new Point(92, 22);
-            lblThreadClickCount.Margin = new Padding(4, 0, 4, 0);
-            lblThreadClickCount.Name = "lblThreadClickCount";
-            lblThreadClickCount.Size = new Size(116, 15);
-            lblThreadClickCount.TabIndex = 1;
-            lblThreadClickCount.Text = "lblThreadClickCount";
-            // 
-            // label111
-            // 
-            label111.AutoSize = true;
-            label111.Location = new Point(4, 88);
-            label111.Margin = new Padding(4, 0, 4, 0);
-            label111.Name = "label111";
-            label111.Size = new Size(38, 15);
-            label111.TabIndex = 1;
-            label111.Text = "Child:";
-            // 
-            // grpAPS
-            // 
-            grpAPS.Controls.Add(atsGraphActions1);
-            grpAPS.Dock = DockStyle.Fill;
-            grpAPS.Location = new Point(1194, 3);
-            grpAPS.Margin = new Padding(4, 3, 4, 3);
-            grpAPS.Name = "grpAPS";
-            grpAPS.Padding = new Padding(4, 3, 4, 3);
-            grpAPS.Size = new Size(232, 128);
-            grpAPS.TabIndex = 5;
-            grpAPS.TabStop = false;
-            grpAPS.Text = "Clicks Per Second";
-            // 
-            // atsGraphActions1
-            // 
-            atsGraphActions1.Dock = DockStyle.Fill;
-            atsGraphActions1.Location = new Point(4, 19);
-            atsGraphActions1.Margin = new Padding(4, 3, 4, 3);
-            atsGraphActions1.Name = "atsGraphActions1";
-            atsGraphActions1.Size = new Size(224, 106);
-            atsGraphActions1.TabIndex = 0;
-            // 
-            // groupTotal
-            // 
-            groupTotal.Controls.Add(tableLayoutPanel1);
-            groupTotal.Dock = DockStyle.Fill;
-            groupTotal.Location = new Point(715, 3);
-            groupTotal.Margin = new Padding(4, 3, 4, 3);
-            groupTotal.Name = "groupTotal";
-            groupTotal.Padding = new Padding(4, 3, 4, 3);
-            groupTotal.Size = new Size(229, 128);
-            groupTotal.TabIndex = 2;
-            groupTotal.TabStop = false;
-            groupTotal.Text = "Total";
-            // 
-            // tableLayoutPanel1
-            // 
-            tableLayoutPanel1.AutoSize = true;
-            tableLayoutPanel1.ColumnCount = 2;
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanel1.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanel1.Controls.Add(label13, 0, 0);
-            tableLayoutPanel1.Controls.Add(lblHomeTotal, 1, 2);
-            tableLayoutPanel1.Controls.Add(label15, 0, 1);
-            tableLayoutPanel1.Controls.Add(lblChildTotal, 1, 4);
-            tableLayoutPanel1.Controls.Add(lblContinueTotal, 1, 3);
-            tableLayoutPanel1.Controls.Add(label21, 0, 2);
-            tableLayoutPanel1.Controls.Add(label20, 0, 5);
-            tableLayoutPanel1.Controls.Add(lblWaitingTotal, 1, 5);
-            tableLayoutPanel1.Controls.Add(lblScreenshotsTotal, 1, 0);
-            tableLayoutPanel1.Controls.Add(label19, 0, 4);
-            tableLayoutPanel1.Controls.Add(lblClickCountTotal, 1, 1);
-            tableLayoutPanel1.Controls.Add(label14, 0, 3);
-            tableLayoutPanel1.Dock = DockStyle.Fill;
-            tableLayoutPanel1.Location = new Point(4, 19);
-            tableLayoutPanel1.Margin = new Padding(4, 3, 4, 3);
-            tableLayoutPanel1.Name = "tableLayoutPanel1";
-            tableLayoutPanel1.RowCount = 6;
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel1.Size = new Size(221, 106);
-            tableLayoutPanel1.TabIndex = 4;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(4, 0);
-            label13.Margin = new Padding(4, 0, 4, 0);
-            label13.Name = "label13";
-            label13.Size = new Size(73, 15);
-            label13.TabIndex = 0;
-            label13.Text = "Screenshots:";
-            // 
-            // lblHomeTotal
-            // 
-            lblHomeTotal.AutoSize = true;
-            lblHomeTotal.Location = new Point(92, 44);
-            lblHomeTotal.Margin = new Padding(4, 0, 4, 0);
-            lblHomeTotal.Name = "lblHomeTotal";
-            lblHomeTotal.Size = new Size(79, 15);
-            lblHomeTotal.TabIndex = 2;
-            lblHomeTotal.Text = "lblHomeTotal";
-            // 
-            // label15
-            // 
-            label15.AutoSize = true;
-            label15.Location = new Point(4, 22);
-            label15.Margin = new Padding(4, 0, 4, 0);
-            label15.Name = "label15";
-            label15.Size = new Size(41, 15);
-            label15.TabIndex = 1;
-            label15.Text = "Clicks:";
-            // 
-            // lblChildTotal
-            // 
-            lblChildTotal.AutoSize = true;
-            lblChildTotal.Location = new Point(92, 88);
-            lblChildTotal.Margin = new Padding(4, 0, 4, 0);
-            lblChildTotal.Name = "lblChildTotal";
-            lblChildTotal.Size = new Size(74, 15);
-            lblChildTotal.TabIndex = 1;
-            lblChildTotal.Text = "lblChildTotal";
-            // 
-            // lblContinueTotal
-            // 
-            lblContinueTotal.AutoSize = true;
-            lblContinueTotal.Location = new Point(92, 66);
-            lblContinueTotal.Margin = new Padding(4, 0, 4, 0);
-            lblContinueTotal.Name = "lblContinueTotal";
-            lblContinueTotal.Size = new Size(95, 15);
-            lblContinueTotal.TabIndex = 0;
-            lblContinueTotal.Text = "lblContinueTotal";
-            // 
-            // label21
-            // 
-            label21.AutoSize = true;
-            label21.Location = new Point(4, 44);
-            label21.Margin = new Padding(4, 0, 4, 0);
-            label21.Name = "label21";
-            label21.Size = new Size(43, 15);
-            label21.TabIndex = 2;
-            label21.Text = "Home:";
-            // 
-            // label20
-            // 
-            label20.AutoSize = true;
-            label20.Location = new Point(4, 110);
-            label20.Margin = new Padding(4, 0, 4, 0);
-            label20.Name = "label20";
-            label20.Size = new Size(51, 15);
-            label20.TabIndex = 2;
-            label20.Text = "Waiting:";
-            // 
-            // lblWaitingTotal
-            // 
-            lblWaitingTotal.AutoSize = true;
-            lblWaitingTotal.Location = new Point(92, 110);
-            lblWaitingTotal.Margin = new Padding(4, 0, 4, 0);
-            lblWaitingTotal.Name = "lblWaitingTotal";
-            lblWaitingTotal.Size = new Size(87, 15);
-            lblWaitingTotal.TabIndex = 2;
-            lblWaitingTotal.Text = "lblWaitingTotal";
-            // 
-            // lblScreenshotsTotal
-            // 
-            lblScreenshotsTotal.AutoSize = true;
-            lblScreenshotsTotal.Location = new Point(92, 0);
-            lblScreenshotsTotal.Margin = new Padding(4, 0, 4, 0);
-            lblScreenshotsTotal.Name = "lblScreenshotsTotal";
-            lblScreenshotsTotal.Size = new Size(109, 15);
-            lblScreenshotsTotal.TabIndex = 0;
-            lblScreenshotsTotal.Text = "lblScreenshotsTotal";
-            // 
-            // label19
-            // 
-            label19.AutoSize = true;
-            label19.Location = new Point(4, 88);
-            label19.Margin = new Padding(4, 0, 4, 0);
-            label19.Name = "label19";
-            label19.Size = new Size(38, 15);
-            label19.TabIndex = 1;
-            label19.Text = "Child:";
-            // 
-            // lblClickCountTotal
-            // 
-            lblClickCountTotal.AutoSize = true;
-            lblClickCountTotal.Location = new Point(92, 22);
-            lblClickCountTotal.Margin = new Padding(4, 0, 4, 0);
-            lblClickCountTotal.Name = "lblClickCountTotal";
-            lblClickCountTotal.Size = new Size(105, 15);
-            lblClickCountTotal.TabIndex = 1;
-            lblClickCountTotal.Text = "lblClickCountTotal";
-            // 
-            // label14
-            // 
-            label14.AutoSize = true;
-            label14.Location = new Point(4, 66);
-            label14.Margin = new Padding(4, 0, 4, 0);
-            label14.Name = "label14";
-            label14.Size = new Size(59, 15);
-            label14.TabIndex = 0;
-            label14.Text = "Continue:";
-            // 
-            // groupSession
-            // 
-            groupSession.Controls.Add(tableLayoutPanelSession);
-            groupSession.Dock = DockStyle.Fill;
-            groupSession.Location = new Point(241, 3);
-            groupSession.Margin = new Padding(4, 3, 4, 3);
-            groupSession.Name = "groupSession";
-            groupSession.Padding = new Padding(4, 3, 4, 3);
-            groupSession.Size = new Size(229, 128);
-            groupSession.TabIndex = 1;
-            groupSession.TabStop = false;
-            groupSession.Text = "Session";
-            // 
-            // tableLayoutPanelSession
-            // 
-            tableLayoutPanelSession.AutoSize = true;
-            tableLayoutPanelSession.ColumnCount = 2;
-            tableLayoutPanelSession.ColumnStyles.Add(new ColumnStyle(SizeType.Absolute, 88F));
-            tableLayoutPanelSession.ColumnStyles.Add(new ColumnStyle(SizeType.Percent, 100F));
-            tableLayoutPanelSession.Controls.Add(label1, 0, 0);
-            tableLayoutPanelSession.Controls.Add(label3, 0, 5);
-            tableLayoutPanelSession.Controls.Add(lblWaiting, 1, 5);
-            tableLayoutPanelSession.Controls.Add(label9, 0, 2);
-            tableLayoutPanelSession.Controls.Add(lblHome, 1, 2);
-            tableLayoutPanelSession.Controls.Add(lblScreenshots, 1, 0);
-            tableLayoutPanelSession.Controls.Add(label7, 0, 3);
-            tableLayoutPanelSession.Controls.Add(lblContinue, 1, 3);
-            tableLayoutPanelSession.Controls.Add(label2, 0, 1);
-            tableLayoutPanelSession.Controls.Add(lblChild, 1, 4);
-            tableLayoutPanelSession.Controls.Add(lblClickCount, 1, 1);
-            tableLayoutPanelSession.Controls.Add(label8, 0, 4);
-            tableLayoutPanelSession.Dock = DockStyle.Fill;
-            tableLayoutPanelSession.Location = new Point(4, 19);
-            tableLayoutPanelSession.Margin = new Padding(4, 3, 4, 3);
-            tableLayoutPanelSession.Name = "tableLayoutPanelSession";
-            tableLayoutPanelSession.RowCount = 6;
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
-            tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanelSession.Size = new Size(221, 106);
-            tableLayoutPanelSession.TabIndex = 3;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(4, 0);
-            label1.Margin = new Padding(4, 0, 4, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(73, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Screenshots:";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(4, 110);
-            label3.Margin = new Padding(4, 0, 4, 0);
-            label3.Name = "label3";
-            label3.Size = new Size(51, 15);
-            label3.TabIndex = 2;
-            label3.Text = "Waiting:";
-            // 
-            // lblWaiting
-            // 
-            lblWaiting.AutoSize = true;
-            lblWaiting.Location = new Point(92, 110);
-            lblWaiting.Margin = new Padding(4, 0, 4, 0);
-            lblWaiting.Name = "lblWaiting";
-            lblWaiting.Size = new Size(61, 15);
-            lblWaiting.TabIndex = 2;
-            lblWaiting.Text = "lblWaiting";
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Location = new Point(4, 44);
-            label9.Margin = new Padding(4, 0, 4, 0);
-            label9.Name = "label9";
-            label9.Size = new Size(43, 15);
-            label9.TabIndex = 2;
-            label9.Text = "Home:";
-            // 
-            // lblHome
-            // 
-            lblHome.AutoSize = true;
-            lblHome.Location = new Point(92, 44);
-            lblHome.Margin = new Padding(4, 0, 4, 0);
-            lblHome.Name = "lblHome";
-            lblHome.Size = new Size(53, 15);
-            lblHome.TabIndex = 2;
-            lblHome.Text = "lblHome";
-            // 
-            // lblScreenshots
-            // 
-            lblScreenshots.AutoSize = true;
-            lblScreenshots.Location = new Point(92, 0);
-            lblScreenshots.Margin = new Padding(4, 0, 4, 0);
-            lblScreenshots.Name = "lblScreenshots";
-            lblScreenshots.Size = new Size(83, 15);
-            lblScreenshots.TabIndex = 0;
-            lblScreenshots.Text = "lblScreenshots";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(4, 66);
-            label7.Margin = new Padding(4, 0, 4, 0);
-            label7.Name = "label7";
-            label7.Size = new Size(59, 15);
-            label7.TabIndex = 0;
-            label7.Text = "Continue:";
-            // 
-            // lblContinue
-            // 
-            lblContinue.AutoSize = true;
-            lblContinue.Location = new Point(92, 66);
-            lblContinue.Margin = new Padding(4, 0, 4, 0);
-            lblContinue.Name = "lblContinue";
-            lblContinue.Size = new Size(69, 15);
-            lblContinue.TabIndex = 0;
-            lblContinue.Text = "lblContinue";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(4, 22);
-            label2.Margin = new Padding(4, 0, 4, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(41, 15);
-            label2.TabIndex = 1;
-            label2.Text = "Clicks:";
-            // 
-            // lblChild
-            // 
-            lblChild.AutoSize = true;
-            lblChild.Location = new Point(92, 88);
-            lblChild.Margin = new Padding(4, 0, 4, 0);
-            lblChild.Name = "lblChild";
-            lblChild.Size = new Size(48, 15);
-            lblChild.TabIndex = 1;
-            lblChild.Text = "lblChild";
-            // 
-            // lblClickCount
-            // 
-            lblClickCount.AutoSize = true;
-            lblClickCount.Location = new Point(92, 22);
-            lblClickCount.Margin = new Padding(4, 0, 4, 0);
-            lblClickCount.Name = "lblClickCount";
-            lblClickCount.Size = new Size(79, 15);
-            lblClickCount.TabIndex = 1;
-            lblClickCount.Text = "lblClickCount";
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Location = new Point(4, 88);
-            label8.Margin = new Padding(4, 0, 4, 0);
-            label8.Name = "label8";
-            label8.Size = new Size(38, 15);
-            label8.TabIndex = 1;
-            label8.Text = "Child:";
-            // 
-            // grpCPU
-            // 
-            grpCPU.Controls.Add(atsGraph1);
-            grpCPU.Dock = DockStyle.Fill;
-            grpCPU.Location = new Point(952, 3);
-            grpCPU.Margin = new Padding(4, 3, 4, 3);
-            grpCPU.Name = "grpCPU";
-            grpCPU.Padding = new Padding(4, 3, 4, 3);
-            grpCPU.Size = new Size(234, 128);
-            grpCPU.TabIndex = 3;
-            grpCPU.TabStop = false;
-            grpCPU.Text = "CPU";
-            // 
-            // atsGraph1
-            // 
-            atsGraph1.Dock = DockStyle.Fill;
-            atsGraph1.Location = new Point(4, 19);
-            atsGraph1.Margin = new Padding(4, 3, 4, 3);
-            atsGraph1.Name = "atsGraph1";
-            atsGraph1.Size = new Size(226, 106);
-            atsGraph1.TabIndex = 0;
-            // 
-            // splitContainerSeconds
-            // 
-            splitContainerSeconds.Dock = DockStyle.Bottom;
-            splitContainerSeconds.Location = new Point(0, 37);
-            splitContainerSeconds.Margin = new Padding(4, 3, 4, 3);
-            splitContainerSeconds.Name = "splitContainerSeconds";
-            // 
-            // splitContainerSeconds.Panel1
-            // 
-            splitContainerSeconds.Panel1.BackColor = SystemColors.ControlLight;
-            // 
-            // splitContainerSeconds.Panel2
-            // 
-            splitContainerSeconds.Panel2.BackColor = SystemColors.ControlDark;
-            splitContainerSeconds.Size = new Size(1430, 22);
-            splitContainerSeconds.SplitterDistance = 198;
-            splitContainerSeconds.SplitterWidth = 5;
-            splitContainerSeconds.TabIndex = 0;
-            splitContainerSeconds.SplitterMoving += (this.splitContainerSeconds_SplitterMoving);
-            // 
-            // appTestStudioStatusControl1
-            // 
-            appTestStudioStatusControl1.Dock = DockStyle.Fill;
-            appTestStudioStatusControl1.Items = (System.Collections.Generic.List<string>)resources.GetObject("appTestStudioStatusControl1.Items");
-            appTestStudioStatusControl1.Location = new Point(0, 0);
-            appTestStudioStatusControl1.Margin = new Padding(5, 6, 5, 6);
-            appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
-            appTestStudioStatusControl1.ShowPercent = (long)10L;
-            appTestStudioStatusControl1.Size = new Size(1430, 556);
-            appTestStudioStatusControl1.TabIndex = 0;
-            // 
-            // lstGamePass
-            // 
-            lstGamePass.Cursor = Cursors.Hand;
-            lstGamePass.Dock = DockStyle.Fill;
-            lstGamePass.FullRowSelect = true;
-            lstGamePass.Items.AddRange(new ListViewItem[] { listViewItem1 });
-            lstGamePass.Location = new Point(0, 0);
-            lstGamePass.Margin = new Padding(2);
-            lstGamePass.Name = "lstGamePass";
-            lstGamePass.Size = new Size(231, 759);
-            lstGamePass.SmallImageList = ImageList1;
-            lstGamePass.TabIndex = 0;
-            lstGamePass.UseCompatibleStateImageBehavior = false;
-            lstGamePass.SelectedIndexChanged += (this.lstGamePass_SelectedIndexChanged);
-            lstGamePass.MouseClick += (this.lstGamePass_MouseClick);
-            lstGamePass.MouseEnter += (this.lstGamePass_MouseEnter);
-            lstGamePass.MouseLeave += (this.lstGamePass_MouseLeave);
-            lstGamePass.MouseMove += (this.lstGamePass_MouseMove);
-            lstGamePass.Resize += (this.lstGamePass_Resize);
-            // 
             // PanelGame
             // 
             PanelGame.Controls.Add(flowLayoutPanel1);
@@ -9165,6 +9165,42 @@ namespace AppTestStudio
             tableLayoutPanelRunLabels.PerformLayout();
             tableLayoutPanelRunValues.ResumeLayout(false);
             tableLayoutPanelRunValues.PerformLayout();
+            PanelThread.ResumeLayout(false);
+            splitContainerThreadMain.Panel1.ResumeLayout(false);
+            splitContainerThreadMain.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerThreadMain).EndInit();
+            splitContainerThreadMain.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pbPreview).EndInit();
+            splitContainerThread.Panel1.ResumeLayout(false);
+            splitContainerThread.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerThread).EndInit();
+            splitContainerThread.ResumeLayout(false);
+            splitContainerStatsNScrollie.Panel1.ResumeLayout(false);
+            splitContainerStatsNScrollie.Panel1.PerformLayout();
+            splitContainerStatsNScrollie.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerStatsNScrollie).EndInit();
+            splitContainerStatsNScrollie.ResumeLayout(false);
+            tableLayoutStats.ResumeLayout(false);
+            grpTopScriptCounters.ResumeLayout(false);
+            grpTopScriptCounters.PerformLayout();
+            tableLayoutPanel3.ResumeLayout(false);
+            tableLayoutPanel3.PerformLayout();
+            grpTopThreadCounter.ResumeLayout(false);
+            grpTopThreadCounter.PerformLayout();
+            tableLayoutPanel2.ResumeLayout(false);
+            tableLayoutPanel2.PerformLayout();
+            grpAPS.ResumeLayout(false);
+            groupTotal.ResumeLayout(false);
+            groupTotal.PerformLayout();
+            tableLayoutPanel1.ResumeLayout(false);
+            tableLayoutPanel1.PerformLayout();
+            groupSession.ResumeLayout(false);
+            groupSession.PerformLayout();
+            tableLayoutPanelSession.ResumeLayout(false);
+            tableLayoutPanelSession.PerformLayout();
+            grpCPU.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).EndInit();
+            splitContainerSeconds.ResumeLayout(false);
             PanelColorEvent.ResumeLayout(false);
             tableColorEvent.ResumeLayout(false);
             panelColorEventChild1.ResumeLayout(false);
@@ -9242,42 +9278,6 @@ namespace AppTestStudio
             ((System.ComponentModel.ISupportInitialize)NumericYOffset).EndInit();
             ((System.ComponentModel.ISupportInitialize)NumericXOffset).EndInit();
             panelRightDragMode.ResumeLayout(false);
-            PanelThread.ResumeLayout(false);
-            splitContainerThreadMain.Panel1.ResumeLayout(false);
-            splitContainerThreadMain.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainerThreadMain).EndInit();
-            splitContainerThreadMain.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pbPreview).EndInit();
-            splitContainerThread.Panel1.ResumeLayout(false);
-            splitContainerThread.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainerThread).EndInit();
-            splitContainerThread.ResumeLayout(false);
-            splitContainerStatsNScrollie.Panel1.ResumeLayout(false);
-            splitContainerStatsNScrollie.Panel1.PerformLayout();
-            splitContainerStatsNScrollie.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainerStatsNScrollie).EndInit();
-            splitContainerStatsNScrollie.ResumeLayout(false);
-            tableLayoutStats.ResumeLayout(false);
-            grpTopScriptCounters.ResumeLayout(false);
-            grpTopScriptCounters.PerformLayout();
-            tableLayoutPanel3.ResumeLayout(false);
-            tableLayoutPanel3.PerformLayout();
-            grpTopThreadCounter.ResumeLayout(false);
-            grpTopThreadCounter.PerformLayout();
-            tableLayoutPanel2.ResumeLayout(false);
-            tableLayoutPanel2.PerformLayout();
-            grpAPS.ResumeLayout(false);
-            groupTotal.ResumeLayout(false);
-            groupTotal.PerformLayout();
-            tableLayoutPanel1.ResumeLayout(false);
-            tableLayoutPanel1.PerformLayout();
-            groupSession.ResumeLayout(false);
-            groupSession.PerformLayout();
-            tableLayoutPanelSession.ResumeLayout(false);
-            tableLayoutPanelSession.PerformLayout();
-            grpCPU.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainerSeconds).EndInit();
-            splitContainerSeconds.ResumeLayout(false);
             PanelGame.ResumeLayout(false);
             PanelGame.PerformLayout();
             flowLayoutPanel1.ResumeLayout(false);
