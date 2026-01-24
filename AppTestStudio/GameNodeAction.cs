@@ -1,5 +1,5 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2025 Daniel Harrod
+//Copyright (C) 2016-2026 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudio.solution;
@@ -52,6 +52,7 @@ namespace AppTestStudio
             ObjectThreshold = 70;
             ClickList = new List<SingleClick>();
             ClickSpeed = 0;
+            UseObjectSearchPosition = false;
             ClickDragReleaseVelocity = 500;
             ClickDragReleaseMode = ClickDragReleaseMode.None;
 
@@ -306,6 +307,28 @@ namespace AppTestStudio
                     }
                 }
                 mClickSpeed = value;
+            }
+        }
+
+
+        /// <summary>
+        /// For Actions directly under a Object Search, use the position found by the object search.
+        /// </summary>
+        private Boolean mUseObjectSearchPosition;
+
+        public Boolean UseObjectSearchPosition
+        {
+            get { return mUseObjectSearchPosition; }
+            set
+            {
+                if (mUseObjectSearchPosition != value)
+                {
+                    if (IsLoading == false)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mUseObjectSearchPosition = value;
             }
         }
 
@@ -1280,6 +1303,7 @@ namespace AppTestStudio
             Action.IsColorPoint = IsColorPoint;  //must be set after Mode
             Action.CustomLogic = CustomLogic;
             Action.ClickSpeed = ClickSpeed;
+            Action.UseObjectSearchPosition = UseObjectSearchPosition;
 
             Action.ClickDragReleaseMode = ClickDragReleaseMode;
             Action.ClickDragReleaseEndHeight = ClickDragReleaseEndHeight;
@@ -1957,7 +1981,7 @@ namespace AppTestStudio
             int x2 = Rectangle.Width;
             int y2 = Rectangle.Height;
 
-            if (IsParentObjectSearch() && (ClickDragReleaseMode != ClickDragReleaseMode.None))
+            if (IsParentObjectSearch() && UseObjectSearchPosition && (ClickDragReleaseMode != ClickDragReleaseMode.None))
             {
                 GameNodeAction ParentNode = Parent as GameNodeAction;
                 if (ParentNode.IsSomething())
@@ -2019,7 +2043,7 @@ namespace AppTestStudio
             short RandomX = Utils.RandomNumber(0, Rectangle.Width);
             short RandomY = Utils.RandomNumber(0, Rectangle.Height);
 
-            if (IsParentObjectSearch())
+            if (IsParentObjectSearch() && UseObjectSearchPosition)
             {
                 if (Parent is GameNodeAction)
                 {

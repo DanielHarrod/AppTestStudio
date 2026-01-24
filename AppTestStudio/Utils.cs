@@ -1,11 +1,12 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2025 Daniel Harrod
+//Copyright (C) 2016-2026 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using System.Diagnostics;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
+using System.Threading;
 using System.Windows.Media.Animation;
 using static AppTestStudio.Definitions;
 using static AppTestStudio.NativeMethods;
@@ -299,8 +300,36 @@ namespace AppTestStudio
         //    return MoveMouseActiveFromStartPosition(windowHandle, MouseEventFlags.LeftDown, (short)startX, (short)startY, (short)endX, (short)endY, velocityMS, mouseInitialClickDelayMS);
         //}
 
+        public static ActivateWindowResult ActivateWindowIfNecessary3(IntPtr hWnd, int timeoutMS)
+        {
+            if (hWnd == IntPtr.Zero)
+                return ActivateWindowResult.BadWindowHandle;
+
+            IntPtr GFW = GetForegroundWindow();
+            
+            if (GFW == hWnd)
+                return ActivateWindowResult.WindowAlreadyActivated;
+
+            // Try to activate
+            SetForegroundWindow(hWnd);
+
+            var sw = Stopwatch.StartNew();
+
+            // Wait until active or timeout
+            while (sw.ElapsedMilliseconds < timeoutMS)
+            {
+                if (GetForegroundWindow() == hWnd)
+                    return ActivateWindowResult.WindowActivated;
+
+                Thread.Sleep(10); // small, low‑CPU wait
+            }
+
+            return ActivateWindowResult.Timeout;
+        }
+
         public static ActivateWindowResult ActivateWindowIfNecessary2(IntPtr windowHandle,int TimeOutMS, int AfterActivateTimeMS)
         {
+            Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
             int Start = Environment.TickCount;
             int End = Start + TimeOutMS;
 
@@ -311,7 +340,8 @@ namespace AppTestStudio
 
             if (hActiveWindowHandleRoot != hActiveWindowRoot)                 
             {
-                SwitchToThisWindow(windowHandle, true);
+                //SwitchToThisWindow(windowHandle, true);
+                SetForegroundWindow(hActiveWindowHandleRoot);
                 Thread.Sleep(AfterActivateTimeMS);
                 //Boolean Result = SetForegroundWindow(hActiveWindowHandleRoot);
                 //Utils.SendAltUp();
@@ -332,8 +362,8 @@ namespace AppTestStudio
             {
                 return ActivateWindowResult.WindowAlreadyActivated;
             }
-            Debug.WriteLine($"Found in {Environment.TickCount - Start}ms");
-            return ActivateWindowResult.WindowActivated;            
+            return ActivateWindowResult.WindowActivated;      
+            
         }
 
         public static bool IsAdministrator()
@@ -477,103 +507,65 @@ namespace AppTestStudio
             SecondaryWindowName = SecondaryWindowName.ToUpper();
 
             WindowHandles Handles = new WindowHandles();
-            Process[] Processes = Process.GetProcesses();
-            foreach (Process P in Processes)
-            {
-                if (P.MainWindowTitle.Length > 0)
-                {
-                    //Debug.WriteLine(P.MainWindowTitle);
-                    Boolean IsThisThePrimaryWindow = false;
 
-                    switch (PrimaryWindowNameFilter)
+            Handles.MainWindowHandle = WindowFinder.GetWindowHandleByWindowName(PrimaryWindowName, PrimaryWindowNameFilter);
+
+            if (SecondaryWindowName.Length > 0)
+            {
+                WindowHandleInfo hi = new WindowHandleInfo(Handles.MainWindowHandle);
+                List<IntPtr> ChildWindowHandles = hi.GetAllChildHandles();
+
+                // ChildWindowName = "BlueStacks Android PluginAndroid";
+
+                foreach (IntPtr ChildHandle in ChildWindowHandles)
+                {
+                    String ChildText = GetText(ChildHandle).ToUpper();
+
+                    Boolean IsThisTheSecondaryWindow = false;
+
+                    switch (SecondaryWindowNameFilter)
                     {
                         case WindowNameFilterType.Equals:
-                            if (P.MainWindowTitle.ToUpper() == PrimaryWindowName)
+                            if (ChildText == SecondaryWindowName)
                             {
-                                IsThisThePrimaryWindow = true;
+                                IsThisTheSecondaryWindow = true;
                             }
 
                             break;
                         case WindowNameFilterType.StartsWith:
-                            if (P.MainWindowTitle.ToUpper().StartsWith(PrimaryWindowName))
+                            if (ChildText.StartsWith(SecondaryWindowName))
                             {
-                                IsThisThePrimaryWindow = true;
+                                IsThisTheSecondaryWindow = true;
                             }
                             break;
                         case WindowNameFilterType.Contains:
-                            if (P.MainWindowTitle.ToUpper().Contains(PrimaryWindowName))
+                            if (ChildText.Contains(SecondaryWindowName))
                             {
-                                IsThisThePrimaryWindow = true;
+                                IsThisTheSecondaryWindow = true;
                             }
                             break;
                         default:
                             break;
                     }
 
-                    if (IsThisThePrimaryWindow)
+                    if (IsThisTheSecondaryWindow)
                     {
-                        Handles.MainWindowHandle = P.MainWindowHandle;
-
-                        if (SecondaryWindowName.Length > 0)
-                        {
-                            WindowHandleInfo hi = new WindowHandleInfo(Handles.MainWindowHandle);
-                            List<IntPtr> ChildWindowHandles = hi.GetAllChildHandles();
-
-                            // ChildWindowName = "BlueStacks Android PluginAndroid";
-
-                            foreach (IntPtr ChildHandle in ChildWindowHandles)
-                            {
-                                String ChildText = GetText(ChildHandle).ToUpper();
-
-                                Boolean IsThisTheSecondaryWindow = false;
-
-                                switch (SecondaryWindowNameFilter)
-                                {
-                                    case WindowNameFilterType.Equals:
-                                        if (ChildText == SecondaryWindowName)
-                                        {
-                                            IsThisTheSecondaryWindow = true;
-                                        }
-
-                                        break;
-                                    case WindowNameFilterType.StartsWith:
-                                        if (ChildText.StartsWith(SecondaryWindowName))
-                                        {
-                                            IsThisTheSecondaryWindow = true;
-                                        }
-                                        break;
-                                    case WindowNameFilterType.Contains:
-                                        if (ChildText.Contains(SecondaryWindowName))
-                                        {
-                                            IsThisTheSecondaryWindow = true;
-                                        }
-                                        break;
-                                    default:
-                                        break;
-                                }
-
-                                if (IsThisTheSecondaryWindow)
-                                {
-                                    Handles.ChildWindowHandle = ChildHandle;
-                                    return Handles.ChildWindowHandle;
-                                }
-                            }
-                        }
-                        break;
+                        Handles.ChildWindowHandle = ChildHandle;
+                        return Handles.ChildWindowHandle;
                     }
                 }
             }
+
             if (SecondaryWindowName.Length > 0 && Handles.ChildWindowHandle != IntPtr.Zero)
             {
-
                 return Handles.ChildWindowHandle;
             }
             else
             {
                 return Handles.MainWindowHandle;
             }
-        }
 
+        }
 
         public static IntPtr GetWindowHandleByWindowName(String WindowName, String ChildWindowName)
         {
@@ -666,17 +658,16 @@ namespace AppTestStudio
             IntPtr hdcSrc = NativeMethods.GetWindowDC(windowHandle);
             if (hdcSrc == IntPtr.Zero)
                 return null;
+                      
 
-            NativeMethods.GetWindowRect(windowHandle, out Rectangle WindowRectangle);
-
-            if (!NativeMethods.GetWindowRect(windowHandle, out Rectangle windowRect))
+            if (!NativeMethods.GetClientRect(windowHandle, out Rectangle windowRectangle))
             {
                 NativeMethods.ReleaseDC(windowHandle, hdcSrc);
                 return null;
             }
 
-            int TargetWindowHeight = WindowRectangle.Height;
-            int TargetWindowWidth = WindowRectangle.Width;
+            int TargetWindowHeight = windowRectangle.Bottom - windowRectangle.Top;
+            int TargetWindowWidth = windowRectangle.Right - windowRectangle.Left;
 
             if (TargetWindowHeight < 1 || TargetWindowWidth < 1)
             {

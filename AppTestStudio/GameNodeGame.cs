@@ -1,10 +1,11 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2025 Daniel Harrod
+//Copyright (C) 2016-2026 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudio.solution;
 using AppTestStudioControls;
 using log4net;
+using OpenCvSharp.Internal.Vectors;
 using System.Collections.Concurrent;
 using System.Diagnostics;
 using System.Xml;
@@ -86,6 +87,7 @@ namespace AppTestStudio
 
         public OpenCvSharp.VideoWriter Video { get; set; }
 
+        [System.Diagnostics.DebuggerStepThrough]
         public void Log(String s)
         {
             String FormattedLog = String.Format(
@@ -923,20 +925,44 @@ namespace AppTestStudio
 
             if (Document.DocumentElement.SelectSingleNode("//App").IsSomething())
             {
+                // Check if in Default Folder..
+                String[] FilePath = fileName.Split("\\");
+
+                String ProjectNameOverride = String.Empty;
+
+                if (FilePath.Length > 3)
+                {
+                    const int appTestStudioDefaultFolderLocation = 2;
+                    const int folderLocaction = 1;
+                    // If we are using potentially the default location
+                    if (FilePath[FilePath.Length-1- appTestStudioDefaultFolderLocation] == "App Test Studio")
+                    {
+                        ProjectNameOverride = FilePath[FilePath.Length - 1 - folderLocaction];
+                    }
+                }
+
                 XmlNode ChildNode = Document.DocumentElement.SelectSingleNode("//App");
-                Game = LoadGame(ChildNode, fileName, "", loadBitmaps, threadManager);
+                Game = LoadGame(ChildNode, fileName, "", loadBitmaps, threadManager, ProjectNameOverride);
             }
 
             return Game;
         }
 
-        public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps, ThreadManager threadManager)
+        public static GameNodeGame LoadGame(XmlNode childNode, String fileName, String overrideGameName, Boolean loadBitmaps, ThreadManager threadManager, String ProjectNameOverride = "")
         {
             String GameName = "";
 
             try
             {
-                GameName = childNode.Attributes["Name"].Value;
+                if (ProjectNameOverride.Length > 0 )
+                {
+                    // Use the folder name.
+                    GameName = ProjectNameOverride;
+                }
+                else
+                {
+                    GameName = childNode.Attributes["Name"].Value;
+                }                    
             }
             catch (Exception ex)
             {
@@ -1566,8 +1592,6 @@ namespace AppTestStudio
             }
             Writer.WriteEndElement();
 
-            threadManger.IncrementTestSaved();
-
             return Results;
 
         }
@@ -1592,6 +1616,8 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("UseParentPicture", Activites.UseParentPicture.ToString());
                         Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
                         Writer.WriteAttributeString("Mode", Activites.Mode.ToString());
+
+                        Writer.WriteAttributeString("UseObjectSearchPosition", Activites.UseObjectSearchPosition.ToString());
 
                         Writer.WriteAttributeString("ClickSpeed", Activites.ClickSpeed.ToString());
                         if (Activites.Anchor == AnchorMode.Default)
@@ -2550,6 +2576,12 @@ namespace AppTestStudio
                 treeActionNode.Enabled = Convert.ToBoolean(actionNode.Attributes["IsEnabled"].Value);
             }
 
+
+            if (actionNode.Attributes.GetNamedItem("UseObjectSearchPosition").IsSomething())
+            {
+                treeActionNode.UseObjectSearchPosition = Convert.ToBoolean(actionNode.Attributes["UseObjectSearchPosition"].Value);
+            }
+
             Boolean UseParentPicture = false;
             if (actionNode.Attributes.GetNamedItem("UseParentPicture").IsSomething())
             {
@@ -2996,10 +3028,19 @@ namespace AppTestStudio
 
         internal void InitializeLogger(String Name)
         {
-            log = LogManager.GetLogger(Name,Name);
+            log = LogManager.GetLogger(Name, Name);
             Log("logging initialized");
         }
+
+        internal string GetSavedPictureFolderName()
+        {
+            GameNodeWorkspace gnw = this.Parent as GameNodeWorkspace;
+            if (gnw != null)
+            {
+                String SavedPicturesFolder = System.IO.Path.Combine(gnw.WorkspaceFolder, this.Text, "SavedPictures");
+                return SavedPicturesFolder;
+            }
+            return String.Empty;
+        }
     }
-
-
 }

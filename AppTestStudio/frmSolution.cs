@@ -1,5 +1,5 @@
 ﻿//AppTestStudio 
-//Copyright(C) 2016-2025 Daniel Harrod
+//Copyright(C) 2016-2026 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudio.solution;
@@ -62,10 +62,11 @@ namespace AppTestStudio
 
             int CurrentRunTime = 0;
             foreach (ISolution solution in GamePassSolution.Solutions)
-            {
+            {                
                 if (solution is ActionSolution)
                 {
                     ActionSolution? actionSolution = solution as ActionSolution;
+
                     AddString($"EventType={actionSolution.EventType.ToString()}");
                     AddString($"ActionSolution: Messages={actionSolution.Messages.Count}, Inputs={actionSolution.ATSInputs.Count}");
                     if (actionSolution.Messages.Count > 0)
@@ -113,6 +114,12 @@ namespace AppTestStudio
                         GridCount++;
                     }
 
+                    Rectangle clientRect;
+                    NativeMethods.GetClientRect(actionSolution.WindowHandle, out clientRect);
+
+                    Rectangle windowRect;
+                    NativeMethods.GetWindowRect(actionSolution.WindowHandle, out windowRect);
+
                     foreach (ATSInput item in actionSolution.ATSInputs)
                     {
                         CurrentRunTime += item.AfterDelay;
@@ -135,8 +142,8 @@ namespace AppTestStudio
                             Position = "App";
                         }
                         grd.Rows[index].Cells[(int)ColumnType.Position].Value = Position;
-                        grd.Rows[index].Cells[(int)ColumnType.X].Value = XPos.ToString();
-                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = YPos.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.X].Value = (XPos - windowRect.X).ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = (YPos - windowRect.Y).ToString();
                         grd.Rows[index].Cells[(int)ColumnType.ExecutionTime].Value = item.ExecutionTime.ToString("HH:mm:ss.fff");
                         grd.Rows[index].Cells[(int)ColumnType.AfterDelay].Value = item.AfterDelay.ToString();
                         grd.Rows[index].Cells[(int)ColumnType.CumulativeTime].Value = CurrentRunTime;

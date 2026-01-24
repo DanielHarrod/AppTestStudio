@@ -1,13 +1,10 @@
 //AppTestStudio 
-//Copyright (C) 2016-2025 Daniel Harrod
+//Copyright (C) 2016-2026 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudio.solution;
 using log4net;
-using System.Diagnostics;
 using System.Reflection;
-using System.Windows.Forms;
-using System.Windows.Media.Media3D;
 
 namespace AppTestStudio
 {
@@ -62,9 +59,25 @@ namespace AppTestStudio
 
                         if (System.IO.File.Exists(Filename))
                         {
+                            Font labelFont = new Font(FontFamily.GenericSansSerif, 20);
                             Label l = new Label();
+
+                            l.Text = $"Name: {actionNode.Name}";
+                            l.Font = labelFont;
+                            l.AutoSize = true;
+                            fp.Controls.Add(l);
+
+                            l = new Label();
+
+                            l.Text = $"Location: {actionNode.GetNodePath()}";
+                            l.Font = labelFont;
+                            l.AutoSize = true;
+                            fp.Controls.Add(l);
+
+                            l = new Label();
+
                             l.Text = "Reference Image";
-                            l.Font = new Font(FontFamily.GenericSansSerif, 20);
+                            l.Font = labelFont;
                             l.AutoSize = true;
                             fp.Controls.Add(l);
                             if (tn.Length > 1)
@@ -191,7 +204,7 @@ namespace AppTestStudio
             }
             else
             {
-                ActionSolution solution = new ActionSolution();
+                ActionSolution solution = new ActionSolution(0);
 
                 FlowLayoutPanel fp = new FlowLayoutPanel();
                 fp.FlowDirection = FlowDirection.TopDown;
@@ -392,7 +405,7 @@ namespace AppTestStudio
             dgvReferencePassFail.HeaderText = "Pass/Fail";
             dgvReferencePassFail.Name = "dgvReferencePassFail";
             DataGridViewTextBoxColumn dvgReferenceRange = new DataGridViewTextBoxColumn();
-            dvgReferenceRange.HeaderText = "Range";
+            dvgReferenceRange.HeaderText = "Range R/G/B";
             dvgReferenceRange.Name = "dvgReferenceRange";
 
             dgv.Columns.AddRange(new DataGridViewColumn[] { dgvX, dgvY, dgvRed, dgvGreen, dgvBlue, dgvRRed, dgvRGreen, dgvRBlue, dgvReferencePassFail, dvgReferenceRange });
@@ -425,7 +438,7 @@ namespace AppTestStudio
                 dgv.Rows[RowIndex].Cells["dgvRBlue"].Value = click.Color.B.ToInt().ToString();
                 dgv.Rows[RowIndex].Cells["dgvX"].Value = click.X;
                 dgv.Rows[RowIndex].Cells["dgvY"].Value = click.Y;
-                dgv.Rows[RowIndex].Cells["dvgReferenceRange"].Value = $"+/- {actionNode.Points}";
+
                 dgv.Rows[RowIndex].Cells["dgvReferencePassFail"].Value = "";
 
                 Color TestColor = Color.Black;
@@ -470,6 +483,8 @@ namespace AppTestStudio
                     CellStyle.BackColor = Color.Red;
                     dgv.Rows[RowIndex].Cells["dgvReferencePassFail"].Style = CellStyle;
                 }
+
+                dgv.Rows[RowIndex].Cells["dvgReferenceRange"].Value = $"+/- {Math.Abs((click.Color.R.ToInt() - TestColor.R.ToInt()))}/{Math.Abs((click.Color.G.ToInt() - TestColor.G.ToInt()))}/{Math.Abs((click.Color.B.ToInt() - TestColor.B.ToInt()))}";
             }
 
             return dgv;

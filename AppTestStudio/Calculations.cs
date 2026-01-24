@@ -1,5 +1,5 @@
 ﻿//AppTestStudio 
-//Copyright(C) 2016-2025 Daniel Harrod
+//Copyright(C) 2016-2026 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudio.solution;
@@ -21,11 +21,11 @@ namespace AppTestStudio
         }
         internal static ActionSolution CalculateClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
         {
-            ActionSolution solution = new ActionSolution();
+            ActionSolution solution = new ActionSolution(windowHandle);
             switch (mouseMode)
             {
                 case MouseMode.Passive:
-                    //if (moveMouseFirst)
+                    //if (moveMouseFirst)   
                     //{
                     //    int MoveDurationMS = GetMoveDurationMSFromPixelsPerSecond(xStart, yStart, xTarget, yTarget, mouseSpeedPixelsPerSecond);
                     //    MoveMousePassive(windowHandle, Definitions.MouseKeyStates.MK_NONE, xStart, yStart, xTarget, yTarget, MoveDurationMS);
@@ -72,7 +72,7 @@ namespace AppTestStudio
             //The dimensions are given in screen coordinates that are relative to the upper-left corner of the screen.
             Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
 
-            RECT ClientRect;
+            Rectangle ClientRect;
 
             //Retrieves the coordinates of a window's client area. The client coordinates specify the upper-left and lower-right corners of the client area.
             //Because client coordinates are relative to the upper-left corner of a window's client area, the coordinates of the upper-left corner are (0,0).
@@ -220,12 +220,10 @@ namespace AppTestStudio
             ////Retrieves the extended frame bounds rectangle in screen space.
             //int Result = DwmGetWindowAttribute(windowHandle, DWMWINDOWATTRIBUTE.ExtendedFrameBounds, out WindowFrame, Marshal.SizeOf(typeof(RECT)));
 
-            RECT ClientRect;
+            Rectangle ClientRect;
             //Retrieves the coordinates of a window's client area.
             GetClientRect(windowHandle, out ClientRect);
 
-            Debug.WriteLine($"{xClientTarget} {TargetWindowRectangle.Left}");
-            Debug.WriteLine($"{yClientTarget} {TargetWindowRectangle.Top}");
             short xSystemTarget = (xClientTarget + TargetWindowRectangle.Left).ToShort();
 
             short ySystemTarget = (yClientTarget + TargetWindowRectangle.Top).ToShort();
@@ -280,7 +278,7 @@ namespace AppTestStudio
 
         public static ActionSolution CalculateClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
         {
-            ActionSolution solution = new ActionSolution();
+            ActionSolution solution = new ActionSolution(windowHandle);
             int MouseTimeMS = 0;
             switch (mouseMode)
             {
@@ -401,7 +399,7 @@ namespace AppTestStudio
             uint Flags = 0;
             Boolean WindowRectResult = GetWindowRect(windowHandle, out Rectangle TargetWindowRectangle);
 
-            RECT ClientRect;
+            Rectangle ClientRect;
             GetClientRect(windowHandle, out ClientRect);
 
             short xSystemTarget = (short)(xClientTarget + TargetWindowRectangle.Left);
@@ -471,7 +469,7 @@ namespace AppTestStudio
 
         public static ActionSolution CalculateMouseMove(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
         {
-            ActionSolution solution = new ActionSolution();
+            ActionSolution solution = new ActionSolution(windowHandle);
 
             switch (mouseMode)
             {

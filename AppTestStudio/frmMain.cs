@@ -1,5 +1,5 @@
 ﻿//AppTestStudio 
-//Copyright (C) 2016-2025 Daniel Harrod
+//Copyright (C) 2016-2026 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using AppTestStudio.solution;
@@ -12,10 +12,8 @@ using System.Diagnostics;
 using System.IO.Compression;
 using System.Reflection;
 using System.Text;
-using System.Windows.Forms;
 using System.Xml;
 using System.Xml.Serialization;
-using static AppTestStudio.Utils;
 
 namespace AppTestStudio
 {
@@ -162,9 +160,6 @@ namespace AppTestStudio
             InitialPanelRightAnchorHeight = panelRightAnchor.Height;
 
             Timer1.Enabled = true;
-            //'Debug.Assert(false, "Fix")
-
-            ThreadManager.IncrementAppLaunches();
 
             //'Default the first Panel to system
             SetPanel(PanelMode.Workspace);
@@ -726,7 +721,6 @@ namespace AppTestStudio
         private void LoadGameToTree(GameNodeGame game)
         {
             IsPanelLoading = true;
-            ThreadManager.IncrementTestLoaded();
             tv.BeginUpdate();
             GameNode gt = WorkspaceNode;
             gt.Nodes.Clear();
@@ -1199,6 +1193,8 @@ namespace AppTestStudio
             lblRHSColor.Visible = false;
             lblRHSXY.Visible = false;
 
+            chkUseObjectSearchPosition.Visible = false;
+
             //'if (PanelLoadNode.Nodes.Count = 0 ) {
             //'    cmdDelete.Enabled = true
             //'} else {
@@ -1385,10 +1381,12 @@ namespace AppTestStudio
                     if (GameNode.IsParentObjectSearch())
                     {
                         panelRightAnchor.Visible = false;
+                        chkUseObjectSearchPosition.Visible = true;
                     }
                     else
                     {
                         panelRightAnchor.Visible = true;
+                        chkUseObjectSearchPosition.Visible = false;
                     }
 
                     switch (GameNode.ClickDragReleaseMode)
@@ -1425,6 +1423,8 @@ namespace AppTestStudio
                             cboPreActionFailureAction.Text = "Abort";
                             break;
                     }
+
+                    chkUseObjectSearchPosition.Checked = GameNode.UseObjectSearchPosition;
 
                     break;
                 case AppTestStudio.ActionType.Event:
@@ -1824,9 +1824,9 @@ namespace AppTestStudio
             if (CurrentNode.GameNodeType == GameNodeType.Game)
             {
                 GameNodeGame GameNode = CurrentNode as GameNodeGame;
-
-                // Make Backup folder if necessary.
                 String Directory = System.IO.Path.Combine(WorkspaceNode.WorkspaceFolder, GameNode.Text, "Backup");
+
+                // Make Backup folder if necessary.                ;
                 if (System.IO.Directory.Exists(Directory))
                 {
                     //'do nothing
@@ -1837,11 +1837,18 @@ namespace AppTestStudio
                     Log("Creating Directory: " + Directory);
                 }
 
+                String SavedPicturesFolder = System.IO.Path.Combine(WorkspaceNode.WorkspaceFolder, GameNode.Text, "SavedPictures");
+                if (!System.IO.Directory.Exists(SavedPicturesFolder))
+                {
+                    System.IO.Directory.CreateDirectory(SavedPicturesFolder);
+                    Log("Creating Directory: " + SavedPicturesFolder);
+                }
+
                 // Make a Backup file if necessary.
                 if (System.IO.File.Exists(GameNode.FileName))
                 {
 
-                    String NewFileName = System.IO.Path.Combine(Directory, DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss.xml"));
+                    String NewFileName = System.IO.Path.Combine(Directory, $"{DateTime.Now.ToString("yyyy-MM-dd-HH-mm-ss")}.xml");
                     if (System.IO.File.Exists(NewFileName))
                     {
                         // do nothing
@@ -1960,8 +1967,6 @@ namespace AppTestStudio
 
             t.Start();
             SetThreadPauseState(false);
-
-            ThreadManager.IncrementInstanceLoaded();
 
             tabTree.SelectTab(1);
             cboThreads.SelectedIndex = cboThreads.Items.Count - 1;
@@ -2686,7 +2691,6 @@ namespace AppTestStudio
 
             targetAction.AddGameNode(GameNodeAction);
             tv.SelectedNode = GameNodeAction;
-            ThreadManager.IncrementNewRNGContainer();
             return GameNodeAction;
 
 
@@ -3445,7 +3449,6 @@ namespace AppTestStudio
             //    String TargetWindow = game.TargetWindow
             if (MainWindowHandle.ToInt32() > 0)
             {
-                ThreadManager.IncrementSingleTestRun();
 
                 switch (lblMode.Text)
                 {
@@ -3457,7 +3460,6 @@ namespace AppTestStudio
                             frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, Node.Parent as GameNodeAction);
                             frm2.StartPosition = FormStartPosition.CenterParent;
 
-                            ThreadManager.IncrementSingleEventTest();
 
                             frm2.ShowDialog(this);
                         }
@@ -3466,7 +3468,11 @@ namespace AppTestStudio
                             if (ActionNode.AppActivateIfNotActive)
                             {
                                 IntPtr WindowHandle = game.GetWindowHandleByWindowName();
-                                Utils.ActivateWindowIfNecessary2(WindowHandle, ActionNode.KeyboardTimeoutToActivateMS, ActionNode.KeyboardAfterSendingActivationMS);
+                                ActivateWindowResult AWR = Utils.ActivateWindowIfNecessary3(WindowHandle, ActionNode.KeyboardTimeoutToActivateMS);
+                                if (AWR == ActivateWindowResult.WindowActivated)
+                                {
+                                    Thread.Sleep(ActionNode.KeyboardAfterSendingActivationMS);
+                                }
                             }
                             Boolean Success = false;
                             Bitmap bmp = Utils.GetBitmapFromWindowHandle(ref Success, MainWindowHandle);
@@ -3494,7 +3500,6 @@ namespace AppTestStudio
                                     SolutionPlayer.Play(solution);
 
                                     Log("Click attempt: x=" + RangeClickResult.x + ",Y = " + RangeClickResult.y);
-                                    ThreadManager.IncrementSingleTestClick();
 
                                     break;
                                 case Mode.ClickDragRelease:
@@ -3508,7 +3513,6 @@ namespace AppTestStudio
                                     SolutionPlayer.Play(solution);
 
                                     Log("ClickDragRelease( x=" + ClickDragResult.StartX + ",Y = " + ClickDragResult.StartY + ", ex=" + ClickDragResult.EndX + ",ey=" + ClickDragResult.EndY + ")");
-                                    ThreadManager.IncrementSingleTestClickDragRelease();
                                     break;
                                 case Mode.MouseMove:
                                     GameNodeAction.ClickDragReleaseResult MouseMoveResult = ActionNode.CalculateClickDragReleaseResult(0, 0);
@@ -3521,7 +3525,6 @@ namespace AppTestStudio
                                     SolutionPlayer.Play(solution);
 
                                     Log("MouseMove( x=" + MouseMoveResult.StartX + ",Y = " + MouseMoveResult.StartY + ", ex=" + MouseMoveResult.EndX + ",ey=" + MouseMoveResult.EndY + ")");
-                                    ThreadManager.IncrementSingleTestMouseMove();
                                     break;
                                 case Mode.Keyboard:
                                     if (ActionNode.RumtimeIsKeyboardCompiled == false)
@@ -3546,7 +3549,11 @@ namespace AppTestStudio
                                             }
                                             else
                                             {
-                                                Utils.ActivateWindowIfNecessary2(hWnd, 4000, 100);
+                                                ActivateWindowResult AWR = Utils.ActivateWindowIfNecessary3(hWnd, 4000);
+                                                if (AWR == ActivateWindowResult.WindowActivated)
+                                                {
+                                                    Thread.Sleep(100);
+                                                }
                                             }
                                         }
 
@@ -3569,7 +3576,6 @@ namespace AppTestStudio
                             frmTest frm2 = new frmTest(game, ActionNode, this, MainWindowHandle);
                             frm2.StartPosition = FormStartPosition.CenterParent;
 
-                            ThreadManager.IncrementSingleEventTest();
 
                             frm2.ShowDialog(this);
                         }
@@ -3587,7 +3593,6 @@ namespace AppTestStudio
                                 {
                                     frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, null);
                                     frm2.StartPosition = FormStartPosition.CenterParent;
-                                    ThreadManager.IncrementSingleEventTest();
 
                                     frm2.ShowDialog(this);
                                 }
@@ -3836,27 +3841,43 @@ namespace AppTestStudio
 
             if (ThreadManager.LoadThreadManager.IsSomething())
             {
+                RunThread? runThread = ThreadManager.Games?.FirstOrDefault()?.RunThread;
 
-
+                lblThreadClickCount.Text = String.Format("{0:n0}", runThread?.ThreadCounter.ClickCount ?? 0);
+                lblScriptClickCount.Text = String.Format("{0:n0}", runThread?.ProjectCounter.ClickCount ?? 0);
                 lblClickCount.Text = String.Format("{0:n0}", ThreadManager.ClickCount);
                 lblClickCountTotal.Text = String.Format("{0:n0}", ThreadManager.ClickCount + ThreadManager.LoadThreadManager.ClickCount);
 
                 TimeSpan t = TimeSpan.FromSeconds(ThreadManager.WaitLength / 1000);
                 lblWaiting.Text = t.ToDhmsString();
 
+                t = TimeSpan.FromSeconds((runThread?.ThreadCounter.WaitLength ?? 0) / 1000);
+                lblThreadWaiting.Text = t.ToDhmsString();
+
+                t = TimeSpan.FromSeconds((runThread?.ProjectCounter.WaitLength ?? 0) / 1000);
+                lblScriptWaiting.Text = t.ToDhmsString();
+
                 t = TimeSpan.FromSeconds((ThreadManager.WaitLength + ThreadManager.LoadThreadManager.WaitLength) / 1000);
 
                 lblWaitingTotal.Text = t.ToDhmsString();
 
+                lblThreadScreenshots.Text = String.Format("{0:n0}", runThread?.ThreadCounter.ScreenShots ?? 0);
+                lblScriptScreenshots.Text = String.Format("{0:n0}", runThread?.ProjectCounter.ScreenShots ?? 0);
                 lblScreenshots.Text = String.Format("{0:n0}", ThreadManager.ScreenShots);
                 lblScreenshotsTotal.Text = String.Format("{0:n0}", ThreadManager.ScreenShots + ThreadManager.LoadThreadManager.ScreenShots);
 
+                lblThreadContinue.Text = String.Format("{0:n0}", runThread?.ThreadCounter.GoContinue ?? 0);
+                lblScriptContinue.Text = String.Format("{0:n0}", runThread?.ProjectCounter.GoContinue ?? 0);
                 lblContinue.Text = String.Format("{0:n0}", ThreadManager.GoContinue);
                 lblContinueTotal.Text = String.Format("{0:n0}", ThreadManager.GoContinue + ThreadManager.LoadThreadManager.GoContinue);
 
+                lblThreadChild.Text = String.Format("{0:n0}", runThread?.ThreadCounter.GoChild ?? 0);
+                lblScriptChild.Text = String.Format("{0:n0}", runThread?.ProjectCounter.GoChild ?? 0);
                 lblChild.Text = String.Format("{0:n0}", ThreadManager.GoChild);
                 lblChildTotal.Text = String.Format("{0:n0}", ThreadManager.GoChild + ThreadManager.LoadThreadManager.GoChild);
 
+                lblThreadHome.Text = String.Format("{0:n0}", runThread?.ThreadCounter.GoHome ?? 0);
+                lblScriptHome.Text = String.Format("{0:n0}", runThread?.ProjectCounter.GoHome ?? 0);
                 lblHome.Text = String.Format("{0:n0}", ThreadManager.GoHome);
                 lblHomeTotal.Text = String.Format("{0:n0}", ThreadManager.GoHome + ThreadManager.LoadThreadManager.GoHome);
 
@@ -4520,31 +4541,36 @@ namespace AppTestStudio
                 Boolean Success = false;
                 Bitmap bmp = Utils.GetBitmapFromWindowHandle(ref Success, MainWindowHandle);
                 //bmp.Save("C:\\Users\\djhar\\Desktop\\b.bmp");
-                lblResolution.Text = bmp.Width + "x" + bmp.Height;
-
-                SetPictureBox1(bmp);
-
-                ShowHidePictureMissingMessage();
-
-                if (dgv.Rows.Count > 1)
+                if (Success)
                 {
-                    if (lblMode.Text == "Event")
-                    {
-                        DialogResult Result = MessageBox.Show("Screenshot taken, do you want to re-sample the colors?", "Resample Colors?", MessageBoxButtons.YesNo);
+                    lblResolution.Text = bmp.Width + "x" + bmp.Height;
 
-                        if (Result == DialogResult.Yes)
+                    SetPictureBox1(bmp);
+
+                    ShowHidePictureMissingMessage();
+
+                    if (dgv.Rows.Count > 1)
+                    {
+                        if (lblMode.Text == "Event")
                         {
-                            ResampleColors();
+                            DialogResult Result = MessageBox.Show("Screenshot taken, do you want to re-sample the colors?", "Resample Colors?", MessageBoxButtons.YesNo);
+
+                            if (Result == DialogResult.Yes)
+                            {
+                                ResampleColors();
+                            }
                         }
                     }
-                }
 
-                if (IsPanelLoading == false)
+                    if (IsPanelLoading == false)
+                    {
+                        SaveClickList();
+                    }
+                }
+                else
                 {
-                    SaveClickList();
-
+                    Log("Unable to capture screenshot of window: " + TargetWindow);
                 }
-
             }
             else
             {
@@ -5344,7 +5370,6 @@ namespace AppTestStudio
                 //LoadParentScreenshotIfNecessary();
                 cmdAddSingleColorAtSingleLocationTakeASceenshot.PerformClick();
                 SaveClickList();
-                ThreadManager.IncrementNewEventAdded();
             }
             else
             {
@@ -5386,6 +5411,11 @@ namespace AppTestStudio
                 //
             }
 
+            if (GameNodeAction.IsParentObjectSearch())
+            {
+                GameNodeAction.UseObjectSearchPosition = true;
+            }
+
             SetPanel(PanelMode.PanelColorEvent);
 
             LoadPanelSingleColorAtSingleLocation(GameNodeAction);
@@ -5394,7 +5424,6 @@ namespace AppTestStudio
 
             InitalizeOffsets();
 
-            ThreadManager.IncrementNewActionAdded();
             SaveClickList();
         }
 
@@ -5421,7 +5450,6 @@ namespace AppTestStudio
 
             SetPanel(PanelMode.PanelColorEvent);
             LoadPanelSingleColorAtSingleLocation(GameNodeAction);
-            ThreadManager.IncrementNewRNGContainer();
         }
 
         private void mnuAddRNGNode_Click(object sender, EventArgs e)
@@ -5956,7 +5984,6 @@ namespace AppTestStudio
                 }
 
                 toolStripButtonSaveScript_Click(null, null);
-                ThreadManager.IncrementNewAppAdded();
             }
         }
 
@@ -6035,8 +6062,7 @@ namespace AppTestStudio
 
                 Game.FileName = frm.TargetFileName;
 
-                toolStripButtonSaveScript_Click(null, null); ;
-                ThreadManager.IncrementNewAppAdded();
+                toolStripButtonSaveScript_Click(null, null);
 
                 // force a reset of current panel
                 tv_AfterSelect(null, null);
@@ -6353,7 +6379,6 @@ namespace AppTestStudio
                 }
 
                 Log("File Created: " + saveFileDialog1.FileName);
-                ThreadManager.IncrementTestSaved();
 
                 String Argument = "/select, \"" + saveFileDialog1.FileName + "\"";
 
@@ -7871,11 +7896,14 @@ namespace AppTestStudio
                     ClickEvent.ResolutionHeight = LastNodeAddObjectWasUsedFrom.ResolutionHeight;
                     ClickEvent.ResolutionWidth = LastNodeAddObjectWasUsedFrom.ResolutionWidth;
                     ClickEvent.Rectangle = PictureObjectScreenshotRectangle;
+                    ClickEvent.ClickSpeed = GetGameNode().DefaultClickSpeed;
+                    ClickEvent.UseObjectSearchPosition = true;
                     GameNode gn = tv.SelectedNode as GameNode;
                     gn.AddGameNode(ClickEvent);
 
                     // Clear out so that going back to make object will not be available.
                     LastNodeAddObjectWasUsedFrom = null;
+                    txtObjectScreenshotName.Text = "";
                 }
             }
             catch (Exception ex)
@@ -9551,6 +9579,25 @@ namespace AppTestStudio
         private void dgv_SelectionChanged(object sender, EventArgs e)
         {
             (sender as DataGridView).ClearSelection();
+        }
+
+        private void chkSavedPicturesGlobal_CheckedChanged(object sender, EventArgs e)
+        {
+            GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
+            GameNode.VideoFrameLimit = NumericVideoFrameLimit.Value.ToLong();
+        }
+
+        private void chkUseObjectSearchPosition_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.UseObjectSearchPosition = chkUseObjectSearchPosition.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
         }
     }
 }
