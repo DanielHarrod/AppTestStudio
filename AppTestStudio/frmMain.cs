@@ -5411,6 +5411,11 @@ namespace AppTestStudio
                 //
             }
 
+            if (GameNodeAction.IsParentObjectSearch())
+            {
+                GameNodeAction.UseObjectSearchPosition = true;
+            }
+
             SetPanel(PanelMode.PanelColorEvent);
 
             LoadPanelSingleColorAtSingleLocation(GameNodeAction);
@@ -7892,6 +7897,7 @@ namespace AppTestStudio
                     ClickEvent.ResolutionWidth = LastNodeAddObjectWasUsedFrom.ResolutionWidth;
                     ClickEvent.Rectangle = PictureObjectScreenshotRectangle;
                     ClickEvent.ClickSpeed = GetGameNode().DefaultClickSpeed;
+                    ClickEvent.UseObjectSearchPosition = true;
                     GameNode gn = tv.SelectedNode as GameNode;
                     gn.AddGameNode(ClickEvent);
 
