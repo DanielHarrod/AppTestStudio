@@ -7885,6 +7885,7 @@ namespace AppTestStudio
                     ClickEvent.ResolutionHeight = LastNodeAddObjectWasUsedFrom.ResolutionHeight;
                     ClickEvent.ResolutionWidth = LastNodeAddObjectWasUsedFrom.ResolutionWidth;
                     ClickEvent.Rectangle = PictureObjectScreenshotRectangle;
+                    ClickEvent.ClickSpeed = GetGameNode().DefaultClickSpeed;
                     GameNode gn = tv.SelectedNode as GameNode;
                     gn.AddGameNode(ClickEvent);
 
