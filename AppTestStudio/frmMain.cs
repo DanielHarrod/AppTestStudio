@@ -7903,6 +7903,7 @@ namespace AppTestStudio
 
                     // Clear out so that going back to make object will not be available.
                     LastNodeAddObjectWasUsedFrom = null;
+                    txtObjectScreenshotName.Text = "";
                 }
             }
             catch (Exception ex)
