@@ -1420,6 +1420,8 @@ namespace AppTestStudio
                             break;
                     }
 
+                    chkUseObjectSearchPosition.Checked = GameNode.UseObjectSearchPosition;
+
                     break;
                 case AppTestStudio.ActionType.Event:
 
@@ -3464,7 +3466,7 @@ namespace AppTestStudio
                                 IntPtr WindowHandle = game.GetWindowHandleByWindowName();
                                 ActivateWindowResult AWR = Utils.ActivateWindowIfNecessary3(WindowHandle, ActionNode.KeyboardTimeoutToActivateMS);
                                 if (AWR == ActivateWindowResult.WindowActivated)
-                                {                                    
+                                {
                                     Thread.Sleep(ActionNode.KeyboardAfterSendingActivationMS);
                                 }
                             }
@@ -4564,7 +4566,7 @@ namespace AppTestStudio
                 else
                 {
                     Log("Unable to capture screenshot of window: " + TargetWindow);
-                }           
+                }
             }
             else
             {
@@ -9572,6 +9574,19 @@ namespace AppTestStudio
         {
             GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
             GameNode.VideoFrameLimit = NumericVideoFrameLimit.Value.ToLong();
+        }
+
+        private void chkUseObjectSearchPosition_CheckedChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
+                ActionNode.UseObjectSearchPosition = chkUseObjectSearchPosition.Checked;
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
         }
     }
 }

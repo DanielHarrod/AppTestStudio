@@ -1617,6 +1617,8 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
                         Writer.WriteAttributeString("Mode", Activites.Mode.ToString());
 
+                        Writer.WriteAttributeString("UseObjectSearchPosition", Activites.UseObjectSearchPosition.ToString());
+
                         Writer.WriteAttributeString("ClickSpeed", Activites.ClickSpeed.ToString());
                         if (Activites.Anchor == AnchorMode.Default)
                         {
@@ -2572,6 +2574,12 @@ namespace AppTestStudio
             if (actionNode.Attributes.GetNamedItem("IsEnabled").IsSomething())
             {
                 treeActionNode.Enabled = Convert.ToBoolean(actionNode.Attributes["IsEnabled"].Value);
+            }
+
+
+            if (actionNode.Attributes.GetNamedItem("UseObjectSearchPosition").IsSomething())
+            {
+                treeActionNode.UseObjectSearchPosition = Convert.ToBoolean(actionNode.Attributes["UseObjectSearchPosition"].Value);
             }
 
             Boolean UseParentPicture = false;

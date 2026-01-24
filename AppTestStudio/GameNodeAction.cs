@@ -52,6 +52,7 @@ namespace AppTestStudio
             ObjectThreshold = 70;
             ClickList = new List<SingleClick>();
             ClickSpeed = 0;
+            UseObjectSearchPosition = false;
             ClickDragReleaseVelocity = 500;
             ClickDragReleaseMode = ClickDragReleaseMode.None;
 
@@ -306,6 +307,28 @@ namespace AppTestStudio
                     }
                 }
                 mClickSpeed = value;
+            }
+        }
+
+
+        /// <summary>
+        /// For Actions directly under a Object Search, use the position found by the object search.
+        /// </summary>
+        private Boolean mUseObjectSearchPosition;
+
+        public Boolean UseObjectSearchPosition
+        {
+            get { return mUseObjectSearchPosition; }
+            set
+            {
+                if (mUseObjectSearchPosition != value)
+                {
+                    if (IsLoading == false)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mUseObjectSearchPosition = value;
             }
         }
 
@@ -1280,6 +1303,7 @@ namespace AppTestStudio
             Action.IsColorPoint = IsColorPoint;  //must be set after Mode
             Action.CustomLogic = CustomLogic;
             Action.ClickSpeed = ClickSpeed;
+            Action.UseObjectSearchPosition = UseObjectSearchPosition;
 
             Action.ClickDragReleaseMode = ClickDragReleaseMode;
             Action.ClickDragReleaseEndHeight = ClickDragReleaseEndHeight;
