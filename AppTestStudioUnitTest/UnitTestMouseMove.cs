@@ -16,7 +16,7 @@ namespace AppTestStudioUnitTest
         [TestMethod]
         public void MonitorConfiguration2_1_Setup()
         {
-            ActionSolution solution = new ActionSolution();
+            ActionSolution solution = new ActionSolution(0);
 
 
             String TargetWindow = "SodaDungeon2";

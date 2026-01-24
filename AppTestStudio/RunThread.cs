@@ -302,7 +302,7 @@ namespace AppTestStudio
                                 Utils.ProcessKeyboardCommand(command);
                                 command.ExecutionTime = DateTime.Now;
                             }
-                            solution = new ActionSolution();
+                            solution = new ActionSolution(WindowHandle);
                             solution.ActivateWindow = true; // Always true.
                             solution.AddKeyboardCommands(node.RuntimeCompiledKeyboardCommands);
                             gamePassSolution.AddSolution(solution, node);

@@ -9,8 +9,9 @@ namespace AppTestStudio.solution
 {
     internal class ActionSolution : ISolution
     {
-        public ActionSolution()
+        public ActionSolution(IntPtr windowHandle)
         {
+            windowHandle = windowHandle;
             EventType = SolutionType.Action;
             Messages = new List<MouseSolutionMessage>();
             ATSInputs = new List<ATSInput>();
@@ -18,7 +19,7 @@ namespace AppTestStudio.solution
         }
 
         // Target Window Handle
-        public nint WindowHandle { get; set; }
+        public IntPtr WindowHandle { get; set; }
 
         // Target Reference Node
         public IntPtr NodeWindowHandle { get; set; }

@@ -204,7 +204,7 @@ namespace AppTestStudio
             }
             else
             {
-                ActionSolution solution = new ActionSolution();
+                ActionSolution solution = new ActionSolution(0);
 
                 FlowLayoutPanel fp = new FlowLayoutPanel();
                 fp.FlowDirection = FlowDirection.TopDown;

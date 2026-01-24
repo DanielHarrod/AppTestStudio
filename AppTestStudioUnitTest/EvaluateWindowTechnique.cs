@@ -39,7 +39,7 @@ namespace AppTestStudioUnitTest
             Thread.Sleep(700);
             IntPtr WindowHandle = Utils.GetWindowHandleByWindowName("SodaDungeon2", "");
 
-            ActionSolution solution = new ActionSolution();
+            ActionSolution solution = new ActionSolution(0);
             Calculations.CalculateClickOnWindowActiveMode(WindowHandle, 1, 1, 100, solution);
 
             SolutionPlayer.Play(solution);

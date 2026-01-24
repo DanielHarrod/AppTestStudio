@@ -21,7 +21,7 @@ namespace AppTestStudio
         }
         internal static ActionSolution CalculateClickOnWindow(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, short xStart, short yStart, short xTarget, short yTarget, int clickDuration, int mouseSpeedPixelsPerSecond)
         {
-            ActionSolution solution = new ActionSolution();
+            ActionSolution solution = new ActionSolution(windowHandle);
             switch (mouseMode)
             {
                 case MouseMode.Passive:
@@ -278,7 +278,7 @@ namespace AppTestStudio
 
         public static ActionSolution CalculateClickDragRelease(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
         {
-            ActionSolution solution = new ActionSolution();
+            ActionSolution solution = new ActionSolution(windowHandle);
             int MouseTimeMS = 0;
             switch (mouseMode)
             {
@@ -469,7 +469,7 @@ namespace AppTestStudio
 
         public static ActionSolution CalculateMouseMove(IntPtr windowHandle, MouseMode mouseMode, Boolean moveMouseFirst, WindowAction windowAction, int startX, int startY, int endX, int endY, int velocityMS, int mouseSpeedPixelsPerSecond, int mouseInitialClickDelayMS)
         {
-            ActionSolution solution = new ActionSolution();
+            ActionSolution solution = new ActionSolution(windowHandle);
 
             switch (mouseMode)
             {

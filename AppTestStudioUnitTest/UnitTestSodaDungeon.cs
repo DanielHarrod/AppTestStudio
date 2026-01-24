@@ -34,7 +34,7 @@ namespace AppTestStudioUnitTest
 
             System.Drawing.Rectangle wrect;
             GetWindowRect(hwnd, out wrect);
-            RECT crect;
+            Rectangle crect;
             GetClientRect(hwnd,  out crect);
             AppTestStudio.NativeMethods.Point lefttop; // Practicaly both are 0
             lefttop.X = crect.Left;
