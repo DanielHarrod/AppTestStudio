@@ -11,7 +11,7 @@ namespace AppTestStudio.solution
     {
         public ActionSolution(IntPtr windowHandle)
         {
-            windowHandle = windowHandle;
+            WindowHandle = windowHandle;
             EventType = SolutionType.Action;
             Messages = new List<MouseSolutionMessage>();
             ATSInputs = new List<ATSInput>();

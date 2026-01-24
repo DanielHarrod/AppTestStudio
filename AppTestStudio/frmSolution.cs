@@ -62,10 +62,11 @@ namespace AppTestStudio
 
             int CurrentRunTime = 0;
             foreach (ISolution solution in GamePassSolution.Solutions)
-            {
+            {                
                 if (solution is ActionSolution)
                 {
                     ActionSolution? actionSolution = solution as ActionSolution;
+
                     AddString($"EventType={actionSolution.EventType.ToString()}");
                     AddString($"ActionSolution: Messages={actionSolution.Messages.Count}, Inputs={actionSolution.ATSInputs.Count}");
                     if (actionSolution.Messages.Count > 0)
@@ -113,6 +114,12 @@ namespace AppTestStudio
                         GridCount++;
                     }
 
+                    Rectangle clientRect;
+                    NativeMethods.GetClientRect(actionSolution.WindowHandle, out clientRect);
+
+                    Rectangle windowRect;
+                    NativeMethods.GetWindowRect(actionSolution.WindowHandle, out windowRect);
+
                     foreach (ATSInput item in actionSolution.ATSInputs)
                     {
                         CurrentRunTime += item.AfterDelay;
@@ -135,8 +142,8 @@ namespace AppTestStudio
                             Position = "App";
                         }
                         grd.Rows[index].Cells[(int)ColumnType.Position].Value = Position;
-                        grd.Rows[index].Cells[(int)ColumnType.X].Value = XPos.ToString();
-                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = YPos.ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.X].Value = (XPos - windowRect.X).ToString();
+                        grd.Rows[index].Cells[(int)ColumnType.Y].Value = (YPos - windowRect.Y).ToString();
                         grd.Rows[index].Cells[(int)ColumnType.ExecutionTime].Value = item.ExecutionTime.ToString("HH:mm:ss.fff");
                         grd.Rows[index].Cells[(int)ColumnType.AfterDelay].Value = item.AfterDelay.ToString();
                         grd.Rows[index].Cells[(int)ColumnType.CumulativeTime].Value = CurrentRunTime;
