@@ -1981,7 +1981,7 @@ namespace AppTestStudio
             int x2 = Rectangle.Width;
             int y2 = Rectangle.Height;
 
-            if (IsParentObjectSearch() && (ClickDragReleaseMode != ClickDragReleaseMode.None))
+            if (IsParentObjectSearch() && UseObjectSearchPosition && (ClickDragReleaseMode != ClickDragReleaseMode.None))
             {
                 GameNodeAction ParentNode = Parent as GameNodeAction;
                 if (ParentNode.IsSomething())
@@ -2043,7 +2043,7 @@ namespace AppTestStudio
             short RandomX = Utils.RandomNumber(0, Rectangle.Width);
             short RandomY = Utils.RandomNumber(0, Rectangle.Height);
 
-            if (IsParentObjectSearch())
+            if (IsParentObjectSearch() && UseObjectSearchPosition)
             {
                 if (Parent is GameNodeAction)
                 {
