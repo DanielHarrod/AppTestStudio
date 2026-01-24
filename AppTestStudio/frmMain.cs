@@ -1193,6 +1193,8 @@ namespace AppTestStudio
             lblRHSColor.Visible = false;
             lblRHSXY.Visible = false;
 
+            chkUseObjectSearchPosition.Visible = false;
+
             //'if (PanelLoadNode.Nodes.Count = 0 ) {
             //'    cmdDelete.Enabled = true
             //'} else {
@@ -1379,10 +1381,12 @@ namespace AppTestStudio
                     if (GameNode.IsParentObjectSearch())
                     {
                         panelRightAnchor.Visible = false;
+                        chkUseObjectSearchPosition.Visible = true;
                     }
                     else
                     {
                         panelRightAnchor.Visible = true;
+                        chkUseObjectSearchPosition.Visible = false;
                     }
 
                     switch (GameNode.ClickDragReleaseMode)
