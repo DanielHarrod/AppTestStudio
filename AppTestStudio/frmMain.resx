@@ -128,7 +128,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZTeXN0ZW0uV2luZG93cy5Gb3JtcywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAmU3lzdGVtLldpbmRvd3MuRm9ybXMu
         SW1hZ2VMaXN0U3RyZWFtZXIBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAAhCUAAAJNU0Z0AUkBTAIBASMB
-        AAGIASMBiAEjARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAGQAwABAQEAAQgG
+        AAGYASMBmAEjARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAGQAwABAQEAAQgG
         AAEkGAABgAIAAYADAAKAAQABgAMAAYABAAGAAQACgAIAA8ABAAHAAdwBwAEAAfABygGmAQABMwUAATMB
         AAEzAQABMwEAAjMCAAMWAQADHAEAAyIBAAMpAQADVQEAA00BAANCAQADOQEAAYABfAH/AQACUAH/AQAB
         kwEAAdYBAAH/AewBzAEAAcYB1gHvAQAB1gLnAQABkAGpAa0CAAH/ATMDAAFmAwABmQMAAcwCAAEzAwAC
@@ -290,6 +290,17 @@
         AQHPAfkB/gEHAYABfwH/AYABwAEDAf8BBwEGAX8B/wH+A/8BjwEPAv8B/gP/Ac8BnwH/Cw==
 </value>
   </data>
+  <metadata name="splitContainerStatsNScrollie.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="appTestStudioStatusControl1.Items" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAEAQAAAH9TeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1N5
+        c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVi
+        bGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24GAAAI
+        CAkCAAAAAAAAAAAAAAARAgAAAAAAAAAL
+</value>
+  </data>
   <data name="label97.Text" xml:space="preserve">
     <value>Example: To Type "abc" 
 {ADOWN}{WAIT.50}{AUP}{WAIT.50}{BDOWN}{WAIT.50}{BUP}{WAIT.50}{CDOWN}{WAIT.50}{CUP}
@@ -363,17 +374,6 @@ This allows maximum customizability, but it can also simulate behavoiors that ar
         pMNzE2HUKCNHxK/PSZQbtbwwCEK1LmAKTrWyvA3aXGypTFRhyYnhLlqtogQWlVfGmIosJGQ15fhNzDUx
         JsKqas5EAsDiWuJAhIsrIgcrjmA3xeR4xtJ3e9P4p3DFLCKetYoiSsBPsjK8cxDIKkIIKIFgvaQSxoBF
         piwqoqBkycx5shjxH3Px62RORT4fAAAAAElFTkSuQmCC
-</value>
-  </data>
-  <metadata name="splitContainerStatsNScrollie.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="appTestStudioStatusControl1.Items" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAEAQAAAH9TeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1N5
-        c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVi
-        bGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24GAAAI
-        CAkCAAAAAAAAAAAAAAARAgAAAAAAAAAL
 </value>
   </data>
   <data name="lblRunAsAdministratorWarning.Text" xml:space="preserve">
