@@ -4150,6 +4150,10 @@ namespace AppTestStudio
                         case EventType.ObjectSearch:
                             break;
                         case EventType.PixelSearch:
+                            if (EventNode.Rectangle.Width == 0 || EventNode.Rectangle.Height == 0)
+                            {
+                                EventNode.Rectangle = PreviousMaskingRectangle;
+                            }                            
                             numPixelSearchB.Value = PictureBox1Color.B;
                             numPixelSearchG.Value = PictureBox1Color.G;
                             numPixelSearchR.Value = PictureBox1Color.R;
@@ -4222,6 +4226,8 @@ namespace AppTestStudio
 
         }
 
+        Rectangle PreviousMaskingRectangle = Rectangle.Empty;
+
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             Debug.WriteLine("PictureBox1_MouseDown");
@@ -4230,7 +4236,9 @@ namespace AppTestStudio
             {
                 case "Action":
                     PictureBox1MouseDown = true;
+                    PreviousMaskingRectangle = Node.Rectangle;
                     Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
+
                     break;
                 case "Event":
                     switch (Node.EventType)
@@ -4239,11 +4247,13 @@ namespace AppTestStudio
                             break;
                         case EventType.ObjectSearch:
                             PictureBox1MouseDown = true;
+                            PreviousMaskingRectangle = Node.Rectangle;
                             Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
 
                             break;
                         case EventType.PixelSearch:
                             PictureBox1MouseDown = true;
+                            PreviousMaskingRectangle = Node.Rectangle;
                             Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
 
                             break;
