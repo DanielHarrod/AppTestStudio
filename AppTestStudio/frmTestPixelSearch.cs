@@ -20,7 +20,7 @@ namespace AppTestStudio
         GameNodeAction GameNodeActionParent;
 
         Boolean CurrentTestPassed = false;
-        Point? CurrentPoint = Point.Empty;
+        List<Point> CurrentPoint;
 
         public frmTestPixelSearch(GameNodeGame game, GameNodeAction node, frmMain frm, IntPtr mainWindowHandle, GameNodeAction parent)
         {
@@ -30,6 +30,7 @@ namespace AppTestStudio
             this.Node = node;
             this.Game = game;
             this.GameNodeActionParent = parent;
+            this.CurrentPoint = new List<Point>();
         }
 
         private void frmTestPixelSearch_Load(object sender, EventArgs e)
@@ -46,6 +47,7 @@ namespace AppTestStudio
             numPixelSearchGPos.Value = Node.PixelSearchGPos;
             numPixelSearchRPos.Value = Node.PixelSearchRPos;
             RunTest();
+            this.WindowState = FormWindowState.Maximized;
         }
 
         private void CaptureCurrentImage(GameNodeAction node, bool useCurrentWindow)
@@ -89,9 +91,9 @@ namespace AppTestStudio
             {
                 Bitmap bitmap = PictureBoxSearchArea.Image as Bitmap;
 
-                if (CurrentPoint.HasValue)
+                if (CurrentPoint.Count > 0)
                 {
-                    Rectangle rectanglePoint = new Rectangle(CurrentPoint.Value.X + Node.Rectangle.X, CurrentPoint.Value.Y + Node.Rectangle.Y, 3,3);
+                    Rectangle rectanglePoint = new Rectangle(CurrentPoint[0].X + Node.Rectangle.X, CurrentPoint[0].Y + Node.Rectangle.Y, 3, 3);
                     Utils.DrawRectangleWithGuidesOnGraphics(e.Graphics, bitmap, rectanglePoint);
                 }
             }
@@ -100,10 +102,12 @@ namespace AppTestStudio
         private void cmdRetestCurrentWindow_Click(object sender, EventArgs e)
         {
             CaptureCurrentImage(Node, true);
+            RunTest();
         }
         private void cmdRetestDesignImage_Click(object sender, EventArgs e)
         {
             CaptureCurrentImage(Node, false);
+            RunTest();
         }
 
         private void RunTest()
@@ -123,11 +127,13 @@ namespace AppTestStudio
 
                 //bmp.Save("C:\\temp\\a.bmp");
 
-                CurrentPoint = Utils.FindFirstColor(bmp, SearchColor, RMin, RMax, GMin, GMax, BMin, BMax);
+                CurrentPoint = Utils.FindPixelColor(bmp, SearchColor, RMin, RMax, GMin, GMax, BMin, BMax, 999);
 
-                if (CurrentPoint.HasValue)
+                if (CurrentPoint.Count > 0)
                 {
-                    label1.Text = "Pixel Found at X:" + (CurrentPoint.Value.X + Node.Rectangle.X).ToString() + " Y:" + (CurrentPoint.Value.Y + Node.Rectangle.Y).ToString();
+                    int xPosition = CurrentPoint[0].X + Node.Rectangle.X;
+                    int yPosition = CurrentPoint[0].Y + Node.Rectangle.Y;
+                    label1.Text = $"First Pixel Found at X:{xPosition} Y:{yPosition} Qty={CurrentPoint.Count()}";
                     CurrentTestPassed = true;
                 }
                 else
@@ -137,6 +143,29 @@ namespace AppTestStudio
                 }
             }
             PictureBoxSearchArea.Refresh();
+        }
+
+        private void numPixelSearchR_ValueChanged(object sender, EventArgs e)
+        {
+            PixelSearchValueChanged();
+        }
+
+        private void numPixelSearchG_ValueChanged(object sender, EventArgs e)
+        {
+            PixelSearchValueChanged();
+        }
+
+        private void numPixelSearchB_ValueChanged(object sender, EventArgs e)
+        {
+            PixelSearchValueChanged();
+        }
+        private void PixelSearchValueChanged()
+        {
+            lblPixelSearchPreview.BackColor = Color.FromArgb(numPixelSearchR.Value.ToInt(), numPixelSearchG.Value.ToInt(), numPixelSearchB.Value.ToInt());
+        }
+
+        private void cmdMoveSettingsToProject_Click(object sender, EventArgs e)
+        {
         }
     }
 }

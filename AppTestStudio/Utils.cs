@@ -1277,8 +1277,9 @@ namespace AppTestStudio
 
 
         //Some portions were developed with the assistance of AI tools.
-        public static System.Drawing.Point? FindFirstColor( Bitmap bmp, Color target, int RMin, int RMax, int GMin, int GMax, int BMin, int BMax)
+        public static List<System.Drawing.Point> FindPixelColor( Bitmap bmp, Color target, int RMin, int RMax, int GMin, int GMax, int BMin, int BMax, int limit = 1)
         {
+            List<System.Drawing.Point> lst = new List<System.Drawing.Point>();
             Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             BitmapData data = bmp.LockBits(rect, ImageLockMode.ReadOnly, bmp.PixelFormat);
 
@@ -1332,17 +1333,24 @@ namespace AppTestStudio
                     {
                         if (stride < 0 )
                         {
-                            // Reversed.
-                            return new System.Drawing.Point(x, bmp.Height - 1 - y);
+                            lst.Add(new System.Drawing.Point(x, bmp.Height - 1 - y));
+                            if (lst.Count >= limit)
+                            {
+                                break;
+                            }
                         }
                         else
                         {
-                            return new System.Drawing.Point(x, y);
+                            lst.Add(new System.Drawing.Point(x, y));
+                            if (lst.Count >= limit)
+                            {
+                                break;
+                            }
                         }
                     }
                 }
             }
-            return null;
+            return lst;
         }
 
         public static System.Drawing.Point? FindFirstColor(Bitmap bmp, Color target, int threshold)
