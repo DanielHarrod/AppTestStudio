@@ -3,6 +3,7 @@
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
 using System.Diagnostics;
+using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
 using System.Text;
@@ -45,62 +46,67 @@ namespace AppTestStudio
                                 SetIconsActionTypeAction(ActionNode);
                                 break;
                             case ActionType.Event:
- 
-                                if (ActionNode.IsColorPoint)
+                                switch (ActionNode.EventType)
                                 {
-                                    if (ActionNode.Enabled)
-                                    {
-                                        if ( ActionNode.ClickList.Count > 0 )
-                                        {
-                                            Node.ImageIndex = IconNames.Event;
-                                            Node.SelectedImageIndex = IconNames.Event;
-                                        }
-                                        else
-                                        {
-                                            Node.ImageIndex = IconNames.Group;
-                                            Node.SelectedImageIndex = IconNames.Group;
-                                        }
-
-                                        Node.ForeColor = EnabledColor;
-                                    }
-                                    else
-                                    {
-                                        if (ActionNode.ClickList.IsSomething())
+                                    case EventType.ColorPoint:
+                                        if (ActionNode.Enabled)
                                         {
                                             if (ActionNode.ClickList.Count > 0)
                                             {
-                                                Node.ImageIndex = IconNames.EventGray;
-                                                Node.SelectedImageIndex = IconNames.EventGray;
+                                                Node.ImageIndex = IconNames.Event;
+                                                Node.SelectedImageIndex = IconNames.Event;
+                                            }
+                                            else
+                                            {
+                                                Node.ImageIndex = IconNames.Group;
+                                                Node.SelectedImageIndex = IconNames.Group;
+                                            }
+
+                                            Node.ForeColor = EnabledColor;
+                                        }
+                                        else
+                                        {
+                                            if (ActionNode.ClickList.IsSomething())
+                                            {
+                                                if (ActionNode.ClickList.Count > 0)
+                                                {
+                                                    Node.ImageIndex = IconNames.EventGray;
+                                                    Node.SelectedImageIndex = IconNames.EventGray;
+                                                }
+                                                else
+                                                {
+                                                    Node.ImageIndex = IconNames.GroupGray;
+                                                    Node.SelectedImageIndex = IconNames.GroupGray;
+                                                }
                                             }
                                             else
                                             {
                                                 Node.ImageIndex = IconNames.GroupGray;
                                                 Node.SelectedImageIndex = IconNames.GroupGray;
                                             }
+
+                                            Node.ForeColor = DisabledColor;
+                                        }
+                                        break;
+                                    case EventType.ObjectSearch:
+                                        if (ActionNode.Enabled)
+                                        {
+                                            Node.ImageIndex = IconNames.SearchAndApps;
+                                            Node.SelectedImageIndex = IconNames.SearchAndApps;
+                                            Node.ForeColor = EnabledColor;
                                         }
                                         else
                                         {
-                                            Node.ImageIndex = IconNames.GroupGray;
-                                            Node.SelectedImageIndex = IconNames.GroupGray;
+                                            Node.ImageIndex = IconNames.SearchGray;
+                                            Node.SelectedImageIndex = IconNames.SearchGray;
+                                            Node.ForeColor = DisabledColor;
                                         }
-
-                                        Node.ForeColor = DisabledColor;
-                                    }
-                                }
-                                else
-                                {
-                                    if (ActionNode.Enabled)
-                                    {
-                                        Node.ImageIndex = IconNames.SearchAndApps;
-                                        Node.SelectedImageIndex = IconNames.SearchAndApps;
-                                        Node.ForeColor = EnabledColor;
-                                    }
-                                    else
-                                    {
-                                        Node.ImageIndex = IconNames.SearchGray;
-                                        Node.SelectedImageIndex = IconNames.SearchGray;
-                                        Node.ForeColor = DisabledColor;
-                                    }
+                                        break;
+                                    case EventType.PixelSearch:
+                                        // Todo - implement pixel search icon
+                                        break;
+                                    default:
+                                        break;
                                 }
                                 break;
                             case ActionType.RNG:
@@ -1254,6 +1260,46 @@ namespace AppTestStudio
             {
                 uint uSent = SendInput(1, inputs, Marshal.SizeOf(typeof(Input)));
             }
+        }
+
+
+        //Some portions were developed with the assistance of AI tools.
+        public static System.Drawing.Point? FindFirstColor( Bitmap bmp, Color target, int threshold)
+        {
+            Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            BitmapData data = bmp.LockBits(rect, ImageLockMode.ReadOnly, bmp.PixelFormat);
+
+            int bytesPerPixel = Image.GetPixelFormatSize(bmp.PixelFormat) / 8;
+            int stride = data.Stride;
+            int absStride = Math.Abs(stride);
+            int byteCount = absStride * bmp.Height;
+
+            byte[] pixels = new byte[byteCount];
+            Marshal.Copy(data.Scan0 + ((data.Height - 1) * stride), pixels, 0, byteCount);
+
+            bmp.UnlockBits(data);
+
+            for (int y = 0; y < bmp.Height; y++)
+            {
+                int row = y * absStride;
+                for (int x = 0; x < bmp.Width; x++)
+                {
+                    int i = row + x * bytesPerPixel;
+
+                    byte b = pixels[i];
+                    byte g = pixels[i + 1];
+                    byte r = pixels[i + 2];
+
+                    if (Math.Abs(r - target.R) <= threshold &&
+                        Math.Abs(g - target.G) <= threshold &&
+                        Math.Abs(b - target.B) <= threshold)
+                    {
+                        return new System.Drawing.Point(x, bmp.Height - y);
+                    }
+                }
+            }
+
+            return null;
         }
     }
 
