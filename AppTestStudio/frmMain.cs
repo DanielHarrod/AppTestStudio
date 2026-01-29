@@ -9142,14 +9142,6 @@ namespace AppTestStudio
             }
         }
 
-        private void test()
-        {
-            //chkAppActivateIfNotActive
-            //numericKeyboardTimeoutToActivateMS
-            //numericKeyboardAfterSendingActivationMS
-            //cboPreActionFailureAction
-        }
-
         private void chkAppActivateIfNotActive_CheckedChanged(object sender, EventArgs e)
         {
             try
