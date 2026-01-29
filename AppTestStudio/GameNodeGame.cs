@@ -2382,6 +2382,10 @@ namespace AppTestStudio
                 {
                     newEvent.EventType = EventType.ColorPoint;
                 }
+                else
+                {
+                    newEvent.EventType = EventType.ObjectSearch;
+                }
             }
 
             if (eventNode.Attributes.GetNamedItem("EventType").IsSomething())
