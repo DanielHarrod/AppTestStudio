@@ -128,7 +128,7 @@
         AAEAAAD/////AQAAAAAAAAAMAgAAAEZTeXN0ZW0uV2luZG93cy5Gb3JtcywgQ3VsdHVyZT1uZXV0cmFs
         LCBQdWJsaWNLZXlUb2tlbj1iNzdhNWM1NjE5MzRlMDg5BQEAAAAmU3lzdGVtLldpbmRvd3MuRm9ybXMu
         SW1hZ2VMaXN0U3RyZWFtZXIBAAAABERhdGEHAgIAAAAJAwAAAA8DAAAA6iYAAAJNU0Z0AUkBTAIBASUB
-        AAFgASQBYAEkARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAGgAwABAQEAAQgG
+        AAGgASQBoAEkARABAAEQAQAE/wEJAQAI/wFCAU0BNgEEBgABNgEEAgABKAMAAUADAAGgAwABAQEAAQgG
         AAEoGAABgAIAAYADAAKAAQABgAMAAYABAAGAAQACgAIAA8ABAAHAAdwBwAEAAfABygGmAQABMwUAATMB
         AAEzAQABMwEAAjMCAAMWAQADHAEAAyIBAAMpAQADVQEAA00BAANCAQADOQEAAYABfAH/AQACUAH/AQAB
         kwEAAdYBAAH/AewBzAEAAcYB1gHvAQAB1gLnAQABkAGpAa0CAAH/ATMDAAFmAwABmQMAAcwCAAEzAwAC
@@ -157,8 +157,8 @@
         /wHMAQACZgH/AQABZgH/AWYBAAFmAv8BAAH/AmYBAAH/AWYB/wEAAv8BZgEAASEBAAGlAQADXwEAA3cB
         AAOGAQADlgEAA8sBAAOyAQAD1wEAA90BAAPjAQAD6gEAA/EBAAP4AQAB8AH7Af8BAAGkAqABAAOAAwAB
         /wIAAf8DAAL/AQAB/wMAAf8BAAH/AQAC/wIAA/9DAAHxAf8/AAEHAf8/AAHxAf8/AAHwAv8BvAHvAQcC
-        /zkAAe0B6wQAAZIB/zcAAf8B6wYAAQcB/zYAAW0IAAHxNgAB7QgAAe02AAH4CAAB9zYAAe0B/wcAAe83
-        AAHyBgAB+AH/OAAB8gH/AgAB/wHtAe86AAGSAe0BkgH4Af+4AAH/AfQC7AH0Af8VABD/FAAB/wH0AewC
+        /zkAAe0B6wQAAZIB/zcAAf8B6wYAAQcB/zYAAW0IAAHxNgAB7QgAAe02AAHsCAAB9zYAAe0B/wcAAe83
+        AAHyBgAB7AH/OAAB8gH/AgAB/wHtAe86AAGSAe0BkgHsAf+4AAH/AfQC7AH0Af8VABD/FAAB/wH0AewC
         FAHsAfQB/xQAEP8CAAHvAf8QAAH0AewEFAHsAfQUABD/BAAB/w8AAfQBFAHsAhQB7AEUAfQFAA/0EP8F
         AAH/CwAB/wP0AewB9AIUAfQB7AP0Af8CAAH0DRQB9BD/BgAC/wMAAQ8B/wMAAf8B9AHsARQB7AL0AhQC
         9AHsARQB7AH0Af8BAAH0ARQL9AEUAfQQ/w0AAf8CAAH0AewBFAHtCPQB7AEUAewB9AEAAfQBFAH0ARQB
@@ -296,17 +296,6 @@
         zwH5Af4BBwGAAX8B/wGAAcABAwH/AQcBBgF/Af8B/gP/AY8BDwL/Af4D/wHPAZ8B/ws=
 </value>
   </data>
-  <metadata name="splitContainerStatsNScrollie.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
-    <value>True</value>
-  </metadata>
-  <data name="appTestStudioStatusControl1.Items" mimetype="application/x-microsoft.net.object.binary.base64">
-    <value>
-        AAEAAAD/////AQAAAAAAAAAEAQAAAH9TeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1N5
-        c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVi
-        bGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24GAAAI
-        CAkCAAAAAAAAAAAAAAARAgAAAAAAAAAL
-</value>
-  </data>
   <data name="label97.Text" xml:space="preserve">
     <value>Example: To Type "abc" 
 {ADOWN}{WAIT.50}{AUP}{WAIT.50}{BDOWN}{WAIT.50}{BUP}{WAIT.50}{CDOWN}{WAIT.50}{CUP}
@@ -323,6 +312,30 @@ Example: To hold down "w" and "d" at the same time for 1 second
 
 This allows maximum customizability, but it can also simulate behavoiors that are not humanly possible.</value>
   </data>
+  <metadata name="dgvID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dgvRed.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dgvBlue.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dgvGreen.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dgvX.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dgvY.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dgvScan.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dgvRemove.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="dgvID.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
@@ -380,6 +393,17 @@ This allows maximum customizability, but it can also simulate behavoiors that ar
         pMNzE2HUKCNHxK/PSZQbtbwwCEK1LmAKTrWyvA3aXGypTFRhyYnhLlqtogQWlVfGmIosJGQ15fhNzDUx
         JsKqas5EAsDiWuJAhIsrIgcrjmA3xeR4xtJ3e9P4p3DFLCKetYoiSsBPsjK8cxDIKkIIKIFgvaQSxoBF
         piwqoqBkycx5shjxH3Px62RORT4fAAAAAElFTkSuQmCC
+</value>
+  </data>
+  <metadata name="splitContainerStatsNScrollie.Locked" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <data name="appTestStudioStatusControl1.Items" mimetype="application/x-microsoft.net.object.binary.base64">
+    <value>
+        AAEAAAD/////AQAAAAAAAAAEAQAAAH9TeXN0ZW0uQ29sbGVjdGlvbnMuR2VuZXJpYy5MaXN0YDFbW1N5
+        c3RlbS5TdHJpbmcsIG1zY29ybGliLCBWZXJzaW9uPTQuMC4wLjAsIEN1bHR1cmU9bmV1dHJhbCwgUHVi
+        bGljS2V5VG9rZW49Yjc3YTVjNTYxOTM0ZTA4OV1dAwAAAAZfaXRlbXMFX3NpemUIX3ZlcnNpb24GAAAI
+        CAkCAAAAAAAAAAAAAAARAgAAAAAAAAAL
 </value>
   </data>
   <data name="lblRunAsAdministratorWarning.Text" xml:space="preserve">
@@ -469,6 +493,39 @@ This allows maximum customizability, but it can also simulate behavoiors that ar
 4.) Make Object + Use, will update the last event with this object and switch to it.
 </value>
   </data>
+  <metadata name="colName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colWindowName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colInstance.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colStartTime.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colRepeat.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colScheduleEnabled.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="colEdit.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn1.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn2.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn3.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+  <metadata name="dataGridViewTextBoxColumn4.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="colName.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>

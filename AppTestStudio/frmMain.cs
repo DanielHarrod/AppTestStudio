@@ -92,6 +92,7 @@ namespace AppTestStudio
         private int InitialPanelRightAfterCompletionHeight;
         private int InitialPanelRightObjectHeight;
         private int InitialPanelRightLogicHeight;
+        private int InitialPanelRightPixelSearchPropertiesHeight;
         private int InitialPanelRightCustomLogicHeight;
         private int InitialPanelRightPointGridHeight;
         private int InitialPanelRightClickPropertiesHeight;
@@ -152,6 +153,7 @@ namespace AppTestStudio
             InitialPanelRightAfterCompletionHeight = panelRightAfterCompletion.Height;
             InitialPanelRightObjectHeight = panelRightObject.Height;
             InitialPanelRightLogicHeight = panelRightLogic.Height;
+            InitialPanelRightPixelSearchPropertiesHeight = panelRightPixelSearchProperties.Height;
             InitialPanelRightCustomLogicHeight = panelRightCustomLogic.Height;
             InitialPanelRightPointGridHeight = panelRightCustomLogic.Height;
             InitialPanelRightClickPropertiesHeight = panelRightClickProperties.Height;
@@ -1178,6 +1180,7 @@ namespace AppTestStudio
 
             panelRightAnchor.Visible = false;
             panelRightLogic.Visible = false;
+            panelRightPixelSearchProperties.Visible = false;
             panelRightCustomLogic.Visible = false;
             panelRightPointGrid.Visible = false;
 
@@ -3364,6 +3367,7 @@ namespace AppTestStudio
                     panelRightPointGrid.Visible = true;
                     panelRightObject.Visible = false;
                     panelRightAnchor.Visible = false;
+                    panelRightPixelSearchProperties.Visible = false;
 
                     break;
                 case EventType.ObjectSearch:
@@ -3373,6 +3377,8 @@ namespace AppTestStudio
                     panelRightObject.Visible = true;
                     panelRightAnchor.Visible = true;
 
+                    panelRightPixelSearchProperties.Visible = false;
+
                     break;
                 case EventType.PixelSearch:
                     panelRightLogic.Visible = false;
@@ -3380,6 +3386,7 @@ namespace AppTestStudio
                     panelRightPointGrid.Visible = false;
                     panelRightObject.Visible = false;
                     panelRightAnchor.Visible = true;
+                    panelRightPixelSearchProperties.Visible = true;
 
                     break;
                 default:
@@ -3613,7 +3620,7 @@ namespace AppTestStudio
                                 break;
                             default:
                                 break;
-                        }   
+                        }
                         break;
 
                     default:
@@ -7702,6 +7709,7 @@ namespace AppTestStudio
         Boolean panelRightLogicOriginalVisible;
         Boolean panelRightCustomLogicOriginalVisible;
         Boolean panelRightPointGridOriginalVisible;
+        Boolean panelRightPixelSearchPropertiesVisible;
 
         int FlowLayoutPanelColorEvent1OriginWidth = 0;
         private void cmdFlowLayoutPanelColorEvent1_Click(object sender, EventArgs e)
@@ -7720,6 +7728,7 @@ namespace AppTestStudio
                 panelRightSwipePropertiesOriginalVisible = panelRightSwipeProperties.Visible;
                 panelRightClickPropertiesOriginalVisible = panelRightClickProperties.Visible;
                 panelRightLogicOriginalVisible = panelRightLogic.Visible;
+                panelRightPixelSearchPropertiesVisible = panelRightPixelSearchProperties.Visible;
                 panelRightCustomLogicOriginalVisible = panelRightCustomLogic.Visible;
                 panelRightPointGridOriginalVisible = panelRightPointGrid.Visible;
 
@@ -7735,6 +7744,7 @@ namespace AppTestStudio
                 panelRightSwipeProperties.Visible = false;
                 panelRightClickProperties.Visible = false;
                 panelRightLogic.Visible = false;
+                panelRightPixelSearchProperties.Visible = false;
                 panelRightCustomLogic.Visible = false;
                 panelRightPointGrid.Visible = false;
 
@@ -7753,6 +7763,7 @@ namespace AppTestStudio
                 panelRightSwipeProperties.Visible = panelRightSwipePropertiesOriginalVisible;
                 panelRightClickProperties.Visible = panelRightClickPropertiesOriginalVisible;
                 panelRightLogic.Visible = panelRightLogicOriginalVisible;
+                panelRightPixelSearchProperties.Visible = panelRightPixelSearchPropertiesVisible;
                 panelRightCustomLogic.Visible = panelRightCustomLogicOriginalVisible;
                 panelRightPointGrid.Visible = panelRightPointGridOriginalVisible;
             }
@@ -8522,7 +8533,7 @@ namespace AppTestStudio
                                     default:
                                         break;
                                 }
-  
+
                                 break;
                             case ActionType.Action:
 
@@ -9701,7 +9712,7 @@ namespace AppTestStudio
                 GameNodeAction? GameNode = tv.SelectedNode as GameNodeAction;
                 if (GameNode != null)
                 {
-                    if ( rdoColorPoint.Checked)
+                    if (rdoColorPoint.Checked)
                     {
                         GameNode.EventType = EventType.ColorPoint;
                     }
@@ -9711,7 +9722,7 @@ namespace AppTestStudio
                         GameNode.EventType = EventType.PixelSearch;
                     }
 
-                    if(rdoObjectSearch.Checked)
+                    if (rdoObjectSearch.Checked)
                     {
                         GameNode.EventType = EventType.ObjectSearch;
                     }
@@ -9744,6 +9755,50 @@ namespace AppTestStudio
         private void rdoColorPoint_CheckedChanged(object sender, EventArgs e)
         {
             EventTypeChanged();
+        }
+
+        private void cmdPixelSearchProperties_Click(object sender, EventArgs e)
+        {
+            if (panelRightPixelSearchProperties.Height == InitialPanelRightPixelSearchPropertiesHeight)
+            {
+                panelRightPixelSearchProperties.Height = cmdPixelSearchProperties.Height;
+
+                cmdPixelSearchProperties.ImageIndex = IconNames.LeftChevron;
+            }
+            else
+            {
+                panelRightPixelSearchProperties.Height = InitialPanelRightPixelSearchPropertiesHeight;
+
+                cmdPixelSearchProperties.ImageIndex = IconNames.DownChevron;
+            }
+
+        }
+
+        private void PixelSearchValueChanged()
+        {
+            try
+            {
+                lblPixelSearchPreview.BackColor = Color.FromArgb(numPixelSearchR.Value.ToInt(), numPixelSearchG.Value.ToInt(), numPixelSearchB.Value.ToInt());
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void numPixelSearchR_ValueChanged(object sender, EventArgs e)
+        {
+            PixelSearchValueChanged();
+        }
+
+        private void numPixelSearchG_ValueChanged(object sender, EventArgs e)
+        {
+            PixelSearchValueChanged();
+        }
+
+        private void numPixelSearchB_ValueChanged(object sender, EventArgs e)
+        {
+            PixelSearchValueChanged();
         }
     }
 }
