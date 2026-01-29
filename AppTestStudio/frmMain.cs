@@ -3573,40 +3573,47 @@ namespace AppTestStudio
                         }
                         break;
                     case "Event":
-                        if (rdoColorPoint.Checked)
+                        switch (ActionNode.EventType)
                         {
-                            frmTest frm2 = new frmTest(game, ActionNode, this, MainWindowHandle);
-                            frm2.StartPosition = FormStartPosition.CenterParent;
+                            case EventType.ColorPoint:
+                                frmTest frm2 = new frmTest(game, ActionNode, this, MainWindowHandle);
+                                frm2.StartPosition = FormStartPosition.CenterParent;
 
 
-                            frm2.ShowDialog(this);
-                        }
-                        else
-                        {
-                            if (PictureBoxEventObjectSelection.Image.IsSomething())
-                            {
-                                if (cboChannel.SelectedIndex == 0)
+                                frm2.ShowDialog(this);
+
+                                break;
+                            case EventType.ObjectSearch:
+                                if (PictureBoxEventObjectSelection.Image.IsSomething())
                                 {
-                                    Log("Please select choose a Color Channel to test with.");
-                                    //FlashLabel(lblColorChannel);
-                                    Debug.Assert(false);// need to preset REd Channel if one's not selected
+                                    if (cboChannel.SelectedIndex == 0)
+                                    {
+                                        Log("Please select choose a Color Channel to test with.");
+                                        //FlashLabel(lblColorChannel);
+                                        Debug.Assert(false);// need to preset REd Channel if one's not selected
+                                    }
+                                    else
+                                    {
+                                        frmTestObjectSearch frmTOS = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, null);
+                                        frmTOS.StartPosition = FormStartPosition.CenterParent;
+
+                                        frmTOS.ShowDialog(this);
+                                    }
                                 }
                                 else
                                 {
-                                    frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, null);
-                                    frm2.StartPosition = FormStartPosition.CenterParent;
-
-                                    frm2.ShowDialog(this);
+                                    Log("Please select An Object to test with from the list in the Object group before testing.");
+                                    // FlashLabel(lblSearchObject)
+                                    // Debug.Assert(false);// need to preset REd Channel if one's not selected
                                 }
-                            }
-                            else
-                            {
-                                Log("Please select An Object to test with from the list in the Object group before testing.");
-                                // FlashLabel(lblSearchObject)
-                                // Debug.Assert(false);// need to preset REd Channel if one's not selected
-                            }
-                        }
-
+                                break;
+                            case EventType.PixelSearch:
+                                Debug.WriteLine("Pixel Search Test - TODO");
+                                // TODO Pixel Search
+                                break;
+                            default:
+                                break;
+                        }   
                         break;
 
                     default:
@@ -4103,33 +4110,41 @@ namespace AppTestStudio
             switch (lblMode.Text)
             {
                 case "Event":
-                    if (rdoColorPoint.Checked)
+                    GameNodeAction EventNode = tv.SelectedNode as GameNodeAction;
+                    switch (EventNode.EventType)
                     {
-                        DataGridViewRow Row = dgv.Rows[0].Clone() as DataGridViewRow;
+                        case EventType.ColorPoint:
+                            DataGridViewRow Row = dgv.Rows[0].Clone() as DataGridViewRow;
 
-                        int RowIndex = dgv.Rows.Add();
-                        dgv.Rows[RowIndex].Cells["dgvID"].Value = RowIndex + 1;
-                        dgv.Rows[RowIndex].Cells["dgvRed"].Value = PictureBox1Color.R.ToString();
-                        dgv.Rows[RowIndex].Cells["dgvGreen"].Value = PictureBox1Color.G.ToString();
-                        dgv.Rows[RowIndex].Cells["dgvBlue"].Value = PictureBox1Color.B.ToString();
+                            int RowIndex = dgv.Rows.Add();
+                            dgv.Rows[RowIndex].Cells["dgvID"].Value = RowIndex + 1;
+                            dgv.Rows[RowIndex].Cells["dgvRed"].Value = PictureBox1Color.R.ToString();
+                            dgv.Rows[RowIndex].Cells["dgvGreen"].Value = PictureBox1Color.G.ToString();
+                            dgv.Rows[RowIndex].Cells["dgvBlue"].Value = PictureBox1Color.B.ToString();
 
-                        dgv.Rows[RowIndex].Cells["dgvX"].Value = PictureBox1X;
-                        dgv.Rows[RowIndex].Cells["dgvY"].Value = PictureBox1Y;
-                        dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scn";
-                        dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Rem";
+                            dgv.Rows[RowIndex].Cells["dgvX"].Value = PictureBox1X;
+                            dgv.Rows[RowIndex].Cells["dgvY"].Value = PictureBox1Y;
+                            dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scn";
+                            dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Rem";
 
-                        // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
-                        DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(PictureBox1Color);
+                            // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
+                            DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(PictureBox1Color);
 
-                        dgv.Rows[RowIndex].Cells["dgvRed"].Style = Style;
-                        dgv.Rows[RowIndex].Cells["dgvGreen"].Style = Style;
-                        dgv.Rows[RowIndex].Cells["dgvBlue"].Style = Style;
+                            dgv.Rows[RowIndex].Cells["dgvRed"].Style = Style;
+                            dgv.Rows[RowIndex].Cells["dgvGreen"].Style = Style;
+                            dgv.Rows[RowIndex].Cells["dgvBlue"].Style = Style;
 
-                        PictureBox1.Refresh();
+                            PictureBox1.Refresh();
 
-                        SaveClickList();
+                            SaveClickList();
 
-                        GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
+                            break;
+                        case EventType.ObjectSearch:
+                            break;
+                        case EventType.PixelSearch:
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case "Action":
@@ -4207,14 +4222,22 @@ namespace AppTestStudio
                     Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
                     break;
                 case "Event":
-                    if (rdoColorPoint.Checked)
+                    switch (Node.EventType)
                     {
-                        // do nothing
-                    }
-                    else
-                    {
-                        PictureBox1MouseDown = true;
-                        Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
+                        case EventType.ColorPoint:
+                            break;
+                        case EventType.ObjectSearch:
+                            PictureBox1MouseDown = true;
+                            Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
+
+                            break;
+                        case EventType.PixelSearch:
+                            PictureBox1MouseDown = true;
+                            Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
+
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 default:
@@ -4243,13 +4266,20 @@ namespace AppTestStudio
                     PictureBox1MouseDown = false;
                     break;
                 case "Event":
-                    if (rdoColorPoint.Checked)
+                    GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                    switch (Node.EventType)
                     {
-                        // do nothing
-                    }
-                    else
-                    {
-                        PictureBox1MouseDown = false;
+                        case EventType.ColorPoint:
+                            // Do nothing
+                            break;
+                        case EventType.ObjectSearch:
+                            PictureBox1MouseDown = false;
+                            break;
+                        case EventType.PixelSearch:
+                            PictureBox1MouseDown = false;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 default:
@@ -4275,19 +4305,31 @@ namespace AppTestStudio
                     break;
 
                 case ActionType.Event:
-                    if (rdoColorPoint.Checked)
+                    switch (Node.EventType)
                     {
-                        Utils.DrawColorPoints(e, dgv, "dgv", "dgvX", "dgvY");
-                    }
-                    else
-                    {
-                        if (Node.Rectangle.IsEmpty)
-                        {
-                            Node.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
-                        }
-                        Utils.DrawMask(Node, PictureBox1, Node.Rectangle, e);
+                        case EventType.ColorPoint:
+                            Utils.DrawColorPoints(e, dgv, "dgv", "dgvX", "dgvY");
+                            break;
+                        case EventType.ObjectSearch:
+                            if (Node.Rectangle.IsEmpty)
+                            {
+                                Node.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
+                            }
+                            Utils.DrawMask(Node, PictureBox1, Node.Rectangle, e);
 
-                        UpdateMaskSize();
+                            UpdateMaskSize();
+                            break;
+                        case EventType.PixelSearch:
+                            if (Node.Rectangle.IsEmpty)
+                            {
+                                Node.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
+                            }
+                            Utils.DrawMask(Node, PictureBox1, Node.Rectangle, e);
+
+                            UpdateMaskSize();
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case ActionType.RNG:
