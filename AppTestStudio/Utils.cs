@@ -104,7 +104,19 @@ namespace AppTestStudio
                                         break;
                                     case EventType.PixelSearch:
                                         // Todo - implement pixel search icon
-                                        break;
+                                        if (ActionNode.Enabled)
+                                        {
+                                            Node.ImageIndex = IconNames.PixelSearch;
+                                            Node.SelectedImageIndex = IconNames.PixelSearch;
+                                            Node.ForeColor = EnabledColor;
+                                        }
+                                        else
+                                        {
+                                            Node.ImageIndex = IconNames.PixelSearchGray;
+                                            Node.SelectedImageIndex = IconNames.PixelSearchGray;
+                                            Node.ForeColor = DisabledColor;
+                                        }
+                                            break;
                                     default:
                                         break;
                                 }
