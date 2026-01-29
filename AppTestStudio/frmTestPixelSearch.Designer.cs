@@ -52,6 +52,7 @@
             numPixelSearchRNeg = new NumericUpDown();
             numPixelSearchR = new NumericUpDown();
             label105 = new Label();
+            label1 = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -83,6 +84,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            splitContainer1.Panel2.Controls.Add(label1);
             splitContainer1.Panel2.Controls.Add(cmdRetestDesignImage);
             splitContainer1.Panel2.Controls.Add(cmdRetestCurrentWindow);
             splitContainer1.Panel2.Controls.Add(panelRightPixelSearchProperties);
@@ -318,6 +320,15 @@
             label105.TabIndex = 15;
             label105.Text = "Click Image to Select a color, and Drag a cropping window on the screen.";
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Location = new Point(37, 332);
+            label1.Name = "label1";
+            label1.Size = new Size(38, 15);
+            label1.TabIndex = 46;
+            label1.Text = "label1";
+            // 
             // frmTestPixelSearch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -329,6 +340,7 @@
             Load += frmTestPixelSearch_Load;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
+            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
             PanelScreenshot.ResumeLayout(false);
@@ -374,5 +386,6 @@
         private Label label105;
         private Button cmdRetestDesignImage;
         private Button cmdRetestCurrentWindow;
+        private Label label1;
     }
 }

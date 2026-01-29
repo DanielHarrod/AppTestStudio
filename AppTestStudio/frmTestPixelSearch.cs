@@ -19,6 +19,9 @@ namespace AppTestStudio
         OpenCvSharp.Point DetectedPoint;
         GameNodeAction GameNodeActionParent;
 
+        Boolean CurrentTestPassed = false;
+        Point? CurrentPoint = Point.Empty;
+
         public frmTestPixelSearch(GameNodeGame game, GameNodeAction node, frmMain frm, IntPtr mainWindowHandle, GameNodeAction parent)
         {
             InitializeComponent();
@@ -67,8 +70,6 @@ namespace AppTestStudio
 
         private void PictureBoxSearchArea_Paint(object sender, PaintEventArgs e)
         {
-            Rectangle rectangle = new Rectangle();
-
             Rectangle SourceMask;
 
             SourceMask = Node.Rectangle;
@@ -83,6 +84,17 @@ namespace AppTestStudio
             {
                 Utils.DrawMask(PictureBoxSearchArea, SourceMask, e);
             }
+
+            if (CurrentTestPassed)
+            {
+                Bitmap bitmap = PictureBoxSearchArea.Image as Bitmap;
+
+                if (CurrentPoint.HasValue)
+                {
+                    Rectangle rectanglePoint = new Rectangle(CurrentPoint.Value.X + Node.Rectangle.X, CurrentPoint.Value.Y + Node.Rectangle.Y, 3,3);
+                    Utils.DrawRectangleWithGuidesOnGraphics(e.Graphics, bitmap, rectanglePoint);
+                }
+            }
         }
 
         private void cmdRetestCurrentWindow_Click(object sender, EventArgs e)
@@ -96,26 +108,35 @@ namespace AppTestStudio
 
         private void RunTest()
         {
+            if (PictureBoxSearchArea.Image != null)
+            {
+                Bitmap bmp = Utils.CropBitmap(PictureBoxSearchArea.Image as Bitmap, Node.Rectangle);
 
-            Utils.FindFirstColor
-            Node.PixelSearchB = (int)numPixelSearchB.Value;
-            Node.PixelSearchG = (int)numPixelSearchG.Value;
-            Node.PixelSearchR = (int)numPixelSearchR.Value;
-            Node.PixelSearchBNeg = (int)numPixelSearchBNeg.Value;
-            Node.PixelSearchGNeg = (int)numPixelSearchGNeg.Value;
-            Node.PixelSearchRNeg = (int)numPixelSearchRNeg.Value;
-            Node.PixelSearchBPos = (int)numPixelSearchBPos.Value;
-            Node.PixelSearchGPos = (int)numPixelSearchGPos.Value;
-            Node.PixelSearchRPos = (int)numPixelSearchRPos.Value;
-            Boolean Found = Node.PerformPixelSearch(Game, PictureBoxSearchArea.Image as Bitmap, out DetectedPoint, GameNodeActionParent);
-            if (Found)
-            {
-                lblResult.Text = "Pixel Found at X:" + DetectedPoint.X.ToString() + " Y:" + DetectedPoint.Y.ToString();
-            }
-            else
-            {
-                lblResult.Text = "Pixel Not Found";
+                Color SearchColor = Color.FromArgb(numPixelSearchR.Value.ToInt(), numPixelSearchG.Value.ToInt(), numPixelSearchB.Value.ToInt());
+
+                int RMin = numPixelSearchRNeg.Value.ToInt();
+                int RMax = numPixelSearchRPos.Value.ToInt();
+                int GMin = numPixelSearchGNeg.Value.ToInt();
+                int GMax = numPixelSearchGPos.Value.ToInt();
+                int BMin = numPixelSearchBNeg.Value.ToInt();
+                int BMax = numPixelSearchBPos.Value.ToInt();
+
+                //bmp.Save("C:\\temp\\a.bmp");
+
+                CurrentPoint = Utils.FindFirstColor(bmp, SearchColor, RMin, RMax, GMin, GMax, BMin, BMax);
+
+                if (CurrentPoint.HasValue)
+                {
+                    label1.Text = "Pixel Found at X:" + (CurrentPoint.Value.X + Node.Rectangle.X).ToString() + " Y:" + (CurrentPoint.Value.Y + Node.Rectangle.Y).ToString();
+                    CurrentTestPassed = true;
+                }
+                else
+                {
+                    label1.Text = "Not found";
+                    CurrentTestPassed = false;
+                }
             }
             PictureBoxSearchArea.Refresh();
         }
+    }
 }
