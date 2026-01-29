@@ -2,6 +2,7 @@
 //Copyright (C) 2016-2026 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
+using OpenCvSharp;
 using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
@@ -1276,7 +1277,7 @@ namespace AppTestStudio
 
 
         //Some portions were developed with the assistance of AI tools.
-        public static System.Drawing.Point? FindFirstColor( Bitmap bmp, Color target, int threshold)
+        public static System.Drawing.Point? FindFirstColor( Bitmap bmp, Color target, int RMin, int RMax, int GMin, int GMax, int BMin, int BMax)
         {
             Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             BitmapData data = bmp.LockBits(rect, ImageLockMode.ReadOnly, bmp.PixelFormat);
@@ -1287,6 +1288,75 @@ namespace AppTestStudio
             int byteCount = absStride * bmp.Height;
 
             byte[] pixels = new byte[byteCount];
+            if ( stride < 0)
+            {
+                // Image reversed.
+                Marshal.Copy(data.Scan0 + ((data.Height - 1) * stride), pixels, 0, byteCount);
+            }
+            else
+            {
+                Marshal.Copy(data.Scan0, pixels, 0, byteCount);
+            }
+
+            bmp.UnlockBits(data);
+
+            RMin = Math.Clamp(RMin, -255, 0);
+            RMax = Math.Clamp(RMax, 0, 255);
+            GMin = Math.Clamp(GMin, -255, 0);
+            GMax = Math.Clamp(GMax, 0, 255);
+            BMin = Math.Clamp(BMin, -255, 0);
+            BMax = Math.Clamp(BMax, 0, 255);
+
+            if (RMin > RMax) (RMin, RMax) = (RMax, RMin);
+            if (GMin > GMax) (GMin, GMax) = (GMax, GMin);
+            if (BMin > BMax) (BMin, BMax) = (BMax, BMin);
+
+            for (int y = 0; y < bmp.Height; y++)
+            {
+                int row = y * absStride;
+                for (int x = 0; x < bmp.Width; x++)
+                {
+                    int i = row + x * bytesPerPixel;
+
+                    byte b = pixels[i];
+                    byte g = pixels[i + 1];
+                    byte r = pixels[i + 2];
+
+                    int dr = Math.Abs(target.R - r);
+                    int dg = Math.Abs(target.G - g);
+                    int db = Math.Abs(target.B - b);
+
+                    if (dr >= RMin && dr <= RMax 
+                        && dg >= GMin && dg <= GMax
+                        && db >= BMin && db <= BMax)
+                    {
+                        if (stride < 0 )
+                        {
+                            // Reversed.
+                            return new System.Drawing.Point(x, bmp.Height - 1 - y);
+                        }
+                        else
+                        {
+                            return new System.Drawing.Point(x, y);
+                        }
+                    }
+                }
+            }
+            return null;
+        }
+
+        public static System.Drawing.Point? FindFirstColor(Bitmap bmp, Color target, int threshold)
+        {
+            Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            BitmapData data = bmp.LockBits(rect, ImageLockMode.ReadOnly, bmp.PixelFormat);
+
+            int bytesPerPixel = Image.GetPixelFormatSize(bmp.PixelFormat) / 8;
+            int stride = data.Stride;
+            int absStride = Math.Abs(stride);
+            int byteCount = absStride * bmp.Height;
+
+            byte[] pixels = new byte[byteCount];
+
             Marshal.Copy(data.Scan0 + ((data.Height - 1) * stride), pixels, 0, byteCount);
 
             bmp.UnlockBits(data);
@@ -1312,6 +1382,36 @@ namespace AppTestStudio
             }
 
             return null;
+        }
+
+        //Some portions were developed with the assistance of AI tools.
+        public static Bitmap CropBitmap(Bitmap source, Rectangle rect)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            // If the crop rectangle is the full bitmap, just return the original
+            if (rect.X == 0 &&
+                rect.Y == 0 &&
+                rect.Width == source.Width &&
+                rect.Height == source.Height)
+            {
+                return source;
+            }
+
+            // Create the cropped bitmap
+            Bitmap cropped = new Bitmap(rect.Width, rect.Height, source.PixelFormat);
+
+            using (Graphics g = Graphics.FromImage(cropped))
+            {
+                g.DrawImage(
+                    source,
+                    new Rectangle(0, 0, rect.Width, rect.Height),
+                    rect,
+                    GraphicsUnit.Pixel);
+            }
+
+            return cropped;
         }
     }
 
