@@ -517,7 +517,8 @@ namespace AppTestStudio
                     {
                         centerX = eventSolution.CenterX;
                         centerY = eventSolution.CenterY;
-                        if (node.IsColorPoint == false)
+
+                        if (node.EventType == EventType.ColorPoint)
                         {
                             // is Object search.
                             // Draw solution marker
@@ -1339,23 +1340,25 @@ namespace AppTestStudio
                 case ActionType.RNG:
                     break;
                 case ActionType.Event:
-                    if (node.IsColorPoint)
+                    switch (node.EventType)
                     {
-                        if (node.ClickList.Count == 0)
-                        {
-                        }
-                        else
-                        {
-                        }
+                        case EventType.ColorPoint:
+                            break;
+                        case EventType.ObjectSearch:
+                            if (node.Rectangle.IsFullScreenMask())
+                            {
+                                node.Rectangle = node.Rectangle.SetFullScreenFromDefault();
+                            }
 
-                    }
-                    else
-                    {
-                        if (node.Rectangle.IsFullScreenMask())
-                        {
-                            node.Rectangle = node.Rectangle.SetFullScreenFromDefault();
-                        }
-                        // Object search
+                            break;
+                        case EventType.PixelSearch:
+                            if (node.Rectangle.IsFullScreenMask())
+                            {
+                                node.Rectangle = node.Rectangle.SetFullScreenFromDefault();
+                            }
+                            break;
+                        default:
+                            break;
                     }
                     break;
             }

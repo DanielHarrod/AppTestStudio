@@ -1825,7 +1825,7 @@ namespace AppTestStudio
                                 break;
                         }
 
-                        Writer.WriteAttributeString("IsColorPoint", Activites.IsColorPoint.ToString());
+                        Writer.WriteAttributeString("EventType", Activites.EventType.ToString());
                         Writer.WriteAttributeString("GotoNode", Activites.GotoNode.ToString());
                         if (Activites.RepeatsUntilFalse)
                         {
@@ -1925,31 +1925,56 @@ namespace AppTestStudio
                         //'/picture
                         Writer.WriteEndElement();
 
-                        if (Activites.IsColorPoint == false)
+                        switch (Activites.EventType)
                         {
+                            case EventType.ColorPoint:
+                                // Do Nothing
+                                break;
+                            case EventType.ObjectSearch:
+                                // /ObjectSearch
+                                Writer.WriteStartElement("ObjectSearch");
+                                Writer.WriteAttributeString("ObjectName", Activites.ObjectName);
+                                Writer.WriteAttributeString("Channel", Activites.Channel);
+                                Writer.WriteAttributeString("Threshold", Activites.ObjectThreshold.ToString());
 
+                                if (Activites.Rectangle.IsEmpty == false)
+                                {
+                                    Writer.WriteStartElement("Rectangle");
+                                    Writer.WriteAttributeString("X", Activites.Rectangle.X.ToString());
+                                    Writer.WriteAttributeString("Y", Activites.Rectangle.Y.ToString());
+                                    Writer.WriteAttributeString("Height", Activites.Rectangle.Height.ToString());
+                                    Writer.WriteAttributeString("Width", Activites.Rectangle.Width.ToString());
 
-                            //'ObjectSearch
-                            Writer.WriteStartElement("ObjectSearch");
-                            Writer.WriteAttributeString("ObjectName", Activites.ObjectName);
-                            Writer.WriteAttributeString("Channel", Activites.Channel);
-                            Writer.WriteAttributeString("Threshold", Activites.ObjectThreshold.ToString());
+                                    //Rectangle
+                                    Writer.WriteEndElement();
+                                }
 
-                            if (Activites.Rectangle.IsEmpty == false)
-                            {
-                                Writer.WriteStartElement("Rectangle");
-                                Writer.WriteAttributeString("X", Activites.Rectangle.X.ToString());
-                                Writer.WriteAttributeString("Y", Activites.Rectangle.Y.ToString());
-                                Writer.WriteAttributeString("Height", Activites.Rectangle.Height.ToString());
-                                Writer.WriteAttributeString("Width", Activites.Rectangle.Width.ToString());
-
-                                //'rectanble
                                 Writer.WriteEndElement();
-                            }
+                                // /ObjectSearch
 
-                            Writer.WriteEndElement();
-                            //'/ObjectSearch
+                                break;
+                            case EventType.PixelSearch:
+                                Writer.WriteStartElement("PixelSearch");
 
+                                Writer.WriteAttributeString("Threshold", Activites.ObjectThreshold.ToString());
+
+                                if (Activites.Rectangle.IsEmpty == false)
+                                {
+                                    Writer.WriteStartElement("Rectangle");
+                                    Writer.WriteAttributeString("X", Activites.Rectangle.X.ToString());
+                                    Writer.WriteAttributeString("Y", Activites.Rectangle.Y.ToString());
+                                    Writer.WriteAttributeString("Height", Activites.Rectangle.Height.ToString());
+                                    Writer.WriteAttributeString("Width", Activites.Rectangle.Width.ToString());
+
+                                    // /Rectangle
+                                    Writer.WriteEndElement();
+                                }
+
+                                Writer.WriteEndElement();
+                                // /PixelSearch
+                                break;
+                            default:
+                                break;
                         }
 
                         if (Activites.Nodes.Count > 0)
@@ -2348,10 +2373,35 @@ namespace AppTestStudio
                 }
             }
 
+            // This moved to EventType - now a one time conversion.
             if (eventNode.Attributes.GetNamedItem("IsColorPoint").IsSomething())
             {
                 Boolean IsColorPoint = Convert.ToBoolean(eventNode.Attributes["IsColorPoint"].Value);
-                newEvent.IsColorPoint = IsColorPoint;
+
+                if (IsColorPoint)
+                {
+                    newEvent.EventType = EventType.ColorPoint;
+                }
+            }
+
+            if (eventNode.Attributes.GetNamedItem("EventType").IsSomething())
+            {
+                String EventTypeValue = eventNode.Attributes["EventType"].Value;
+                switch (EventTypeValue.ToUpper())
+                {
+                    case "COLORPOINT":
+                        newEvent.EventType = EventType.ColorPoint;
+                        break;
+                    case "OBJECTSEARCH":
+                        newEvent.EventType = EventType.ObjectSearch;
+                        break;
+                    case "PIXELSEARCH":
+                        newEvent.EventType = EventType.PixelSearch;
+                        break;
+                    default:
+                        newEvent.EventType = EventType.ColorPoint;
+                        break;
+                }
             }
 
             if (eventNode.Attributes.GetNamedItem("GotoNode").IsSomething())

@@ -57,6 +57,13 @@ namespace AppTestStudio
         GoToChild   // Child Goto when unwinding the call stack
     }
 
+    public enum EventType
+    {
+        ColorPoint,
+        ObjectSearch,
+        PixelSearch
+    }
+
     public enum ActionType
     {
         Action,

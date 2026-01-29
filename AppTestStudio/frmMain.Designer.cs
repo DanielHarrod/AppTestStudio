@@ -197,6 +197,7 @@ namespace AppTestStudio
             panelColorEventChild1 = new Panel();
             cmdTakeParentScreenshot = new Button();
             grpEventMode = new GroupBox();
+            rdoPixelSearch = new RadioButton();
             rdoObjectSearch = new RadioButton();
             rdoColorPoint = new RadioButton();
             lblMode = new Label();
@@ -1787,7 +1788,7 @@ namespace AppTestStudio
             splitContainerThreadMain.Panel2.Controls.Add(lstGamePass);
             splitContainerThreadMain.Panel2MinSize = 120;
             splitContainerThreadMain.Size = new Size(1664, 759);
-            splitContainerThreadMain.SplitterDistance = 1435;
+            splitContainerThreadMain.SplitterDistance = 1441;
             splitContainerThreadMain.SplitterWidth = 3;
             splitContainerThreadMain.TabIndex = 1;
             // 
@@ -1817,7 +1818,7 @@ namespace AppTestStudio
             // splitContainerThread.Panel2
             // 
             splitContainerThread.Panel2.Controls.Add(appTestStudioStatusControl1);
-            splitContainerThread.Size = new Size(1435, 759);
+            splitContainerThread.Size = new Size(1441, 759);
             splitContainerThread.SplitterDistance = 198;
             splitContainerThread.SplitterWidth = 5;
             splitContainerThread.TabIndex = 1;
@@ -1839,8 +1840,8 @@ namespace AppTestStudio
             // splitContainerStatsNScrollie.Panel2
             // 
             splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
-            splitContainerStatsNScrollie.Size = new Size(1435, 198);
-            splitContainerStatsNScrollie.SplitterDistance = 159;
+            splitContainerStatsNScrollie.Size = new Size(1441, 198);
+            splitContainerStatsNScrollie.SplitterDistance = 153;
             splitContainerStatsNScrollie.SplitterWidth = 5;
             splitContainerStatsNScrollie.TabIndex = 2;
             // 
@@ -1867,18 +1868,18 @@ namespace AppTestStudio
             tableLayoutStats.RowCount = 1;
             tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutStats.Size = new Size(1435, 159);
+            tableLayoutStats.Size = new Size(1441, 153);
             tableLayoutStats.TabIndex = 3;
             // 
             // grpTopScriptCounters
             // 
             grpTopScriptCounters.Controls.Add(tableLayoutPanel3);
             grpTopScriptCounters.Dock = DockStyle.Fill;
-            grpTopScriptCounters.Location = new Point(480, 3);
+            grpTopScriptCounters.Location = new Point(482, 3);
             grpTopScriptCounters.Margin = new Padding(4, 3, 4, 3);
             grpTopScriptCounters.Name = "grpTopScriptCounters";
             grpTopScriptCounters.Padding = new Padding(4, 3, 4, 3);
-            grpTopScriptCounters.Size = new Size(230, 153);
+            grpTopScriptCounters.Size = new Size(231, 147);
             grpTopScriptCounters.TabIndex = 7;
             grpTopScriptCounters.TabStop = false;
             grpTopScriptCounters.Text = "Script";
@@ -1913,7 +1914,7 @@ namespace AppTestStudio
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel3.Size = new Size(222, 131);
+            tableLayoutPanel3.Size = new Size(223, 125);
             tableLayoutPanel3.TabIndex = 3;
             // 
             // label102
@@ -2044,7 +2045,7 @@ namespace AppTestStudio
             grpTopThreadCounter.Margin = new Padding(4, 3, 4, 3);
             grpTopThreadCounter.Name = "grpTopThreadCounter";
             grpTopThreadCounter.Padding = new Padding(4, 3, 4, 3);
-            grpTopThreadCounter.Size = new Size(230, 153);
+            grpTopThreadCounter.Size = new Size(231, 147);
             grpTopThreadCounter.TabIndex = 6;
             grpTopThreadCounter.TabStop = false;
             grpTopThreadCounter.Text = "Thread";
@@ -2079,7 +2080,7 @@ namespace AppTestStudio
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel2.Size = new Size(222, 131);
+            tableLayoutPanel2.Size = new Size(223, 125);
             tableLayoutPanel2.TabIndex = 3;
             // 
             // label100
@@ -2206,11 +2207,11 @@ namespace AppTestStudio
             // 
             grpAPS.Controls.Add(atsGraphActions1);
             grpAPS.Dock = DockStyle.Fill;
-            grpAPS.Location = new Point(1199, 3);
+            grpAPS.Location = new Point(1204, 3);
             grpAPS.Margin = new Padding(4, 3, 4, 3);
             grpAPS.Name = "grpAPS";
             grpAPS.Padding = new Padding(4, 3, 4, 3);
-            grpAPS.Size = new Size(232, 153);
+            grpAPS.Size = new Size(233, 147);
             grpAPS.TabIndex = 5;
             grpAPS.TabStop = false;
             grpAPS.Text = "Clicks Per Second";
@@ -2221,18 +2222,18 @@ namespace AppTestStudio
             atsGraphActions1.Location = new Point(4, 19);
             atsGraphActions1.Margin = new Padding(4, 3, 4, 3);
             atsGraphActions1.Name = "atsGraphActions1";
-            atsGraphActions1.Size = new Size(224, 131);
+            atsGraphActions1.Size = new Size(225, 125);
             atsGraphActions1.TabIndex = 0;
             // 
             // groupTotal
             // 
             groupTotal.Controls.Add(tableLayoutPanel1);
             groupTotal.Dock = DockStyle.Fill;
-            groupTotal.Location = new Point(718, 3);
+            groupTotal.Location = new Point(721, 3);
             groupTotal.Margin = new Padding(4, 3, 4, 3);
             groupTotal.Name = "groupTotal";
             groupTotal.Padding = new Padding(4, 3, 4, 3);
-            groupTotal.Size = new Size(230, 153);
+            groupTotal.Size = new Size(231, 147);
             groupTotal.TabIndex = 2;
             groupTotal.TabStop = false;
             groupTotal.Text = "Total";
@@ -2267,7 +2268,7 @@ namespace AppTestStudio
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel1.Size = new Size(222, 131);
+            tableLayoutPanel1.Size = new Size(223, 125);
             tableLayoutPanel1.TabIndex = 4;
             // 
             // label13
@@ -2394,11 +2395,11 @@ namespace AppTestStudio
             // 
             groupSession.Controls.Add(tableLayoutPanelSession);
             groupSession.Dock = DockStyle.Fill;
-            groupSession.Location = new Point(242, 3);
+            groupSession.Location = new Point(243, 3);
             groupSession.Margin = new Padding(4, 3, 4, 3);
             groupSession.Name = "groupSession";
             groupSession.Padding = new Padding(4, 3, 4, 3);
-            groupSession.Size = new Size(230, 153);
+            groupSession.Size = new Size(231, 147);
             groupSession.TabIndex = 1;
             groupSession.TabStop = false;
             groupSession.Text = "Session";
@@ -2433,7 +2434,7 @@ namespace AppTestStudio
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanelSession.Size = new Size(222, 131);
+            tableLayoutPanelSession.Size = new Size(223, 125);
             tableLayoutPanelSession.TabIndex = 3;
             // 
             // label1
@@ -2560,11 +2561,11 @@ namespace AppTestStudio
             // 
             grpCPU.Controls.Add(atsGraph1);
             grpCPU.Dock = DockStyle.Fill;
-            grpCPU.Location = new Point(956, 3);
+            grpCPU.Location = new Point(960, 3);
             grpCPU.Margin = new Padding(4, 3, 4, 3);
             grpCPU.Name = "grpCPU";
             grpCPU.Padding = new Padding(4, 3, 4, 3);
-            grpCPU.Size = new Size(235, 153);
+            grpCPU.Size = new Size(236, 147);
             grpCPU.TabIndex = 3;
             grpCPU.TabStop = false;
             grpCPU.Text = "CPU";
@@ -2575,13 +2576,13 @@ namespace AppTestStudio
             atsGraph1.Location = new Point(4, 19);
             atsGraph1.Margin = new Padding(4, 3, 4, 3);
             atsGraph1.Name = "atsGraph1";
-            atsGraph1.Size = new Size(227, 131);
+            atsGraph1.Size = new Size(228, 125);
             atsGraph1.TabIndex = 0;
             // 
             // splitContainerSeconds
             // 
             splitContainerSeconds.Dock = DockStyle.Bottom;
-            splitContainerSeconds.Location = new Point(0, 12);
+            splitContainerSeconds.Location = new Point(0, 18);
             splitContainerSeconds.Margin = new Padding(4, 3, 4, 3);
             splitContainerSeconds.Name = "splitContainerSeconds";
             // 
@@ -2592,7 +2593,7 @@ namespace AppTestStudio
             // splitContainerSeconds.Panel2
             // 
             splitContainerSeconds.Panel2.BackColor = SystemColors.ControlDark;
-            splitContainerSeconds.Size = new Size(1435, 22);
+            splitContainerSeconds.Size = new Size(1441, 22);
             splitContainerSeconds.SplitterDistance = 198;
             splitContainerSeconds.SplitterWidth = 5;
             splitContainerSeconds.TabIndex = 0;
@@ -2606,7 +2607,7 @@ namespace AppTestStudio
             appTestStudioStatusControl1.Margin = new Padding(5, 6, 5, 6);
             appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
             appTestStudioStatusControl1.ShowPercent = (long)10L;
-            appTestStudioStatusControl1.Size = new Size(1435, 556);
+            appTestStudioStatusControl1.Size = new Size(1441, 556);
             appTestStudioStatusControl1.TabIndex = 0;
             // 
             // lstGamePass
@@ -2618,7 +2619,7 @@ namespace AppTestStudio
             lstGamePass.Location = new Point(0, 0);
             lstGamePass.Margin = new Padding(2);
             lstGamePass.Name = "lstGamePass";
-            lstGamePass.Size = new Size(226, 759);
+            lstGamePass.Size = new Size(220, 759);
             lstGamePass.SmallImageList = ImageList1;
             lstGamePass.TabIndex = 0;
             lstGamePass.UseCompatibleStateImageBehavior = false;
@@ -2689,6 +2690,7 @@ namespace AppTestStudio
             // 
             // grpEventMode
             // 
+            grpEventMode.Controls.Add(rdoPixelSearch);
             grpEventMode.Controls.Add(rdoObjectSearch);
             grpEventMode.Controls.Add(rdoColorPoint);
             grpEventMode.Controls.Add(lblMode);
@@ -2696,10 +2698,23 @@ namespace AppTestStudio
             grpEventMode.Margin = new Padding(4, 3, 4, 3);
             grpEventMode.Name = "grpEventMode";
             grpEventMode.Padding = new Padding(4, 3, 4, 3);
-            grpEventMode.Size = new Size(131, 69);
+            grpEventMode.Size = new Size(231, 69);
             grpEventMode.TabIndex = 28;
             grpEventMode.TabStop = false;
             grpEventMode.Text = "Event Mode";
+            // 
+            // rdoPixelSearch
+            // 
+            rdoPixelSearch.AutoSize = true;
+            rdoPixelSearch.Location = new Point(124, 44);
+            rdoPixelSearch.Margin = new Padding(4, 3, 4, 3);
+            rdoPixelSearch.Name = "rdoPixelSearch";
+            rdoPixelSearch.Size = new Size(87, 19);
+            rdoPixelSearch.TabIndex = 1;
+            rdoPixelSearch.TabStop = true;
+            rdoPixelSearch.Text = "Pixel Search";
+            rdoPixelSearch.UseVisualStyleBackColor = true;
+            rdoPixelSearch.CheckedChanged += (this.rdoPixelSearch_CheckedChanged);
             // 
             // rdoObjectSearch
             // 
@@ -2744,7 +2759,7 @@ namespace AppTestStudio
             grpMode.Controls.Add(rdoModeMove);
             grpMode.Controls.Add(rdoModeClickDragRelease);
             grpMode.Controls.Add(rdoModeRangeClick);
-            grpMode.Location = new Point(300, 7);
+            grpMode.Location = new Point(402, 8);
             grpMode.Margin = new Padding(4, 3, 4, 3);
             grpMode.Name = "grpMode";
             grpMode.Padding = new Padding(4, 3, 4, 3);
@@ -10083,5 +10098,6 @@ namespace AppTestStudio
         private Label lblScriptClickCount;
         private Label label117;
         private CheckBox chkUseObjectSearchPosition;
+        internal RadioButton rdoPixelSearch;
     }
 }

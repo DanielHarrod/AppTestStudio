@@ -1212,13 +1212,17 @@ namespace AppTestStudio
 
             NumericClickSpeed.Value = GameNode.ClickSpeed;
 
-            if (GameNode.IsColorPoint)
+            switch (GameNode.EventType)
             {
-                rdoColorPoint.Checked = true;
-            }
-            else
-            {
-                rdoObjectSearch.Checked = true;
+                case EventType.ColorPoint:
+                    rdoColorPoint.Checked = true;
+                    break;
+                case EventType.ObjectSearch:
+                    rdoObjectSearch.Checked = true;
+                    break;
+                case EventType.PixelSearch:
+                    rdoPixelSearch.Checked = true;
+                    break;
             }
 
             switch (GameNode.AfterCompletionType)
@@ -1438,7 +1442,21 @@ namespace AppTestStudio
 
                     numericPropertiesRepeatsUntilFalse.Value = GameNode.RepeatsUntilFalseLimit;
 
-                    rdoColorPoint.Checked = GameNode.IsColorPoint;
+                    switch (GameNode.EventType)
+                    {
+                        case EventType.ColorPoint:
+                            rdoColorPoint.Checked = true;
+                            break;
+                        case EventType.ObjectSearch:
+                            rdoObjectSearch.Checked = true;
+                            break;
+                        case EventType.PixelSearch:
+                            rdoPixelSearch.Checked = true;
+                            break;
+                        default:
+                            break;
+                    }
+
                     grpMode.Visible = false;
                     grpEventMode.Visible = true;
                     //'cmdHelpAddAction.Visible = false
@@ -1680,32 +1698,26 @@ namespace AppTestStudio
 
             lblXOffsetRange.Text = "-" + PictureBox1.Width + " to " + PictureBox1.Width;
             lblYOffsetRange.Text = "-" + PictureBox1.Height + " to " + PictureBox1.Height;
-
-            if (CurrentParent is GameNodeAction)
-            {
-                if (CurrentParent.IsColorPoint == false)
-                {
-                    //grpObjectAction.Visible = true;
-                    return;
-                }
-                else
-                {
-                    //grpObjectAction.Visible = false;
-                    return;
-                }
-            }
-
-
         }
 
         private void LoadObjectNodeSection()
         {
             GameNodeAction EventNode = tv.SelectedNode as GameNodeAction;
 
-            if (EventNode.IsColorPoint)
+            switch (EventNode.EventType)
             {
-                return;
+                case EventType.ColorPoint:
+                    return;
+                    break;
+                case EventType.ObjectSearch:
+                    break;
+                case EventType.PixelSearch:
+                    return;
+                    break;
+                default:
+                    break;
             }
+
             LoadEventObjectList();
 
             LoadObjectSelectionImage();
@@ -1748,36 +1760,41 @@ namespace AppTestStudio
         private void LoadObjectSelectionImage()
         {
             GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-            if (ActionNode.IsColorPoint)
+            switch (ActionNode.EventType)
             {
-                //'do nothing
-            }
-            else
-            {
-                if (ActionNode.ObjectName.Trim() == "")
-                {
-                    //'do nothing
-                }
-                else
-                {
-                    GameNode Node = tv.SelectedNode as GameNode;
-                    GameNode GameNode = Node.GetGameNodeGame();
-                    GameNodeObjects ObjectsNode = GameNode.GetObjectsNode();
-                    //'For Each Screenshot As OctoGameNodeObjectScreenshot In ObjectsNode.Nodes
-
-                    foreach (GameNodeObject gameNodeObject in ObjectsNode.Nodes)
+                case EventType.ColorPoint:
+                    // Do nothing
+                    break;
+                case EventType.ObjectSearch:
+                    if (ActionNode.ObjectName.Trim() == "")
                     {
-                        if (gameNodeObject.GameNodeName.Trim() == ActionNode.ObjectName.Trim())
-                        {
-                            ActionNode.IsLoading = true;
-                            PictureBoxEventObjectSelection.Image = gameNodeObject.Bitmap;
-                            ActionNode.ObjectSearchBitmap = gameNodeObject.Bitmap;
-                            ActionNode.IsLoading = false;
-                            return;
-                        }
+                        //'do nothing
                     }
+                    else
+                    {
+                        GameNode Node = tv.SelectedNode as GameNode;
+                        GameNode GameNode = Node.GetGameNodeGame();
+                        GameNodeObjects ObjectsNode = GameNode.GetObjectsNode();
 
-                }
+                        foreach (GameNodeObject gameNodeObject in ObjectsNode.Nodes)
+                        {
+                            if (gameNodeObject.GameNodeName.Trim() == ActionNode.ObjectName.Trim())
+                            {
+                                ActionNode.IsLoading = true;
+                                PictureBoxEventObjectSelection.Image = gameNodeObject.Bitmap;
+                                ActionNode.ObjectSearchBitmap = gameNodeObject.Bitmap;
+                                ActionNode.IsLoading = false;
+                                return;
+                            }
+                        }
+
+                    }
+                    break;
+                case EventType.PixelSearch:
+                    // Do nothing.
+                    break;
+                default:
+                    break;
             }
             PictureBoxEventObjectSelection.Image = null;
             ActionNode.ObjectSearchBitmap = null;
@@ -3326,62 +3343,47 @@ namespace AppTestStudio
 
         }
 
-        private void rdoObjectSearch_CheckedChanged(object sender, EventArgs e)
-        {
-            if (IsPanelLoading == false)
-            {
-                HideShowObjectvsAndOR();
-                GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
-                GameNode.IsColorPoint = rdoColorPoint.Checked;
 
-                if (GameNode.Rectangle.IsEmpty)
-                {
-                    GameNode.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
-                }
-                PictureBox1.Refresh();
-
-                LoadObjectNodeSection();
-            }
-        }
-
-        private void rdoColorPoint_CheckedChanged(object sender, EventArgs e)
-        {
-            if (IsPanelLoading == false)
-            {
-                HideShowObjectvsAndOR();
-                GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
-                GameNode.IsColorPoint = rdoColorPoint.Checked;
-
-                PictureBox1.Refresh();
-            }
-        }
 
         private void HideShowObjectvsAndOR()
         {
-            GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-            if (Node.IsColorPoint)
+            GameNodeAction? Node = tv.SelectedNode as GameNodeAction;
+            switch (Node?.EventType)
             {
-                panelRightLogic.Visible = true;
+                case EventType.ColorPoint:
+                    panelRightLogic.Visible = true;
 
-                if (Node.LogicChoice.ToUpper() == "CUSTOM")
-                {
-                    panelRightCustomLogic.Visible = true;
-                }
-                else
-                {
+                    if (Node.LogicChoice.ToUpper() == "CUSTOM")
+                    {
+                        panelRightCustomLogic.Visible = true;
+                    }
+                    else
+                    {
+                        panelRightCustomLogic.Visible = false;
+                    }
+                    panelRightPointGrid.Visible = true;
+                    panelRightObject.Visible = false;
+                    panelRightAnchor.Visible = false;
+
+                    break;
+                case EventType.ObjectSearch:
+                    panelRightLogic.Visible = false;
                     panelRightCustomLogic.Visible = false;
-                }
-                panelRightPointGrid.Visible = true;
-                panelRightObject.Visible = false;
-                panelRightAnchor.Visible = false;
-            }
-            else
-            {
-                panelRightLogic.Visible = false;
-                panelRightCustomLogic.Visible = false;
-                panelRightPointGrid.Visible = false;
-                panelRightObject.Visible = true;
-                panelRightAnchor.Visible = true;
+                    panelRightPointGrid.Visible = false;
+                    panelRightObject.Visible = true;
+                    panelRightAnchor.Visible = true;
+
+                    break;
+                case EventType.PixelSearch:
+                    panelRightLogic.Visible = false;
+                    panelRightCustomLogic.Visible = false;
+                    panelRightPointGrid.Visible = false;
+                    panelRightObject.Visible = true;
+                    panelRightAnchor.Visible = true;
+
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -5577,14 +5579,19 @@ namespace AppTestStudio
                     Node.SelectedImageIndex = 7;
                     Node.BackColor = Color.LightGreen;
 
-                    if (Node.IsColorPoint)
+                    switch (Node.EventType)
                     {
-                        // do nothing
-                    }
-                    else
-                    {
-                        int intDetectedThreashold = (DetectedThreashold * 100).ToInt();
-                        Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
+                        case EventType.ColorPoint:
+                            // Do nothing
+                            break;
+                        case EventType.ObjectSearch:
+                            int intDetectedThreashold = (DetectedThreashold * 100).ToInt();
+                            Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
+                            break;
+                        case EventType.PixelSearch:
+                            break;
+                        default:
+                            break;
                     }
                 }
                 else
@@ -5593,28 +5600,35 @@ namespace AppTestStudio
                     Node.ImageIndex = 6;
                     Node.SelectedImageIndex = 6;
 
-                    if (Node.IsColorPoint)
+                    switch (Node.EventType)
                     {
-                        if (Node.LogicChoice == "CUSTOM")
-                        {
-
-                        }
-                        else
-                        {
-                            Node.GameNodeName = Node.Name + " - Points(" + QualifyingEvents + ")";
-
-                            if (QualifyingEvents < 10)
+                        case EventType.ColorPoint:
+                            if (Node.LogicChoice == "CUSTOM")
                             {
-                                Node.BackColor = Color.LightYellow;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        int intDetectedThreashold = (DetectedThreashold * 100).ToInt();
-                        Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
-                    }
 
+                            }
+                            else
+                            {
+                                Node.GameNodeName = Node.Name + " - Points(" + QualifyingEvents + ")";
+
+                                if (QualifyingEvents < 10)
+                                {
+                                    Node.BackColor = Color.LightYellow;
+                                }
+                            }
+
+                            break;
+                        case EventType.ObjectSearch:
+                            int intDetectedThreashold = (DetectedThreashold * 100).ToInt();
+                            Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
+
+                            break;
+                        case EventType.PixelSearch:
+                            // TODO PixelSearch
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
             else
@@ -5690,15 +5704,20 @@ namespace AppTestStudio
                         return;
                 }
 
-                // show hide grids depending on node type
-                if (Node.IsColorPoint)
+                // show hide grids depending on EventType
+                switch (Node.EventType)
                 {
-                    ShowHideTestAllEventsGridsAndLabels(true);
-                }
-                else
-                {
-                    // Object Search
-                    ShowHideTestAllEventsGridsAndLabels(false);
+                    case EventType.ColorPoint:
+                        ShowHideTestAllEventsGridsAndLabels(true);
+                        break;
+                    case EventType.ObjectSearch:
+                        ShowHideTestAllEventsGridsAndLabels(false);
+                        break;
+                    case EventType.PixelSearch:
+                        ShowHideTestAllEventsGridsAndLabels(false);
+                        break;
+                    default:
+                        break;
                 }
 
 
@@ -6524,22 +6543,35 @@ namespace AppTestStudio
         {
             try
             {
-                GameNode Node = tvTestAllEvents.SelectedNode as GameNode;
+                GameNode? Node = tvTestAllEvents.SelectedNode as GameNode;
 
-                if (Node.IsSomething() && Node.GameNodeType == GameNodeType.Action)
+                if (Node != null && Node.GameNodeType == GameNodeType.Action)
                 {
-                    GameNodeAction Action = Node as GameNodeAction;
-                    if (Action.IsColorPoint)
+                    GameNodeAction? Action = Node as GameNodeAction;
+
+                    switch (Action?.EventType)
                     {
-                        Utils.DrawColorPoints(e, dgvTestAllReference, "dgvTestAllReference", "dgvTestAllReferenceX", "dgvTestAllReferenceY");
-                    }
-                    else
-                    {
-                        if (Action.Rectangle.IsEmpty)
-                        {
-                            Action.Rectangle = new Rectangle(0, 0, PictureTestAllReference.Width, PictureTestAllReference.Height);
-                        }
-                        Utils.DrawMask(PictureTestAllReference, Action.Rectangle, e);
+                        case EventType.ColorPoint:
+                            Utils.DrawColorPoints(e, dgvTestAllReference, "dgvTestAllReference", "dgvTestAllReferenceX", "dgvTestAllReferenceY");
+                            break;
+                        case EventType.ObjectSearch:
+                            if (Action.Rectangle.IsEmpty)
+                            {
+                                Action.Rectangle = new Rectangle(0, 0, PictureTestAllReference.Width, PictureTestAllReference.Height);
+                            }
+                            Utils.DrawMask(PictureTestAllReference, Action.Rectangle, e);
+
+                            break;
+                        case EventType.PixelSearch:
+                            if (Action.Rectangle.IsEmpty)
+                            {
+                                Action.Rectangle = new Rectangle(0, 0, PictureTestAllReference.Width, PictureTestAllReference.Height);
+                            }
+                            Utils.DrawMask(PictureTestAllReference, Action.Rectangle, e);
+
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
@@ -6557,17 +6589,29 @@ namespace AppTestStudio
             if (Node.IsSomething() && Node.GameNodeType == GameNodeType.Action)
             {
                 GameNodeAction action = Node as GameNodeAction;
-                if (action.IsColorPoint)
+                switch (action.EventType)
                 {
-                    Utils.DrawColorPoints(e, dgvTest, "dgvColorTest", "dgvXTest", "dgvYTest");
-                }
-                else
-                {
-                    if (action.Rectangle.IsEmpty)
-                    {
-                        action.Rectangle = new Rectangle(0, 0, PictureTestAllTest.Width, PictureTestAllTest.Height);
-                    }
-                    Utils.DrawMask(PictureTestAllTest, action.Rectangle, e);
+                    case EventType.ColorPoint:
+                        Utils.DrawColorPoints(e, dgvTest, "dgvColorTest", "dgvXTest", "dgvYTest");
+                        break;
+                    case EventType.ObjectSearch:
+                        if (action.Rectangle.IsEmpty)
+                        {
+                            action.Rectangle = new Rectangle(0, 0, PictureTestAllTest.Width, PictureTestAllTest.Height);
+                        }
+                        Utils.DrawMask(PictureTestAllTest, action.Rectangle, e);
+
+                        break;
+                    case EventType.PixelSearch:
+                        if (action.Rectangle.IsEmpty)
+                        {
+                            action.Rectangle = new Rectangle(0, 0, PictureTestAllTest.Width, PictureTestAllTest.Height);
+                        }
+                        Utils.DrawMask(PictureTestAllTest, action.Rectangle, e);
+
+                        break;
+                    default:
+                        break;
                 }
 
                 try
@@ -8414,22 +8458,29 @@ namespace AppTestStudio
                                 break;
                             case ActionType.Event:
                                 RT2 = "Event";
-                                if (Action.IsColorPoint)
+                                switch (Action.EventType)
                                 {
-                                    if (Action.ClickList.Count == 0)
-                                    {
-                                        RT3 = "Group";
-                                    }
-                                    else
-                                    {
-                                        RT3 = "Color Point";
-                                    }
+                                    case EventType.ColorPoint:
+                                        if (Action.ClickList.Count == 0)
+                                        {
+                                            RT3 = "Group";
+                                        }
+                                        else
+                                        {
+                                            RT3 = "Color Point";
+                                        }
 
+                                        break;
+                                    case EventType.ObjectSearch:
+                                        RT3 = "Object Search";
+                                        break;
+                                    case EventType.PixelSearch:
+                                        RT3 = "Pixel Search";
+                                        break;
+                                    default:
+                                        break;
                                 }
-                                else
-                                {
-                                    RT3 = "Object Search";
-                                }
+  
                                 break;
                             case ActionType.Action:
 
@@ -9598,6 +9649,59 @@ namespace AppTestStudio
             {
                 Log(ex.Message);
             }
+        }
+
+        private void EventTypeChanged()
+        {
+            if (IsPanelLoading == false)
+            {
+                HideShowObjectvsAndOR();
+                GameNodeAction? GameNode = tv.SelectedNode as GameNodeAction;
+                if (GameNode != null)
+                {
+                    if ( rdoColorPoint.Checked)
+                    {
+                        GameNode.EventType = EventType.ColorPoint;
+                    }
+
+                    if (rdoPixelSearch.Checked)
+                    {
+                        GameNode.EventType = EventType.PixelSearch;
+                    }
+
+                    if(rdoObjectSearch.Checked)
+                    {
+                        GameNode.EventType = EventType.ObjectSearch;
+                    }
+
+                    if (GameNode.Rectangle.IsEmpty)
+                    {
+                        GameNode.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
+                    }
+
+                    PictureBox1.Refresh();
+
+                    if (GameNode.EventType == EventType.ObjectSearch)
+                    {
+                        LoadObjectNodeSection();
+                    }
+                }
+            }
+        }
+
+        private void rdoPixelSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            EventTypeChanged();
+        }
+
+        private void rdoObjectSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            EventTypeChanged();
+        }
+
+        private void rdoColorPoint_CheckedChanged(object sender, EventArgs e)
+        {
+            EventTypeChanged();
         }
     }
 }

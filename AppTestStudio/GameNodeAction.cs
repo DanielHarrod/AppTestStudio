@@ -47,7 +47,7 @@ namespace AppTestStudio
             Mode = Mode.RangeClick;
             Points = 0;
             UseParentPicture = true;
-            IsColorPoint = true;
+            EventType = EventType.ColorPoint;
             ObjectName = "";
             ObjectThreshold = 70;
             ClickList = new List<SingleClick>();
@@ -267,25 +267,27 @@ namespace AppTestStudio
             }
         }
 
-        private Boolean mIsColorPoint;
-        /// <summary>
-        /// When True : Used on Event Node types ColorPoint is system will search a list of colors and points for a match
-        /// When False: Object Search is used.
-        /// </summary>
-        public Boolean IsColorPoint
+        private EventType mEventType;
+
+        public EventType EventType
         {
-            get { return mIsColorPoint; }
+            get
+            {
+                return mEventType; }
             set
             {
-                if (mIsColorPoint != value)
+                if (mEventType != value)
                 {
                     if (IsLoading == false)
                     {
                         IsDirty = true;
                     }
                 }
-                mIsColorPoint = value;
-                Utils.SetIcons(this);
+                mEventType = value;
+                if (mEventType == EventType.ColorPoint)
+                {
+                    Utils.SetIcons(this);
+                }
             }
         }
 
@@ -1300,7 +1302,7 @@ namespace AppTestStudio
             Action.Text = Text;
             Action.ObjectName = ObjectName;
             Action.Channel = Channel;
-            Action.IsColorPoint = IsColorPoint;  //must be set after Mode
+            Action.EventType = EventType; // must be set after Mode
             Action.CustomLogic = CustomLogic;
             Action.ClickSpeed = ClickSpeed;
             Action.UseObjectSearchPosition = UseObjectSearchPosition;
@@ -1398,18 +1400,22 @@ namespace AppTestStudio
         internal EventSolution IsTrue(Bitmap bmp, GameNodeGame game)
         {
             EventSolution solution = new EventSolution();
-           
-            if (IsColorPoint)
-            {
 
-                IsColorPointTrue(game, bmp, solution);
-            }
-            else
+            switch (EventType)
             {
-                IsImageSearchTrue(bmp, game, solution);
+                case EventType.ColorPoint:
+                    IsColorPointTrue(game, bmp, solution);
+                    break;
+                case EventType.ObjectSearch:
+                    IsImageSearchTrue(bmp, game, solution);
+                    break;
+                case EventType.PixelSearch:
+                    //TODO : Implement Pixel Search
+                    break;
+                default:
+                    break;
             }
             return solution;
-
         }
 
         /// <summary>
@@ -1861,18 +1867,26 @@ namespace AppTestStudio
 
         public Boolean IsParentObjectSearch()
         {
-            GameNodeAction Node = Parent as GameNodeAction;
-            if (Node.IsSomething())
+            GameNodeAction? ParentNode = Parent as GameNodeAction;
+            if (ParentNode != null)
             {
-                if (Node.IsColorPoint == false)
+                switch (ParentNode.EventType)
                 {
-                    return true;
+                    case EventType.ColorPoint:
+                        return false;
+                        break;
+                    case EventType.ObjectSearch:
+                        return true;
+                        break;
+                    case EventType.PixelSearch:
+                        return false;  // Check and change?
+                        break;
+                    default:
+                        break;
                 }
             }
             return false;
         }
-
-
 
         public void PaintNode(Graphics graphics)
         {
