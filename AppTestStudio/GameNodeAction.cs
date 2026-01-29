@@ -284,10 +284,7 @@ namespace AppTestStudio
                     }
                 }
                 mEventType = value;
-                if (mEventType == EventType.ColorPoint)
-                {
-                    Utils.SetIcons(this);
-                }
+                Utils.SetIcons(this);
             }
         }
 
