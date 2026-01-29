@@ -3615,8 +3615,9 @@ namespace AppTestStudio
                                 }
                                 break;
                             case EventType.PixelSearch:
-                                Debug.WriteLine("Pixel Search Test - TODO");
-                                // TODO Pixel Search
+                                frmTestPixelSearch frmTPS = new frmTestPixelSearch(game, Node as GameNodeAction, this, MainWindowHandle, null);
+                                frmTPS.ShowDialog(this);
+
                                 break;
                             default:
                                 break;
@@ -9784,16 +9785,85 @@ namespace AppTestStudio
         private void numPixelSearchR_ValueChanged(object sender, EventArgs e)
         {
             PixelSearchValueChanged();
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchR = numPixelSearchR.Value.ToInt();
+            }
         }
 
         private void numPixelSearchG_ValueChanged(object sender, EventArgs e)
         {
             PixelSearchValueChanged();
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchG = numPixelSearchG.Value.ToInt();
+            }
         }
 
         private void numPixelSearchB_ValueChanged(object sender, EventArgs e)
         {
             PixelSearchValueChanged();
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchB = numPixelSearchB.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchRNeg_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchRNeg = numPixelSearchRNeg.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchGNeg_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchGNeg = numPixelSearchGNeg.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchBNeg_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchBNeg = numPixelSearchBNeg.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchRPos_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchRPos = numPixelSearchRPos.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchGPos_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchGPos = numPixelSearchGPos.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchBPos_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchBPos = numPixelSearchBPos.Value.ToInt();
+            }
         }
     }
 }
