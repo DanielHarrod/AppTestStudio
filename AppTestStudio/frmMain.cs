@@ -4149,6 +4149,9 @@ namespace AppTestStudio
                         case EventType.ObjectSearch:
                             break;
                         case EventType.PixelSearch:
+                            numPixelSearchB.Value = PictureBox1Color.B;
+                            numPixelSearchG.Value = PictureBox1Color.G;
+                            numPixelSearchR.Value = PictureBox1Color.R;
                             break;
                         default:
                             break;
