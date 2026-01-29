@@ -684,6 +684,167 @@ namespace AppTestStudio
             }
         }
 
+        private int mPixelSearchB;
+
+        public int PixelSearchB
+        {
+            get { return mPixelSearchB; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchB != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchB = value;
+            }
+        }
+
+        private int mPixelSearchG;
+
+        public int PixelSearchG
+        {
+            get { return mPixelSearchG; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchG != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchG = value;
+            }
+        }
+
+
+        private int mPixelSearchR;
+        public int PixelSearchR
+        {
+            get { return mPixelSearchR; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchR != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchR = value;
+            }
+        }
+
+        private int mPixelSearchBNeg;
+
+        public int PixelSearchBNeg
+        {
+            get { return mPixelSearchBNeg; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchBNeg != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchBNeg = value;
+            }
+        }
+
+        private int mPixelSearchGNeg;
+
+        public int PixelSearchGNeg
+        {
+            get { return mPixelSearchGNeg; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchGNeg != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchGNeg = value;
+            }
+        }
+
+
+        private int mPixelSearchRNeg;
+        public int PixelSearchRNeg
+        {
+            get { return mPixelSearchRNeg; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchRNeg != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchRNeg = value;
+            }
+        }
+
+        private int mPixelSearchBPos;
+
+        public int PixelSearchBPos
+        {
+            get { return mPixelSearchBPos; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchBPos != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchBPos = value;
+            }
+        }
+
+        private int mPixelSearchGPos;
+
+        public int PixelSearchGPos
+        {
+            get { return mPixelSearchGPos; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchGPos != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchGPos = value;
+            }
+        }
+
+        private int mPixelSearchRPos;
+        public int PixelSearchRPos
+        {
+            get { return mPixelSearchRPos; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchRPos != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchRPos = value;
+            }
+        }
+
         private int mLimitDelayM;
 
         public int LimitDelayM
@@ -701,6 +862,7 @@ namespace AppTestStudio
                 mLimitDelayM = value;
             }
         }
+
 
         private int mLimitDelayH;
 
