@@ -1956,8 +1956,6 @@ namespace AppTestStudio
                             case EventType.PixelSearch:
                                 Writer.WriteStartElement("PixelSearch");
 
-                                Writer.WriteAttributeString("Threshold", Activites.ObjectThreshold.ToString());
-
                                 if (Activites.Rectangle.IsEmpty == false)
                                 {
                                     Writer.WriteStartElement("Rectangle");
