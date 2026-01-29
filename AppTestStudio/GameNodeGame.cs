@@ -2556,6 +2556,17 @@ namespace AppTestStudio
                         //NewEvent.AutoBalance = childnode.Attributes["AutoBalance"].Value
                         LoadEvents(childNode, gameNode, newEvent, lst, loadBitmaps);
                         break;
+                    case "PIXELSEARCH":
+                        if (childNode.ChildNodes.Count > 0)
+                        {
+                            XmlNode pixelChildNode = childNode.ChildNodes[0];
+                            int pixelChildNodex = pixelChildNode.Attributes["X"].Value.ToInt();
+                            int pixelChildNodey = pixelChildNode.Attributes["Y"].Value.ToInt();
+                            int pixelChildNodeHeight = pixelChildNode.Attributes["Height"].Value.ToInt();
+                            int pixelChildNodeWidth = pixelChildNode.Attributes["Width"].Value.ToInt();
+                            newEvent.Rectangle = new Rectangle(pixelChildNodex, pixelChildNodey, pixelChildNodeWidth, pixelChildNodeHeight);
+                        }
+                        break;
                     case "OBJECTSEARCH":
                         if (childNode.Attributes.GetNamedItem("ObjectName").IsSomething())
                         {
