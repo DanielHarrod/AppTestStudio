@@ -3378,7 +3378,7 @@ namespace AppTestStudio
                     panelRightLogic.Visible = false;
                     panelRightCustomLogic.Visible = false;
                     panelRightPointGrid.Visible = false;
-                    panelRightObject.Visible = true;
+                    panelRightObject.Visible = false;
                     panelRightAnchor.Visible = true;
 
                     break;
