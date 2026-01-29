@@ -28,13 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             splitContainer1 = new SplitContainer();
             PanelScreenshot = new Panel();
             PictureBoxSearchArea = new PictureBox();
+            splitContainer2 = new SplitContainer();
             flowLayoutPanel1 = new FlowLayoutPanel();
             cmdRetestCurrentWindow = new Button();
             cmdRetestDesignImage = new Button();
             panelRightPixelSearchProperties = new Panel();
+            cmdMoveSettingsToProject = new Button();
             lblPixelSearchPreview = new Label();
             label119 = new Label();
             label118 = new Label();
@@ -54,13 +57,19 @@
             numPixelSearchR = new NumericUpDown();
             label1 = new Label();
             dataGridView1 = new DataGridView();
-            cmdMoveSettingsToProject = new Button();
+            colCount = new DataGridViewTextBoxColumn();
+            colX = new DataGridViewTextBoxColumn();
+            colY = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             PanelScreenshot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureBoxSearchArea).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
+            splitContainer2.Panel1.SuspendLayout();
+            splitContainer2.Panel2.SuspendLayout();
+            splitContainer2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panelRightPixelSearchProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numPixelSearchB).BeginInit();
@@ -88,10 +97,10 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(flowLayoutPanel1);
+            splitContainer1.Panel2.Controls.Add(splitContainer2);
             splitContainer1.Panel2MinSize = 250;
-            splitContainer1.Size = new Size(800, 450);
-            splitContainer1.SplitterDistance = 474;
+            splitContainer1.Size = new Size(1136, 861);
+            splitContainer1.SplitterDistance = 810;
             splitContainer1.TabIndex = 11;
             // 
             // PanelScreenshot
@@ -103,7 +112,7 @@
             PanelScreenshot.Location = new Point(0, 0);
             PanelScreenshot.Margin = new Padding(3, 4, 3, 4);
             PanelScreenshot.Name = "PanelScreenshot";
-            PanelScreenshot.Size = new Size(474, 450);
+            PanelScreenshot.Size = new Size(810, 861);
             PanelScreenshot.TabIndex = 11;
             // 
             // PictureBoxSearchArea
@@ -117,18 +126,37 @@
             PictureBoxSearchArea.TabStop = false;
             PictureBoxSearchArea.Paint += PictureBoxSearchArea_Paint;
             // 
+            // splitContainer2
+            // 
+            splitContainer2.Dock = DockStyle.Fill;
+            splitContainer2.IsSplitterFixed = true;
+            splitContainer2.Location = new Point(0, 0);
+            splitContainer2.Name = "splitContainer2";
+            splitContainer2.Orientation = Orientation.Horizontal;
+            // 
+            // splitContainer2.Panel1
+            // 
+            splitContainer2.Panel1.Controls.Add(flowLayoutPanel1);
+            splitContainer2.Panel1MinSize = 0;
+            // 
+            // splitContainer2.Panel2
+            // 
+            splitContainer2.Panel2.Controls.Add(dataGridView1);
+            splitContainer2.Size = new Size(322, 861);
+            splitContainer2.SplitterDistance = 242;
+            splitContainer2.TabIndex = 0;
+            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(cmdRetestCurrentWindow);
             flowLayoutPanel1.Controls.Add(cmdRetestDesignImage);
             flowLayoutPanel1.Controls.Add(panelRightPixelSearchProperties);
             flowLayoutPanel1.Controls.Add(label1);
-            flowLayoutPanel1.Controls.Add(dataGridView1);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(322, 450);
-            flowLayoutPanel1.TabIndex = 47;
+            flowLayoutPanel1.Size = new Size(322, 242);
+            flowLayoutPanel1.TabIndex = 0;
             // 
             // cmdRetestCurrentWindow
             // 
@@ -176,6 +204,16 @@
             panelRightPixelSearchProperties.Name = "panelRightPixelSearchProperties";
             panelRightPixelSearchProperties.Size = new Size(326, 159);
             panelRightPixelSearchProperties.TabIndex = 43;
+            // 
+            // cmdMoveSettingsToProject
+            // 
+            cmdMoveSettingsToProject.Location = new Point(25, 112);
+            cmdMoveSettingsToProject.Name = "cmdMoveSettingsToProject";
+            cmdMoveSettingsToProject.Size = new Size(151, 23);
+            cmdMoveSettingsToProject.TabIndex = 20;
+            cmdMoveSettingsToProject.Text = "Move settings to project";
+            cmdMoveSettingsToProject.UseVisualStyleBackColor = true;
+            cmdMoveSettingsToProject.Click += cmdMoveSettingsToProject_Click;
             // 
             // lblPixelSearchPreview
             // 
@@ -338,27 +376,60 @@
             // 
             // dataGridView1
             // 
+            dataGridView1.AllowUserToAddRows = false;
+            dataGridView1.AllowUserToDeleteRows = false;
+            dataGridView1.AllowUserToResizeColumns = false;
+            dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(3, 244);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colCount, colX, colY });
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridView1.Dock = DockStyle.Fill;
+            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(240, 150);
+            dataGridView1.ReadOnly = true;
+            dataGridView1.RowHeadersVisible = false;
+            dataGridView1.ScrollBars = ScrollBars.Vertical;
+            dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dataGridView1.Size = new Size(322, 615);
             dataGridView1.TabIndex = 47;
+            dataGridView1.CellMouseEnter += dataGridView1_CellMouseEnter;
+            dataGridView1.MouseEnter += dataGridView1_MouseEnter;
             // 
-            // cmdMoveSettingsToProject
+            // colCount
             // 
-            cmdMoveSettingsToProject.Location = new Point(25, 112);
-            cmdMoveSettingsToProject.Name = "cmdMoveSettingsToProject";
-            cmdMoveSettingsToProject.Size = new Size(151, 23);
-            cmdMoveSettingsToProject.TabIndex = 20;
-            cmdMoveSettingsToProject.Text = "Move settings to project";
-            cmdMoveSettingsToProject.UseVisualStyleBackColor = true;
-            cmdMoveSettingsToProject.Click += cmdMoveSettingsToProject_Click;
+            colCount.HeaderText = "Pixel";
+            colCount.Name = "colCount";
+            colCount.ReadOnly = true;
+            colCount.Width = 50;
+            // 
+            // colX
+            // 
+            colX.FillWeight = 50F;
+            colX.HeaderText = "X";
+            colX.Name = "colX";
+            colX.ReadOnly = true;
+            colX.Width = 50;
+            // 
+            // colY
+            // 
+            colY.HeaderText = "Y";
+            colY.Name = "colY";
+            colY.ReadOnly = true;
+            colY.Width = 50;
             // 
             // frmTestPixelSearch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1136, 861);
             Controls.Add(splitContainer1);
             Name = "frmTestPixelSearch";
             Text = "Test Pixel Search";
@@ -370,6 +441,10 @@
             PanelScreenshot.ResumeLayout(false);
             PanelScreenshot.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PictureBoxSearchArea).EndInit();
+            splitContainer2.Panel1.ResumeLayout(false);
+            splitContainer2.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
+            splitContainer2.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             panelRightPixelSearchProperties.ResumeLayout(false);
             panelRightPixelSearchProperties.PerformLayout();
@@ -412,8 +487,12 @@
         private Button cmdRetestDesignImage;
         private Button cmdRetestCurrentWindow;
         private Label label1;
-        private FlowLayoutPanel flowLayoutPanel1;
         private DataGridView dataGridView1;
         private Button cmdMoveSettingsToProject;
+        private DataGridViewTextBoxColumn colCount;
+        private DataGridViewTextBoxColumn colX;
+        private DataGridViewTextBoxColumn colY;
+        private SplitContainer splitContainer2;
+        private FlowLayoutPanel flowLayoutPanel1;
     }
 }

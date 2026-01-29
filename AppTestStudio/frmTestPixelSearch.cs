@@ -2,11 +2,14 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Forms;
+using static AppTestStudio.frmSolution;
 
 namespace AppTestStudio
 {
@@ -16,11 +19,11 @@ namespace AppTestStudio
         IntPtr MainWindowHandle;
         GameNodeAction Node;
         GameNodeGame Game;
-        OpenCvSharp.Point DetectedPoint;
+        Point DetectedPoint;
         GameNodeAction GameNodeActionParent;
 
-        Boolean CurrentTestPassed = false;
-        List<Point> CurrentPoint;
+        Boolean CurrentTestPassed = false;        
+        List<Point> CurrentPointList;
 
         public frmTestPixelSearch(GameNodeGame game, GameNodeAction node, frmMain frm, IntPtr mainWindowHandle, GameNodeAction parent)
         {
@@ -30,7 +33,7 @@ namespace AppTestStudio
             this.Node = node;
             this.Game = game;
             this.GameNodeActionParent = parent;
-            this.CurrentPoint = new List<Point>();
+            this.CurrentPointList = new List<Point>();
         }
 
         private void frmTestPixelSearch_Load(object sender, EventArgs e)
@@ -91,9 +94,9 @@ namespace AppTestStudio
             {
                 Bitmap bitmap = PictureBoxSearchArea.Image as Bitmap;
 
-                if (CurrentPoint.Count > 0)
+                if (CurrentPointList.Count > 0)
                 {
-                    Rectangle rectanglePoint = new Rectangle(CurrentPoint[0].X + Node.Rectangle.X, CurrentPoint[0].Y + Node.Rectangle.Y, 3, 3);
+                    Rectangle rectanglePoint = new Rectangle(DetectedPoint.X, DetectedPoint.Y, 3, 3);
                     Utils.DrawRectangleWithGuidesOnGraphics(e.Graphics, bitmap, rectanglePoint);
                 }
             }
@@ -127,14 +130,28 @@ namespace AppTestStudio
 
                 //bmp.Save("C:\\temp\\a.bmp");
 
-                CurrentPoint = Utils.FindPixelColor(bmp, SearchColor, RMin, RMax, GMin, GMax, BMin, BMax, 999);
+                CurrentPointList = Utils.FindPixelColor(bmp, SearchColor, RMin, RMax, GMin, GMax, BMin, BMax, 999);
+                dataGridView1.Rows.Clear();
 
-                if (CurrentPoint.Count > 0)
+                if (CurrentPointList.Count > 0)
                 {
-                    int xPosition = CurrentPoint[0].X + Node.Rectangle.X;
-                    int yPosition = CurrentPoint[0].Y + Node.Rectangle.Y;
-                    label1.Text = $"First Pixel Found at X:{xPosition} Y:{yPosition} Qty={CurrentPoint.Count()}";
+                    int xPosition = CurrentPointList[0].X + Node.Rectangle.X;
+                    int yPosition = CurrentPointList[0].Y + Node.Rectangle.Y;
+
+                    label1.Text = $"First Pixel Found at X:{xPosition} Y:{yPosition} Qty={CurrentPointList.Count()}";
                     CurrentTestPassed = true;
+
+                    DetectedPoint = new Point(CurrentPointList[0].X + Node.Rectangle.X, CurrentPointList[0].Y + Node.Rectangle.Y);
+
+                    int Counter = 0;
+                    foreach (Point pt in CurrentPointList)
+                    {
+                        dataGridView1.Rows.Add(Counter++, pt.X + Node.Rectangle.X, pt.Y + Node.Rectangle.Y);
+                        if (Counter >= 1000)
+                        {
+                            break;
+                        }
+                    }
                 }
                 else
                 {
@@ -167,5 +184,29 @@ namespace AppTestStudio
         private void cmdMoveSettingsToProject_Click(object sender, EventArgs e)
         {
         }
+
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_MouseEnter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex == -1)
+            {
+                // Header row.
+                return;
+            }
+            
+            int X = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToInt();
+            int Y = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToInt();
+            DetectedPoint = new Point(X, Y);
+            PictureBoxSearchArea.Invalidate();
+        }        
     }
 }
