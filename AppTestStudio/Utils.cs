@@ -1453,6 +1453,8 @@ namespace AppTestStudio
                 //' Debug.Print(Color.ToString())
 
                 PSC.BackColor = Color;
+                lblColor.BackColor = Color;
+                lblXY.BackColor = Color;
 
                 Single brightness = Color.GetBrightness();
                 if (brightness < 0.55)
