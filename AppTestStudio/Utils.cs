@@ -1421,6 +1421,121 @@ namespace AppTestStudio
 
             return cropped;
         }
+
+        public static Boolean ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown, ref Rectangle rect)
+        {
+            // this zooms and sets masks
+            // need to decouple some time.
+            if (pb.Image.IsSomething())
+            {
+                Bitmap MyBitmap = pb.Image as Bitmap;
+                if (e.X >= MyBitmap.Width)
+                {
+                    return false;
+                }
+                if (e.Y >= MyBitmap.Height - 1)
+                {
+                    return false;
+                }
+
+                if (e.X <= -1)
+                {
+                    return false;
+                }
+
+                if (e.Y <= -1)
+                {
+                    return false;
+                }
+
+                Color Color = MyBitmap.GetPixel(e.X, e.Y);
+
+                //' Debug.Print(Color.ToString())
+
+                PSC.BackColor = Color;
+
+                Single brightness = Color.GetBrightness();
+                if (brightness < 0.55)
+                {
+                    lblColor.ForeColor = Color.WhiteSmoke;
+                    lblXY.ForeColor = Color.WhiteSmoke;
+                }
+                else
+                {
+                    lblColor.ForeColor = Color.Black;
+                    lblXY.ForeColor = Color.Black;
+                }
+
+                lblColor.Text = Color.ToRGBString();
+                lblXY.Text = " X=" + e.X + " Y= " + e.Y;
+
+                //' for click code.
+                PB1x = e.X;
+                PB1Y = e.Y;
+                PB1Color = Color;
+
+                int TargetX = e.X;
+                int TargetY = e.Y;
+
+                //'center x 
+                TargetX = TargetX - 20;
+
+                //'center y
+                TargetY = TargetY - 20;
+
+                Rectangle CropRect = new Rectangle(TargetX, TargetY, 40, 40);
+                Bitmap CropImage = new Bitmap(CropRect.Width, CropRect.Height);
+
+                using (Graphics grp = Graphics.FromImage(CropImage))
+                {
+                    grp.DrawImage(MyBitmap, new Rectangle(0, 0, CropRect.Width, CropRect.Height), CropRect, GraphicsUnit.Pixel);
+
+                    grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    grp.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                    grp.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+
+                    using (Pen Pen = new Pen(Color.Black, 2))
+                    {
+
+                        //'draw top on 40,40
+                        grp.DrawLine(Pen, 20, 0, 20, 18);
+
+                        //'draw bottom
+                        grp.DrawLine(Pen, 20, 22, 20, 40);
+                    }
+
+                    pb2.Image.Dispose();
+
+                    pb2.Image = CropImage;
+                    pb2.Refresh();
+                    //'CropImage.Save("C:\Incoming\abc.jpg")
+                }
+
+                if (pb1MouseDown)
+                {
+                    //'if (e.X > PictureBox1Rectangle.X ) {
+                    //'    PictureBox1Rectangle.Width = e.X - PictureBox1Rectangle.X
+                    //'}
+
+                    //'if (e.Y > PictureBox1Rectangle.Y ) {
+                    //'    PictureBox1Rectangle.Height = e.Y - PictureBox1Rectangle.Y
+                    //'}
+
+                    //' if (e.X > PictureBox1Rectangle.X ) {
+                    rect.Width = e.X - rect.X;
+                    //' }
+
+                    //'  if (e.Y > PictureBox1Rectangle.Y ) {
+                    rect.Height = e.Y - rect.Y;
+                    //' }
+
+                    pb.Refresh();
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 
 }
