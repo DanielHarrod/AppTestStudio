@@ -20,13 +20,11 @@ namespace AppTestStudio
             IsLoading = true;
             StatusControl = new ConcurrentQueue<AppTestStudioStatusControlItem>();
             MinimalBitmapClones = new ConcurrentQueue<MinimalBitmapNode>();
-            BitmapClones = new ConcurrentQueue<Bitmap>();
 
             StartTime = DateTime.Now;
             LoopDelay = 1000;
             Resolution = "1024x768";
             InstanceToLaunch = "0";
-            VideoFrameLimit = 2000;
             DefaultClickSpeed = 20;
             DPI = 192;
             Platform = Platform.NoxPlayer;
@@ -71,11 +69,6 @@ namespace AppTestStudio
         /// Data for the runtime display.
         /// </summary>
         public ConcurrentQueue<AppTestStudioStatusControlItem> StatusControl { get; set; }
-
-        /// <summary>
-        /// BitmapClones are used for Video
-        /// </summary>
-        public ConcurrentQueue<Bitmap> BitmapClones { get; set; }
 
         internal ConcurrentQueue<GamePassSolution> GamePassSolutionClones { get; set; } = new ConcurrentQueue<GamePassSolution>();
 
@@ -734,9 +727,6 @@ namespace AppTestStudio
             GameNodeEvents TargetEvents = Events.CloneMe();
             TargetEvents.Text = Name;
 
-            Target.VideoFrameLimit = VideoFrameLimit;
-            Target.SaveVideo = SaveVideo;
-
             Target.VideoHeight = VideoHeight;
             Target.VideoWidth = VideoWidth;
             Target.DefaultClickSpeed = DefaultClickSpeed;
@@ -789,24 +779,6 @@ namespace AppTestStudio
 
         public long ScreenShotsTaken { get; set; }
 
-        private long mVideoFrameLimit;
-
-        public long VideoFrameLimit
-        {
-            get { return mVideoFrameLimit; }
-            set
-            {
-                if (IsLoading == false)
-                {
-                    if (mVideoFrameLimit != value)
-                    {
-                        IsDirty = true;
-                    }
-                }
-                mVideoFrameLimit = value;
-            }
-        }
-
         // During Runtime if the window is not found don't shutdown the thread.
         private Boolean mNeverQuitIfWindowNotFound;
 
@@ -842,24 +814,6 @@ namespace AppTestStudio
                     }
                 }
                 mDontTakeScreenshot = value;
-            }
-        }
-
-        private Boolean mSaveVideo;
-
-        public Boolean SaveVideo
-        {
-            get { return mSaveVideo; }
-            set
-            {
-                if (IsLoading == false)
-                {
-                    if (mSaveVideo != value)
-                    {
-                        IsDirty = true;
-                    }
-                }
-                mSaveVideo = value;
             }
         }
 
@@ -1434,8 +1388,6 @@ namespace AppTestStudio
             Game.Resolution = Resolution;
             Game.LoopDelay = LoopDelay;
             Game.FileName = fileName;
-            Game.SaveVideo = SaveVideo;
-            Game.VideoFrameLimit = VideoFrameLimit;
             Game.DefaultClickSpeed = DefaultClickSpeed;
             Game.DPI = DPI;
             Game.Platform = Platform;
@@ -1538,8 +1490,6 @@ namespace AppTestStudio
             Writer.WriteAttributeString("LoopDelay", LoopDelay.ToString());
             //'Writer.WriteAttributeString("FileName", Game.FileName);
             Writer.WriteAttributeString("Resolution", Resolution);
-            Writer.WriteAttributeString("SaveVideo", SaveVideo.ToString());
-            Writer.WriteAttributeString("VideoFrameLimit", VideoFrameLimit.ToString());
             Writer.WriteAttributeString("DefaultClickSpeed", DefaultClickSpeed.ToString());
             Writer.WriteAttributeString("DPI", DPI.ToString());
             Writer.WriteAttributeString("Platform", Platform.ToString());

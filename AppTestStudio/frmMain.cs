@@ -1011,8 +1011,6 @@ namespace AppTestStudio
 
             txtGamePanelLoopDelay.Text = gameNode.LoopDelay.ToString();
             cboResolution.Text = gameNode.Resolution;
-            chkSaveVideo.Checked = gameNode.SaveVideo;
-            NumericVideoFrameLimit.Value = gameNode.VideoFrameLimit;
             numericApplicationDefaultClickSpeed.Value = gameNode.DefaultClickSpeed;
             cboDPI.Text = gameNode.DPI.ToString();
 
@@ -2971,18 +2969,6 @@ namespace AppTestStudio
             LoadInstance(Game);
         }
 
-        private void chkSaveVideo_CheckedChanged(object sender, EventArgs e)
-        {
-            GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-            GameNode.SaveVideo = chkSaveVideo.Checked;
-        }
-
-        private void NumericVideoFrameLimit_ValueChanged(object sender, EventArgs e)
-        {
-            GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-            GameNode.VideoFrameLimit = NumericVideoFrameLimit.Value.ToLong();
-        }
-
         private void chkEnableSchedule_CheckedChanged(object sender, EventArgs e)
         {
             timerScheduler.Enabled = chkEnableSchedule.Checked;
@@ -3843,66 +3829,6 @@ namespace AppTestStudio
                     if (game.GamePassSolutionClones.TryDequeue(out gamePassSolution))
                     {
                         AddGamePassSolution(gamePassSolution);
-                    }
-                }
-            }
-
-            foreach (GameNodeGame game in ThreadManager.Games.ToList())
-            {
-                if (game.IsSomething())
-                {
-                    if (game.SaveVideo)
-                    {
-                        if (game.VideoFrameLimit > 0)
-                        {
-                            if (game.Video.IsNothing())
-                            {
-                                if (game.BitmapClones.IsSomething())
-                                {
-                                    if (game.BitmapClones.Count > 0)
-                                    {
-                                        Bitmap bmp = game.BitmapClones.First();
-                                        String FileName = StartNewVideo(game, bmp);
-                                        Log("Starting new video");
-                                        Log(FileName);
-                                        bmp = null;
-                                        //dont dispose re-reading it later.
-                                    }
-                                }
-                            }
-
-                            if (game.Video.IsSomething())
-                            {
-                                while (game.BitmapClones.Count > 0)
-                                {
-                                    Bitmap bmp = null;
-                                    if (game.BitmapClones.TryDequeue(out bmp))
-                                    {
-                                        if (game.VideoWidth != bmp.Width || game.VideoHeight != bmp.Height)
-                                        {
-                                            game.Video.Release();
-                                            game.Video = null;
-                                            String FileName = StartNewVideo(game, bmp);
-                                            Log("New Video Due to New Resolution:" + bmp.Width + "x" + bmp.Height);
-                                            Log(FileName);
-                                        }
-                                        OpenCvSharp.Mat mat = OpenCvSharp.Extensions.BitmapConverter.ToMat(bmp);
-                                        game.Video.Write(mat);
-                                        game.VideoFrameLimit = game.VideoFrameLimit - 1;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            while (game.BitmapClones.Count > 0)
-                            {
-                                Bitmap bmp = null;
-                                game.BitmapClones.TryDequeue(out bmp);
-                                bmp.Dispose();
-                                bmp = null;
-                            }
-                        }
                     }
                 }
             }
@@ -9581,7 +9507,6 @@ namespace AppTestStudio
         private void chkSavedPicturesGlobal_CheckedChanged(object sender, EventArgs e)
         {
             GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-            GameNode.VideoFrameLimit = NumericVideoFrameLimit.Value.ToLong();
         }
 
         private void chkUseObjectSearchPosition_CheckedChanged(object sender, EventArgs e)

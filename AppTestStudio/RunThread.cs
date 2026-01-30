@@ -88,14 +88,7 @@ namespace AppTestStudio
         {
             if (abortThread)
             {
-
                 CancellationTokenSource.Cancel();
-
-                if (Game.SaveVideo)
-                {
-                    Game.Video.Release();
-                    Game.Video = null;
-                }
 
                 ThreadManager.RemoveGame(Game);
 
@@ -259,12 +252,6 @@ namespace AppTestStudio
                                 IncrementClickCount();
 
                                 node.RuntimeActionCount++;  // Range Click
-
-                                // Draw solution marker
-                                if (Game.SaveVideo)
-                                {
-                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
-                                }
                             }
 
                             break;
@@ -360,12 +347,6 @@ namespace AppTestStudio
                                 Game.MouseY = (short)MouseMoveResult.EndY;
                                 IncrementMouseMove();
                                 node.RuntimeActionCount++;  // Mouse Move
-
-                                // Draw solution marker
-                                if (Game.SaveVideo)
-                                {
-                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
-                                }
                             }
 
                             break;
@@ -429,11 +410,6 @@ namespace AppTestStudio
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)
                                 //'}
 
-                                // Draw solution marker
-                                if (Game.SaveVideo)
-                                {
-                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
-                                }
                             }
                             break;
                         default:
@@ -517,17 +493,6 @@ namespace AppTestStudio
                     {
                         centerX = eventSolution.CenterX;
                         centerY = eventSolution.CenterY;
-
-                        if (node.EventType == EventType.ColorPoint)
-                        {
-                            // is Object search.
-                            // Draw solution marker
-                            if (Game.SaveVideo)
-                            {
-                                Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
-                            }
-
-                        }
 
                         // if there's not a filename assigned to the node then we didn't locate a file, so it can be synced since there's a valid event.
                         if (node.FileName.Length == 0)
