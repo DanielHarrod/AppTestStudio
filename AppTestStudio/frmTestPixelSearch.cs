@@ -44,11 +44,17 @@ namespace AppTestStudio
             this.CurrentPointList = new List<Point>();
 
             TestRectangle = node.Rectangle;
+
         }
 
         private void frmTestPixelSearch_Load(object sender, EventArgs e)
         {
             CaptureCurrentImage(Node, true);
+            
+            numMaskX.Maximum = PictureBoxSearchArea.Width;
+            numMaskY.Maximum = PictureBoxSearchArea.Height;
+            numMaskWidth.Maximum = PictureBoxSearchArea.Width;
+            numMaskHeight.Maximum = PictureBoxSearchArea.Height;
 
             numPixelSearchB.Value = Node.PixelSearchB;
             numPixelSearchG.Value = Node.PixelSearchG;
@@ -64,6 +70,11 @@ namespace AppTestStudio
 
             lblRHSColor.Text = "";
             lblRHSXY.Text = "";
+
+            numMaskWidth.Value = TestRectangle.Width;
+            numMaskHeight.Value = TestRectangle.Height;
+            numMaskX.Value = TestRectangle.X;
+            numMaskY.Value = TestRectangle.Y;
         }
 
         private void CaptureCurrentImage(GameNodeAction node, bool useCurrentWindow)
@@ -190,7 +201,7 @@ namespace AppTestStudio
         private void PixelSearchValueChanged()
         {
             lblPixelSearchPreview.BackColor = Color.FromArgb(numPixelSearchR.Value.ToInt(), numPixelSearchG.Value.ToInt(), numPixelSearchB.Value.ToInt());
-        }
+        }   
 
         private void cmdMoveSettingsToProject_Click(object sender, EventArgs e)
         {
@@ -203,6 +214,8 @@ namespace AppTestStudio
             frm.numPixelSearchBPos.Value = numPixelSearchBPos.Value;
             frm.numPixelSearchGPos.Value = numPixelSearchGPos.Value;
             frm.numPixelSearchRPos.Value = numPixelSearchRPos.Value;
+            Node.Rectangle = TestRectangle;
+            frm.PictureBox1.Invalidate();
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -247,6 +260,15 @@ namespace AppTestStudio
         private void PictureBoxSearchArea_MouseMove(object sender, MouseEventArgs e)
         {
             Boolean Changed = Utils.ShowZoom(PictureBoxSearchArea, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref TestRectangle);
+
+            if ( Changed)
+            {
+
+            numMaskWidth.Value = TestRectangle.Width;
+            numMaskHeight.Value = TestRectangle.Height;
+            numMaskX.Value = TestRectangle.X;
+            numMaskY.Value = TestRectangle.Y;
+            }
         }
 
         private void PictureBoxSearchArea_Click(object sender, EventArgs e)
@@ -275,6 +297,66 @@ namespace AppTestStudio
         private void cmdRetestThisWindow_Click(object sender, EventArgs e)
         {
             RunTest();
+        }
+
+        private void numMaskX_ValueChanged(object sender, EventArgs e)
+        {
+            int X = numMaskX.Value.ToInt();
+
+            TestRectangle.X = X;
+
+            int CalcMaxWidth = TestRectangle.Width + TestRectangle.X;
+
+            if (CalcMaxWidth > PictureBoxSearchArea.Width)
+            {
+                int Width = PictureBoxSearchArea.Width - TestRectangle.X;
+                TestRectangle.Width = Width;
+            }            
+
+            PictureBoxSearchArea.Invalidate();
+        }
+        private void numMaskY_ValueChanged(object sender, EventArgs e)
+        {
+            int Y = numMaskY.Value.ToInt();
+
+            TestRectangle.Y = Y;
+
+            int CalcMaxHeight = TestRectangle.Height + TestRectangle.Y;
+            if (CalcMaxHeight > PictureBoxSearchArea.Height)
+            {
+                int Height = PictureBoxSearchArea.Height - TestRectangle.Y;
+                TestRectangle.Height = Height;
+            }
+
+            PictureBoxSearchArea.Invalidate();
+        }
+
+        private void numMaskHeight_ValueChanged(object sender, EventArgs e)
+        {
+            int Height = numMaskHeight.Value.ToInt();
+
+            int CalcMaxHeight = Height + TestRectangle.Y;
+            if (CalcMaxHeight > PictureBoxSearchArea.Height)
+            {
+                Height = PictureBoxSearchArea.Height - TestRectangle.Y;
+            }
+
+            TestRectangle.Height = Height;
+            PictureBoxSearchArea.Invalidate();
+        }
+
+        private void numMaskWidth_ValueChanged(object sender, EventArgs e)
+        {
+            int Width = numMaskWidth.Value.ToInt();
+
+            int CalcMaxWidth = Width + TestRectangle.X;
+
+            if (CalcMaxWidth > PictureBoxSearchArea.Width)
+            {
+                Width = PictureBoxSearchArea.Width - TestRectangle.X;
+            }
+            TestRectangle.Width = Width;
+            PictureBoxSearchArea.Invalidate();
         }
     }
 }
