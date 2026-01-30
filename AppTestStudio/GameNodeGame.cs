@@ -1956,6 +1956,16 @@ namespace AppTestStudio
                             case EventType.PixelSearch:
                                 Writer.WriteStartElement("PixelSearch");
 
+                                Writer.WriteAttributeString("B", Activites.PixelSearchB.ToString());
+                                Writer.WriteAttributeString("G", Activites.PixelSearchG.ToString());
+                                Writer.WriteAttributeString("R", Activites.PixelSearchR.ToString());
+                                Writer.WriteAttributeString("BPos", Activites.PixelSearchBPos.ToString());
+                                Writer.WriteAttributeString("GPos", Activites.PixelSearchGPos.ToString());
+                                Writer.WriteAttributeString("RPos", Activites.PixelSearchRPos.ToString());
+                                Writer.WriteAttributeString("BNeg", Activites.PixelSearchBNeg.ToString());
+                                Writer.WriteAttributeString("GNeg", Activites.PixelSearchGNeg.ToString());
+                                Writer.WriteAttributeString("RNeg", Activites.PixelSearchRNeg.ToString());
+
                                 if (Activites.Rectangle.IsEmpty == false)
                                 {
                                     Writer.WriteStartElement("Rectangle");
@@ -2557,6 +2567,45 @@ namespace AppTestStudio
                         LoadEvents(childNode, gameNode, newEvent, lst, loadBitmaps);
                         break;
                     case "PIXELSEARCH":
+                        if (childNode.Attributes.GetNamedItem("B").IsSomething())
+                        {
+                            newEvent.PixelSearchB = childNode.Attributes["B"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("G").IsSomething())
+                        {
+                            newEvent.PixelSearchG = childNode.Attributes["G"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("R").IsSomething())
+                        {
+                            newEvent.PixelSearchR = childNode.Attributes["R"].Value.ToInt();
+                        }
+
+                        if (childNode.Attributes.GetNamedItem("BNeg").IsSomething())
+                        {
+                            newEvent.PixelSearchBNeg = childNode.Attributes["BNeg"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("GNeg").IsSomething())
+                        {
+                            newEvent.PixelSearchGNeg = childNode.Attributes["GNeg"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("RNeg").IsSomething())
+                        {
+                            newEvent.PixelSearchRNeg = childNode.Attributes["RNeg"].Value.ToInt();
+                        }
+
+                        if (childNode.Attributes.GetNamedItem("BPos").IsSomething())
+                        {
+                            newEvent.PixelSearchBPos = childNode.Attributes["BPos"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("GPos").IsSomething())
+                        {
+                            newEvent.PixelSearchGPos = childNode.Attributes["GPos"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("RPos").IsSomething())
+                        {
+                            newEvent.PixelSearchRPos = childNode.Attributes["RPos"].Value.ToInt();
+                        }
+
                         if (childNode.ChildNodes.Count > 0)
                         {
                             XmlNode pixelChildNode = childNode.ChildNodes[0];
