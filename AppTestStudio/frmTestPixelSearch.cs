@@ -50,11 +50,18 @@ namespace AppTestStudio
         private void frmTestPixelSearch_Load(object sender, EventArgs e)
         {
             CaptureCurrentImage(Node, true);
+
+            if (PictureBoxSearchArea.Image == null)
+            {
+                MessageBox.Show("Cannot capture Image");
+                this.Close();
+                return;
+            }
             
-            numMaskX.Maximum = PictureBoxSearchArea.Width;
-            numMaskY.Maximum = PictureBoxSearchArea.Height;
-            numMaskWidth.Maximum = PictureBoxSearchArea.Width;
-            numMaskHeight.Maximum = PictureBoxSearchArea.Height;
+            numMaskX.Maximum = PictureBoxSearchArea.Image.Width;
+            numMaskY.Maximum = PictureBoxSearchArea.Image.Height;
+            numMaskWidth.Maximum = PictureBoxSearchArea.Image.Width;
+            numMaskHeight.Maximum = PictureBoxSearchArea.Image.Height;
 
             numPixelSearchB.Value = Node.PixelSearchB;
             numPixelSearchG.Value = Node.PixelSearchG;
