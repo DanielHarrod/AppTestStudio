@@ -22,8 +22,10 @@ namespace AppTestStudio
         Point DetectedPoint;
         GameNodeAction GameNodeActionParent;
 
-        Boolean CurrentTestPassed = false;        
+        Boolean CurrentTestPassed = false;
         List<Point> CurrentPointList;
+
+        Rectangle TestRectangle;
 
         public frmTestPixelSearch(GameNodeGame game, GameNodeAction node, frmMain frm, IntPtr mainWindowHandle, GameNodeAction parent)
         {
@@ -34,6 +36,8 @@ namespace AppTestStudio
             this.Game = game;
             this.GameNodeActionParent = parent;
             this.CurrentPointList = new List<Point>();
+
+            TestRectangle = node.Rectangle;
         }
 
         private void frmTestPixelSearch_Load(object sender, EventArgs e)
@@ -75,19 +79,17 @@ namespace AppTestStudio
 
         private void PictureBoxSearchArea_Paint(object sender, PaintEventArgs e)
         {
-            Rectangle SourceMask;
-
-            SourceMask = Node.Rectangle;
 
 
-            if (SourceMask.IsFullScreenMask())
+
+            if (TestRectangle.IsFullScreenMask())
             {
                 // do nothing
-                SourceMask = SourceMask.SetFullScreenFromDefault();
+                TestRectangle = TestRectangle.SetFullScreenFromDefault();
             }
             else
             {
-                Utils.DrawMask(PictureBoxSearchArea, SourceMask, e);
+                Utils.DrawMask(PictureBoxSearchArea, TestRectangle, e);
             }
 
             if (CurrentTestPassed)
@@ -117,7 +119,7 @@ namespace AppTestStudio
         {
             if (PictureBoxSearchArea.Image != null)
             {
-                Bitmap bmp = Utils.CropBitmap(PictureBoxSearchArea.Image as Bitmap, Node.Rectangle);
+                Bitmap bmp = Utils.CropBitmap(PictureBoxSearchArea.Image as Bitmap, TestRectangle);
 
                 Color SearchColor = Color.FromArgb(numPixelSearchR.Value.ToInt(), numPixelSearchG.Value.ToInt(), numPixelSearchB.Value.ToInt());
 
@@ -135,18 +137,18 @@ namespace AppTestStudio
 
                 if (CurrentPointList.Count > 0)
                 {
-                    int xPosition = CurrentPointList[0].X + Node.Rectangle.X;
-                    int yPosition = CurrentPointList[0].Y + Node.Rectangle.Y;
+                    int xPosition = CurrentPointList[0].X + TestRectangle.X;
+                    int yPosition = CurrentPointList[0].Y + TestRectangle.Y;
 
                     label1.Text = $"First Pixel Found at X:{xPosition} Y:{yPosition} Qty={CurrentPointList.Count()}";
                     CurrentTestPassed = true;
 
-                    DetectedPoint = new Point(CurrentPointList[0].X + Node.Rectangle.X, CurrentPointList[0].Y + Node.Rectangle.Y);
+                    DetectedPoint = new Point(CurrentPointList[0].X + TestRectangle.X, CurrentPointList[0].Y + TestRectangle.Y);
 
                     int Counter = 0;
                     foreach (Point pt in CurrentPointList)
                     {
-                        dataGridView1.Rows.Add(Counter++, pt.X + Node.Rectangle.X, pt.Y + Node.Rectangle.Y);
+                        dataGridView1.Rows.Add(Counter++, pt.X + TestRectangle.X, pt.Y + TestRectangle.Y);
                         if (Counter >= 1000)
                         {
                             break;
@@ -183,6 +185,15 @@ namespace AppTestStudio
 
         private void cmdMoveSettingsToProject_Click(object sender, EventArgs e)
         {
+            frm.numPixelSearchB.Value = numPixelSearchB.Value;
+            frm.numPixelSearchG.Value = numPixelSearchG.Value;
+            frm.numPixelSearchR.Value = numPixelSearchR.Value;
+            frm.numPixelSearchBNeg.Value = numPixelSearchBNeg.Value;
+            frm.numPixelSearchGNeg.Value = numPixelSearchGNeg.Value;
+            frm.numPixelSearchRNeg.Value = numPixelSearchRNeg.Value;
+            frm.numPixelSearchBPos.Value = numPixelSearchBPos.Value;
+            frm.numPixelSearchGPos.Value = numPixelSearchGPos.Value;
+            frm.numPixelSearchRPos.Value = numPixelSearchRPos.Value;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -202,11 +213,30 @@ namespace AppTestStudio
                 // Header row.
                 return;
             }
-            
+
             int X = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToInt();
             int Y = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToInt();
             DetectedPoint = new Point(X, Y);
             PictureBoxSearchArea.Invalidate();
-        }        
+        }
+
+        private void cmdLoadSettings_Click(object sender, EventArgs e)
+        {
+            numPixelSearchB.Value = frm.numPixelSearchB.Value;
+            numPixelSearchG.Value = frm.numPixelSearchG.Value;
+            numPixelSearchR.Value = frm.numPixelSearchR.Value;
+            numPixelSearchBNeg.Value = frm.numPixelSearchBNeg.Value;
+            numPixelSearchGNeg.Value = frm.numPixelSearchGNeg.Value;
+            numPixelSearchRNeg.Value = frm.numPixelSearchRNeg.Value;
+            numPixelSearchBPos.Value = frm.numPixelSearchBPos.Value;
+            numPixelSearchGPos.Value = frm.numPixelSearchGPos.Value;
+            numPixelSearchRPos.Value = frm.numPixelSearchRPos.Value;
+        }
+
+        private void PictureBoxSearchArea_MouseMove(object sender, MouseEventArgs e)
+        {
+            //Boolean Changed = ShowZoom(PictureBoxSearchArea, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.mRectangle);
+
+        }
     }
 }
