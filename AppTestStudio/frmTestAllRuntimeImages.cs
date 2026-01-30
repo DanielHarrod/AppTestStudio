@@ -181,6 +181,12 @@ namespace AppTestStudio
                         // Draw Mask Area
                         Utils.DrawRectangleWithGuidesOnGraphics(g, gps.Bitmap, actionNode.Rectangle, 0, 0, 255, 125);
 
+                        if (eventSolution.Result)
+                        {
+                            // Draw a Green line
+                            Rectangle r9 = new Rectangle(eventSolution.CenterX, eventSolution.CenterY, 9, 9);
+                            Utils.DrawRectangleWithGuidesOnGraphics(g, gps.Bitmap, r9, 0, 250, 0, 150);
+                    }
                     }
                     break;
                 default:
