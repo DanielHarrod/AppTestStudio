@@ -5289,7 +5289,7 @@ namespace AppTestStudio
                 //
             }
 
-            if (GameNodeAction.IsParentObjectSearch())
+            if (GameNodeAction.IsParentRelativePositioning())
             {
                 GameNodeAction.UseParentPosition = true;
             }

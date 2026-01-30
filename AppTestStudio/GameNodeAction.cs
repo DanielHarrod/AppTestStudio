@@ -2263,7 +2263,7 @@ namespace AppTestStudio
             short RandomX = Utils.RandomNumber(0, Rectangle.Width);
             short RandomY = Utils.RandomNumber(0, Rectangle.Height);
 
-            if (IsParentRelativePositioning() && UseObjectSearchPosition)
+            if (IsParentRelativePositioning() && UseParentPosition)
             {
                 if (Parent is GameNodeAction)
                 {
