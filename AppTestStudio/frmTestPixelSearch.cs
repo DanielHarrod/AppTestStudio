@@ -31,6 +31,8 @@ namespace AppTestStudio
         private Color PictureBox1Color;
         private bool PictureBox1MouseDown;
 
+        Rectangle PreviousMaskingRectangle;
+
         public frmTestPixelSearch(GameNodeGame game, GameNodeAction node, frmMain frm, IntPtr mainWindowHandle, GameNodeAction parent)
         {
             InitializeComponent();
@@ -59,6 +61,9 @@ namespace AppTestStudio
             numPixelSearchRPos.Value = Node.PixelSearchRPos;
             RunTest();
             this.WindowState = FormWindowState.Maximized;
+
+            lblRHSColor.Text = "";
+            lblRHSXY.Text = "";
         }
 
         private void CaptureCurrentImage(GameNodeAction node, bool useCurrentWindow)
@@ -235,11 +240,41 @@ namespace AppTestStudio
             numPixelSearchBPos.Value = frm.numPixelSearchBPos.Value;
             numPixelSearchGPos.Value = frm.numPixelSearchGPos.Value;
             numPixelSearchRPos.Value = frm.numPixelSearchRPos.Value;
+            TestRectangle = Node.Rectangle;
+            PictureBoxSearchArea.Invalidate();
         }
 
         private void PictureBoxSearchArea_MouseMove(object sender, MouseEventArgs e)
         {
             Boolean Changed = Utils.ShowZoom(PictureBoxSearchArea, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref TestRectangle);
+        }
+
+        private void PictureBoxSearchArea_Click(object sender, EventArgs e)
+        {
+            if (TestRectangle.Width == 0 || TestRectangle.Height == 0)
+            {
+                TestRectangle = PreviousMaskingRectangle;
+            }
+            numPixelSearchB.Value = PictureBox1Color.B;
+            numPixelSearchG.Value = PictureBox1Color.G;
+            numPixelSearchR.Value = PictureBox1Color.R;
+        }
+
+        private void PictureBoxSearchArea_MouseDown(object sender, MouseEventArgs e)
+        {
+            PictureBox1MouseDown = true;
+            PreviousMaskingRectangle = TestRectangle;
+            TestRectangle = new Rectangle(e.X, e.Y, 0, 0);
+        }
+
+        private void PictureBoxSearchArea_MouseUp(object sender, MouseEventArgs e)
+        {
+            PictureBox1MouseDown = false;
+        }
+
+        private void cmdRetestThisWindow_Click(object sender, EventArgs e)
+        {
+            RunTest();
         }
     }
 }

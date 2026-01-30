@@ -28,14 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestPixelSearch));
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             splitContainer1 = new SplitContainer();
             PanelScreenshot = new Panel();
             PictureBoxSearchArea = new PictureBox();
             splitContainer2 = new SplitContainer();
             flowLayoutPanel1 = new FlowLayoutPanel();
             cmdRetestCurrentWindow = new Button();
+            cmdRetestThisWindow = new Button();
             cmdRetestDesignImage = new Button();
             panelRightPixelSearchProperties = new Panel();
             cmdLoadSettings = new Button();
@@ -58,16 +59,16 @@
             numPixelSearchRNeg = new NumericUpDown();
             numPixelSearchR = new NumericUpDown();
             label1 = new Label();
+            panelRightColorAtPointer = new Panel();
+            lblRHSColor = new Label();
+            cmdRightColorAtPointer = new Button();
+            lblRHSXY = new Label();
+            PictureBox2 = new PictureBox();
+            PanelSelectedColor = new Panel();
             dataGridView1 = new DataGridView();
             colCount = new DataGridViewTextBoxColumn();
             colX = new DataGridViewTextBoxColumn();
             colY = new DataGridViewTextBoxColumn();
-            panelRightColorAtPointer = new Panel();
-            cmdRightColorAtPointer = new Button();
-            PictureBox2 = new PictureBox();
-            PanelSelectedColor = new Panel();
-            lblRHSColor = new Label();
-            lblRHSXY = new Label();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -89,9 +90,9 @@
             ((System.ComponentModel.ISupportInitialize)numPixelSearchRPos).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPixelSearchRNeg).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPixelSearchR).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panelRightColorAtPointer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -127,6 +128,7 @@
             // 
             // PictureBoxSearchArea
             // 
+            PictureBoxSearchArea.Cursor = Cursors.Cross;
             PictureBoxSearchArea.Location = new Point(3, 0);
             PictureBoxSearchArea.Margin = new Padding(3, 4, 3, 4);
             PictureBoxSearchArea.Name = "PictureBoxSearchArea";
@@ -134,8 +136,11 @@
             PictureBoxSearchArea.SizeMode = PictureBoxSizeMode.AutoSize;
             PictureBoxSearchArea.TabIndex = 0;
             PictureBoxSearchArea.TabStop = false;
+            PictureBoxSearchArea.Click += PictureBoxSearchArea_Click;
             PictureBoxSearchArea.Paint += PictureBoxSearchArea_Paint;
+            PictureBoxSearchArea.MouseDown += PictureBoxSearchArea_MouseDown;
             PictureBoxSearchArea.MouseMove += PictureBoxSearchArea_MouseMove;
+            PictureBoxSearchArea.MouseUp += PictureBoxSearchArea_MouseUp;
             // 
             // splitContainer2
             // 
@@ -160,6 +165,7 @@
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(cmdRetestCurrentWindow);
+            flowLayoutPanel1.Controls.Add(cmdRetestThisWindow);
             flowLayoutPanel1.Controls.Add(cmdRetestDesignImage);
             flowLayoutPanel1.Controls.Add(panelRightPixelSearchProperties);
             flowLayoutPanel1.Controls.Add(label1);
@@ -176,17 +182,27 @@
             cmdRetestCurrentWindow.Name = "cmdRetestCurrentWindow";
             cmdRetestCurrentWindow.Size = new Size(309, 23);
             cmdRetestCurrentWindow.TabIndex = 44;
-            cmdRetestCurrentWindow.Text = "Re-Test Current Window";
+            cmdRetestCurrentWindow.Text = "Re-Test Current Target Window";
             cmdRetestCurrentWindow.UseVisualStyleBackColor = true;
             cmdRetestCurrentWindow.Click += cmdRetestCurrentWindow_Click;
             // 
+            // cmdRetestThisWindow
+            // 
+            cmdRetestThisWindow.Location = new Point(3, 32);
+            cmdRetestThisWindow.Name = "cmdRetestThisWindow";
+            cmdRetestThisWindow.Size = new Size(309, 23);
+            cmdRetestThisWindow.TabIndex = 44;
+            cmdRetestThisWindow.Text = "Re-Test This Image";
+            cmdRetestThisWindow.UseVisualStyleBackColor = true;
+            cmdRetestThisWindow.Click += cmdRetestThisWindow_Click;
+            // 
             // cmdRetestDesignImage
             // 
-            cmdRetestDesignImage.Location = new Point(3, 32);
+            cmdRetestDesignImage.Location = new Point(3, 61);
             cmdRetestDesignImage.Name = "cmdRetestDesignImage";
             cmdRetestDesignImage.Size = new Size(309, 23);
             cmdRetestDesignImage.TabIndex = 45;
-            cmdRetestDesignImage.Text = "Re-Test Design Image";
+            cmdRetestDesignImage.Text = "Re-Test Project Image";
             cmdRetestDesignImage.UseVisualStyleBackColor = true;
             cmdRetestDesignImage.Click += cmdRetestDesignImage_Click;
             // 
@@ -212,7 +228,7 @@
             panelRightPixelSearchProperties.Controls.Add(numPixelSearchRPos);
             panelRightPixelSearchProperties.Controls.Add(numPixelSearchRNeg);
             panelRightPixelSearchProperties.Controls.Add(numPixelSearchR);
-            panelRightPixelSearchProperties.Location = new Point(2, 60);
+            panelRightPixelSearchProperties.Location = new Point(2, 89);
             panelRightPixelSearchProperties.Margin = new Padding(2);
             panelRightPixelSearchProperties.Name = "panelRightPixelSearchProperties";
             panelRightPixelSearchProperties.Size = new Size(326, 165);
@@ -234,7 +250,7 @@
             cmdMoveSettingsToProject.Name = "cmdMoveSettingsToProject";
             cmdMoveSettingsToProject.Size = new Size(282, 23);
             cmdMoveSettingsToProject.TabIndex = 20;
-            cmdMoveSettingsToProject.Text = "Move settings to project";
+            cmdMoveSettingsToProject.Text = "Move ALL settings to project";
             cmdMoveSettingsToProject.UseVisualStyleBackColor = true;
             cmdMoveSettingsToProject.Click += cmdMoveSettingsToProject_Click;
             // 
@@ -391,11 +407,91 @@
             // 
             // label1
             // 
-            label1.Location = new Point(3, 227);
+            label1.Location = new Point(3, 256);
             label1.Name = "label1";
             label1.Size = new Size(316, 20);
             label1.TabIndex = 46;
             label1.Text = "label1";
+            // 
+            // panelRightColorAtPointer
+            // 
+            panelRightColorAtPointer.BorderStyle = BorderStyle.FixedSingle;
+            panelRightColorAtPointer.Controls.Add(lblRHSColor);
+            panelRightColorAtPointer.Controls.Add(cmdRightColorAtPointer);
+            panelRightColorAtPointer.Controls.Add(lblRHSXY);
+            panelRightColorAtPointer.Controls.Add(PictureBox2);
+            panelRightColorAtPointer.Controls.Add(PanelSelectedColor);
+            panelRightColorAtPointer.Location = new Point(4, 279);
+            panelRightColorAtPointer.Margin = new Padding(4, 3, 4, 3);
+            panelRightColorAtPointer.Name = "panelRightColorAtPointer";
+            panelRightColorAtPointer.Size = new Size(326, 264);
+            panelRightColorAtPointer.TabIndex = 47;
+            // 
+            // lblRHSColor
+            // 
+            lblRHSColor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblRHSColor.AutoSize = true;
+            lblRHSColor.BackColor = Color.Transparent;
+            lblRHSColor.Location = new Point(100, 233);
+            lblRHSColor.Margin = new Padding(4, 0, 4, 0);
+            lblRHSColor.Name = "lblRHSColor";
+            lblRHSColor.Size = new Size(71, 15);
+            lblRHSColor.TabIndex = 2;
+            lblRHSColor.Text = "[lblColorXY]";
+            // 
+            // cmdRightColorAtPointer
+            // 
+            cmdRightColorAtPointer.BackColor = SystemColors.ButtonShadow;
+            cmdRightColorAtPointer.Cursor = Cursors.Hand;
+            cmdRightColorAtPointer.Dock = DockStyle.Top;
+            cmdRightColorAtPointer.FlatAppearance.BorderSize = 0;
+            cmdRightColorAtPointer.FlatStyle = FlatStyle.Flat;
+            cmdRightColorAtPointer.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            cmdRightColorAtPointer.ForeColor = SystemColors.ButtonFace;
+            cmdRightColorAtPointer.ImageAlign = ContentAlignment.MiddleLeft;
+            cmdRightColorAtPointer.ImageIndex = 22;
+            cmdRightColorAtPointer.Location = new Point(0, 0);
+            cmdRightColorAtPointer.Margin = new Padding(4, 3, 4, 3);
+            cmdRightColorAtPointer.Name = "cmdRightColorAtPointer";
+            cmdRightColorAtPointer.Size = new Size(324, 27);
+            cmdRightColorAtPointer.TabIndex = 0;
+            cmdRightColorAtPointer.Text = "Color At Pointer";
+            cmdRightColorAtPointer.TextAlign = ContentAlignment.MiddleLeft;
+            cmdRightColorAtPointer.TextImageRelation = TextImageRelation.ImageBeforeText;
+            cmdRightColorAtPointer.UseVisualStyleBackColor = false;
+            // 
+            // lblRHSXY
+            // 
+            lblRHSXY.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblRHSXY.AutoSize = true;
+            lblRHSXY.BackColor = Color.Transparent;
+            lblRHSXY.Location = new Point(107, 218);
+            lblRHSXY.Margin = new Padding(4, 0, 4, 0);
+            lblRHSXY.Name = "lblRHSXY";
+            lblRHSXY.Size = new Size(64, 15);
+            lblRHSXY.TabIndex = 3;
+            lblRHSXY.Text = "[lblRHSXY]";
+            // 
+            // PictureBox2
+            // 
+            PictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            PictureBox2.Image = (Image)resources.GetObject("PictureBox2.Image");
+            PictureBox2.Location = new Point(50, 30);
+            PictureBox2.Margin = new Padding(4, 3, 4, 3);
+            PictureBox2.Name = "PictureBox2";
+            PictureBox2.Size = new Size(187, 185);
+            PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            PictureBox2.TabIndex = 0;
+            PictureBox2.TabStop = false;
+            // 
+            // PanelSelectedColor
+            // 
+            PanelSelectedColor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            PanelSelectedColor.Location = new Point(51, 218);
+            PanelSelectedColor.Margin = new Padding(4, 3, 4, 3);
+            PanelSelectedColor.Name = "PanelSelectedColor";
+            PanelSelectedColor.Size = new Size(187, 42);
+            PanelSelectedColor.TabIndex = 1;
             // 
             // dataGridView1
             // 
@@ -448,84 +544,6 @@
             colY.ReadOnly = true;
             colY.Width = 50;
             // 
-            // panelRightColorAtPointer
-            // 
-            panelRightColorAtPointer.BorderStyle = BorderStyle.FixedSingle;
-            panelRightColorAtPointer.Controls.Add(lblRHSColor);
-            panelRightColorAtPointer.Controls.Add(cmdRightColorAtPointer);
-            panelRightColorAtPointer.Controls.Add(lblRHSXY);
-            panelRightColorAtPointer.Controls.Add(PictureBox2);
-            panelRightColorAtPointer.Controls.Add(PanelSelectedColor);
-            panelRightColorAtPointer.Location = new Point(4, 250);
-            panelRightColorAtPointer.Margin = new Padding(4, 3, 4, 3);
-            panelRightColorAtPointer.Name = "panelRightColorAtPointer";
-            panelRightColorAtPointer.Size = new Size(326, 264);
-            panelRightColorAtPointer.TabIndex = 47;
-            // 
-            // cmdRightColorAtPointer
-            // 
-            cmdRightColorAtPointer.BackColor = SystemColors.ButtonShadow;
-            cmdRightColorAtPointer.Cursor = Cursors.Hand;
-            cmdRightColorAtPointer.Dock = DockStyle.Top;
-            cmdRightColorAtPointer.FlatAppearance.BorderSize = 0;
-            cmdRightColorAtPointer.FlatStyle = FlatStyle.Flat;
-            cmdRightColorAtPointer.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
-            cmdRightColorAtPointer.ForeColor = SystemColors.ButtonFace;
-            cmdRightColorAtPointer.ImageAlign = ContentAlignment.MiddleLeft;
-            cmdRightColorAtPointer.ImageIndex = 22;
-            cmdRightColorAtPointer.Location = new Point(0, 0);
-            cmdRightColorAtPointer.Margin = new Padding(4, 3, 4, 3);
-            cmdRightColorAtPointer.Name = "cmdRightColorAtPointer";
-            cmdRightColorAtPointer.Size = new Size(324, 27);
-            cmdRightColorAtPointer.TabIndex = 0;
-            cmdRightColorAtPointer.Text = "Color At Pointer";
-            cmdRightColorAtPointer.TextAlign = ContentAlignment.MiddleLeft;
-            cmdRightColorAtPointer.TextImageRelation = TextImageRelation.ImageBeforeText;
-            cmdRightColorAtPointer.UseVisualStyleBackColor = false;
-            // 
-            // PictureBox2
-            // 
-            PictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            PictureBox2.Image = (Image)resources.GetObject("PictureBox2.Image");
-            PictureBox2.Location = new Point(50, 30);
-            PictureBox2.Margin = new Padding(4, 3, 4, 3);
-            PictureBox2.Name = "PictureBox2";
-            PictureBox2.Size = new Size(187, 185);
-            PictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
-            PictureBox2.TabIndex = 0;
-            PictureBox2.TabStop = false;
-            // 
-            // PanelSelectedColor
-            // 
-            PanelSelectedColor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            PanelSelectedColor.Location = new Point(51, 218);
-            PanelSelectedColor.Margin = new Padding(4, 3, 4, 3);
-            PanelSelectedColor.Name = "PanelSelectedColor";
-            PanelSelectedColor.Size = new Size(187, 42);
-            PanelSelectedColor.TabIndex = 1;
-            // 
-            // lblRHSColor
-            // 
-            lblRHSColor.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblRHSColor.AutoSize = true;
-            lblRHSColor.Location = new Point(100, 233);
-            lblRHSColor.Margin = new Padding(4, 0, 4, 0);
-            lblRHSColor.Name = "lblRHSColor";
-            lblRHSColor.Size = new Size(71, 15);
-            lblRHSColor.TabIndex = 2;
-            lblRHSColor.Text = "[lblColorXY]";
-            // 
-            // lblRHSXY
-            // 
-            lblRHSXY.Anchor = AnchorStyles.Top | AnchorStyles.Right;
-            lblRHSXY.AutoSize = true;
-            lblRHSXY.Location = new Point(107, 218);
-            lblRHSXY.Margin = new Padding(4, 0, 4, 0);
-            lblRHSXY.Name = "lblRHSXY";
-            lblRHSXY.Size = new Size(64, 15);
-            lblRHSXY.TabIndex = 3;
-            lblRHSXY.Text = "[lblRHSXY]";
-            // 
             // frmTestPixelSearch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -558,10 +576,10 @@
             ((System.ComponentModel.ISupportInitialize)numPixelSearchRPos).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPixelSearchRNeg).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPixelSearchR).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panelRightColorAtPointer.ResumeLayout(false);
             panelRightColorAtPointer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
         }
 
@@ -605,5 +623,6 @@
         internal Label lblRHSXY;
         internal PictureBox PictureBox2;
         internal Panel PanelSelectedColor;
+        private Button cmdRetestThisWindow;
     }
 }
