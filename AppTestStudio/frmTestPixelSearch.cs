@@ -26,6 +26,10 @@ namespace AppTestStudio
         List<Point> CurrentPointList;
 
         Rectangle TestRectangle;
+        private int PictureBox1X;
+        private int PictureBox1Y;
+        private Color PictureBox1Color;
+        private bool PictureBox1MouseDown;
 
         public frmTestPixelSearch(GameNodeGame game, GameNodeAction node, frmMain frm, IntPtr mainWindowHandle, GameNodeAction parent)
         {
@@ -235,8 +239,7 @@ namespace AppTestStudio
 
         private void PictureBoxSearchArea_MouseMove(object sender, MouseEventArgs e)
         {
-            //Boolean Changed = ShowZoom(PictureBoxSearchArea, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.mRectangle);
-
+            Boolean Changed = Utils.ShowZoom(PictureBoxSearchArea, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref TestRectangle);
         }
     }
 }
