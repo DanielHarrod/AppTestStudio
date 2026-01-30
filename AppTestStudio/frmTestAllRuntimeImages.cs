@@ -35,10 +35,20 @@ namespace AppTestStudio
 
         private void frmTestAllRuntimeImages_Load(object sender, EventArgs e)
         {
+
+            for (int i = 0; i <= 200; i += 5)
+            {
+                cboScale.Items.Add($"{i.ToString()}%");
+            }
+
+            cboScale.Text = "35%";
+        }
+
+        private void DrawForm(double scaler)
+        {
             try
             {
-                double scaler = 0.37;
-
+                fp.Controls.Clear();
                 PreviewWidth = ((double)gamePassSolutions[0].Bitmap.Width * scaler).ToInt();
                 PreviewHeight = ((double)gamePassSolutions[0].Bitmap.Height * scaler).ToInt();
 
@@ -48,7 +58,7 @@ namespace AppTestStudio
 
                 // Show the reference image.
                 // ATS does not use the reference bitmaps at runtime. 
-                TreeNode[] tn = frmMain.tv.Nodes[0].Nodes.Find(actionNode.Name,true);
+                TreeNode[] tn = frmMain.tv.Nodes[0].Nodes.Find(actionNode.Name, true);
                 if (tn.Length > 0)
                 {
                     GameNodeAction actionNode = tn[0] as GameNodeAction;
@@ -127,8 +137,8 @@ namespace AppTestStudio
             {
                 log.Error(ex);
             }
-
         }
+
         private PictureBox GetPictureBox(Bitmap bmp, int Width, int Height)
         {
             PictureBox pb = new PictureBox();
@@ -186,7 +196,7 @@ namespace AppTestStudio
                             // Draw a Green line
                             Rectangle r9 = new Rectangle(eventSolution.CenterX, eventSolution.CenterY, 9, 9);
                             Utils.DrawRectangleWithGuidesOnGraphics(g, gps.Bitmap, r9, 0, 250, 0, 150);
-                    }
+                        }
                     }
                     break;
                 default:
@@ -206,7 +216,7 @@ namespace AppTestStudio
 
             FlowLayoutPanel fp = null;
             Button btnAddImageToProject = null;
-
+            Label l = new Label();
             switch (actionNode.EventType)
             {
                 case EventType.ColorPoint:
@@ -244,7 +254,6 @@ namespace AppTestStudio
                     btnAddImageToProject.Width = 220;
                     fp.Controls.Add(btnAddImageToProject);
 
-                    Label l = new Label();
                     l.Width = 300;
                     l.Text = $"Solution ID = {gps.SolutionID}";
                     l.Tag = gps.SolutionID;
@@ -354,22 +363,56 @@ namespace AppTestStudio
                     tableLayoutPanel.Controls.Add(fp, 1, 0);
                     break;
                 case EventType.PixelSearch:
+                    fp = new FlowLayoutPanel();
+                    fp.FlowDirection = FlowDirection.TopDown;
+                    fp.WrapContents = false;
+                    fp.AutoScroll = true;
+                    fp.Width = gps.Bitmap.Width;
+                    fp.Height = Height;
+
+                    btnAddImageToProject = new Button();
+                    btnAddImageToProject.Text = "Add <- Image to Project";
+                    btnAddImageToProject.Click += btnAddImageToProject_Click;
+                    btnAddImageToProject.Tag = gps.SolutionID;
+                    btnAddImageToProject.Width = 220;
+                    fp.Controls.Add(btnAddImageToProject);
+
+                    l = new Label();
+                    l.Width = 300;
+                    l.Text = $"Solution ID = {gps.SolutionID}";
+                    l.Tag = gps.SolutionID;
+
+                    fp.Controls.Add(l);
+                    tableLayoutPanel.Controls.Add(fp, 1, 0);
+
+                    l = new Label();
+                    l.Width = 500;
+                    l.Text = $"Result: Fail ms={eventSolution.ImageSearchTime}";
+                    l.BackColor = Color.PaleVioletRed;
+                    if (eventSolution.Result)
+                    {
+                        l.Text = $"Result: Pass X:{eventSolution.CenterX}, Y:{eventSolution.CenterY}, ms={eventSolution.ImageSearchTime}";
+                        l.BackColor = Color.LightGreen;
+                    }
+                    fp.Controls.Add(l);
+
                     break;
                 default:
                     break;
             }
 
-            return tableLayoutPanel;            
+            return tableLayoutPanel;
         }
 
         private void btnAddImageToProject_Click(object? sender, EventArgs e)
         {
             Button btnSender = sender as Button;
-            if (btnSender != null && btnSender.Tag != null) {
+            if (btnSender != null && btnSender.Tag != null)
+            {
 
                 GamePassSolution gamePassSolution = gamePassSolutions.Find(x => x.SolutionID == btnSender.Tag.ToInt());
 
-                if (gamePassSolution!= null)
+                if (gamePassSolution != null)
                 {
                     frmAddNewNode frm = new frmAddNewNode(gamePassSolution, frmMain.tv.SelectedNode.FullPath);
                     frm.ShowDialog();
@@ -393,7 +436,7 @@ namespace AppTestStudio
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgv.AllowUserToAddRows = false;
-            dgv.Anchor = AnchorStyles.Top |  AnchorStyles.Left | AnchorStyles.Bottom;
+            dgv.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Bottom;
             //dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -533,6 +576,16 @@ namespace AppTestStudio
         private void myDataGridView_SelectionChanged(Object sender, EventArgs e)
         {
             (sender as DataGridView).ClearSelection();
+        }
+
+        private void cboScale_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int scale = 0;
+            if (int.TryParse(cboScale.Text.Replace("%", ""), out scale))
+            {
+                double scaler = scale / 100.0;
+                DrawForm(scaler);
+            }
         }
     }
 }

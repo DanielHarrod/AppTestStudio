@@ -29,6 +29,8 @@ namespace AppTestStudio
         private void InitializeComponent()
         {
             fp = new FlowLayoutPanel();
+            cboScale = new ComboBox();
+            lblScale = new Label();
             SuspendLayout();
             // 
             // fp
@@ -39,21 +41,47 @@ namespace AppTestStudio
             fp.Size = new Size(1486, 723);
             fp.TabIndex = 2;
             // 
+            // cboScale
+            // 
+            cboScale.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            cboScale.DropDownStyle = ComboBoxStyle.DropDownList;
+            cboScale.FormattingEnabled = true;
+            cboScale.Location = new Point(1357, 6);
+            cboScale.Name = "cboScale";
+            cboScale.Size = new Size(121, 23);
+            cboScale.TabIndex = 0;
+            cboScale.SelectedIndexChanged += cboScale_SelectedIndexChanged;
+            // 
+            // lblScale
+            // 
+            lblScale.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            lblScale.AutoSize = true;
+            lblScale.Location = new Point(1322, 10);
+            lblScale.Name = "lblScale";
+            lblScale.Size = new Size(34, 15);
+            lblScale.TabIndex = 0;
+            lblScale.Text = "Scale";
+            // 
             // frmTestAllRuntimeImages
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1486, 723);
+            Controls.Add(cboScale);
+            Controls.Add(lblScale);
             Controls.Add(fp);
             Name = "frmTestAllRuntimeImages";
             Text = "Test Runtime Images";
             WindowState = FormWindowState.Maximized;
             Load += frmTestAllRuntimeImages_Load;
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion
 
         private FlowLayoutPanel fp;
+        private ComboBox cboScale;
+        private Label lblScale;
     }
 }
