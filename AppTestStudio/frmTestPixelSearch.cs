@@ -57,7 +57,7 @@ namespace AppTestStudio
                 this.Close();
                 return;
             }
-            
+
             numMaskX.Maximum = PictureBoxSearchArea.Image.Width;
             numMaskY.Maximum = PictureBoxSearchArea.Image.Height;
             numMaskWidth.Maximum = PictureBoxSearchArea.Image.Width;
@@ -145,53 +145,62 @@ namespace AppTestStudio
 
         private void RunTest()
         {
-            if (PictureBoxSearchArea.Image != null)
+            try
             {
-                Color SearchColor = Color.FromArgb(numPixelSearchR.Value.ToInt(), numPixelSearchG.Value.ToInt(), numPixelSearchB.Value.ToInt());
 
-                int RMin = numPixelSearchRNeg.Value.ToInt();
-                int RMax = numPixelSearchRPos.Value.ToInt();
-                int GMin = numPixelSearchGNeg.Value.ToInt();
-                int GMax = numPixelSearchGPos.Value.ToInt();
-                int BMin = numPixelSearchBNeg.Value.ToInt();
-                int BMax = numPixelSearchBPos.Value.ToInt();
-
-                Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
-
-                Bitmap bmp = Utils.CropBitmap(PictureBoxSearchArea.Image as Bitmap, TestRectangle);
-
-                CurrentPointList = Utils.FindPixelColor(bmp, SearchColor, RMin, RMax, GMin, GMax, BMin, BMax, 999);
-                Watch.Stop();
-
-                dataGridView1.Rows.Clear();
-
-                if (CurrentPointList.Count > 0)
+                if (PictureBoxSearchArea.Image != null)
                 {
-                    int xPosition = CurrentPointList[0].X + TestRectangle.X;
-                    int yPosition = CurrentPointList[0].Y + TestRectangle.Y;
+                    Color SearchColor = Color.FromArgb(numPixelSearchR.Value.ToInt(), numPixelSearchG.Value.ToInt(), numPixelSearchB.Value.ToInt());
 
-                    label1.Text = $"First Pixel Found at X:{xPosition} Y:{yPosition} Qty={CurrentPointList.Count()} Time={Watch.ElapsedMilliseconds}ms";
-                    CurrentTestPassed = true;
+                    int RMin = numPixelSearchRNeg.Value.ToInt();
+                    int RMax = numPixelSearchRPos.Value.ToInt();
+                    int GMin = numPixelSearchGNeg.Value.ToInt();
+                    int GMax = numPixelSearchGPos.Value.ToInt();
+                    int BMin = numPixelSearchBNeg.Value.ToInt();
+                    int BMax = numPixelSearchBPos.Value.ToInt();
 
-                    DetectedPoint = new Point(CurrentPointList[0].X + TestRectangle.X, CurrentPointList[0].Y + TestRectangle.Y);
+                    Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
 
-                    int Counter = 0;
-                    foreach (Point pt in CurrentPointList)
+                    Bitmap bmp = Utils.CropBitmap(PictureBoxSearchArea.Image as Bitmap, TestRectangle);
+
+                    CurrentPointList = Utils.FindPixelColor(bmp, SearchColor, RMin, RMax, GMin, GMax, BMin, BMax, 999);
+                    Watch.Stop();
+
+                    dataGridView1.Rows.Clear();
+
+                    if (CurrentPointList.Count > 0)
                     {
-                        dataGridView1.Rows.Add(Counter++, pt.X + TestRectangle.X, pt.Y + TestRectangle.Y);
-                        if (Counter >= 1000)
+                        int xPosition = CurrentPointList[0].X + TestRectangle.X;
+                        int yPosition = CurrentPointList[0].Y + TestRectangle.Y;
+
+                        label1.Text = $"First Pixel Found at X:{xPosition} Y:{yPosition} Qty={CurrentPointList.Count()} Time={Watch.ElapsedMilliseconds}ms";
+                        CurrentTestPassed = true;
+
+                        DetectedPoint = new Point(CurrentPointList[0].X + TestRectangle.X, CurrentPointList[0].Y + TestRectangle.Y);
+
+                        int Counter = 0;
+                        foreach (Point pt in CurrentPointList)
                         {
-                            break;
+                            dataGridView1.Rows.Add(Counter++, pt.X + TestRectangle.X, pt.Y + TestRectangle.Y);
+                            if (Counter >= 1000)
+                            {
+                                break;
+                            }
                         }
                     }
+                    else
+                    {
+                        label1.Text = "Not found";
+                        CurrentTestPassed = false;
+                    }
                 }
-                else
-                {
-                    label1.Text = "Not found";
-                    CurrentTestPassed = false;
-                }
+                PictureBoxSearchArea.Refresh();
             }
-            PictureBoxSearchArea.Refresh();
+            catch (Exception ex)
+            {
+
+                frm.Log($"frmTestPixelSearch.RunTest Exception {ex.Message}");
+            }
         }
 
         private void numPixelSearchR_ValueChanged(object sender, EventArgs e)
@@ -211,7 +220,7 @@ namespace AppTestStudio
         private void PixelSearchValueChanged()
         {
             lblPixelSearchPreview.BackColor = Color.FromArgb(numPixelSearchR.Value.ToInt(), numPixelSearchG.Value.ToInt(), numPixelSearchB.Value.ToInt());
-        }   
+        }
 
         private void cmdMoveSettingsToProject_Click(object sender, EventArgs e)
         {
@@ -240,16 +249,24 @@ namespace AppTestStudio
 
         private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
         {
-            if (e.RowIndex == -1)
+            try
             {
-                // Header row.
-                return;
-            }
+                if (e.RowIndex == -1)
+                {
+                    // Header row.
+                    return;
+                }
 
-            int X = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToInt();
-            int Y = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToInt();
-            DetectedPoint = new Point(X, Y);
-            PictureBoxSearchArea.Invalidate();
+                int X = dataGridView1.Rows[e.RowIndex].Cells[1].Value.ToInt();
+                int Y = dataGridView1.Rows[e.RowIndex].Cells[2].Value.ToInt();
+                DetectedPoint = new Point(X, Y);
+                PictureBoxSearchArea.Invalidate();
+            }
+            catch (Exception ex)
+            {
+
+                frm.Log($"frmTestPixelSearch.dataGridView1_CellMouseEnter Exception {ex.Message}");
+            }
         }
 
         private void cmdLoadSettings_Click(object sender, EventArgs e)
@@ -269,18 +286,25 @@ namespace AppTestStudio
 
         private void PictureBoxSearchArea_MouseMove(object sender, MouseEventArgs e)
         {
-            Boolean Changed = Utils.ShowZoom(PictureBoxSearchArea, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref TestRectangle);
-
-            if ( Changed)
+            try
             {
-                if ( TestRectangle.Width >= 0 && TestRectangle.Height >= 0)
-                {
-                    numMaskWidth.Value = TestRectangle.Width;
-                    numMaskHeight.Value = TestRectangle.Height;
-                    numMaskX.Value = TestRectangle.X;
-                    numMaskY.Value = TestRectangle.Y;
+                Boolean Changed = Utils.ShowZoom(PictureBoxSearchArea, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref TestRectangle);
 
+                if (Changed)
+                {
+                    if (TestRectangle.Width >= 0 && TestRectangle.Height >= 0)
+                    {
+                        numMaskWidth.Value = TestRectangle.Width;
+                        numMaskHeight.Value = TestRectangle.Height;
+                        numMaskX.Value = TestRectangle.X;
+                        numMaskY.Value = TestRectangle.Y;
+                    }
                 }
+            }
+            catch (Exception ex)
+            {
+
+                frm.Log($"PictureBoxSearchArea_MouseMove Exception {ex.Message}");
             }
         }
 
@@ -324,7 +348,7 @@ namespace AppTestStudio
             {
                 int Width = PictureBoxSearchArea.Width - TestRectangle.X;
                 TestRectangle.Width = Width;
-            }            
+            }
 
             PictureBoxSearchArea.Invalidate();
         }
