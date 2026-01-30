@@ -1570,11 +1570,36 @@ namespace AppTestStudio
                     break;
                 case EventType.PixelSearch:
                     //TODO : Implement Pixel Search
+                    IsPixelSearchTrue(bmp, game, solution);
                     break;
                 default:
                     break;
             }
             return solution;
+        }
+
+        private void IsPixelSearchTrue(Bitmap bmp, GameNodeGame game, EventSolution solution)
+        {
+            Color SearchColor = Color.FromArgb(PixelSearchR, PixelSearchG, PixelSearchB);
+            Bitmap croppedBmp = Utils.CropBitmap(bmp, Rectangle);
+            Stopwatch WatchImageSearchTime = System.Diagnostics.Stopwatch.StartNew();
+            List<System.Drawing.Point> list0 = Utils.FindPixelColor(croppedBmp, SearchColor, PixelSearchRNeg, PixelSearchRPos, PixelSearchGNeg, PixelSearchGPos, PixelSearchBNeg, PixelSearchBPos, 1);
+            WatchImageSearchTime.Stop();
+            if (list0.Count > 0)
+            {
+                solution.Result = true;
+
+                solution.CenterX = list0[0].X + Rectangle.X;
+                solution.CenterY = list0[0].Y + Rectangle.Y;
+
+                long ImageSearchTime = WatchImageSearchTime.ElapsedMilliseconds;
+
+                solution.ImageSearchTime = ImageSearchTime;
+            }
+            else
+            {
+                solution.Result = false;
+            }
         }
 
         /// <summary>
