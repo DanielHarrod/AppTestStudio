@@ -82,6 +82,7 @@ namespace AppTestStudio
             numMaskHeight.Value = TestRectangle.Height;
             numMaskX.Value = TestRectangle.X;
             numMaskY.Value = TestRectangle.Y;
+            splitContainer2.SplitterDistance = 635;
         }
 
         private void CaptureCurrentImage(GameNodeAction node, bool useCurrentWindow)
