@@ -1497,6 +1497,17 @@ namespace AppTestStudio
             Action.GotoNode = GotoNode;
 
             Action.IsLoading = false;
+
+            Action.PixelSearchB = PixelSearchB;
+            Action.PixelSearchG = PixelSearchG;
+            Action.PixelSearchR = PixelSearchR;
+            Action.PixelSearchBNeg = PixelSearchBNeg;
+            Action.PixelSearchGNeg = PixelSearchGNeg;
+            Action.PixelSearchRNeg = PixelSearchRNeg;
+            Action.PixelSearchBPos = PixelSearchBPos;
+            Action.PixelSearchGPos = PixelSearchGPos;
+            Action.PixelSearchRPos = PixelSearchRPos;
+
             return Action;
         }
 
