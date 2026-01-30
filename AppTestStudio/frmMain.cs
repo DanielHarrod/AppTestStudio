@@ -1194,7 +1194,7 @@ namespace AppTestStudio
             lblRHSColor.Visible = false;
             lblRHSXY.Visible = false;
 
-            chkUseObjectSearchPosition.Visible = false;
+            chkUseParentPosition.Visible = false;
 
             //'if (PanelLoadNode.Nodes.Count = 0 ) {
             //'    cmdDelete.Enabled = true
@@ -1383,15 +1383,15 @@ namespace AppTestStudio
                         Log("Swipe End Width(" + GameNode.ClickDragReleaseVelocity + ") is invalid setting to 500");
                     }
 
-                    if (GameNode.IsParentObjectSearch())
+                    if (GameNode.IsParentRelativePositioning())
                     {
                         panelRightAnchor.Visible = false;
-                        chkUseObjectSearchPosition.Visible = true;
+                        chkUseParentPosition.Visible = true;
                     }
                     else
                     {
                         panelRightAnchor.Visible = true;
-                        chkUseObjectSearchPosition.Visible = false;
+                        chkUseParentPosition.Visible = false;
                     }
 
                     switch (GameNode.ClickDragReleaseMode)
@@ -1429,7 +1429,7 @@ namespace AppTestStudio
                             break;
                     }
 
-                    chkUseObjectSearchPosition.Checked = GameNode.UseObjectSearchPosition;
+                    chkUseParentPosition.Checked = GameNode.UseParentPosition;
 
                     break;
                 case AppTestStudio.ActionType.Event:
@@ -5291,7 +5291,7 @@ namespace AppTestStudio
 
             if (GameNodeAction.IsParentObjectSearch())
             {
-                GameNodeAction.UseObjectSearchPosition = true;
+                GameNodeAction.UseParentPosition = true;
             }
 
             SetPanel(PanelMode.PanelColorEvent);
@@ -7821,7 +7821,7 @@ namespace AppTestStudio
                     ClickEvent.ResolutionWidth = LastNodeAddObjectWasUsedFrom.ResolutionWidth;
                     ClickEvent.Rectangle = PictureObjectScreenshotRectangle;
                     ClickEvent.ClickSpeed = GetGameNode().DefaultClickSpeed;
-                    ClickEvent.UseObjectSearchPosition = true;
+                    ClickEvent.UseParentPosition = true;
                     GameNode gn = tv.SelectedNode as GameNode;
                     gn.AddGameNode(ClickEvent);
 
@@ -9514,7 +9514,7 @@ namespace AppTestStudio
             try
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.UseObjectSearchPosition = chkUseObjectSearchPosition.Checked;
+                ActionNode.UseParentPosition = chkUseParentPosition.Checked;
             }
             catch (Exception ex)
             {

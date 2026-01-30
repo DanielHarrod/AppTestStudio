@@ -52,7 +52,7 @@ namespace AppTestStudio
             ObjectThreshold = 70;
             ClickList = new List<SingleClick>();
             ClickSpeed = 0;
-            UseObjectSearchPosition = false;
+            UseParentPosition = false;
             ClickDragReleaseVelocity = 500;
             ClickDragReleaseMode = ClickDragReleaseMode.None;
 
@@ -313,21 +313,21 @@ namespace AppTestStudio
         /// <summary>
         /// For Actions directly under a Object Search, use the position found by the object search.
         /// </summary>
-        private Boolean mUseObjectSearchPosition;
+        private Boolean mUseParentPosition;
 
-        public Boolean UseObjectSearchPosition
+        public Boolean UseParentPosition
         {
-            get { return mUseObjectSearchPosition; }
+            get { return mUseParentPosition; }
             set
             {
-                if (mUseObjectSearchPosition != value)
+                if (mUseParentPosition != value)
                 {
                     if (IsLoading == false)
                     {
                         IsDirty = true;
                     }
                 }
-                mUseObjectSearchPosition = value;
+                mUseParentPosition = value;
             }
         }
 
@@ -1464,7 +1464,7 @@ namespace AppTestStudio
             Action.EventType = EventType; // must be set after Mode
             Action.CustomLogic = CustomLogic;
             Action.ClickSpeed = ClickSpeed;
-            Action.UseObjectSearchPosition = UseObjectSearchPosition;
+            Action.UseParentPosition = UseParentPosition;
 
             Action.ClickDragReleaseMode = ClickDragReleaseMode;
             Action.ClickDragReleaseEndHeight = ClickDragReleaseEndHeight;
@@ -1569,7 +1569,6 @@ namespace AppTestStudio
                     IsImageSearchTrue(bmp, game, solution);
                     break;
                 case EventType.PixelSearch:
-                    //TODO : Implement Pixel Search
                     IsPixelSearchTrue(bmp, game, solution);
                     break;
                 default:
@@ -2072,6 +2071,29 @@ namespace AppTestStudio
             return false;
         }
 
+        public Boolean IsParentRelativePositioning()
+        {
+            GameNodeAction? ParentNode = Parent as GameNodeAction;
+            if (ParentNode != null)
+            {
+                switch (ParentNode.EventType)
+                {
+                    case EventType.ColorPoint:
+                        return false;
+                        break;
+                    case EventType.ObjectSearch:
+                        return true;
+                        break;
+                    case EventType.PixelSearch:
+                        return true;  // Check and change?
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return false;
+        }
+
         public void PaintNode(Graphics graphics)
         {
             switch (Mode)
@@ -2179,7 +2201,7 @@ namespace AppTestStudio
             int x2 = Rectangle.Width;
             int y2 = Rectangle.Height;
 
-            if (IsParentObjectSearch() && UseObjectSearchPosition && (ClickDragReleaseMode != ClickDragReleaseMode.None))
+            if (IsParentRelativePositioning() && UseParentPosition && (ClickDragReleaseMode != ClickDragReleaseMode.None))
             {
                 GameNodeAction ParentNode = Parent as GameNodeAction;
                 if (ParentNode.IsSomething())
@@ -2241,7 +2263,7 @@ namespace AppTestStudio
             short RandomX = Utils.RandomNumber(0, Rectangle.Width);
             short RandomY = Utils.RandomNumber(0, Rectangle.Height);
 
-            if (IsParentObjectSearch() && UseObjectSearchPosition)
+            if (IsParentRelativePositioning() && UseObjectSearchPosition)
             {
                 if (Parent is GameNodeAction)
                 {
