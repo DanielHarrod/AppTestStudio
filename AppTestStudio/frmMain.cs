@@ -220,6 +220,9 @@ namespace AppTestStudio
 
             CheckMonitorScaling();
 
+            // Prevent from losing Runtime stats area
+            splitContainerStatsNScrollie.SplitterDistance = 164;
+
         }
 
         // Unfortunately this doesn't give proper DPI information - need to use GetDpiForWindow
