@@ -147,8 +147,6 @@ namespace AppTestStudio
         {
             if (PictureBoxSearchArea.Image != null)
             {
-                Bitmap bmp = Utils.CropBitmap(PictureBoxSearchArea.Image as Bitmap, TestRectangle);
-
                 Color SearchColor = Color.FromArgb(numPixelSearchR.Value.ToInt(), numPixelSearchG.Value.ToInt(), numPixelSearchB.Value.ToInt());
 
                 int RMin = numPixelSearchRNeg.Value.ToInt();
@@ -158,9 +156,13 @@ namespace AppTestStudio
                 int BMin = numPixelSearchBNeg.Value.ToInt();
                 int BMax = numPixelSearchBPos.Value.ToInt();
 
-                //bmp.Save("C:\\temp\\a.bmp");
+                Stopwatch Watch = System.Diagnostics.Stopwatch.StartNew();
+
+                Bitmap bmp = Utils.CropBitmap(PictureBoxSearchArea.Image as Bitmap, TestRectangle);
 
                 CurrentPointList = Utils.FindPixelColor(bmp, SearchColor, RMin, RMax, GMin, GMax, BMin, BMax, 999);
+                Watch.Stop();
+
                 dataGridView1.Rows.Clear();
 
                 if (CurrentPointList.Count > 0)
@@ -168,7 +170,7 @@ namespace AppTestStudio
                     int xPosition = CurrentPointList[0].X + TestRectangle.X;
                     int yPosition = CurrentPointList[0].Y + TestRectangle.Y;
 
-                    label1.Text = $"First Pixel Found at X:{xPosition} Y:{yPosition} Qty={CurrentPointList.Count()}";
+                    label1.Text = $"First Pixel Found at X:{xPosition} Y:{yPosition} Qty={CurrentPointList.Count()} Time={Watch.ElapsedMilliseconds}ms";
                     CurrentTestPassed = true;
 
                     DetectedPoint = new Point(CurrentPointList[0].X + TestRectangle.X, CurrentPointList[0].Y + TestRectangle.Y);
@@ -271,11 +273,14 @@ namespace AppTestStudio
 
             if ( Changed)
             {
+                if ( TestRectangle.Width >= 0 && TestRectangle.Height >= 0)
+                {
+                    numMaskWidth.Value = TestRectangle.Width;
+                    numMaskHeight.Value = TestRectangle.Height;
+                    numMaskX.Value = TestRectangle.X;
+                    numMaskY.Value = TestRectangle.Y;
 
-            numMaskWidth.Value = TestRectangle.Width;
-            numMaskHeight.Value = TestRectangle.Height;
-            numMaskX.Value = TestRectangle.X;
-            numMaskY.Value = TestRectangle.Y;
+                }
             }
         }
 

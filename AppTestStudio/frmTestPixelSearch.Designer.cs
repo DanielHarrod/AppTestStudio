@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestPixelSearch));
-            DataGridViewCellStyle dataGridViewCellStyle6 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             splitContainer1 = new SplitContainer();
             PanelScreenshot = new Panel();
             PictureBoxSearchArea = new PictureBox();
@@ -39,6 +39,15 @@
             cmdRetestThisWindow = new Button();
             cmdRetestDesignImage = new Button();
             panelRightPixelSearchProperties = new Panel();
+            groupBox1 = new GroupBox();
+            label5 = new Label();
+            label4 = new Label();
+            label3 = new Label();
+            label2 = new Label();
+            numMaskWidth = new NumericUpDown();
+            numMaskY = new NumericUpDown();
+            numMaskHeight = new NumericUpDown();
+            numMaskX = new NumericUpDown();
             cmdLoadSettings = new Button();
             cmdMoveSettingsToProject = new Button();
             lblPixelSearchPreview = new Label();
@@ -69,15 +78,6 @@
             colCount = new DataGridViewTextBoxColumn();
             colX = new DataGridViewTextBoxColumn();
             colY = new DataGridViewTextBoxColumn();
-            groupBox1 = new GroupBox();
-            numMaskX = new NumericUpDown();
-            numMaskY = new NumericUpDown();
-            label2 = new Label();
-            label3 = new Label();
-            label4 = new Label();
-            label5 = new Label();
-            numMaskHeight = new NumericUpDown();
-            numMaskWidth = new NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
@@ -90,6 +90,11 @@
             splitContainer2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panelRightPixelSearchProperties.SuspendLayout();
+            groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numMaskWidth).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numMaskY).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numMaskHeight).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numMaskX).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPixelSearchB).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPixelSearchG).BeginInit();
             ((System.ComponentModel.ISupportInitialize)numPixelSearchBNeg).BeginInit();
@@ -102,11 +107,6 @@
             panelRightColorAtPointer.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureBox2).BeginInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
-            groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numMaskX).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numMaskY).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numMaskHeight).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)numMaskWidth).BeginInit();
             SuspendLayout();
             // 
             // splitContainer1
@@ -124,8 +124,8 @@
             // 
             splitContainer1.Panel2.Controls.Add(splitContainer2);
             splitContainer1.Panel2MinSize = 250;
-            splitContainer1.Size = new Size(1136, 861);
-            splitContainer1.SplitterDistance = 810;
+            splitContainer1.Size = new Size(1307, 1136);
+            splitContainer1.SplitterDistance = 981;
             splitContainer1.TabIndex = 11;
             // 
             // PanelScreenshot
@@ -137,7 +137,7 @@
             PanelScreenshot.Location = new Point(0, 0);
             PanelScreenshot.Margin = new Padding(3, 4, 3, 4);
             PanelScreenshot.Name = "PanelScreenshot";
-            PanelScreenshot.Size = new Size(810, 861);
+            PanelScreenshot.Size = new Size(981, 1136);
             PanelScreenshot.TabIndex = 11;
             // 
             // PictureBoxSearchArea
@@ -172,8 +172,8 @@
             // splitContainer2.Panel2
             // 
             splitContainer2.Panel2.Controls.Add(dataGridView1);
-            splitContainer2.Size = new Size(322, 861);
-            splitContainer2.SplitterDistance = 700;
+            splitContainer2.Size = new Size(322, 1136);
+            splitContainer2.SplitterDistance = 630;
             splitContainer2.TabIndex = 0;
             // 
             // flowLayoutPanel1
@@ -187,7 +187,7 @@
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(322, 700);
+            flowLayoutPanel1.Size = new Size(322, 630);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // cmdRetestCurrentWindow
@@ -248,6 +248,91 @@
             panelRightPixelSearchProperties.Name = "panelRightPixelSearchProperties";
             panelRightPixelSearchProperties.Size = new Size(326, 245);
             panelRightPixelSearchProperties.TabIndex = 43;
+            // 
+            // groupBox1
+            // 
+            groupBox1.Controls.Add(label5);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(label3);
+            groupBox1.Controls.Add(label2);
+            groupBox1.Controls.Add(numMaskWidth);
+            groupBox1.Controls.Add(numMaskY);
+            groupBox1.Controls.Add(numMaskHeight);
+            groupBox1.Controls.Add(numMaskX);
+            groupBox1.Location = new Point(7, 112);
+            groupBox1.Name = "groupBox1";
+            groupBox1.Size = new Size(298, 72);
+            groupBox1.TabIndex = 21;
+            groupBox1.TabStop = false;
+            groupBox1.Text = "Mask";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(134, 50);
+            label5.Name = "label5";
+            label5.Size = new Size(39, 15);
+            label5.TabIndex = 5;
+            label5.Text = "Width";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(134, 21);
+            label4.Name = "label4";
+            label4.Size = new Size(43, 15);
+            label4.TabIndex = 4;
+            label4.Text = "Height";
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(37, 49);
+            label3.Name = "label3";
+            label3.Size = new Size(14, 15);
+            label3.TabIndex = 3;
+            label3.Text = "Y";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(37, 20);
+            label2.Name = "label2";
+            label2.Size = new Size(14, 15);
+            label2.TabIndex = 2;
+            label2.Text = "X";
+            // 
+            // numMaskWidth
+            // 
+            numMaskWidth.Location = new Point(181, 46);
+            numMaskWidth.Name = "numMaskWidth";
+            numMaskWidth.Size = new Size(49, 23);
+            numMaskWidth.TabIndex = 1;
+            numMaskWidth.ValueChanged += numMaskWidth_ValueChanged;
+            // 
+            // numMaskY
+            // 
+            numMaskY.Location = new Point(56, 46);
+            numMaskY.Name = "numMaskY";
+            numMaskY.Size = new Size(49, 23);
+            numMaskY.TabIndex = 1;
+            numMaskY.ValueChanged += numMaskY_ValueChanged;
+            // 
+            // numMaskHeight
+            // 
+            numMaskHeight.Location = new Point(182, 17);
+            numMaskHeight.Name = "numMaskHeight";
+            numMaskHeight.Size = new Size(49, 23);
+            numMaskHeight.TabIndex = 0;
+            numMaskHeight.ValueChanged += numMaskHeight_ValueChanged;
+            // 
+            // numMaskX
+            // 
+            numMaskX.Location = new Point(57, 17);
+            numMaskX.Name = "numMaskX";
+            numMaskX.Size = new Size(49, 23);
+            numMaskX.TabIndex = 0;
+            numMaskX.ValueChanged += numMaskX_ValueChanged;
             // 
             // cmdLoadSettings
             // 
@@ -516,14 +601,14 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colCount, colX, colY });
-            dataGridViewCellStyle6.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = SystemColors.Window;
-            dataGridViewCellStyle6.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle6.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = SystemColors.HighlightText;
-            dataGridViewCellStyle6.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle6.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = SystemColors.Window;
+            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.SelectionBackColor = SystemColors.HighlightText;
+            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.MultiSelect = false;
@@ -532,7 +617,7 @@
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.ScrollBars = ScrollBars.Vertical;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(322, 157);
+            dataGridView1.Size = new Size(322, 502);
             dataGridView1.TabIndex = 47;
             dataGridView1.CellMouseEnter += dataGridView1_CellMouseEnter;
             dataGridView1.MouseEnter += dataGridView1_MouseEnter;
@@ -559,96 +644,11 @@
             colY.ReadOnly = true;
             colY.Width = 50;
             // 
-            // groupBox1
-            // 
-            groupBox1.Controls.Add(label5);
-            groupBox1.Controls.Add(label4);
-            groupBox1.Controls.Add(label3);
-            groupBox1.Controls.Add(label2);
-            groupBox1.Controls.Add(numMaskWidth);
-            groupBox1.Controls.Add(numMaskY);
-            groupBox1.Controls.Add(numMaskHeight);
-            groupBox1.Controls.Add(numMaskX);
-            groupBox1.Location = new Point(7, 112);
-            groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(298, 72);
-            groupBox1.TabIndex = 21;
-            groupBox1.TabStop = false;
-            groupBox1.Text = "Mask";
-            // 
-            // numMaskX
-            // 
-            numMaskX.Location = new Point(57, 17);
-            numMaskX.Name = "numMaskX";
-            numMaskX.Size = new Size(49, 23);
-            numMaskX.TabIndex = 0;
-            numMaskX.ValueChanged += numMaskX_ValueChanged;
-            // 
-            // numMaskY
-            // 
-            numMaskY.Location = new Point(56, 46);
-            numMaskY.Name = "numMaskY";
-            numMaskY.Size = new Size(49, 23);
-            numMaskY.TabIndex = 1;
-            numMaskY.ValueChanged += numMaskY_ValueChanged;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(37, 20);
-            label2.Name = "label2";
-            label2.Size = new Size(14, 15);
-            label2.TabIndex = 2;
-            label2.Text = "X";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(37, 49);
-            label3.Name = "label3";
-            label3.Size = new Size(14, 15);
-            label3.TabIndex = 3;
-            label3.Text = "Y";
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(134, 21);
-            label4.Name = "label4";
-            label4.Size = new Size(43, 15);
-            label4.TabIndex = 4;
-            label4.Text = "Height";
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(134, 50);
-            label5.Name = "label5";
-            label5.Size = new Size(39, 15);
-            label5.TabIndex = 5;
-            label5.Text = "Width";
-            // 
-            // numMaskHeight
-            // 
-            numMaskHeight.Location = new Point(182, 17);
-            numMaskHeight.Name = "numMaskHeight";
-            numMaskHeight.Size = new Size(49, 23);
-            numMaskHeight.TabIndex = 0;
-            numMaskHeight.ValueChanged += numMaskHeight_ValueChanged;
-            // 
-            // numMaskWidth
-            // 
-            numMaskWidth.Location = new Point(181, 46);
-            numMaskWidth.Name = "numMaskWidth";
-            numMaskWidth.Size = new Size(49, 23);
-            numMaskWidth.TabIndex = 1;
-            numMaskWidth.ValueChanged += numMaskWidth_ValueChanged;
-            // 
             // frmTestPixelSearch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1136, 861);
+            ClientSize = new Size(1307, 1136);
             Controls.Add(splitContainer1);
             Name = "frmTestPixelSearch";
             Text = "Test Pixel Search";
@@ -667,6 +667,12 @@
             flowLayoutPanel1.ResumeLayout(false);
             panelRightPixelSearchProperties.ResumeLayout(false);
             panelRightPixelSearchProperties.PerformLayout();
+            groupBox1.ResumeLayout(false);
+            groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numMaskWidth).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numMaskY).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numMaskHeight).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numMaskX).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPixelSearchB).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPixelSearchG).EndInit();
             ((System.ComponentModel.ISupportInitialize)numPixelSearchBNeg).EndInit();
@@ -680,12 +686,6 @@
             panelRightColorAtPointer.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PictureBox2).EndInit();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
-            groupBox1.ResumeLayout(false);
-            groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numMaskX).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numMaskY).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numMaskHeight).EndInit();
-            ((System.ComponentModel.ISupportInitialize)numMaskWidth).EndInit();
             ResumeLayout(false);
         }
 
