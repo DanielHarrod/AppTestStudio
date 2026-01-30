@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestPixelSearch));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             splitContainer1 = new SplitContainer();
             PanelScreenshot = new Panel();
             PictureBoxSearchArea = new PictureBox();
@@ -330,7 +330,7 @@
             numPixelSearchB.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numPixelSearchB.Name = "numPixelSearchB";
             numPixelSearchB.Size = new Size(42, 23);
-            numPixelSearchB.TabIndex = 16;
+            numPixelSearchB.TabIndex = 7;
             numPixelSearchB.Value = new decimal(new int[] { 255, 0, 0, 0 });
             numPixelSearchB.ValueChanged += numPixelSearchB_ValueChanged;
             // 
@@ -340,7 +340,7 @@
             numPixelSearchG.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numPixelSearchG.Name = "numPixelSearchG";
             numPixelSearchG.Size = new Size(42, 23);
-            numPixelSearchG.TabIndex = 16;
+            numPixelSearchG.TabIndex = 4;
             numPixelSearchG.Value = new decimal(new int[] { 255, 0, 0, 0 });
             numPixelSearchG.ValueChanged += numPixelSearchG_ValueChanged;
             // 
@@ -351,7 +351,7 @@
             numPixelSearchBNeg.Minimum = new decimal(new int[] { 255, 0, 0, int.MinValue });
             numPixelSearchBNeg.Name = "numPixelSearchBNeg";
             numPixelSearchBNeg.Size = new Size(45, 23);
-            numPixelSearchBNeg.TabIndex = 16;
+            numPixelSearchBNeg.TabIndex = 8;
             // 
             // numPixelSearchBPos
             // 
@@ -359,7 +359,7 @@
             numPixelSearchBPos.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numPixelSearchBPos.Name = "numPixelSearchBPos";
             numPixelSearchBPos.Size = new Size(42, 23);
-            numPixelSearchBPos.TabIndex = 16;
+            numPixelSearchBPos.TabIndex = 9;
             // 
             // numPixelSearchGPos
             // 
@@ -367,7 +367,7 @@
             numPixelSearchGPos.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numPixelSearchGPos.Name = "numPixelSearchGPos";
             numPixelSearchGPos.Size = new Size(42, 23);
-            numPixelSearchGPos.TabIndex = 16;
+            numPixelSearchGPos.TabIndex = 6;
             // 
             // numPixelSearchGNeg
             // 
@@ -376,7 +376,7 @@
             numPixelSearchGNeg.Minimum = new decimal(new int[] { 255, 0, 0, int.MinValue });
             numPixelSearchGNeg.Name = "numPixelSearchGNeg";
             numPixelSearchGNeg.Size = new Size(45, 23);
-            numPixelSearchGNeg.TabIndex = 16;
+            numPixelSearchGNeg.TabIndex = 5;
             // 
             // numPixelSearchRPos
             // 
@@ -384,7 +384,7 @@
             numPixelSearchRPos.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numPixelSearchRPos.Name = "numPixelSearchRPos";
             numPixelSearchRPos.Size = new Size(42, 23);
-            numPixelSearchRPos.TabIndex = 16;
+            numPixelSearchRPos.TabIndex = 3;
             // 
             // numPixelSearchRNeg
             // 
@@ -393,7 +393,7 @@
             numPixelSearchRNeg.Minimum = new decimal(new int[] { 255, 0, 0, int.MinValue });
             numPixelSearchRNeg.Name = "numPixelSearchRNeg";
             numPixelSearchRNeg.Size = new Size(45, 23);
-            numPixelSearchRNeg.TabIndex = 16;
+            numPixelSearchRNeg.TabIndex = 2;
             // 
             // numPixelSearchR
             // 
@@ -401,7 +401,7 @@
             numPixelSearchR.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
             numPixelSearchR.Name = "numPixelSearchR";
             numPixelSearchR.Size = new Size(42, 23);
-            numPixelSearchR.TabIndex = 16;
+            numPixelSearchR.TabIndex = 1;
             numPixelSearchR.Value = new decimal(new int[] { 255, 0, 0, 0 });
             numPixelSearchR.ValueChanged += numPixelSearchR_ValueChanged;
             // 
@@ -501,14 +501,14 @@
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colCount, colX, colY });
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.Dock = DockStyle.Fill;
             dataGridView1.Location = new Point(0, 0);
             dataGridView1.MultiSelect = false;
