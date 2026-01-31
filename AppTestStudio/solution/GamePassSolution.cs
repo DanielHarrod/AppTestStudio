@@ -20,13 +20,13 @@ namespace AppTestStudio.solution
             SolutionCounter++;
             SolutionID = SolutionCounter;
         }
-        public List<ISolution> Solutions { get; set; } = new List<ISolution>();
+        public List<BaseSolution> Solutions { get; set; } = new List<BaseSolution>();
 
         public Bitmap? Bitmap { get; set; } = null;
 
         public string LastNodeName { get; internal set; }
 
-        public void AddSolution(ISolution solution, GameNode node)
+        public void AddSolution(BaseSolution solution, GameNode node)
         {
             Solutions.Add(solution);
             solution.NodeName = node.GameNodeName;
@@ -46,6 +46,12 @@ namespace AppTestStudio.solution
             clone.LastNodeName = LastNodeName;
             clone.GameName = GameName;
             return clone;
+        }
+        public List<NodeTiming> NodeTimings { get; set; } = new List<NodeTiming>();
+
+        public void AddNodeTiming(String Name, int msTiming)
+        {
+            NodeTimings.Add(new NodeTiming() { Name = Name, ms = msTiming });
         }
 
         public String GameName { get; set; } = string.Empty;

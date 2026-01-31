@@ -1541,6 +1541,16 @@ namespace AppTestStudio
                     //'do nothing
                     LoadObjectNodeSection();
 
+                    numPixelSearchB.Value = GameNode.PixelSearchB;
+                    numPixelSearchG.Value = GameNode.PixelSearchG;
+                    numPixelSearchR.Value = GameNode.PixelSearchR;
+                    numPixelSearchBNeg.Value = GameNode.PixelSearchBNeg;
+                    numPixelSearchGNeg.Value = GameNode.PixelSearchGNeg;
+                    numPixelSearchRNeg.Value = GameNode.PixelSearchRNeg;
+                    numPixelSearchBPos.Value = GameNode.PixelSearchBPos;
+                    numPixelSearchGPos.Value = GameNode.PixelSearchGPos;
+                    numPixelSearchRPos.Value = GameNode.PixelSearchRPos;
+
                     break;
                 case AppTestStudio.ActionType.RNG:
                     grpEventMode.Visible = false;
@@ -2238,6 +2248,7 @@ namespace AppTestStudio
             GameNode Node = tv.SelectedNode as GameNode;
             GameNodeGame Game = Node.GetGameNodeGame();
             lblEventsPanelTargetWindow.Text = Game.TargetWindow;
+
         }
 
         private void LoadGamePanel()

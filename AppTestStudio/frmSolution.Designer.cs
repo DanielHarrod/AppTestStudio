@@ -28,20 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
-            components = new System.ComponentModel.Container();
             pictureBox1 = new PictureBox();
             textBox1 = new TextBox();
             splitContainer1 = new SplitContainer();
+            flowLayoutPanel1 = new FlowLayoutPanel();
+            panel1 = new Panel();
             cmdAddImageToProject = new Button();
-            hScrollBar1 = new HScrollBar();
-            cmdAnimate = new Button();
-            lblCurrent = new Label();
-            grd = new DataGridView();
-            lblRunTime = new Label();
-            label2 = new Label();
-            lblProject = new Label();
             label1 = new Label();
-            timer1 = new System.Windows.Forms.Timer(components);
+            lblProject = new Label();
+            label2 = new Label();
+            lblRunTime = new Label();
+            grd = new DataGridView();
             colCurrent = new DataGridViewTextBoxColumn();
             colID = new DataGridViewTextBoxColumn();
             colName = new DataGridViewTextBoxColumn();
@@ -52,12 +49,18 @@
             colXTime = new DataGridViewTextBoxColumn();
             colTime = new DataGridViewTextBoxColumn();
             colCTime = new DataGridViewTextBoxColumn();
+            grdTiming = new DataGridView();
+            dataGridViewTextBoxColumn3 = new DataGridViewTextBoxColumn();
+            dataGridViewTextBoxColumn9 = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
+            flowLayoutPanel1.SuspendLayout();
+            panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)grd).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)grdTiming).BeginInit();
             SuspendLayout();
             // 
             // pictureBox1
@@ -96,23 +99,38 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(cmdAddImageToProject);
-            splitContainer1.Panel2.Controls.Add(hScrollBar1);
-            splitContainer1.Panel2.Controls.Add(cmdAnimate);
-            splitContainer1.Panel2.Controls.Add(lblCurrent);
-            splitContainer1.Panel2.Controls.Add(grd);
-            splitContainer1.Panel2.Controls.Add(lblRunTime);
-            splitContainer1.Panel2.Controls.Add(label2);
-            splitContainer1.Panel2.Controls.Add(lblProject);
-            splitContainer1.Panel2.Controls.Add(label1);
+            splitContainer1.Panel2.Controls.Add(flowLayoutPanel1);
             splitContainer1.Size = new Size(1566, 758);
             splitContainer1.SplitterDistance = 803;
             splitContainer1.SplitterWidth = 3;
             splitContainer1.TabIndex = 2;
             // 
+            // flowLayoutPanel1
+            // 
+            flowLayoutPanel1.Controls.Add(panel1);
+            flowLayoutPanel1.Controls.Add(grd);
+            flowLayoutPanel1.Controls.Add(grdTiming);
+            flowLayoutPanel1.Dock = DockStyle.Fill;
+            flowLayoutPanel1.Location = new Point(0, 0);
+            flowLayoutPanel1.Name = "flowLayoutPanel1";
+            flowLayoutPanel1.Size = new Size(760, 758);
+            flowLayoutPanel1.TabIndex = 12;
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(cmdAddImageToProject);
+            panel1.Controls.Add(label1);
+            panel1.Controls.Add(lblProject);
+            panel1.Controls.Add(label2);
+            panel1.Controls.Add(lblRunTime);
+            panel1.Location = new Point(3, 3);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(741, 94);
+            panel1.TabIndex = 13;
+            // 
             // cmdAddImageToProject
             // 
-            cmdAddImageToProject.Location = new Point(478, 7);
+            cmdAddImageToProject.Location = new Point(479, 9);
             cmdAddImageToProject.Name = "cmdAddImageToProject";
             cmdAddImageToProject.Size = new Size(270, 52);
             cmdAddImageToProject.TabIndex = 11;
@@ -120,97 +138,61 @@
             cmdAddImageToProject.UseVisualStyleBackColor = true;
             cmdAddImageToProject.Click += cmdAddImageToProject_Click;
             // 
-            // hScrollBar1
-            // 
-            hScrollBar1.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
-            hScrollBar1.Location = new Point(3, 86);
-            hScrollBar1.Maximum = 500;
-            hScrollBar1.Name = "hScrollBar1";
-            hScrollBar1.Size = new Size(762, 39);
-            hScrollBar1.TabIndex = 10;
-            // 
-            // cmdAnimate
-            // 
-            cmdAnimate.Enabled = false;
-            cmdAnimate.Location = new Point(70, 54);
-            cmdAnimate.Margin = new Padding(2);
-            cmdAnimate.Name = "cmdAnimate";
-            cmdAnimate.Size = new Size(78, 20);
-            cmdAnimate.TabIndex = 9;
-            cmdAnimate.Text = "Animate";
-            cmdAnimate.UseVisualStyleBackColor = true;
-            cmdAnimate.Click += cmdAnimate_Click;
-            // 
-            // lblCurrent
-            // 
-            lblCurrent.AutoSize = true;
-            lblCurrent.Location = new Point(9, 59);
-            lblCurrent.Margin = new Padding(2, 0, 2, 0);
-            lblCurrent.Name = "lblCurrent";
-            lblCurrent.Size = new Size(47, 15);
-            lblCurrent.TabIndex = 8;
-            lblCurrent.Text = "Current";
-            // 
-            // grd
-            // 
-            grd.AllowUserToAddRows = false;
-            grd.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            grd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            grd.Columns.AddRange(new DataGridViewColumn[] { colCurrent, colID, colName, colAction, colPosition, colX, colY, colXTime, colTime, colCTime });
-            grd.Location = new Point(7, 127);
-            grd.Margin = new Padding(2);
-            grd.Name = "grd";
-            grd.ReadOnly = true;
-            grd.RowHeadersVisible = false;
-            grd.RowHeadersWidth = 62;
-            grd.Size = new Size(756, 629);
-            grd.TabIndex = 6;
-            grd.CellMouseDown += grd_CellMouseDown;
-            grd.CellMouseEnter += grd_CellMouseEnter;
-            // 
-            // lblRunTime
-            // 
-            lblRunTime.AutoSize = true;
-            lblRunTime.Location = new Point(70, 26);
-            lblRunTime.Margin = new Padding(2, 0, 2, 0);
-            lblRunTime.Name = "lblRunTime";
-            lblRunTime.Size = new Size(68, 15);
-            lblRunTime.TabIndex = 5;
-            lblRunTime.Text = "lblRunTime";
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(9, 26);
-            label2.Margin = new Padding(2, 0, 2, 0);
-            label2.Name = "label2";
-            label2.Size = new Size(55, 15);
-            label2.TabIndex = 4;
-            label2.Text = "RunTime";
-            // 
-            // lblProject
-            // 
-            lblProject.AutoSize = true;
-            lblProject.Location = new Point(70, 7);
-            lblProject.Margin = new Padding(2, 0, 2, 0);
-            lblProject.Name = "lblProject";
-            lblProject.Size = new Size(57, 15);
-            lblProject.TabIndex = 3;
-            lblProject.Text = "lblProject";
-            // 
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(6, 8);
+            label1.Location = new Point(7, 10);
             label1.Margin = new Padding(2, 0, 2, 0);
             label1.Name = "label1";
             label1.Size = new Size(44, 15);
             label1.TabIndex = 2;
             label1.Text = "Project";
             // 
-            // timer1
+            // lblProject
             // 
-            timer1.Tick += timer1_Tick;
+            lblProject.AutoSize = true;
+            lblProject.Location = new Point(71, 9);
+            lblProject.Margin = new Padding(2, 0, 2, 0);
+            lblProject.Name = "lblProject";
+            lblProject.Size = new Size(57, 15);
+            lblProject.TabIndex = 3;
+            lblProject.Text = "lblProject";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(10, 28);
+            label2.Margin = new Padding(2, 0, 2, 0);
+            label2.Name = "label2";
+            label2.Size = new Size(55, 15);
+            label2.TabIndex = 4;
+            label2.Text = "RunTime";
+            // 
+            // lblRunTime
+            // 
+            lblRunTime.AutoSize = true;
+            lblRunTime.Location = new Point(71, 28);
+            lblRunTime.Margin = new Padding(2, 0, 2, 0);
+            lblRunTime.Name = "lblRunTime";
+            lblRunTime.Size = new Size(68, 15);
+            lblRunTime.TabIndex = 5;
+            lblRunTime.Text = "lblRunTime";
+            // 
+            // grd
+            // 
+            grd.AllowUserToAddRows = false;
+            grd.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grd.Columns.AddRange(new DataGridViewColumn[] { colCurrent, colID, colName, colAction, colPosition, colX, colY, colXTime, colTime, colCTime });
+            grd.Location = new Point(2, 102);
+            grd.Margin = new Padding(2);
+            grd.Name = "grd";
+            grd.ReadOnly = true;
+            grd.RowHeadersVisible = false;
+            grd.RowHeadersWidth = 62;
+            grd.Size = new Size(742, 211);
+            grd.TabIndex = 6;
+            grd.CellMouseDown += grd_CellMouseDown;
+            grd.CellMouseEnter += grd_CellMouseEnter;
             // 
             // colCurrent
             // 
@@ -296,6 +278,37 @@
             colCTime.ReadOnly = true;
             colCTime.Width = 150;
             // 
+            // grdTiming
+            // 
+            grdTiming.AllowUserToAddRows = false;
+            grdTiming.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            grdTiming.Columns.AddRange(new DataGridViewColumn[] { dataGridViewTextBoxColumn3, dataGridViewTextBoxColumn9 });
+            grdTiming.Location = new Point(2, 317);
+            grdTiming.Margin = new Padding(2);
+            grdTiming.Name = "grdTiming";
+            grdTiming.ReadOnly = true;
+            grdTiming.RowHeadersVisible = false;
+            grdTiming.RowHeadersWidth = 62;
+            grdTiming.Size = new Size(742, 211);
+            grdTiming.TabIndex = 14;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            dataGridViewTextBoxColumn3.Frozen = true;
+            dataGridViewTextBoxColumn3.HeaderText = "Name";
+            dataGridViewTextBoxColumn3.MinimumWidth = 80;
+            dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            dataGridViewTextBoxColumn3.ReadOnly = true;
+            dataGridViewTextBoxColumn3.Width = 250;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            dataGridViewTextBoxColumn9.HeaderText = "Time (ms)";
+            dataGridViewTextBoxColumn9.MinimumWidth = 100;
+            dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            dataGridViewTextBoxColumn9.ReadOnly = true;
+            dataGridViewTextBoxColumn9.Width = 150;
+            // 
             // frmSolution
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -310,10 +323,13 @@
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
             splitContainer1.Panel2.ResumeLayout(false);
-            splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
             splitContainer1.ResumeLayout(false);
+            flowLayoutPanel1.ResumeLayout(false);
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)grd).EndInit();
+            ((System.ComponentModel.ISupportInitialize)grdTiming).EndInit();
             ResumeLayout(false);
         }
 
@@ -327,10 +343,6 @@
         private Label label2;
         private Label lblProject;
         private DataGridView grd;
-        private Button cmdAnimate;
-        private Label lblCurrent;
-        private HScrollBar hScrollBar1;
-        private System.Windows.Forms.Timer timer1;
         private Button cmdAddImageToProject;
         private DataGridViewTextBoxColumn colCurrent;
         private DataGridViewTextBoxColumn colID;
@@ -342,5 +354,10 @@
         private DataGridViewTextBoxColumn colXTime;
         private DataGridViewTextBoxColumn colTime;
         private DataGridViewTextBoxColumn colCTime;
+        private FlowLayoutPanel flowLayoutPanel1;
+        private Panel panel1;
+        private DataGridView grdTiming;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
     }
 }

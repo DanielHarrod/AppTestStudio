@@ -7,7 +7,7 @@ using System.Formats.Asn1;
 
 namespace AppTestStudio.solution
 {
-    internal class ActionSolution : ISolution
+    internal class ActionSolution : BaseSolution
     {
         public ActionSolution(IntPtr windowHandle)
         {

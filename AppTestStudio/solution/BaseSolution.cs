@@ -4,7 +4,7 @@
 
 namespace AppTestStudio.solution
 {
-    internal class ISolution
+    internal class BaseSolution
     {
         public SolutionType EventType { get; set; }
 
