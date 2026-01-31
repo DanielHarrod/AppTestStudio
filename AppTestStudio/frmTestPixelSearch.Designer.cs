@@ -29,11 +29,10 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmTestPixelSearch));
-            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             splitContainer1 = new SplitContainer();
             PanelScreenshot = new Panel();
             PictureBoxSearchArea = new PictureBox();
-            splitContainer2 = new SplitContainer();
             flowLayoutPanel1 = new FlowLayoutPanel();
             cmdRetestCurrentWindow = new Button();
             cmdRetestThisWindow = new Button();
@@ -78,16 +77,15 @@
             colCount = new DataGridViewTextBoxColumn();
             colX = new DataGridViewTextBoxColumn();
             colY = new DataGridViewTextBoxColumn();
+            colR = new DataGridViewTextBoxColumn();
+            colG = new DataGridViewTextBoxColumn();
+            colB = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             PanelScreenshot.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)PictureBoxSearchArea).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)splitContainer2).BeginInit();
-            splitContainer2.Panel1.SuspendLayout();
-            splitContainer2.Panel2.SuspendLayout();
-            splitContainer2.SuspendLayout();
             flowLayoutPanel1.SuspendLayout();
             panelRightPixelSearchProperties.SuspendLayout();
             groupBox1.SuspendLayout();
@@ -122,7 +120,7 @@
             // 
             // splitContainer1.Panel2
             // 
-            splitContainer1.Panel2.Controls.Add(splitContainer2);
+            splitContainer1.Panel2.Controls.Add(flowLayoutPanel1);
             splitContainer1.Panel2MinSize = 250;
             splitContainer1.Size = new Size(1307, 1136);
             splitContainer1.SplitterDistance = 981;
@@ -156,26 +154,6 @@
             PictureBoxSearchArea.MouseMove += PictureBoxSearchArea_MouseMove;
             PictureBoxSearchArea.MouseUp += PictureBoxSearchArea_MouseUp;
             // 
-            // splitContainer2
-            // 
-            splitContainer2.Dock = DockStyle.Fill;
-            splitContainer2.IsSplitterFixed = true;
-            splitContainer2.Location = new Point(0, 0);
-            splitContainer2.Name = "splitContainer2";
-            splitContainer2.Orientation = Orientation.Horizontal;
-            // 
-            // splitContainer2.Panel1
-            // 
-            splitContainer2.Panel1.Controls.Add(flowLayoutPanel1);
-            splitContainer2.Panel1MinSize = 0;
-            // 
-            // splitContainer2.Panel2
-            // 
-            splitContainer2.Panel2.Controls.Add(dataGridView1);
-            splitContainer2.Size = new Size(322, 1136);
-            splitContainer2.SplitterDistance = 630;
-            splitContainer2.TabIndex = 0;
-            // 
             // flowLayoutPanel1
             // 
             flowLayoutPanel1.Controls.Add(cmdRetestCurrentWindow);
@@ -184,10 +162,11 @@
             flowLayoutPanel1.Controls.Add(panelRightPixelSearchProperties);
             flowLayoutPanel1.Controls.Add(label1);
             flowLayoutPanel1.Controls.Add(panelRightColorAtPointer);
+            flowLayoutPanel1.Controls.Add(dataGridView1);
             flowLayoutPanel1.Dock = DockStyle.Fill;
             flowLayoutPanel1.Location = new Point(0, 0);
             flowLayoutPanel1.Name = "flowLayoutPanel1";
-            flowLayoutPanel1.Size = new Size(322, 630);
+            flowLayoutPanel1.Size = new Size(322, 1136);
             flowLayoutPanel1.TabIndex = 0;
             // 
             // cmdRetestCurrentWindow
@@ -600,24 +579,23 @@
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colCount, colX, colY });
-            dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = SystemColors.Window;
-            dataGridViewCellStyle1.Font = new Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = SystemColors.HighlightText;
-            dataGridViewCellStyle1.SelectionForeColor = SystemColors.ControlText;
-            dataGridViewCellStyle1.WrapMode = DataGridViewTriState.False;
-            dataGridView1.DefaultCellStyle = dataGridViewCellStyle1;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { colCount, colX, colY, colR, colG, colB });
+            dataGridViewCellStyle2.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = SystemColors.Window;
+            dataGridViewCellStyle2.Font = new Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = SystemColors.HighlightText;
+            dataGridViewCellStyle2.SelectionForeColor = SystemColors.ControlText;
+            dataGridViewCellStyle2.WrapMode = DataGridViewTriState.False;
+            dataGridView1.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridView1.Location = new Point(3, 629);
             dataGridView1.MultiSelect = false;
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.ScrollBars = ScrollBars.Vertical;
             dataGridView1.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dataGridView1.Size = new Size(322, 502);
+            dataGridView1.Size = new Size(322, 140);
             dataGridView1.TabIndex = 47;
             dataGridView1.CellMouseEnter += dataGridView1_CellMouseEnter;
             dataGridView1.MouseEnter += dataGridView1_MouseEnter;
@@ -644,6 +622,27 @@
             colY.ReadOnly = true;
             colY.Width = 50;
             // 
+            // colR
+            // 
+            colR.HeaderText = "R";
+            colR.Name = "colR";
+            colR.ReadOnly = true;
+            colR.Width = 50;
+            // 
+            // colG
+            // 
+            colG.HeaderText = "G";
+            colG.Name = "colG";
+            colG.ReadOnly = true;
+            colG.Width = 50;
+            // 
+            // colB
+            // 
+            colB.HeaderText = "B";
+            colB.Name = "colB";
+            colB.ReadOnly = true;
+            colB.Width = 50;
+            // 
             // frmTestPixelSearch
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -653,6 +652,7 @@
             Name = "frmTestPixelSearch";
             Text = "Test Pixel Search";
             Load += frmTestPixelSearch_Load;
+            Resize += frmTestPixelSearch_Resize;
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)splitContainer1).EndInit();
@@ -660,10 +660,6 @@
             PanelScreenshot.ResumeLayout(false);
             PanelScreenshot.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)PictureBoxSearchArea).EndInit();
-            splitContainer2.Panel1.ResumeLayout(false);
-            splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)splitContainer2).EndInit();
-            splitContainer2.ResumeLayout(false);
             flowLayoutPanel1.ResumeLayout(false);
             panelRightPixelSearchProperties.ResumeLayout(false);
             panelRightPixelSearchProperties.PerformLayout();
@@ -717,10 +713,6 @@
         private Label label1;
         private DataGridView dataGridView1;
         private Button cmdMoveSettingsToProject;
-        private DataGridViewTextBoxColumn colCount;
-        private DataGridViewTextBoxColumn colX;
-        private DataGridViewTextBoxColumn colY;
-        private SplitContainer splitContainer2;
         private FlowLayoutPanel flowLayoutPanel1;
         private Button cmdLoadSettings;
         private Panel panelRightColorAtPointer;
@@ -739,5 +731,11 @@
         private NumericUpDown numMaskY;
         private NumericUpDown numMaskHeight;
         private NumericUpDown numMaskX;
+        private DataGridViewTextBoxColumn colCount;
+        private DataGridViewTextBoxColumn colX;
+        private DataGridViewTextBoxColumn colY;
+        private DataGridViewTextBoxColumn colR;
+        private DataGridViewTextBoxColumn colG;
+        private DataGridViewTextBoxColumn colB;
     }
 }

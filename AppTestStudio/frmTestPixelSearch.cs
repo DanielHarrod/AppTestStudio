@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AppTestStudio.solution;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -23,7 +24,7 @@ namespace AppTestStudio
         GameNodeAction GameNodeActionParent;
 
         Boolean CurrentTestPassed = false;
-        List<Point> CurrentPointList;
+        List<PixelColorResult> CurrentPointList;
 
         Rectangle TestRectangle;
         private int PictureBox1X;
@@ -41,7 +42,7 @@ namespace AppTestStudio
             this.Node = node;
             this.Game = game;
             this.GameNodeActionParent = parent;
-            this.CurrentPointList = new List<Point>();
+            this.CurrentPointList = new List<PixelColorResult>();
 
             TestRectangle = node.Rectangle;
 
@@ -82,7 +83,6 @@ namespace AppTestStudio
             numMaskHeight.Value = TestRectangle.Height;
             numMaskX.Value = TestRectangle.X;
             numMaskY.Value = TestRectangle.Y;
-            splitContainer2.SplitterDistance = 635;
         }
 
         private void CaptureCurrentImage(GameNodeAction node, bool useCurrentWindow)
@@ -170,18 +170,18 @@ namespace AppTestStudio
 
                     if (CurrentPointList.Count > 0)
                     {
-                        int xPosition = CurrentPointList[0].X + TestRectangle.X;
-                        int yPosition = CurrentPointList[0].Y + TestRectangle.Y;
+                        int xPosition = CurrentPointList[0].Point.X + TestRectangle.X;
+                        int yPosition = CurrentPointList[0].Point.Y + TestRectangle.Y;
 
                         label1.Text = $"First Pixel Found at X:{xPosition} Y:{yPosition} Qty={CurrentPointList.Count()} Time={Watch.ElapsedMilliseconds}ms";
                         CurrentTestPassed = true;
 
-                        DetectedPoint = new Point(CurrentPointList[0].X + TestRectangle.X, CurrentPointList[0].Y + TestRectangle.Y);
+                        DetectedPoint = new Point(CurrentPointList[0].Point.X + TestRectangle.X, CurrentPointList[0].Point.Y + TestRectangle.Y);
 
                         int Counter = 0;
-                        foreach (Point pt in CurrentPointList)
+                        foreach (PixelColorResult result in CurrentPointList)
                         {
-                            dataGridView1.Rows.Add(Counter++, pt.X + TestRectangle.X, pt.Y + TestRectangle.Y);
+                            dataGridView1.Rows.Add(Counter++, result.Point.X + TestRectangle.X, result.Point.Y + TestRectangle.Y, result.Color.R, result.Color.G, result.Color.B);
                             if (Counter >= 1000)
                             {
                                 break;
@@ -394,6 +394,11 @@ namespace AppTestStudio
             }
             TestRectangle.Width = Width;
             PictureBoxSearchArea.Invalidate();
+        }
+
+        private void frmTestPixelSearch_Resize(object sender, EventArgs e)
+        {
+            dataGridView1.Height = (this.ClientSize.Height - dataGridView1.Location.Y)- 10;
         }
     }
 }

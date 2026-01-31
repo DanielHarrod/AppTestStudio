@@ -2,10 +2,12 @@
 //Copyright (C) 2016-2026 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
+using AppTestStudio.solution;
 using OpenCvSharp;
 using System.Diagnostics;
 using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using System.Security.Permissions;
 using System.Security.Principal;
 using System.Text;
 using System.Threading;
@@ -1277,9 +1279,9 @@ namespace AppTestStudio
 
 
         //Some portions were developed with the assistance of AI tools.
-        public static List<System.Drawing.Point> FindPixelColor( Bitmap bmp, Color target, int RMin, int RMax, int GMin, int GMax, int BMin, int BMax, int limit = 1)
+        public static List<PixelColorResult> FindPixelColor( Bitmap bmp, Color target, int RMin, int RMax, int GMin, int GMax, int BMin, int BMax, int limit = 1)
         {
-            List<System.Drawing.Point> lst = new List<System.Drawing.Point>();
+            List<PixelColorResult> lst = new List<PixelColorResult>();
             Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
             BitmapData data = bmp.LockBits(rect, ImageLockMode.ReadOnly, bmp.PixelFormat);
 
@@ -1301,16 +1303,12 @@ namespace AppTestStudio
 
             bmp.UnlockBits(data);
 
-            RMin = Math.Clamp(RMin, -255, 0);
-            RMax = Math.Clamp(RMax, 0, 255);
-            GMin = Math.Clamp(GMin, -255, 0);
-            GMax = Math.Clamp(GMax, 0, 255);
-            BMin = Math.Clamp(BMin, -255, 0);
-            BMax = Math.Clamp(BMax, 0, 255);
-
-            if (RMin > RMax) (RMin, RMax) = (RMax, RMin);
-            if (GMin > GMax) (GMin, GMax) = (GMax, GMin);
-            if (BMin > BMax) (BMin, BMax) = (BMax, BMin);
+            int minB = Math.Clamp(target.B + BMin, 0, 255);
+            int maxB = Math.Clamp(target.B + BMax, 0, 255);
+            int minR = Math.Clamp(target.R + RMin, 0, 255);
+            int maxR = Math.Clamp(target.R + RMax, 0, 255);
+            int minG = Math.Clamp(target.G + GMin, 0, 255);
+            int maxG = Math.Clamp(target.G + GMax, 0, 255);
 
             for (int y = 0; y < bmp.Height; y++)
             {
@@ -1323,17 +1321,23 @@ namespace AppTestStudio
                     byte g = pixels[i + 1];
                     byte r = pixels[i + 2];
 
+
                     int dr = Math.Abs(target.R - r);
                     int dg = Math.Abs(target.G - g);
                     int db = Math.Abs(target.B - b);
 
-                    if (dr >= RMin && dr <= RMax 
-                        && dg >= GMin && dg <= GMax
-                        && db >= BMin && db <= BMax)
+                    if (b >= minB && b <= maxB 
+                     && g >= minG && g <= maxG
+                     && r >= minR && r <= maxR)
                     {
                         if (stride < 0 )
                         {
-                            lst.Add(new System.Drawing.Point(x, bmp.Height - 1 - y));
+                            PixelColorResult result = new PixelColorResult
+                            {
+                                Point = new System.Drawing.Point(x, bmp.Height - 1 - y),
+                                Color = Color.FromArgb(r, g, b)
+                            };
+                            lst.Add(result);
                             if (lst.Count >= limit)
                             {
                                 break;
@@ -1341,7 +1345,12 @@ namespace AppTestStudio
                         }
                         else
                         {
-                            lst.Add(new System.Drawing.Point(x, y));
+                            PixelColorResult result = new PixelColorResult
+                            {
+                                Point = new System.Drawing.Point(x, y),
+                                Color = Color.FromArgb(r, g, b)
+                            };
+                            lst.Add(result);
                             if (lst.Count >= limit)
                             {
                                 break;
