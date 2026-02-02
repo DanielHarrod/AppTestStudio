@@ -8,5 +8,7 @@ namespace AppTestStudio.solution
     {
         public String Name { get; set; }
         public int ms { get; set; }
+
+        public AfterCompletionType AfterCompletionType { get; set; } 
     }
 }

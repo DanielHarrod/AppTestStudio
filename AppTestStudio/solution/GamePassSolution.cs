@@ -49,9 +49,9 @@ namespace AppTestStudio.solution
         }
         public List<NodeTiming> NodeTimings { get; set; } = new List<NodeTiming>();
 
-        public void AddNodeTiming(String Name, int msTiming)
+        public void AddNodeTiming(String Name, int msTiming, AfterCompletionType afterCompletionType)
         {
-            NodeTimings.Add(new NodeTiming() { Name = Name, ms = msTiming });
+            NodeTimings.Add(new NodeTiming() { Name = Name, ms = msTiming, AfterCompletionType= afterCompletionType });
         }
 
         public String GameName { get; set; } = string.Empty;

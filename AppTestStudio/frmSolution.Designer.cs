@@ -289,7 +289,7 @@
             grdTiming.ReadOnly = true;
             grdTiming.RowHeadersVisible = false;
             grdTiming.RowHeadersWidth = 62;
-            grdTiming.Size = new Size(742, 211);
+            grdTiming.Size = new Size(742, 430);
             grdTiming.TabIndex = 14;
             // 
             // dataGridViewTextBoxColumn3
@@ -319,6 +319,7 @@
             Name = "frmSolution";
             Text = "Solution Viewer";
             Load += frmSolution_Load;
+            Resize += frmSolution_Resize;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             splitContainer1.Panel1.ResumeLayout(false);
             splitContainer1.Panel1.PerformLayout();
