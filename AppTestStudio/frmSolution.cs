@@ -62,7 +62,7 @@ namespace AppTestStudio
 
             int CurrentRunTime = 0;
             foreach (BaseSolution solution in GamePassSolution.Solutions)
-            {                
+            {
                 if (solution is ActionSolution)
                 {
                     ActionSolution? actionSolution = solution as ActionSolution;
@@ -271,6 +271,11 @@ namespace AppTestStudio
             {
                 Debug.WriteLine("cmdAddImageToProject_Click failed. ex=" + ex.Message);
             }
+        }
+
+        private void frmSolution_Resize(object sender, EventArgs e)
+        {
+            grdTiming.Height = frmSolution.ActiveForm.Height - grdTiming.Top - 50;
         }
     }
 }
