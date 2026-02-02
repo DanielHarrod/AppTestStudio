@@ -41,7 +41,7 @@ namespace AppTestStudio
 
         private void frmNotify_Paint(object sender, PaintEventArgs e)
         {
-            Debug.WriteLine("frmNotify_Paint");
+//            Debug.WriteLine("frmNotify_Paint");
         }
     }
 }

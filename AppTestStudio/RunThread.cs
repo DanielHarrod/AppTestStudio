@@ -186,7 +186,7 @@ namespace AppTestStudio
 
                             GameNodeAction.RangeClickResult Result = node.CalculateRangeClickResult(bmp, centerX, centerY);
 
-                            Debug.WriteLine($"{node.Name} {Result.x}, {Result.y} {bmp.Width},{bmp.Height}");
+                            //Debug.WriteLine($"{node.Name} {Result.x}, {Result.y} {bmp.Width},{bmp.Height}");
 
                             Boolean Failed = false;
 
@@ -842,10 +842,10 @@ namespace AppTestStudio
             return Result;
         }
 
-        //[System.Diagnostics.DebuggerStepThrough]
+        [System.Diagnostics.DebuggerStepThrough]
         private void ThreadSleep(int ms)
         {
-            Debug.WriteLine($"Ts={ms}");
+            //Debug.WriteLine($"Ts={ms}");
             Thread.Sleep(ms);
         }
 
@@ -1056,7 +1056,7 @@ namespace AppTestStudio
                         bmp = Utils.GetBitMap(ref BitMapSuccess, WindowHandle);
                     }
                 }
-                Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
+//                Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
 
                 if (BitMapSuccess)
                 {
@@ -1084,7 +1084,7 @@ namespace AppTestStudio
                             ThreadSleep(1000);
                         }
                     }
-                    Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
+                    //Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
                     Game.GamePassSolutionClones.Enqueue(gamePassSolution);
                 }
                 else
@@ -1095,9 +1095,9 @@ namespace AppTestStudio
 
                 Watch.Stop();
                 long ProcessingTimeMS = Watch.ElapsedMilliseconds - ChildSleepTimeMS;
-                Debug.WriteLine("Main Loop ms: " + Watch.ElapsedMilliseconds);
-                Debug.WriteLine("Child Sleep Time ms:" + ChildSleepTimeMS);
-                Debug.WriteLine("Processing Time ms:" + ProcessingTimeMS);
+                //Debug.WriteLine("Main Loop ms: " + Watch.ElapsedMilliseconds);
+                //Debug.WriteLine("Child Sleep Time ms:" + ChildSleepTimeMS);
+                //Debug.WriteLine("Processing Time ms:" + ProcessingTimeMS);
                 ThreadManager.AddProcessingTime(ProcessingTimeMS.ToInt());
 
                 LoopDelay = Game.LoopDelay;
