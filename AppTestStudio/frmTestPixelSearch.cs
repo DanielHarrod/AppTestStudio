@@ -50,39 +50,48 @@ namespace AppTestStudio
 
         private void frmTestPixelSearch_Load(object sender, EventArgs e)
         {
-            CaptureCurrentImage(Node, true);
-
-            if (PictureBoxSearchArea.Image == null)
+            try
             {
-                MessageBox.Show("Cannot capture Image");
-                this.Close();
-                return;
+                CaptureCurrentImage(Node, true);
+
+                if (PictureBoxSearchArea.Image == null)
+                {
+                    MessageBox.Show("Cannot capture Image");
+                    this.Close();
+                    return;
+                }
+
+                numMaskX.Maximum = PictureBoxSearchArea.Image.Width;
+                numMaskY.Maximum = PictureBoxSearchArea.Image.Height;
+                numMaskWidth.Maximum = PictureBoxSearchArea.Image.Width;
+                numMaskHeight.Maximum = PictureBoxSearchArea.Image.Height;
+
+                numPixelSearchB.Value = Node.PixelSearchB;
+                numPixelSearchG.Value = Node.PixelSearchG;
+                numPixelSearchR.Value = Node.PixelSearchR;
+                numPixelSearchBNeg.Value = Node.PixelSearchBNeg;
+                numPixelSearchGNeg.Value = Node.PixelSearchGNeg;
+                numPixelSearchRNeg.Value = Node.PixelSearchRNeg;
+                numPixelSearchBPos.Value = Node.PixelSearchBPos;
+                numPixelSearchGPos.Value = Node.PixelSearchGPos;
+                numPixelSearchRPos.Value = Node.PixelSearchRPos;
+                RunTest();
+                this.WindowState = FormWindowState.Maximized;
+
+                lblRHSColor.Text = "";
+                lblRHSXY.Text = "";
+
+                numMaskWidth.Value = TestRectangle.Width;
+                numMaskHeight.Value = TestRectangle.Height;
+                numMaskX.Value = TestRectangle.X;
+                numMaskY.Value = TestRectangle.Y;
             }
-
-            numMaskX.Maximum = PictureBoxSearchArea.Image.Width;
-            numMaskY.Maximum = PictureBoxSearchArea.Image.Height;
-            numMaskWidth.Maximum = PictureBoxSearchArea.Image.Width;
-            numMaskHeight.Maximum = PictureBoxSearchArea.Image.Height;
-
-            numPixelSearchB.Value = Node.PixelSearchB;
-            numPixelSearchG.Value = Node.PixelSearchG;
-            numPixelSearchR.Value = Node.PixelSearchR;
-            numPixelSearchBNeg.Value = Node.PixelSearchBNeg;
-            numPixelSearchGNeg.Value = Node.PixelSearchGNeg;
-            numPixelSearchRNeg.Value = Node.PixelSearchRNeg;
-            numPixelSearchBPos.Value = Node.PixelSearchBPos;
-            numPixelSearchGPos.Value = Node.PixelSearchGPos;
-            numPixelSearchRPos.Value = Node.PixelSearchRPos;
-            RunTest();
-            this.WindowState = FormWindowState.Maximized;
-
-            lblRHSColor.Text = "";
-            lblRHSXY.Text = "";
-
-            numMaskWidth.Value = TestRectangle.Width;
-            numMaskHeight.Value = TestRectangle.Height;
-            numMaskX.Value = TestRectangle.X;
-            numMaskY.Value = TestRectangle.Y;
+            catch (Exception ex)
+            {
+                frm.Log($"frmTestPixelSearch_Load {ex.Message}");
+                this.Hide();
+            }
+ 
         }
 
         private void CaptureCurrentImage(GameNodeAction node, bool useCurrentWindow)
