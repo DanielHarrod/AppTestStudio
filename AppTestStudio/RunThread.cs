@@ -1085,6 +1085,7 @@ namespace AppTestStudio
                         }
                     }
                     //Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
+                    gamePassSolution.TimeMS = Watch.ElapsedMilliseconds;
                     Game.GamePassSolutionClones.Enqueue(gamePassSolution);
                 }
                 else

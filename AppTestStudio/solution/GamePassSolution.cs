@@ -55,5 +55,7 @@ namespace AppTestStudio.solution
         }
 
         public String GameName { get; set; } = string.Empty;
+
+        public long TimeMS { get; set; }
     }
 }

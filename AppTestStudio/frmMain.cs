@@ -289,14 +289,16 @@ namespace AppTestStudio
             h = lstGamePass.Columns.Add("Time");
             h.Width = 55;
 
-            h = lstGamePass.Columns.Add("Counter");
-            h.Width = 55;
+            h = lstGamePass.Columns.Add("Ctr");
+            h.Width = 35;
 
-
-            h = lstGamePass.Columns.Add("Actions");
-            h.Width = 55;
+            h = lstGamePass.Columns.Add("Act");
+            h.Width = 35;
 
             h = lstGamePass.Columns.Add("Node");
+            h.Width = 90;
+
+            h = lstGamePass.Columns.Add("ms");
             h.Width = 90;
             lstGamePass_Resize(null, null);
 
@@ -9317,6 +9319,7 @@ namespace AppTestStudio
                         item.SubItems.Add("");
                         item.SubItems.Add("");
                         item.SubItems.Add("");
+                        item.SubItems.Add("");
                         GamePassList.Add(item);
                     }
                     if (lstGamePass.Columns.Count > 0)
@@ -9353,6 +9356,8 @@ namespace AppTestStudio
                         GamePassList[LastGamePassIndex].SubItems[2].Text = solution.SolutionID.ToString();
                         GamePassList[LastGamePassIndex].SubItems[3].Text = solution.Solutions.Count().ToString();
                         GamePassList[LastGamePassIndex].SubItems[4].Text = solution.LastNodeName;
+                        GamePassList[LastGamePassIndex].SubItems[5].Text = solution.TimeMS.ToString();
+
                         CurrentGamePassListCounter--;
                         CurrentvisibleRows--;
                     }
