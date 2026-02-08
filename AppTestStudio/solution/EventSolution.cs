@@ -4,7 +4,7 @@
 
 namespace AppTestStudio.solution
 {
-    internal class EventSolution : ISolution, IDisposable
+    internal class EventSolution : BaseSolution, IDisposable
     {
         public EventSolution()
         {

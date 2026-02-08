@@ -61,8 +61,8 @@ namespace AppTestStudio
             int RuntimeMS = 0;
 
             int CurrentRunTime = 0;
-            foreach (ISolution solution in GamePassSolution.Solutions)
-            {                
+            foreach (BaseSolution solution in GamePassSolution.Solutions)
+            {
                 if (solution is ActionSolution)
                 {
                     ActionSolution? actionSolution = solution as ActionSolution;
@@ -162,10 +162,12 @@ namespace AppTestStudio
                 }
             }
 
+            foreach (NodeTiming nodeTiming in GamePassSolution.NodeTimings)
+            {
+                grdTiming.Rows.Add(nodeTiming.Name, nodeTiming.ms);
+            }
+
             lblRunTime.Text = $"{RuntimeMS}ms";
-
-            hScrollBar1.Maximum = RuntimeMS;
-
         }
 
         private void AddString(string s)
@@ -178,25 +180,6 @@ namespace AppTestStudio
             {
                 textBox1.Text = textBox1.Text + Environment.NewLine + s;
             }
-        }
-
-        private void progressBar1_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void cmdAnimate_Click(object sender, EventArgs e)
-        {
-            timer1.Enabled = !timer1.Enabled;
-
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
-        {
-            int velocity = 500;
-
-            //int positions = hScrollBar1.Maximum; 
-            //hScrollBar1.Value = hScrollBar1.Value + 1
         }
 
         private void grd_CellMouseDown(object sender, DataGridViewCellMouseEventArgs e)
@@ -288,6 +271,11 @@ namespace AppTestStudio
             {
                 Debug.WriteLine("cmdAddImageToProject_Click failed. ex=" + ex.Message);
             }
+        }
+
+        private void frmSolution_Resize(object sender, EventArgs e)
+        {
+            grdTiming.Height = frmSolution.ActiveForm.Height - grdTiming.Top - 50;
         }
     }
 }

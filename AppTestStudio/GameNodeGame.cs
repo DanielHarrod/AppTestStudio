@@ -20,13 +20,11 @@ namespace AppTestStudio
             IsLoading = true;
             StatusControl = new ConcurrentQueue<AppTestStudioStatusControlItem>();
             MinimalBitmapClones = new ConcurrentQueue<MinimalBitmapNode>();
-            BitmapClones = new ConcurrentQueue<Bitmap>();
 
             StartTime = DateTime.Now;
             LoopDelay = 1000;
             Resolution = "1024x768";
             InstanceToLaunch = "0";
-            VideoFrameLimit = 2000;
             DefaultClickSpeed = 20;
             DPI = 192;
             Platform = Platform.NoxPlayer;
@@ -71,11 +69,6 @@ namespace AppTestStudio
         /// Data for the runtime display.
         /// </summary>
         public ConcurrentQueue<AppTestStudioStatusControlItem> StatusControl { get; set; }
-
-        /// <summary>
-        /// BitmapClones are used for Video
-        /// </summary>
-        public ConcurrentQueue<Bitmap> BitmapClones { get; set; }
 
         internal ConcurrentQueue<GamePassSolution> GamePassSolutionClones { get; set; } = new ConcurrentQueue<GamePassSolution>();
 
@@ -734,9 +727,6 @@ namespace AppTestStudio
             GameNodeEvents TargetEvents = Events.CloneMe();
             TargetEvents.Text = Name;
 
-            Target.VideoFrameLimit = VideoFrameLimit;
-            Target.SaveVideo = SaveVideo;
-
             Target.VideoHeight = VideoHeight;
             Target.VideoWidth = VideoWidth;
             Target.DefaultClickSpeed = DefaultClickSpeed;
@@ -789,24 +779,6 @@ namespace AppTestStudio
 
         public long ScreenShotsTaken { get; set; }
 
-        private long mVideoFrameLimit;
-
-        public long VideoFrameLimit
-        {
-            get { return mVideoFrameLimit; }
-            set
-            {
-                if (IsLoading == false)
-                {
-                    if (mVideoFrameLimit != value)
-                    {
-                        IsDirty = true;
-                    }
-                }
-                mVideoFrameLimit = value;
-            }
-        }
-
         // During Runtime if the window is not found don't shutdown the thread.
         private Boolean mNeverQuitIfWindowNotFound;
 
@@ -842,24 +814,6 @@ namespace AppTestStudio
                     }
                 }
                 mDontTakeScreenshot = value;
-            }
-        }
-
-        private Boolean mSaveVideo;
-
-        public Boolean SaveVideo
-        {
-            get { return mSaveVideo; }
-            set
-            {
-                if (IsLoading == false)
-                {
-                    if (mSaveVideo != value)
-                    {
-                        IsDirty = true;
-                    }
-                }
-                mSaveVideo = value;
             }
         }
 
@@ -1434,8 +1388,6 @@ namespace AppTestStudio
             Game.Resolution = Resolution;
             Game.LoopDelay = LoopDelay;
             Game.FileName = fileName;
-            Game.SaveVideo = SaveVideo;
-            Game.VideoFrameLimit = VideoFrameLimit;
             Game.DefaultClickSpeed = DefaultClickSpeed;
             Game.DPI = DPI;
             Game.Platform = Platform;
@@ -1538,8 +1490,6 @@ namespace AppTestStudio
             Writer.WriteAttributeString("LoopDelay", LoopDelay.ToString());
             //'Writer.WriteAttributeString("FileName", Game.FileName);
             Writer.WriteAttributeString("Resolution", Resolution);
-            Writer.WriteAttributeString("SaveVideo", SaveVideo.ToString());
-            Writer.WriteAttributeString("VideoFrameLimit", VideoFrameLimit.ToString());
             Writer.WriteAttributeString("DefaultClickSpeed", DefaultClickSpeed.ToString());
             Writer.WriteAttributeString("DPI", DPI.ToString());
             Writer.WriteAttributeString("Platform", Platform.ToString());
@@ -1617,7 +1567,9 @@ namespace AppTestStudio
                         Writer.WriteAttributeString("AfterCompletionType", Activites.AfterCompletionType.ToString());
                         Writer.WriteAttributeString("Mode", Activites.Mode.ToString());
 
-                        Writer.WriteAttributeString("UseObjectSearchPosition", Activites.UseObjectSearchPosition.ToString());
+                        // Renamed to UseParentPosition
+                        //Writer.WriteAttributeString("UseObjectSearchPosition", Activites.UseObjectSearchPosition.ToString());
+                        Writer.WriteAttributeString("UseParentPosition", Activites.UseParentPosition.ToString());
 
                         Writer.WriteAttributeString("ClickSpeed", Activites.ClickSpeed.ToString());
                         if (Activites.Anchor == AnchorMode.Default)
@@ -1825,7 +1777,7 @@ namespace AppTestStudio
                                 break;
                         }
 
-                        Writer.WriteAttributeString("IsColorPoint", Activites.IsColorPoint.ToString());
+                        Writer.WriteAttributeString("EventType", Activites.EventType.ToString());
                         Writer.WriteAttributeString("GotoNode", Activites.GotoNode.ToString());
                         if (Activites.RepeatsUntilFalse)
                         {
@@ -1925,31 +1877,64 @@ namespace AppTestStudio
                         //'/picture
                         Writer.WriteEndElement();
 
-                        if (Activites.IsColorPoint == false)
+                        switch (Activites.EventType)
                         {
+                            case EventType.ColorPoint:
+                                // Do Nothing
+                                break;
+                            case EventType.ObjectSearch:
+                                // /ObjectSearch
+                                Writer.WriteStartElement("ObjectSearch");
+                                Writer.WriteAttributeString("ObjectName", Activites.ObjectName);
+                                Writer.WriteAttributeString("Channel", Activites.Channel);
+                                Writer.WriteAttributeString("Threshold", Activites.ObjectThreshold.ToString());
 
+                                if (Activites.Rectangle.IsEmpty == false)
+                                {
+                                    Writer.WriteStartElement("Rectangle");
+                                    Writer.WriteAttributeString("X", Activites.Rectangle.X.ToString());
+                                    Writer.WriteAttributeString("Y", Activites.Rectangle.Y.ToString());
+                                    Writer.WriteAttributeString("Height", Activites.Rectangle.Height.ToString());
+                                    Writer.WriteAttributeString("Width", Activites.Rectangle.Width.ToString());
 
-                            //'ObjectSearch
-                            Writer.WriteStartElement("ObjectSearch");
-                            Writer.WriteAttributeString("ObjectName", Activites.ObjectName);
-                            Writer.WriteAttributeString("Channel", Activites.Channel);
-                            Writer.WriteAttributeString("Threshold", Activites.ObjectThreshold.ToString());
+                                    //Rectangle
+                                    Writer.WriteEndElement();
+                                }
 
-                            if (Activites.Rectangle.IsEmpty == false)
-                            {
-                                Writer.WriteStartElement("Rectangle");
-                                Writer.WriteAttributeString("X", Activites.Rectangle.X.ToString());
-                                Writer.WriteAttributeString("Y", Activites.Rectangle.Y.ToString());
-                                Writer.WriteAttributeString("Height", Activites.Rectangle.Height.ToString());
-                                Writer.WriteAttributeString("Width", Activites.Rectangle.Width.ToString());
-
-                                //'rectanble
                                 Writer.WriteEndElement();
-                            }
+                                // /ObjectSearch
 
-                            Writer.WriteEndElement();
-                            //'/ObjectSearch
+                                break;
+                            case EventType.PixelSearch:
+                                Writer.WriteStartElement("PixelSearch");
 
+                                Writer.WriteAttributeString("B", Activites.PixelSearchB.ToString());
+                                Writer.WriteAttributeString("G", Activites.PixelSearchG.ToString());
+                                Writer.WriteAttributeString("R", Activites.PixelSearchR.ToString());
+                                Writer.WriteAttributeString("BPos", Activites.PixelSearchBPos.ToString());
+                                Writer.WriteAttributeString("GPos", Activites.PixelSearchGPos.ToString());
+                                Writer.WriteAttributeString("RPos", Activites.PixelSearchRPos.ToString());
+                                Writer.WriteAttributeString("BNeg", Activites.PixelSearchBNeg.ToString());
+                                Writer.WriteAttributeString("GNeg", Activites.PixelSearchGNeg.ToString());
+                                Writer.WriteAttributeString("RNeg", Activites.PixelSearchRNeg.ToString());
+
+                                if (Activites.Rectangle.IsEmpty == false)
+                                {
+                                    Writer.WriteStartElement("Rectangle");
+                                    Writer.WriteAttributeString("X", Activites.Rectangle.X.ToString());
+                                    Writer.WriteAttributeString("Y", Activites.Rectangle.Y.ToString());
+                                    Writer.WriteAttributeString("Height", Activites.Rectangle.Height.ToString());
+                                    Writer.WriteAttributeString("Width", Activites.Rectangle.Width.ToString());
+
+                                    // /Rectangle
+                                    Writer.WriteEndElement();
+                                }
+
+                                Writer.WriteEndElement();
+                                // /PixelSearch
+                                break;
+                            default:
+                                break;
                         }
 
                         if (Activites.Nodes.Count > 0)
@@ -2348,10 +2333,39 @@ namespace AppTestStudio
                 }
             }
 
+            // This moved to EventType - now a one time conversion.
             if (eventNode.Attributes.GetNamedItem("IsColorPoint").IsSomething())
             {
                 Boolean IsColorPoint = Convert.ToBoolean(eventNode.Attributes["IsColorPoint"].Value);
-                newEvent.IsColorPoint = IsColorPoint;
+
+                if (IsColorPoint)
+                {
+                    newEvent.EventType = EventType.ColorPoint;
+                }
+                else
+                {
+                    newEvent.EventType = EventType.ObjectSearch;
+                }
+            }
+
+            if (eventNode.Attributes.GetNamedItem("EventType").IsSomething())
+            {
+                String EventTypeValue = eventNode.Attributes["EventType"].Value;
+                switch (EventTypeValue.ToUpper())
+                {
+                    case "COLORPOINT":
+                        newEvent.EventType = EventType.ColorPoint;
+                        break;
+                    case "OBJECTSEARCH":
+                        newEvent.EventType = EventType.ObjectSearch;
+                        break;
+                    case "PIXELSEARCH":
+                        newEvent.EventType = EventType.PixelSearch;
+                        break;
+                    default:
+                        newEvent.EventType = EventType.ColorPoint;
+                        break;
+                }
             }
 
             if (eventNode.Attributes.GetNamedItem("GotoNode").IsSomething())
@@ -2504,6 +2518,56 @@ namespace AppTestStudio
                         //NewEvent.AutoBalance = childnode.Attributes["AutoBalance"].Value
                         LoadEvents(childNode, gameNode, newEvent, lst, loadBitmaps);
                         break;
+                    case "PIXELSEARCH":
+                        if (childNode.Attributes.GetNamedItem("B").IsSomething())
+                        {
+                            newEvent.PixelSearchB = childNode.Attributes["B"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("G").IsSomething())
+                        {
+                            newEvent.PixelSearchG = childNode.Attributes["G"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("R").IsSomething())
+                        {
+                            newEvent.PixelSearchR = childNode.Attributes["R"].Value.ToInt();
+                        }
+
+                        if (childNode.Attributes.GetNamedItem("BNeg").IsSomething())
+                        {
+                            newEvent.PixelSearchBNeg = childNode.Attributes["BNeg"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("GNeg").IsSomething())
+                        {
+                            newEvent.PixelSearchGNeg = childNode.Attributes["GNeg"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("RNeg").IsSomething())
+                        {
+                            newEvent.PixelSearchRNeg = childNode.Attributes["RNeg"].Value.ToInt();
+                        }
+
+                        if (childNode.Attributes.GetNamedItem("BPos").IsSomething())
+                        {
+                            newEvent.PixelSearchBPos = childNode.Attributes["BPos"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("GPos").IsSomething())
+                        {
+                            newEvent.PixelSearchGPos = childNode.Attributes["GPos"].Value.ToInt();
+                        }
+                        if (childNode.Attributes.GetNamedItem("RPos").IsSomething())
+                        {
+                            newEvent.PixelSearchRPos = childNode.Attributes["RPos"].Value.ToInt();
+                        }
+
+                        if (childNode.ChildNodes.Count > 0)
+                        {
+                            XmlNode pixelChildNode = childNode.ChildNodes[0];
+                            int pixelChildNodex = pixelChildNode.Attributes["X"].Value.ToInt();
+                            int pixelChildNodey = pixelChildNode.Attributes["Y"].Value.ToInt();
+                            int pixelChildNodeHeight = pixelChildNode.Attributes["Height"].Value.ToInt();
+                            int pixelChildNodeWidth = pixelChildNode.Attributes["Width"].Value.ToInt();
+                            newEvent.Rectangle = new Rectangle(pixelChildNodex, pixelChildNodey, pixelChildNodeWidth, pixelChildNodeHeight);
+                        }
+                        break;
                     case "OBJECTSEARCH":
                         if (childNode.Attributes.GetNamedItem("ObjectName").IsSomething())
                         {
@@ -2576,10 +2640,15 @@ namespace AppTestStudio
                 treeActionNode.Enabled = Convert.ToBoolean(actionNode.Attributes["IsEnabled"].Value);
             }
 
-
+            // Historical, Object Renamed to: UseParentPosition
             if (actionNode.Attributes.GetNamedItem("UseObjectSearchPosition").IsSomething())
             {
-                treeActionNode.UseObjectSearchPosition = Convert.ToBoolean(actionNode.Attributes["UseObjectSearchPosition"].Value);
+                treeActionNode.UseParentPosition = Convert.ToBoolean(actionNode.Attributes["UseObjectSearchPosition"].Value);
+            }
+
+            if (actionNode.Attributes.GetNamedItem("UseParentPosition").IsSomething())
+            {
+                treeActionNode.UseParentPosition = Convert.ToBoolean(actionNode.Attributes["UseParentPosition"].Value);
             }
 
             Boolean UseParentPicture = false;

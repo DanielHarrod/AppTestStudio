@@ -2,8 +2,12 @@
 //Copyright (C) 2016-2026 Daniel Harrod
 //This program is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or(at your option) any later version.  This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for more details. You should have received a copy of the GNU General Public License along with this program. If not, see<https://www.gnu.org/licenses/>.
 
+using AppTestStudio.solution;
+using OpenCvSharp;
 using System.Diagnostics;
+using System.Drawing.Imaging;
 using System.Runtime.InteropServices;
+using System.Security.Permissions;
 using System.Security.Principal;
 using System.Text;
 using System.Threading;
@@ -45,62 +49,79 @@ namespace AppTestStudio
                                 SetIconsActionTypeAction(ActionNode);
                                 break;
                             case ActionType.Event:
- 
-                                if (ActionNode.IsColorPoint)
+                                switch (ActionNode.EventType)
                                 {
-                                    if (ActionNode.Enabled)
-                                    {
-                                        if ( ActionNode.ClickList.Count > 0 )
-                                        {
-                                            Node.ImageIndex = IconNames.Event;
-                                            Node.SelectedImageIndex = IconNames.Event;
-                                        }
-                                        else
-                                        {
-                                            Node.ImageIndex = IconNames.Group;
-                                            Node.SelectedImageIndex = IconNames.Group;
-                                        }
-
-                                        Node.ForeColor = EnabledColor;
-                                    }
-                                    else
-                                    {
-                                        if (ActionNode.ClickList.IsSomething())
+                                    case EventType.ColorPoint:
+                                        if (ActionNode.Enabled)
                                         {
                                             if (ActionNode.ClickList.Count > 0)
                                             {
-                                                Node.ImageIndex = IconNames.EventGray;
-                                                Node.SelectedImageIndex = IconNames.EventGray;
+                                                Node.ImageIndex = IconNames.Event;
+                                                Node.SelectedImageIndex = IconNames.Event;
+                                            }
+                                            else
+                                            {
+                                                Node.ImageIndex = IconNames.Group;
+                                                Node.SelectedImageIndex = IconNames.Group;
+                                            }
+
+                                            Node.ForeColor = EnabledColor;
+                                        }
+                                        else
+                                        {
+                                            if (ActionNode.ClickList.IsSomething())
+                                            {
+                                                if (ActionNode.ClickList.Count > 0)
+                                                {
+                                                    Node.ImageIndex = IconNames.EventGray;
+                                                    Node.SelectedImageIndex = IconNames.EventGray;
+                                                }
+                                                else
+                                                {
+                                                    Node.ImageIndex = IconNames.GroupGray;
+                                                    Node.SelectedImageIndex = IconNames.GroupGray;
+                                                }
                                             }
                                             else
                                             {
                                                 Node.ImageIndex = IconNames.GroupGray;
                                                 Node.SelectedImageIndex = IconNames.GroupGray;
                                             }
+
+                                            Node.ForeColor = DisabledColor;
+                                        }
+                                        break;
+                                    case EventType.ObjectSearch:
+                                        if (ActionNode.Enabled)
+                                        {
+                                            Node.ImageIndex = IconNames.SearchAndApps;
+                                            Node.SelectedImageIndex = IconNames.SearchAndApps;
+                                            Node.ForeColor = EnabledColor;
                                         }
                                         else
                                         {
-                                            Node.ImageIndex = IconNames.GroupGray;
-                                            Node.SelectedImageIndex = IconNames.GroupGray;
+                                            Node.ImageIndex = IconNames.SearchGray;
+                                            Node.SelectedImageIndex = IconNames.SearchGray;
+                                            Node.ForeColor = DisabledColor;
                                         }
-
-                                        Node.ForeColor = DisabledColor;
-                                    }
-                                }
-                                else
-                                {
-                                    if (ActionNode.Enabled)
-                                    {
-                                        Node.ImageIndex = IconNames.SearchAndApps;
-                                        Node.SelectedImageIndex = IconNames.SearchAndApps;
-                                        Node.ForeColor = EnabledColor;
-                                    }
-                                    else
-                                    {
-                                        Node.ImageIndex = IconNames.SearchGray;
-                                        Node.SelectedImageIndex = IconNames.SearchGray;
-                                        Node.ForeColor = DisabledColor;
-                                    }
+                                        break;
+                                    case EventType.PixelSearch:
+                                        // Todo - implement pixel search icon
+                                        if (ActionNode.Enabled)
+                                        {
+                                            Node.ImageIndex = IconNames.PixelSearch;
+                                            Node.SelectedImageIndex = IconNames.PixelSearch;
+                                            Node.ForeColor = EnabledColor;
+                                        }
+                                        else
+                                        {
+                                            Node.ImageIndex = IconNames.PixelSearchGray;
+                                            Node.SelectedImageIndex = IconNames.PixelSearchGray;
+                                            Node.ForeColor = DisabledColor;
+                                        }
+                                            break;
+                                    default:
+                                        break;
                                 }
                                 break;
                             case ActionType.RNG:
@@ -1255,6 +1276,277 @@ namespace AppTestStudio
                 uint uSent = SendInput(1, inputs, Marshal.SizeOf(typeof(Input)));
             }
         }
+
+
+        //Some portions were developed with the assistance of AI tools.
+        public static List<PixelColorResult> FindPixelColor( Bitmap bmp, Color target, int RMin, int RMax, int GMin, int GMax, int BMin, int BMax, int limit = 1)
+        {
+            List<PixelColorResult> lst = new List<PixelColorResult>();
+            Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            BitmapData data = bmp.LockBits(rect, ImageLockMode.ReadOnly, bmp.PixelFormat);
+
+            int bytesPerPixel = Image.GetPixelFormatSize(bmp.PixelFormat) / 8;
+            int stride = data.Stride;
+            int absStride = Math.Abs(stride);
+            int byteCount = absStride * bmp.Height;
+
+            byte[] pixels = new byte[byteCount];
+            if ( stride < 0)
+            {
+                // Image reversed.
+                Marshal.Copy(data.Scan0 + ((data.Height - 1) * stride), pixels, 0, byteCount);
+            }
+            else
+            {
+                Marshal.Copy(data.Scan0, pixels, 0, byteCount);
+            }
+
+            bmp.UnlockBits(data);
+
+            int minB = Math.Clamp(target.B + BMin, 0, 255);
+            int maxB = Math.Clamp(target.B + BMax, 0, 255);
+            int minR = Math.Clamp(target.R + RMin, 0, 255);
+            int maxR = Math.Clamp(target.R + RMax, 0, 255);
+            int minG = Math.Clamp(target.G + GMin, 0, 255);
+            int maxG = Math.Clamp(target.G + GMax, 0, 255);
+
+            for (int y = 0; y < bmp.Height; y++)
+            {
+                int row = y * absStride;
+                for (int x = 0; x < bmp.Width; x++)
+                {
+                    int i = row + x * bytesPerPixel;
+
+                    byte b = pixels[i];
+                    byte g = pixels[i + 1];
+                    byte r = pixels[i + 2];
+
+
+                    int dr = Math.Abs(target.R - r);
+                    int dg = Math.Abs(target.G - g);
+                    int db = Math.Abs(target.B - b);
+
+                    if (b >= minB && b <= maxB 
+                     && g >= minG && g <= maxG
+                     && r >= minR && r <= maxR)
+                    {
+                        if (stride < 0 )
+                        {
+                            PixelColorResult result = new PixelColorResult
+                            {
+                                Point = new System.Drawing.Point(x, bmp.Height - 1 - y),
+                                Color = Color.FromArgb(r, g, b)
+                            };
+                            lst.Add(result);
+                            if (lst.Count >= limit)
+                            {
+                                break;
+                            }
+                        }
+                        else
+                        {
+                            PixelColorResult result = new PixelColorResult
+                            {
+                                Point = new System.Drawing.Point(x, y),
+                                Color = Color.FromArgb(r, g, b)
+                            };
+                            lst.Add(result);
+                            if (lst.Count >= limit)
+                            {
+                                break;
+                            }
+                        }
+                    }
+                }
+            }
+            return lst;
+        }
+
+        public static System.Drawing.Point? FindFirstColor(Bitmap bmp, Color target, int threshold)
+        {
+            Rectangle rect = new Rectangle(0, 0, bmp.Width, bmp.Height);
+            BitmapData data = bmp.LockBits(rect, ImageLockMode.ReadOnly, bmp.PixelFormat);
+
+            int bytesPerPixel = Image.GetPixelFormatSize(bmp.PixelFormat) / 8;
+            int stride = data.Stride;
+            int absStride = Math.Abs(stride);
+            int byteCount = absStride * bmp.Height;
+
+            byte[] pixels = new byte[byteCount];
+
+            Marshal.Copy(data.Scan0 + ((data.Height - 1) * stride), pixels, 0, byteCount);
+
+            bmp.UnlockBits(data);
+
+            for (int y = 0; y < bmp.Height; y++)
+            {
+                int row = y * absStride;
+                for (int x = 0; x < bmp.Width; x++)
+                {
+                    int i = row + x * bytesPerPixel;
+
+                    byte b = pixels[i];
+                    byte g = pixels[i + 1];
+                    byte r = pixels[i + 2];
+
+                    if (Math.Abs(r - target.R) <= threshold &&
+                        Math.Abs(g - target.G) <= threshold &&
+                        Math.Abs(b - target.B) <= threshold)
+                    {
+                        return new System.Drawing.Point(x, bmp.Height - y);
+                    }
+                }
+            }
+
+            return null;
+        }
+
+        //Some portions were developed with the assistance of AI tools.
+        public static Bitmap CropBitmap(Bitmap source, Rectangle rect)
+        {
+            if (source == null)
+                throw new ArgumentNullException(nameof(source));
+
+            // If the crop rectangle is the full bitmap, just return the original
+            if (rect.X == 0 &&
+                rect.Y == 0 &&
+                rect.Width == source.Width &&
+                rect.Height == source.Height)
+            {
+                return source;
+            }
+
+            // Create the cropped bitmap
+            Bitmap cropped = new Bitmap(rect.Width, rect.Height, source.PixelFormat);
+
+            using (Graphics g = Graphics.FromImage(cropped))
+            {
+                g.DrawImage(
+                    source,
+                    new Rectangle(0, 0, rect.Width, rect.Height),
+                    rect,
+                    GraphicsUnit.Pixel);
+            }
+
+            return cropped;
+        }
+
+        public static Boolean ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown, ref Rectangle rect)
+        {
+            // this zooms and sets masks
+            // need to decouple some time.
+            if (pb.Image.IsSomething())
+            {
+                Bitmap MyBitmap = pb.Image as Bitmap;
+                if (e.X >= MyBitmap.Width)
+                {
+                    return false;
+                }
+                if (e.Y >= MyBitmap.Height - 1)
+                {
+                    return false;
+                }
+
+                if (e.X <= -1)
+                {
+                    return false;
+                }
+
+                if (e.Y <= -1)
+                {
+                    return false;
+                }
+
+                Color Color = MyBitmap.GetPixel(e.X, e.Y);
+
+                //' Debug.Print(Color.ToString())
+
+                PSC.BackColor = Color;
+                lblColor.BackColor = Color;
+                lblXY.BackColor = Color;
+
+                Single brightness = Color.GetBrightness();
+                if (brightness < 0.55)
+                {
+                    lblColor.ForeColor = Color.WhiteSmoke;
+                    lblXY.ForeColor = Color.WhiteSmoke;
+                }
+                else
+                {
+                    lblColor.ForeColor = Color.Black;
+                    lblXY.ForeColor = Color.Black;
+                }
+
+                lblColor.Text = Color.ToRGBString();
+                lblXY.Text = " X=" + e.X + " Y= " + e.Y;
+
+                //' for click code.
+                PB1x = e.X;
+                PB1Y = e.Y;
+                PB1Color = Color;
+
+                int TargetX = e.X;
+                int TargetY = e.Y;
+
+                //'center x 
+                TargetX = TargetX - 20;
+
+                //'center y
+                TargetY = TargetY - 20;
+
+                Rectangle CropRect = new Rectangle(TargetX, TargetY, 40, 40);
+                Bitmap CropImage = new Bitmap(CropRect.Width, CropRect.Height);
+
+                using (Graphics grp = Graphics.FromImage(CropImage))
+                {
+                    grp.DrawImage(MyBitmap, new Rectangle(0, 0, CropRect.Width, CropRect.Height), CropRect, GraphicsUnit.Pixel);
+
+                    grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    grp.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                    grp.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+
+                    using (Pen Pen = new Pen(Color.Black, 2))
+                    {
+
+                        //'draw top on 40,40
+                        grp.DrawLine(Pen, 20, 0, 20, 18);
+
+                        //'draw bottom
+                        grp.DrawLine(Pen, 20, 22, 20, 40);
+                    }
+
+                    pb2.Image.Dispose();
+
+                    pb2.Image = CropImage;
+                    pb2.Refresh();
+                    //'CropImage.Save("C:\Incoming\abc.jpg")
+                }
+
+                if (pb1MouseDown)
+                {
+                    //'if (e.X > PictureBox1Rectangle.X ) {
+                    //'    PictureBox1Rectangle.Width = e.X - PictureBox1Rectangle.X
+                    //'}
+
+                    //'if (e.Y > PictureBox1Rectangle.Y ) {
+                    //'    PictureBox1Rectangle.Height = e.Y - PictureBox1Rectangle.Y
+                    //'}
+
+                    //' if (e.X > PictureBox1Rectangle.X ) {
+                    rect.Width = e.X - rect.X;
+                    //' }
+
+                    //'  if (e.Y > PictureBox1Rectangle.Y ) {
+                    rect.Height = e.Y - rect.Y;
+                    //' }
+
+                    pb.Refresh();
+                    return true;
+                }
+            }
+            return false;
+        }
+
     }
 
 }

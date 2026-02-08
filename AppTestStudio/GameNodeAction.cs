@@ -47,12 +47,12 @@ namespace AppTestStudio
             Mode = Mode.RangeClick;
             Points = 0;
             UseParentPicture = true;
-            IsColorPoint = true;
+            EventType = EventType.ColorPoint;
             ObjectName = "";
             ObjectThreshold = 70;
             ClickList = new List<SingleClick>();
             ClickSpeed = 0;
-            UseObjectSearchPosition = false;
+            UseParentPosition = false;
             ClickDragReleaseVelocity = 500;
             ClickDragReleaseMode = ClickDragReleaseMode.None;
 
@@ -267,24 +267,23 @@ namespace AppTestStudio
             }
         }
 
-        private Boolean mIsColorPoint;
-        /// <summary>
-        /// When True : Used on Event Node types ColorPoint is system will search a list of colors and points for a match
-        /// When False: Object Search is used.
-        /// </summary>
-        public Boolean IsColorPoint
+        private EventType mEventType;
+
+        public EventType EventType
         {
-            get { return mIsColorPoint; }
+            get
+            {
+                return mEventType; }
             set
             {
-                if (mIsColorPoint != value)
+                if (mEventType != value)
                 {
                     if (IsLoading == false)
                     {
                         IsDirty = true;
                     }
                 }
-                mIsColorPoint = value;
+                mEventType = value;
                 Utils.SetIcons(this);
             }
         }
@@ -314,21 +313,21 @@ namespace AppTestStudio
         /// <summary>
         /// For Actions directly under a Object Search, use the position found by the object search.
         /// </summary>
-        private Boolean mUseObjectSearchPosition;
+        private Boolean mUseParentPosition;
 
-        public Boolean UseObjectSearchPosition
+        public Boolean UseParentPosition
         {
-            get { return mUseObjectSearchPosition; }
+            get { return mUseParentPosition; }
             set
             {
-                if (mUseObjectSearchPosition != value)
+                if (mUseParentPosition != value)
                 {
                     if (IsLoading == false)
                     {
                         IsDirty = true;
                     }
                 }
-                mUseObjectSearchPosition = value;
+                mUseParentPosition = value;
             }
         }
 
@@ -685,6 +684,167 @@ namespace AppTestStudio
             }
         }
 
+        private int mPixelSearchB;
+
+        public int PixelSearchB
+        {
+            get { return mPixelSearchB; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchB != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchB = value;
+            }
+        }
+
+        private int mPixelSearchG;
+
+        public int PixelSearchG
+        {
+            get { return mPixelSearchG; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchG != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchG = value;
+            }
+        }
+
+
+        private int mPixelSearchR;
+        public int PixelSearchR
+        {
+            get { return mPixelSearchR; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchR != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchR = value;
+            }
+        }
+
+        private int mPixelSearchBNeg;
+
+        public int PixelSearchBNeg
+        {
+            get { return mPixelSearchBNeg; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchBNeg != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchBNeg = value;
+            }
+        }
+
+        private int mPixelSearchGNeg;
+
+        public int PixelSearchGNeg
+        {
+            get { return mPixelSearchGNeg; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchGNeg != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchGNeg = value;
+            }
+        }
+
+
+        private int mPixelSearchRNeg;
+        public int PixelSearchRNeg
+        {
+            get { return mPixelSearchRNeg; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchRNeg != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchRNeg = value;
+            }
+        }
+
+        private int mPixelSearchBPos;
+
+        public int PixelSearchBPos
+        {
+            get { return mPixelSearchBPos; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchBPos != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchBPos = value;
+            }
+        }
+
+        private int mPixelSearchGPos;
+
+        public int PixelSearchGPos
+        {
+            get { return mPixelSearchGPos; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchGPos != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchGPos = value;
+            }
+        }
+
+        private int mPixelSearchRPos;
+        public int PixelSearchRPos
+        {
+            get { return mPixelSearchRPos; }
+            set
+            {
+                if (IsLoading == false)
+                {
+                    if (mPixelSearchRPos != value)
+                    {
+                        IsDirty = true;
+                    }
+                }
+                mPixelSearchRPos = value;
+            }
+        }
+
         private int mLimitDelayM;
 
         public int LimitDelayM
@@ -702,6 +862,7 @@ namespace AppTestStudio
                 mLimitDelayM = value;
             }
         }
+
 
         private int mLimitDelayH;
 
@@ -1300,10 +1461,10 @@ namespace AppTestStudio
             Action.Text = Text;
             Action.ObjectName = ObjectName;
             Action.Channel = Channel;
-            Action.IsColorPoint = IsColorPoint;  //must be set after Mode
+            Action.EventType = EventType; // must be set after Mode
             Action.CustomLogic = CustomLogic;
             Action.ClickSpeed = ClickSpeed;
-            Action.UseObjectSearchPosition = UseObjectSearchPosition;
+            Action.UseParentPosition = UseParentPosition;
 
             Action.ClickDragReleaseMode = ClickDragReleaseMode;
             Action.ClickDragReleaseEndHeight = ClickDragReleaseEndHeight;
@@ -1336,6 +1497,17 @@ namespace AppTestStudio
             Action.GotoNode = GotoNode;
 
             Action.IsLoading = false;
+
+            Action.PixelSearchB = PixelSearchB;
+            Action.PixelSearchG = PixelSearchG;
+            Action.PixelSearchR = PixelSearchR;
+            Action.PixelSearchBNeg = PixelSearchBNeg;
+            Action.PixelSearchGNeg = PixelSearchGNeg;
+            Action.PixelSearchRNeg = PixelSearchRNeg;
+            Action.PixelSearchBPos = PixelSearchBPos;
+            Action.PixelSearchGPos = PixelSearchGPos;
+            Action.PixelSearchRPos = PixelSearchRPos;
+
             return Action;
         }
 
@@ -1398,18 +1570,45 @@ namespace AppTestStudio
         internal EventSolution IsTrue(Bitmap bmp, GameNodeGame game)
         {
             EventSolution solution = new EventSolution();
-           
-            if (IsColorPoint)
-            {
 
-                IsColorPointTrue(game, bmp, solution);
+            switch (EventType)
+            {
+                case EventType.ColorPoint:
+                    IsColorPointTrue(game, bmp, solution);
+                    break;
+                case EventType.ObjectSearch:
+                    IsImageSearchTrue(bmp, game, solution);
+                    break;
+                case EventType.PixelSearch:
+                    IsPixelSearchTrue(bmp, game, solution);
+                    break;
+                default:
+                    break;
+            }
+            return solution;
+        }
+
+        private void IsPixelSearchTrue(Bitmap bmp, GameNodeGame game, EventSolution solution)
+        {
+            Color SearchColor = Color.FromArgb(PixelSearchR, PixelSearchG, PixelSearchB);
+            Bitmap croppedBmp = Utils.CropBitmap(bmp, Rectangle);
+            Stopwatch WatchImageSearchTime = System.Diagnostics.Stopwatch.StartNew();
+            List<PixelColorResult> list0 = Utils.FindPixelColor(croppedBmp, SearchColor, PixelSearchRNeg, PixelSearchRPos, PixelSearchGNeg, PixelSearchGPos, PixelSearchBNeg, PixelSearchBPos, 1);
+            WatchImageSearchTime.Stop();
+            if (list0.Count > 0)
+            {
+                solution.Result = true;
+                solution.CenterX = list0[0].Point.X + Rectangle.X;
+                solution.CenterY = list0[0].Point.Y + Rectangle.Y;
+
+                long ImageSearchTime = WatchImageSearchTime.ElapsedMilliseconds;
+
+                solution.ImageSearchTime = ImageSearchTime;
             }
             else
             {
-                IsImageSearchTrue(bmp, game, solution);
+                solution.Result = false;
             }
-            return solution;
-
         }
 
         /// <summary>
@@ -1861,18 +2060,49 @@ namespace AppTestStudio
 
         public Boolean IsParentObjectSearch()
         {
-            GameNodeAction Node = Parent as GameNodeAction;
-            if (Node.IsSomething())
+            GameNodeAction? ParentNode = Parent as GameNodeAction;
+            if (ParentNode != null)
             {
-                if (Node.IsColorPoint == false)
+                switch (ParentNode.EventType)
                 {
-                    return true;
+                    case EventType.ColorPoint:
+                        return false;
+                        break;
+                    case EventType.ObjectSearch:
+                        return true;
+                        break;
+                    case EventType.PixelSearch:
+                        return false;  // Check and change?
+                        break;
+                    default:
+                        break;
                 }
             }
             return false;
         }
 
-
+        public Boolean IsParentRelativePositioning()
+        {
+            GameNodeAction? ParentNode = Parent as GameNodeAction;
+            if (ParentNode != null)
+            {
+                switch (ParentNode.EventType)
+                {
+                    case EventType.ColorPoint:
+                        return false;
+                        break;
+                    case EventType.ObjectSearch:
+                        return true;
+                        break;
+                    case EventType.PixelSearch:
+                        return true;  // Check and change?
+                        break;
+                    default:
+                        break;
+                }
+            }
+            return false;
+        }
 
         public void PaintNode(Graphics graphics)
         {
@@ -1981,7 +2211,7 @@ namespace AppTestStudio
             int x2 = Rectangle.Width;
             int y2 = Rectangle.Height;
 
-            if (IsParentObjectSearch() && UseObjectSearchPosition && (ClickDragReleaseMode != ClickDragReleaseMode.None))
+            if (IsParentRelativePositioning() && UseParentPosition && (ClickDragReleaseMode != ClickDragReleaseMode.None))
             {
                 GameNodeAction ParentNode = Parent as GameNodeAction;
                 if (ParentNode.IsSomething())
@@ -2043,7 +2273,7 @@ namespace AppTestStudio
             short RandomX = Utils.RandomNumber(0, Rectangle.Width);
             short RandomY = Utils.RandomNumber(0, Rectangle.Height);
 
-            if (IsParentObjectSearch() && UseObjectSearchPosition)
+            if (IsParentRelativePositioning() && UseParentPosition)
             {
                 if (Parent is GameNodeAction)
                 {

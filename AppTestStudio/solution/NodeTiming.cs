@@ -4,18 +4,11 @@
 
 namespace AppTestStudio.solution
 {
-    internal class ISolution
+    internal class NodeTiming
     {
-        public SolutionType EventType { get; set; }
+        public String Name { get; set; }
+        public int ms { get; set; }
 
-        // Do we activate before playing the script.
-        public bool ActivateWindow { get; set; }
-        public string NodeName { get; internal set; }
-    }
-
-    enum SolutionType
-    {
-        Event = 0,
-        Action = 1
+        public AfterCompletionType AfterCompletionType { get; set; } 
     }
 }

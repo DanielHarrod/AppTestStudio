@@ -15,6 +15,7 @@ namespace AppTestStudioControls
     {
         const int WM_MOUSEACTIVE = 0x21;
 
+        [System.Diagnostics.DebuggerStepThrough]
         // Enable clicking when window is not active
         protected override void WndProc(ref Message m)
         {

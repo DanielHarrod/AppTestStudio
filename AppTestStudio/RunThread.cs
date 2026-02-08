@@ -88,14 +88,7 @@ namespace AppTestStudio
         {
             if (abortThread)
             {
-
                 CancellationTokenSource.Cancel();
-
-                if (Game.SaveVideo)
-                {
-                    Game.Video.Release();
-                    Game.Video = null;
-                }
 
                 ThreadManager.RemoveGame(Game);
 
@@ -193,6 +186,8 @@ namespace AppTestStudio
 
                             GameNodeAction.RangeClickResult Result = node.CalculateRangeClickResult(bmp, centerX, centerY);
 
+                            //Debug.WriteLine($"{node.Name} {Result.x}, {Result.y} {bmp.Width},{bmp.Height}");
+
                             Boolean Failed = false;
 
                             if (Result.x < 0)
@@ -211,6 +206,7 @@ namespace AppTestStudio
                             {
                                 //Debug.WriteLine($"ProcessChildren.ActionTypeAction.RangeClick.Failed: {node.Name},{Watch.ElapsedMilliseconds}");
                                 //'do nothing
+                                gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.ContinueProcess);
                                 return AfterCompletionType.ContinueProcess;
                             }
                             else
@@ -223,6 +219,7 @@ namespace AppTestStudio
                                     if (node.PreActionFailureAction == TimeoutAction.Abort)
                                     {
                                         //Debug.WriteLine($"ProcessChildren.ActionTypeAction.RangeClick.Abort: {node.Name},{Watch.ElapsedMilliseconds}");
+                                        gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.ContinueProcess);
                                         return AfterCompletionType.ContinueProcess;
                                     }
                                 }
@@ -259,12 +256,6 @@ namespace AppTestStudio
                                 IncrementClickCount();
 
                                 node.RuntimeActionCount++;  // Range Click
-
-                                // Draw solution marker
-                                if (Game.SaveVideo)
-                                {
-                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
-                                }
                             }
 
                             break;
@@ -276,6 +267,7 @@ namespace AppTestStudio
                                 if (node.PreActionFailureAction == TimeoutAction.Abort)
                                 {
                                     //Debug.WriteLine($"ProcessChildren.ActionTypeAction.Keyboard.Abort: {node.Name},{Watch.ElapsedMilliseconds}");
+                                    gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.ContinueProcess);
                                     return AfterCompletionType.ContinueProcess;
                                 }
                             }
@@ -339,6 +331,7 @@ namespace AppTestStudio
                                     if (node.PreActionFailureAction == TimeoutAction.Abort)
                                     {
                                         //Debug.WriteLine($"ProcessChildren.ActionTypeAction.MouseMove.Abort: {node.Name},{Watch.ElapsedMilliseconds}");
+                                        gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.ContinueProcess);
                                         return AfterCompletionType.ContinueProcess;
                                     }
                                 }
@@ -360,12 +353,6 @@ namespace AppTestStudio
                                 Game.MouseY = (short)MouseMoveResult.EndY;
                                 IncrementMouseMove();
                                 node.RuntimeActionCount++;  // Mouse Move
-
-                                // Draw solution marker
-                                if (Game.SaveVideo)
-                                {
-                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
-                                }
                             }
 
                             break;
@@ -405,6 +392,7 @@ namespace AppTestStudio
                                     if (node.PreActionFailureAction == TimeoutAction.Abort)
                                     {
                                         //Debug.WriteLine($"ProcessChildren.ActionTypeAction.ClickDragRelease.Abort: {node.Name},{Watch.ElapsedMilliseconds}");
+                                        gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.ContinueProcess);
                                         return AfterCompletionType.ContinueProcess;
                                     }
                                 }
@@ -429,11 +417,6 @@ namespace AppTestStudio
                                 //'    TB.AddClickDragRelease(xPos, yPos, Node.Rectangle.Width, Node.Rectangle.Height, ex, ey, Node.Name)
                                 //'}
 
-                                // Draw solution marker
-                                if (Game.SaveVideo)
-                                {
-                                    Game.BitmapClones.Enqueue(bmp.CloneMe());
-                                }
                             }
                             break;
                         default:
@@ -485,6 +468,7 @@ namespace AppTestStudio
                             Game.Log(node.Name + " Lost Window");
                             Game.Log(node.Name + " Lost Returning to Home");
                             //Debug.WriteLine($"ProcessChildren.RepeatAction.Failure: {node.Name},{Watch.ElapsedMilliseconds}");
+                            gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.Home);
                             return AfterCompletionType.Home;
                         }
                         else
@@ -509,6 +493,7 @@ namespace AppTestStudio
                                 // do nothing
                                 break;
                             default:
+                                gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), Result);
                                 return Result;
                         }
                     }
@@ -517,16 +502,6 @@ namespace AppTestStudio
                     {
                         centerX = eventSolution.CenterX;
                         centerY = eventSolution.CenterY;
-                        if (node.IsColorPoint == false)
-                        {
-                            // is Object search.
-                            // Draw solution marker
-                            if (Game.SaveVideo)
-                            {
-                                Game.BitmapClones.Enqueue(bmp.Clone() as Bitmap);
-                            }
-
-                        }
 
                         // if there's not a filename assigned to the node then we didn't locate a file, so it can be synced since there's a valid event.
                         if (node.FileName.Length == 0)
@@ -612,6 +587,7 @@ namespace AppTestStudio
                         if (RNGNode.Enabled == false)
                         {
                             //Debug.WriteLine($"ProcessChildren.RngNode.!.Enabled: {node.Name},{Watch.ElapsedMilliseconds}");
+                            gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.ContinueProcess);
                             return AfterCompletionType.Continue;
                         }
 
@@ -623,7 +599,8 @@ namespace AppTestStudio
                                 case AfterCompletionType.ContinueProcess:
                                     // do nothing
                                     break;
-                                default:                                    
+                                default:
+                                    gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), Result);
                                     return Result;
                             }
                         }
@@ -638,6 +615,7 @@ namespace AppTestStudio
                             {
                                 case AfterCompletionType.Home:
                                     IncrementGoHome();
+                                    gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.Home);
                                     return AfterCompletionType.Home;
                                 case AfterCompletionType.Parent:
                                     IncrementGoParent();
@@ -648,6 +626,7 @@ namespace AppTestStudio
                                     break;
                                 case AfterCompletionType.Stop:
                                     IncrementGoStop();
+                                    gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.Stop);
                                     StopThreadCloseWindow(t as GameNode, WindowHandle, true);
                                     return AfterCompletionType.Stop;
                                 case AfterCompletionType.Recycle:
@@ -715,6 +694,7 @@ namespace AppTestStudio
                             {
                                 case AfterCompletionType.Home:
                                     IncrementGoHome();
+                                    gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.Home);
                                     return AfterCompletionType.Home;
                                 case AfterCompletionType.Parent:
                                     IncrementGoParent();
@@ -722,6 +702,7 @@ namespace AppTestStudio
                                     break;
                                 case AfterCompletionType.Stop:
                                     IncrementGoStop();
+                                    gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.Stop);
                                     StopThreadCloseWindow(t as GameNode, WindowHandle, true);
                                     return AfterCompletionType.Stop;
                                 case AfterCompletionType.Continue:
@@ -736,8 +717,10 @@ namespace AppTestStudio
                                 case AfterCompletionType.GoToParent:
 
                                     GoToNodeName = (t as GameNodeAction).GotoNode;
+                                    gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.Parent);
                                     return AfterCompletionType.GoToChild;
                                 case AfterCompletionType.GoToChild:
+                                    gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.GoToChild);
                                     return AfterCompletionType.GoToChild;
 
                                 default:
@@ -753,19 +736,24 @@ namespace AppTestStudio
                         break;
                     case AfterCompletionType.Home:
                         IncrementGoHome();
+                        gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.Home);
                         return AfterCompletionType.Home;
                     case AfterCompletionType.Parent:
                         IncrementGoParent();
+                        gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.Parent);
                         return AfterCompletionType.Parent;
                     case AfterCompletionType.Stop:
                         IncrementGoStop();
+                        gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.Stop);
                         StopThreadCloseWindow(node as GameNode, WindowHandle, true);
                         return AfterCompletionType.Stop;
                     case AfterCompletionType.Recycle:
+                        gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.Recycle);
                         Recycle(node, WindowHandle);
                         break;
                     case AfterCompletionType.GoToParent:
                         GoToNodeName = (node as GameNodeAction).GotoNode;
+                        gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.GoToChild);
                         return AfterCompletionType.GoToChild;
                     default:
                         Debug.Assert(false);
@@ -774,6 +762,7 @@ namespace AppTestStudio
             }
 
             IncrementGoContinue();
+            gamePassSolution.AddNodeTiming(node.Name, Watch.Elapsed.TotalMilliseconds.ToInt(), AfterCompletionType.Continue);
             return AfterCompletionType.Continue;
         } // ProcessChildren
 
@@ -856,6 +845,7 @@ namespace AppTestStudio
         [System.Diagnostics.DebuggerStepThrough]
         private void ThreadSleep(int ms)
         {
+            //Debug.WriteLine($"Ts={ms}");
             Thread.Sleep(ms);
         }
 
@@ -1066,7 +1056,7 @@ namespace AppTestStudio
                         bmp = Utils.GetBitMap(ref BitMapSuccess, WindowHandle);
                     }
                 }
-                //Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
+//                Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
 
                 if (BitMapSuccess)
                 {
@@ -1094,6 +1084,8 @@ namespace AppTestStudio
                             ThreadSleep(1000);
                         }
                     }
+                    //Debug.WriteLine($"Bitmap in: {Watch.ElapsedMilliseconds}");
+                    gamePassSolution.TimeMS = Watch.ElapsedMilliseconds;
                     Game.GamePassSolutionClones.Enqueue(gamePassSolution);
                 }
                 else
@@ -1193,6 +1185,7 @@ namespace AppTestStudio
             AfterCompletionType afterCompletionType = AfterCompletionType.Continue;
             foreach (TreeNode node in Game.Events.Nodes)
             {
+                Stopwatch TreeWatch = System.Diagnostics.Stopwatch.StartNew();
                 TreeNode CurrentNode = node;
 
                 TreeNode StartNode = null;
@@ -1215,6 +1208,7 @@ namespace AppTestStudio
                 afterCompletionType = ProcessChildren(gamePassSolution, bmp, CurrentNode as GameNodeAction, CenterX, CenterY, ref ChildSleepTimeMS);
                 //long PostProcessChildren = Watch.ElapsedMilliseconds;
                 //Debug.WriteLine($"Main Processchildren time{PostProcessChildren - PreProcessChildren}");
+                //gamePassSolution.AddNodeTiming(CurrentNode.Name, TreeWatch.ElapsedMilliseconds.ToInt(), afterCompletionType);
                 Boolean ExitFor = false;
                 switch (afterCompletionType)
                 {
@@ -1249,7 +1243,7 @@ namespace AppTestStudio
                         Debug.Assert(false);
                         break;
                 }
-
+                TreeWatch.Stop();                
                 if (ExitFor)
                 {
                     break;
@@ -1339,23 +1333,25 @@ namespace AppTestStudio
                 case ActionType.RNG:
                     break;
                 case ActionType.Event:
-                    if (node.IsColorPoint)
+                    switch (node.EventType)
                     {
-                        if (node.ClickList.Count == 0)
-                        {
-                        }
-                        else
-                        {
-                        }
+                        case EventType.ColorPoint:
+                            break;
+                        case EventType.ObjectSearch:
+                            if (node.Rectangle.IsFullScreenMask())
+                            {
+                                node.Rectangle = node.Rectangle.SetFullScreenFromDefault();
+                            }
 
-                    }
-                    else
-                    {
-                        if (node.Rectangle.IsFullScreenMask())
-                        {
-                            node.Rectangle = node.Rectangle.SetFullScreenFromDefault();
-                        }
-                        // Object search
+                            break;
+                        case EventType.PixelSearch:
+                            if (node.Rectangle.IsFullScreenMask())
+                            {
+                                node.Rectangle = node.Rectangle.SetFullScreenFromDefault();
+                            }
+                            break;
+                        default:
+                            break;
                     }
                     break;
             }

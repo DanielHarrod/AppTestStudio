@@ -48,7 +48,7 @@ namespace AppTestStudioControls
         int LowestMax = 0;
 
         public string Prepender = " ms";
-        public int TopShift = 50;
+        public int TopShift = 5;
 
         public int MaxLimit = 2000;
         public int SnapToScale = 100;

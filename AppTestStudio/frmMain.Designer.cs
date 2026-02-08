@@ -197,6 +197,7 @@ namespace AppTestStudio
             panelColorEventChild1 = new Panel();
             cmdTakeParentScreenshot = new Button();
             grpEventMode = new GroupBox();
+            rdoPixelSearch = new RadioButton();
             rdoObjectSearch = new RadioButton();
             rdoColorPoint = new RadioButton();
             lblMode = new Label();
@@ -314,7 +315,7 @@ namespace AppTestStudio
             FlowLayoutPanelColorEvent1 = new FlowLayoutPanel();
             cmdFlowLayoutPanelColorEvent1 = new Button();
             panelRightProperties = new Panel();
-            chkUseObjectSearchPosition = new CheckBox();
+            chkUseParentPosition = new CheckBox();
             chkPropertiesRepeatsUntilFalse = new CheckBox();
             grpPropertiesRepeatsUntilFalse = new GroupBox();
             lblPropertiesRepeatsUntilFalse = new Label();
@@ -390,6 +391,26 @@ namespace AppTestStudio
             NumericClickSpeed = new NumericUpDown();
             label54 = new Label();
             cmdRightClickProperties = new Button();
+            panelRightPixelSearchProperties = new Panel();
+            lblPixelSearchPreview = new Label();
+            label119 = new Label();
+            label118 = new Label();
+            label116 = new Label();
+            label115 = new Label();
+            label113 = new Label();
+            label110 = new Label();
+            label109 = new Label();
+            numPixelSearchB = new NumericUpDown();
+            numPixelSearchG = new NumericUpDown();
+            numPixelSearchBNeg = new NumericUpDown();
+            numPixelSearchBPos = new NumericUpDown();
+            numPixelSearchGPos = new NumericUpDown();
+            numPixelSearchGNeg = new NumericUpDown();
+            numPixelSearchRPos = new NumericUpDown();
+            numPixelSearchRNeg = new NumericUpDown();
+            numPixelSearchR = new NumericUpDown();
+            label105 = new Label();
+            cmdPixelSearchProperties = new Button();
             panelRightLogic = new Panel();
             cmdRightLogic = new Button();
             cboPoints = new ComboBox();
@@ -530,10 +551,6 @@ namespace AppTestStudio
             groupBox11 = new GroupBox();
             chkDontTakeScreenshot = new CheckBox();
             chkGameWindowNeverQuitIfWindowNotFound = new CheckBox();
-            grpVideo = new GroupBox();
-            lblFrameLimit = new Label();
-            NumericVideoFrameLimit = new NumericUpDown();
-            chkSaveVideo = new CheckBox();
             Label33 = new Label();
             cmdStartEmmulatorAndPackage = new Button();
             cmdStartEmmulatorPackageAndRunScript = new Button();
@@ -834,6 +851,16 @@ namespace AppTestStudio
             ((System.ComponentModel.ISupportInitialize)numericSwipeVelocity).BeginInit();
             panelRightClickProperties.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)NumericClickSpeed).BeginInit();
+            panelRightPixelSearchProperties.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchB).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchG).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchBNeg).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchBPos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchGPos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchGNeg).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchRPos).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchRNeg).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchR).BeginInit();
             panelRightLogic.SuspendLayout();
             panelRightCustomLogic.SuspendLayout();
             panelRightPointGrid.SuspendLayout();
@@ -872,8 +899,6 @@ namespace AppTestStudio
             groupBox9.SuspendLayout();
             grpBlue.SuspendLayout();
             groupBox11.SuspendLayout();
-            grpVideo.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)NumericVideoFrameLimit).BeginInit();
             grpSavedPictures.SuspendLayout();
             PanelWorkspace.SuspendLayout();
             groupBoxAdministratorCheck.SuspendLayout();
@@ -1190,6 +1215,8 @@ namespace AppTestStudio
             ImageList1.Images.SetKeyName(32, "MoveGlyph_16x.png");
             ImageList1.Images.SetKeyName(33, "ToggleOfficeKeyboardScheme_16x.png");
             ImageList1.Images.SetKeyName(34, "Blank.png");
+            ImageList1.Images.SetKeyName(35, "search.png");
+            ImageList1.Images.SetKeyName(36, "searchGrey.png");
             // 
             // panel3
             // 
@@ -1787,7 +1814,7 @@ namespace AppTestStudio
             splitContainerThreadMain.Panel2.Controls.Add(lstGamePass);
             splitContainerThreadMain.Panel2MinSize = 120;
             splitContainerThreadMain.Size = new Size(1664, 759);
-            splitContainerThreadMain.SplitterDistance = 1435;
+            splitContainerThreadMain.SplitterDistance = 1403;
             splitContainerThreadMain.SplitterWidth = 3;
             splitContainerThreadMain.TabIndex = 1;
             // 
@@ -1817,8 +1844,8 @@ namespace AppTestStudio
             // splitContainerThread.Panel2
             // 
             splitContainerThread.Panel2.Controls.Add(appTestStudioStatusControl1);
-            splitContainerThread.Size = new Size(1435, 759);
-            splitContainerThread.SplitterDistance = 198;
+            splitContainerThread.Size = new Size(1403, 759);
+            splitContainerThread.SplitterDistance = 225;
             splitContainerThread.SplitterWidth = 5;
             splitContainerThread.TabIndex = 1;
             // 
@@ -1839,8 +1866,8 @@ namespace AppTestStudio
             // splitContainerStatsNScrollie.Panel2
             // 
             splitContainerStatsNScrollie.Panel2.Controls.Add(splitContainerSeconds);
-            splitContainerStatsNScrollie.Size = new Size(1435, 198);
-            splitContainerStatsNScrollie.SplitterDistance = 159;
+            splitContainerStatsNScrollie.Size = new Size(1403, 225);
+            splitContainerStatsNScrollie.SplitterDistance = 162;
             splitContainerStatsNScrollie.SplitterWidth = 5;
             splitContainerStatsNScrollie.TabIndex = 2;
             // 
@@ -1867,18 +1894,18 @@ namespace AppTestStudio
             tableLayoutStats.RowCount = 1;
             tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Percent, 100F));
             tableLayoutStats.RowStyles.Add(new RowStyle(SizeType.Absolute, 20F));
-            tableLayoutStats.Size = new Size(1435, 159);
+            tableLayoutStats.Size = new Size(1403, 162);
             tableLayoutStats.TabIndex = 3;
             // 
             // grpTopScriptCounters
             // 
             grpTopScriptCounters.Controls.Add(tableLayoutPanel3);
             grpTopScriptCounters.Dock = DockStyle.Fill;
-            grpTopScriptCounters.Location = new Point(480, 3);
+            grpTopScriptCounters.Location = new Point(468, 3);
             grpTopScriptCounters.Margin = new Padding(4, 3, 4, 3);
             grpTopScriptCounters.Name = "grpTopScriptCounters";
             grpTopScriptCounters.Padding = new Padding(4, 3, 4, 3);
-            grpTopScriptCounters.Size = new Size(230, 153);
+            grpTopScriptCounters.Size = new Size(224, 156);
             grpTopScriptCounters.TabIndex = 7;
             grpTopScriptCounters.TabStop = false;
             grpTopScriptCounters.Text = "Script";
@@ -1913,7 +1940,7 @@ namespace AppTestStudio
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel3.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel3.Size = new Size(222, 131);
+            tableLayoutPanel3.Size = new Size(216, 134);
             tableLayoutPanel3.TabIndex = 3;
             // 
             // label102
@@ -2044,7 +2071,7 @@ namespace AppTestStudio
             grpTopThreadCounter.Margin = new Padding(4, 3, 4, 3);
             grpTopThreadCounter.Name = "grpTopThreadCounter";
             grpTopThreadCounter.Padding = new Padding(4, 3, 4, 3);
-            grpTopThreadCounter.Size = new Size(230, 153);
+            grpTopThreadCounter.Size = new Size(224, 156);
             grpTopThreadCounter.TabIndex = 6;
             grpTopThreadCounter.TabStop = false;
             grpTopThreadCounter.Text = "Thread";
@@ -2079,7 +2106,7 @@ namespace AppTestStudio
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel2.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel2.Size = new Size(222, 131);
+            tableLayoutPanel2.Size = new Size(216, 134);
             tableLayoutPanel2.TabIndex = 3;
             // 
             // label100
@@ -2206,11 +2233,11 @@ namespace AppTestStudio
             // 
             grpAPS.Controls.Add(atsGraphActions1);
             grpAPS.Dock = DockStyle.Fill;
-            grpAPS.Location = new Point(1199, 3);
+            grpAPS.Location = new Point(1170, 3);
             grpAPS.Margin = new Padding(4, 3, 4, 3);
             grpAPS.Name = "grpAPS";
             grpAPS.Padding = new Padding(4, 3, 4, 3);
-            grpAPS.Size = new Size(232, 153);
+            grpAPS.Size = new Size(229, 156);
             grpAPS.TabIndex = 5;
             grpAPS.TabStop = false;
             grpAPS.Text = "Clicks Per Second";
@@ -2221,18 +2248,18 @@ namespace AppTestStudio
             atsGraphActions1.Location = new Point(4, 19);
             atsGraphActions1.Margin = new Padding(4, 3, 4, 3);
             atsGraphActions1.Name = "atsGraphActions1";
-            atsGraphActions1.Size = new Size(224, 131);
+            atsGraphActions1.Size = new Size(221, 134);
             atsGraphActions1.TabIndex = 0;
             // 
             // groupTotal
             // 
             groupTotal.Controls.Add(tableLayoutPanel1);
             groupTotal.Dock = DockStyle.Fill;
-            groupTotal.Location = new Point(718, 3);
+            groupTotal.Location = new Point(700, 3);
             groupTotal.Margin = new Padding(4, 3, 4, 3);
             groupTotal.Name = "groupTotal";
             groupTotal.Padding = new Padding(4, 3, 4, 3);
-            groupTotal.Size = new Size(230, 153);
+            groupTotal.Size = new Size(224, 156);
             groupTotal.TabIndex = 2;
             groupTotal.TabStop = false;
             groupTotal.Text = "Total";
@@ -2267,7 +2294,7 @@ namespace AppTestStudio
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanel1.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanel1.Size = new Size(222, 131);
+            tableLayoutPanel1.Size = new Size(216, 134);
             tableLayoutPanel1.TabIndex = 4;
             // 
             // label13
@@ -2394,11 +2421,11 @@ namespace AppTestStudio
             // 
             groupSession.Controls.Add(tableLayoutPanelSession);
             groupSession.Dock = DockStyle.Fill;
-            groupSession.Location = new Point(242, 3);
+            groupSession.Location = new Point(236, 3);
             groupSession.Margin = new Padding(4, 3, 4, 3);
             groupSession.Name = "groupSession";
             groupSession.Padding = new Padding(4, 3, 4, 3);
-            groupSession.Size = new Size(230, 153);
+            groupSession.Size = new Size(224, 156);
             groupSession.TabIndex = 1;
             groupSession.TabStop = false;
             groupSession.Text = "Session";
@@ -2433,7 +2460,7 @@ namespace AppTestStudio
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 22F));
             tableLayoutPanelSession.RowStyles.Add(new RowStyle(SizeType.Absolute, 23F));
-            tableLayoutPanelSession.Size = new Size(222, 131);
+            tableLayoutPanelSession.Size = new Size(216, 134);
             tableLayoutPanelSession.TabIndex = 3;
             // 
             // label1
@@ -2560,11 +2587,11 @@ namespace AppTestStudio
             // 
             grpCPU.Controls.Add(atsGraph1);
             grpCPU.Dock = DockStyle.Fill;
-            grpCPU.Location = new Point(956, 3);
+            grpCPU.Location = new Point(932, 3);
             grpCPU.Margin = new Padding(4, 3, 4, 3);
             grpCPU.Name = "grpCPU";
             grpCPU.Padding = new Padding(4, 3, 4, 3);
-            grpCPU.Size = new Size(235, 153);
+            grpCPU.Size = new Size(230, 156);
             grpCPU.TabIndex = 3;
             grpCPU.TabStop = false;
             grpCPU.Text = "CPU";
@@ -2575,13 +2602,13 @@ namespace AppTestStudio
             atsGraph1.Location = new Point(4, 19);
             atsGraph1.Margin = new Padding(4, 3, 4, 3);
             atsGraph1.Name = "atsGraph1";
-            atsGraph1.Size = new Size(227, 131);
+            atsGraph1.Size = new Size(222, 134);
             atsGraph1.TabIndex = 0;
             // 
             // splitContainerSeconds
             // 
             splitContainerSeconds.Dock = DockStyle.Bottom;
-            splitContainerSeconds.Location = new Point(0, 12);
+            splitContainerSeconds.Location = new Point(0, 36);
             splitContainerSeconds.Margin = new Padding(4, 3, 4, 3);
             splitContainerSeconds.Name = "splitContainerSeconds";
             // 
@@ -2592,8 +2619,8 @@ namespace AppTestStudio
             // splitContainerSeconds.Panel2
             // 
             splitContainerSeconds.Panel2.BackColor = SystemColors.ControlDark;
-            splitContainerSeconds.Size = new Size(1435, 22);
-            splitContainerSeconds.SplitterDistance = 198;
+            splitContainerSeconds.Size = new Size(1403, 22);
+            splitContainerSeconds.SplitterDistance = 181;
             splitContainerSeconds.SplitterWidth = 5;
             splitContainerSeconds.TabIndex = 0;
             splitContainerSeconds.SplitterMoving += (this.splitContainerSeconds_SplitterMoving);
@@ -2606,7 +2633,7 @@ namespace AppTestStudio
             appTestStudioStatusControl1.Margin = new Padding(5, 6, 5, 6);
             appTestStudioStatusControl1.Name = "appTestStudioStatusControl1";
             appTestStudioStatusControl1.ShowPercent = (long)10L;
-            appTestStudioStatusControl1.Size = new Size(1435, 556);
+            appTestStudioStatusControl1.Size = new Size(1403, 529);
             appTestStudioStatusControl1.TabIndex = 0;
             // 
             // lstGamePass
@@ -2618,7 +2645,7 @@ namespace AppTestStudio
             lstGamePass.Location = new Point(0, 0);
             lstGamePass.Margin = new Padding(2);
             lstGamePass.Name = "lstGamePass";
-            lstGamePass.Size = new Size(226, 759);
+            lstGamePass.Size = new Size(258, 759);
             lstGamePass.SmallImageList = ImageList1;
             lstGamePass.TabIndex = 0;
             lstGamePass.UseCompatibleStateImageBehavior = false;
@@ -2689,6 +2716,7 @@ namespace AppTestStudio
             // 
             // grpEventMode
             // 
+            grpEventMode.Controls.Add(rdoPixelSearch);
             grpEventMode.Controls.Add(rdoObjectSearch);
             grpEventMode.Controls.Add(rdoColorPoint);
             grpEventMode.Controls.Add(lblMode);
@@ -2696,10 +2724,23 @@ namespace AppTestStudio
             grpEventMode.Margin = new Padding(4, 3, 4, 3);
             grpEventMode.Name = "grpEventMode";
             grpEventMode.Padding = new Padding(4, 3, 4, 3);
-            grpEventMode.Size = new Size(131, 69);
+            grpEventMode.Size = new Size(231, 69);
             grpEventMode.TabIndex = 28;
             grpEventMode.TabStop = false;
             grpEventMode.Text = "Event Mode";
+            // 
+            // rdoPixelSearch
+            // 
+            rdoPixelSearch.AutoSize = true;
+            rdoPixelSearch.Location = new Point(124, 44);
+            rdoPixelSearch.Margin = new Padding(4, 3, 4, 3);
+            rdoPixelSearch.Name = "rdoPixelSearch";
+            rdoPixelSearch.Size = new Size(87, 19);
+            rdoPixelSearch.TabIndex = 1;
+            rdoPixelSearch.TabStop = true;
+            rdoPixelSearch.Text = "Pixel Search";
+            rdoPixelSearch.UseVisualStyleBackColor = true;
+            rdoPixelSearch.CheckedChanged += (this.rdoPixelSearch_CheckedChanged);
             // 
             // rdoObjectSearch
             // 
@@ -2744,7 +2785,7 @@ namespace AppTestStudio
             grpMode.Controls.Add(rdoModeMove);
             grpMode.Controls.Add(rdoModeClickDragRelease);
             grpMode.Controls.Add(rdoModeRangeClick);
-            grpMode.Location = new Point(300, 7);
+            grpMode.Location = new Point(402, 8);
             grpMode.Margin = new Padding(4, 3, 4, 3);
             grpMode.Name = "grpMode";
             grpMode.Padding = new Padding(4, 3, 4, 3);
@@ -4351,6 +4392,7 @@ namespace AppTestStudio
             FlowLayoutPanelColorEvent1.Controls.Add(panelRightObject);
             FlowLayoutPanelColorEvent1.Controls.Add(panelRightSwipeProperties);
             FlowLayoutPanelColorEvent1.Controls.Add(panelRightClickProperties);
+            FlowLayoutPanelColorEvent1.Controls.Add(panelRightPixelSearchProperties);
             FlowLayoutPanelColorEvent1.Controls.Add(panelRightLogic);
             FlowLayoutPanelColorEvent1.Controls.Add(panelRightCustomLogic);
             FlowLayoutPanelColorEvent1.Controls.Add(panelRightPointGrid);
@@ -4384,7 +4426,7 @@ namespace AppTestStudio
             // panelRightProperties
             // 
             panelRightProperties.BorderStyle = BorderStyle.FixedSingle;
-            panelRightProperties.Controls.Add(chkUseObjectSearchPosition);
+            panelRightProperties.Controls.Add(chkUseParentPosition);
             panelRightProperties.Controls.Add(chkPropertiesRepeatsUntilFalse);
             panelRightProperties.Controls.Add(grpPropertiesRepeatsUntilFalse);
             panelRightProperties.Controls.Add(chkPropertiesEnabled);
@@ -4396,16 +4438,16 @@ namespace AppTestStudio
             panelRightProperties.Size = new Size(326, 100);
             panelRightProperties.TabIndex = 38;
             // 
-            // chkUseObjectSearchPosition
+            // chkUseParentPosition
             // 
-            chkUseObjectSearchPosition.AutoSize = true;
-            chkUseObjectSearchPosition.Location = new Point(6, 56);
-            chkUseObjectSearchPosition.Name = "chkUseObjectSearchPosition";
-            chkUseObjectSearchPosition.Size = new Size(167, 19);
-            chkUseObjectSearchPosition.TabIndex = 13;
-            chkUseObjectSearchPosition.Text = "Use Object Search Position";
-            chkUseObjectSearchPosition.UseVisualStyleBackColor = true;
-            chkUseObjectSearchPosition.CheckedChanged += (this.chkUseObjectSearchPosition_CheckedChanged);
+            chkUseParentPosition.AutoSize = true;
+            chkUseParentPosition.Location = new Point(6, 56);
+            chkUseParentPosition.Name = "chkUseParentPosition";
+            chkUseParentPosition.Size = new Size(128, 19);
+            chkUseParentPosition.TabIndex = 13;
+            chkUseParentPosition.Text = "Use Parent Position";
+            chkUseParentPosition.UseVisualStyleBackColor = true;
+            chkUseParentPosition.CheckedChanged += (this.chkUseObjectSearchPosition_CheckedChanged);
             // 
             // chkPropertiesRepeatsUntilFalse
             // 
@@ -5348,6 +5390,223 @@ namespace AppTestStudio
             cmdRightClickProperties.UseVisualStyleBackColor = false;
             cmdRightClickProperties.Click += (this.cmdRightClickProperties_Click);
             // 
+            // panelRightPixelSearchProperties
+            // 
+            panelRightPixelSearchProperties.BorderStyle = BorderStyle.FixedSingle;
+            panelRightPixelSearchProperties.Controls.Add(lblPixelSearchPreview);
+            panelRightPixelSearchProperties.Controls.Add(label119);
+            panelRightPixelSearchProperties.Controls.Add(label118);
+            panelRightPixelSearchProperties.Controls.Add(label116);
+            panelRightPixelSearchProperties.Controls.Add(label115);
+            panelRightPixelSearchProperties.Controls.Add(label113);
+            panelRightPixelSearchProperties.Controls.Add(label110);
+            panelRightPixelSearchProperties.Controls.Add(label109);
+            panelRightPixelSearchProperties.Controls.Add(numPixelSearchB);
+            panelRightPixelSearchProperties.Controls.Add(numPixelSearchG);
+            panelRightPixelSearchProperties.Controls.Add(numPixelSearchBNeg);
+            panelRightPixelSearchProperties.Controls.Add(numPixelSearchBPos);
+            panelRightPixelSearchProperties.Controls.Add(numPixelSearchGPos);
+            panelRightPixelSearchProperties.Controls.Add(numPixelSearchGNeg);
+            panelRightPixelSearchProperties.Controls.Add(numPixelSearchRPos);
+            panelRightPixelSearchProperties.Controls.Add(numPixelSearchRNeg);
+            panelRightPixelSearchProperties.Controls.Add(numPixelSearchR);
+            panelRightPixelSearchProperties.Controls.Add(label105);
+            panelRightPixelSearchProperties.Controls.Add(cmdPixelSearchProperties);
+            panelRightPixelSearchProperties.Location = new Point(2, 1124);
+            panelRightPixelSearchProperties.Margin = new Padding(2);
+            panelRightPixelSearchProperties.Name = "panelRightPixelSearchProperties";
+            panelRightPixelSearchProperties.Size = new Size(326, 190);
+            panelRightPixelSearchProperties.TabIndex = 42;
+            // 
+            // lblPixelSearchPreview
+            // 
+            lblPixelSearchPreview.Location = new Point(209, 52);
+            lblPixelSearchPreview.Name = "lblPixelSearchPreview";
+            lblPixelSearchPreview.Size = new Size(100, 84);
+            lblPixelSearchPreview.TabIndex = 19;
+            // 
+            // label119
+            // 
+            label119.AutoSize = true;
+            label119.Location = new Point(210, 30);
+            label119.Name = "label119";
+            label119.Size = new Size(46, 15);
+            label119.TabIndex = 18;
+            label119.Text = "Sample";
+            // 
+            // label118
+            // 
+            label118.AutoSize = true;
+            label118.Location = new Point(125, 30);
+            label118.Name = "label118";
+            label118.Size = new Size(51, 15);
+            label118.TabIndex = 18;
+            label118.Text = "+ Range";
+            // 
+            // label116
+            // 
+            label116.AutoSize = true;
+            label116.Location = new Point(71, 30);
+            label116.Name = "label116";
+            label116.Size = new Size(48, 15);
+            label116.TabIndex = 18;
+            label116.Text = "- Range";
+            // 
+            // label115
+            // 
+            label115.AutoSize = true;
+            label115.Location = new Point(25, 30);
+            label115.Name = "label115";
+            label115.Size = new Size(36, 15);
+            label115.TabIndex = 18;
+            label115.Text = "Color";
+            // 
+            // label113
+            // 
+            label113.AutoSize = true;
+            label113.Location = new Point(7, 108);
+            label113.Name = "label113";
+            label113.Size = new Size(14, 15);
+            label113.TabIndex = 17;
+            label113.Text = "B";
+            // 
+            // label110
+            // 
+            label110.AutoSize = true;
+            label110.Location = new Point(7, 80);
+            label110.Name = "label110";
+            label110.Size = new Size(15, 15);
+            label110.TabIndex = 17;
+            label110.Text = "G";
+            // 
+            // label109
+            // 
+            label109.AutoSize = true;
+            label109.Location = new Point(7, 52);
+            label109.Name = "label109";
+            label109.Size = new Size(14, 15);
+            label109.TabIndex = 17;
+            label109.Text = "R";
+            // 
+            // numPixelSearchB
+            // 
+            numPixelSearchB.Location = new Point(25, 108);
+            numPixelSearchB.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numPixelSearchB.Name = "numPixelSearchB";
+            numPixelSearchB.Size = new Size(42, 23);
+            numPixelSearchB.TabIndex = 16;
+            numPixelSearchB.Value = new decimal(new int[] { 255, 0, 0, 0 });
+            numPixelSearchB.ValueChanged += (this.numPixelSearchB_ValueChanged);
+            // 
+            // numPixelSearchG
+            // 
+            numPixelSearchG.Location = new Point(25, 80);
+            numPixelSearchG.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numPixelSearchG.Name = "numPixelSearchG";
+            numPixelSearchG.Size = new Size(42, 23);
+            numPixelSearchG.TabIndex = 16;
+            numPixelSearchG.Value = new decimal(new int[] { 255, 0, 0, 0 });
+            numPixelSearchG.ValueChanged += (this.numPixelSearchG_ValueChanged);
+            // 
+            // numPixelSearchBNeg
+            // 
+            numPixelSearchBNeg.Location = new Point(77, 108);
+            numPixelSearchBNeg.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
+            numPixelSearchBNeg.Minimum = new decimal(new int[] { 255, 0, 0, global::System.Int32.MinValue });
+            numPixelSearchBNeg.Name = "numPixelSearchBNeg";
+            numPixelSearchBNeg.Size = new Size(45, 23);
+            numPixelSearchBNeg.TabIndex = 16;
+            numPixelSearchBNeg.ValueChanged += (this.numPixelSearchBNeg_ValueChanged);
+            // 
+            // numPixelSearchBPos
+            // 
+            numPixelSearchBPos.Location = new Point(134, 108);
+            numPixelSearchBPos.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numPixelSearchBPos.Name = "numPixelSearchBPos";
+            numPixelSearchBPos.Size = new Size(42, 23);
+            numPixelSearchBPos.TabIndex = 16;
+            numPixelSearchBPos.ValueChanged += (this.numPixelSearchBPos_ValueChanged);
+            // 
+            // numPixelSearchGPos
+            // 
+            numPixelSearchGPos.Location = new Point(134, 80);
+            numPixelSearchGPos.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numPixelSearchGPos.Name = "numPixelSearchGPos";
+            numPixelSearchGPos.Size = new Size(42, 23);
+            numPixelSearchGPos.TabIndex = 16;
+            numPixelSearchGPos.ValueChanged += (this.numPixelSearchGPos_ValueChanged);
+            // 
+            // numPixelSearchGNeg
+            // 
+            numPixelSearchGNeg.Location = new Point(77, 80);
+            numPixelSearchGNeg.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
+            numPixelSearchGNeg.Minimum = new decimal(new int[] { 255, 0, 0, global::System.Int32.MinValue });
+            numPixelSearchGNeg.Name = "numPixelSearchGNeg";
+            numPixelSearchGNeg.Size = new Size(45, 23);
+            numPixelSearchGNeg.TabIndex = 16;
+            numPixelSearchGNeg.ValueChanged += (this.numPixelSearchGNeg_ValueChanged);
+            // 
+            // numPixelSearchRPos
+            // 
+            numPixelSearchRPos.Location = new Point(134, 52);
+            numPixelSearchRPos.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numPixelSearchRPos.Name = "numPixelSearchRPos";
+            numPixelSearchRPos.Size = new Size(42, 23);
+            numPixelSearchRPos.TabIndex = 16;
+            numPixelSearchRPos.ValueChanged += (this.numPixelSearchRPos_ValueChanged);
+            // 
+            // numPixelSearchRNeg
+            // 
+            numPixelSearchRNeg.Location = new Point(77, 52);
+            numPixelSearchRNeg.Maximum = new decimal(new int[] { 0, 0, 0, 0 });
+            numPixelSearchRNeg.Minimum = new decimal(new int[] { 255, 0, 0, global::System.Int32.MinValue });
+            numPixelSearchRNeg.Name = "numPixelSearchRNeg";
+            numPixelSearchRNeg.Size = new Size(45, 23);
+            numPixelSearchRNeg.TabIndex = 16;
+            numPixelSearchRNeg.ValueChanged += (this.numPixelSearchRNeg_ValueChanged);
+            // 
+            // numPixelSearchR
+            // 
+            numPixelSearchR.Location = new Point(25, 52);
+            numPixelSearchR.Maximum = new decimal(new int[] { 255, 0, 0, 0 });
+            numPixelSearchR.Name = "numPixelSearchR";
+            numPixelSearchR.Size = new Size(42, 23);
+            numPixelSearchR.TabIndex = 16;
+            numPixelSearchR.Value = new decimal(new int[] { 255, 0, 0, 0 });
+            numPixelSearchR.ValueChanged += (this.numPixelSearchR_ValueChanged);
+            // 
+            // label105
+            // 
+            label105.Location = new Point(12, 141);
+            label105.Margin = new Padding(2, 0, 2, 0);
+            label105.Name = "label105";
+            label105.Size = new Size(284, 38);
+            label105.TabIndex = 15;
+            label105.Text = "Click Image to Select a color, and Drag a cropping window on the screen.";
+            // 
+            // cmdPixelSearchProperties
+            // 
+            cmdPixelSearchProperties.BackColor = SystemColors.ButtonShadow;
+            cmdPixelSearchProperties.Cursor = Cursors.Hand;
+            cmdPixelSearchProperties.Dock = DockStyle.Top;
+            cmdPixelSearchProperties.FlatAppearance.BorderSize = 0;
+            cmdPixelSearchProperties.FlatStyle = FlatStyle.Flat;
+            cmdPixelSearchProperties.Font = new Font("Microsoft Sans Serif", 8.25F, FontStyle.Bold);
+            cmdPixelSearchProperties.ForeColor = SystemColors.ButtonFace;
+            cmdPixelSearchProperties.ImageAlign = ContentAlignment.MiddleLeft;
+            cmdPixelSearchProperties.ImageIndex = 22;
+            cmdPixelSearchProperties.ImageList = ImageList1;
+            cmdPixelSearchProperties.Location = new Point(0, 0);
+            cmdPixelSearchProperties.Margin = new Padding(4, 3, 4, 3);
+            cmdPixelSearchProperties.Name = "cmdPixelSearchProperties";
+            cmdPixelSearchProperties.Size = new Size(324, 25);
+            cmdPixelSearchProperties.TabIndex = 12;
+            cmdPixelSearchProperties.Text = "Pixel Search Properties";
+            cmdPixelSearchProperties.TextAlign = ContentAlignment.MiddleLeft;
+            cmdPixelSearchProperties.TextImageRelation = TextImageRelation.ImageBeforeText;
+            cmdPixelSearchProperties.UseVisualStyleBackColor = false;
+            cmdPixelSearchProperties.Click += (this.cmdPixelSearchProperties_Click);
+            // 
             // panelRightLogic
             // 
             panelRightLogic.BorderStyle = BorderStyle.FixedSingle;
@@ -5357,7 +5616,7 @@ namespace AppTestStudio
             panelRightLogic.Controls.Add(label31);
             panelRightLogic.Controls.Add(rdoOR);
             panelRightLogic.Controls.Add(rdoAnd);
-            panelRightLogic.Location = new Point(2, 1124);
+            panelRightLogic.Location = new Point(2, 1318);
             panelRightLogic.Margin = new Padding(2);
             panelRightLogic.Name = "panelRightLogic";
             panelRightLogic.Size = new Size(326, 82);
@@ -5452,7 +5711,7 @@ namespace AppTestStudio
             panelRightCustomLogic.Controls.Add(cmdValidate);
             panelRightCustomLogic.Controls.Add(label37);
             panelRightCustomLogic.Controls.Add(txtCustomLogic);
-            panelRightCustomLogic.Location = new Point(2, 1210);
+            panelRightCustomLogic.Location = new Point(2, 1404);
             panelRightCustomLogic.Margin = new Padding(2);
             panelRightCustomLogic.Name = "panelRightCustomLogic";
             panelRightCustomLogic.Size = new Size(325, 107);
@@ -5494,7 +5753,7 @@ namespace AppTestStudio
             // panelRightPointGrid
             // 
             panelRightPointGrid.Controls.Add(dgv);
-            panelRightPointGrid.Location = new Point(2, 1321);
+            panelRightPointGrid.Location = new Point(2, 1515);
             panelRightPointGrid.Margin = new Padding(2);
             panelRightPointGrid.Name = "panelRightPointGrid";
             panelRightPointGrid.Size = new Size(327, 178);
@@ -5589,7 +5848,7 @@ namespace AppTestStudio
             panelRightInformation.Controls.Add(pictureBoxInformationWarning);
             panelRightInformation.Controls.Add(lblInformation);
             panelRightInformation.Controls.Add(cmdRightInformation);
-            panelRightInformation.Location = new Point(2, 1503);
+            panelRightInformation.Location = new Point(2, 1697);
             panelRightInformation.Margin = new Padding(2);
             panelRightInformation.Name = "panelRightInformation";
             panelRightInformation.Size = new Size(326, 100);
@@ -7003,7 +7262,6 @@ namespace AppTestStudio
             // 
             groupBox11.Controls.Add(chkDontTakeScreenshot);
             groupBox11.Controls.Add(chkGameWindowNeverQuitIfWindowNotFound);
-            groupBox11.Controls.Add(grpVideo);
             groupBox11.Controls.Add(Label33);
             groupBox11.Controls.Add(cmdStartEmmulatorAndPackage);
             groupBox11.Controls.Add(cmdStartEmmulatorPackageAndRunScript);
@@ -7015,7 +7273,7 @@ namespace AppTestStudio
             groupBox11.Margin = new Padding(4, 3, 4, 3);
             groupBox11.Name = "groupBox11";
             groupBox11.Padding = new Padding(4, 3, 4, 3);
-            groupBox11.Size = new Size(817, 325);
+            groupBox11.Size = new Size(817, 168);
             groupBox11.TabIndex = 47;
             groupBox11.TabStop = false;
             groupBox11.Text = "General";
@@ -7043,54 +7301,6 @@ namespace AppTestStudio
             chkGameWindowNeverQuitIfWindowNotFound.Text = "Never Quit if Window Not Found";
             chkGameWindowNeverQuitIfWindowNotFound.UseVisualStyleBackColor = true;
             chkGameWindowNeverQuitIfWindowNotFound.CheckedChanged += (this.chkGameWindowNeverQuitIfWindowNotFound_CheckedChanged);
-            // 
-            // grpVideo
-            // 
-            grpVideo.Controls.Add(lblFrameLimit);
-            grpVideo.Controls.Add(NumericVideoFrameLimit);
-            grpVideo.Controls.Add(chkSaveVideo);
-            grpVideo.Enabled = false;
-            grpVideo.Location = new Point(27, 190);
-            grpVideo.Margin = new Padding(4, 3, 4, 3);
-            grpVideo.Name = "grpVideo";
-            grpVideo.Padding = new Padding(4, 3, 4, 3);
-            grpVideo.Size = new Size(233, 88);
-            grpVideo.TabIndex = 32;
-            grpVideo.TabStop = false;
-            grpVideo.Text = "Video";
-            // 
-            // lblFrameLimit
-            // 
-            lblFrameLimit.AutoSize = true;
-            lblFrameLimit.Location = new Point(10, 50);
-            lblFrameLimit.Margin = new Padding(4, 0, 4, 0);
-            lblFrameLimit.Name = "lblFrameLimit";
-            lblFrameLimit.Size = new Size(70, 15);
-            lblFrameLimit.TabIndex = 33;
-            lblFrameLimit.Text = "Frame Limit";
-            // 
-            // NumericVideoFrameLimit
-            // 
-            NumericVideoFrameLimit.Font = new Font("Microsoft Sans Serif", 15F);
-            NumericVideoFrameLimit.Location = new Point(89, 40);
-            NumericVideoFrameLimit.Margin = new Padding(4, 3, 4, 3);
-            NumericVideoFrameLimit.Maximum = new decimal(new int[] { 1000000, 0, 0, 0 });
-            NumericVideoFrameLimit.Name = "NumericVideoFrameLimit";
-            NumericVideoFrameLimit.Size = new Size(110, 30);
-            NumericVideoFrameLimit.TabIndex = 32;
-            NumericVideoFrameLimit.ValueChanged += (this.NumericVideoFrameLimit_ValueChanged);
-            // 
-            // chkSaveVideo
-            // 
-            chkSaveVideo.AutoSize = true;
-            chkSaveVideo.Location = new Point(10, 17);
-            chkSaveVideo.Margin = new Padding(4, 3, 4, 3);
-            chkSaveVideo.Name = "chkSaveVideo";
-            chkSaveVideo.Size = new Size(83, 19);
-            chkSaveVideo.TabIndex = 31;
-            chkSaveVideo.Text = "Save Video";
-            chkSaveVideo.UseVisualStyleBackColor = true;
-            chkSaveVideo.CheckedChanged += (this.chkSaveVideo_CheckedChanged);
             // 
             // Label33
             // 
@@ -7169,7 +7379,7 @@ namespace AppTestStudio
             // grpSavedPictures
             // 
             grpSavedPictures.Controls.Add(chkSavedPicturesGlobal);
-            grpSavedPictures.Location = new Point(3, 1483);
+            grpSavedPictures.Location = new Point(3, 1326);
             grpSavedPictures.Name = "grpSavedPictures";
             grpSavedPictures.Size = new Size(818, 160);
             grpSavedPictures.TabIndex = 51;
@@ -9254,6 +9464,17 @@ namespace AppTestStudio
             panelRightClickProperties.ResumeLayout(false);
             panelRightClickProperties.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)NumericClickSpeed).EndInit();
+            panelRightPixelSearchProperties.ResumeLayout(false);
+            panelRightPixelSearchProperties.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchB).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchG).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchBNeg).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchBPos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchGPos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchGNeg).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchRPos).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchRNeg).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numPixelSearchR).EndInit();
             panelRightLogic.ResumeLayout(false);
             panelRightLogic.PerformLayout();
             panelRightCustomLogic.ResumeLayout(false);
@@ -9310,9 +9531,6 @@ namespace AppTestStudio
             grpBlue.PerformLayout();
             groupBox11.ResumeLayout(false);
             groupBox11.PerformLayout();
-            grpVideo.ResumeLayout(false);
-            grpVideo.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)NumericVideoFrameLimit).EndInit();
             grpSavedPictures.ResumeLayout(false);
             grpSavedPictures.PerformLayout();
             PanelWorkspace.ResumeLayout(false);
@@ -9744,10 +9962,6 @@ namespace AppTestStudio
         private System.Windows.Forms.Button cmdApplicationWindowWizard;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
         private System.Windows.Forms.GroupBox groupBox11;
-        internal System.Windows.Forms.GroupBox grpVideo;
-        internal System.Windows.Forms.Label lblFrameLimit;
-        internal System.Windows.Forms.NumericUpDown NumericVideoFrameLimit;
-        internal System.Windows.Forms.CheckBox chkSaveVideo;
         internal System.Windows.Forms.Label Label33;
         internal System.Windows.Forms.Button cmdStartEmmulatorAndPackage;
         private System.Windows.Forms.GroupBox groupBox2;
@@ -10082,6 +10296,27 @@ namespace AppTestStudio
         private Label lblScriptChild;
         private Label lblScriptClickCount;
         private Label label117;
-        private CheckBox chkUseObjectSearchPosition;
+        private CheckBox chkUseParentPosition;
+        internal RadioButton rdoPixelSearch;
+        private Panel panelRightPixelSearchProperties;
+        private Label label105;
+        private Button cmdPixelSearchProperties;
+        private Label label113;
+        private Label label110;
+        private Label label109;
+        private Label label118;
+        private Label label116;
+        private Label label115;
+        private Label lblPixelSearchPreview;
+        private Label label119;
+        public NumericUpDown numPixelSearchB;
+        public NumericUpDown numPixelSearchG;
+        public NumericUpDown numPixelSearchR;
+        public NumericUpDown numPixelSearchBNeg;
+        public NumericUpDown numPixelSearchBPos;
+        public NumericUpDown numPixelSearchGPos;
+        public NumericUpDown numPixelSearchGNeg;
+        public NumericUpDown numPixelSearchRPos;
+        public NumericUpDown numPixelSearchRNeg;
     }
 }

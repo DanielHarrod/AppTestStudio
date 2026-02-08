@@ -35,10 +35,20 @@ namespace AppTestStudio
 
         private void frmTestAllRuntimeImages_Load(object sender, EventArgs e)
         {
+
+            for (int i = 0; i <= 200; i += 5)
+            {
+                cboScale.Items.Add($"{i.ToString()}%");
+            }
+
+            cboScale.Text = "35%";
+        }
+
+        private void DrawForm(double scaler)
+        {
             try
             {
-                double scaler = 0.37;
-
+                fp.Controls.Clear();
                 PreviewWidth = ((double)gamePassSolutions[0].Bitmap.Width * scaler).ToInt();
                 PreviewHeight = ((double)gamePassSolutions[0].Bitmap.Height * scaler).ToInt();
 
@@ -48,7 +58,7 @@ namespace AppTestStudio
 
                 // Show the reference image.
                 // ATS does not use the reference bitmaps at runtime. 
-                TreeNode[] tn = frmMain.tv.Nodes[0].Nodes.Find(actionNode.Name,true);
+                TreeNode[] tn = frmMain.tv.Nodes[0].Nodes.Find(actionNode.Name, true);
                 if (tn.Length > 0)
                 {
                     GameNodeAction actionNode = tn[0] as GameNodeAction;
@@ -127,8 +137,8 @@ namespace AppTestStudio
             {
                 log.Error(ex);
             }
-
         }
+
         private PictureBox GetPictureBox(Bitmap bmp, int Width, int Height)
         {
             PictureBox pb = new PictureBox();
@@ -151,27 +161,48 @@ namespace AppTestStudio
 
             Bitmap pBMP = gps.Bitmap.CloneMe();
             Rectangle locatedRectangle = Rectangle.Empty;
-            if (actionNode.IsColorPoint)
+
+            switch (actionNode.EventType)
             {
-                // do nothing
-            }
-            else { 
-                using (Graphics g = Graphics.FromImage(pBMP))
-                {
-                    // Draw Mask Area
-                    Utils.DrawRectangleWithGuidesOnGraphics(g, gps.Bitmap, actionNode.Rectangle, 0, 0, 255, 125);
+                case EventType.ColorPoint:
+                    // Do Nothing
+                    break;
+                case EventType.ObjectSearch:
+                    using (Graphics g = Graphics.FromImage(pBMP))
+                    {
+                        // Draw Mask Area
+                        Utils.DrawRectangleWithGuidesOnGraphics(g, gps.Bitmap, actionNode.Rectangle, 0, 0, 255, 125);
 
-                    int LocatedX = eventSolution.CenterX - (actionNode.ObjectSearchBitmap.Width / 2);
-                    int locatedY = eventSolution.CenterY - (actionNode.ObjectSearchBitmap.Height / 2);
-                   
-                    locatedRectangle.X = LocatedX + actionNode.Rectangle.X;
-                    locatedRectangle.Y = locatedY + actionNode.Rectangle.Y;
-                    locatedRectangle.Width = actionNode.ObjectSearchBitmap.Width;
-                    locatedRectangle.Height = actionNode.ObjectSearchBitmap.Height;
+                        int LocatedX = eventSolution.CenterX - (actionNode.ObjectSearchBitmap.Width / 2);
+                        int locatedY = eventSolution.CenterY - (actionNode.ObjectSearchBitmap.Height / 2);
 
-                    Utils.DrawRectangleWithGuidesOnGraphics(g, gps.Bitmap, locatedRectangle, 255, 0, 0, 125);
-                }
+                        locatedRectangle.X = LocatedX + actionNode.Rectangle.X;
+                        locatedRectangle.Y = locatedY + actionNode.Rectangle.Y;
+                        locatedRectangle.Width = actionNode.ObjectSearchBitmap.Width;
+                        locatedRectangle.Height = actionNode.ObjectSearchBitmap.Height;
+
+                        Utils.DrawRectangleWithGuidesOnGraphics(g, gps.Bitmap, locatedRectangle, 255, 0, 0, 125);
+                    }
+
+                    break;
+                case EventType.PixelSearch:
+                    using (Graphics g = Graphics.FromImage(pBMP))
+                    {
+                        // Draw Mask Area
+                        Utils.DrawRectangleWithGuidesOnGraphics(g, gps.Bitmap, actionNode.Rectangle, 0, 0, 255, 125);
+
+                        if (eventSolution.Result)
+                        {
+                            // Draw a Green line
+                            Rectangle r9 = new Rectangle(eventSolution.CenterX, eventSolution.CenterY, 9, 9);
+                            Utils.DrawRectangleWithGuidesOnGraphics(g, gps.Bitmap, r9, 0, 250, 0, 150);
+                        }
+                    }
+                    break;
+                default:
+                    break;
             }
+
 
             PictureBox pb = GetPictureBox(pBMP, Width, Height);
 
@@ -183,163 +214,205 @@ namespace AppTestStudio
             tableLayoutPanel.Size = new Size(Width + this.ClientSize.Width, Height);
             tableLayoutPanel.TabIndex = 0;
 
-            if (actionNode.IsColorPoint)
+            FlowLayoutPanel fp = null;
+            Button btnAddImageToProject = null;
+            Label l = new Label();
+            switch (actionNode.EventType)
             {
-                FlowLayoutPanel fp = new FlowLayoutPanel();
-                fp.FlowDirection = FlowDirection.TopDown;
-                fp.WrapContents = false;
-                fp.AutoScroll = true;
-                fp.Width = 800;
-                fp.Height = Height;
+                case EventType.ColorPoint:
+                    fp = new FlowLayoutPanel();
+                    fp.FlowDirection = FlowDirection.TopDown;
+                    fp.WrapContents = false;
+                    fp.AutoScroll = true;
+                    fp.Width = 800;
+                    fp.Height = Height;
 
-                Button btnAddImageToProject = new Button();
-                btnAddImageToProject.Text = "Add <- Image to Project";
-                btnAddImageToProject.Click += btnAddImageToProject_Click;
-                btnAddImageToProject.Tag = gps.SolutionID.ToString();
-                btnAddImageToProject.Width = 220;
-                fp.Controls.Add(btnAddImageToProject);
+                    btnAddImageToProject = new Button();
+                    btnAddImageToProject.Text = "Add <- Image to Project";
+                    btnAddImageToProject.Click += btnAddImageToProject_Click;
+                    btnAddImageToProject.Tag = gps.SolutionID.ToString();
+                    btnAddImageToProject.Width = 220;
+                    fp.Controls.Add(btnAddImageToProject);
 
-                fp.Controls.Add(GetDVG(gps, Height));
-                tableLayoutPanel.Controls.Add(fp, 1, 0);
+                    fp.Controls.Add(GetDVG(gps, Height));
+                    tableLayoutPanel.Controls.Add(fp, 1, 0);
+                    break;
+                case EventType.ObjectSearch:
+                    ActionSolution solution = new ActionSolution(0);
+
+                    fp = new FlowLayoutPanel();
+                    fp.FlowDirection = FlowDirection.TopDown;
+                    fp.WrapContents = false;
+                    fp.AutoScroll = true;
+                    fp.Width = gps.Bitmap.Width;
+                    fp.Height = Height;
+
+                    btnAddImageToProject = new Button();
+                    btnAddImageToProject.Text = "Add <- Image to Project";
+                    btnAddImageToProject.Click += btnAddImageToProject_Click;
+                    btnAddImageToProject.Tag = gps.SolutionID;
+                    btnAddImageToProject.Width = 220;
+                    fp.Controls.Add(btnAddImageToProject);
+
+                    l.Width = 300;
+                    l.Text = $"Solution ID = {gps.SolutionID}";
+                    l.Tag = gps.SolutionID;
+
+                    fp.Controls.Add(l);
+
+                    l = new Label();
+                    l.Width = 300;
+                    l.Text = $"ObjectThreashold = {actionNode.ObjectThreshold}";
+                    fp.Controls.Add(l);
+
+                    float detectedThreashold = (eventSolution.DetectedThreashold);
+                    l = new Label();
+                    l.Width = 300;
+                    l.Text = $"DetectedThreshold = {detectedThreashold}";
+                    fp.Controls.Add(l);
+
+                    l = new Label();
+                    l.Width = 500;
+                    l.Text = $"Mask = {actionNode.Rectangle}";
+                    fp.Controls.Add(l);
+
+                    l = new Label();
+                    l.Width = 500;
+                    l.Text = $"Best XY at Threashold = {detectedThreashold} at ({eventSolution.CenterX},{eventSolution.CenterY})";
+                    fp.Controls.Add(l);
+
+                    l = new Label();
+                    l.Width = 500;
+                    l.Text = "Result: Fail";
+                    l.BackColor = Color.PaleVioletRed;
+                    if (detectedThreashold >= actionNode.ObjectThreshold)
+                    {
+                        l.Text = "Result: Pass";
+                        l.BackColor = Color.LightGreen;
+                    }
+                    fp.Controls.Add(l);
+
+                    l = new Label();
+                    l.Width = 500;
+                    l.Text = $"Seek time {eventSolution.ImageSearchTime}";
+                    fp.Controls.Add(l);
+
+                    Bitmap searchObject = actionNode.ObjectSearchBitmap;
+                    int searchObjectWidth = searchObject.Width;
+                    int searchObjectHeight = searchObject.Height;
+
+                    // Mask Area
+                    Bitmap bmpMask = eventSolution.bitmapBeingSearchedForObject;
+                    int ObjectSearchWidth = bmpMask.Width;
+                    int ObjectSearchHeight = bmpMask.Height;
+
+                    GroupBox groupBox = new GroupBox();
+                    groupBox.Text = "Search Area";
+                    groupBox.Name = "groupBox2";
+                    groupBox.Width = ObjectSearchWidth + 6;
+                    groupBox.Height = ObjectSearchHeight + 23;
+
+                    PictureBox pictureBox = GetPictureBox(bmpMask, ObjectSearchWidth, ObjectSearchHeight);
+                    pictureBox.Dock = DockStyle.Left | DockStyle.Top;
+                    pictureBox.TabIndex = 0;
+                    pictureBox.TabStop = false;
+
+                    groupBox.Controls.Add(pictureBox);
+                    fp.Controls.Add(groupBox);
+
+                    // Search Image
+                    groupBox = new GroupBox();
+                    groupBox.Text = "Search Image";
+                    groupBox.Name = "groupBox1";
+                    groupBox.Width = searchObjectWidth + 6;
+                    groupBox.Height = searchObjectHeight + 23;
+
+                    pictureBox = GetPictureBox(searchObject, searchObjectWidth, searchObjectHeight);
+                    pictureBox.Dock = DockStyle.Left | DockStyle.Top;
+                    pictureBox.TabIndex = 0;
+                    pictureBox.TabStop = false;
+
+                    groupBox.Controls.Add(pictureBox);
+                    fp.Controls.Add(groupBox);
+
+
+                    // Found Area
+                    Bitmap CropImage = new Bitmap(searchObjectWidth, searchObjectHeight);
+                    using (Graphics grp = Graphics.FromImage(CropImage))
+                    {
+                        grp.DrawImage(gps.Bitmap, new Rectangle(0, 0, searchObjectWidth, searchObjectHeight), locatedRectangle, GraphicsUnit.Pixel);
+                        grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                        grp.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
+                        grp.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                    }
+
+                    pictureBox = GetPictureBox(CropImage, CropImage.Width, CropImage.Height);
+                    pictureBox.Dock = DockStyle.Left | DockStyle.Top;
+                    pictureBox.TabIndex = 0;
+                    pictureBox.TabStop = false;
+
+                    groupBox = new GroupBox();
+                    groupBox.Text = "Found Image";
+                    groupBox.Name = "groupBox3";
+                    groupBox.Width = CropImage.Width + 6;
+                    groupBox.Height = CropImage.Height + 23;
+
+                    groupBox.Controls.Add(pictureBox);
+                    fp.Controls.Add(groupBox);
+
+                    tableLayoutPanel.Controls.Add(fp, 1, 0);
+                    break;
+                case EventType.PixelSearch:
+                    fp = new FlowLayoutPanel();
+                    fp.FlowDirection = FlowDirection.TopDown;
+                    fp.WrapContents = false;
+                    fp.AutoScroll = true;
+                    fp.Width = gps.Bitmap.Width;
+                    fp.Height = Height;
+
+                    btnAddImageToProject = new Button();
+                    btnAddImageToProject.Text = "Add <- Image to Project";
+                    btnAddImageToProject.Click += btnAddImageToProject_Click;
+                    btnAddImageToProject.Tag = gps.SolutionID;
+                    btnAddImageToProject.Width = 220;
+                    fp.Controls.Add(btnAddImageToProject);
+
+                    l = new Label();
+                    l.Width = 300;
+                    l.Text = $"Solution ID = {gps.SolutionID}";
+                    l.Tag = gps.SolutionID;
+
+                    fp.Controls.Add(l);
+                    tableLayoutPanel.Controls.Add(fp, 1, 0);
+
+                    l = new Label();
+                    l.Width = 500;
+                    l.Text = $"Result: Fail ms={eventSolution.ImageSearchTime}";
+                    l.BackColor = Color.PaleVioletRed;
+                    if (eventSolution.Result)
+                    {
+                        l.Text = $"Result: Pass X:{eventSolution.CenterX}, Y:{eventSolution.CenterY}, ms={eventSolution.ImageSearchTime}";
+                        l.BackColor = Color.LightGreen;
+                    }
+                    fp.Controls.Add(l);
+
+                    break;
+                default:
+                    break;
             }
-            else
-            {
-                ActionSolution solution = new ActionSolution(0);
 
-                FlowLayoutPanel fp = new FlowLayoutPanel();
-                fp.FlowDirection = FlowDirection.TopDown;
-                fp.WrapContents = false;
-                fp.AutoScroll = true;
-                fp.Width = gps.Bitmap.Width;
-                fp.Height = Height;
-
-                Button btnAddImageToProject = new Button();
-                btnAddImageToProject.Text = "Add <- Image to Project";
-                btnAddImageToProject.Click += btnAddImageToProject_Click;
-                btnAddImageToProject.Tag = gps.SolutionID;
-                btnAddImageToProject.Width = 220;
-                fp.Controls.Add(btnAddImageToProject);
-
-                Label l = new Label();
-                l.Width = 300;
-                l.Text = $"Solution ID = {gps.SolutionID}";
-                l.Tag = gps.SolutionID;
-
-                fp.Controls.Add(l);
-
-                l = new Label();
-                l.Width = 300;
-                l.Text = $"ObjectThreashold = {actionNode.ObjectThreshold}";
-                fp.Controls.Add(l);
-
-                float detectedThreashold = (eventSolution.DetectedThreashold);
-                l = new Label();
-                l.Width = 300;
-                l.Text = $"DetectedThreshold = {detectedThreashold}";
-                fp.Controls.Add(l);
-
-                l = new Label();
-                l.Width = 500;
-                l.Text = $"Mask = {actionNode.Rectangle}";
-                fp.Controls.Add(l);
-
-                l = new Label();
-                l.Width = 500;
-                l.Text = $"Best XY at Threashold = {detectedThreashold} at ({eventSolution.CenterX},{eventSolution.CenterY})";
-                fp.Controls.Add(l);
-
-                l = new Label();
-                l.Width = 500;
-                l.Text = "Result: Fail";
-                l.BackColor = Color.PaleVioletRed;
-                if (detectedThreashold >= actionNode.ObjectThreshold)
-                {
-                    l.Text = "Result: Pass";
-                    l.BackColor = Color.LightGreen;
-                }
-                fp.Controls.Add(l);
-
-                l = new Label();
-                l.Width = 500;
-                l.Text = $"Seek time {eventSolution.ImageSearchTime}";
-                fp.Controls.Add(l);
-
-                Bitmap searchObject = actionNode.ObjectSearchBitmap;
-                int searchObjectWidth = searchObject.Width;
-                int searchObjectHeight = searchObject.Height;
-
-                // Mask Area
-                Bitmap bmpMask = eventSolution.bitmapBeingSearchedForObject;
-                int ObjectSearchWidth = bmpMask.Width;
-                int ObjectSearchHeight = bmpMask.Height;
-
-                GroupBox groupBox = new GroupBox();
-                groupBox.Text = "Search Area";
-                groupBox.Name = "groupBox2";
-                groupBox.Width = ObjectSearchWidth + 6;
-                groupBox.Height = ObjectSearchHeight + 23;
-
-                PictureBox pictureBox = GetPictureBox(bmpMask, ObjectSearchWidth, ObjectSearchHeight);
-                pictureBox.Dock = DockStyle.Left | DockStyle.Top;
-                pictureBox.TabIndex = 0;
-                pictureBox.TabStop = false;
-
-                groupBox.Controls.Add(pictureBox);
-                fp.Controls.Add(groupBox);
-
-                // Search Image
-                groupBox = new GroupBox();
-                groupBox.Text = "Search Image";
-                groupBox.Name = "groupBox1";
-                groupBox.Width = searchObjectWidth + 6;
-                groupBox.Height = searchObjectHeight + 23;
-
-                pictureBox = GetPictureBox(searchObject, searchObjectWidth, searchObjectHeight);
-                pictureBox.Dock = DockStyle.Left | DockStyle.Top;
-                pictureBox.TabIndex = 0;
-                pictureBox.TabStop = false;
-
-                groupBox.Controls.Add(pictureBox);
-                fp.Controls.Add(groupBox);
-
-
-                // Found Area
-                Bitmap CropImage = new Bitmap(searchObjectWidth, searchObjectHeight);
-                using (Graphics grp = Graphics.FromImage(CropImage))
-                {
-                    grp.DrawImage(gps.Bitmap, new Rectangle(0, 0, searchObjectWidth, searchObjectHeight), locatedRectangle, GraphicsUnit.Pixel);
-                    grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                    grp.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-                    grp.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-                }
-
-                pictureBox = GetPictureBox(CropImage, CropImage.Width, CropImage.Height);
-                pictureBox.Dock = DockStyle.Left | DockStyle.Top;
-                pictureBox.TabIndex = 0;
-                pictureBox.TabStop = false;
-
-                groupBox = new GroupBox();
-                groupBox.Text = "Found Image";
-                groupBox.Name = "groupBox3";
-                groupBox.Width = CropImage.Width + 6;
-                groupBox.Height = CropImage.Height + 23;
-
-                groupBox.Controls.Add(pictureBox);
-                fp.Controls.Add(groupBox);
-
-                tableLayoutPanel.Controls.Add(fp, 1, 0);
-            }
-            return tableLayoutPanel;            
+            return tableLayoutPanel;
         }
 
         private void btnAddImageToProject_Click(object? sender, EventArgs e)
         {
             Button btnSender = sender as Button;
-            if (btnSender != null && btnSender.Tag != null) {
+            if (btnSender != null && btnSender.Tag != null)
+            {
 
                 GamePassSolution gamePassSolution = gamePassSolutions.Find(x => x.SolutionID == btnSender.Tag.ToInt());
 
-                if (gamePassSolution!= null)
+                if (gamePassSolution != null)
                 {
                     frmAddNewNode frm = new frmAddNewNode(gamePassSolution, frmMain.tv.SelectedNode.FullPath);
                     frm.ShowDialog();
@@ -363,7 +436,7 @@ namespace AppTestStudio
             DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             DataGridViewCellStyle dataGridViewCellStyle2 = new DataGridViewCellStyle();
             dgv.AllowUserToAddRows = false;
-            dgv.Anchor = AnchorStyles.Top |  AnchorStyles.Left | AnchorStyles.Bottom;
+            dgv.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Bottom;
             //dgv.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dgv.AutoSizeRowsMode = DataGridViewAutoSizeRowsMode.AllCells;
             dataGridViewCellStyle1.Alignment = DataGridViewContentAlignment.MiddleLeft;
@@ -503,6 +576,16 @@ namespace AppTestStudio
         private void myDataGridView_SelectionChanged(Object sender, EventArgs e)
         {
             (sender as DataGridView).ClearSelection();
+        }
+
+        private void cboScale_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int scale = 0;
+            if (int.TryParse(cboScale.Text.Replace("%", ""), out scale))
+            {
+                double scaler = scale / 100.0;
+                DrawForm(scaler);
+            }
         }
     }
 }

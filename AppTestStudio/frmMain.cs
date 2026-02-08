@@ -92,6 +92,7 @@ namespace AppTestStudio
         private int InitialPanelRightAfterCompletionHeight;
         private int InitialPanelRightObjectHeight;
         private int InitialPanelRightLogicHeight;
+        private int InitialPanelRightPixelSearchPropertiesHeight;
         private int InitialPanelRightCustomLogicHeight;
         private int InitialPanelRightPointGridHeight;
         private int InitialPanelRightClickPropertiesHeight;
@@ -152,6 +153,7 @@ namespace AppTestStudio
             InitialPanelRightAfterCompletionHeight = panelRightAfterCompletion.Height;
             InitialPanelRightObjectHeight = panelRightObject.Height;
             InitialPanelRightLogicHeight = panelRightLogic.Height;
+            InitialPanelRightPixelSearchPropertiesHeight = panelRightPixelSearchProperties.Height;
             InitialPanelRightCustomLogicHeight = panelRightCustomLogic.Height;
             InitialPanelRightPointGridHeight = panelRightCustomLogic.Height;
             InitialPanelRightClickPropertiesHeight = panelRightClickProperties.Height;
@@ -217,6 +219,9 @@ namespace AppTestStudio
             AdministratorCheck();
 
             CheckMonitorScaling();
+
+            // Prevent from losing Runtime stats area
+            splitContainerStatsNScrollie.SplitterDistance = 164;
 
         }
 
@@ -284,14 +289,16 @@ namespace AppTestStudio
             h = lstGamePass.Columns.Add("Time");
             h.Width = 55;
 
-            h = lstGamePass.Columns.Add("Counter");
-            h.Width = 55;
+            h = lstGamePass.Columns.Add("Ctr");
+            h.Width = 35;
 
-
-            h = lstGamePass.Columns.Add("Actions");
-            h.Width = 55;
+            h = lstGamePass.Columns.Add("Act");
+            h.Width = 35;
 
             h = lstGamePass.Columns.Add("Node");
+            h.Width = 90;
+
+            h = lstGamePass.Columns.Add("ms");
             h.Width = 90;
             lstGamePass_Resize(null, null);
 
@@ -1009,8 +1016,6 @@ namespace AppTestStudio
 
             txtGamePanelLoopDelay.Text = gameNode.LoopDelay.ToString();
             cboResolution.Text = gameNode.Resolution;
-            chkSaveVideo.Checked = gameNode.SaveVideo;
-            NumericVideoFrameLimit.Value = gameNode.VideoFrameLimit;
             numericApplicationDefaultClickSpeed.Value = gameNode.DefaultClickSpeed;
             cboDPI.Text = gameNode.DPI.ToString();
 
@@ -1178,6 +1183,7 @@ namespace AppTestStudio
 
             panelRightAnchor.Visible = false;
             panelRightLogic.Visible = false;
+            panelRightPixelSearchProperties.Visible = false;
             panelRightCustomLogic.Visible = false;
             panelRightPointGrid.Visible = false;
 
@@ -1193,7 +1199,7 @@ namespace AppTestStudio
             lblRHSColor.Visible = false;
             lblRHSXY.Visible = false;
 
-            chkUseObjectSearchPosition.Visible = false;
+            chkUseParentPosition.Visible = false;
 
             //'if (PanelLoadNode.Nodes.Count = 0 ) {
             //'    cmdDelete.Enabled = true
@@ -1212,13 +1218,17 @@ namespace AppTestStudio
 
             NumericClickSpeed.Value = GameNode.ClickSpeed;
 
-            if (GameNode.IsColorPoint)
+            switch (GameNode.EventType)
             {
-                rdoColorPoint.Checked = true;
-            }
-            else
-            {
-                rdoObjectSearch.Checked = true;
+                case EventType.ColorPoint:
+                    rdoColorPoint.Checked = true;
+                    break;
+                case EventType.ObjectSearch:
+                    rdoObjectSearch.Checked = true;
+                    break;
+                case EventType.PixelSearch:
+                    rdoPixelSearch.Checked = true;
+                    break;
             }
 
             switch (GameNode.AfterCompletionType)
@@ -1378,15 +1388,15 @@ namespace AppTestStudio
                         Log("Swipe End Width(" + GameNode.ClickDragReleaseVelocity + ") is invalid setting to 500");
                     }
 
-                    if (GameNode.IsParentObjectSearch())
+                    if (GameNode.IsParentRelativePositioning())
                     {
                         panelRightAnchor.Visible = false;
-                        chkUseObjectSearchPosition.Visible = true;
+                        chkUseParentPosition.Visible = true;
                     }
                     else
                     {
                         panelRightAnchor.Visible = true;
-                        chkUseObjectSearchPosition.Visible = false;
+                        chkUseParentPosition.Visible = false;
                     }
 
                     switch (GameNode.ClickDragReleaseMode)
@@ -1424,7 +1434,7 @@ namespace AppTestStudio
                             break;
                     }
 
-                    chkUseObjectSearchPosition.Checked = GameNode.UseObjectSearchPosition;
+                    chkUseParentPosition.Checked = GameNode.UseParentPosition;
 
                     break;
                 case AppTestStudio.ActionType.Event:
@@ -1438,7 +1448,21 @@ namespace AppTestStudio
 
                     numericPropertiesRepeatsUntilFalse.Value = GameNode.RepeatsUntilFalseLimit;
 
-                    rdoColorPoint.Checked = GameNode.IsColorPoint;
+                    switch (GameNode.EventType)
+                    {
+                        case EventType.ColorPoint:
+                            rdoColorPoint.Checked = true;
+                            break;
+                        case EventType.ObjectSearch:
+                            rdoObjectSearch.Checked = true;
+                            break;
+                        case EventType.PixelSearch:
+                            rdoPixelSearch.Checked = true;
+                            break;
+                        default:
+                            break;
+                    }
+
                     grpMode.Visible = false;
                     grpEventMode.Visible = true;
                     //'cmdHelpAddAction.Visible = false
@@ -1518,6 +1542,16 @@ namespace AppTestStudio
 
                     //'do nothing
                     LoadObjectNodeSection();
+
+                    numPixelSearchB.Value = GameNode.PixelSearchB;
+                    numPixelSearchG.Value = GameNode.PixelSearchG;
+                    numPixelSearchR.Value = GameNode.PixelSearchR;
+                    numPixelSearchBNeg.Value = GameNode.PixelSearchBNeg;
+                    numPixelSearchGNeg.Value = GameNode.PixelSearchGNeg;
+                    numPixelSearchRNeg.Value = GameNode.PixelSearchRNeg;
+                    numPixelSearchBPos.Value = GameNode.PixelSearchBPos;
+                    numPixelSearchGPos.Value = GameNode.PixelSearchGPos;
+                    numPixelSearchRPos.Value = GameNode.PixelSearchRPos;
 
                     break;
                 case AppTestStudio.ActionType.RNG:
@@ -1680,32 +1714,26 @@ namespace AppTestStudio
 
             lblXOffsetRange.Text = "-" + PictureBox1.Width + " to " + PictureBox1.Width;
             lblYOffsetRange.Text = "-" + PictureBox1.Height + " to " + PictureBox1.Height;
-
-            if (CurrentParent is GameNodeAction)
-            {
-                if (CurrentParent.IsColorPoint == false)
-                {
-                    //grpObjectAction.Visible = true;
-                    return;
-                }
-                else
-                {
-                    //grpObjectAction.Visible = false;
-                    return;
-                }
-            }
-
-
         }
 
         private void LoadObjectNodeSection()
         {
             GameNodeAction EventNode = tv.SelectedNode as GameNodeAction;
 
-            if (EventNode.IsColorPoint)
+            switch (EventNode.EventType)
             {
-                return;
+                case EventType.ColorPoint:
+                    return;
+                    break;
+                case EventType.ObjectSearch:
+                    break;
+                case EventType.PixelSearch:
+                    return;
+                    break;
+                default:
+                    break;
             }
+
             LoadEventObjectList();
 
             LoadObjectSelectionImage();
@@ -1748,36 +1776,41 @@ namespace AppTestStudio
         private void LoadObjectSelectionImage()
         {
             GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-            if (ActionNode.IsColorPoint)
+            switch (ActionNode.EventType)
             {
-                //'do nothing
-            }
-            else
-            {
-                if (ActionNode.ObjectName.Trim() == "")
-                {
-                    //'do nothing
-                }
-                else
-                {
-                    GameNode Node = tv.SelectedNode as GameNode;
-                    GameNode GameNode = Node.GetGameNodeGame();
-                    GameNodeObjects ObjectsNode = GameNode.GetObjectsNode();
-                    //'For Each Screenshot As OctoGameNodeObjectScreenshot In ObjectsNode.Nodes
-
-                    foreach (GameNodeObject gameNodeObject in ObjectsNode.Nodes)
+                case EventType.ColorPoint:
+                    // Do nothing
+                    break;
+                case EventType.ObjectSearch:
+                    if (ActionNode.ObjectName.Trim() == "")
                     {
-                        if (gameNodeObject.GameNodeName.Trim() == ActionNode.ObjectName.Trim())
-                        {
-                            ActionNode.IsLoading = true;
-                            PictureBoxEventObjectSelection.Image = gameNodeObject.Bitmap;
-                            ActionNode.ObjectSearchBitmap = gameNodeObject.Bitmap;
-                            ActionNode.IsLoading = false;
-                            return;
-                        }
+                        //'do nothing
                     }
+                    else
+                    {
+                        GameNode Node = tv.SelectedNode as GameNode;
+                        GameNode GameNode = Node.GetGameNodeGame();
+                        GameNodeObjects ObjectsNode = GameNode.GetObjectsNode();
 
-                }
+                        foreach (GameNodeObject gameNodeObject in ObjectsNode.Nodes)
+                        {
+                            if (gameNodeObject.GameNodeName.Trim() == ActionNode.ObjectName.Trim())
+                            {
+                                ActionNode.IsLoading = true;
+                                PictureBoxEventObjectSelection.Image = gameNodeObject.Bitmap;
+                                ActionNode.ObjectSearchBitmap = gameNodeObject.Bitmap;
+                                ActionNode.IsLoading = false;
+                                return;
+                            }
+                        }
+
+                    }
+                    break;
+                case EventType.PixelSearch:
+                    // Do nothing.
+                    break;
+                default:
+                    break;
             }
             PictureBoxEventObjectSelection.Image = null;
             ActionNode.ObjectSearchBitmap = null;
@@ -2217,6 +2250,7 @@ namespace AppTestStudio
             GameNode Node = tv.SelectedNode as GameNode;
             GameNodeGame Game = Node.GetGameNodeGame();
             lblEventsPanelTargetWindow.Text = Game.TargetWindow;
+
         }
 
         private void LoadGamePanel()
@@ -2713,7 +2747,7 @@ namespace AppTestStudio
             int x = 1;
             int y = 0;
             Color color = new Color();
-            ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown, ref PictureObjectScreenshotRectangle);
+            Utils.ShowZoom(PictureObjectScreenshot, PictureObjectScreenshotZoomBox, e, panelObjectScreenshotColor, lblObjectScreenshotColorXY, lblObjectScreenshotRHSXY, ref x, ref y, ref color, IsPictureObjectScreenshotMouseDown, ref PictureObjectScreenshotRectangle);
 
             Boolean ReadyToSave = IsCreateScreenshotReadyToCreate();
 
@@ -2731,120 +2765,7 @@ namespace AppTestStudio
         }
 
         // Zoom and Crop/Mask
-        private Boolean ShowZoom(PictureBox pb, PictureBox pb2, MouseEventArgs e, Panel PSC, Label lblColor, Label lblXY, ref int PB1x, ref int PB1Y, ref Color PB1Color, bool pb1MouseDown, ref Rectangle rect)
-        {
-            // this zooms and sets masks
-            // need to decouple some time.
-            if (pb.Image.IsSomething())
-            {
-                Bitmap MyBitmap = pb.Image as Bitmap;
-                if (e.X >= MyBitmap.Width)
-                {
-                    return false;
-                }
-                if (e.Y >= MyBitmap.Height - 1)
-                {
-                    return false;
-                }
-
-                if (e.X <= -1)
-                {
-                    return false;
-                }
-
-                if (e.Y <= -1)
-                {
-                    return false;
-                }
-
-                Color Color = MyBitmap.GetPixel(e.X, e.Y);
-
-                //' Debug.Print(Color.ToString())
-
-                PSC.BackColor = Color;
-
-                Single brightness = Color.GetBrightness();
-                if (brightness < 0.55)
-                {
-                    lblColor.ForeColor = Color.WhiteSmoke;
-                    lblXY.ForeColor = Color.WhiteSmoke;
-                }
-                else
-                {
-                    lblColor.ForeColor = Color.Black;
-                    lblXY.ForeColor = Color.Black;
-                }
-
-                lblColor.Text = Color.ToRGBString();
-                lblXY.Text = " X=" + e.X + " Y= " + e.Y;
-
-                //' for click code.
-                PB1x = e.X;
-                PB1Y = e.Y;
-                PB1Color = Color;
-
-                int TargetX = e.X;
-                int TargetY = e.Y;
-
-                //'center x 
-                TargetX = TargetX - 20;
-
-                //'center y
-                TargetY = TargetY - 20;
-
-                Rectangle CropRect = new Rectangle(TargetX, TargetY, 40, 40);
-                Bitmap CropImage = new Bitmap(CropRect.Width, CropRect.Height);
-
-                using (Graphics grp = Graphics.FromImage(CropImage))
-                {
-                    grp.DrawImage(MyBitmap, new Rectangle(0, 0, CropRect.Width, CropRect.Height), CropRect, GraphicsUnit.Pixel);
-
-                    grp.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                    grp.PixelOffsetMode = System.Drawing.Drawing2D.PixelOffsetMode.HighQuality;
-                    grp.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-
-                    using (Pen Pen = new Pen(Color.Black, 2))
-                    {
-
-                        //'draw top on 40,40
-                        grp.DrawLine(Pen, 20, 0, 20, 18);
-
-                        //'draw bottom
-                        grp.DrawLine(Pen, 20, 22, 20, 40);
-                    }
-
-                    pb2.Image.Dispose();
-
-                    pb2.Image = CropImage;
-                    pb2.Refresh();
-                    //'CropImage.Save("C:\Incoming\abc.jpg")
-                }
-
-                if (pb1MouseDown)
-                {
-                    //'if (e.X > PictureBox1Rectangle.X ) {
-                    //'    PictureBox1Rectangle.Width = e.X - PictureBox1Rectangle.X
-                    //'}
-
-                    //'if (e.Y > PictureBox1Rectangle.Y ) {
-                    //'    PictureBox1Rectangle.Height = e.Y - PictureBox1Rectangle.Y
-                    //'}
-
-                    //' if (e.X > PictureBox1Rectangle.X ) {
-                    rect.Width = e.X - rect.X;
-                    //' }
-
-                    //'  if (e.Y > PictureBox1Rectangle.Y ) {
-                    rect.Height = e.Y - rect.Y;
-                    //' }
-
-                    pb.Refresh();
-                    return true;
-                }
-            }
-            return false;
-        }
-
+  
         private bool IsCreateScreenshotNamed()
         {
             if (txtObjectScreenshotName.Text.Trim().Length > 0)
@@ -3062,18 +2983,6 @@ namespace AppTestStudio
             GameNodeGame Game = GetGameNode();
             StartEmmulator(Game, Game.PackageName, Game.InstanceToLaunch);
             LoadInstance(Game);
-        }
-
-        private void chkSaveVideo_CheckedChanged(object sender, EventArgs e)
-        {
-            GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-            GameNode.SaveVideo = chkSaveVideo.Checked;
-        }
-
-        private void NumericVideoFrameLimit_ValueChanged(object sender, EventArgs e)
-        {
-            GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-            GameNode.VideoFrameLimit = NumericVideoFrameLimit.Value.ToLong();
         }
 
         private void chkEnableSchedule_CheckedChanged(object sender, EventArgs e)
@@ -3326,62 +3235,51 @@ namespace AppTestStudio
 
         }
 
-        private void rdoObjectSearch_CheckedChanged(object sender, EventArgs e)
-        {
-            if (IsPanelLoading == false)
-            {
-                HideShowObjectvsAndOR();
-                GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
-                GameNode.IsColorPoint = rdoColorPoint.Checked;
 
-                if (GameNode.Rectangle.IsEmpty)
-                {
-                    GameNode.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
-                }
-                PictureBox1.Refresh();
-
-                LoadObjectNodeSection();
-            }
-        }
-
-        private void rdoColorPoint_CheckedChanged(object sender, EventArgs e)
-        {
-            if (IsPanelLoading == false)
-            {
-                HideShowObjectvsAndOR();
-                GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
-                GameNode.IsColorPoint = rdoColorPoint.Checked;
-
-                PictureBox1.Refresh();
-            }
-        }
 
         private void HideShowObjectvsAndOR()
         {
-            GameNodeAction Node = tv.SelectedNode as GameNodeAction;
-            if (Node.IsColorPoint)
+            GameNodeAction? Node = tv.SelectedNode as GameNodeAction;
+            switch (Node?.EventType)
             {
-                panelRightLogic.Visible = true;
+                case EventType.ColorPoint:
+                    panelRightLogic.Visible = true;
 
-                if (Node.LogicChoice.ToUpper() == "CUSTOM")
-                {
-                    panelRightCustomLogic.Visible = true;
-                }
-                else
-                {
+                    if (Node.LogicChoice.ToUpper() == "CUSTOM")
+                    {
+                        panelRightCustomLogic.Visible = true;
+                    }
+                    else
+                    {
+                        panelRightCustomLogic.Visible = false;
+                    }
+                    panelRightPointGrid.Visible = true;
+                    panelRightObject.Visible = false;
+                    panelRightAnchor.Visible = false;
+                    panelRightPixelSearchProperties.Visible = false;
+
+                    break;
+                case EventType.ObjectSearch:
+                    panelRightLogic.Visible = false;
                     panelRightCustomLogic.Visible = false;
-                }
-                panelRightPointGrid.Visible = true;
-                panelRightObject.Visible = false;
-                panelRightAnchor.Visible = false;
-            }
-            else
-            {
-                panelRightLogic.Visible = false;
-                panelRightCustomLogic.Visible = false;
-                panelRightPointGrid.Visible = false;
-                panelRightObject.Visible = true;
-                panelRightAnchor.Visible = true;
+                    panelRightPointGrid.Visible = false;
+                    panelRightObject.Visible = true;
+                    panelRightAnchor.Visible = true;
+
+                    panelRightPixelSearchProperties.Visible = false;
+
+                    break;
+                case EventType.PixelSearch:
+                    panelRightLogic.Visible = false;
+                    panelRightCustomLogic.Visible = false;
+                    panelRightPointGrid.Visible = false;
+                    panelRightObject.Visible = false;
+                    panelRightAnchor.Visible = true;
+                    panelRightPixelSearchProperties.Visible = true;
+
+                    break;
+                default:
+                    break;
             }
         }
 
@@ -3571,40 +3469,48 @@ namespace AppTestStudio
                         }
                         break;
                     case "Event":
-                        if (rdoColorPoint.Checked)
+                        switch (ActionNode.EventType)
                         {
-                            frmTest frm2 = new frmTest(game, ActionNode, this, MainWindowHandle);
-                            frm2.StartPosition = FormStartPosition.CenterParent;
+                            case EventType.ColorPoint:
+                                frmTest frm2 = new frmTest(game, ActionNode, this, MainWindowHandle);
+                                frm2.StartPosition = FormStartPosition.CenterParent;
 
 
-                            frm2.ShowDialog(this);
-                        }
-                        else
-                        {
-                            if (PictureBoxEventObjectSelection.Image.IsSomething())
-                            {
-                                if (cboChannel.SelectedIndex == 0)
+                                frm2.ShowDialog(this);
+
+                                break;
+                            case EventType.ObjectSearch:
+                                if (PictureBoxEventObjectSelection.Image.IsSomething())
                                 {
-                                    Log("Please select choose a Color Channel to test with.");
-                                    //FlashLabel(lblColorChannel);
-                                    Debug.Assert(false);// need to preset REd Channel if one's not selected
+                                    if (cboChannel.SelectedIndex == 0)
+                                    {
+                                        Log("Please select choose a Color Channel to test with.");
+                                        //FlashLabel(lblColorChannel);
+                                        Debug.Assert(false);// need to preset REd Channel if one's not selected
+                                    }
+                                    else
+                                    {
+                                        frmTestObjectSearch frmTOS = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, null);
+                                        frmTOS.StartPosition = FormStartPosition.CenterParent;
+
+                                        frmTOS.ShowDialog(this);
+                                    }
                                 }
                                 else
                                 {
-                                    frmTestObjectSearch frm2 = new frmTestObjectSearch(game, Node as GameNodeAction, this, MainWindowHandle, null);
-                                    frm2.StartPosition = FormStartPosition.CenterParent;
-
-                                    frm2.ShowDialog(this);
+                                    Log("Please select An Object to test with from the list in the Object group before testing.");
+                                    // FlashLabel(lblSearchObject)
+                                    // Debug.Assert(false);// need to preset REd Channel if one's not selected
                                 }
-                            }
-                            else
-                            {
-                                Log("Please select An Object to test with from the list in the Object group before testing.");
-                                // FlashLabel(lblSearchObject)
-                                // Debug.Assert(false);// need to preset REd Channel if one's not selected
-                            }
-                        }
+                                break;
+                            case EventType.PixelSearch:
+                                frmTestPixelSearch frmTPS = new frmTestPixelSearch(game, Node as GameNodeAction, this, MainWindowHandle, null);
+                                frmTPS.ShowDialog(this);
 
+                                break;
+                            default:
+                                break;
+                        }
                         break;
 
                     default:
@@ -3942,66 +3848,6 @@ namespace AppTestStudio
                     }
                 }
             }
-
-            foreach (GameNodeGame game in ThreadManager.Games.ToList())
-            {
-                if (game.IsSomething())
-                {
-                    if (game.SaveVideo)
-                    {
-                        if (game.VideoFrameLimit > 0)
-                        {
-                            if (game.Video.IsNothing())
-                            {
-                                if (game.BitmapClones.IsSomething())
-                                {
-                                    if (game.BitmapClones.Count > 0)
-                                    {
-                                        Bitmap bmp = game.BitmapClones.First();
-                                        String FileName = StartNewVideo(game, bmp);
-                                        Log("Starting new video");
-                                        Log(FileName);
-                                        bmp = null;
-                                        //dont dispose re-reading it later.
-                                    }
-                                }
-                            }
-
-                            if (game.Video.IsSomething())
-                            {
-                                while (game.BitmapClones.Count > 0)
-                                {
-                                    Bitmap bmp = null;
-                                    if (game.BitmapClones.TryDequeue(out bmp))
-                                    {
-                                        if (game.VideoWidth != bmp.Width || game.VideoHeight != bmp.Height)
-                                        {
-                                            game.Video.Release();
-                                            game.Video = null;
-                                            String FileName = StartNewVideo(game, bmp);
-                                            Log("New Video Due to New Resolution:" + bmp.Width + "x" + bmp.Height);
-                                            Log(FileName);
-                                        }
-                                        OpenCvSharp.Mat mat = OpenCvSharp.Extensions.BitmapConverter.ToMat(bmp);
-                                        game.Video.Write(mat);
-                                        game.VideoFrameLimit = game.VideoFrameLimit - 1;
-                                    }
-                                }
-                            }
-                        }
-                        else
-                        {
-                            while (game.BitmapClones.Count > 0)
-                            {
-                                Bitmap bmp = null;
-                                game.BitmapClones.TryDequeue(out bmp);
-                                bmp.Dispose();
-                                bmp = null;
-                            }
-                        }
-                    }
-                }
-            }
         }
 
         int GamePassListCounter = 0;
@@ -4101,33 +3947,48 @@ namespace AppTestStudio
             switch (lblMode.Text)
             {
                 case "Event":
-                    if (rdoColorPoint.Checked)
+                    GameNodeAction EventNode = tv.SelectedNode as GameNodeAction;
+                    switch (EventNode.EventType)
                     {
-                        DataGridViewRow Row = dgv.Rows[0].Clone() as DataGridViewRow;
+                        case EventType.ColorPoint:
+                            DataGridViewRow Row = dgv.Rows[0].Clone() as DataGridViewRow;
 
-                        int RowIndex = dgv.Rows.Add();
-                        dgv.Rows[RowIndex].Cells["dgvID"].Value = RowIndex + 1;
-                        dgv.Rows[RowIndex].Cells["dgvRed"].Value = PictureBox1Color.R.ToString();
-                        dgv.Rows[RowIndex].Cells["dgvGreen"].Value = PictureBox1Color.G.ToString();
-                        dgv.Rows[RowIndex].Cells["dgvBlue"].Value = PictureBox1Color.B.ToString();
+                            int RowIndex = dgv.Rows.Add();
+                            dgv.Rows[RowIndex].Cells["dgvID"].Value = RowIndex + 1;
+                            dgv.Rows[RowIndex].Cells["dgvRed"].Value = PictureBox1Color.R.ToString();
+                            dgv.Rows[RowIndex].Cells["dgvGreen"].Value = PictureBox1Color.G.ToString();
+                            dgv.Rows[RowIndex].Cells["dgvBlue"].Value = PictureBox1Color.B.ToString();
 
-                        dgv.Rows[RowIndex].Cells["dgvX"].Value = PictureBox1X;
-                        dgv.Rows[RowIndex].Cells["dgvY"].Value = PictureBox1Y;
-                        dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scn";
-                        dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Rem";
+                            dgv.Rows[RowIndex].Cells["dgvX"].Value = PictureBox1X;
+                            dgv.Rows[RowIndex].Cells["dgvY"].Value = PictureBox1Y;
+                            dgv.Rows[RowIndex].Cells["dgvScan"].Value = "Scn";
+                            dgv.Rows[RowIndex].Cells["dgvRemove"].Value = "Rem";
 
-                        // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
-                        DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(PictureBox1Color);
+                            // Attempt to set adaptive colors for background color and font, tries to avoid white font with white background.
+                            DataGridViewCellStyle Style = Utils.GetDataGridViewCellStyleFromColor(PictureBox1Color);
 
-                        dgv.Rows[RowIndex].Cells["dgvRed"].Style = Style;
-                        dgv.Rows[RowIndex].Cells["dgvGreen"].Style = Style;
-                        dgv.Rows[RowIndex].Cells["dgvBlue"].Style = Style;
+                            dgv.Rows[RowIndex].Cells["dgvRed"].Style = Style;
+                            dgv.Rows[RowIndex].Cells["dgvGreen"].Style = Style;
+                            dgv.Rows[RowIndex].Cells["dgvBlue"].Style = Style;
 
-                        PictureBox1.Refresh();
+                            PictureBox1.Refresh();
 
-                        SaveClickList();
+                            SaveClickList();
 
-                        GameNodeAction GameNode = tv.SelectedNode as GameNodeAction;
+                            break;
+                        case EventType.ObjectSearch:
+                            break;
+                        case EventType.PixelSearch:
+                            if (EventNode.Rectangle.Width == 0 || EventNode.Rectangle.Height == 0)
+                            {
+                                EventNode.Rectangle = PreviousMaskingRectangle;
+                            }                            
+                            numPixelSearchB.Value = PictureBox1Color.B;
+                            numPixelSearchG.Value = PictureBox1Color.G;
+                            numPixelSearchR.Value = PictureBox1Color.R;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case "Action":
@@ -4194,6 +4055,8 @@ namespace AppTestStudio
 
         }
 
+        Rectangle PreviousMaskingRectangle = Rectangle.Empty;
+
         private void PictureBox1_MouseDown(object sender, MouseEventArgs e)
         {
             Debug.WriteLine("PictureBox1_MouseDown");
@@ -4202,17 +4065,29 @@ namespace AppTestStudio
             {
                 case "Action":
                     PictureBox1MouseDown = true;
+                    PreviousMaskingRectangle = Node.Rectangle;
                     Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
+
                     break;
                 case "Event":
-                    if (rdoColorPoint.Checked)
+                    switch (Node.EventType)
                     {
-                        // do nothing
-                    }
-                    else
-                    {
-                        PictureBox1MouseDown = true;
-                        Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
+                        case EventType.ColorPoint:
+                            break;
+                        case EventType.ObjectSearch:
+                            PictureBox1MouseDown = true;
+                            PreviousMaskingRectangle = Node.Rectangle;
+                            Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
+
+                            break;
+                        case EventType.PixelSearch:
+                            PictureBox1MouseDown = true;
+                            PreviousMaskingRectangle = Node.Rectangle;
+                            Node.Rectangle = new Rectangle(e.X, e.Y, 0, 0);
+
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 default:
@@ -4224,7 +4099,7 @@ namespace AppTestStudio
         {
             GameNodeAction Node = tv.SelectedNode as GameNodeAction;
 
-            Boolean Changed = ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.mRectangle);
+            Boolean Changed = Utils.ShowZoom(PictureBox1, PictureBox2, e, PanelSelectedColor, lblRHSColor, lblRHSXY, ref PictureBox1X, ref PictureBox1Y, ref PictureBox1Color, PictureBox1MouseDown, ref Node.mRectangle);
             if (Changed)
             {
                 Node.FlagAsDirty();
@@ -4241,13 +4116,20 @@ namespace AppTestStudio
                     PictureBox1MouseDown = false;
                     break;
                 case "Event":
-                    if (rdoColorPoint.Checked)
+                    GameNodeAction Node = tv.SelectedNode as GameNodeAction;
+                    switch (Node.EventType)
                     {
-                        // do nothing
-                    }
-                    else
-                    {
-                        PictureBox1MouseDown = false;
+                        case EventType.ColorPoint:
+                            // Do nothing
+                            break;
+                        case EventType.ObjectSearch:
+                            PictureBox1MouseDown = false;
+                            break;
+                        case EventType.PixelSearch:
+                            PictureBox1MouseDown = false;
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 default:
@@ -4273,19 +4155,31 @@ namespace AppTestStudio
                     break;
 
                 case ActionType.Event:
-                    if (rdoColorPoint.Checked)
+                    switch (Node.EventType)
                     {
-                        Utils.DrawColorPoints(e, dgv, "dgv", "dgvX", "dgvY");
-                    }
-                    else
-                    {
-                        if (Node.Rectangle.IsEmpty)
-                        {
-                            Node.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
-                        }
-                        Utils.DrawMask(Node, PictureBox1, Node.Rectangle, e);
+                        case EventType.ColorPoint:
+                            Utils.DrawColorPoints(e, dgv, "dgv", "dgvX", "dgvY");
+                            break;
+                        case EventType.ObjectSearch:
+                            if (Node.Rectangle.IsEmpty)
+                            {
+                                Node.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
+                            }
+                            Utils.DrawMask(Node, PictureBox1, Node.Rectangle, e);
 
-                        UpdateMaskSize();
+                            UpdateMaskSize();
+                            break;
+                        case EventType.PixelSearch:
+                            if (Node.Rectangle.IsEmpty)
+                            {
+                                Node.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
+                            }
+                            Utils.DrawMask(Node, PictureBox1, Node.Rectangle, e);
+
+                            UpdateMaskSize();
+                            break;
+                        default:
+                            break;
                     }
                     break;
                 case ActionType.RNG:
@@ -5411,9 +5305,9 @@ namespace AppTestStudio
                 //
             }
 
-            if (GameNodeAction.IsParentObjectSearch())
+            if (GameNodeAction.IsParentRelativePositioning())
             {
-                GameNodeAction.UseObjectSearchPosition = true;
+                GameNodeAction.UseParentPosition = true;
             }
 
             SetPanel(PanelMode.PanelColorEvent);
@@ -5577,14 +5471,19 @@ namespace AppTestStudio
                     Node.SelectedImageIndex = 7;
                     Node.BackColor = Color.LightGreen;
 
-                    if (Node.IsColorPoint)
+                    switch (Node.EventType)
                     {
-                        // do nothing
-                    }
-                    else
-                    {
-                        int intDetectedThreashold = (DetectedThreashold * 100).ToInt();
-                        Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
+                        case EventType.ColorPoint:
+                            // Do nothing
+                            break;
+                        case EventType.ObjectSearch:
+                            int intDetectedThreashold = (DetectedThreashold * 100).ToInt();
+                            Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
+                            break;
+                        case EventType.PixelSearch:
+                            break;
+                        default:
+                            break;
                     }
                 }
                 else
@@ -5593,28 +5492,35 @@ namespace AppTestStudio
                     Node.ImageIndex = 6;
                     Node.SelectedImageIndex = 6;
 
-                    if (Node.IsColorPoint)
+                    switch (Node.EventType)
                     {
-                        if (Node.LogicChoice == "CUSTOM")
-                        {
-
-                        }
-                        else
-                        {
-                            Node.GameNodeName = Node.Name + " - Points(" + QualifyingEvents + ")";
-
-                            if (QualifyingEvents < 10)
+                        case EventType.ColorPoint:
+                            if (Node.LogicChoice == "CUSTOM")
                             {
-                                Node.BackColor = Color.LightYellow;
-                            }
-                        }
-                    }
-                    else
-                    {
-                        int intDetectedThreashold = (DetectedThreashold * 100).ToInt();
-                        Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
-                    }
 
+                            }
+                            else
+                            {
+                                Node.GameNodeName = Node.Name + " - Points(" + QualifyingEvents + ")";
+
+                                if (QualifyingEvents < 10)
+                                {
+                                    Node.BackColor = Color.LightYellow;
+                                }
+                            }
+
+                            break;
+                        case EventType.ObjectSearch:
+                            int intDetectedThreashold = (DetectedThreashold * 100).ToInt();
+                            Node.GameNodeName = Node.Name + " (x=" + CenterX + " ,y=" + CenterY + ", Detected=" + intDetectedThreashold + ", Limit=" + Node.ObjectThreshold + ")";
+
+                            break;
+                        case EventType.PixelSearch:
+                            // TODO PixelSearch
+                            break;
+                        default:
+                            break;
+                    }
                 }
             }
             else
@@ -5690,15 +5596,20 @@ namespace AppTestStudio
                         return;
                 }
 
-                // show hide grids depending on node type
-                if (Node.IsColorPoint)
+                // show hide grids depending on EventType
+                switch (Node.EventType)
                 {
-                    ShowHideTestAllEventsGridsAndLabels(true);
-                }
-                else
-                {
-                    // Object Search
-                    ShowHideTestAllEventsGridsAndLabels(false);
+                    case EventType.ColorPoint:
+                        ShowHideTestAllEventsGridsAndLabels(true);
+                        break;
+                    case EventType.ObjectSearch:
+                        ShowHideTestAllEventsGridsAndLabels(false);
+                        break;
+                    case EventType.PixelSearch:
+                        ShowHideTestAllEventsGridsAndLabels(false);
+                        break;
+                    default:
+                        break;
                 }
 
 
@@ -6524,22 +6435,35 @@ namespace AppTestStudio
         {
             try
             {
-                GameNode Node = tvTestAllEvents.SelectedNode as GameNode;
+                GameNode? Node = tvTestAllEvents.SelectedNode as GameNode;
 
-                if (Node.IsSomething() && Node.GameNodeType == GameNodeType.Action)
+                if (Node != null && Node.GameNodeType == GameNodeType.Action)
                 {
-                    GameNodeAction Action = Node as GameNodeAction;
-                    if (Action.IsColorPoint)
+                    GameNodeAction? Action = Node as GameNodeAction;
+
+                    switch (Action?.EventType)
                     {
-                        Utils.DrawColorPoints(e, dgvTestAllReference, "dgvTestAllReference", "dgvTestAllReferenceX", "dgvTestAllReferenceY");
-                    }
-                    else
-                    {
-                        if (Action.Rectangle.IsEmpty)
-                        {
-                            Action.Rectangle = new Rectangle(0, 0, PictureTestAllReference.Width, PictureTestAllReference.Height);
-                        }
-                        Utils.DrawMask(PictureTestAllReference, Action.Rectangle, e);
+                        case EventType.ColorPoint:
+                            Utils.DrawColorPoints(e, dgvTestAllReference, "dgvTestAllReference", "dgvTestAllReferenceX", "dgvTestAllReferenceY");
+                            break;
+                        case EventType.ObjectSearch:
+                            if (Action.Rectangle.IsEmpty)
+                            {
+                                Action.Rectangle = new Rectangle(0, 0, PictureTestAllReference.Width, PictureTestAllReference.Height);
+                            }
+                            Utils.DrawMask(PictureTestAllReference, Action.Rectangle, e);
+
+                            break;
+                        case EventType.PixelSearch:
+                            if (Action.Rectangle.IsEmpty)
+                            {
+                                Action.Rectangle = new Rectangle(0, 0, PictureTestAllReference.Width, PictureTestAllReference.Height);
+                            }
+                            Utils.DrawMask(PictureTestAllReference, Action.Rectangle, e);
+
+                            break;
+                        default:
+                            break;
                     }
                 }
             }
@@ -6557,17 +6481,29 @@ namespace AppTestStudio
             if (Node.IsSomething() && Node.GameNodeType == GameNodeType.Action)
             {
                 GameNodeAction action = Node as GameNodeAction;
-                if (action.IsColorPoint)
+                switch (action.EventType)
                 {
-                    Utils.DrawColorPoints(e, dgvTest, "dgvColorTest", "dgvXTest", "dgvYTest");
-                }
-                else
-                {
-                    if (action.Rectangle.IsEmpty)
-                    {
-                        action.Rectangle = new Rectangle(0, 0, PictureTestAllTest.Width, PictureTestAllTest.Height);
-                    }
-                    Utils.DrawMask(PictureTestAllTest, action.Rectangle, e);
+                    case EventType.ColorPoint:
+                        Utils.DrawColorPoints(e, dgvTest, "dgvColorTest", "dgvXTest", "dgvYTest");
+                        break;
+                    case EventType.ObjectSearch:
+                        if (action.Rectangle.IsEmpty)
+                        {
+                            action.Rectangle = new Rectangle(0, 0, PictureTestAllTest.Width, PictureTestAllTest.Height);
+                        }
+                        Utils.DrawMask(PictureTestAllTest, action.Rectangle, e);
+
+                        break;
+                    case EventType.PixelSearch:
+                        if (action.Rectangle.IsEmpty)
+                        {
+                            action.Rectangle = new Rectangle(0, 0, PictureTestAllTest.Width, PictureTestAllTest.Height);
+                        }
+                        Utils.DrawMask(PictureTestAllTest, action.Rectangle, e);
+
+                        break;
+                    default:
+                        break;
                 }
 
                 try
@@ -7616,6 +7552,7 @@ namespace AppTestStudio
         Boolean panelRightLogicOriginalVisible;
         Boolean panelRightCustomLogicOriginalVisible;
         Boolean panelRightPointGridOriginalVisible;
+        Boolean panelRightPixelSearchPropertiesVisible;
 
         int FlowLayoutPanelColorEvent1OriginWidth = 0;
         private void cmdFlowLayoutPanelColorEvent1_Click(object sender, EventArgs e)
@@ -7634,6 +7571,7 @@ namespace AppTestStudio
                 panelRightSwipePropertiesOriginalVisible = panelRightSwipeProperties.Visible;
                 panelRightClickPropertiesOriginalVisible = panelRightClickProperties.Visible;
                 panelRightLogicOriginalVisible = panelRightLogic.Visible;
+                panelRightPixelSearchPropertiesVisible = panelRightPixelSearchProperties.Visible;
                 panelRightCustomLogicOriginalVisible = panelRightCustomLogic.Visible;
                 panelRightPointGridOriginalVisible = panelRightPointGrid.Visible;
 
@@ -7649,6 +7587,7 @@ namespace AppTestStudio
                 panelRightSwipeProperties.Visible = false;
                 panelRightClickProperties.Visible = false;
                 panelRightLogic.Visible = false;
+                panelRightPixelSearchProperties.Visible = false;
                 panelRightCustomLogic.Visible = false;
                 panelRightPointGrid.Visible = false;
 
@@ -7667,6 +7606,7 @@ namespace AppTestStudio
                 panelRightSwipeProperties.Visible = panelRightSwipePropertiesOriginalVisible;
                 panelRightClickProperties.Visible = panelRightClickPropertiesOriginalVisible;
                 panelRightLogic.Visible = panelRightLogicOriginalVisible;
+                panelRightPixelSearchProperties.Visible = panelRightPixelSearchPropertiesVisible;
                 panelRightCustomLogic.Visible = panelRightCustomLogicOriginalVisible;
                 panelRightPointGrid.Visible = panelRightPointGridOriginalVisible;
             }
@@ -7896,8 +7836,10 @@ namespace AppTestStudio
                     ClickEvent.ResolutionHeight = LastNodeAddObjectWasUsedFrom.ResolutionHeight;
                     ClickEvent.ResolutionWidth = LastNodeAddObjectWasUsedFrom.ResolutionWidth;
                     ClickEvent.Rectangle = PictureObjectScreenshotRectangle;
-                    ClickEvent.ClickSpeed = GetGameNode().DefaultClickSpeed;
-                    ClickEvent.UseObjectSearchPosition = true;
+                    GameNodeGame gameNode = GetGameNode();
+                    ClickEvent.ClickSpeed = gameNode.DefaultClickSpeed;
+                    ClickEvent.AppActivateIfNotActive = gameNode.WindowAction == WindowAction.ActivateWindow;
+                    ClickEvent.UseParentPosition = true;
                     GameNode gn = tv.SelectedNode as GameNode;
                     gn.AddGameNode(ClickEvent);
 
@@ -8414,22 +8356,29 @@ namespace AppTestStudio
                                 break;
                             case ActionType.Event:
                                 RT2 = "Event";
-                                if (Action.IsColorPoint)
+                                switch (Action.EventType)
                                 {
-                                    if (Action.ClickList.Count == 0)
-                                    {
-                                        RT3 = "Group";
-                                    }
-                                    else
-                                    {
-                                        RT3 = "Color Point";
-                                    }
+                                    case EventType.ColorPoint:
+                                        if (Action.ClickList.Count == 0)
+                                        {
+                                            RT3 = "Group";
+                                        }
+                                        else
+                                        {
+                                            RT3 = "Color Point";
+                                        }
 
+                                        break;
+                                    case EventType.ObjectSearch:
+                                        RT3 = "Object Search";
+                                        break;
+                                    case EventType.PixelSearch:
+                                        RT3 = "Pixel Search";
+                                        break;
+                                    default:
+                                        break;
                                 }
-                                else
-                                {
-                                    RT3 = "Object Search";
-                                }
+
                                 break;
                             case ActionType.Action:
 
@@ -9035,14 +8984,6 @@ namespace AppTestStudio
             }
         }
 
-        private void test()
-        {
-            //chkAppActivateIfNotActive
-            //numericKeyboardTimeoutToActivateMS
-            //numericKeyboardAfterSendingActivationMS
-            //cboPreActionFailureAction
-        }
-
         private void chkAppActivateIfNotActive_CheckedChanged(object sender, EventArgs e)
         {
             try
@@ -9378,6 +9319,7 @@ namespace AppTestStudio
                         item.SubItems.Add("");
                         item.SubItems.Add("");
                         item.SubItems.Add("");
+                        item.SubItems.Add("");
                         GamePassList.Add(item);
                     }
                     if (lstGamePass.Columns.Count > 0)
@@ -9414,6 +9356,8 @@ namespace AppTestStudio
                         GamePassList[LastGamePassIndex].SubItems[2].Text = solution.SolutionID.ToString();
                         GamePassList[LastGamePassIndex].SubItems[3].Text = solution.Solutions.Count().ToString();
                         GamePassList[LastGamePassIndex].SubItems[4].Text = solution.LastNodeName;
+                        GamePassList[LastGamePassIndex].SubItems[5].Text = solution.TimeMS.ToString();
+
                         CurrentGamePassListCounter--;
                         CurrentvisibleRows--;
                     }
@@ -9584,7 +9528,6 @@ namespace AppTestStudio
         private void chkSavedPicturesGlobal_CheckedChanged(object sender, EventArgs e)
         {
             GameNodeGame GameNode = tv.SelectedNode as GameNodeGame;
-            GameNode.VideoFrameLimit = NumericVideoFrameLimit.Value.ToLong();
         }
 
         private void chkUseObjectSearchPosition_CheckedChanged(object sender, EventArgs e)
@@ -9592,11 +9535,177 @@ namespace AppTestStudio
             try
             {
                 GameNodeAction ActionNode = tv.SelectedNode as GameNodeAction;
-                ActionNode.UseObjectSearchPosition = chkUseObjectSearchPosition.Checked;
+                ActionNode.UseParentPosition = chkUseParentPosition.Checked;
             }
             catch (Exception ex)
             {
                 Log(ex.Message);
+            }
+        }
+
+        private void EventTypeChanged()
+        {
+            if (IsPanelLoading == false)
+            {
+                HideShowObjectvsAndOR();
+                GameNodeAction? GameNode = tv.SelectedNode as GameNodeAction;
+                if (GameNode != null)
+                {
+                    if (rdoColorPoint.Checked)
+                    {
+                        GameNode.EventType = EventType.ColorPoint;
+                    }
+
+                    if (rdoPixelSearch.Checked)
+                    {
+                        GameNode.EventType = EventType.PixelSearch;
+                    }
+
+                    if (rdoObjectSearch.Checked)
+                    {
+                        GameNode.EventType = EventType.ObjectSearch;
+                    }
+
+                    if (GameNode.Rectangle.IsEmpty)
+                    {
+                        GameNode.Rectangle = new Rectangle(0, 0, PictureBox1.Width, PictureBox1.Height);
+                    }
+
+                    PictureBox1.Refresh();
+
+                    if (GameNode.EventType == EventType.ObjectSearch)
+                    {
+                        LoadObjectNodeSection();
+                    }
+                }
+            }
+        }
+
+        private void rdoPixelSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            EventTypeChanged();
+        }
+
+        private void rdoObjectSearch_CheckedChanged(object sender, EventArgs e)
+        {
+            EventTypeChanged();
+        }
+
+        private void rdoColorPoint_CheckedChanged(object sender, EventArgs e)
+        {
+            EventTypeChanged();
+        }
+
+        private void cmdPixelSearchProperties_Click(object sender, EventArgs e)
+        {
+            if (panelRightPixelSearchProperties.Height == InitialPanelRightPixelSearchPropertiesHeight)
+            {
+                panelRightPixelSearchProperties.Height = cmdPixelSearchProperties.Height;
+
+                cmdPixelSearchProperties.ImageIndex = IconNames.LeftChevron;
+            }
+            else
+            {
+                panelRightPixelSearchProperties.Height = InitialPanelRightPixelSearchPropertiesHeight;
+
+                cmdPixelSearchProperties.ImageIndex = IconNames.DownChevron;
+            }
+
+        }
+
+        private void PixelSearchValueChanged()
+        {
+            try
+            {
+                lblPixelSearchPreview.BackColor = Color.FromArgb(numPixelSearchR.Value.ToInt(), numPixelSearchG.Value.ToInt(), numPixelSearchB.Value.ToInt());
+            }
+            catch (Exception ex)
+            {
+                Log(ex.Message);
+            }
+        }
+
+        private void numPixelSearchR_ValueChanged(object sender, EventArgs e)
+        {
+            PixelSearchValueChanged();
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchR = numPixelSearchR.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchG_ValueChanged(object sender, EventArgs e)
+        {
+            PixelSearchValueChanged();
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchG = numPixelSearchG.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchB_ValueChanged(object sender, EventArgs e)
+        {
+            PixelSearchValueChanged();
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchB = numPixelSearchB.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchRNeg_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchRNeg = numPixelSearchRNeg.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchGNeg_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchGNeg = numPixelSearchGNeg.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchBNeg_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchBNeg = numPixelSearchBNeg.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchRPos_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchRPos = numPixelSearchRPos.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchGPos_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchGPos = numPixelSearchGPos.Value.ToInt();
+            }
+        }
+
+        private void numPixelSearchBPos_ValueChanged(object sender, EventArgs e)
+        {
+            GameNodeAction? ActionNode = tv.SelectedNode as GameNodeAction;
+            if (ActionNode != null)
+            {
+                ActionNode.PixelSearchBPos = numPixelSearchBPos.Value.ToInt();
             }
         }
     }
